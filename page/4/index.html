@@ -166,101 +166,6 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-SQLite插入、更新或忽略" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/19/SQLite插入、更新或忽略/">SQLite 插入、更新或忽略</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/19/SQLite插入、更新或忽略/" class="archive-article-date">
-  	<time datetime="2017-11-19T02:30:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>多终端数据同步</strong>的应用场景下，如果当前终端数据不存在，则需要执行插入操作；如果已经存在，则视情况执行更新或忽略操作。SQLite 的 <code>INSERT OR REPLACE INTO</code> 和 <code>INSERT OR IGNORE INTO</code> 可以满足以上的需求。语法说明如下：</p>
-<table>
-<thead>
-<tr>
-<th>操作</th>
-<th align="center">说明</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>INSERT OR REPLACE INTO</td>
-<td align="center">如存在，则更新，否则插入</td>
-<td>只对 PRIMARY KEY 或 UNIQUE 约束字段起作用</td>
-</tr>
-<tr>
-<td>INSERT OR IGNORE INTO</td>
-<td align="center">如存在，则忽略，否则插入</td>
-<td>只对 PRIMARY KEY 或 UNIQUE 约束字段起作用</td>
-</tr>
-</tbody></table>
-        
-          <a class="article-more-a" href="/2017/11/19/SQLite插入、更新或忽略/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SQLite</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/19/SQLite插入、更新或忽略/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-SQLite-修改数据" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -471,6 +376,94 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/10/17/Python（2-4）重点复习/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Python（2-3）使用-IDE" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/14/Python（2-3）使用-IDE/">Python（2.3）使用 IDE</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/14/Python（2-3）使用-IDE/" class="archive-article-date">
+  	<time datetime="2017-10-14T11:32:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在开始使用套件管理模块之后，你必须建立与套件对应的文件夹，还要自行新增 <code>__init__.py</code> 文件，这其实有点麻烦，你可以考虑开始使用 IDE（Integrated Development Environment），由 IDE 代劳一些套件与相关资源管理的工作，提高开发效率。</p>
+<h2 id="2-3-1-下载、安装-PyCharm"><a href="#2-3-1-下载、安装-PyCharm" class="headerlink" title="2.3.1 下载、安装 PyCharm"></a>2.3.1 下载、安装 PyCharm</h2><p>在 Python 的领域中，有为数不少的 IDE，然而使用哪个 IDE，必须根据开发的应用程序特性，或者基于一些团队管理等因素来决定，有时其实也是个人习惯问题，以下是一些我看过有人推荐或使用过的 IDE：</p>
+<blockquote>
+<ul>
+<li><a href="https://www.jetbrains.com/pycharm/" target="_blank" rel="noopener">PyCharm</a></li>
+<li><a href="http://www.pydev.org/" target="_blank" rel="noopener">PyDev</a></li>
+<li><a href="https://www.activestate.com/komodo-ide" target="_blank" rel="noopener">Komodo IDE</a></li>
+<li><a href="http://code.google.com/archive/p/spyderlib/" target="_blank" rel="noopener">Spyder</a></li>
+<li><a href="http://wingware.com/" target="_blank" rel="noopener">WingIDE</a></li>
+<li><a href="http://ninja-ide.org/" target="_blank" rel="noopener">NINJA-IDE</a></li>
+<li><a href="https://microsoft.github.io/PTVS/" target="_blank" rel="noopener">Python Tools for Visual Studio</a></li>
+</ul>
+</blockquote>
+        
+          <a class="article-more-a" href="/2017/10/14/Python（2-3）使用-IDE/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/14/Python（2-3）使用-IDE/">展开全文 >></a>
         </p>
       
 
@@ -988,7 +981,7 @@ var _hmt = _hmt || [];
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
     </nav>
   
 
@@ -1143,11 +1136,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+                <a href="javascript:void(0)" class="js-tag color4">ADB</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ADB</a>
+                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
               </li>
              
               <li class="article-tag-list-item">

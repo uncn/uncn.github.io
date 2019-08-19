@@ -498,94 +498,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Python（2-3）使用-IDE" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/23/Python（2-3）使用-IDE/">Python（2.3）使用 IDE</a>
-    </h1>
-  
-
-        
-        <a href="/2019/02/23/Python（2-3）使用-IDE/" class="archive-article-date">
-  	<time datetime="2019-02-23T11:03:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在开始使用套件管理模块之后，你必须建立与套件对应的文件夹，还要自行新增 <code>__init__.py</code> 文件，这其实有点麻烦，你可以考虑开始使用 IDE（Integrated Development Environment），由 IDE 代劳一些套件与相关资源管理的工作，提高开发效率。</p>
-<h2 id="2-3-1-下载、安装-PyCharm"><a href="#2-3-1-下载、安装-PyCharm" class="headerlink" title="2.3.1 下载、安装 PyCharm"></a>2.3.1 下载、安装 PyCharm</h2><p>在 Python 的领域中，有为数不少的 IDE，然而使用哪个 IDE，必须根据开发的应用程序特性，或者基于一些团队管理等因素来决定，有时其实也是个人习惯问题，以下是一些我看过有人推荐或使用过的 IDE：</p>
-<blockquote>
-<ul>
-<li><a href="https://www.jetbrains.com/pycharm/" target="_blank" rel="noopener">PyCharm</a></li>
-<li><a href="http://www.pydev.org/" target="_blank" rel="noopener">PyDev</a></li>
-<li><a href="https://www.activestate.com/komodo-ide" target="_blank" rel="noopener">Komodo IDE</a></li>
-<li><a href="http://code.google.com/archive/p/spyderlib/" target="_blank" rel="noopener">Spyder</a></li>
-<li><a href="http://wingware.com/" target="_blank" rel="noopener">WingIDE</a></li>
-<li><a href="http://ninja-ide.org/" target="_blank" rel="noopener">NINJA-IDE</a></li>
-<li><a href="https://microsoft.github.io/PTVS/" target="_blank" rel="noopener">Python Tools for Visual Studio</a></li>
-</ul>
-</blockquote>
-        
-          <a class="article-more-a" href="/2019/02/23/Python（2-3）使用-IDE/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/23/Python（2-3）使用-IDE/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-Android-Room-使用指南" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1008,9 +920,86 @@ var _hmt = _hmt || [];
 
 
   
+    <article id="post-Android-Library-中-switch-语句的-case-不能访问资源-ID-的原因" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/12/Android-Library-中-switch-语句的-case-不能访问资源-ID-的原因/">Android Library 中 switch 语句的 case 不能访问资源 ID 的原因</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/12/Android-Library-中-switch-语句的-case-不能访问资源-ID-的原因/" class="archive-article-date">
+  	<time datetime="2018-08-12T08:38:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>使用 switch 语句的的时候，需要注意 case 分支后的引用在 Project 和 Library 下的区别。因为在 Library 中可能存在资源无法被引用的情形。在继续阐述之前，先看一段代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> EditorViewHolder <span class="title">onCreateViewHolder</span><span class="params">(View itemView, <span class="keyword">int</span> itemLayout, EditorAdapter adapter)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">switch</span> (itemLayout) &#123;</span><br><span class="line">        <span class="keyword">case</span> R.layout.item_euu001:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> EUU001ViewHolder(itemView, adapter);</span><br><span class="line">        <span class="keyword">case</span> R.layout.item_euu002:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> EUU002ViewHolder(itemView, adapter);</span><br><span class="line">        <span class="keyword">case</span> R.layout.item_euu003:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> EUU003ViewHolder(itemView, adapter);</span><br><span class="line">        <span class="keyword">case</span> R.layout.item_euu004:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> EUU004ViewHolder(itemView, adapter);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2018/08/12/Android-Library-中-switch-语句的-case-不能访问资源-ID-的原因/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/12/Android-Library-中-switch-语句的-case-不能访问资源-ID-的原因/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1165,11 +1154,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+                <a href="javascript:void(0)" class="js-tag color4">ADB</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ADB</a>
+                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
               </li>
              
               <li class="article-tag-list-item">
