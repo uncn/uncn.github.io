@@ -166,90 +166,6 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-管理-Android-设备唤醒状态" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/30/管理-Android-设备唤醒状态/">管理 Android 设备唤醒状态</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/30/管理-Android-设备唤醒状态/" class="archive-article-date">
-  	<time datetime="2018-01-30T11:24:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>当一个 Android 设备闲置时，它的屏幕会先变暗，然后关闭屏幕，最后关闭 CPU。 这样可以防止设备的电量被快速耗尽。 但是，有时候也会存在一些例外：</p>
-<ul>
-<li>例如游戏或电影之类的应用可能需要保持屏幕常亮。</li>
-<li>其他应用可能不需要屏幕保持常亮，但是可能需要 CPU 保持运行，直到关键操作完成。</li>
-</ul>
-<p>本文将描述如何在必要的时候保持设备唤醒，同时又不会过多消耗它的电量。</p>
-<h1 id="1-保持设备唤醒"><a href="#1-保持设备唤醒" class="headerlink" title="1. 保持设备唤醒"></a>1. 保持设备唤醒</h1><p>了解如何根据需要保持屏幕或 CPU 的唤醒，同时最大限度地减少对电池寿命的影响。</p>
-<p>为了避免电量耗尽，闲置的 Android 设备会迅速进入睡眠状态。但是，有时应用程序需要唤醒屏幕或 CPU 并保持唤醒状态才能完成某些工作。</p>
-<p>采取什么样的方法取决于你应用程序的需求。然而，一般的经验是，你应该为应用使用最轻量级的方法，以尽量减少其对系统资源的影响。接下来的内容会介绍如何处理设备的默认睡眠行为与应用程序的需求不兼容的情况。</p>
-        
-          <a class="article-more-a" href="/2018/01/30/管理-Android-设备唤醒状态/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/30/管理-Android-设备唤醒状态/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-Android-5-0-行为变更对-WebView-的影响" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1071,6 +987,86 @@ var _hmt = _hmt || [];
 
 
   
+    <article id="post-SQLite-修改数据" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/18/SQLite-修改数据/">SQLite 修改数据</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/18/SQLite-修改数据/" class="archive-article-date">
+  	<time datetime="2017-11-18T12:35:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>与 select 命令相比，用于修改数据库的语句很容易理解和使用。有 3 个 DML 语句用于修改数据——insert、update 和 delete，不过它们远比字面含义看起来做的事情要多。</p>
+<h2 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h2><p>使用 insert 命令向表中插入记录。<font color="DeepPink">insert 在单表上工作，使用 insert 命令可以一次插入一条记录，使用 select 命令可以一次插入多条记录。</font>insert 语句的一般格式为：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">table</span> (column_list) <span class="keyword">values</span> (value_list);</span><br></pre></td></tr></table></figure>
+
+<p>变量 table 指明数据库插入到哪个表中。变量 column_list 是用逗号分隔的字段名称，这些字段必须是表中存在的。变量 value_list 是用逗号分隔的值列表，这些值与 column_list 中的字段一一对应。</p>
+        
+          <a class="article-more-a" href="/2017/11/18/SQLite-修改数据/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SQLite</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/18/SQLite-修改数据/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
@@ -1184,19 +1180,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">File</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">FastJson</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Json</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1205,6 +1193,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Json</a>
               </li>
              
               <li class="article-tag-list-item">
