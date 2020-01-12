@@ -6,24 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>SQLite 存储类 | Welcome to sunzn&#39;s Blog</title>
+  <title>Archives | Welcome to sunzn&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="SQlite 在处理数据类型时与其他的数据库不同，区别在于它所支持的类型以及这些类型是如何存储、比较、强化（enforced）和指派（assign）的。下面将介绍 SQLite 存储类的基础。 一般情况下，SQLite 有 5 个原始的数据类型，被称为存储类。存储类通常是指值在磁盘上存储的格式，其实就是类型或数据类型的同义词。下表列出了这 5 个存储类型及说明。    名称 说明    integ">
-<meta name="keywords" content="SQLite">
-<meta property="og:type" content="article">
-<meta property="og:title" content="SQLite 存储类">
-<meta property="og:url" content="http://yoursite.com/2017/11/28/SQLite-存储类/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Welcome to sunzn&#39;s Blog">
+<meta property="og:url" content="http://yoursite.com/archives/page/7/index.html">
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
-<meta property="og:description" content="SQlite 在处理数据类型时与其他的数据库不同，区别在于它所支持的类型以及这些类型是如何存储、比较、强化（enforced）和指派（assign）的。下面将介绍 SQLite 存储类的基础。 一般情况下，SQLite 有 5 个原始的数据类型，被称为存储类。存储类通常是指值在磁盘上存储的格式，其实就是类型或数据类型的同义词。下表列出了这 5 个存储类型及说明。    名称 说明    integ">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171124112901.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171124112902.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171124112903.png">
-<meta property="og:updated_time" content="2018-11-01T13:41:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SQLite 存储类">
-<meta name="twitter:description" content="SQlite 在处理数据类型时与其他的数据库不同，区别在于它所支持的类型以及这些类型是如何存储、比较、强化（enforced）和指派（assign）的。下面将介绍 SQLite 存储类的基础。 一般情况下，SQLite 有 5 个原始的数据类型，被称为存储类。存储类通常是指值在磁盘上存储的格式，其实就是类型或数据类型的同义词。下表列出了这 5 个存储类型及说明。    名称 说明    integ">
-<meta name="twitter:image" content="http://image.sunzn.com/blog/20171124112901.png">
+<meta name="twitter:title" content="Welcome to sunzn&#39;s Blog">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -173,244 +164,63 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-SQLite-存储类" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      SQLite 存储类
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/05/31/Hexo下新建文章/" class="archive-article-date">
+  	<time datetime="2017-05-31T11:48:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-31</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/05/31/Hexo下新建文章/">Hexo下新建文章</a>
     </h1>
   
 
-        
-        <a href="/2017/11/28/SQLite-存储类/" class="archive-article-date">
-  	<time datetime="2017-11-27T23:39:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>SQlite 在处理数据类型时与其他的数据库不同，区别在于它所支持的类型以及这些类型是如何存储、比较、强化（enforced）和指派（assign）的。下面将介绍 SQLite 存储类的基础。</p>
-<p>一般情况下，SQLite 有 5 个原始的数据类型，被称为存储类。存储类通常是指值在磁盘上存储的格式，其实就是类型或数据类型的同义词。下表列出了这 5 个存储类型及说明。</p>
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>integer</td>
-<td>整数值是全部的数字（包括正和负）。整数可以是 1、2、3、4、6 或 8 字节。整数的最大范围（8字节）是 { -9223372036854775808，-1，0，1，+9223372036854775807 }。SQLite 根据数字的值自动控制整数所占的字节数</td>
-</tr>
-<tr>
-<td>real</td>
-<td>实数是十进制的数值。SQLite 使用 8 字节的浮点数来存储实数</td>
-</tr>
-<tr>
-<td>text</td>
-<td>文本是字符数据。SQLite 支持几种字符编码，包括 UTF-8 和 UTF-16（大字节头和小字节头）。字符串的最大值在编译和运行时可以调整，默认最大值是 1,000,000,000 字节</td>
-</tr>
-<tr>
-<td>blob</td>
-<td>二进制大对象（BLOB）数据可以是任意类型的数据，BLOB 的最大值在编译和运行时可以调整，默认最大值是 1,000,000,000 字节</td>
-</tr>
-<tr>
-<td>NULL</td>
-<td>NULL 表示没有值。SQLite 具有对 NULL 的完全支持</td>
-</tr>
-</tbody></table>
-<a id="more"></a>
-
-<p>SQlite 通过值的表示方法来判断其类型，下面就是 SQLite 使用的推断方法：</p>
-<ul>
-<li>SQLite 语句中用单引号或双引号括包来的文字被指派为 text。</li>
-<li>如果文字是未用引号引起来的数据，并且没有小数点和指数，被指派为 integer。</li>
-<li>如果文字是未用引号引起来的数据，并且带有小数点或指数，被指派为 real。</li>
-<li>用 NULL 说明的值被指派为 NULL 存储类。</li>
-<li>如果一个值的格式为 x’ABCD’，其中 ABCD 为 16 进制数字，则该值被指派为 blob。其中，x 前缀大小写皆可。</li>
-</ul>
-<p>SQL 函数 typeof() 根据值的表示方法返回其存储类。使用该函数后，下面 SQL 语句返回的结果为：</p>
-<p><img src="http://image.sunzn.com/blog/20171124112901.png" alt="此处输入图片的描述"></p>
-<p>这是 5 中内部的存储类，其中的 3.14 看起来就像实数，因此它就是实数。’3.14’ 看起来就像文本，因此就是文本，以此类推。</p>
-<p>SQLite 中单独的一个字段可能包含不同存储类的值。这也是 SQLite 处理数据与其他数据库不同的第一个地方，许多熟悉其他数据库的人常常会问到“什么，一个字段可以有不同的存储类型？”请看下面的示例：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">DOMAIN</span>(x);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">DOMAIN</span> <span class="keyword">VALUES</span>(<span class="number">3.142</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">DOMAIN</span> <span class="keyword">VALUES</span>(<span class="string">'3.142'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">DOMAIN</span> <span class="keyword">VALUES</span>(<span class="number">3142</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">DOMAIN</span> <span class="keyword">VALUES</span>(x<span class="string">'3142'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">DOMAIN</span> <span class="keyword">VALUES</span>(<span class="literal">NULL</span>);</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">ROWID</span>, X, TYPEOF(X) <span class="keyword">FROM</span> <span class="keyword">DOMAIN</span>;</span><br></pre></td></tr></table></figure>
-
-<p><img src="http://image.sunzn.com/blog/20171124112902.png" alt="此处输入图片的描述"></p>
-<p>这种操作会带来一些问题。这种字段中的值如何存储和比较？如何对一个包含了 integer、real、text、blob 和 null 值的字段排序？一个整数和一个 blob 如何比较？哪个更大？它们能相等吗？</p>
-<p>答案是：具有不同存储类的值可以存储在同一个字段中。可以被排序，因为这些值可以相互比较。SQLite 实现了完善额定义规则来做这件事。不同存储类的值可以通过它们各自类的“类值”进行排序，定义如下：</p>
-<ol>
-<li>NULL 存储类具有最低的类值。一个具有 NULL 存储类的值比所有其他的值都小（包括其他具有 NULL 存储类的值）。在 NULL 值之间，没有具体的排序顺序。</li>
-<li>integer 或 real 存储类值高于 NULL，它们的类值相等。integer 值和 real 值通过其数值进行比较。</li>
-<li>text 存储类的值比 integer 和 real 高。数值永远比字符串的值低。当两个 text 值进行比较时，其值大小由该值中定义的“排序法”决定。</li>
-<li>blob 存储类具有最高的类值。具有 blob 类的值大于其他所有类的值。blob 值之间在比较时使用 C 函数 memcmp()。</li>
-</ol>
-<p>所以，当 SQLite 存储一个字段时，它首先按存储类分组———NULL 第一，然后是 integer 和 real，接着是 text，最后是 blob。然后进行分组内的排序，NULL 类内部各值不必排序，integer 和 real 按照数字比较，text 按照恰当的排序算法比较，blob 使用 memcmp()———实际上是比较比特位。下图说明了一个假设字段如何按照升序排序。</p>
-<p><img src="http://image.sunzn.com/blog/20171124112903.png" alt="此处输入图片的描述"></p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SQLite</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/11/28/SQLite-存储类/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/01/24/Android-5-0-行为变更对-WebView-的影响/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Android 5.0 行为变更对 WebView 的影响
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/11/25/SQLite-数据库管理/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">SQLite 数据库管理</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    目录，不存在的…
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/archives/page/6/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/5/">5</a><a class="page-number" href="/archives/page/6/">6</a><span class="page-number current">7</span>
+    </nav>
   
 
 
@@ -434,8 +244,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
