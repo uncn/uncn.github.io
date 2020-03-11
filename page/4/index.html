@@ -166,6 +166,131 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-SQLite中的Null" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/20/SQLite中的Null/">SQLite 中的 Null</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/20/SQLite中的Null/" class="archive-article-date">
+  	<time datetime="2017-11-20T03:13:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>绝大多数关系数据库都通过一种称为 Null 特殊占位符支持 <strong>未知</strong> 或 <strong>不可知</strong> 的概念，Null 是缺失信息的占位符，本身不是值。Null 表示该位置没有值：Null 不是什么其他值，Null 不是真，也不是假，不是零，也不是空字符串。简单地理解，Null 就是自己：Null。可能一些人不明白其中的含义。掌握 SQLite 中的 Null，需要了解一些关键规则和观点。</p>
+<ul>
+<li><strong>第一</strong>：为了在逻辑表达式中使用 NULL，SQLite 使用所谓的三值（或三态）逻辑，Null 是真假值之一。下面的表格显示了逻辑与（And）和逻辑或（Or）与 Null 的关系。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">X</th>
+<th align="center">Y</th>
+<th align="center">X AND Y</th>
+<th align="center">X OR Y</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">True</td>
+<td align="center">True</td>
+<td align="center">True</td>
+<td align="center">True</td>
+</tr>
+<tr>
+<td align="center">True</td>
+<td align="center">False</td>
+<td align="center">False</td>
+<td align="center">True</td>
+</tr>
+<tr>
+<td align="center">True</td>
+<td align="center">NULL</td>
+<td align="center">NULL</td>
+<td align="center">True</td>
+</tr>
+<tr>
+<td align="center">False</td>
+<td align="center">False</td>
+<td align="center">False</td>
+<td align="center">False</td>
+</tr>
+<tr>
+<td align="center">False</td>
+<td align="center">NULL</td>
+<td align="center">False</td>
+<td align="center">NULL</td>
+</tr>
+<tr>
+<td align="center">NULL</td>
+<td align="center">NULL</td>
+<td align="center">NULL</td>
+<td align="center">NULL</td>
+</tr>
+</tbody></table>
+        
+          <a class="article-more-a" href="/2017/11/20/SQLite中的Null/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SQLite</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/20/SQLite中的Null/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-SQLite插入、更新或忽略" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -908,88 +1033,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-自定义-View（三）文字的绘制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/24/自定义-View（三）文字的绘制/">自定义 View（三）文字的绘制</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/24/自定义-View（三）文字的绘制/" class="archive-article-date">
-  	<time datetime="2017-08-24T13:56:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>上期的 Paint 详解里已经说过，文字的绘制所能控制的内容太多太细，必须拆成单独的一期专门来讲。今天这期，就是来把这些细节讲清楚的。下面进入正题：</p>
-<h1 id="1-Canvas-绘制文字的方式"><a href="#1-Canvas-绘制文字的方式" class="headerlink" title="1. Canvas 绘制文字的方式"></a>1. Canvas 绘制文字的方式</h1><p><a href="https://developer.android.com/reference/android/graphics/Canvas.html" target="_blank" rel="noopener">Canvas</a> 的文字绘制方法有三个：drawText()、drawTextRun() 和 drawTextOnPath()。</p>
-<h2 id="1-1-drawText-String-text-float-x-float-y-Paint-paint"><a href="#1-1-drawText-String-text-float-x-float-y-Paint-paint" class="headerlink" title="1.1 drawText(String text, float x, float y, Paint paint)"></a>1.1 drawText(String text, float x, float y, Paint paint)</h2><table><tr><td colspan="2" bgcolor="#F8F8F8"><b>方法</b></td></tr><tr><td colspan="2">drawText(String text, float x, float y, Paint paint)<br>以坐标（x, y）为原点，绘制文本。</td></tr><tr><td colspan="2" bgcolor="#F8F8F8"><b>参数</b></td></tr><tr><td>text</td><td>String：文本内容。</td></tr><tr><td>x</td><td>float：绘制文本的原点的 x 坐标。</td></tr><tr><td>y</td><td>float：绘制文本的原点的 y 坐标。</td></tr><tr><td>paint</td><td>Paint：应用到文本的画笔。</td></tr></table>
-        
-          <a class="article-more-a" href="/2017/08/24/自定义-View（三）文字的绘制/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">View</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/24/自定义-View（三）文字的绘制/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
@@ -1111,23 +1154,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Fiddler</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Json</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1139,11 +1174,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1159,23 +1202,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">View</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Room</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1187,11 +1214,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Room</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1199,7 +1234,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+                <a href="javascript:void(0)" class="js-tag color3">方案</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
               </li>
             
             <div class="clearfix"></div>

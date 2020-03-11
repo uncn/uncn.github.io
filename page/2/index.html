@@ -166,6 +166,88 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-自定义-View-感知事件的几种方式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/08/自定义-View-感知事件的几种方式/">自定义 View 感知事件的几种方式</a>
+    </h1>
+  
+
+        
+        <a href="/2018/11/08/自定义-View-感知事件的几种方式/" class="archive-article-date">
+  	<time datetime="2018-11-08T14:30:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-事件感知"><a href="#1-事件感知" class="headerlink" title="1 事件感知"></a>1 事件感知</h1><p>绝大多数情况下，View 是不需要感知外部组件的生命周期或系统事件的。但部分情况下，View 对外部事件的感知又是必要的，比如广告轮播组件：<a href="https://github.com/ShortStickBoy/Banner" target="_blank" rel="noopener">Banner</a>，这样的控件在设计之初就要考虑亮屏、息屏、Activity 的 onResume 和 onPause 生命周期，因为谁也不希望 Banner 在这些节点处继续执行轮播操作。</p>
+<p>如果将 Banner 当成一个 ItemView 放入 Listiew、RecyclerView 等具有复用机制的容器中时，新的问题又出现了，当 Banner 被滑出屏幕，又重新滑回屏幕后，之前的轮播状态是无法保持的。所以，我们需要知道 Banner 被销毁和重建的窗口，在销毁时记录轮播状态，在重建时将轮播状态复位。这样，用户就会有一致的轮播状态体验了。</p>
+<p>下面将会结合以上需求对每种事件和生命周期的感知进行详细的阐述。案例项目会托管在 Github 上，如需查看，请点击 <a href="https://github.com/ShortStickBoy/Receptor" target="_blank" rel="noopener">Receptor@Github</a>。</p>
+        
+          <a class="article-more-a" href="/2018/11/08/自定义-View-感知事件的几种方式/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">View</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/11/08/自定义-View-感知事件的几种方式/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Android-Library-中-switch-语句的-case-不能访问资源-ID-的原因" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -929,87 +1011,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-N-个无序数中找出最大的-M-个数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/30/N-个无序数中找出最大的-M-个数/">N 个无序数中找出最大的 M 个数</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/30/N-个无序数中找出最大的-M-个数/" class="archive-article-date">
-  	<time datetime="2018-03-30T15:25:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>实现思路：新建一个拥有 M 个元素的数组 Find，将 N 个数中的前 M 个元素存入该数组，假设这前 M 个元素就是最大值，在存入的过程中找出最小数值的索引 minIndex。然后从 N 个数中的第 ( M + 1 ) 个元素开始，逐个与 Find 数组中的最小值进行比较，若大于 Find 数组中的最小值，则将其替换。替换完毕后，继续循环找出 Find 数组中最小值的索引，外层的 while 在进行下一次循环时，会直接拿 N 的下一个元素与 Find 数组中的最小值进行比较。这样循环一遍之后，Find 数组中的最小值都被较大的数值替换，这时 Find 中存放的元素就是 N 中最大的 M 个数，这种思路的时间复杂度为O(n*logm)。这种实现方式可以将亿级数据量的运算时间控制在 100 毫秒内。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.sunzn.max;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Random;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FindMax</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        Random random = <span class="keyword">new</span> Random();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> n = <span class="number">100000000</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[] Pool = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            Pool[i] = random.nextInt(n);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        findMax(Pool, <span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">findMax</span><span class="params">(<span class="keyword">int</span>[] data, <span class="keyword">int</span> m)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">long</span> sTime = System.currentTimeMillis();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[] Find = <span class="keyword">new</span> <span class="keyword">int</span>[m];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> minIndex = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; Find.length; i++) &#123;</span><br><span class="line">            Find[i] = data[i];</span><br><span class="line">            <span class="keyword">if</span> (Find[minIndex] &gt; Find[i]) &#123;</span><br><span class="line">                minIndex = i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (m &lt; data.length) &#123;</span><br><span class="line">            <span class="keyword">if</span> (data[m] &gt; Find[minIndex]) &#123;</span><br><span class="line">                Find[minIndex] = data[m];</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; Find.length; i++) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (Find[minIndex] &gt; Find[i]) &#123;</span><br><span class="line">                        minIndex = i;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            m++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; Find.length; i++) &#123;</span><br><span class="line">            System.out.printf(<span class="string">"结果数据:"</span>);</span><br><span class="line">            System.out.printf(<span class="string">"%d"</span>, Find[i]);</span><br><span class="line">            System.out.printf(<span class="string">"\n"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">long</span> eTime = System.currentTimeMillis();</span><br><span class="line"></span><br><span class="line">        System.out.printf(<span class="string">"消耗时间:"</span> + (eTime - sTime) + <span class="string">"毫秒"</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2018/03/30/N-个无序数中找出最大的-M-个数/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/30/N-个无序数中找出最大的-M-个数/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1131,23 +1132,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Fiddler</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Json</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1159,11 +1152,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1179,23 +1180,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">View</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Room</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1207,11 +1192,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Room</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1219,7 +1212,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+                <a href="javascript:void(0)" class="js-tag color3">方案</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
               </li>
             
             <div class="clearfix"></div>
