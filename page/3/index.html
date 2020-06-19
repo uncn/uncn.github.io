@@ -166,6 +166,118 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Android-访问文件与目录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/27/Android-访问文件与目录/">Android 访问文件与目录</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/27/Android-访问文件与目录/" class="archive-article-date">
+  	<time datetime="2018-04-27T12:33:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>应用访问文件和目录最便捷的方式是使用 Context 类提供的方法。Context 类是所有关键应用组件的超类，常见的几个应用组件有：Application、Activity 和 Service。因此，这些子类可使用 Context 类提供的方法（如下表所示）轻松访问文件和目录。</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>使用目的</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>File getFilesDir()</td>
+<td>获取 /data/data/&lt;packagename&gt;/files 目录</td>
+</tr>
+<tr>
+<td>FileInputStream openFileInput(String name)</td>
+<td>打开现有文件进行读取</td>
+</tr>
+<tr>
+<td>FileOutputStream openFileOutput(String name, int mode)</td>
+<td>打开文件进行写入，如不存在就创建它</td>
+</tr>
+<tr>
+<td>File getDir(String name, int mode)</td>
+<td>获取 /data/data/&lt;packagename&gt;/目录的子目录（如不存在就创建它）</td>
+</tr>
+<tr>
+<td>String[] fileList()</td>
+<td>获取 /data/data/&lt;packagename&gt;/files 目录下的文件列表。可与其他方法配合使用，例如 openFileInput(String)</td>
+</tr>
+<tr>
+<td>File getCacheDir()</td>
+<td>获取 /data/data/&lt;packagename&gt;/cache 目录。应注意及时清理该目录，并节约使用空间</td>
+</tr>
+</tbody></table>
+        
+          <a class="article-more-a" href="/2018/04/27/Android-访问文件与目录/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">File</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/27/Android-访问文件与目录/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-将-Java-对象注入到-WebView-的-JavaScript-上下文" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -939,85 +1051,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-SQLite-事务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/24/SQLite-事务/">SQLite 事务</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/24/SQLite-事务/" class="archive-article-date">
-  	<time datetime="2017-11-24T13:01:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><font color="DeepPink">事务定义了一组 SQL 命令的边界，这组命令或者作为一个整体被全部执行，或者都不执行，这被称为数据库完整性的原子性原则。</font>这种关系的典型例子就是银行转账，假设银行程序从一个账户向另一个账户转账，转账程序通过如下方式进行：首先将第一个账户的钱转入第二个账户，然后从第一个账户删除对应的数目；或者首先从第一个账户删除要转账的数目，然后向第二个账户插入对应的数目。无论哪种方式，都是通过两步完成的：先插入，后删除；或者先删除，后插入。</p>
-<p>但是在转账期间，如果数据库服务器突然奔溃或电力中断，第二个操作没有完成怎么办？要么这笔钱存在于两个账户（第一种方式），要么这笔钱在两个账户中都不存在（第二种方式）。无论发生哪种情况，总有人无法接受。数据库也处于不一致的状态，<font color="RoyalBlue">关键是这两步操作必须要同时被执行或者一步都不执行。这就是事务的本质。</font></p>
-<h2 id="一、事务的范围"><a href="#一、事务的范围" class="headerlink" title="一、事务的范围"></a>一、事务的范围</h2><p>事务由 3 个命令控制：<code>begin</code>、<code>commit</code> 和 <code>rollback</code>。begin 开始一个事务，begin 之后的所有操作都可以取消，如果连接中止前没有发出 commit，也会被取消。commit 提交事务开始后所执行的所有操作。类似地，rollback 还原 begin 之后的所有操作。例如：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">BEGIN</span>;</span><br><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> FOODS;</span><br><span class="line"><span class="keyword">ROLLBACK</span>;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*) <span class="keyword">FROM</span> FOODS;</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2017/11/24/SQLite-事务/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SQLite</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/24/SQLite-事务/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
@@ -1167,19 +1200,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ADB</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ADB</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1204,6 +1237,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
               <li class="article-tag-list-item">
