@@ -166,6 +166,102 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Glide-V4-API-变更指南" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/26/Glide-V4-API-变更指南/">Glide V4 API 变更指南</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/26/Glide-V4-API-变更指南/" class="archive-article-date">
+  	<time datetime="2018-05-26T13:37:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>随着 Glide 从 V3 向 V4 的升级，API 的调用方式也发生了一些变化。这些变化主要集中在：选项、类型与目标、配置等方面。本文也会根据这几个方面结合官方文档对 API 变更做一个详细的阐述。在进行正式介绍 API 变更之前，我想非常有必要简述一下 Glide 的接入。这样，每位读者在阅读这篇文章的时候就不会感到陌生和生硬。</p>
+<h1 id="1-Android-SDK-要求"><a href="#1-Android-SDK-要求" class="headerlink" title="1 Android SDK 要求"></a>1 Android SDK 要求</h1><table>
+<thead>
+<tr>
+<th>版本</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Min Sdk Version</td>
+<td>使用 Glide 需要 min SDK 版本 API 14 (Ice Cream Sandwich) 或更高。</td>
+</tr>
+<tr>
+<td>Compile Sdk Version</td>
+<td>Glide 必须使用 API 27 (Oreo MR1) 或更高版本的 SDK 来编译。</td>
+</tr>
+<tr>
+<td>Support Library Version</td>
+<td>Glide 使用的支持库版本为 27。</td>
+</tr>
+</tbody></table>
+        
+          <a class="article-more-a" href="/2018/05/26/Glide-V4-API-变更指南/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Glide</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/26/Glide-V4-API-变更指南/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Android-访问文件与目录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -969,88 +1065,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-SQLite-数据库管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/25/SQLite-数据库管理/">SQLite 数据库管理</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/25/SQLite-数据库管理/" class="archive-article-date">
-  	<time datetime="2017-11-25T01:57:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>数据库管理一般用于控制数据库如何操作。要执行的许多数据库管理任务都可以通过 SQL 命令完成。SQLite 包括自己一些独特的管理功能，如将多个数据库附加“attach”到一个连接上，以及用来设置各种配置参数的数据库编译指示（pragma）。</p>
-<h2 id="一、附加数据库"><a href="#一、附加数据库" class="headerlink" title="一、附加数据库"></a>一、附加数据库</h2><p>SQLite 允许你用 attach 命令将多个数据库“附加”到当前连接上。当你附加了一个数据库时，它的所有内容在当前数据库文件的全局范围内都是可存取的。attach 的语法如下：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">attach [database] filename as database_name;</span><br></pre></td></tr></table></figure>
-
-<p>其中，filename 指 SQLite 数据库的文件名称和路径，database_name 指要引用的数据库和对象的逻辑名称。主数据库自动赋名为 main。如果创建任何临时的对象，SQLite 会创建一个附加的数据库，并命名为 temp（可以使用后面描述的编辑指示 database_list 查看这些对象）。逻辑名称可以用来引用附加数据库内的对象，与此同时，引用附加数据库内的对象必须提供逻辑名。例如，如果两个数据库都有名为 FOODS 的表，附加数据库的逻辑名为 DATA2，查询 DATA2 中 FOODS 表的唯一方式是使用全限定名 DATA2.FOODS，例如：</p>
-<p>TEST 数据库文件路径为：C:\Users\sunzn\Desktop\TEST.db，该数据库下包含一个 FOODS 表，建表语句如下：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> FOODS(<span class="keyword">ID</span> <span class="built_in">INTEGER</span> PRIMARY <span class="keyword">KEY</span>, <span class="keyword">NAME</span> <span class="built_in">TEXT</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS (<span class="keyword">NAME</span>) <span class="keyword">VALUES</span> (<span class="string">'苹果'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS (<span class="keyword">NAME</span>) <span class="keyword">VALUES</span> (<span class="string">'桔子'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS (<span class="keyword">NAME</span>) <span class="keyword">VALUES</span> (<span class="string">'西瓜'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS (<span class="keyword">NAME</span>) <span class="keyword">VALUES</span> (<span class="string">'芹菜'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS (<span class="keyword">NAME</span>) <span class="keyword">VALUES</span> (<span class="string">'黄瓜'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS (<span class="keyword">NAME</span>) <span class="keyword">VALUES</span> (<span class="string">'土豆'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS (<span class="keyword">NAME</span>) <span class="keyword">VALUES</span> (<span class="string">'牛肉'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS (<span class="keyword">NAME</span>) <span class="keyword">VALUES</span> (<span class="string">'猪肉'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS (<span class="keyword">NAME</span>) <span class="keyword">VALUES</span> (<span class="string">'鸡肉'</span>);</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2017/11/25/SQLite-数据库管理/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SQLite</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/25/SQLite-数据库管理/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
@@ -1164,11 +1178,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">File</a>
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
+                <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1177,6 +1191,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1240,11 +1258,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
               </li>
              
               <li class="article-tag-list-item">
