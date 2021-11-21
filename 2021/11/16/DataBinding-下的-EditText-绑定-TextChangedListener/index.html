@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="随着 DataBinding 在项目中使用频率的增加，就越能感觉到 Jetpack 下的这个组件在 Android 开发中所带来的便捷性。DataBinding 不仅在形式上彻底抛弃了传统意义上寻找控件的模版代码，也在本质上防止了控件在使用过程中的空指针、类型转换和内存泄漏等问题，使得开发者可以将更多的精力投入到业务逻辑的开发中。当然，DataBinding 的出现不仅仅是用来解决模版代码的，它还">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2021-11-16T14:53:05.189Z">
+<meta property="og:updated_time" content="2021-11-21T13:37:49.471Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DataBinding 下的 EditText 绑定 TextChangedListener">
 <meta name="twitter:description" content="随着 DataBinding 在项目中使用频率的增加，就越能感觉到 Jetpack 下的这个组件在 Android 开发中所带来的便捷性。DataBinding 不仅在形式上彻底抛弃了传统意义上寻找控件的模版代码，也在本质上防止了控件在使用过程中的空指针、类型转换和内存泄漏等问题，使得开发者可以将更多的精力投入到业务逻辑的开发中。当然，DataBinding 的出现不仅仅是用来解决模版代码的，它还">
@@ -190,7 +190,16 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>随着 <a href="https://developer.android.google.cn/jetpack/androidx/releases/databinding" target="_blank" rel="noopener">DataBinding</a> 在项目中使用频率的增加，就越能感觉到 <a href="https://developer.android.google.cn/jetpack" target="_blank" rel="noopener">Jetpack</a> 下的这个组件在 Android 开发中所带来的便捷性。DataBinding 不仅在形式上彻底抛弃了传统意义上寻找控件的模版代码，也在本质上防止了控件在使用过程中的空指针、类型转换和内存泄漏等问题，使得开发者可以将更多的精力投入到业务逻辑的开发中。当然，DataBinding 的出现不仅仅是用来解决模版代码的，它还可以将变量和布局中的视图进行关联，同时还可以实现双向数据绑定，既接收对属性的数据更改，又监听用户对此属性的更新。</p>
-<p>毫无疑问，DataBinding 已经在一定程度上改变了你的开发习惯。比如，你可能更习惯于在布局文件中使用 <code>@{onClickListener}</code> 来为一个控件添加点击事件；再比如，你可能更喜欢在布局文件中使用表达式 <code>@{viewmodel.username}</code> 来为一个 <code>TextView</code> 进行赋值。没错，你也会更倾向于采用同样的方法为 <code>EditText</code> 添加一个文字改变监听器。但事实上，DataBinding 是不支持直接为 <code>EditText</code> 添加文字改变监听器的，我们需要依赖 <code>ViewModel</code> 持有一个 <code>TextWatcher</code> 的实例并将其绑定到 <code>EditText</code> 上来进行实现。</p>
+<p>毫无疑问，DataBinding 已经在一定程度上改变了你的开发习惯。比如，你可能更习惯于在布局文件中使用 <code>@{onClickListener}</code> 来为一个控件添加点击事件；再比如，你可能更喜欢在布局文件中使用表达式 <code>@{viewmodel.username}</code> 来为一个 TextView 进行赋值。没错，你也会更倾向于采用同样的方法为 EditText 添加一个文字改变监听器。但事实上，DataBinding 是不支持直接为 EditText 添加文字改变监听器的，我们需要依赖 ViewModel 持有一个 TextWatcher 的实例并将其绑定到 EditText 上来进行实现。</p>
+<p>EditText 实现文字改变的监听大致分为三步：一、定义持有 TextWatcher 实例的  ViewModel；二、布局文件引用 ViewModel；三、Activity 调用。伪代码如下，如需访问完整代码请访问 <a href="https://gitee.com/vimeo/watcher" target="_blank" rel="noopener">Watcher@Gitee</a>。</p>
+<a id="more"></a>
+
+<h1 id="1-ViewModel-代码"><a href="#1-ViewModel-代码" class="headerlink" title="1. ViewModel 代码"></a>1. ViewModel 代码</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WatcherViewModel</span> <span class="keyword">extends</span> <span class="title">ViewModel</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> MutableLiveData&lt;String&gt; mValueLiveData;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> LiveData&lt;String&gt; <span class="title">getData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (mValueLiveData == <span class="keyword">null</span>) &#123;</span><br><span class="line">            mValueLiveData = <span class="keyword">new</span> MutableLiveData&lt;&gt;();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> mValueLiveData;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setData</span><span class="params">(String value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (mValueLiveData != <span class="keyword">null</span>) &#123;</span><br><span class="line">            mValueLiveData.setValue(value);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> TextWatcher textWatcher = <span class="keyword">new</span> WatcherProxy() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterTextChanged</span><span class="params">(Editable s)</span> </span>&#123;</span><br><span class="line">            setData(s.toString());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-XML-代码"><a href="#2-XML-代码" class="headerlink" title="2. XML 代码"></a>2. XML 代码</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">layout</span> <span class="attr">xmlns:app</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">data</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">variable</span></span></span><br><span class="line"><span class="tag">            <span class="attr">name</span>=<span class="string">"model"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">type</span>=<span class="string">"com.sunzn.watcher.WatcherViewModel"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">variable</span></span></span><br><span class="line"><span class="tag">            <span class="attr">name</span>=<span class="string">"onClickListener"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">type</span>=<span class="string">"android.view.View.OnClickListener"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">data</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">androidx.constraintlayout.widget.ConstraintLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">tools:context</span>=<span class="string">".WatcherActivity"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">androidx.appcompat.widget.AppCompatEditText</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">"@+id/edit_text"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"0dp"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_marginHorizontal</span>=<span class="string">"30dp"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_marginTop</span>=<span class="string">"100dp"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:background</span>=<span class="string">"@drawable/shape_context_search"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:hint</span>=<span class="string">"输入关键词进行搜索"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:paddingHorizontal</span>=<span class="string">"20dp"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:paddingVertical</span>=<span class="string">"10dp"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:singleLine</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:textSize</span>=<span class="string">"13sp"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">app:addTextChangedListener</span>=<span class="string">"@&#123;model.textWatcher&#125;"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">app:layout_constraintLeft_toLeftOf</span>=<span class="string">"parent"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">app:layout_constraintRight_toRightOf</span>=<span class="string">"parent"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">app:layout_constraintTop_toTopOf</span>=<span class="string">"parent"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">androidx.appcompat.widget.AppCompatImageView</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">"@+id/edit_clean"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"0dp"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"0dp"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:onClick</span>=<span class="string">"@&#123;onClickListener&#125;"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:scaleType</span>=<span class="string">"centerInside"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:src</span>=<span class="string">"@drawable/icon_delete"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:visibility</span>=<span class="string">"gone"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">app:layout_constraintBottom_toBottomOf</span>=<span class="string">"@id/edit_text"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">app:layout_constraintDimensionRatio</span>=<span class="string">"1:1"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">app:layout_constraintEnd_toEndOf</span>=<span class="string">"@id/edit_text"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">app:layout_constraintTop_toTopOf</span>=<span class="string">"@id/edit_text"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">androidx.constraintlayout.widget.ConstraintLayout</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">layout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="3-Activity-调用"><a href="#3-Activity-调用" class="headerlink" title="3. Activity 调用"></a>3. Activity 调用</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WatcherActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        ActivityWatcherBinding binding = DataBindingUtil.setContentView(<span class="keyword">this</span>, R.layout.activity_watcher);</span><br><span class="line"></span><br><span class="line">        WatcherViewModel viewModel = <span class="keyword">new</span> ViewModelProvider(<span class="keyword">this</span>).get(WatcherViewModel.class);</span><br><span class="line">        binding.setModel(viewModel);</span><br><span class="line">        viewModel.getData().observe(<span class="keyword">this</span>, <span class="keyword">new</span> Observer&lt;String&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onChanged</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">                binding.editClean.setVisibility(s.length() == <span class="number">0</span> ? View.GONE : View.VISIBLE);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
       
 
@@ -324,7 +333,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-ViewModel-代码"><span class="toc-number">1.</span> <span class="toc-text">1. ViewModel 代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-XML-代码"><span class="toc-number">2.</span> <span class="toc-text">2. XML 代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Activity-调用"><span class="toc-number">3.</span> <span class="toc-text">3. Activity 调用</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -452,11 +461,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">File</a>
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+                <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -480,10 +489,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
@@ -493,6 +498,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -532,15 +541,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Generics</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -553,6 +562,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Version</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -569,10 +582,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Burpsuite</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Version</a>
               </li>
              
               <li class="article-tag-list-item">
