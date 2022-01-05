@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Android DataBinding（二）进阶用法 | Welcome to sunzn&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在《Android-DataBinding（一）基础》一文中对 DataBinding 的接入和使用进行了介绍。本文将会针对 DataBinding 中一些琐碎的知识点进行介绍，比如：Class 属性、Default 属性、Resource 引用等，这些属性被使用的频率或许不是很高，但特定的情况下却会起到意想不到的作用。下面将会针对这些属性进行逐一的讲解。 1. Data 标签的 Class 属性">
+  <meta name="description" content="在《Android-DataBinding（一）基础》一文中对 DataBinding 的接入和使用进行了介绍。本文将会针对 DataBinding 中一些琐碎的知识点进行介绍，比如：Class 属性、Default 属性、Resource 引用等，这些属性被使用的频率或许不是很高，但特定的情况下却会起到意想不到的作用。下面将会针对这些属性进行逐一的讲解。  1. Data 标签的 Class 属">
 <meta name="keywords" content="DataBinding">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android DataBinding（二）进阶用法">
 <meta property="og:url" content="http://yoursite.com/2021/11/18/Android-DataBinding（二）进阶用法/index.html">
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
-<meta property="og:description" content="在《Android-DataBinding（一）基础》一文中对 DataBinding 的接入和使用进行了介绍。本文将会针对 DataBinding 中一些琐碎的知识点进行介绍，比如：Class 属性、Default 属性、Resource 引用等，这些属性被使用的频率或许不是很高，但特定的情况下却会起到意想不到的作用。下面将会针对这些属性进行逐一的讲解。 1. Data 标签的 Class 属性">
+<meta property="og:description" content="在《Android-DataBinding（一）基础》一文中对 DataBinding 的接入和使用进行了介绍。本文将会针对 DataBinding 中一些琐碎的知识点进行介绍，比如：Class 属性、Default 属性、Resource 引用等，这些属性被使用的频率或许不是很高，但特定的情况下却会起到意想不到的作用。下面将会针对这些属性进行逐一的讲解。  1. Data 标签的 Class 属">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2022-01-05T14:46:03.944Z">
+<meta property="og:updated_time" content="2022-01-05T14:54:41.493Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android DataBinding（二）进阶用法">
-<meta name="twitter:description" content="在《Android-DataBinding（一）基础》一文中对 DataBinding 的接入和使用进行了介绍。本文将会针对 DataBinding 中一些琐碎的知识点进行介绍，比如：Class 属性、Default 属性、Resource 引用等，这些属性被使用的频率或许不是很高，但特定的情况下却会起到意想不到的作用。下面将会针对这些属性进行逐一的讲解。 1. Data 标签的 Class 属性">
+<meta name="twitter:description" content="在《Android-DataBinding（一）基础》一文中对 DataBinding 的接入和使用进行了介绍。本文将会针对 DataBinding 中一些琐碎的知识点进行介绍，比如：Class 属性、Default 属性、Resource 引用等，这些属性被使用的频率或许不是很高，但特定的情况下却会起到意想不到的作用。下面将会针对这些属性进行逐一的讲解。  1. Data 标签的 Class 属">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -189,7 +189,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在《Android-DataBinding（一）基础》一文中对 <a href="https://developer.android.google.cn/jetpack/androidx/releases/databinding" target="_blank" rel="noopener">DataBinding</a> 的接入和使用进行了介绍。本文将会针对 DataBinding 中一些琐碎的知识点进行介绍，比如：Class 属性、Default 属性、Resource 引用等，这些属性被使用的频率或许不是很高，但特定的情况下却会起到意想不到的作用。下面将会针对这些属性进行逐一的讲解。</p>
+        <p>在《Android-DataBinding（一）基础》一文中对 <a href="https://developer.android.google.cn/jetpack/androidx/releases/databinding" target="_blank" rel="noopener">DataBinding</a> 的接入和使用进行了介绍。本文将会针对 DataBinding 中一些琐碎的知识点进行介绍，比如：Class 属性、Default 属性、Resource 引用等，这些属性被使用的频率或许不是很高，但特定的情况下却会起到意想不到的作用。下面将会针对这些属性进行逐一的讲解。 </p>
 <h1 id="1-Data-标签的-Class-属性"><a href="#1-Data-标签的-Class-属性" class="headerlink" title="1. Data 标签的 Class 属性"></a>1. Data 标签的 Class 属性</h1><p>默认情况下，系统会根据布局文件的名称生成对应的 <code>ViewDataBinding</code> 子类，帮助我们操作 <code>XML</code> 中绑定的数据，如下所示：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.sunzn.data;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> androidx.appcompat.app.AppCompatActivity;</span><br><span class="line"><span class="keyword">import</span> androidx.databinding.DataBindingUtil;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.sunzn.data.databinding.ActivityMainBinding;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        ActivityMainBinding binding = DataBindingUtil.setContentView(<span class="keyword">this</span>, R.layout.activity_main);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -589,15 +589,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Generics</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
