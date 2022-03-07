@@ -166,6 +166,83 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Android-Library-中-switch-语句的-case-不能访问资源-ID-的原因" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/12/Android-Library-中-switch-语句的-case-不能访问资源-ID-的原因/">Android Library 中 switch 语句的 case 不能访问资源 ID 的原因</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/12/Android-Library-中-switch-语句的-case-不能访问资源-ID-的原因/" class="archive-article-date">
+  	<time datetime="2018-08-12T08:38:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>使用 switch 语句的的时候，需要注意 case 分支后的引用在 Project 和 Library 下的区别。因为在 Library 中可能存在资源无法被引用的情形。在继续阐述之前，先看一段代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> EditorViewHolder <span class="title">onCreateViewHolder</span><span class="params">(View itemView, <span class="keyword">int</span> itemLayout, EditorAdapter adapter)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">switch</span> (itemLayout) &#123;</span><br><span class="line">        <span class="keyword">case</span> R.layout.item_euu001:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> EUU001ViewHolder(itemView, adapter);</span><br><span class="line">        <span class="keyword">case</span> R.layout.item_euu002:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> EUU002ViewHolder(itemView, adapter);</span><br><span class="line">        <span class="keyword">case</span> R.layout.item_euu003:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> EUU003ViewHolder(itemView, adapter);</span><br><span class="line">        <span class="keyword">case</span> R.layout.item_euu004:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> EUU004ViewHolder(itemView, adapter);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2018/08/12/Android-Library-中-switch-语句的-case-不能访问资源-ID-的原因/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/12/Android-Library-中-switch-语句的-case-不能访问资源-ID-的原因/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-标识应用所在的-Android-设备" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -933,92 +1010,9 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-高效加载大图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/22/高效加载大图/">高效加载大图</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/22/高效加载大图/" class="archive-article-date">
-  	<time datetime="2018-03-22T15:44:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>图片有不同的形状与大小。在大多数情况下它们的实际大小都比需要呈现的尺寸大很多。例如，系统的图库应用会显示我们使用相机拍摄的照片，但这些图片的分辨率通常都比设备屏幕的分辨率要高很多。</p>
-<p>考虑到应用是在有限的内存下工作的，理想情况下，我们只需要在内存中加载一个低分辨率的照片即可。为了有更好的显示效果，这个低分辨率的照片应该与展示它的UI组件大小相匹配。加载高分辨率的图片不仅没有任何显而易见的好处，还会占用宝贵的内存资源，并且由于图片的即时缩放，还会增加额外的性能开销。</p>
-<p>下面将会介绍如何解码大型位图，加载缩小版图片，从而避免超出应用程序的内存限制。</p>
-<h1 id="1-读取位图的尺寸与类型"><a href="#1-读取位图的尺寸与类型" class="headerlink" title="1.读取位图的尺寸与类型"></a>1.读取位图的尺寸与类型</h1><p><a href="http://developer.android.com/reference/android/graphics/BitmapFactory.html" target="_blank" rel="noopener">BitmapFactory</a> 提供了多种解码方法（<a href="https://developer.android.com/reference/android/graphics/BitmapFactory.html#decodeByteArray%28byte%5B%5D,%20int,%20int,%20android.graphics.BitmapFactory.Options%29" target="_blank" rel="noopener">decodeByteArray()</a>， <a href="https://developer.android.com/reference/android/graphics/BitmapFactory.html#decodeFile%28java.lang.String,%20android.graphics.BitmapFactory.Options%29" target="_blank" rel="noopener">decodeFile()</a>，<a href="https://developer.android.com/reference/android/graphics/BitmapFactory.html#decodeResource%28android.content.res.Resources,%20int,%20android.graphics.BitmapFactory.Options%29" target="_blank" rel="noopener">decodeResource()</a> 等），用于从各种来源创建 Bitmap。我们应该根据图片的数据源选择最合适的解码方法。这些方法在构造位图的时候会尝试分配内存，因此很容易导致 OutOfMemory 异常。每一种解码方法都可以通过 <a href="https://developer.android.com/reference/android/graphics/BitmapFactory.Options.html" target="_blank" rel="noopener">BitmapFactory.Options</a> 设置一些附加的标记，以此来指定解码选项。设置 <a href="https://developer.android.com/reference/android/graphics/BitmapFactory.Options.html#inJustDecodeBounds" target="_blank" rel="noopener">inJustDecodeBounds</a> 属性为 true 可以在解码时避免内存的分配，返回的 Bitmap 为 null，但是可以获取到 <a href="https://developer.android.com/reference/android/graphics/BitmapFactory.Options.html#outWidth" target="_blank" rel="noopener">outWidth</a>，<a href="https://developer.android.com/reference/android/graphics/BitmapFactory.Options.html#outHeight" target="_blank" rel="noopener">outHeight</a> 与 <a href="https://developer.android.com/reference/android/graphics/BitmapFactory.Options.html#outMimeType" target="_blank" rel="noopener">outMimeType</a>。该技术可以允许你在构造 Bitmap 之前优先读图片的尺寸与类型（以及内存分配）。</p>
-        
-          <a class="article-more-a" href="/2018/03/22/高效加载大图/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Bitmap</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/22/高效加载大图/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 
@@ -1138,6 +1132,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">View</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
               </li>
              
@@ -1158,14 +1160,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
@@ -1174,7 +1168,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1194,23 +1196,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">View</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1254,11 +1252,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
             
             <div class="clearfix"></div>
