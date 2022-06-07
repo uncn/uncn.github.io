@@ -187,8 +187,14 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>Java 8 API 增加了一个新的抽象称为流 Stream，可以让你以一种声明的方式处理数据。Stream 使用一种类似 SQL 语句从数据库查询数据的方式来提供一种对 Java 集合运算和表达的高阶抽象。这种风格将要处理的元素集合看作一种流，流在管道中传输，并且可以在管道的节点上进行处理，比如筛选、排序、聚合等。如果你之前有 RxJava 的使用经历，应该不会对流的操作感到陌生，并且 Stream 要比 RxJava 更容易上手。</p>
-<p>元素流在管道中经过中间操作的处理，最后由最终操作得到前面处理的结果。下图展示了元素流经过筛选、排序、映射操作后，最终被转换成聚合元素的过程。</p>
+<p>元素流在管道中经过中间操作的处理，最后由最终操作得到前面处理的结果。下图展示了元素流经过筛选、排序、映射操作后，最终被转换成聚合元素的过程。后续我们将会对 Stream 的各种操作符进行展示。</p>
 <p><img src="https://image.sunzn.com/blog/20220607205501.png" alt="此处输入图片的描述"></p>
+<h1 id="1-数据准备"><a href="#1-数据准备" class="headerlink" title="1. 数据准备"></a>1. 数据准备</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/***** 实体类 User  *****/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String grade;   <span class="comment">// 等级</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String name;    <span class="comment">// 姓名</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;        <span class="comment">// 年龄</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> score;      <span class="comment">// 积分</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**** 新建 User 实例 ****/</span></span><br><span class="line"></span><br><span class="line">User user1 = <span class="keyword">new</span> User(<span class="string">"1"</span>, <span class="string">"杨星辰"</span>, <span class="number">20</span>, <span class="number">100</span>);</span><br><span class="line">User user2 = <span class="keyword">new</span> User(<span class="string">"2"</span>, <span class="string">"李明轩"</span>, <span class="number">19</span>, <span class="number">104</span>);</span><br><span class="line">User user3 = <span class="keyword">new</span> User(<span class="string">"1"</span>, <span class="string">"张若扬"</span>, <span class="number">22</span>, <span class="number">200</span>);</span><br><span class="line">User user4 = <span class="keyword">new</span> User(<span class="string">"3"</span>, <span class="string">"方君彦"</span>, <span class="number">24</span>, <span class="number">120</span>);</span><br><span class="line">User user5 = <span class="keyword">new</span> User(<span class="string">"2"</span>, <span class="string">"周诚文"</span>, <span class="number">20</span>, <span class="number">110</span>);</span><br><span class="line">User user6 = <span class="keyword">new</span> User(<span class="string">"4"</span>, <span class="string">"杨天厉"</span>, <span class="number">21</span>, <span class="number">108</span>);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**** 获取 User 集合 ****/</span></span><br><span class="line"></span><br><span class="line">List&lt;User&gt; users = Stream.of(user1, user2, user3, user4, user5, user6).collect(Collectors.toList());</span><br></pre></td></tr></table></figure>
+
 
       
 
@@ -1094,15 +1100,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebView</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1114,11 +1120,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">File</a>
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+                <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1146,6 +1152,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
@@ -1162,15 +1172,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ADB</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
               </li>
              
               <li class="article-tag-list-item">
