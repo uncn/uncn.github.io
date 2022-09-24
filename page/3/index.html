@@ -166,6 +166,85 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-JitPack-Failed-to-install-the-following-Android-SDK-packages-as-some-licences-have-not-been-accepted" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/21/JitPack-Failed-to-install-the-following-Android-SDK-packages-as-some-licences-have-not-been-accepted/">JitPack:Failed to install the following Android SDK packages as some licences have not been accepted</a>
+    </h1>
+  
+
+        
+        <a href="/2019/01/21/JitPack-Failed-to-install-the-following-Android-SDK-packages-as-some-licences-have-not-been-accepted/" class="archive-article-date">
+  	<time datetime="2019-01-21T13:30:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>近期将 Android Studio 升级到了 3.3 版本，刚好有个托管在 GitHub 上的库要更新。便索性将库的 Android SDK 升级到了 28；同时将 Android SDK Build-Tools 也升级到了 28.0.3。修改库代码，提交至 GitHub 并发布 Releases，像往常一样在 JitPack 发布版本仓库。JitPack 报错如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">* What went wrong:</span><br><span class="line">A problem occurred configuring project &apos;:Library&apos;.</span><br><span class="line">&gt; Failed to install the following Android SDK packages as some licences have not been accepted.</span><br><span class="line">     build-tools;28.0.3 Android SDK Build-Tools 28.0.3</span><br><span class="line">     platforms;android-28 Android SDK Platform 28</span><br><span class="line">  To build this project, accept the SDK license agreements and install the missing components using the Android Studio SDK Manager.</span><br><span class="line">  Alternatively, to transfer the license agreements from one workstation to another, see http://d.android.com/r/studio-ui/export-licenses.html</span><br><span class="line">  </span><br><span class="line">  Using Android SDK: /opt/android-sdk-linux</span><br></pre></td></tr></table></figure>
+
+<p>这段报错的大致意思是：项目在构建过程中需要接受 SDK 许可协议，并使用 Android Studio SDK Manager 安装缺少的组件。到这基本明白怎么回事了，本地的测试代码运行没有问题，发布仓库的时候 JitPack 报错，只能说明一个问题，JitPack 的项目构建环境缺少最新的组件！</p>
+        
+          <a class="article-more-a" href="/2019/01/21/JitPack-Failed-to-install-the-following-Android-SDK-packages-as-some-licences-have-not-been-accepted/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JitPack</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/01/21/JitPack-Failed-to-install-the-following-Android-SDK-packages-as-some-licences-have-not-been-accepted/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-自定义-View-感知事件的几种方式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -930,87 +1009,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Android-中的-Fragment-懒加载" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/18/Android-中的-Fragment-懒加载/">Android 中的 Fragment 懒加载</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/18/Android-中的-Fragment-懒加载/" class="archive-article-date">
-  	<time datetime="2018-04-18T14:18:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在一些选项卡滑动切换的应用场景下，我们大多会采用 ViewPager 与 Fragment 组合的方式来实现这样的需求，但 ViewPager 会预加载下一个 Framgment 的内容，这种机制的初衷是为了让用户更流畅的看到后面的内容。但是，当 ViewPager 中持久保留的 Framgment 数量增加，同时 Framgment 中又包含有大量的网络请求和数据库操作的时候，这种机制的弊端就出现了，预加载机制使的 ViewPager 内所有 Fragment 的网络请求和数据库操作同时被触发，CPU 和 内存占用会发生跳跃式的增长，最终造成 APP 卡顿，影响用户体验。</p>
-<p>如果想提升用户体验，理想的状态大概是这样的：让 Fragment 内的网络请求和数据库操作根据需要进行触发。当 Fragment 对用户首次可见时，执行网络请求或数据库操作；当 Fragment 滑出屏幕时，不追加任何后续操作；当 Fragment 对用户再次可见时，根据首次执行状态决定是否执行网络请求或数据库操作。这样一个过程实际上就是 Fragment 的懒加载过程。</p>
-        
-          <a class="article-more-a" href="/2018/04/18/Android-中的-Fragment-懒加载/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Fragment</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/18/Android-中的-Fragment-懒加载/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
@@ -1130,6 +1128,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">组件化</a>
               </li>
              
               <li class="article-tag-list-item">

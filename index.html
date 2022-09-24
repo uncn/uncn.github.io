@@ -166,6 +166,132 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Android-依赖模块分组" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/09/24/Android-依赖模块分组/">Android 依赖模块分组</a>
+    </h1>
+  
+
+        
+        <a href="/2022/09/24/Android-依赖模块分组/" class="archive-article-date">
+  	<time datetime="2022-09-23T16:32:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Android 项目在经历了长期的迭代开发后，必然会寻求各模块间的逻辑独立和解耦，以降低维护成本，提高代码的可读性。抛开动态下发与动态加载技术，多数研发人员会将一些可模块化的独立逻辑抽取出来，以 Android Library Module 的形式引入到项目中。随着抽取的类库越来越多，Application 和 Library 并列共存，代码维护会异常混乱。为了改善这种情况，Android Studio 提供了将模块放置在子文件夹中的语法。</p>
+<table style="table-layout:fixed;">
+<tr>
+    <th align="left" bgcolor="#F8F8F8" colspan="3">语法</th>
+</tr>
+<tr>
+    <td colspan="3">:subfolder:module_name</td>
+</tr>
+<tr>
+    <th align="left" bgcolor="#F8F8F8" colspan="3">参数</th>
+</tr>
+<tr>
+    <td colspan="1">subfolder</td>
+    <td colspan="2">子文件夹名称</td>
+</tr>
+<tr>
+    <td colspan="1">module_name</td>
+    <td colspan="2">Android Library Module 名称</td>
+</tr>
+<tr>
+    <th align="left" bgcolor="#F8F8F8" colspan="3">使用</th>
+</tr>
+<tr>
+    <td colspan="3" align="center"><img src="https://image.sunzn.com/blog/20220923224901.png" height="500px"></td>
+</tr>
+<tr>
+    <th align="left" bgcolor="#F8F8F8" colspan="3">结果</th>
+</tr>
+<tr>
+    <td colspan="1" style="text-align:center;">改善前</td>
+    <td colspan="1" style="text-align:center;">改善后</td>
+    <td colspan="1" style="text-align:center;">改善后</td>
+</tr>
+<tr>
+    <td colspan="1" align="center"><img src="https://image.sunzn.com/blog/20220923224902.jpeg"></td>
+    <td colspan="1" align="center"><img src="https://image.sunzn.com/blog/20220923224903.jpeg"></td>
+    <td colspan="1" align="center"><img src="https://image.sunzn.com/blog/20220923224904.jpeg"></td>
+</tr>
+<tr>
+    <th align="left" bgcolor="#F8F8F8" colspan="3">引用</th>
+</tr>
+<tr>
+    <td colspan="3">依次点击【File】→【Project Structrue...】→【Dependencies】添加 Module Dependency，添加后的引用结果如下。</td>
+</tr>
+<tr>
+    <td colspan="3">
+        <img src="https://image.sunzn.com/blog/20220923224905.png" width:100%>
+        <br>
+        <img src="https://image.sunzn.com/blog/20220923224906.png" width:100%>
+    </td>
+</tr>
+</table>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">组件化</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/09/24/Android-依赖模块分组/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Java-8-Stream" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -903,101 +1029,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-手机抓包的几种方式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/27/手机抓包的几种方式/">手机抓包的几种方式</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/27/手机抓包的几种方式/" class="archive-article-date">
-  	<time datetime="2020-03-27T13:36:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在移动逆向分析以及 APP 开发的时候，总会需要对其网络行为进行监控测试，本文针对市面上主流的抓包工具进行了抓包测试，并将过程进行了逐一记录，方便日后查用。</p>
-<h1 id="1-基于-Wireshark"><a href="#1-基于-Wireshark" class="headerlink" title="1. 基于 Wireshark"></a>1. 基于 Wireshark</h1><h2 id="1-1-抓包环境"><a href="#1-1-抓包环境" class="headerlink" title="1.1 抓包环境"></a>1.1 抓包环境</h2><p>Windows 10 + 小米5s Plus + Wireshark 3.2.1 【<a href="https://www.wireshark.org/download.html" target="_blank" rel="noopener">下载地址</a>】</p>
-<h2 id="1-2-设置-WiFi"><a href="#1-2-设置-WiFi" class="headerlink" title="1.2 设置 WiFi"></a>1.2 设置 WiFi</h2><p>在电脑主机上使用百度 WiFi之类的工具，开启热点，将所要抓包的手机连接该热点，并记录手机的【IP地址】和【路由器】，这两个信息会在后续的抓包过程中用到。</p>
-<p><img src="http://image.sunzn.com/blog/20200301150201.png" alt="此处输入图片的描述"></p>
-        
-          <a class="article-more-a" href="/2020/03/27/手机抓包的几种方式/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Fiddler</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Crack</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Wireshark</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Charles</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Burpsuite</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/27/手机抓包的几种方式/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1117,6 +1148,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">组件化</a>
               </li>
              
               <li class="article-tag-list-item">
