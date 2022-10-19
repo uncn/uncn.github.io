@@ -166,6 +166,85 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-JSONArray-值为-NULL-时的容错处理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/10/JSONArray-值为-NULL-时的容错处理/">JSONArray 值为 NULL 时的容错处理</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/10/JSONArray-值为-NULL-时的容错处理/" class="archive-article-date">
+  	<time datetime="2017-10-10T13:54:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>无论是 Web 端还是移动端开发，都会涉及到对 JSONArray 的解析，通常状况下前端会和后端会约定好返回的数据是一个 JSONArray 数组，当然前端也会按照 <code>JSONObject.getJSONArray(String name)</code> 的方式去解析数据。但现实中的情况是后端由于某些原因直接返回了 <code>null</code>（而非空数组 [ ]），这时候前端依然按照数组的形式去解析就会抛出如下异常：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">org.json.JSONException: Value <span class="keyword">null</span> at users of type org.json.JSONObject$<span class="number">1</span> cannot be converted to JSONArray</span><br><span class="line">    at org.json.JSON.typeMismatch(JSON.java:<span class="number">100</span>)</span><br><span class="line">    at org.json.JSONObject.getJSONArray(JSONObject.java:<span class="number">588</span>)</span><br><span class="line">    at com.sunzn.core.RefreshManager$<span class="number">8</span>.onSuccess(RefreshManager.java:<span class="number">617</span>)</span><br><span class="line">    at com.loopj.android.http.JsonHttpResponseHandler$<span class="number">1</span>$<span class="number">1</span>.run(JsonHttpResponseHandler.java:<span class="number">152</span>)</span><br><span class="line">    at android.os.Handler.handleCallback(Handler.java:<span class="number">739</span>)</span><br><span class="line">    at android.os.Handler.dispatchMessage(Handler.java:<span class="number">95</span>)</span><br><span class="line">    at android.os.Looper.loop(Looper.java:<span class="number">135</span>)</span><br><span class="line">    at android.app.ActivityThread.main(ActivityThread.java:<span class="number">5418</span>)</span><br><span class="line">    at java.lang.reflect.Method.invoke(Native Method)</span><br><span class="line">    at java.lang.reflect.Method.invoke(Method.java:<span class="number">372</span>)</span><br><span class="line">    at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:<span class="number">1037</span>)</span><br><span class="line">    at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:<span class="number">832</span>)</span><br></pre></td></tr></table></figure>
+
+<p>这个异常明确的告诉我们，当 JSONArray 为 null 的时候，这个对象的属性发生了变化，由 JSONArray 变成了 JSONObject，然而前端却依然认为这是个 JSONArray 对象并以 JSONArray 的形式去取值，结果就抛出了异常。</p>
+        
+          <a class="article-more-a" href="/2017/10/10/JSONArray-值为-NULL-时的容错处理/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Json</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/10/JSONArray-值为-NULL-时的容错处理/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Android-Studio-Failed-to-open-zip-file" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -984,83 +1063,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Fiddler（一）用户界面" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/10/Fiddler（一）用户界面/">Fiddler（一）用户界面</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/10/Fiddler（一）用户界面/" class="archive-article-date">
-  	<time datetime="2017-08-10T12:58:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Fiddler 是一款基于 Windows 系统的专用代理服务器软件。本地运行的程序，如 Web 浏览器，Office 应用程序以及其他客户端应用，可以把 HTTP 和 HTTPS 请求发送给 Fiddler，Fiddler 通常把这些请求转发给 Web 服务器。然后，服务器把这些请求的响应返回给 Fiddler，Fiddler 再把这些响应转发给客户端。</p>
-<p><img src="http://image.sunzn.com/blog/20170810144928.png" alt="流程图"></p>
-        
-          <a class="article-more-a" href="/2017/08/10/Fiddler（一）用户界面/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Fiddler</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/10/Fiddler（一）用户界面/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
@@ -1287,6 +1289,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Version</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Crack</a>
               </li>
              
@@ -1300,10 +1306,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Burpsuite</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Version</a>
               </li>
              
               <li class="article-tag-list-item">

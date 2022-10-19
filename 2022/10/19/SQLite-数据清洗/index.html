@@ -6,20 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>JSONArray 值为 NULL 时的容错处理 | Welcome to sunzn&#39;s Blog</title>
+  <title>SQLite 数据清洗 | Welcome to sunzn&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="无论是 Web 端还是移动端开发，都会涉及到对 JSONArray 的解析，通常状况下前端会和后端会约定好返回的数据是一个 JSONArray 数组，当然前端也会按照 JSONObject.getJSONArray(String name) 的方式去解析数据。但现实中的情况是后端由于某些原因直接返回了 null（而非空数组 [ ]），这时候前端依然按照数组的形式去解析就会抛出如下异常： 12345">
-<meta name="keywords" content="Json">
+  <meta name="description" content="SQLite 导入大量数据的时候，可能会存在数据质量问题，例如字段前后有空格、回车换行，或者值为 NULL 等问题，这时就需要对这些问题数据进行清洗。本文将会结合真实的案例将数据清洗过程中用到的 SQL 罗列出来。 1. 重置空值表中部分为 NULL 的数据如果需要重置成默认值或空字符串的时候，可以使用下面的语句，这里需要注意空值的判断条件。 1UPDATE [Table] SET [Column">
+<meta name="keywords" content="SQLite">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JSONArray 值为 NULL 时的容错处理">
-<meta property="og:url" content="http://yoursite.com/2017/10/10/JSONArray-值为-NULL-时的容错处理/index.html">
+<meta property="og:title" content="SQLite 数据清洗">
+<meta property="og:url" content="http://yoursite.com/2022/10/19/SQLite-数据清洗/index.html">
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
-<meta property="og:description" content="无论是 Web 端还是移动端开发，都会涉及到对 JSONArray 的解析，通常状况下前端会和后端会约定好返回的数据是一个 JSONArray 数组，当然前端也会按照 JSONObject.getJSONArray(String name) 的方式去解析数据。但现实中的情况是后端由于某些原因直接返回了 null（而非空数组 [ ]），这时候前端依然按照数组的形式去解析就会抛出如下异常： 12345">
+<meta property="og:description" content="SQLite 导入大量数据的时候，可能会存在数据质量问题，例如字段前后有空格、回车换行，或者值为 NULL 等问题，这时就需要对这些问题数据进行清洗。本文将会结合真实的案例将数据清洗过程中用到的 SQL 罗列出来。 1. 重置空值表中部分为 NULL 的数据如果需要重置成默认值或空字符串的时候，可以使用下面的语句，这里需要注意空值的判断条件。 1UPDATE [Table] SET [Column">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2017-11-16T22:06:08.000Z">
+<meta property="og:image" content="https://image.sunzn.com/blog/20221019112301.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20221019112302.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20221019112303.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20221019112304.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20221019112305.png">
+<meta property="og:updated_time" content="2022-10-19T14:17:43.137Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JSONArray 值为 NULL 时的容错处理">
-<meta name="twitter:description" content="无论是 Web 端还是移动端开发，都会涉及到对 JSONArray 的解析，通常状况下前端会和后端会约定好返回的数据是一个 JSONArray 数组，当然前端也会按照 JSONObject.getJSONArray(String name) 的方式去解析数据。但现实中的情况是后端由于某些原因直接返回了 null（而非空数组 [ ]），这时候前端依然按照数组的形式去解析就会抛出如下异常： 12345">
+<meta name="twitter:title" content="SQLite 数据清洗">
+<meta name="twitter:description" content="SQLite 导入大量数据的时候，可能会存在数据质量问题，例如字段前后有空格、回车换行，或者值为 NULL 等问题，这时就需要对这些问题数据进行清洗。本文将会结合真实的案例将数据清洗过程中用到的 SQL 罗列出来。 1. 重置空值表中部分为 NULL 的数据如果需要重置成默认值或空字符串的时候，可以使用下面的语句，这里需要注意空值的判断条件。 1UPDATE [Table] SET [Column">
+<meta name="twitter:image" content="https://image.sunzn.com/blog/20221019112301.png">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -169,44 +175,77 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JSONArray-值为-NULL-时的容错处理" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-SQLite-数据清洗" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      JSONArray 值为 NULL 时的容错处理
+      SQLite 数据清洗
     </h1>
   
 
         
-        <a href="/2017/10/10/JSONArray-值为-NULL-时的容错处理/" class="archive-article-date">
-  	<time datetime="2017-10-10T13:54:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
+        <a href="/2022/10/19/SQLite-数据清洗/" class="archive-article-date">
+  	<time datetime="2022-10-19T14:13:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>无论是 Web 端还是移动端开发，都会涉及到对 JSONArray 的解析，通常状况下前端会和后端会约定好返回的数据是一个 JSONArray 数组，当然前端也会按照 <code>JSONObject.getJSONArray(String name)</code> 的方式去解析数据。但现实中的情况是后端由于某些原因直接返回了 <code>null</code>（而非空数组 [ ]），这时候前端依然按照数组的形式去解析就会抛出如下异常：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">org.json.JSONException: Value <span class="keyword">null</span> at users of type org.json.JSONObject$<span class="number">1</span> cannot be converted to JSONArray</span><br><span class="line">    at org.json.JSON.typeMismatch(JSON.java:<span class="number">100</span>)</span><br><span class="line">    at org.json.JSONObject.getJSONArray(JSONObject.java:<span class="number">588</span>)</span><br><span class="line">    at com.sunzn.core.RefreshManager$<span class="number">8</span>.onSuccess(RefreshManager.java:<span class="number">617</span>)</span><br><span class="line">    at com.loopj.android.http.JsonHttpResponseHandler$<span class="number">1</span>$<span class="number">1</span>.run(JsonHttpResponseHandler.java:<span class="number">152</span>)</span><br><span class="line">    at android.os.Handler.handleCallback(Handler.java:<span class="number">739</span>)</span><br><span class="line">    at android.os.Handler.dispatchMessage(Handler.java:<span class="number">95</span>)</span><br><span class="line">    at android.os.Looper.loop(Looper.java:<span class="number">135</span>)</span><br><span class="line">    at android.app.ActivityThread.main(ActivityThread.java:<span class="number">5418</span>)</span><br><span class="line">    at java.lang.reflect.Method.invoke(Native Method)</span><br><span class="line">    at java.lang.reflect.Method.invoke(Method.java:<span class="number">372</span>)</span><br><span class="line">    at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:<span class="number">1037</span>)</span><br><span class="line">    at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:<span class="number">832</span>)</span><br></pre></td></tr></table></figure>
+        <p>SQLite 导入大量数据的时候，可能会存在数据质量问题，例如字段前后有空格、回车换行，或者值为 NULL 等问题，这时就需要对这些问题数据进行清洗。本文将会结合真实的案例将数据清洗过程中用到的 SQL 罗列出来。</p>
+<h1 id="1-重置空值"><a href="#1-重置空值" class="headerlink" title="1. 重置空值"></a>1. 重置空值</h1><p>表中部分为 NULL 的数据如果需要重置成默认值或空字符串的时候，可以使用下面的语句，这里需要注意空值的判断条件。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> [<span class="keyword">Table</span>] <span class="keyword">SET</span> [<span class="keyword">Column</span>]=<span class="string">''</span> <span class="keyword">WHERE</span> [<span class="keyword">Column</span>] <span class="keyword">IS</span> <span class="literal">NULL</span></span><br></pre></td></tr></table></figure>
 
-<p>这个异常明确的告诉我们，当 JSONArray 为 null 的时候，这个对象的属性发生了变化，由 JSONArray 变成了 JSONObject，然而前端却依然认为这是个 JSONArray 对象并以 JSONArray 的形式去取值，结果就抛出了异常。</p>
 <a id="more"></a>
 
-<p>那么，应该如何避免这种异常的发生呢？异常发生的原因是：我们以固定的取值方式去获取类型不定的值。如果我们在取值之前知道当前值的类型，并以对应的方式去取值就可以避免这种异常了。下面以一个例子进行说明：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"status"</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">"msg"</span>: <span class="string">"获取数据成功"</span>,</span><br><span class="line">    <span class="attr">"users"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"Name"</span>: <span class="string">"Tom"</span>,</span><br><span class="line">            <span class="attr">"Pass"</span>: <span class="string">"123456"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"Name"</span>: <span class="string">"Lei"</span>,</span><br><span class="line">            <span class="attr">"Pass"</span>: <span class="string">"123456"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="2-去除首尾"><a href="#2-去除首尾" class="headerlink" title="2. 去除首尾"></a>2. 去除首尾</h1><p>SQLite 语句是不能直接识别回车、换行、空格等特殊字符的，但却可以识别这些字符的十六进制表示。所以，想去除字段首尾的这些字符，就需要以这些字符的<a href="https://blog.csdn.net/mqdxiaoxiao/article/details/88757161" target="_blank" rel="noopener">十六进制</a>来表示。表格如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">序号</th>
+<th align="center">十六进制</th>
+<th align="center">缩写/字符</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">0x0A</td>
+<td align="center">LF (NL line feed, new line)</td>
+<td align="center">换行符</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">0x0D</td>
+<td align="center">CR (carriage return)</td>
+<td align="center">回车符</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">0x20</td>
+<td align="center">(space)</td>
+<td align="center">空格符</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">0x2F</td>
+<td align="center">/</td>
+<td align="center">斜杠</td>
+</tr>
+</tbody></table>
+<p>以下两图分别为字段的前后有换行符、空格的情况。为了明确表达字段的前后内容，这里特意在内容查看器里将整个字段内容都标记了出来。</p>
+<p><img src="https://image.sunzn.com/blog/20221019112301.png" alt="此处输入图片的描述"><br><img src="https://image.sunzn.com/blog/20221019112302.png" alt="此处输入图片的描述"></p>
+<p>执行如下 SQL 语句，继续用内容查看器查看修改后的内容，会发现字段首位的换行符、空格都被清除掉了。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> [<span class="keyword">Table</span>] <span class="keyword">SET</span> [<span class="keyword">Column</span>]=<span class="keyword">TRIM</span>([<span class="keyword">Column</span>], x<span class="string">'0A'</span>)   //　去除换行</span><br><span class="line"><span class="keyword">UPDATE</span> [<span class="keyword">Table</span>] <span class="keyword">SET</span> [<span class="keyword">Column</span>]=<span class="keyword">TRIM</span>([<span class="keyword">Column</span>], x<span class="string">'20'</span>)   //　去除空格</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"status"</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">"msg"</span>: <span class="string">"获取数据成功"</span>,</span><br><span class="line">    <span class="attr">"users"</span>: <span class="literal">null</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://image.sunzn.com/blog/20221019112303.png" alt="此处输入图片的描述"></p>
+<h1 id="3-替换字符"><a href="#3-替换字符" class="headerlink" title="3. 替换字符"></a>3. 替换字符</h1><p>还有部分格式不一致的数据。例如，字段中的分隔符同时存在逗号和连接符，如果想将其统一成连接符该怎么操作呢？可以尝试下 REPLACE 语法将字段内的逗号替换为连接符。语句如下；</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> [<span class="keyword">Table</span>] <span class="keyword">SET</span> [<span class="keyword">Column</span>]=<span class="keyword">REPLACE</span>([<span class="keyword">Column</span>],<span class="string">','</span>,<span class="string">'-'</span>)</span><br></pre></td></tr></table></figure>
 
-<p>上面两组 Json 值分别为返回数组和 NULL 时的情况，常规取值方式如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="number">1</span> == response.getInt(<span class="string">"status"</span>)) &#123;</span><br><span class="line">        JSONArray UserList = response.getJSONArray(<span class="string">"users"</span>);</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">catch</span> (JSONException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>正如之前的分析可知，当 users 值为 NULL 时会抛出异常。容错取值方式如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="number">1</span> == response.getInt(<span class="string">"status"</span>)) &#123;</span><br><span class="line">        Object Users = response.get(<span class="string">"users"</span>);</span><br><span class="line">        <span class="keyword">if</span> (Users <span class="keyword">instanceof</span> JSONArray) &#123;</span><br><span class="line">            JSONArray UserList = (JSONArray) Users;</span><br><span class="line">            ...</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">catch</span> (JSONException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>容错取值方式并没有直接去获取 JSONArray，而是先获取了一个 Object 对象（这个对象的类型既可能是 JSONArray 也可能是 JSONObject），然后通过类型判断，将其转换成对应的类型进行后续的操作。</p>
+<p><img src="https://image.sunzn.com/blog/20221019112304.png" alt="此处输入图片的描述"><br><img src="https://image.sunzn.com/blog/20221019112305.png" alt="此处输入图片的描述"></p>
 
       
 
@@ -241,7 +280,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Json</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SQLite</a>
         		</li>
       		
 		</ul>
@@ -297,7 +336,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/10/10/JSONArray-值为-NULL-时的容错处理/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2022/10/19/SQLite-数据清洗/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -311,18 +350,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2017/10/10/MySQL数据库插入中文乱码的解决方案/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          MySQL数据库插入中文乱码的解决方案
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/09/05/Android-Studio-Failed-to-open-zip-file/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Android Studio : Failed to open zip file</div>
+    <a href="/2022/09/24/Android-依赖模块分组/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android 依赖模块分组</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -349,7 +379,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-重置空值"><span class="toc-number">1.</span> <span class="toc-text">1. 重置空值</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-去除首尾"><span class="toc-number">2.</span> <span class="toc-text">2. 去除首尾</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-替换字符"><span class="toc-number">3.</span> <span class="toc-text">3. 替换字符</span></a></li></ol>
                     </div>
                 </span>
             </div>

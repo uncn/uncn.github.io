@@ -166,6 +166,84 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-SQLite-数据清洗" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/10/19/SQLite-数据清洗/">SQLite 数据清洗</a>
+    </h1>
+  
+
+        
+        <a href="/2022/10/19/SQLite-数据清洗/" class="archive-article-date">
+  	<time datetime="2022-10-19T14:13:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>SQLite 导入大量数据的时候，可能会存在数据质量问题，例如字段前后有空格、回车换行，或者值为 NULL 等问题，这时就需要对这些问题数据进行清洗。本文将会结合真实的案例将数据清洗过程中用到的 SQL 罗列出来。</p>
+<h1 id="1-重置空值"><a href="#1-重置空值" class="headerlink" title="1. 重置空值"></a>1. 重置空值</h1><p>表中部分为 NULL 的数据如果需要重置成默认值或空字符串的时候，可以使用下面的语句，这里需要注意空值的判断条件。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> [<span class="keyword">Table</span>] <span class="keyword">SET</span> [<span class="keyword">Column</span>]=<span class="string">''</span> <span class="keyword">WHERE</span> [<span class="keyword">Column</span>] <span class="keyword">IS</span> <span class="literal">NULL</span></span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2022/10/19/SQLite-数据清洗/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SQLite</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/10/19/SQLite-数据清洗/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Android-依赖模块分组" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -187,59 +265,9 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>Android 项目在经历了长期的迭代开发后，必然会寻求各模块间的逻辑独立和解耦，以降低维护成本，提高代码的可读性。抛开动态下发与动态加载技术，多数研发人员会将一些可模块化的独立逻辑抽取出来，以 Android Library Module 的形式引入到项目中。随着抽取的类库越来越多，Application 和 Library 并列共存，代码维护会异常混乱。为了改善这种情况，Android Studio 提供了将模块放置在子文件夹中的语法。</p>
-<table style="table-layout:fixed;">
-<tr>
-    <th align="left" bgcolor="#F8F8F8" colspan="3">语法</th>
-</tr>
-<tr>
-    <td colspan="3">:subfolder:module_name</td>
-</tr>
-<tr>
-    <th align="left" bgcolor="#F8F8F8" colspan="3">参数</th>
-</tr>
-<tr>
-    <td colspan="1">subfolder</td>
-    <td colspan="2">子文件夹名称</td>
-</tr>
-<tr>
-    <td colspan="1">module_name</td>
-    <td colspan="2">Android Library Module 名称</td>
-</tr>
-<tr>
-    <th align="left" bgcolor="#F8F8F8" colspan="3">使用</th>
-</tr>
-<tr>
-    <td colspan="3" align="center"><img src="https://image.sunzn.com/blog/20220923224901.png" height="500px"></td>
-</tr>
-<tr>
-    <th align="left" bgcolor="#F8F8F8" colspan="3">结果</th>
-</tr>
-<tr>
-    <td colspan="1" style="text-align:center;">改善前</td>
-    <td colspan="1" style="text-align:center;">改善后</td>
-    <td colspan="1" style="text-align:center;">改善后</td>
-</tr>
-<tr>
-    <td colspan="1" align="center"><img src="https://image.sunzn.com/blog/20220923224902.jpeg"></td>
-    <td colspan="1" align="center"><img src="https://image.sunzn.com/blog/20220923224903.jpeg"></td>
-    <td colspan="1" align="center"><img src="https://image.sunzn.com/blog/20220923224904.jpeg"></td>
-</tr>
-<tr>
-    <th align="left" bgcolor="#F8F8F8" colspan="3">引用</th>
-</tr>
-<tr>
-    <td colspan="3">依次点击【File】→【Project Structrue...】→【Dependencies】添加 Module Dependency，添加后的引用结果如下。</td>
-</tr>
-<tr>
-    <td colspan="3">
-        <img src="https://image.sunzn.com/blog/20220923224905.png" width:100%>
-        <br>
-        <img src="https://image.sunzn.com/blog/20220923224906.png" width:100%>
-    </td>
-</tr>
-</table>
-
-
+        
+          <a class="article-more-a" href="/2022/09/24/Android-依赖模块分组/#more">more >></a>
+        
       
 
       
@@ -948,87 +976,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Android-M-的-NDK-行为变更对-APK-包体积的影响" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/05/Android-M-的-NDK-行为变更对-APK-包体积的影响/">Android M 的 NDK 行为变更对 APK 包体积的影响</a>
-    </h1>
-  
-
-        
-        <a href="/2020/06/05/Android-M-的-NDK-行为变更对-APK-包体积的影响/" class="archive-article-date">
-  	<time datetime="2020-06-05T10:56:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>该来到的终会到来，如果你还没有经历过上下求索的磨砺，说明你的加快前进的脚步了。Google 的大神们早就挖好坑，头也不回的继续挖下一个坑去了，我们能做的只是尽量跟着这些人的脚步，不至于被甩开太远。开始正文之前，我想有必要知道 Android M（6.0）是 Google 在 2015 年 5 月 28 日的 Google I/O 大会上正式推出的版本，没错，这特么是一个 5  年前的版本！但这个版本的行为变更一直默默无闻的在那躺着无人问津，直到你将 minSdkVersion 指向了 23，这时你会发现 APK 签名包的体积极大的超出了预期。到这，你是不是能理解一个程序员在文章开头发出的感叹了？</p>
-<h1 id="1-奇怪的-APK-体积差异"><a href="#1-奇怪的-APK-体积差异" class="headerlink" title="1. 奇怪的 APK 体积差异"></a>1. 奇怪的 APK 体积差异</h1><p><img src="http://image.sunzn.com/blog/20200604143801.png" alt="此处输入图片的描述"></p>
-        
-          <a class="article-more-a" href="/2020/06/05/Android-M-的-NDK-行为变更对-APK-包体积的影响/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NDK</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/05/Android-M-的-NDK-行为变更对-APK-包体积的影响/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1255,6 +1202,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Version</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Crack</a>
               </li>
              
@@ -1268,10 +1219,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Burpsuite</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Version</a>
               </li>
              
               <li class="article-tag-list-item">
