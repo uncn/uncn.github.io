@@ -166,61 +166,49 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Android-访问文件与目录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Glide-V4-API-变更指南" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/27/Android-访问文件与目录/">Android 访问文件与目录</a>
+      <a class="article-title" href="/2018/05/26/Glide-V4-API-变更指南/">Glide V4 API 变更指南</a>
     </h1>
   
 
         
-        <a href="/2018/04/27/Android-访问文件与目录/" class="archive-article-date">
-  	<time datetime="2018-04-27T12:33:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-27</time>
+        <a href="/2018/05/26/Glide-V4-API-变更指南/" class="archive-article-date">
+  	<time datetime="2018-05-26T13:37:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>应用访问文件和目录最便捷的方式是使用 Context 类提供的方法。Context 类是所有关键应用组件的超类，常见的几个应用组件有：Application、Activity 和 Service。因此，这些子类可使用 Context 类提供的方法（如下表所示）轻松访问文件和目录。</p>
-<table>
+        <p>随着 Glide 从 V3 向 V4 的升级，API 的调用方式也发生了一些变化。这些变化主要集中在：选项、类型与目标、配置等方面。本文也会根据这几个方面结合官方文档对 API 变更做一个详细的阐述。在进行正式介绍 API 变更之前，我想非常有必要简述一下 Glide 的接入。这样，每位读者在阅读这篇文章的时候就不会感到陌生和生硬。</p>
+<h1 id="1-Android-SDK-要求"><a href="#1-Android-SDK-要求" class="headerlink" title="1 Android SDK 要求"></a>1 Android SDK 要求</h1><table>
 <thead>
 <tr>
-<th>方法</th>
-<th>使用目的</th>
+<th>版本</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>File getFilesDir()</td>
-<td>获取 /data/data/&lt;packagename&gt;/files 目录</td>
+<td>Min Sdk Version</td>
+<td>使用 Glide 需要 min SDK 版本 API 14 (Ice Cream Sandwich) 或更高。</td>
 </tr>
 <tr>
-<td>FileInputStream openFileInput(String name)</td>
-<td>打开现有文件进行读取</td>
+<td>Compile Sdk Version</td>
+<td>Glide 必须使用 API 27 (Oreo MR1) 或更高版本的 SDK 来编译。</td>
 </tr>
 <tr>
-<td>FileOutputStream openFileOutput(String name, int mode)</td>
-<td>打开文件进行写入，如不存在就创建它</td>
-</tr>
-<tr>
-<td>File getDir(String name, int mode)</td>
-<td>获取 /data/data/&lt;packagename&gt;/目录的子目录（如不存在就创建它）</td>
-</tr>
-<tr>
-<td>String[] fileList()</td>
-<td>获取 /data/data/&lt;packagename&gt;/files 目录下的文件列表。可与其他方法配合使用，例如 openFileInput(String)</td>
-</tr>
-<tr>
-<td>File getCacheDir()</td>
-<td>获取 /data/data/&lt;packagename&gt;/cache 目录。应注意及时清理该目录，并节约使用空间</td>
+<td>Support Library Version</td>
+<td>Glide 使用的支持库版本为 27。</td>
 </tr>
 </tbody></table>
         
-          <a class="article-more-a" href="/2018/04/27/Android-访问文件与目录/#more">more >></a>
+          <a class="article-more-a" href="/2018/05/26/Glide-V4-API-变更指南/#more">more >></a>
         
       
 
@@ -234,11 +222,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">File</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Glide</a>
         		</li>
       		
 		</ul>
@@ -248,7 +232,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/27/Android-访问文件与目录/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/05/26/Glide-V4-API-变更指南/">展开全文 >></a>
         </p>
       
 
@@ -1065,7 +1049,7 @@ var _hmt = _hmt || [];
   <div class="outer">
     <div id="footer-info">
       <div class="footer-left">
-        &copy; 2022 狮子
+        &copy; 2023 狮子
       </div>
         <div class="footer-right">
           <a href="https://beian.miit.gov.cn/" style="color:#1A1A1A" target="_blank">京ICP备14032650号</a>
@@ -1149,15 +1133,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebView</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1173,15 +1157,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">组件化</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">File</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1197,15 +1181,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1214,10 +1202,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1269,15 +1253,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Room</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Room</a>
               </li>
              
               <li class="article-tag-list-item">
