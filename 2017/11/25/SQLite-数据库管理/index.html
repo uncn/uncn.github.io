@@ -16,25 +16,25 @@
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="数据库管理一般用于控制数据库如何操作。要执行的许多数据库管理任务都可以通过 SQL 命令完成。SQLite 包括自己一些独特的管理功能，如将多个数据库附加“attach”到一个连接上，以及用来设置各种配置参数的数据库编译指示（pragma）。 一、附加数据库SQLite 允许你用 attach 命令将多个数据库“附加”到当前连接上。当你附加了一个数据库时，它的所有内容在当前数据库文件的全局范围内都">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171116143701.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171116143702.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171116143703.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171116143704.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171116143705.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171116143706.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171116143707.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171116143708.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171116143709.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171116143710.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171116143711.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171116143712.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171116143713.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171116143714.png">
-<meta property="og:updated_time" content="2018-11-01T13:42:54.000Z">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171116143701.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171116143702.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171116143703.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171116143704.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171116143705.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171116143706.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171116143707.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171116143708.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171116143709.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171116143710.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171116143711.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171116143712.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171116143713.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171116143714.png">
+<meta property="og:updated_time" content="2023-03-21T14:40:14.750Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQLite 数据库管理">
 <meta name="twitter:description" content="数据库管理一般用于控制数据库如何操作。要执行的许多数据库管理任务都可以通过 SQL 命令完成。SQLite 包括自己一些独特的管理功能，如将多个数据库附加“attach”到一个连接上，以及用来设置各种配置参数的数据库编译指示（pragma）。 一、附加数据库SQLite 允许你用 attach 命令将多个数据库“附加”到当前连接上。当你附加了一个数据库时，它的所有内容在当前数据库文件的全局范围内都">
-<meta name="twitter:image" content="http://image.sunzn.com/blog/20171116143701.png">
+<meta name="twitter:image" content="https://image.sunzn.com/blog/20171116143701.png">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -214,23 +214,23 @@ var _hmt = _hmt || [];
 
  <a id="more"></a>
 
-<p><img src="http://image.sunzn.com/blog/20171116143701.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171116143701.png" alt="此处输入图片的描述"></p>
 <p>这时，关闭数据库 TEST，将 TEST 数据库附加到 DATA 数据库，逻辑名赋值为 DATA2。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ATTACH 'C:\Users\sunzn\Desktop\TEST.db' AS DATA2;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20171116143702.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171116143702.png" alt="此处输入图片的描述"></p>
 <p>然后查询附加的 DATA2.FOODS 表，结果如下。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> DATA2.FOODS;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20171116143703.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171116143703.png" alt="此处输入图片的描述"></p>
 <p>如果要查询主数据库中的表，需要指定逻辑名 MAIN，因为当有数据库附加的时候，主数据库会自动赋名为 MAIN。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> MAIN.FOODS;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20171116143704.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171116143704.png" alt="此处输入图片的描述"></p>
 <p>临时表也可以这样引用：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> TEMP <span class="keyword">TABLE</span> FOO <span class="keyword">AS</span> <span class="keyword">SELECT</span> * <span class="keyword">FROM</span> TYPES <span class="keyword">LIMIT</span> <span class="number">3</span>;</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> TEMP.FOO;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20171116143705.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171116143705.png" alt="此处输入图片的描述"></p>
 <p>可以使用 detach databse 命令将数据库分离，定义如下：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">detach [database] database_name;</span><br></pre></td></tr></table></figure>
 
@@ -244,10 +244,10 @@ var _hmt = _hmt || [];
 <h3 id="连接缓冲区大小"><a href="#连接缓冲区大小" class="headerlink" title="连接缓冲区大小"></a>连接缓冲区大小</h3><p>缓冲区尺寸的编译指示控制一个连接可以在内存中使用多少个数据库页。要设置当前缓冲区大小的默认值，可以按照如下方式执行：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">pragma</span> cache_size;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20171116143706.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171116143706.png" alt="此处输入图片的描述"></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">pragma</span> cache_size=<span class="number">10000</span>;</span><br><span class="line"><span class="keyword">pragma</span> cache_size;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20171116143707.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171116143707.png" alt="此处输入图片的描述"></p>
 <p>使用 default_cache_size 编译指示可以为所有的连接设置永久缓冲区的大小。这种设置可以存储在数据库中，且只对之后的连接生效，当前连接不受影响。</p>
 <p>缓冲区的一种用途是当连接处于预留状态（有预留锁）时，存储那些特定的变化。正如之前“事务”中所描述的，如果连接填满了缓冲区，它将无法继续进一步修改，直到获得排它锁，这也就意味着它可能必须等待其他读操作来清理。</p>
 <p>如果程序对正在被许多连接使用的数据库执行很多的更新或删除操作，这将有助于增加缓冲区的大小。缓冲区越大，连接在获取排它锁之前能做的修改就越多。这样连接不仅在必须等待前可以做更多的工作，也减少了持有排它锁的时间，因为所有的工作在之前都做完了。这种情况下，持有排它锁的时间只需要足以将缓冲区的内容刷新到磁盘就可以。</p>
@@ -276,16 +276,16 @@ var _hmt = _hmt || [];
 <td>列出表中所有字段的相关信息</td>
 </tr>
 </tbody></table>
-<p><img src="http://image.sunzn.com/blog/20171116143708.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171116143708.png" alt="此处输入图片的描述"></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">INDEX</span> FOODS_NAME_TYPE_IDX <span class="keyword">ON</span> FOODS(<span class="keyword">NAME</span>,TYPE_ID);</span><br><span class="line"><span class="keyword">PRAGMA</span> INDEX_INFO(FOODS_NAME_TYPE_IDX);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20171116143709.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171116143709.png" alt="此处输入图片的描述"></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">PRAGMA</span> INDEX_LIST(FOODS);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20171116143710.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171116143710.png" alt="此处输入图片的描述"></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">PRAGMA</span> TABLE_INFO(FOODS);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20171116143711.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171116143711.png" alt="此处输入图片的描述"></p>
 <h3 id="写同步"><a href="#写同步" class="headerlink" title="写同步"></a>写同步</h3><p>通常情况下，SQLite 会在关键时刻将所有的变化提交到磁盘以确保事务的持久性。这与其他数据库中的检查点功能类似。但是，考虑到性能因素，可以关闭这一功能，可以通过编译指示 synchronous 来实现。该编译指示有三种设置：full、normal 和 off。各自定义如下：</p>
 <ul>
 <li><p>full：SQLite 在继续前，在关键点暂停以确保所有的数据都实际写入磁盘。这样确保了即使操作系统奔溃或电力中断，在重启后数据库依然是未损毁的。full 同步是非常安全的，但也较慢。</p>
@@ -302,17 +302,17 @@ var _hmt = _hmt || [];
 <h2 id="四、系统目录"><a href="#四、系统目录" class="headerlink" title="四、系统目录"></a>四、系统目录</h2><p>sqlite_master 表是系统表，它包含数据库中所有表、视图、索引和触发器的信息。例如，DATA 数据库的当前内容如下：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">TYPE</span>, <span class="keyword">NAME</span>, ROOTPAGE <span class="keyword">FROM</span> SQLITE_MASTER;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20171116143712.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171116143712.png" alt="此处输入图片的描述"></p>
 <p>type 字段说明对象的类型，name 字段就是对象的名称，rootpage 指对象的第一个 B-tree 页面在数据库文件中的位置。后面的字段只与表和索引有关。</p>
 <p>sqlite_master 表还包含称为 SQL 的字段，该字段用来存储创建对象的 DDL。例如：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">SQL</span> <span class="keyword">FROM</span> SQLITE_MASTER <span class="keyword">WHERE</span> <span class="keyword">NAME</span>=<span class="string">'FOODS_NAME_TYPE_IDX'</span>;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20171116143713.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171116143713.png" alt="此处输入图片的描述"></p>
 <h2 id="五、查看查询计划"><a href="#五、查看查询计划" class="headerlink" title="五、查看查询计划"></a>五、查看查询计划</h2><p>可以使用 explain query plan 命令查看 SQLite 执行查询的方法。explain query plan 命令列出 SQLite 执行查询时访问处理表与数据的具体步骤。</p>
 <p>使用 explain query plan 命令时，只需在该命令后面加上正常的查询文本。例如，下面的例子说明 explain query plan 给出的如何在 FOODS 表中执行查询。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">EXPLAIN</span> <span class="keyword">QUERY</span> PLAN <span class="keyword">SELECT</span> * <span class="keyword">FROM</span> FOODS <span class="keyword">WHERE</span> <span class="keyword">ID</span> = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20171116143714.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171116143714.png" alt="此处输入图片的描述"></p>
 <p>这意味着 SQLite 正在访问表 FOODS，使用主键（ID）执行访问（不是蛮力式的扫描表里的数据）。</p>
 <p>研究这些查询计划是理解 SQLite 如何访问数据并满足查询的关键。你可以看到哪些地方何时、如何使用索引，以及表连接时的顺序。<font color=" RoyalBlue">这对于解决那些运行时间很长的查询以及其他文件的作用是巨大的。</font></p>
 
@@ -570,15 +570,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -594,6 +594,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">File</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">组件化</a>
               </li>
              
@@ -606,10 +610,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">File</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
@@ -618,19 +618,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -642,11 +634,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ADB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Issue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -682,6 +686,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
@@ -690,19 +698,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">方案</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Version</a>
+                <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -719,6 +719,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Burpsuite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Version</a>
               </li>
              
               <li class="article-tag-list-item">

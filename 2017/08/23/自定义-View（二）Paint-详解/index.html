@@ -16,75 +16,75 @@
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="上一期已经介绍过， Canvas 的 drawXXX() 方法配合 Paint 的几个常用方法可以实现最常见的绘制需求；而如果你只会基本的绘制， Paint 的完全功能的掌握，能让你更进一步，做出一些更加细致、炫酷的效果。 对于没有深入研究过 Paint 的人，这期是一个对 Paint 的诠释；而对于尝试过研究 Paint 但仍然对其中一些 API 有疑惑的人，这期也可以帮你解惑。下面进入正题：">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165701.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165702.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165703.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165704.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165705.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165706.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165707.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165708.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165709.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165710.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165711.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165712.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165713.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165714.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165715.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165716.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165717.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165718.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165719.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165720.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165721.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165722.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165723.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165724.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165725.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165726.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165727.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165728.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165729.gif">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165730.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165731.gif">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165732.gif">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165733.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165734.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165735.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165736.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165737.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165738.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165739.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165740.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165741.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165742.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165743.jpg">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165744.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165745.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165746.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165747.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165748.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165749.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165750.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165751.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165752.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165753.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165754.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165755.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165756.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165757.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165758.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165759.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165760.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165761.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165762.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165763.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180116165764.png">
-<meta property="og:updated_time" content="2018-11-01T13:32:48.000Z">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165701.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165702.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165703.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165704.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165705.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165706.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165707.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165708.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165709.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165710.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165711.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165712.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165713.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165714.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165715.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165716.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165717.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165718.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165719.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165720.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165721.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165722.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165723.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165724.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165725.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165726.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165727.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165728.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165729.gif">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165730.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165731.gif">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165732.gif">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165733.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165734.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165735.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165736.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165737.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165738.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165739.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165740.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165741.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165742.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165743.jpg">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165744.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165745.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165746.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165747.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165748.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165749.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165750.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165751.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165752.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165753.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165754.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165755.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165756.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165757.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165758.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165759.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165760.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165761.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165762.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165763.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180116165764.png">
+<meta property="og:updated_time" content="2023-03-21T14:56:09.602Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自定义 View（二）Paint 详解">
 <meta name="twitter:description" content="上一期已经介绍过， Canvas 的 drawXXX() 方法配合 Paint 的几个常用方法可以实现最常见的绘制需求；而如果你只会基本的绘制， Paint 的完全功能的掌握，能让你更进一步，做出一些更加细致、炫酷的效果。 对于没有深入研究过 Paint 的人，这期是一个对 Paint 的诠释；而对于尝试过研究 Paint 但仍然对其中一些 API 有疑惑的人，这期也可以帮你解惑。下面进入正题：">
-<meta name="twitter:image" content="http://image.sunzn.com/blog/20180116165701.png">
+<meta name="twitter:image" content="https://image.sunzn.com/blog/20180116165701.png">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -269,7 +269,7 @@ var _hmt = _hmt || [];
 <h3 id="1-1-1-直接设置颜色"><a href="#1-1-1-直接设置颜色" class="headerlink" title="1.1.1 直接设置颜色"></a>1.1.1 直接设置颜色</h3><h4 id="（1）setColor-int-color"><a href="#（1）setColor-int-color" class="headerlink" title="（1）setColor(int color)"></a>（1）setColor(int color)</h4><p>方法名和使用方法都非常简单直接，而且这个方法在之前已经介绍过了，不再多说。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">paint.setColor(Color.parseColor(<span class="string">"#FF8C00"</span>));</span><br><span class="line">canvas.drawRect(<span class="number">30</span>, <span class="number">30</span>, <span class="number">230</span>, <span class="number">180</span>, paint);</span><br><span class="line"></span><br><span class="line">paint.setColor(Color.parseColor(<span class="string">"#FF4500"</span>));</span><br><span class="line">canvas.drawLine(<span class="number">300</span>, <span class="number">30</span>, <span class="number">450</span>, <span class="number">180</span>, paint);</span><br><span class="line"></span><br><span class="line">paint.setColor(Color.parseColor(<span class="string">"#228B22"</span>));</span><br><span class="line">canvas.drawText(<span class="string">"sunzn"</span>, <span class="number">500</span>, <span class="number">130</span>, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20180116165701.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165701.png" alt="此处输入图片的描述"></p>
 <h4 id="（2）setARGB-int-a-int-r-int-g-int-b"><a href="#（2）setARGB-int-a-int-r-int-g-int-b" class="headerlink" title="（2）setARGB(int a, int r, int g, int b)"></a>（2）setARGB(int a, int r, int g, int b)</h4><p>其实和 setColor(color) 都是一样的，只是它的参数用的是更直接的三原色与透明度的值。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">paint.setARGB(<span class="number">255</span>,<span class="number">255</span>,<span class="number">140</span>,<span class="number">0</span>);</span><br><span class="line">canvas.drawRect(<span class="number">30</span>, <span class="number">30</span>, <span class="number">230</span>, <span class="number">180</span>, paint);</span><br><span class="line"></span><br><span class="line">paint.setARGB(<span class="number">255</span>,<span class="number">255</span>,<span class="number">69</span>,<span class="number">0</span>);</span><br><span class="line">canvas.drawLine(<span class="number">300</span>, <span class="number">30</span>, <span class="number">450</span>, <span class="number">180</span>, paint);</span><br><span class="line"></span><br><span class="line">paint.setARGB(<span class="number">255</span>,<span class="number">24</span>,<span class="number">139</span>,<span class="number">34</span>);</span><br><span class="line">canvas.drawText(<span class="string">"sunzn"</span>, <span class="number">500</span>, <span class="number">130</span>, paint);</span><br></pre></td></tr></table></figure>
 
@@ -278,7 +278,7 @@ var _hmt = _hmt || [];
 <h4 id="（1）LinearGradient-线性渐变"><a href="#（1）LinearGradient-线性渐变" class="headerlink" title="（1）LinearGradient 线性渐变"></a>（1）LinearGradient 线性渐变</h4><p>设置两个点和两种颜色，以这两个点作为端点，使用两种颜色的渐变来绘制颜色。就像这样：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> colorOne = Color.parseColor(<span class="string">"#FF0000"</span>);</span><br><span class="line"><span class="keyword">int</span> colorTwo = Color.parseColor(<span class="string">"#0000FF"</span>);</span><br><span class="line">Shader shader = <span class="keyword">new</span> LinearGradient(<span class="number">440</span>, <span class="number">160</span>, <span class="number">840</span>, <span class="number">560</span>, colorOne, colorTwo, Shader.TileMode.CLAMP);</span><br><span class="line">paint.setShader(shader);</span><br><span class="line">canvas.drawCircle(<span class="number">640</span>, <span class="number">360</span>, <span class="number">200</span>, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20180116165702.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165702.png" alt="此处输入图片的描述"></p>
 <blockquote>
 <p>设置了 Shader 之后，可用绘制出了渐变颜色的图形和文字。注意：在设置了 Shader 的情况下，Paint.setColor/ARGB() 所设置的颜色就不再起作用。</p>
 </blockquote>
@@ -287,66 +287,66 @@ var _hmt = _hmt || [];
 <p>TileMode 一共有 3 个值可选： CLAMP，MIRROR 和 REPEAT。CLAMP 是夹层模式，会在端点之外延续端点处的颜色；MIRROR 是镜像模式；REPEAT 是重复模式。具体的看一下例子就明白。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// CLAMP 夹层模式</span></span><br><span class="line"><span class="keyword">int</span> colorOne = Color.parseColor(<span class="string">"#FF0000"</span>);</span><br><span class="line"><span class="keyword">int</span> colorTwo = Color.parseColor(<span class="string">"#0000FF"</span>);</span><br><span class="line">Shader shader = <span class="keyword">new</span> LinearGradient(<span class="number">540</span>, <span class="number">260</span>, <span class="number">740</span>, <span class="number">460</span>, colorOne, colorTwo, Shader.TileMode.CLAMP);</span><br><span class="line">paint.setShader(shader);</span><br><span class="line">canvas.drawRect(<span class="number">0</span>, <span class="number">0</span>, <span class="number">1280</span>, <span class="number">720</span>, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20180116165703.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165703.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MIRROR 镜像模式</span></span><br><span class="line"><span class="keyword">int</span> colorOne = Color.parseColor(<span class="string">"#FF0000"</span>);</span><br><span class="line"><span class="keyword">int</span> colorTwo = Color.parseColor(<span class="string">"#0000FF"</span>);</span><br><span class="line">Shader shader = <span class="keyword">new</span> LinearGradient(<span class="number">540</span>, <span class="number">260</span>, <span class="number">740</span>, <span class="number">460</span>, colorOne, colorTwo, Shader.TileMode.MIRROR);</span><br><span class="line">paint.setShader(shader);</span><br><span class="line">canvas.drawRect(<span class="number">0</span>, <span class="number">0</span>, <span class="number">1280</span>, <span class="number">720</span>, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20180116165704.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165704.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// REPEAT 重复模式</span></span><br><span class="line"><span class="keyword">int</span> colorOne = Color.parseColor(<span class="string">"#FF0000"</span>);</span><br><span class="line"><span class="keyword">int</span> colorTwo = Color.parseColor(<span class="string">"#0000FF"</span>);</span><br><span class="line">Shader shader = <span class="keyword">new</span> LinearGradient(<span class="number">540</span>, <span class="number">260</span>, <span class="number">740</span>, <span class="number">460</span>, colorOne, colorTwo, Shader.TileMode.REPEAT);</span><br><span class="line">paint.setShader(shader);</span><br><span class="line">canvas.drawRect(<span class="number">0</span>, <span class="number">0</span>, <span class="number">1280</span>, <span class="number">720</span>, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20180116165705.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165705.png" alt="此处输入图片的描述"></p>
 <h4 id="（2）RadialGradient-辐射渐变"><a href="#（2）RadialGradient-辐射渐变" class="headerlink" title="（2）RadialGradient 辐射渐变"></a>（2）RadialGradient 辐射渐变</h4><p>辐射渐变很好理解，就是从中心向周围辐射状的渐变。大概像这样：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> colorOne = Color.parseColor(<span class="string">"#FF0000"</span>);</span><br><span class="line"><span class="keyword">int</span> colorTwo = Color.parseColor(<span class="string">"#0000FF"</span>);</span><br><span class="line">Shader shader = <span class="keyword">new</span> RadialGradient(<span class="number">640</span>, <span class="number">360</span>, <span class="number">200</span>, colorOne, colorTwo, Shader.TileMode.CLAMP);</span><br><span class="line">paint.setShader(shader);</span><br><span class="line">canvas.drawCircle(<span class="number">640</span>, <span class="number">360</span>, <span class="number">200</span>, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20180116165706.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165706.png" alt="此处输入图片的描述"></p>
 <table><tr><td colspan="2" bgcolor="#F8F8F8"><b>构造方法</b></td></tr><tr><td colspan="2">RadialGradient(float centerX, float centerY, float radius, int centerColor, int edgeColor, Shader.TileMode tileMode)<br><br>创建一个着色器，以给定中心和半径绘制径向渐变。</td></tr><tr><td colspan="2" bgcolor="#F8F8F8"><b>参数</b></td></tr><tr><td>centerX</td><td>float：半径中心的 x 坐标。</td></tr><tr><td>centerY</td><td>float：半径中心的 y 坐标。</td></tr><tr><td>radius</td><td>float：必须是正数，此渐变圆的半径。</td></tr><tr><td>centerColor</td><td>int：圆的中心的颜色。</td></tr><tr><td>edgeColor</td><td>int：圆的边缘的颜色。</td></tr><tr><td>tileMode</td><td>Shader.TileMode：着色器平铺模式，该值不能为空。</td></tr></table>
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// CLAMP 夹层模式</span></span><br><span class="line"><span class="keyword">int</span> colorOne = Color.parseColor(<span class="string">"#FF0000"</span>);</span><br><span class="line"><span class="keyword">int</span> colorTwo = Color.parseColor(<span class="string">"#0000FF"</span>);</span><br><span class="line">Shader shader = <span class="keyword">new</span> RadialGradient(<span class="number">640</span>, <span class="number">360</span>, <span class="number">100</span>, colorOne, colorTwo, Shader.TileMode.CLAMP);</span><br><span class="line">paint.setShader(shader);</span><br><span class="line">canvas.drawCircle(<span class="number">640</span>, <span class="number">360</span>, <span class="number">300</span>, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20180116165707.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165707.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MIRROR 镜像模式</span></span><br><span class="line"><span class="keyword">int</span> colorOne = Color.parseColor(<span class="string">"#FF0000"</span>);</span><br><span class="line"><span class="keyword">int</span> colorTwo = Color.parseColor(<span class="string">"#0000FF"</span>);</span><br><span class="line">Shader shader = <span class="keyword">new</span> RadialGradient(<span class="number">640</span>, <span class="number">360</span>, <span class="number">100</span>, colorOne, colorTwo, Shader.TileMode.MIRROR);</span><br><span class="line">paint.setShader(shader);</span><br><span class="line">canvas.drawCircle(<span class="number">640</span>, <span class="number">360</span>, <span class="number">300</span>, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20180116165708.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165708.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// REPEAT 重复模式</span></span><br><span class="line"><span class="keyword">int</span> colorOne = Color.parseColor(<span class="string">"#FF0000"</span>);</span><br><span class="line"><span class="keyword">int</span> colorTwo = Color.parseColor(<span class="string">"#0000FF"</span>);</span><br><span class="line">Shader shader = <span class="keyword">new</span> RadialGradient(<span class="number">640</span>, <span class="number">360</span>, <span class="number">100</span>, colorOne, colorTwo, Shader.TileMode.REPEAT);</span><br><span class="line">paint.setShader(shader);</span><br><span class="line">canvas.drawCircle(<span class="number">640</span>, <span class="number">360</span>, <span class="number">300</span>, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20180116165709.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165709.png" alt="此处输入图片的描述"></p>
 <h4 id="（3）SweepGradient-扫描渐变"><a href="#（3）SweepGradient-扫描渐变" class="headerlink" title="（3）SweepGradient 扫描渐变"></a>（3）SweepGradient 扫描渐变</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> colorOne = Color.parseColor(<span class="string">"#FF0000"</span>);</span><br><span class="line"><span class="keyword">int</span> colorTwo = Color.parseColor(<span class="string">"#0000FF"</span>);</span><br><span class="line">Shader shader = <span class="keyword">new</span> SweepGradient(<span class="number">640</span>, <span class="number">360</span>, colorOne, colorTwo);</span><br><span class="line">paint.setShader(shader);</span><br><span class="line">canvas.drawCircle(<span class="number">640</span>, <span class="number">360</span>, <span class="number">300</span>, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20180116165710.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165710.png" alt="此处输入图片的描述"></p>
 <table><tr><td colspan="2" bgcolor="#F8F8F8"><b>构造方法</b></td></tr><tr><td colspan="2">SweepGradient(float cx, float cy, int color0, int color1)<br><br>围绕中心点绘制扫描渐变的着色器。</td></tr><tr><td colspan="2" bgcolor="#F8F8F8"><b>参数</b></td></tr><tr><td>cx</td><td>float：中心的 x 坐标。</td></tr><tr><td>cy</td><td>float：中心的 y 坐标。</td></tr><tr><td>color0</td><td>int：扫描渐变起始颜色。</td></tr><tr><td>color1</td><td>int：扫描渐变结束颜色。</td></tr></table>
 
 <h4 id="（4）BitmapShader-位图着色器"><a href="#（4）BitmapShader-位图着色器" class="headerlink" title="（4）BitmapShader 位图着色器"></a>（4）BitmapShader 位图着色器</h4><p>用 Bitmap 来着色，其实也就是用 Bitmap 的像素来作为图形或文字的填充。大概像这样：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.avatar);</span><br><span class="line">Shader shader = <span class="keyword">new</span> BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);</span><br><span class="line"><span class="keyword">int</span> min = Math.min(bitmap.getHeight(), bitmap.getWidth());</span><br><span class="line">paint.setShader(shader);</span><br><span class="line">canvas.drawCircle(min / <span class="number">2</span>, min / <span class="number">2</span>, min / <span class="number">2</span>, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20180116165711.png" alt="此处输入图片的描述"></p>
-<p><img src="http://image.sunzn.com/blog/20180116165712.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165711.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165712.png" alt="此处输入图片的描述"></p>
 <table><tr><td colspan="2" bgcolor="#F8F8F8"><b>构造方法</b></td></tr><tr><td colspan="2">BitmapShader(Bitmap bitmap, Shader.TileMode tileX, Shader.TileMode tileY)<br><br>创建一个位图着色器。</td></tr><tr><td colspan="2" bgcolor="#F8F8F8"><b>参数</b></td></tr><tr><td>bitmap</td><td>Bitmap：在着色器内使用的位图，值不能为空。</td></tr><tr><td>tileX</td><td>Shader.TileMode：x 轴方向绘制位图的平铺模式，值不能为空。</td></tr><tr><td>tileY</td><td>Shader.TileMode：y 轴方向绘制位图的平铺模式，值不能为空。</td></tr></table>
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// CLAMP 夹层模式</span></span><br><span class="line">Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.avatar);</span><br><span class="line">Shader shader = <span class="keyword">new</span> BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);</span><br><span class="line">paint.setShader(shader);</span><br><span class="line">canvas.drawRect(<span class="number">0</span>, <span class="number">0</span>, <span class="number">1280</span>, <span class="number">720</span>, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20180116165713.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165713.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MIRROR 镜像模式</span></span><br><span class="line">Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.avatar);</span><br><span class="line">Shader shader = <span class="keyword">new</span> BitmapShader(bitmap, Shader.TileMode.MIRROR, Shader.TileMode.MIRROR);</span><br><span class="line">paint.setShader(shader);</span><br><span class="line">canvas.drawRect(<span class="number">0</span>, <span class="number">0</span>, <span class="number">1280</span>, <span class="number">720</span>, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20180116165714.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165714.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// REPEAT 重复模式</span></span><br><span class="line">Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.avatar);</span><br><span class="line">Shader shader = <span class="keyword">new</span> BitmapShader(bitmap, Shader.TileMode.REPEAT, Shader.TileMode.REPEAT);</span><br><span class="line">paint.setShader(shader);</span><br><span class="line">canvas.drawRect(<span class="number">0</span>, <span class="number">0</span>, <span class="number">1280</span>, <span class="number">720</span>, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20180116165715.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165715.png" alt="此处输入图片的描述"></p>
 <h4 id="（4）ComposeShader-混合着色器"><a href="#（4）ComposeShader-混合着色器" class="headerlink" title="（4）ComposeShader 混合着色器"></a>（4）ComposeShader 混合着色器</h4><p>所谓混合，就是把两个 Shader 一起使用。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 关闭硬件加速</span></span><br><span class="line">setLayerType(LAYER_TYPE_SOFTWARE, <span class="keyword">null</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第一个 Shader：头像的 Bitmap</span></span><br><span class="line">Bitmap bitmap1 = BitmapFactory.decodeResource(getResources(), R.drawable.avatar);</span><br><span class="line">Shader shader1 = <span class="keyword">new</span> BitmapShader(bitmap1, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第二个 Shader：按钮的 Bitmap</span></span><br><span class="line">Bitmap bitmap2 = BitmapFactory.decodeResource(getResources(), R.drawable.google);</span><br><span class="line">Shader shader2 = <span class="keyword">new</span> BitmapShader(bitmap2, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);</span><br><span class="line"></span><br><span class="line"><span class="comment">// ComposeShader：结合两个 Shader</span></span><br><span class="line">Shader shader = <span class="keyword">new</span> ComposeShader(shader1, shader2, PorterDuff.Mode.SRC_OVER);</span><br><span class="line">paint.setShader(shader);</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> min = Math.min(bitmap1.getHeight(), bitmap1.getWidth());</span><br><span class="line">canvas.drawCircle(min / <span class="number">2</span>, min / <span class="number">2</span>, min / <span class="number">2</span>, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20180116165716.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165716.png" alt="此处输入图片的描述"></p>
 <blockquote>
 <p>注意：上面这段代码中我使用了两个 BitmapShader 来作为 ComposeShader() 的参数，而 ComposeShader() 在硬件加速下是不支持两个相同类型的 Shader 的，所以这里也需要关闭硬件加速才能看到效果。</p>
 </blockquote>
-<p><img src="http://image.sunzn.com/blog/20180116165717.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165717.png" alt="此处输入图片的描述"></p>
 <table><tr><td colspan="2" bgcolor="#F8F8F8"><b>构造方法</b></td></tr><tr><td colspan="2">ComposeShader(Shader shaderA, Shader shaderB, PorterDuff.Mode mode)<br><br>使用着色器A，B和组合PorterDuff模式，创建一个新的组合着色器。</td></tr><tr><td colspan="2" bgcolor="#F8F8F8"><b>参数</b></td></tr><tr><td>shaderA</td><td>Shader：来自该着色器的颜色被模式视为“dst”，值不能为空。</td></tr><tr><td>shaderB</td><td>Shader：来自该着色器的颜色被模式视为“src”，值不能为空。</td></tr><tr><td>mode</td><td>PorterDuff.Mode：两个着色器的颜色结合模式 PorterDuff，值不能为空。</td></tr></table>
 
 <blockquote>
-<p><strong>PorterDuff.Mode</strong><br><br>PorterDuff.Mode 是用来指定两个图像共同绘制时的颜色策略的。它是一个 enum，不同的 Mode 可以指定不同的策略。「颜色策略」的意思，就是说把源图像绘制到目标图像处时应该怎样确定二者结合后的颜色，而对于 ComposeShader(shaderA, shaderB, mode) 这个具体的方法，就是指应该怎样把 shaderB 绘制在 shaderA 上来得到一个结合后的 Shader。<br><br>最符合直觉的结合策略，就是我在上面这个例子中使用的 Mode：SRC_OVER。它的算法非常直观：就像上面图中的那样，把源图像直接铺在目标图像上。不过，除了这种，其实还有一些其他的结合方式。例如如果我把上面例子中的参数 mode 改为 PorterDuff.Mode.DST_OUT，就会变成挖空效果：<br><br><img src="http://image.sunzn.com/blog/20180116165718.png" alt="此处输入图片的描述"><br><br>而如果再把 mode 改为 PorterDuff.Mode.DST_IN，就会变成蒙版抠图效果：<br><br><img src="http://image.sunzn.com/blog/20180116165719.png" alt="此处输入图片的描述"><br><br>具体来说，PorterDuff.Mode 一共有 17 个，可以分为两类：</p>
+<p><strong>PorterDuff.Mode</strong><br><br>PorterDuff.Mode 是用来指定两个图像共同绘制时的颜色策略的。它是一个 enum，不同的 Mode 可以指定不同的策略。「颜色策略」的意思，就是说把源图像绘制到目标图像处时应该怎样确定二者结合后的颜色，而对于 ComposeShader(shaderA, shaderB, mode) 这个具体的方法，就是指应该怎样把 shaderB 绘制在 shaderA 上来得到一个结合后的 Shader。<br><br>最符合直觉的结合策略，就是我在上面这个例子中使用的 Mode：SRC_OVER。它的算法非常直观：就像上面图中的那样，把源图像直接铺在目标图像上。不过，除了这种，其实还有一些其他的结合方式。例如如果我把上面例子中的参数 mode 改为 PorterDuff.Mode.DST_OUT，就会变成挖空效果：<br><br><img src="https://image.sunzn.com/blog/20180116165718.png" alt="此处输入图片的描述"><br><br>而如果再把 mode 改为 PorterDuff.Mode.DST_IN，就会变成蒙版抠图效果：<br><br><img src="https://image.sunzn.com/blog/20180116165719.png" alt="此处输入图片的描述"><br><br>具体来说，PorterDuff.Mode 一共有 17 个，可以分为两类：</p>
 <p><strong>1、Alpha 合成 (Alpha Compositing)</strong><br><strong>2、混合 (Blending)</strong></p>
-<p>第一类，Alpha 合成，其实就是「PorterDuff」这个词所指代的算法。「PorterDuff」并不是一个具有实际意义的词组，而是两个人的名字（准确讲是姓）。这两个人当年共同发表了一篇论文，描述了 12 种将两个图像共同绘制的操作（即算法）。而这篇论文所论述的操作，都是关于 Alpha 通道（也就是我们通俗理解的「透明度」）的计算的，后来人们就把这类计算称为 Alpha 合成 ( Alpha Compositing ) 。详细内容参考 <a href="https://developer.android.com/reference/android/graphics/PorterDuff.Mode.html" target="_blank" rel="noopener">Google 文档 PorterDuff.Mode</a>。<br><br><strong>源图像和目标图像</strong><br><br><img src="http://image.sunzn.com/blog/20180116165720.png" alt="此处输入图片的描述"><br><br><strong>Alpha 合成模式</strong><br><br><img src="http://image.sunzn.com/blog/20180116165721.png" alt="此处输入图片的描述"><br><br>第二类，混合，也就是 Photoshop 等制图软件里都有的那些混合模式（multiply  darken lighten 之类的）。这一类操作的是颜色本身而不是 Alpha 通道，并不属于 Alpha 合成，所以和 Porter 与 Duff 这两个人也没什么关系，不过为了使用的方便，它们同样也被 Google 加进了 PorterDuff.Mode 里。<br><br><img src="http://image.sunzn.com/blog/20180116165722.png" alt="此处输入图片的描述"><br><br><strong>结论</strong><br><br>从效果图可以看出，Alpha 合成类的效果都比较直观，基本上可以使用简单的口头表达来描述它们的算法（起码对于不透明的源图像和目标图像来说是可以的），例如 SRC_OVER 表示「二者都绘制，但要源图像放在目标图像的上面」，DST_IN 表示「只绘制目标图像，并且只绘制它和源图像重合的区域」。<br><br>而混合类的效果就相对抽象一些，只从效果图不太能看得出它们的着色算法，更看不出来它们有什么用。</p>
+<p>第一类，Alpha 合成，其实就是「PorterDuff」这个词所指代的算法。「PorterDuff」并不是一个具有实际意义的词组，而是两个人的名字（准确讲是姓）。这两个人当年共同发表了一篇论文，描述了 12 种将两个图像共同绘制的操作（即算法）。而这篇论文所论述的操作，都是关于 Alpha 通道（也就是我们通俗理解的「透明度」）的计算的，后来人们就把这类计算称为 Alpha 合成 ( Alpha Compositing ) 。详细内容参考 <a href="https://developer.android.com/reference/android/graphics/PorterDuff.Mode.html" target="_blank" rel="noopener">Google 文档 PorterDuff.Mode</a>。<br><br><strong>源图像和目标图像</strong><br><br><img src="https://image.sunzn.com/blog/20180116165720.png" alt="此处输入图片的描述"><br><br><strong>Alpha 合成模式</strong><br><br><img src="https://image.sunzn.com/blog/20180116165721.png" alt="此处输入图片的描述"><br><br>第二类，混合，也就是 Photoshop 等制图软件里都有的那些混合模式（multiply  darken lighten 之类的）。这一类操作的是颜色本身而不是 Alpha 通道，并不属于 Alpha 合成，所以和 Porter 与 Duff 这两个人也没什么关系，不过为了使用的方便，它们同样也被 Google 加进了 PorterDuff.Mode 里。<br><br><img src="https://image.sunzn.com/blog/20180116165722.png" alt="此处输入图片的描述"><br><br><strong>结论</strong><br><br>从效果图可以看出，Alpha 合成类的效果都比较直观，基本上可以使用简单的口头表达来描述它们的算法（起码对于不透明的源图像和目标图像来说是可以的），例如 SRC_OVER 表示「二者都绘制，但要源图像放在目标图像的上面」，DST_IN 表示「只绘制目标图像，并且只绘制它和源图像重合的区域」。<br><br>而混合类的效果就相对抽象一些，只从效果图不太能看得出它们的着色算法，更看不出来它们有什么用。</p>
 </blockquote>
 <h2 id="1-2-ColorFilter"><a href="#1-2-ColorFilter" class="headerlink" title="1.2 ColorFilter"></a>1.2 ColorFilter</h2><p>ColorFilter 这个类，它的名字已经足够解释它的作用：为绘制设置颜色过滤。颜色过滤的意思，就是为绘制的内容设置一个统一的过滤策略，然后 Canvas.drawXXX() 方法会对每个像素都进行过滤后再绘制出来。举几个现实中比较常见的颜色过滤的例子：有色光照射、有色玻璃透视、胶卷。</p>
-<p><img src="http://image.sunzn.com/blog/20180116165723.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165723.png" alt="此处输入图片的描述"></p>
 <p>在 Paint 里设置 ColorFilter ，使用的是 Paint.setColorFilter(ColorFilter filter) 方法。 ColorFilter 并不直接使用，而是使用它的子类。它共有三个子类：<a href="https://developer.android.com/reference/android/graphics/LightingColorFilter.html" target="_blank" rel="noopener">LightingColorFilter</a>、<a href="https://developer.android.com/reference/android/graphics/PorterDuffColorFilter.html" target="_blank" rel="noopener">PorterDuffColorFilter</a> 和  <a href="https://developer.android.com/reference/android/graphics/ColorMatrixColorFilter.html" target="_blank" rel="noopener">ColorMatrixColorFilter</a>。</p>
 <h3 id="1-2-1-LightingColorFilter"><a href="#1-2-1-LightingColorFilter" class="headerlink" title="1.2.1 LightingColorFilter"></a>1.2.1 LightingColorFilter</h3><p>可用于模拟简单照明效果的滤色器。 LightingColorFilter 的构造方法是 LightingColorFilter(int mul, int add) ，参数里的 mul 和 add 都是和颜色值格式相同的 int 值，其中 mul（称为colorMultiply）用来和目标像素相乘，add（称为colorAdd）用来和目标像素相加。对图片的 RGB 值分别 *mul+add，然后对 255（0xff）求余，最后得到新的 RGB 值，整个过程中 alpha 不参与改变，由此得出 R’G’B’ 颜色：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">R&apos; = R * colorMultiply.R + colorAdd.R</span><br><span class="line">G&apos; = G * colorMultiply.G + colorAdd.G</span><br><span class="line">B&apos; = B * colorMultiply.B + colorAdd.B</span><br></pre></td></tr></table></figure>
@@ -359,13 +359,13 @@ var _hmt = _hmt || [];
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.avatar);</span><br><span class="line">canvas.drawBitmap(bitmap, <span class="number">205</span>, <span class="number">245</span>, paint);</span><br><span class="line"></span><br><span class="line">ColorFilter lightingColorFilter = <span class="keyword">new</span> LightingColorFilter(<span class="number">0x00ffff</span>, <span class="number">0x000000</span>);</span><br><span class="line">paint.setColorFilter(lightingColorFilter);</span><br><span class="line">canvas.drawBitmap(bitmap, <span class="number">845</span>, <span class="number">245</span>, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20180116165724.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165724.png" alt="此处输入图片的描述"></p>
 <p>或者，我们增大红色和蓝色的值，让它出现紫色，就可以把它的 add 改为 0x550055（红色：0x55，蓝色：0x55），那么它的计算过程就是：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">R&apos; = R * 0xff / 0xff + 0x55 = R + 0x55 // 红色被加强 </span><br><span class="line">G&apos; = G * 0xff / 0xff + 0x0 = G </span><br><span class="line">B&apos; = B * 0xff / 0xff + 0x55 = B + 0x55 // 蓝色被加强</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.avatar);</span><br><span class="line">canvas.drawBitmap(bitmap, <span class="number">205</span>, <span class="number">245</span>, paint);</span><br><span class="line"></span><br><span class="line">ColorFilter lightingColorFilter = <span class="keyword">new</span> LightingColorFilter(<span class="number">0xffffff</span>, <span class="number">0x550055</span>);</span><br><span class="line">paint.setColorFilter(lightingColorFilter);</span><br><span class="line">canvas.drawBitmap(bitmap, <span class="number">845</span>, <span class="number">245</span>, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20180116165725.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165725.png" alt="此处输入图片的描述"></p>
 <h3 id="1-2-2-PorterDuffColorFilter"><a href="#1-2-2-PorterDuffColorFilter" class="headerlink" title="1.2.2 PorterDuffColorFilter"></a>1.2.2 PorterDuffColorFilter</h3><p>这个 PorterDuffColorFilter 的作用是使用一个指定的颜色和一种指定的 PorterDuff.Mode 来与绘制对象进行合成。它的构造方法是 PorterDuffColorFilter(int color, PorterDuff.Mode mode) 其中的 color 参数是指定的颜色，mode 参数是指定的 Mode。同样也是 PorterDuff.Mode，不过和 ComposeShader 不同的是，PorterDuffColorFilter 作为一个 ColorFilter，只能指定一种颜色作为源，而不是一个 Bitmap。</p>
 <p>PorterDuff.Mode 前面已经讲过了，而 PorterDuffColorFilter 本身的使用是非常简单的，所以不再展开讲。</p>
 <h3 id="1-2-3-ColorMatrixColorFilter"><a href="#1-2-3-ColorMatrixColorFilter" class="headerlink" title="1.2.3 ColorMatrixColorFilter"></a>1.2.3 ColorMatrixColorFilter</h3><p>要明白 ColorMatrixColorFilter 你得先了解什么是色彩矩阵。在 Android 中图片是以 RGBA 像素点的形式加载到内存中的，修改这些像素信息需要一个叫做 ColorMatrix 类的支持，其定义了一个 4x5 的 float[] 类型的矩阵：</p>
@@ -389,20 +389,20 @@ var _hmt = _hmt || [];
 <p><strong>现在试试类似反相的效果：</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.avatar);</span><br><span class="line">canvas.drawBitmap(bitmap, <span class="number">205</span>, <span class="number">245</span>, paint);</span><br><span class="line"></span><br><span class="line">paint.setColorFilter(<span class="keyword">new</span> ColorMatrixColorFilter(<span class="keyword">new</span> ColorMatrix(<span class="keyword">new</span> <span class="keyword">float</span>[]&#123;</span><br><span class="line">        -<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>,</span><br><span class="line">        <span class="number">0</span>, -<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>,</span><br><span class="line">        <span class="number">0</span>, <span class="number">0</span>, -<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>,</span><br><span class="line">        <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>,</span><br><span class="line">&#125;)));</span><br><span class="line">canvas.drawBitmap(bitmap, <span class="number">845</span>, <span class="number">245</span>, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20180116165726.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165726.png" alt="此处输入图片的描述"></p>
 <p><strong>继续试试增大红色偏移量的效果：</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.avatar);</span><br><span class="line">canvas.drawBitmap(bitmap, <span class="number">205</span>, <span class="number">245</span>, paint);</span><br><span class="line"></span><br><span class="line">paint.setColorFilter(<span class="keyword">new</span> ColorMatrixColorFilter(<span class="keyword">new</span> ColorMatrix(<span class="keyword">new</span> <span class="keyword">float</span>[]&#123;</span><br><span class="line">        <span class="number">2</span>, <span class="number">0.5f</span>, <span class="number">0.5f</span>, <span class="number">0.5f</span>, <span class="number">20</span>,</span><br><span class="line">        <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>,</span><br><span class="line">        <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>,</span><br><span class="line">        <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span></span><br><span class="line">&#125;)));</span><br><span class="line">canvas.drawBitmap(bitmap, <span class="number">845</span>, <span class="number">245</span>, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20180116165727.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165727.png" alt="此处输入图片的描述"></p>
 <p>ColorMatrix 有一些自带的方法可以做简单的转换，例如可以使用 setSaturation(float sat) 来设置饱和度；另外你也可以自己去设置它的每一个元素来对转换效果做精细调整。如果你有需求，可以试一下程大治同学做的这个库：<a href="https://github.com/chengdazhi/StyleImageView" target="_blank" rel="noopener">StyleImageView</a></p>
 <p>以上，就是 Paint 对颜色的第二层处理：通过 setColorFilter(colorFilter) 来加工颜色。</p>
 <p>除了基本颜色的设置（ setColor/ARGB(), setShader() ）以及基于原始颜色的过滤（ setColorFilter() ）之外，Paint 最后一层处理颜色的方法是 setXfermode(Xfermode xfermode) ，它处理的是「当颜色遇上 View」的问题。</p>
 <h2 id="1-3-Xfermode"><a href="#1-3-Xfermode" class="headerlink" title="1.3 Xfermode"></a>1.3 Xfermode</h2><p>“Xfermode” 其实就是 “Transfer mode”，用 “X” 来代替 “Trans” 是一些美国人喜欢用的简写方式。严谨地讲，Xfermode 指的是你要绘制的内容和 Canvas 的目标位置的内容应该怎样结合计算出最终的颜色。但通俗地说，其实就是要你以绘制的内容作为源图像，以 View 中已有的内容作为目标图像，选取一个  PorterDuff.Mode 作为绘制内容的颜色处理方案。就像这样：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Bitmap dst = BitmapFactory.decodeResource(getResources(), R.drawable.dst_square);</span><br><span class="line">Bitmap src = BitmapFactory.decodeResource(getResources(), R.drawable.src_circle);</span><br><span class="line"></span><br><span class="line">canvas.drawBitmap(dst, <span class="number">0</span>, <span class="number">0</span>, paint);</span><br><span class="line"></span><br><span class="line">PorterDuff.Mode mode = PorterDuff.Mode.DST_IN;</span><br><span class="line">paint.setXfermode(<span class="keyword">new</span> PorterDuffXfermode(mode));</span><br><span class="line">canvas.drawBitmap(src, <span class="number">0</span>, <span class="number">0</span>, paint);</span><br><span class="line">paint.setXfermode(<span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20180116165728.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165728.png" alt="此处输入图片的描述"></p>
 <p>结合上面的绘制流程图和下面的动态演示，做个简单的描述。1、先将蓝色正方形作为目标图像（DST），绘制到 View，这时 View 中存在的内容为蓝色正方形。2、选取一个 PorterDuff.Mode（DST_IN）作为绘制内容的颜色处理方案。3、将粉色圆形作为源图像（SRC）进行绘制，清除 Xfermode。</p>
-<p><img src="http://image.sunzn.com/blog/20180116165729.gif" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165729.gif" alt="此处输入图片的描述"></p>
 <p>PorterDuff.Mode 在 Paint 一共有三处 API ，它们的工作原理都一样，只是用途不同：</p>
 <table>
 <thead>
@@ -429,13 +429,13 @@ var _hmt = _hmt || [];
 <p>其实在更早的 Android 版本中，Xfermode 还有别的子类，但别的子类现在已经 deprecated 了，如今只剩下了 PorterDuffXfermode。所以目前它的使用看起来好像有点啰嗦，但其实是由于历史遗留问题。</p>
 </blockquote>
 <h3 id="1-3-1-Xfermode-注意事项"><a href="#1-3-1-Xfermode-注意事项" class="headerlink" title="1.3.1 Xfermode 注意事项"></a>1.3.1 Xfermode 注意事项</h3><h4 id="（1）使用离屏缓冲（Off-screen-Buffer）"><a href="#（1）使用离屏缓冲（Off-screen-Buffer）" class="headerlink" title="（1）使用离屏缓冲（Off-screen Buffer）"></a>（1）使用离屏缓冲（Off-screen Buffer）</h4><p>实质上，上面这段例子代码，如果直接执行的话是不会绘制出图中效果的，程序的绘制也不会像上面的动画那样执行，而是会像这样：</p>
-<p><img src="http://image.sunzn.com/blog/20180116165730.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165730.png" alt="此处输入图片的描述"></p>
 <p><strong>为什么会这样？</strong></p>
 <p>按照逻辑我们会认为，在第二步画圆的时候，跟它共同计算的是第一步绘制的方形。但实际上，却是整个  View 的显示区域都在画圆的时候参与计算，并且 View 自身的底色并不是默认的透明色，而且是遵循一种迷之逻辑，导致不仅绘制的是整个圆的范围，而且在范围之外都变成了黑色。就像这样：</p>
-<p><img src="http://image.sunzn.com/blog/20180116165731.gif" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165731.gif" alt="此处输入图片的描述"></p>
 <p><strong>那可如何是好？</strong></p>
 <p>要想使用 setXfermode() 正常绘制，必须使用离屏缓存（Off-screen Buffer）把内容绘制在额外的层上，再把绘制好的内容贴回 View 中。也就是这样：</p>
-<p><img src="http://image.sunzn.com/blog/20180116165732.gif" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165732.gif" alt="此处输入图片的描述"></p>
 <p>通过使用离屏缓冲，把要绘制的内容单独绘制在缓冲层，Xfermode 的使用就不会出现奇怪的结果了。使用离屏缓冲有两种方式：Canvas.saveLayer() 和 View.setLayerType()。</p>
 <p><strong>1. Canvas.saveLayer()</strong></p>
 <p>saveLayer() 可以做短时的离屏缓冲。使用方法很简单，在绘制代码的前后各加一行代码，在绘制之前保存，绘制之后恢复：</p>
@@ -445,7 +445,7 @@ var _hmt = _hmt || [];
 <p>View.setLayerType() 是直接把整个 View 都绘制在离屏缓冲中。setLayerType(LAYER_TYPE_HARDWARE) 是使用 GPU 来缓冲，setLayerType(LAYER_TYPE_SOFTWARE) 是直接直接用一个 Bitmap 来缓冲。</p>
 <p>如果没有特殊需求，可以选用第一种方法 Canvas.saveLayer() 来设置离屏缓冲，以此来获得更高的性能。更多关于离屏缓冲的信息，可以看<a href="https://developer.android.com/guide/topics/graphics/hardware-accel.html" target="_blank" rel="noopener">官方文档</a>中对于硬件加速的介绍。</p>
 <h4 id="（2）控制好透明区域"><a href="#（2）控制好透明区域" class="headerlink" title="（2）控制好透明区域"></a>（2）控制好透明区域</h4><p>使用 Xfermode 来绘制的内容，除了注意使用离屏缓冲，还应该注意控制它的透明区域不要太小，要让它足够覆盖到要和它结合绘制的内容，否则得到的结果很可能不是你想要的。我用图片来具体说明一下：</p>
-<p><img src="http://image.sunzn.com/blog/20180116165733.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165733.png" alt="此处输入图片的描述"></p>
 <blockquote>
 <p>如图所示，由于透明区域过小而覆盖不到的地方，将不会受到 Xfermode 的影响。</p>
 </blockquote>
@@ -455,11 +455,11 @@ var _hmt = _hmt || [];
 
 <h1 id="2-效果"><a href="#2-效果" class="headerlink" title="2 效果"></a>2 效果</h1><p>效果类的 API，指的就是抗锯齿、填充/轮廓、线条宽度等等这些。</p>
 <h2 id="2-1-setAntiAlias-boolean-aa-设置抗锯齿"><a href="#2-1-setAntiAlias-boolean-aa-设置抗锯齿" class="headerlink" title="2.1 setAntiAlias (boolean aa) 设置抗锯齿"></a>2.1 setAntiAlias (boolean aa) 设置抗锯齿</h2><p>抗锯齿默认是关闭的，如果需要抗锯齿，需要显式地打开。另外，除了 setAntiAlias(aa) 方法，打开抗锯齿还有一个更方便的方式：构造方法。创建 Paint 对象的时候，构造方法的参数里加一个 ANTI_ALIAS_FLAG 的 flag，就可以在初始化的时候就开启抗锯齿。</p>
-<p><img src="http://image.sunzn.com/blog/20180116165734.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165734.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Paint paint = <span class="keyword">new</span> Paint(Paint.ANTI_ALIAS_FLAG);</span><br></pre></td></tr></table></figure>
 
 <h2 id="2-2-setStyle-Paint-Style-style"><a href="#2-2-setStyle-Paint-Style-style" class="headerlink" title="2.2 setStyle(Paint.Style style)"></a>2.2 setStyle(Paint.Style style)</h2><p>用来设置图形是线条风格还是填充风格的（也可以二者并用）：</p>
-<p><img src="http://image.sunzn.com/blog/20180116165735.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165735.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">paint.setStyle(Paint.Style.FILL);            <span class="comment">// FILL 模式，填充</span></span><br><span class="line">canvas.drawCircle(<span class="number">210</span>, <span class="number">360</span>, <span class="number">200</span>, paint);</span><br><span class="line"></span><br><span class="line">paint.setStyle(Paint.Style.STROKE);          <span class="comment">// STROKE 模式，画线</span></span><br><span class="line">canvas.drawCircle(<span class="number">630</span>, <span class="number">360</span>, <span class="number">200</span>, paint);</span><br><span class="line"></span><br><span class="line">paint.setStyle(Paint.Style.FILL_AND_STROKE); <span class="comment">// FILL_AND_STROKE 模式，填充 + 画线</span></span><br><span class="line">canvas.drawCircle(<span class="number">1050</span>, <span class="number">360</span>, <span class="number">200</span>, paint);</span><br></pre></td></tr></table></figure>
 
 <p>FILL 模式是默认模式，所以如果之前没有设置过其他的 Style，可以不用 setStyle(Paint.Style.FILL) 这句。</p>
@@ -467,7 +467,7 @@ var _hmt = _hmt || [];
 <h3 id="2-3-1-setStrokeWidth-float-width"><a href="#2-3-1-setStrokeWidth-float-width" class="headerlink" title="2.3.1 setStrokeWidth(float width)"></a>2.3.1 setStrokeWidth(float width)</h3><p>设置线条宽度。单位为像素，默认值是 0。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">paint.setStyle(Paint.Style.STROKE);</span><br><span class="line">paint.setStrokeWidth(<span class="number">1</span>);</span><br><span class="line">canvas.drawCircle(<span class="number">210</span>, <span class="number">360</span>, <span class="number">160</span>, paint);</span><br><span class="line">paint.setStrokeWidth(<span class="number">5</span>);</span><br><span class="line">canvas.drawCircle(<span class="number">630</span>, <span class="number">360</span>, <span class="number">160</span>, paint);</span><br><span class="line">paint.setStrokeWidth(<span class="number">40</span>);</span><br><span class="line">canvas.drawCircle(<span class="number">1050</span>, <span class="number">360</span>, <span class="number">160</span>, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20180116165736.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165736.png" alt="此处输入图片的描述"></p>
 <blockquote>
 <p><strong>线条宽度 0 和 1 的区别</strong></p>
 <p>默认情况下，线条宽度为 0，但你会发现，这个时候它依然能够画出线，线条的宽度为 1 像素。那么它和线条宽度为 1 有什么区别呢？</p>
@@ -475,41 +475,41 @@ var _hmt = _hmt || [];
 </blockquote>
 <h3 id="2-3-2-setStrokeCap-Paint-Cap-cap"><a href="#2-3-2-setStrokeCap-Paint-Cap-cap" class="headerlink" title="2.3.2 setStrokeCap(Paint.Cap cap)"></a>2.3.2 setStrokeCap(Paint.Cap cap)</h3><p>设置线头的形状。线头形状有三种：BUTT 平头、ROUND 圆头、SQUARE 方头。默认为 BUTT。</p>
 <p>当线条的宽度是 1 像素时，这三种线头的表现是完全一致的，全是 1 个像素的点；而当线条变粗的时候，它们就会表现出不同的样子：</p>
-<p><img src="http://image.sunzn.com/blog/20180116165737.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165737.png" alt="此处输入图片的描述"></p>
 <p>红线是额外加的，红线内侧是线的实际长度，红线外侧是线头。有了红线作为辅助，可以清楚地看出 BUTT 和 SQUARE 的区别。</p>
 <h3 id="2-3-3-setStrokeJoin-Paint-Join-join"><a href="#2-3-3-setStrokeJoin-Paint-Join-join" class="headerlink" title="2.3.3 setStrokeJoin(Paint.Join join)"></a>2.3.3 setStrokeJoin(Paint.Join join)</h3><p>设置拐角的形状。有三个值可以选择：MITER 尖角、BEVEL 平角和 ROUND 圆角。默认为 MITER。</p>
-<p><img src="http://image.sunzn.com/blog/20180116165738.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165738.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">paint.setAntiAlias(<span class="keyword">true</span>);</span><br><span class="line">paint.setStrokeWidth(<span class="number">50f</span>);</span><br><span class="line">paint.setStyle(Paint.Style.STROKE);</span><br><span class="line"></span><br><span class="line">path.reset();</span><br><span class="line">path.moveTo(<span class="number">140</span>, <span class="number">180</span>);</span><br><span class="line">path.lineTo(<span class="number">420</span>, <span class="number">180</span>);</span><br><span class="line">path.lineTo(<span class="number">280</span>, <span class="number">540</span>);</span><br><span class="line">paint.setStrokeJoin(Paint.Join.MITER);</span><br><span class="line">canvas.drawPath(path, paint);</span><br><span class="line"></span><br><span class="line">path.reset();</span><br><span class="line">path.moveTo(<span class="number">500</span>, <span class="number">180</span>);</span><br><span class="line">path.lineTo(<span class="number">780</span>, <span class="number">180</span>);</span><br><span class="line">path.lineTo(<span class="number">640</span>, <span class="number">540</span>);</span><br><span class="line">paint.setStrokeJoin(Paint.Join.BEVEL);</span><br><span class="line">canvas.drawPath(path, paint);</span><br><span class="line"></span><br><span class="line">path.reset();</span><br><span class="line">path.moveTo(<span class="number">860</span>, <span class="number">180</span>);</span><br><span class="line">path.lineTo(<span class="number">1140</span>, <span class="number">180</span>);</span><br><span class="line">path.lineTo(<span class="number">1000</span>, <span class="number">540</span>);</span><br><span class="line">paint.setStrokeJoin(Paint.Join.ROUND);</span><br><span class="line">canvas.drawPath(path, paint);</span><br></pre></td></tr></table></figure>
 
 <h3 id="2-3-4-setStrokeMiter-float-miter"><a href="#2-3-4-setStrokeMiter-float-miter" class="headerlink" title="2.3.4 setStrokeMiter(float miter)"></a>2.3.4 setStrokeMiter(float miter)</h3><p>这个方法是对于 setStrokeJoin() 的一个补充，它用于设置 MITER 型拐角的延长线的最大值。所谓「延长线的最大值」，是这么一回事：</p>
 <p>当线条拐角为 MITER 时，拐角处的外缘需要使用延长线来补偿：</p>
-<p><img src="http://image.sunzn.com/blog/20180116165739.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165739.png" alt="此处输入图片的描述"></p>
 <p>而这种补偿方案会有一个问题：如果拐角的角度太小，就有可能由于出现连接点过长的情况。比如这样：</p>
-<p><img src="http://image.sunzn.com/blog/20180116165740.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165740.png" alt="此处输入图片的描述"></p>
 <p>所以为了避免意料之外的过长的尖角出现，MITER 型连接点有一个额外的规则：当尖角过长时，自动改用  BEVEL 的方式来渲染连接点。例如上图的这个尖角，在默认情况下是不会出现的，而是会由于延长线过长而被转为 BEVEL 型连接点：</p>
-<p><img src="http://image.sunzn.com/blog/20180116165741.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165741.png" alt="此处输入图片的描述"></p>
 <p>至于多尖的角属于过于尖，尖到需要转为使用 BEVEL 来绘制，则是由一个属性控制的，而这个属性就是  setStrokeMiter(miter) 方法中的 miter 参数。miter 参数是对于转角长度的限制，具体来讲，是指尖角的外缘端点和内部拐角的距离与线条宽度的比。也就是下面这两个长度的比：</p>
-<p><img src="http://image.sunzn.com/blog/20180116165742.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165742.png" alt="此处输入图片的描述"></p>
 <p>用几何知识很容易得出这个比值的计算公式：如果拐角的大小为 θ ，那么这个比值就等于 1 / sin ( θ / 2 ) 。这个 miter limit 的默认值是 4，对应的是一个大约 29° 的锐角。默认情况下，大于这个角的尖角会被保留，而小于这个夹角的就会被「削成平头」。</p>
 <p>以上就是 4 个关于线条形状的方法：setStrokeWidth(width)、setStrokeCap(cap)、setStrokeJoint(join) 和  setStrokeMiter(miter)。</p>
 <h2 id="2-4-色彩优化"><a href="#2-4-色彩优化" class="headerlink" title="2.4 色彩优化"></a>2.4 色彩优化</h2><h3 id="2-4-1-setDither-boolean-dither"><a href="#2-4-1-setDither-boolean-dither" class="headerlink" title="2.4.1 setDither(boolean dither)"></a>2.4.1 setDither(boolean dither)</h3><p>设置图像的抖动。在介绍抖动之前，先来看一个猥琐男：</p>
-<p><img src="http://image.sunzn.com/blog/20180116165743.jpg" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165743.jpg" alt="此处输入图片的描述"></p>
 <p>注意毛利小五郎脸上的红晕，它们并不是使用一片淡红色涂抹出来的，而是画了三道深色的红线。这三道深色红线放在脸上，给人的视觉效果就成了「淡淡的红晕」。</p>
 <p>抖动的原理和这个类似。所谓抖动，是指把图像从较高色彩深度（即可用的颜色数）向较低色彩深度的区域绘制时，在图像中有意地插入噪点，通过有规律地扰乱图像来让图像对于肉眼更加真实的做法。</p>
 <p>比如向 1 位色彩深度的区域中绘制灰色，由于 1 位深度只包含黑和白两种颜色，在默认情况下，即不加抖动的时候，只能选择向上或向下选择最接近灰色的白色或黑色来绘制，那么显示出来也只能是一片白或者一片黑。而加了抖动后，就可以绘制出让肉眼识别为灰色的效果了：</p>
-<p><img src="http://image.sunzn.com/blog/20180116165744.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165744.png" alt="此处输入图片的描述"></p>
 <p>像上面这样，用黑白相间的方式来绘制，就可以骗过肉眼，让肉眼辨别为灰色了。</p>
 <p>嗯？你说你看不出灰色，只看出黑白相间？没关系，那是因为像素颗粒太大，我把像素颗粒缩小，看到完整效果你就会发现变灰了：</p>
-<p><img src="http://image.sunzn.com/blog/20180116165745.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165745.png" alt="此处输入图片的描述"></p>
 <p>不过，抖动可不只可以用在纯色的绘制。在实际的应用场景中，抖动更多的作用是在图像降低色彩深度绘制时，避免出现大片的色带与色块。效果参考<a href="https://en.wikipedia.org/wiki/Dither" target="_blank" rel="noopener">维基百科</a>的图：</p>
-<p><img src="http://image.sunzn.com/blog/20180116165746.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165746.png" alt="此处输入图片的描述"></p>
 <p>效果看起来很直接，而且在 Android 里使用起来也很简单，只需要添加下面一行代码就是加抖动的了：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">paint.setDither(<span class="keyword">true</span>);</span><br></pre></td></tr></table></figure>
 
 <p>不过对于现在（2017年）而言， setDither(dither) 已经没有当年那么实用了，因为现在的 Android 版本的绘制，默认的色彩深度已经是 32 位的 ARGB_8888 ，效果已经足够清晰了。只有当你向自建的 Bitmap 中绘制，并且选择 16 位色的 ARGB_4444 或者 RGB_565 的时候，开启它才会有比较明显的效果。</p>
 <h3 id="2-4-2-setFilterBitmap-boolean-filter"><a href="#2-4-2-setFilterBitmap-boolean-filter" class="headerlink" title="2.4.2 setFilterBitmap(boolean filter)"></a>2.4.2 setFilterBitmap(boolean filter)</h3><p>设置是否使用双线性过滤来绘制 Bitmap。</p>
 <p>图像在放大绘制的时候，默认使用的是最近邻插值过滤，这种算法简单，但会出现马赛克现象；而如果开启了双线性过滤，就可以让结果图像显得更加平滑。效果依然参考<a href="https://zh.wikipedia.org/wiki/%E5%8F%8C%E7%BA%BF%E6%80%A7%E8%BF%87%E6%BB%A4" target="_blank" rel="noopener">维基百科</a>的图：</p>
-<p><img src="http://image.sunzn.com/blog/20180116165747.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165747.png" alt="此处输入图片的描述"></p>
 <p>双线性过滤的使用同样简单，加上下面这一行，在放大绘制 Bitmap 的时候就会使用双线性过滤了：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">paint.setFilterBitmap(<span class="keyword">true</span>);</span><br></pre></td></tr></table></figure>
 
@@ -519,30 +519,30 @@ var _hmt = _hmt || [];
 
 <p>下面就具体说一下 Android 中的 6 种 PathEffect。PathEffect 分为两类，单一效果的 CornerPathEffect、DiscretePathEffect、DashPathEffect、PathDashPathEffect，和组合效果的 SumPathEffect、ComposePathEffect。</p>
 <h3 id="2-5-1-CornerPathEffect"><a href="#2-5-1-CornerPathEffect" class="headerlink" title="2.5.1 CornerPathEffect"></a>2.5.1 CornerPathEffect</h3><p>把所有拐角变成圆角。它的构造方法 CornerPathEffect(float radius) 的参数 radius 是圆角的半径。</p>
-<p><img src="http://image.sunzn.com/blog/20180116165748.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165748.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">paint.setAntiAlias(<span class="keyword">true</span>);</span><br><span class="line">paint.setStyle(Paint.Style.STROKE);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 绘制原图形</span></span><br><span class="line">path.reset();</span><br><span class="line">path.moveTo(<span class="number">128</span>, <span class="number">180</span>);</span><br><span class="line">path.lineTo(<span class="number">200</span>, <span class="number">340</span>);</span><br><span class="line">path.lineTo(<span class="number">400</span>, <span class="number">50</span>);</span><br><span class="line">path.lineTo(<span class="number">550</span>, <span class="number">340</span>);</span><br><span class="line">path.lineTo(<span class="number">700</span>, <span class="number">180</span>);</span><br><span class="line">path.lineTo(<span class="number">800</span>, <span class="number">300</span>);</span><br><span class="line">canvas.drawPath(path, paint);</span><br><span class="line"></span><br><span class="line">PathEffect pathEffect = <span class="keyword">new</span> CornerPathEffect(<span class="number">50</span>);</span><br><span class="line">paint.setPathEffect(pathEffect);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 绘制效果图</span></span><br><span class="line">path.reset();</span><br><span class="line">path.moveTo(<span class="number">128</span>, <span class="number">540</span>);</span><br><span class="line">path.lineTo(<span class="number">200</span>, <span class="number">700</span>);</span><br><span class="line">path.lineTo(<span class="number">400</span>, <span class="number">410</span>);</span><br><span class="line">path.lineTo(<span class="number">550</span>, <span class="number">700</span>);</span><br><span class="line">path.lineTo(<span class="number">700</span>, <span class="number">540</span>);</span><br><span class="line">path.lineTo(<span class="number">800</span>, <span class="number">660</span>);</span><br><span class="line">canvas.drawPath(path, paint);</span><br></pre></td></tr></table></figure>
 
 <h3 id="2-5-2-DiscretePathEffect"><a href="#2-5-2-DiscretePathEffect" class="headerlink" title="2.5.2 DiscretePathEffect"></a>2.5.2 DiscretePathEffect</h3><p>把线条进行随机的偏离，让轮廓变得乱七八糟。乱七八糟的方式和程度由参数决定。</p>
-<p><img src="http://image.sunzn.com/blog/20180116165749.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165749.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">PathEffect pathEffect = <span class="keyword">new</span> DiscretePathEffect(<span class="number">20</span>, <span class="number">5</span>);</span><br><span class="line">paint.setPathEffect(pathEffect);</span><br><span class="line"></span><br><span class="line">path.reset();</span><br><span class="line">path.moveTo(<span class="number">128</span>, <span class="number">540</span>);</span><br><span class="line">path.lineTo(<span class="number">200</span>, <span class="number">700</span>);</span><br><span class="line">path.lineTo(<span class="number">400</span>, <span class="number">410</span>);</span><br><span class="line">path.lineTo(<span class="number">550</span>, <span class="number">700</span>);</span><br><span class="line">path.lineTo(<span class="number">700</span>, <span class="number">540</span>);</span><br><span class="line">path.lineTo(<span class="number">800</span>, <span class="number">660</span>);</span><br><span class="line"></span><br><span class="line">canvas.drawPath(path, paint);</span><br></pre></td></tr></table></figure>
 
 <p>DiscretePathEffect 具体的做法是，把绘制改为使用定长的线段来拼接，并且在拼接的时候对路径进行随机偏离。它的构造方法 DiscretePathEffect(float segmentLength, float deviation) 的两个参数中，segmentLength 是用来拼接的每个线段的长度，deviation 是偏离量。</p>
 <h3 id="2-5-3-DashPathEffect"><a href="#2-5-3-DashPathEffect" class="headerlink" title="2.5.3 DashPathEffect"></a>2.5.3 DashPathEffect</h3><p>使用虚线来绘制线条。</p>
-<p><img src="http://image.sunzn.com/blog/20180116165750.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165750.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">PathEffect pathEffect = <span class="keyword">new</span> DashPathEffect(<span class="keyword">new</span> <span class="keyword">float</span>[]&#123;<span class="number">20</span>, <span class="number">10</span>, <span class="number">5</span>, <span class="number">10</span>&#125;, <span class="number">0</span>);</span><br><span class="line">paint.setPathEffect(pathEffect);</span><br><span class="line"></span><br><span class="line">path.reset();</span><br><span class="line">path.moveTo(<span class="number">128</span>, <span class="number">540</span>);</span><br><span class="line">path.lineTo(<span class="number">200</span>, <span class="number">700</span>);</span><br><span class="line">path.lineTo(<span class="number">400</span>, <span class="number">410</span>);</span><br><span class="line">path.lineTo(<span class="number">550</span>, <span class="number">700</span>);</span><br><span class="line">path.lineTo(<span class="number">700</span>, <span class="number">540</span>);</span><br><span class="line">path.lineTo(<span class="number">800</span>, <span class="number">660</span>);</span><br><span class="line"></span><br><span class="line">canvas.drawPath(path, paint);</span><br></pre></td></tr></table></figure>
 
 <p>它的构造方法 DashPathEffect(float[] intervals, float phase) 中，第一个参数 intervals 是一个数组，它指定了虚线的格式：数组中元素必须为偶数（最少是 2 个），按照「画线长度、空白长度、画线长度、空白长度」……的顺序排列，例如上面代码中的 20, 5, 10, 5 就表示虚线是按照「画 20 像素、空 5 像素、画 10 像素、空 5 像素」的模式来绘制；第二个参数 phase 是虚线的偏移量。</p>
-<h3 id="2-5-4-PathDashPathEffect"><a href="#2-5-4-PathDashPathEffect" class="headerlink" title="2.5.4 PathDashPathEffect"></a>2.5.4 PathDashPathEffect</h3><p><img src="http://image.sunzn.com/blog/20180116165751.png" alt="此处输入图片的描述"></p>
+<h3 id="2-5-4-PathDashPathEffect"><a href="#2-5-4-PathDashPathEffect" class="headerlink" title="2.5.4 PathDashPathEffect"></a>2.5.4 PathDashPathEffect</h3><p><img src="https://image.sunzn.com/blog/20180116165751.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Path dashPath = <span class="keyword">new</span> Path(); <span class="comment">// 使用一个三角形来做 dash</span></span><br><span class="line">dashPath.moveTo(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">dashPath.rLineTo(<span class="number">10</span>, <span class="number">10</span>);</span><br><span class="line">dashPath.rLineTo(-<span class="number">20</span>, <span class="number">0</span>);</span><br><span class="line">dashPath.close();</span><br><span class="line"></span><br><span class="line">PathEffect pathEffect = <span class="keyword">new</span> PathDashPathEffect(dashPath, <span class="number">40</span>, <span class="number">0</span>, PathDashPathEffect.Style.TRANSLATE);</span><br><span class="line">paint.setPathEffect(pathEffect);</span><br><span class="line"></span><br><span class="line">path.reset();</span><br><span class="line">path.moveTo(<span class="number">128</span>, <span class="number">540</span>);</span><br><span class="line">path.lineTo(<span class="number">200</span>, <span class="number">700</span>);</span><br><span class="line">path.lineTo(<span class="number">400</span>, <span class="number">410</span>);</span><br><span class="line">path.lineTo(<span class="number">550</span>, <span class="number">700</span>);</span><br><span class="line">path.lineTo(<span class="number">700</span>, <span class="number">540</span>);</span><br><span class="line">path.lineTo(<span class="number">800</span>, <span class="number">660</span>);</span><br><span class="line"></span><br><span class="line">canvas.drawPath(path, paint);</span><br></pre></td></tr></table></figure>
 
 <p>它的构造方法 PathDashPathEffect(Path shape, float advance, float phase, PathDashPathEffect.Style style) 中，shape 参数是用来绘制的 Path；advance 是两个相邻的 shape 段之间的间隔，不过注意，这个间隔是两个 shape 段的起点的间隔，而不是前一个的终点和后一个的起点的距离；phase 和 DashPathEffect 中一样，是虚线的偏移；最后一个参数 style，是用来指定拐弯改变的时候 shape 的转换方式。style 的类型为 PathDashPathEffect.Style ，是一个 enum ，具体有三个值：<strong>TRANSLATE</strong>（位移）、<strong>ROTATE</strong>（旋转）、<strong>MORPH</strong>（变体）。</p>
-<p><img src="http://image.sunzn.com/blog/20180116165752.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165752.png" alt="此处输入图片的描述"></p>
 <h3 id="2-5-5-SumPathEffect"><a href="#2-5-5-SumPathEffect" class="headerlink" title="2.5.5 SumPathEffect"></a>2.5.5 SumPathEffect</h3><p>这是一个组合效果类的 PathEffect。它的行为特别简单，就是分别按照两种 PathEffect 分别对目标进行绘制。</p>
-<p><img src="http://image.sunzn.com/blog/20180116165753.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165753.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">paint.setAntiAlias(<span class="keyword">true</span>);</span><br><span class="line">paint.setStyle(Paint.Style.STROKE);</span><br><span class="line"></span><br><span class="line">path.reset();</span><br><span class="line">path.moveTo(<span class="number">128</span>, <span class="number">180</span>);</span><br><span class="line">path.lineTo(<span class="number">200</span>, <span class="number">340</span>);</span><br><span class="line">path.lineTo(<span class="number">400</span>, <span class="number">50</span>);</span><br><span class="line">path.lineTo(<span class="number">550</span>, <span class="number">340</span>);</span><br><span class="line">path.lineTo(<span class="number">700</span>, <span class="number">180</span>);</span><br><span class="line">path.lineTo(<span class="number">1152</span>, <span class="number">540</span>);</span><br><span class="line"></span><br><span class="line">PathEffect dashEffect = <span class="keyword">new</span> DashPathEffect(<span class="keyword">new</span> <span class="keyword">float</span>[]&#123;<span class="number">20</span>, <span class="number">10</span>&#125;, <span class="number">0</span>);</span><br><span class="line">PathEffect discreteEffect = <span class="keyword">new</span> DiscretePathEffect(<span class="number">20</span>, <span class="number">10</span>);</span><br><span class="line">PathEffect pathEffect = <span class="keyword">new</span> SumPathEffect(dashEffect, discreteEffect);</span><br><span class="line">paint.setPathEffect(pathEffect);</span><br><span class="line"></span><br><span class="line">canvas.drawPath(path, paint);</span><br></pre></td></tr></table></figure>
 
 <h3 id="2-5-6-ComposePathEffect"><a href="#2-5-6-ComposePathEffect" class="headerlink" title="2.5.6 ComposePathEffect"></a>2.5.6 ComposePathEffect</h3><p>这也是一个组合效果类的 PathEffect。不过它是先对目标 Path 使用一个 PathEffect，然后再对这个改变后的 Path 使用另一个 PathEffect。</p>
-<p><img src="http://image.sunzn.com/blog/20180116165754.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165754.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PathEffect dashEffect = <span class="keyword">new</span> DashPathEffect(<span class="keyword">new</span> <span class="keyword">float</span>[]&#123;<span class="number">20</span>, <span class="number">10</span>&#125;, <span class="number">0</span>);</span><br><span class="line">PathEffect discreteEffect = <span class="keyword">new</span> DiscretePathEffect(<span class="number">20</span>, <span class="number">5</span>);</span><br><span class="line">PathEffect pathEffect = <span class="keyword">new</span> ComposePathEffect(dashEffect, discreteEffect);</span><br><span class="line">paint.setPathEffect(pathEffect);</span><br><span class="line"></span><br><span class="line">canvas.drawPath(path, paint);</span><br></pre></td></tr></table></figure>
 
 <p>它的构造方法 ComposePathEffect(PathEffect outerpe, PathEffect innerpe) 中的两个 PathEffect 参数， innerpe 是先应用的，outerpe 是后应用的。所以上面的代码就是「先偏离，再变虚线」。而如果把两个参数调换，就成了「先变虚线，再偏离」。</p>
@@ -556,7 +556,7 @@ var _hmt = _hmt || [];
 </blockquote>
 <p>剩下的两个效果类方法：setShadowLayer() 和 setMaskFilter() ，它们和前面的效果类方法有点不一样：它们设置的是「附加效果」，也就是基于在绘制内容的额外效果。</p>
 <h2 id="2-6-setShadowLayer-float-radius-float-dx-float-dy-int-shadowColor"><a href="#2-6-setShadowLayer-float-radius-float-dx-float-dy-int-shadowColor" class="headerlink" title="2.6 setShadowLayer(float radius, float dx, float dy, int shadowColor)"></a>2.6 setShadowLayer(float radius, float dx, float dy, int shadowColor)</h2><p>在之后的绘制内容下面加一层阴影，效果就是下面这样。</p>
-<p><img src="http://image.sunzn.com/blog/20180116165755.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165755.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">paint.setShadowLayer(<span class="number">10</span>, <span class="number">0</span>, <span class="number">0</span>, Color.RED);</span><br><span class="line">canvas.drawText(<span class="string">"Hello World"</span>, <span class="number">360</span>, <span class="number">360</span>, paint);</span><br></pre></td></tr></table></figure>
 
 <p>方法的参数里，radius 是阴影的模糊范围；dx、dy 是阴影的偏移量；shadowColor 是阴影的颜色。如果要清除阴影层，使用 clearShadowLayer()。</p>
@@ -573,7 +573,7 @@ var _hmt = _hmt || [];
 </blockquote>
 <p>MaskFilter 有两种：BlurMaskFilter 和 EmbossMaskFilter。</p>
 <h3 id="2-7-1-BlurMaskFilter"><a href="#2-7-1-BlurMaskFilter" class="headerlink" title="2.7.1 BlurMaskFilter"></a>2.7.1 BlurMaskFilter</h3><p>模糊效果的 MaskFilter。</p>
-<p><img src="http://image.sunzn.com/blog/20180116165756.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165756.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">paint.setMaskFilter(<span class="keyword">new</span> BlurMaskFilter(<span class="number">50</span>, BlurMaskFilter.Blur.NORMAL));</span><br><span class="line">setLayerType(LAYER_TYPE_SOFTWARE, <span class="keyword">null</span>);</span><br><span class="line">canvas.drawBitmap(bitmap, <span class="number">100</span>, <span class="number">100</span>, paint);</span><br></pre></td></tr></table></figure>
 
 <blockquote>
@@ -607,9 +607,9 @@ var _hmt = _hmt || [];
 <td>内部不绘制，外部模糊</td>
 </tr>
 </tbody></table>
-<p><img src="http://image.sunzn.com/blog/20180116165757.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165757.png" alt="此处输入图片的描述"></p>
 <h3 id="2-7-2-EmbossMaskFilter"><a href="#2-7-2-EmbossMaskFilter" class="headerlink" title="2.7.2 EmbossMaskFilter"></a>2.7.2 EmbossMaskFilter</h3><p>浮雕效果的 MaskFilter。</p>
-<p><img src="http://image.sunzn.com/blog/20180116165758.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165758.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">paint.setMaskFilter(<span class="keyword">new</span> EmbossMaskFilter(<span class="keyword">new</span> <span class="keyword">float</span>[]&#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>&#125;, <span class="number">0.2f</span>, <span class="number">8</span>, <span class="number">10</span>));</span><br><span class="line">setLayerType(LAYER_TYPE_SOFTWARE, <span class="keyword">null</span>);</span><br><span class="line">canvas.drawBitmap(normal, <span class="number">845</span>, <span class="number">245</span>, paint);</span><br></pre></td></tr></table></figure>
 
 <p>它的构造方法 EmbossMaskFilter(float[] direction, float ambient, float specular, float blurRadius) 的参数里，direction 是一个 3 个元素的数组，指定了光源的方向；ambient 是环境光的强度，数值范围是 0 到 1；specular 是炫光的系数；blurRadius 是应用光线的范围。</p>
@@ -621,24 +621,24 @@ var _hmt = _hmt || [];
 </ol>
 <h3 id="2-8-1-getFillPath-Path-src-Path-dst"><a href="#2-8-1-getFillPath-Path-src-Path-dst" class="headerlink" title="2.8.1 getFillPath(Path src, Path dst)"></a>2.8.1 getFillPath(Path src, Path dst)</h3><p>首先解答第一个问题：「实际 Path」。所谓实际 Path ，指的就是 drawPath() 的绘制内容的轮廓，要算上线条宽度和设置的 PathEffect。</p>
 <p>默认情况下（线条宽度为 0、没有 PathEffect），原 Path 和实际 Path 是一样的；而在线条宽度不为 0 （并且模式为 STROKE 模式或 FLL_AND_STROKE ），或者设置了 PathEffect 的时候，实际 Path 就和原 Path 不一样了：</p>
-<p><img src="http://image.sunzn.com/blog/20180116165759.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165759.png" alt="此处输入图片的描述"></p>
 <p>通过 getFillPath(src, dst) 方法就能获取这个实际 Path。方法的参数里，src 是原 Path ，而 dst 就是实际 Path 的保存位置。 getFillPath(src, dst) 会计算出实际 Path，然后把结果保存在 dst 里。</p>
 <h3 id="2-8-2-getTextPath-String-text-int-start-int-end-float-x-float-y-Path-path"><a href="#2-8-2-getTextPath-String-text-int-start-int-end-float-x-float-y-Path-path" class="headerlink" title="2.8.2 getTextPath(String text, int start, int end, float x, float y, Path path)"></a>2.8.2 getTextPath(String text, int start, int end, float x, float y, Path path)</h3><p>这里就回答第二个问题：「文字的 Path」。文字的绘制，虽然是使用 Canvas.drawText() 方法，但其实在下层，文字信息全是被转化成图形，对图形进行绘制的。 getTextPath() 方法，获取的就是目标文字所对应的 Path 。这个就是所谓「文字的 Path」。</p>
-<p><img src="http://image.sunzn.com/blog/20180116165760.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165760.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">String text = <span class="string">"Hello World"</span>;</span><br><span class="line"></span><br><span class="line">Paint srcPaint = <span class="keyword">new</span> Paint();</span><br><span class="line">srcPaint.setTextSize(<span class="number">120f</span>);</span><br><span class="line">srcPaint.setAntiAlias(<span class="keyword">true</span>);</span><br><span class="line">canvas.drawText(text, <span class="number">200</span>, <span class="number">220</span>, srcPaint);</span><br><span class="line"></span><br><span class="line">setLayerType(LAYER_TYPE_SOFTWARE, <span class="keyword">null</span>);</span><br><span class="line"></span><br><span class="line">canvas.translate(<span class="number">0</span>, <span class="number">360</span>);</span><br><span class="line">Path desPath = <span class="keyword">new</span> Path();</span><br><span class="line">Paint destPaint = <span class="keyword">new</span> Paint();</span><br><span class="line">destPaint.setTextSize(<span class="number">120</span>);</span><br><span class="line">destPaint.setAntiAlias(<span class="keyword">true</span>);</span><br><span class="line">destPaint.setStyle(Paint.Style.STROKE);</span><br><span class="line">srcPaint.getTextPath(text, <span class="number">0</span>, text.length(), <span class="number">200</span>, <span class="number">220</span>, desPath);</span><br><span class="line">canvas.drawPath(desPath, destPaint);</span><br></pre></td></tr></table></figure>
 
 <table><tr><td colspan="2" bgcolor="#F8F8F8"><b>构造方法</b></td></tr><tr><td colspan="2">getTextPath(String text, int start, int end, float x, float y, Path path)<br><br>返回指定文本的路径。</td></tr><tr><td colspan="2" bgcolor="#F8F8F8"><b>参数</b></td></tr><tr><td>text</td><td>String：从中检索路径的文本。</td></tr><tr><td>start</td><td>int：文本中的第一个字符。</td></tr><tr><td>end</td><td>int：大于 1 个字符的文本中的最后一个字符。</td></tr><tr><td>x</td><td>float：文本原点的 x 坐标。</td></tr><tr><td>y</td><td>float：文本原点的 y 坐标。</td></tr><tr><td>path</td><td>Path：接收描述文本的数据的路径，也就是接收输出值。</td></tr></table>
 
 <p>这两个方法，getFillPath() 和 getTextPath() ，就是获取绘制的 Path 的方法。之所以把它们归类到「效果」类方法，是因为它们主要是用于图形和文字的装饰效果的位置计算，比如自定义的下划线效果。</p>
-<p><img src="http://image.sunzn.com/blog/20180116165761.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165761.png" alt="此处输入图片的描述"></p>
 <p>到此为止，Paint 的第二类方法——效果类，就也介绍完了。</p>
 <h1 id="3-drawText-相关"><a href="#3-drawText-相关" class="headerlink" title="3 drawText() 相关"></a>3 drawText() 相关</h1><p>Paint 有些设置是文字绘制相关的，即和 drawText() 相关的。</p>
 <p>比如设置文字大小：</p>
-<p><img src="http://image.sunzn.com/blog/20180116165762.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165762.png" alt="此处输入图片的描述"></p>
 <p>比如设置文字间隔：</p>
-<p><img src="http://image.sunzn.com/blog/20180116165763.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165763.png" alt="此处输入图片的描述"></p>
 <p>比如设置各种文字效果：</p>
-<p><img src="http://image.sunzn.com/blog/20180116165764.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180116165764.png" alt="此处输入图片的描述"></p>
 <p>除此之外，Paint 还有很多与文字绘制相关的设置或计算的方法，非常详细。不过由于太详细了，相关方法太多了（Paint 超过一半的方法都是 drawText() 相关的，算不算多？），如果放在这里讲它们的话，内容会显得有点过量。</p>
 <h1 id="4-初始化类"><a href="#4-初始化类" class="headerlink" title="4 初始化类"></a>4 初始化类</h1><p>这一类方法很简单，它们是用来初始化 Paint 对象，或者是批量设置 Paint 的多个属性的方法。</p>
 <h2 id="4-1-reset"><a href="#4-1-reset" class="headerlink" title="4.1 reset()"></a>4.1 reset()</h2><p>重置 Paint 的所有属性为默认值。相当于重新 new 一个，不过性能当然高一些。</p>
@@ -910,15 +910,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -934,6 +934,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">File</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">组件化</a>
               </li>
              
@@ -946,10 +950,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">File</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
@@ -958,19 +958,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -982,11 +974,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ADB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Issue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1022,6 +1026,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
@@ -1030,19 +1038,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">方案</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Version</a>
+                <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1059,6 +1059,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Burpsuite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Version</a>
               </li>
              
               <li class="article-tag-list-item">

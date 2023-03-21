@@ -16,17 +16,17 @@
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="在 Android 开发中，设备和代码的调试都离不开 ADB（Android Debug Bridge），默认情况下 ADB 没有被加入到系统环境变量中，这也就意味着不能在任何地方调起 ADB。如果调用，则会出现 [ adb 不是内部或外部命令，也不是可运行的程序或批处理文件。] 的提示，如下图所示：">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180801224501.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180801224502.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180801224503.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180801224504.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180801224505.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180801224506.png">
-<meta property="og:updated_time" content="2018-11-01T13:46:02.000Z">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180801224501.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180801224502.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180801224503.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180801224504.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180801224505.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180801224506.png">
+<meta property="og:updated_time" content="2023-03-21T14:34:43.040Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Windows 10 下配置 ADB 环境变量">
 <meta name="twitter:description" content="在 Android 开发中，设备和代码的调试都离不开 ADB（Android Debug Bridge），默认情况下 ADB 没有被加入到系统环境变量中，这也就意味着不能在任何地方调起 ADB。如果调用，则会出现 [ adb 不是内部或外部命令，也不是可运行的程序或批处理文件。] 的提示，如下图所示：">
-<meta name="twitter:image" content="http://image.sunzn.com/blog/20180801224501.png">
+<meta name="twitter:image" content="https://image.sunzn.com/blog/20180801224501.png">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -197,19 +197,19 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>在 Android 开发中，设备和代码的调试都离不开 ADB（Android Debug Bridge），默认情况下 ADB 没有被加入到系统环境变量中，这也就意味着不能在任何地方调起 ADB。如果调用，则会出现 [ adb 不是内部或外部命令，也不是可运行的程序或批处理文件。] 的提示，如下图所示：</p>
-<p><img src="http://image.sunzn.com/blog/20180801224501.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180801224501.png" alt="此处输入图片的描述"></p>
 <a id="more"></a>
 
 <p>那么，如何为 ADB 设置环境变量呢？右键「此电脑」›「属性」›「高级系统设置」›「高级」›「环境变量」来到环境变量选项卡。</p>
-<p><img src="http://image.sunzn.com/blog/20180801224502.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180801224502.png" alt="此处输入图片的描述"></p>
 <p>点击「系统变量」下的「新建」按钮添加系统变量。</p>
-<p><img src="http://image.sunzn.com/blog/20180801224503.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180801224503.png" alt="此处输入图片的描述"></p>
 <p>在弹出的「新建系统变量」界面填入变量名（任意非重复的值）和变量值（必须是 adb.exe 文件所在目录的路径），点击「确定」完成系统变量的添加。</p>
-<p><img src="http://image.sunzn.com/blog/20180801224504.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180801224504.png" alt="此处输入图片的描述"></p>
 <p>完成系统变量的添加后，还需要将添加的变量加入到系统变量的 Path 中。选中「系统变量」下的「Path」，点击「编辑」按钮进入编辑环境变量界面。</p>
-<p><img src="http://image.sunzn.com/blog/20180801224505.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180801224505.png" alt="此处输入图片的描述"></p>
 <p>在「编辑环境变量」界面点击「新建」将之前添加的变量名以 %变量名% 封闭的形式写入 Path，然后点击确定，完成 ADB 环境变量的配置。关闭并重新打开 CMD 窗口，输入 adb 来验证 ADB 的环境变量是否配置成功。</p>
-<p><img src="http://image.sunzn.com/blog/20180801224506.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180801224506.png" alt="此处输入图片的描述"></p>
 
       
 
@@ -465,15 +465,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -489,6 +489,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">File</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">组件化</a>
               </li>
              
@@ -501,10 +505,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">File</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
@@ -513,19 +513,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -537,11 +529,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ADB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Issue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -577,6 +581,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
@@ -585,19 +593,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">方案</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Version</a>
+                <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -614,6 +614,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Burpsuite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Version</a>
               </li>
              
               <li class="article-tag-list-item">

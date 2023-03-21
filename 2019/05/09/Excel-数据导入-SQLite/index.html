@@ -16,19 +16,19 @@
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="新开的项目需要内置一个 SQLite 数据库，内置的库会提前灌入一些基本数据信息以减少客户端和服务器之间的交互。之前一直都是使用 SQLite Administrator 在灌数据，但这个工具一直存在编码问题，用着不是很舒服。这次对 SQLiteExpert 进行了测试，发现 SQLite Expert Professional 版具有文件导入功能，并且能完美的解决编码问题。  注意：这里要强调的">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://image.sunzn.com/blog/20190509173101.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20190509173102.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20190509173103.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20190509173104.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20190509173105.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20190509173106.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20190509173107.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20190509173108.png">
-<meta property="og:updated_time" content="2019-05-09T14:27:28.000Z">
+<meta property="og:image" content="https://image.sunzn.com/blog/20190509173101.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20190509173102.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20190509173103.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20190509173104.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20190509173105.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20190509173106.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20190509173107.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20190509173108.png">
+<meta property="og:updated_time" content="2023-03-21T15:13:35.166Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Excel 数据导入 SQLite">
 <meta name="twitter:description" content="新开的项目需要内置一个 SQLite 数据库，内置的库会提前灌入一些基本数据信息以减少客户端和服务器之间的交互。之前一直都是使用 SQLite Administrator 在灌数据，但这个工具一直存在编码问题，用着不是很舒服。这次对 SQLiteExpert 进行了测试，发现 SQLite Expert Professional 版具有文件导入功能，并且能完美的解决编码问题。  注意：这里要强调的">
-<meta name="twitter:image" content="http://image.sunzn.com/blog/20190509173101.png">
+<meta name="twitter:image" content="https://image.sunzn.com/blog/20190509173101.png">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -203,18 +203,18 @@ var _hmt = _hmt || [];
 <p><font style="color:#01579B;font-size:14px;"><strong>注意：</strong>这里要强调的是只有 SQLite Expert Professional [专业版] 具有文件导入功能，SQLite Expert Personal [个人版] 是不具备该功的。</font></p>
 </blockquote>
 <h1 id="1-准备数据"><a href="#1-准备数据" class="headerlink" title="1. 准备数据"></a>1. 准备数据</h1><p>数据的准备如下图所示，第一行为表的列名，列名下填充对应的数据。</p>
-<p><img src="http://image.sunzn.com/blog/20190509173101.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20190509173101.png" alt="此处输入图片的描述"></p>
 <a id="more"></a>
 
 <h1 id="2-保存为-CSV-文件"><a href="#2-保存为-CSV-文件" class="headerlink" title="2. 保存为 CSV 文件"></a>2. 保存为 CSV 文件</h1><p>默认的 Excel 文件是无法被 SQLite Expert 识别的，这里需要将 Excel 文件另存为可被 SQLite Expert 识别的 CSV 格式文件。</p>
-<p><img src="http://image.sunzn.com/blog/20190509173102.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20190509173102.png" alt="此处输入图片的描述"></p>
 <h1 id="3-处理编码"><a href="#3-处理编码" class="headerlink" title="3. 处理编码"></a>3. 处理编码</h1><p>CSV 文件保存成功后，还需要对文件编码进行处理。用记事本打开 CSV 文件，另存为 UTF-8 编码。</p>
-<p><img src="http://image.sunzn.com/blog/20190509173103.png" alt="此处输入图片的描述"><br><img src="http://image.sunzn.com/blog/20190509173104.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20190509173103.png" alt="此处输入图片的描述"><br><img src="https://image.sunzn.com/blog/20190509173104.png" alt="此处输入图片的描述"></p>
 <h1 id="4-新建数据库"><a href="#4-新建数据库" class="headerlink" title="4. 新建数据库"></a>4. 新建数据库</h1><p>数据准备完毕后，使用 SQLite Expert 新建一个数据库，一定要注意数据库的编码也必须是 UTF-8。</p>
-<p><img src="http://image.sunzn.com/blog/20190509173105.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20190509173105.png" alt="此处输入图片的描述"></p>
 <h1 id="5-导入文件"><a href="#5-导入文件" class="headerlink" title="5. 导入文件"></a>5. 导入文件</h1><p>在建好的数据库上右键选择【Import Text File(CSV,TSV)】，在弹出的对话框中选择之前准备的 CSV 文件，选择编码为 UTF-8，同时指定表名，选择使用第一行作为表的列名，点击 【Start】开始导入数据，日志窗口会打印出数据导入的结果。</p>
-<p><img src="http://image.sunzn.com/blog/20190509173106.png" alt="此处输入图片的描述"><br><img src="http://image.sunzn.com/blog/20190509173107.png" alt="此处输入图片的描述"></p>
-<h1 id="6-导入成功"><a href="#6-导入成功" class="headerlink" title="6. 导入成功"></a>6. 导入成功</h1><p><img src="http://image.sunzn.com/blog/20190509173108.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20190509173106.png" alt="此处输入图片的描述"><br><img src="https://image.sunzn.com/blog/20190509173107.png" alt="此处输入图片的描述"></p>
+<h1 id="6-导入成功"><a href="#6-导入成功" class="headerlink" title="6. 导入成功"></a>6. 导入成功</h1><p><img src="https://image.sunzn.com/blog/20190509173108.png" alt="此处输入图片的描述"></p>
 <p>至此，数据导入就完成了。紧接着就是数据库的使用，内置数据库一般会以压缩包的形式存放到项目的 Assets 目录下，使用的时候需要将该目录下的压缩包释放到项目的数据库目录。这里提供了一个工具类 <a href="https://github.com/ShortStickBoy/AndroidUtil/blob/master/Library/src/main/java/com/sunzn/utils/library/DBUtils.java" target="_blank" rel="noopener">DBUtils@AndroidUtil</a> 进行释放。使用方式如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DBUtils.release(context, base.zip, base.db);</span><br></pre></td></tr></table></figure>
 
@@ -477,15 +477,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -501,6 +501,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">File</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">组件化</a>
               </li>
              
@@ -513,10 +517,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">File</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
@@ -525,19 +525,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -549,11 +541,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ADB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Issue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -589,6 +593,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
@@ -597,19 +605,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">方案</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Version</a>
+                <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -626,6 +626,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Burpsuite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Version</a>
               </li>
              
               <li class="article-tag-list-item">

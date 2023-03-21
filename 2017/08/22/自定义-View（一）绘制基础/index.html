@@ -16,52 +16,52 @@
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="1、自定义绘制概述View 要在 Activity 中显示出来，要经过测量、布局和绘制三个步骤，分别对应三个方法：onMeasure()、onLayout() 和 onDraw()。由于本文的目的是明确阐述 View 的绘制，所以篇幅着重会针对第三个步骤〈绘制〉进行展开，测量和布局会在代码片段中提及，下表是三个方法对应的说明：    动作 方法 说明    测量 onMeasure() 决定 Vi">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153301.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153302.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153303.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153304.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153305.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153306.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153307.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153308.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153309.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153310.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153311.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153312.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153313.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153314.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153315.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153316.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153317.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153318.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153319.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153320.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153321.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153322.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153323.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153324.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153325.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153326.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153327.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153328.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153329.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153330.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153331.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153332.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153333.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153334.jpg">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153335.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153336.jpg">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153337.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153338.jpg">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153339.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153340.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170818153341.png">
-<meta property="og:updated_time" content="2018-11-01T13:50:00.000Z">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153301.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153302.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153303.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153304.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153305.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153306.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153307.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153308.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153309.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153310.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153311.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153312.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153313.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153314.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153315.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153316.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153317.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153318.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153319.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153320.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153321.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153322.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153323.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153324.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153325.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153326.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153327.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153328.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153329.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153330.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153331.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153332.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153333.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153334.jpg">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153335.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153336.jpg">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153337.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153338.jpg">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153339.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153340.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170818153341.png">
+<meta property="og:updated_time" content="2023-03-21T14:57:16.397Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自定义 View（一）绘制基础">
 <meta name="twitter:description" content="1、自定义绘制概述View 要在 Activity 中显示出来，要经过测量、布局和绘制三个步骤，分别对应三个方法：onMeasure()、onLayout() 和 onDraw()。由于本文的目的是明确阐述 View 的绘制，所以篇幅着重会针对第三个步骤〈绘制〉进行展开，测量和布局会在代码片段中提及，下表是三个方法对应的说明：    动作 方法 说明    测量 onMeasure() 决定 Vi">
-<meta name="twitter:image" content="http://image.sunzn.com/blog/20170818153301.png">
+<meta name="twitter:image" content="https://image.sunzn.com/blog/20170818153301.png">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -296,35 +296,35 @@ var _hmt = _hmt || [];
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">canvas.drawColor(Color.BLACK);                     <span class="comment">// 填充纯黑色</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20170818153301.png" alt="绘制纯黑"></p>
+<p><img src="https://image.sunzn.com/blog/20170818153301.png" alt="绘制纯黑"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">canvas.drawColor(Color.parseColor(<span class="string">"#88880000"</span>));   <span class="comment">// 填充半透明红色</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20170818153302.png" alt="绘制遮罩"></p>
+<p><img src="https://image.sunzn.com/blog/20170818153302.png" alt="绘制遮罩"></p>
 <p>类似的方法还有 <code>drawRGB(int r, int g, int b)</code> 和 <code>drawARGB(int a, int r, int g, int b)</code>，它们和 <code>drawColor(color)</code> 只是使用方式不同，作用都是一样的。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">canvas.drawRGB(<span class="number">100</span>, <span class="number">200</span>, <span class="number">100</span>);</span><br><span class="line">canvas.drawARGB(<span class="number">100</span>, <span class="number">100</span>, <span class="number">200</span>, <span class="number">100</span>);</span><br></pre></td></tr></table></figure>
 
 <h2 id="3-2-画圆"><a href="#3-2-画圆" class="headerlink" title="3.2 画圆"></a>3.2 画圆</h2><table><tr><td colspan="2" bgcolor="#F8F8F8"><b>方法</b></td></tr><tr><td colspan="2">void drawCircle(float cx, float cy, float radius, Paint paint)<br>使用指定的画笔绘制指定的圆</td></tr><tr><td colspan="2" bgcolor="#F8F8F8"><b>参数</b></td></tr><tr><td>cx</td><td>float: 要绘制的圆的中心 x 坐标</td></tr><tr><td>cy</td><td>float: 要绘制的圆的中心 y 坐标</td></tr><tr><td>radius</td><td>float: 要绘制的圆的半径</td></tr><tr><td>paint</td><td>Paint: 用来绘制画圆的画笔（不能为空）</td></tr></table>
 
-<p><img src="http://image.sunzn.com/blog/20170818153303.png" alt="画圆"></p>
+<p><img src="https://image.sunzn.com/blog/20170818153303.png" alt="画圆"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.sunzn.paint.view;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.content.Context;</span><br><span class="line"><span class="keyword">import</span> android.graphics.Canvas;</span><br><span class="line"><span class="keyword">import</span> android.graphics.Color;</span><br><span class="line"><span class="keyword">import</span> android.graphics.Paint;</span><br><span class="line"><span class="keyword">import</span> android.support.annotation.Nullable;</span><br><span class="line"><span class="keyword">import</span> android.util.AttributeSet;</span><br><span class="line"><span class="keyword">import</span> android.view.View;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GeoView</span> <span class="keyword">extends</span> <span class="title">View</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Paint paint;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">GeoView</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>(context, <span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">GeoView</span><span class="params">(Context context, @Nullable AttributeSet attrs)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>(context, attrs, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">GeoView</span><span class="params">(Context context, @Nullable AttributeSet attrs, <span class="keyword">int</span> defStyleAttr)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(context, attrs, defStyleAttr);</span><br><span class="line"></span><br><span class="line">        paint = <span class="keyword">new</span> Paint();</span><br><span class="line">        paint.setAntiAlias(<span class="keyword">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onMeasure</span><span class="params">(<span class="keyword">int</span> widthMeasureSpec, <span class="keyword">int</span> heightMeasureSpec)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onMeasure(widthMeasureSpec, heightMeasureSpec);</span><br><span class="line">        <span class="keyword">int</span> width = MeasureSpec.getSize(widthMeasureSpec);</span><br><span class="line">        <span class="keyword">int</span> height = MeasureSpec.getSize(heightMeasureSpec);</span><br><span class="line">        <span class="keyword">int</span> size = Math.min(width, height);</span><br><span class="line">        setMeasuredDimension(size, size);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onDraw(canvas);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">float</span> cx = getWidth() / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">float</span> cy = getWidth() / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">        paint.setColor(Color.BLUE);</span><br><span class="line">        canvas.drawCircle(cx, cy, getWidth() / <span class="number">2</span>, paint);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>绘制圆的代码如上，编写一个类继承 View 类，在构造方法中初始化 <code>Paint</code> 并设置抗锯齿 <code>paint.setAntiAlias(true)</code>，在 <code>onMeasure(int widthMeasureSpec, int heightMeasureSpec)</code> 方法中确定圆的宽高（取宽高的最小值作为圆的宽高），在 <code>onDraw(Canvas canvas)</code> 方法中确定圆心坐标，设置圆的填充色，最后绘制圆。</p>
 <blockquote>
-<p>这里在确定圆心坐标的过程中涉及到了 Android 中 View 的坐标系。在 Android 里，每个 View 都有一个自己的坐标系，彼此之间是不影响的。这个坐标系的原点是 View 左上角的那个点；水平方向是 X 轴，右正左负；竖直方向是 Y 轴，下正上负。<br><br>结合 View 坐标系，一个 View 的坐标 (x, y) 处，指的就是相对它自身左上角 (0, 0) 点的水平 x 像素、竖直方向 y 像素的点。例如：(300, 300) 指的就是相对于 View 自身左上角 (0, 0) 点的向右 300、向下 300 像素的位置；(100, -50) 指的就是相对于 View 自身左上角 (0, 0) 点的向右 100、向上 50 像素的位置。所以，本例中不考虑 padding 因素，圆心的位置 (cx, cy) 应该为宽的一半（在 onMeasure 方法中将宽高的最小值设为 View 的宽高值），圆的半径 radius 也为宽的一半。所以 <code>canvas.drawCircle(cx, cy, getWidth() / 2, paint)</code> 这行代码绘制出的圆，在 View 中的位置和尺寸应该如下图所示：<br><br><img src="http://image.sunzn.com/blog/20170818153304.png" alt="此处输入图片的描述"><br><br></p>
+<p>这里在确定圆心坐标的过程中涉及到了 Android 中 View 的坐标系。在 Android 里，每个 View 都有一个自己的坐标系，彼此之间是不影响的。这个坐标系的原点是 View 左上角的那个点；水平方向是 X 轴，右正左负；竖直方向是 Y 轴，下正上负。<br><br>结合 View 坐标系，一个 View 的坐标 (x, y) 处，指的就是相对它自身左上角 (0, 0) 点的水平 x 像素、竖直方向 y 像素的点。例如：(300, 300) 指的就是相对于 View 自身左上角 (0, 0) 点的向右 300、向下 300 像素的位置；(100, -50) 指的就是相对于 View 自身左上角 (0, 0) 点的向右 100、向上 50 像素的位置。所以，本例中不考虑 padding 因素，圆心的位置 (cx, cy) 应该为宽的一半（在 onMeasure 方法中将宽高的最小值设为 View 的宽高值），圆的半径 radius 也为宽的一半。所以 <code>canvas.drawCircle(cx, cy, getWidth() / 2, paint)</code> 这行代码绘制出的圆，在 View 中的位置和尺寸应该如下图所示：<br><br><img src="https://image.sunzn.com/blog/20170818153304.png" alt="此处输入图片的描述"><br><br></p>
 </blockquote>
 <p>在本例中，会发现绘制圆的时候为 Paint 设置了颜色、开启了抗锯齿效果，其实 Paint 还有好多其他的设置方法，下面会将 Paint 的相关方法进行说明。</p>
 <h3 id="3-2-1-Paint-设置颜色"><a href="#3-2-1-Paint-设置颜色" class="headerlink" title="3.2.1 Paint 设置颜色"></a>3.2.1 Paint 设置颜色</h3><table><tr><td colspan="2" bgcolor="#F8F8F8"><b>方法</b></td></tr><tr><td colspan="2">void setColor (int color)<br>设置画笔颜色</td></tr><tr><td colspan="2" bgcolor="#F8F8F8"><b>参数</b></td></tr><tr><td>color</td><td>int: 设置到画笔上的颜色值（包括 alpha）。</td></tr></table>
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">paint.setColor(Color.BLUE);</span><br><span class="line">canvas.drawCircle(cx, cy, radius, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20170818153305.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20170818153305.png" alt="此处输入图片的描述"></p>
 <p><code>Paint.setColor(int color)</code> 是 Paint 最常用的方法之一，用来设置绘制内容的颜色。你不仅可以用它绘制红色的圆，也可用它来绘制红色的矩形、五角星、文字等。</p>
 <h3 id="3-2-2-Paint-设置样式"><a href="#3-2-2-Paint-设置样式" class="headerlink" title="3.2.2 Paint 设置样式"></a>3.2.2 Paint 设置样式</h3><table><tr><td colspan="2" bgcolor="#F8F8F8"><b>方法</b></td></tr><tr><td colspan="2">void setStyle (Paint.Style style)<br>设置画笔样式，用于控制原始图形的几何解释（除了 drawBitmap，默认为填充）。</td></tr><tr><td colspan="2" bgcolor="#F8F8F8"><b>参数</b></td></tr><tr><td>style</td><td>Paint.Style : 设置到画笔的新样式。</td></tr></table>
 
 <p>如果你想绘制的不是实心圆，而是空心圆，可以使用 <code>paint.setStyle(Paint.Style.STROKE)</code> 把绘制模式改为画线模式。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">paint.setStyle(Paint.Style.STROKE);</span><br><span class="line">canvas.drawCircle(cx, cy, radius, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20170818153306.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20170818153306.png" alt="此处输入图片的描述"></p>
 <p><code>setStyle (Paint.Style style)</code> 方法设置的是绘制的 Style。Style 具体来说有三种：FILL、STROKE 和  FILL_AND_STROKE。</p>
 <table>
 <thead>
@@ -351,7 +351,7 @@ var _hmt = _hmt || [];
 <p>在 Stroke 或 StrokeAndFill 样式下，可以使用 <code>paint.setStrokeWidth (float width)</code> 来设置线条的宽度。本例中要注意的是，在设置圆的半径的时候需要减掉描边宽度的一半，否则绘制的圆会越界。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">paint.setStrokeWidth(<span class="number">20f</span>);</span><br><span class="line">canvas.drawCircle(cx, cy, radius - <span class="number">10</span>, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20170818153307.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20170818153307.png" alt="此处输入图片的描述"></p>
 <h3 id="3-2-4-Paint-设置抗锯齿"><a href="#3-2-4-Paint-设置抗锯齿" class="headerlink" title="3.2.4 Paint 设置抗锯齿"></a>3.2.4 Paint 设置抗锯齿</h3><table><tr><td colspan="2" bgcolor="#F8F8F8"><b>方法</b></td></tr><tr><td colspan="2">void setAntiAlias (boolean aa)<br>设置或清除 ANTI_ALIAS_FLAG 位 AntiAliasing 以保证平滑的绘制边缘，但对形状的内部没有影响。</td></tr><tr><td colspan="2" bgcolor="#F8F8F8"><b>参数</b></td></tr><tr><td>aa</td><td>boolean ： 为 true 时设置 antialias 标志位，false 将其清除。</td></tr></table>
 
 <p>在绘制的时候，往往需要开启抗锯齿来让图形和文字的边缘更加平滑。开启抗锯齿很简单，只要在 <code>new Paint()</code> 的时候加上一个 <code>ANTI_ALIAS_FLAG</code> 参数就行：</p>
@@ -360,16 +360,16 @@ var _hmt = _hmt || [];
 <p>另外，你也可以使用 <code>Paint.setAntiAlias(boolean aa)</code> 来动态开关抗锯齿。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">paint.setAntiAlias(<span class="keyword">true</span>);</span><br><span class="line">paint.setAntiAlias(flase);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20170818153308.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20170818153308.png" alt="此处输入图片的描述"></p>
 <p>可以看出，没有开启抗锯齿的时候，图形会有毛边现象，所以一定记得要打开抗锯齿。</p>
 <blockquote>
-<p><strong>冷知识</strong><br><br>好奇的人可能会问：抗锯齿既然这么有用，为什么不默认开启，或者干脆把这个开关取消，自动让所有绘制都开启抗锯齿？<br><br>短答案：因为抗锯齿并不一定适合所有场景。<br><br>长答案：所谓的毛边或者锯齿，发生的原因并不是很多人所想象的「绘制太粗糙」「像素计算能力不足」；同样，抗锯齿的原理也并不是选择了更精细的算法来算出了更平滑的图形边缘。<br><br>实质上，锯齿现象的发生，只是由于图形分辨率过低，导致人眼察觉出了画面中的像素颗粒而已。换句话说，就算不开启抗锯齿，图形的边缘也已经是最完美的了，而并不是一个粗略计算的粗糙版本。<br><br>那么，为什么抗锯齿开启之后的图形边缘会更加平滑呢？因为抗锯齿的原理是：修改图形边缘处的像素颜色，从而让图形在肉眼看来具有更加平滑的感觉。一图胜千言，上图：<br><br><img src="http://image.sunzn.com/blog/20170818153309.png" alt="此处输入图片的描述"><br><br>上面这个是把前面那两个圆放大后的局部效果。看到没有？未开启抗锯齿的圆，所有像素都是同样的黑色，而开启了抗锯齿的圆，边缘的颜色被略微改变了。这种改变可以让人眼有边缘平滑的感觉，但从某种角度讲，它也造成了图形的颜色失真。 所以，抗锯齿好不好？好，大多数情况下它都应该是开启的；但在极少数的某些时候，你还真的需要把它关闭。「某些时候」是什么时候？到你用到的时候自然就知道了。</p>
+<p><strong>冷知识</strong><br><br>好奇的人可能会问：抗锯齿既然这么有用，为什么不默认开启，或者干脆把这个开关取消，自动让所有绘制都开启抗锯齿？<br><br>短答案：因为抗锯齿并不一定适合所有场景。<br><br>长答案：所谓的毛边或者锯齿，发生的原因并不是很多人所想象的「绘制太粗糙」「像素计算能力不足」；同样，抗锯齿的原理也并不是选择了更精细的算法来算出了更平滑的图形边缘。<br><br>实质上，锯齿现象的发生，只是由于图形分辨率过低，导致人眼察觉出了画面中的像素颗粒而已。换句话说，就算不开启抗锯齿，图形的边缘也已经是最完美的了，而并不是一个粗略计算的粗糙版本。<br><br>那么，为什么抗锯齿开启之后的图形边缘会更加平滑呢？因为抗锯齿的原理是：修改图形边缘处的像素颜色，从而让图形在肉眼看来具有更加平滑的感觉。一图胜千言，上图：<br><br><img src="https://image.sunzn.com/blog/20170818153309.png" alt="此处输入图片的描述"><br><br>上面这个是把前面那两个圆放大后的局部效果。看到没有？未开启抗锯齿的圆，所有像素都是同样的黑色，而开启了抗锯齿的圆，边缘的颜色被略微改变了。这种改变可以让人眼有边缘平滑的感觉，但从某种角度讲，它也造成了图形的颜色失真。 所以，抗锯齿好不好？好，大多数情况下它都应该是开启的；但在极少数的某些时候，你还真的需要把它关闭。「某些时候」是什么时候？到你用到的时候自然就知道了。</p>
 </blockquote>
 <h2 id="3-3-画矩形"><a href="#3-3-画矩形" class="headerlink" title="3.3 画矩形"></a>3.3 画矩形</h2><table><tr><td colspan="2" bgcolor="#F8F8F8"><b>方法</b></td></tr><tr><td colspan="2">void drawRect (float left, float top, float right, float bottom, Paint paint)<br>使用指定的画笔绘制指定的矩形</td></tr><tr><td colspan="2" bgcolor="#F8F8F8"><b>参数</b></td></tr><tr><td>left</td><td>float: 要绘制的矩形的左侧</td></tr><tr><td>top</td><td>float: 要绘制的矩形的顶端</td></tr><tr><td>right</td><td>float: 要绘制的矩形的右侧</td></tr><tr><td>bottom</td><td>float: 要绘制的矩形的底部</td></tr><tr><td>paint</td><td>Paint: 用来绘制矩形的画笔（不能为空）</td></tr></table>
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">paint.setStyle(Paint.Style.FILL);</span><br><span class="line">canvas.drawRect(left, top, right, bottom, paint);</span><br><span class="line"></span><br><span class="line">paint.setStyle(Paint.Style.STROKE);</span><br><span class="line">canvas.drawRect(left, top, right, bottom, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20170818153310.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20170818153310.png" alt="此处输入图片的描述"></p>
 <p>另外，它还有两个重载方法 <code>drawRect(RectF rect, Paint paint)</code> 和 <code>drawRect(Rect rect, Paint paint)</code> ，让你可以直接填写 <code>RectF</code> 或 <code>Rect</code> 对象来绘制矩形。</p>
 <h2 id="3-4-画单点"><a href="#3-4-画单点" class="headerlink" title="3.4 画单点"></a>3.4 画单点</h2><table><tr><td colspan="2" bgcolor="#F8F8F8"><b>方法</b></td></tr><tr><td colspan="2">void drawPoint (float x, float y, Paint paint)<br>绘制单个点</td></tr><tr><td colspan="2" bgcolor="#F8F8F8"><b>参数</b></td></tr><tr><td>x</td><td>float: 绘制点的 x 坐标</td></tr><tr><td>y</td><td>float: 绘制点的 y 坐标</td></tr><tr><td>paint</td><td>Paint: 用来绘制点的画笔（不能为空）</td></tr></table>
 
@@ -379,7 +379,7 @@ var _hmt = _hmt || [];
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">paint.setStrokeWidth(<span class="number">50</span>);</span><br><span class="line">paint.setStrokeCap(Paint.Cap.ROUND);</span><br><span class="line">canvas.drawPoint(x, y, paint);</span><br><span class="line"></span><br><span class="line">paint.setStrokeWidth(<span class="number">50</span>);</span><br><span class="line">paint.setStrokeCap(Paint.Cap.SQUARE);</span><br><span class="line">canvas.drawPoint(x, y, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20170818153311.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20170818153311.png" alt="此处输入图片的描述"></p>
 <p>好像有点像 FILL 模式下的 <code>drawCircle()</code> 和 <code>drawRect()</code>？事实上确实是这样的，它们和 <code>drawPoint()</code> 的绘制效果没有区别。各位在使用的时候按个人习惯和实际场景来吧，哪个方便和顺手用哪个。</p>
 <h2 id="3-5-画多点"><a href="#3-5-画多点" class="headerlink" title="3.5 画多点"></a>3.5 画多点</h2><table><tr><td colspan="2" bgcolor="#F8F8F8"><b>方法一</b></td></tr><tr><td colspan="2">void drawPoints (float[] pts, Paint paint)<br>绘制多个点</td></tr><tr><td colspan="2" bgcolor="#F8F8F8"><b>参数</b></td></tr><tr><td>pts</td><td>float: 绘制点的坐标数组</td></tr><tr><td>paint</td><td>Paint: 用来绘制点的画笔（不能为空）</td></tr></table>
 
@@ -388,19 +388,19 @@ var _hmt = _hmt || [];
 <p>同样是画点，它和 <code>drawPoint()</code> 的区别是可以画多个点。<code>pts</code> 这个数组是点的坐标，每两个成一对；<code>offset</code> 表示跳过数组的前几个数再开始记坐标；<code>count</code> 表示一共要处理几个值，例如：要绘制 4 个点，一个点用 2 个值表示，那么这个 count 就等于 4 x 2 = 8。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">paint.setStrokeCap(Paint.Cap.ROUND);</span><br><span class="line">paint.setStrokeWidth(<span class="number">10</span>);</span><br><span class="line"><span class="keyword">float</span>[] points = &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">50</span>, <span class="number">50</span>, <span class="number">50</span>, <span class="number">100</span>, <span class="number">100</span>, <span class="number">50</span>, <span class="number">100</span>, <span class="number">100</span>, <span class="number">150</span>, <span class="number">50</span>, <span class="number">150</span>, <span class="number">100</span>&#125;;</span><br><span class="line"><span class="comment">// 绘制四个点：(50, 50) (50, 100) (100, 50) (100, 100)</span></span><br><span class="line"><span class="comment">// 跳过两个数，即前两个 0，一共绘制 8 个数（4 个点）</span></span><br><span class="line">canvas.drawPoints(points, <span class="number">2</span>, <span class="number">8</span>, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20170818153312.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20170818153312.png" alt="此处输入图片的描述"></p>
 <h2 id="3-6-画椭圆"><a href="#3-6-画椭圆" class="headerlink" title="3.6 画椭圆"></a>3.6 画椭圆</h2><table><tr><td colspan="2" bgcolor="#F8F8F8"><b>方法</b></td></tr><tr><td colspan="2">void drawOval (float left, float top, float right, float bottom, Paint paint)<br>使用指定的画笔绘制指定的椭圆</td></tr><tr><td colspan="2" bgcolor="#F8F8F8"><b>参数</b></td></tr><tr><td>left</td><td>float: 要绘制的椭圆的左侧</td></tr><tr><td>top</td><td>float: 要绘制的椭圆的顶端</td></tr><tr><td>right</td><td>float: 要绘制的椭圆的右侧</td></tr><tr><td>bottom</td><td>float: 要绘制的椭圆的底部</td></tr><tr><td>paint</td><td>Paint: 用来绘制矩形的画笔（不能为空）</td></tr></table>
 
 <p>只能绘制横着的或者竖着的椭圆，不能绘制斜的（斜的倒是也可以，但不是直接使用 drawOval()，而是配合几何变换）。left，top，right，bottom 是这个椭圆的左、上、右、下四个边界点的坐标。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">paint.setStyle(Paint.Style.FILL);</span><br><span class="line">canvas.drawOval(left, top, right, bottom, paint);</span><br><span class="line"></span><br><span class="line">paint.setStyle(Paint.Style.STROKE);</span><br><span class="line">canvas.drawOval(left, top, right, bottom, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20170818153313.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20170818153313.png" alt="此处输入图片的描述"></p>
 <p>另外，它还有一个重载方法 <code>drawOval(RectF rect, Paint paint)</code>，让你可以直接填写 RectF 来绘制椭圆。</p>
 <h2 id="3-7-画单条线"><a href="#3-7-画单条线" class="headerlink" title="3.7 画单条线"></a>3.7 画单条线</h2><table><tr><td colspan="2" bgcolor="#F8F8F8"><b>方法</b></td></tr><tr><td colspan="2">void drawLine (float startX, float startY, float stopX, float stopY, Paint paint)<br>使用指定的起止点绘制一条线</td></tr><tr><td colspan="2" bgcolor="#F8F8F8"><b>参数</b></td></tr><tr><td>startX</td><td>float: 线的起始点的 x 坐标</td></tr><tr><td>startY</td><td>float: 线的起始点的 y 坐标</td></tr><tr><td>stopX</td><td>float: 线的中止点的 x 坐标</td></tr><tr><td>stopY</td><td>float: 线的中止点的 y 坐标</td></tr><tr><td>paint</td><td>Paint: 用来绘制线的画笔（不能为空）</td></tr></table>
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">paint.setStrokeWidth(<span class="number">10</span>);</span><br><span class="line">canvas.drawLine(<span class="number">0</span>, <span class="number">0</span>, getWidth(), getWidth(), paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20170818153314.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20170818153314.png" alt="此处输入图片的描述"></p>
 <blockquote>
 <p>由于直线不是封闭图形，所以 <code>setStyle(style)</code> 对直线没有影响。</p>
 </blockquote>
@@ -410,7 +410,7 @@ var _hmt = _hmt || [];
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span>[] points = &#123;<span class="number">0</span>, <span class="number">5</span>, <span class="number">150</span>, <span class="number">5</span>, <span class="number">150</span> / <span class="number">2</span>, <span class="number">0</span>, <span class="number">150</span> / <span class="number">2</span>, <span class="number">150</span>, <span class="number">0</span>, <span class="number">150</span> - <span class="number">5</span>, <span class="number">150</span>, <span class="number">150</span> - <span class="number">5</span>&#125;;</span><br><span class="line">paint.setStrokeWidth(<span class="number">10</span>);</span><br><span class="line">canvas.drawLines(points, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20170818153315.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20170818153315.png" alt="此处输入图片的描述"></p>
 <blockquote>
 <p>注意：这里在进行绘制的时候要考虑线的粗细，如果指定了宽高，而线条的绘制又是顶格绘制，顶部和底部线的起止点坐标要加减线条粗细度的一半进行调整，否则只有线条粗细度的一半会被绘制。</p>
 </blockquote>
@@ -418,13 +418,13 @@ var _hmt = _hmt || [];
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">paint.setStyle(Paint.Style.FILL);</span><br><span class="line">canvas.drawRoundRect(left, top, right, bottom, rx, ry, paint);</span><br><span class="line"></span><br><span class="line">paint.setStyle(Paint.Style.STROKE);</span><br><span class="line">canvas.drawRoundRect(left, top, right, bottom, rx, ry, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20170818153316.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20170818153316.png" alt="此处输入图片的描述"></p>
 <p>另外，它还有一个重载方法 <code>drawRoundRect(RectF rect, float rx, float ry, Paint paint)</code>，让你可以直接填写 <code>RectF</code> 来绘制圆角矩形。</p>
 <h2 id="3-10-画弧形、扇形"><a href="#3-10-画弧形、扇形" class="headerlink" title="3.10 画弧形、扇形"></a>3.10 画弧形、扇形</h2><table><tr><td colspan="2" bgcolor="#F8F8F8"><b>方法</b></td></tr><tr><td colspan="2">drawArc(float left, float top, float right, float bottom, float startAngle, float sweepAngle, boolean useCenter, Paint paint)<br>绘制指定的弧，其将被缩放以适合指定的椭圆。</td></tr><tr><td colspan="2" bgcolor="#F8F8F8"><b>参数</b></td></tr><tr><td>left</td><td>float: 要绘制的弧形、扇形的左侧</td></tr><tr><td>top</td><td>float: 要绘制的弧形、扇形的顶端</td></tr><tr><td>right</td><td>float: 要绘制的弧形、扇形的右侧</td></tr><tr><td>bottom</td><td>float: 要绘制的弧形、扇形的底部</td></tr><tr><td>startAngle</td><td>float: 弧开始的起始角度（x 轴的正向，即正右的方向，是 0 度的位置；顺时针为正角度，逆时针为负角度，以度为单位）</td></tr><tr><td>sweepAngle</td><td>float: 弧形顺时针划过的角度（度）</td></tr><tr><td>useCenter</td><td>boolean: 表示是否连接到圆心，如果不连接到圆心，就是弧形，如果连接到圆心，就是扇形。</td></tr><tr><td>paint</td><td>Paint: 用来绘制圆角弧形的画笔（不能为空）</td></tr></table>
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">paint.setStyle(Paint.Style.FILL);       <span class="comment">// 填充模式</span></span><br><span class="line">canvas.drawArc(<span class="number">0</span>, <span class="number">0</span>, getWidth(), getWidth() / <span class="number">2</span>, -<span class="number">180</span>, <span class="number">90</span>, <span class="keyword">true</span>, paint);  <span class="comment">// 绘制扇形</span></span><br><span class="line">canvas.drawArc(<span class="number">0</span>, <span class="number">0</span>, getWidth(), getWidth() / <span class="number">2</span>, -<span class="number">70</span>, <span class="number">90</span>, <span class="keyword">false</span>, paint);  <span class="comment">// 绘制弧形</span></span><br><span class="line">paint.setStyle(Paint.Style.STROKE);     <span class="comment">// 画线模式</span></span><br><span class="line">canvas.drawArc(<span class="number">0</span>, <span class="number">0</span>, getWidth(), getWidth() / <span class="number">2</span>, <span class="number">50</span>, <span class="number">100</span>, <span class="keyword">false</span>, paint);  <span class="comment">// 绘制不封口弧形</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20170818153317.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20170818153317.png" alt="此处输入图片的描述"></p>
 <p>到此为止，以上就是 Canvas 所有的简单图形的绘制。除了简单图形的绘制， Canvas 还可以使用  <code>drawPath(Path path)</code> 来绘制自定义图形。</p>
 <h2 id="3-11-画自定义图形"><a href="#3-11-画自定义图形" class="headerlink" title="3.11 画自定义图形"></a>3.11 画自定义图形</h2><p>前面的这些方法，都是绘制某个给定的图形，而 <code>drawPath()</code> 可以绘制自定义图形。当你要绘制的图形比较特殊，使用前面的那些方法做不到的时候，就可以使用 <code>drawPath()</code> 来绘制。</p>
 <table><tr><td colspan="2" bgcolor="#F8F8F8"><b>方法</b></td></tr><tr><td colspan="2">drawPath(Path path, Paint paint)<br>使用指定的画笔绘制指定的路径。</td></tr><tr><td colspan="2" bgcolor="#F8F8F8"><b>参数</b></td></tr><tr><td>path</td><td>Path: 要绘制的路径（不能为空）</td></tr><tr><td>paint</td><td>Paint: 用来绘制路径的画笔（不能为空）</td></tr></table>
@@ -432,19 +432,19 @@ var _hmt = _hmt || [];
 <p><code>drawPath(path)</code> 这个方法是通过描述路径的方式来绘制图形的，它的 path 参数就是用来描述图形路径的对象。path 的类型是 Path ，使用方法大概像下面这样：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PathView</span> <span class="keyword">extends</span> <span class="title">View</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    Paint paint = <span class="keyword">new</span> Paint();</span><br><span class="line">    Path path = <span class="keyword">new</span> Path(); <span class="comment">// 初始化 Path 对象</span></span><br><span class="line"></span><br><span class="line">    ......</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line">      <span class="comment">// 使用 path 对图形进行描述（这段描述代码不必看懂）</span></span><br><span class="line">      path.addArc(<span class="number">200</span>, <span class="number">200</span>, <span class="number">400</span>, <span class="number">400</span>, -<span class="number">225</span>, <span class="number">225</span>);</span><br><span class="line">      path.arcTo(<span class="number">400</span>, <span class="number">200</span>, <span class="number">600</span>, <span class="number">400</span>, -<span class="number">180</span>, <span class="number">225</span>, <span class="keyword">false</span>);</span><br><span class="line">      path.lineTo(<span class="number">400</span>, <span class="number">542</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">super</span>.onDraw(canvas);</span><br><span class="line"></span><br><span class="line">      canvas.drawPath(path, paint); <span class="comment">// 绘制出 path 描述的图形（心形）</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20170818153318.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20170818153318.png" alt="此处输入图片的描述"></p>
 <p><a href="https://developer.android.com/reference/android/graphics/Path.html" target="_blank" rel="noopener">Path</a> 可以描述直线、二次曲线、三次曲线、圆、椭圆、弧形、矩形、圆角矩形。把这些图形结合起来，就可以描述出很多复杂的图形。下面我就说一下具体的怎么把这些图形描述出来。</p>
 <p>Path 有两类方法，一类是直接描述路径的，另一类是辅助的设置或计算。</p>
 <h3 id="3-11-1-Path-方法第一类：直接描述路径"><a href="#3-11-1-Path-方法第一类：直接描述路径" class="headerlink" title="3.11.1 Path 方法第一类：直接描述路径"></a>3.11.1 Path 方法第一类：直接描述路径</h3><p>这一类方法还可以细分为两组：添加子图形和画线（直线或曲线）</p>
 <h4 id="第一组：addXxx-添加子图形"><a href="#第一组：addXxx-添加子图形" class="headerlink" title="第一组：addXxx() 添加子图形"></a>第一组：addXxx() 添加子图形</h4><h5 id="（1）添加圆"><a href="#（1）添加圆" class="headerlink" title="（1）添加圆"></a>（1）添加圆</h5><table><tr><td colspan="2" bgcolor="#F8F8F8"><b>方法</b></td></tr><tr><td colspan="2">addCircle(float x, float y, float radius, Path.Direction dir)<br>向路径添加一个封闭圆形。</td></tr><tr><td colspan="2" bgcolor="#F8F8F8"><b>参数</b></td></tr><tr><td>x</td><td>float: 要添加到路径的圆心 x 坐标</td></tr><tr><td>y</td><td>float: 要添加到路径的圆心 y 坐标</td></tr><tr><td>radius</td><td>float: 要添加到路径的圆的半径</td></tr><tr><td>dir</td><td>Path.Direction: 画圆的路径方向</td></tr></table>
 
 <blockquote>
-<p>路径方向有两种：<strong>顺时针（CW clockwise）</strong> 和<strong>逆时针（CCW counter-clockwise）</strong>。对于普通情况，这个参数填 CW 还是填 CCW 没有影响。它只是在<strong>需要填充图形</strong> (Paint.Style 为 FILL 或 FILL_AND_STROKE) ，<strong>并且图形出现自相交</strong>时，用于判断填充范围的。比如下面这个图形：<br><br><img src="http://image.sunzn.com/blog/20170818153319.png" alt="此处输入图片的描述"><br><br>是应该填充成这样呢？<br><br><img src="http://image.sunzn.com/blog/20170818153320.png" alt="此处输入图片的描述"><br><br>还是应该填充成这样呢？<br><br><img src="http://image.sunzn.com/blog/20170818153321.png" alt="此处输入图片的描述"><br></p>
+<p>路径方向有两种：<strong>顺时针（CW clockwise）</strong> 和<strong>逆时针（CCW counter-clockwise）</strong>。对于普通情况，这个参数填 CW 还是填 CCW 没有影响。它只是在<strong>需要填充图形</strong> (Paint.Style 为 FILL 或 FILL_AND_STROKE) ，<strong>并且图形出现自相交</strong>时，用于判断填充范围的。比如下面这个图形：<br><br><img src="https://image.sunzn.com/blog/20170818153319.png" alt="此处输入图片的描述"><br><br>是应该填充成这样呢？<br><br><img src="https://image.sunzn.com/blog/20170818153320.png" alt="此处输入图片的描述"><br><br>还是应该填充成这样呢？<br><br><img src="https://image.sunzn.com/blog/20170818153321.png" alt="此处输入图片的描述"><br></p>
 </blockquote>
 <p>在用 <code>addCircle()</code> 为 Path 中新增一个圆之后，调用 <code>canvas.drawPath(path, paint)</code>，就能画一个圆出来。就像这样：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">path.addCircle(<span class="number">300</span>, <span class="number">300</span>, <span class="number">100</span>, Path.Direction.CW);</span><br><span class="line">canvas.drawPath(path, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20170818153322.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20170818153322.png" alt="此处输入图片的描述"></p>
 <p>可以看出，<code>path.AddCircle(x, y, radius, dir)</code> + <code>canvas.drawPath(path, paint)</code> 这种写法，和直接使用 <code>canvas.drawCircle(x, y, radius, paint)</code> 的效果是一样的，区别只是它的写法更复杂。所以如果只画一个圆，没必要用 Path，直接用 <code>drawCircle()</code> 就行了。<code>drawPath()</code> 一般是在绘制组合图形时才会用到的。</p>
 <h5 id="（2）添加其他图形"><a href="#（2）添加其他图形" class="headerlink" title="（2）添加其他图形"></a>（2）添加其他图形</h5><table><tr><td colspan="2" bgcolor="#F8F8F8"><b>添加椭圆</b></td></tr><tr><td colspan="2">addOval(float left, float top, float right, float bottom, Direction dir)</td></tr><tr><td colspan="2">addOval(RectF oval, Direction dir)</td></tr><tr><td colspan="2" bgcolor="#F8F8F8"><b>添加矩形</b></td></tr><tr><td colspan="2">addRect(float left, float top, float right, float bottom, Direction dir)</td></tr><tr><td colspan="2">addRect(RectF rect, Direction dir)</td></tr><tr><td colspan="2" bgcolor="#F8F8F8"><b>添加圆角矩形</b></td></tr><tr><td colspan="2">addRoundRect(RectF rect, float rx, float ry, Direction dir)</td></tr><tr><td colspan="2">addRoundRect(float left, float top, float right, float bottom, float rx, float ry, Direction dir) </td></tr><tr><td colspan="2">addRoundRect(RectF rect, float[] radii, Direction dir)</td></tr><tr><td colspan="2"> addRoundRect(float left, float top, float right, float bottom, float[] radii, Direction dir)</td></tr><tr><td colspan="2" bgcolor="#F8F8F8"><b>添加另一个 Path</b></td></tr><tr><td colspan="2">addPath(Path path) </td></tr></table>
 
@@ -460,7 +460,7 @@ var _hmt = _hmt || [];
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">paint.setStyle(Paint.Style.STROKE);</span><br><span class="line">paint.setStrokeWidth(<span class="number">10f</span>);</span><br><span class="line">paint.setColor(Color.RED);</span><br><span class="line"></span><br><span class="line">path.lineTo(<span class="number">400</span>, <span class="number">400</span>); <span class="comment">// 由当前位置 (0, 0) 向 (400, 400) 画一条直线 </span></span><br><span class="line">path.rLineTo(<span class="number">400</span>, <span class="number">0</span>);  <span class="comment">// 由当前位置 (400, 400) 向正右方 400 像素的位置画一条直线</span></span><br><span class="line">canvas.drawPath(path, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20170818153323.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20170818153323.png" alt="此处输入图片的描述"></p>
 <h5 id="（2）画二次贝塞尔曲线"><a href="#（2）画二次贝塞尔曲线" class="headerlink" title="（2）画二次贝塞尔曲线"></a>（2）画二次贝塞尔曲线</h5><table><tr><td colspan="2" bgcolor="#F8F8F8"><b>方法一</b></td></tr><tr><td colspan="2">quadTo(float x1, float y1, float x2, float y2)<br>以当前位置为起点，接近控制点（x1，y1），并以（x2，y2）结束。</td></tr><tr><td colspan="2" bgcolor="#F8F8F8"><b>参数</b></td></tr><tr><td>x1</td><td>float: 二次曲线上控制点的 x 坐标</td></tr><tr><td>y1</td><td>float: 二次曲线上控制点的 y 坐标</td></tr><tr><td>x2</td><td>float: 二次曲线终点的 x 坐标</td></tr><tr><td>y2</td><td>float: 二次曲线终点的 y 坐标</td></tr></table>
 
 <table> <tr><td colspan="2" bgcolor="#F8F8F8"><b>方法二</b></td></tr><tr><td colspan="2">rQuadTo(float dx1, float dy1, float dx2, float dy2)<br>与 quadTo 相似，但是相对于当前位置的坐标。</td></tr><tr><td colspan="2" bgcolor="#F8F8F8"><b>参数</b></td></tr><tr><td>x1</td><td>float: 相对于上一个点的 x 坐标，用于二次曲线的控制点</td></tr><tr><td>y1</td><td>float: 相对于上一个点的 y 坐标，用于二次曲线的控制点</td></tr><tr><td>x2</td><td>float: 相对于上一个点的 x 坐标，用于二次曲线的终点</td></tr><tr><td>y2</td><td>float: 相对于上一个点的 y 坐标，用于二次曲线的终点</td></tr></table>
@@ -468,7 +468,7 @@ var _hmt = _hmt || [];
 <p>这条二次贝塞尔曲线的起点就是当前位置，而参数中的 <code>x1</code>, <code>y1</code> 和 <code>x2</code>, <code>y2</code> 则分别是控制点和终点的坐标。和 <code>rLineTo(x, y)</code> 同理，<code>rQuadTo(dx1, dy1, dx2, dy2)</code> 的参数也是相对坐标。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">path.quadTo(<span class="number">400</span>, <span class="number">400</span>, <span class="number">400</span>, <span class="number">200</span>);</span><br><span class="line">canvas.drawPath(path, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20170818153324.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20170818153324.png" alt="此处输入图片的描述"></p>
 <p>为了便于理解控制点和终点在贝塞尔曲线绘制过程中的作用，我在绘制过程中将对应坐标点也画了出来。</p>
 <blockquote>
 <p><strong>贝塞尔曲线</strong>：贝塞尔曲线是几何上的一种曲线。它通过起点、控制点和终点来描述一条曲线，主要用于计算机图形学。概念总是说着容易听着难，总之使用它可以绘制很多圆润又好看的图形，但要把它熟练掌握、灵活使用却是不容易的。不过还好的是，一般情况下，贝塞尔曲线并没有什么用处，只在少数场景下绘制一些特殊图形的时候才会用到，所以如果你还没掌握自定义绘制，可以先把贝塞尔曲线放一放，稍后再学也完全没问题。</p>
@@ -479,7 +479,7 @@ var _hmt = _hmt || [];
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onDraw(canvas);</span><br><span class="line">    paint.setAntiAlias(<span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">    paint.setStyle(Paint.Style.STROKE);</span><br><span class="line">    paint.setStrokeWidth(<span class="number">5f</span>);</span><br><span class="line">    paint.setColor(Color.RED);</span><br><span class="line"></span><br><span class="line">    path.cubicTo(<span class="number">200</span>, <span class="number">600</span>, <span class="number">400</span>, <span class="number">400</span>, <span class="number">400</span>, <span class="number">200</span>);     <span class="comment">// 绘制三次贝塞尔曲线</span></span><br><span class="line"></span><br><span class="line">    canvas.drawPath(path, paint);</span><br><span class="line"></span><br><span class="line">    path.reset();</span><br><span class="line"></span><br><span class="line">    paint.setStrokeWidth(<span class="number">2f</span>);</span><br><span class="line">    paint.setColor(Color.BLUE);</span><br><span class="line">    path.addCircle(<span class="number">200</span>, <span class="number">600</span>, <span class="number">4</span>, Path.Direction.CW); <span class="comment">// 绘制第一个控制点</span></span><br><span class="line">    path.addCircle(<span class="number">400</span>, <span class="number">400</span>, <span class="number">4</span>, Path.Direction.CW); <span class="comment">// 绘制第二个控制点</span></span><br><span class="line">    path.addCircle(<span class="number">400</span>, <span class="number">200</span>, <span class="number">4</span>, Path.Direction.CW); <span class="comment">// 绘制终点</span></span><br><span class="line"></span><br><span class="line">    canvas.drawPath(path, paint);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20170818153325.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20170818153325.png" alt="此处输入图片的描述"></p>
 <p>和上面的 <code>quadTo()</code> <code>rQuadTo()</code> 的二次贝塞尔曲线同理，<code>cubicTo()</code> 和 <code>rCubicTo()</code> 是三次贝塞尔曲线，不再解释。</p>
 <h5 id="（4）移动到目标位置"><a href="#（4）移动到目标位置" class="headerlink" title="（4）移动到目标位置"></a>（4）移动到目标位置</h5><table><tr><td colspan="2" bgcolor="#F8F8F8"><b>方法一</b></td></tr><tr><td colspan="2">moveTo(float x, float y)<br>设置绘制图形的起点。</td></tr><tr><td colspan="2" bgcolor="#F8F8F8"><b>参数</b></td></tr><tr><td>x</td><td>float: 新起点的 x 坐标</td></tr><tr><td>y</td><td>float: 新起点的 y 坐标</td></tr></table>
 
@@ -487,15 +487,15 @@ var _hmt = _hmt || [];
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">path.lineTo(<span class="number">300</span>, <span class="number">300</span>); <span class="comment">// 画斜线</span></span><br><span class="line">path.moveTo(<span class="number">500</span>, <span class="number">300</span>); <span class="comment">// 移动</span></span><br><span class="line">path.lineTo(<span class="number">500</span>, <span class="number">0</span>);   <span class="comment">// 画竖线</span></span><br><span class="line">canvas.drawPath(path, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20170818153326.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20170818153326.png" alt="此处输入图片的描述"></p>
 <h5 id="（5）-画弧形"><a href="#（5）-画弧形" class="headerlink" title="（5） 画弧形"></a>（5） 画弧形</h5><table><tr><td colspan="2" bgcolor="#F8F8F8"><b>方法</b></td></tr><tr><td colspan="2">arcTo(float left, float top, float right, float bottom, float startAngle, float sweepAngle, boolean forceMoveTo)<br>将指定的弧添加到路径，但并不使用当前位置作为弧线的起点。</td></tr><tr><td colspan="2" bgcolor="#F8F8F8"><b>参数</b></td></tr><tr><td>left</td><td>float</td></tr><tr><td>top</td><td>float</td></tr><tr><td>right</td><td>float</td></tr><tr><td>bottom</td><td>float</td></tr><tr><td>startAngle</td><td>float: 弧开始的起始角度（x 轴的正向，即正右的方向，是 0 度的位置；顺时针为正角度，逆时针为负角度，以度为单位）</td></tr><tr><td>sweepAngle</td><td>float: 弧形顺时针划过的角度（度）</td></tr><tr><td>forceMoveTo</td><td>boolean: 绘制是要「抬一下笔移动过去」，还是「直接拖着笔过去」，区别在于是否留下移动的痕迹</td></tr></table>
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onDraw(canvas);</span><br><span class="line">    paint.setAntiAlias(<span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">    paint.setStyle(Paint.Style.STROKE);</span><br><span class="line">    paint.setStrokeWidth(<span class="number">3f</span>);</span><br><span class="line">    paint.setColor(Color.RED);</span><br><span class="line"></span><br><span class="line">    path.lineTo(<span class="number">200</span>, <span class="number">200</span>); <span class="comment">// 画斜线</span></span><br><span class="line">    path.arcTo(<span class="number">200</span>, <span class="number">200</span>, <span class="number">500</span>, <span class="number">500</span>, -<span class="number">90</span>, <span class="number">90</span>, <span class="keyword">true</span>); <span class="comment">// 强制移动到弧形起点（无痕迹）</span></span><br><span class="line">    canvas.drawPath(path, paint);</span><br><span class="line"></span><br><span class="line">    path.reset();</span><br><span class="line">    paint.setStrokeWidth(<span class="number">2f</span>);</span><br><span class="line">    paint.setColor(Color.BLUE);</span><br><span class="line">    path.addCircle(<span class="number">200</span>, <span class="number">200</span>, <span class="number">4</span>, Path.Direction.CW); <span class="comment">// 绘制点(300,300)</span></span><br><span class="line">    path.addCircle(<span class="number">500</span>, <span class="number">500</span>, <span class="number">4</span>, Path.Direction.CW); <span class="comment">// 绘制点(500,500)</span></span><br><span class="line">    canvas.drawPath(path, paint);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20170818153327.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20170818153327.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">path.lineTo(<span class="number">200</span>, <span class="number">200</span>); <span class="comment">// 画斜线</span></span><br><span class="line">path.arcTo(<span class="number">200</span>, <span class="number">200</span>, <span class="number">500</span>, <span class="number">500</span>, -<span class="number">90</span>, <span class="number">90</span>, <span class="keyword">false</span>); <span class="comment">// 直接连线连到弧形起点（有痕迹）</span></span><br><span class="line">canvas.drawPath(path, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20170818153328.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20170818153328.png" alt="此处输入图片的描述"></p>
 <p>这个方法和 <code>Canvas.drawArc()</code> 比起来，少了一个参数 <code>useCenter</code>，而多了一个参数 <code>forceMoveTo</code>。少了 <code>useCenter</code>，是因为 <code>arcTo()</code> 只用来画弧形而不画扇形，所以不再需要 <code>useCenter</code> 参数；而多出来的这个 <code>forceMoveTo</code> 参数的意思是，绘制是要「抬一下笔移动过去」，还是「直接拖着笔过去」，区别在于是否留下移动的痕迹。</p>
 <p>另外，它还有两个重载方法 <code>arcTo(RectF oval, float startAngle, float sweepAngle, boolean forceMoveTo)</code>、<code>arcTo(RectF oval, float startAngle, float sweepAngle)</code>让你可以直接填写 RectF 来绘制弧形。</p>
 <h5 id="（6）-画弧形"><a href="#（6）-画弧形" class="headerlink" title="（6） 画弧形"></a>（6） 画弧形</h5><table><tr><td colspan="2" bgcolor="#F8F8F8"><b>方法</b></td></tr><tr><td colspan="2">addArc(float left, float top, float right, float bottom, float startAngle, float sweepAngle)<br>将指定的弧添加到路径，但并不使用当前位置作为弧线的起点。</td></tr><tr><td colspan="2" bgcolor="#F8F8F8"><b>参数</b></td></tr><tr><td>left</td><td>float</td></tr><tr><td>top</td><td>float</td></tr><tr><td>right</td><td>float</td></tr><tr><td>bottom</td><td>float</td></tr><tr><td>startAngle</td><td>float: 弧开始的起始角度（x 轴的正向，即正右的方向，是 0 度的位置；顺时针为正角度，逆时针为负角度，以度为单位）</td></tr><tr><td>sweepAngle</td><td>float: 弧形顺时针划过的角度（度）</td></tr></table>
@@ -503,23 +503,23 @@ var _hmt = _hmt || [];
 <p>又是一个弧形的方法。一个叫 <code>arcTo()</code>，一个叫 <code>addArc()</code>，都是弧形，区别在哪里？其实很简单：<code>addArc()</code> 只是一个直接使用了 forceMoveTo = true 的简化版 <code>arcTo()</code>。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">path.lineTo(<span class="number">200</span>, <span class="number">200</span>); <span class="comment">// 画斜线</span></span><br><span class="line">path.addArc(<span class="number">200</span>, <span class="number">200</span>, <span class="number">500</span>, <span class="number">500</span>, -<span class="number">90</span>, <span class="number">90</span>);</span><br><span class="line">canvas.drawPath(path, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20170818153329.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20170818153329.png" alt="此处输入图片的描述"></p>
 <h5 id="（7）-封闭当前子图形"><a href="#（7）-封闭当前子图形" class="headerlink" title="（7） 封闭当前子图形"></a>（7） 封闭当前子图形</h5><table><tr><td colspan="2" bgcolor="#F8F8F8"><b>方法</b></td></tr><tr><td colspan="2">close()<br>它的作用是把当前的子图形封闭，即由当前位置向当前子图形的起点绘制一条直线。</td></tr></table>
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">path.moveTo(<span class="number">200</span>, <span class="number">200</span>);</span><br><span class="line">path.lineTo(<span class="number">400</span>, <span class="number">200</span>);</span><br><span class="line">path.lineTo(<span class="number">300</span>, <span class="number">350</span>);</span><br><span class="line"><span class="comment">// 子图形未封闭</span></span><br><span class="line">canvas.drawPath(path, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20170818153330.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20170818153330.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">path.moveTo(<span class="number">200</span>, <span class="number">200</span>);</span><br><span class="line">path.lineTo(<span class="number">400</span>, <span class="number">200</span>);</span><br><span class="line">path.lineTo(<span class="number">300</span>, <span class="number">350</span>);</span><br><span class="line">path.close(); <span class="comment">// 使用 close() 封闭子图形，等价于 path.lineTo(起点坐标) </span></span><br><span class="line">canvas.drawPath(path, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20170818153331.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20170818153331.png" alt="此处输入图片的描述"></p>
 <blockquote>
 <p><strong>子图形：官方文档里叫做 contour</strong> 。但由于在这个场景下我找不到这个词合适的中文翻译（直译的话叫做「轮廓」），所以我换了个便于中国人理解的词：「子图形」。前面说到，第一组方法是「添加子图形」，所谓「子图形」，指的就是一次不间断的连线。一个 Path 可以包含多个子图形。当使用第一组方法，即 <code>addCircle()</code> <code>addRect()</code> 等方法的时候，每一次方法调用都是新增了一个独立的子图形；而如果使用第二组方法，即 <code>lineTo()</code> <code>arcTo()</code> 等方法的时候，则是每一次断线（即每一次「抬笔」），都标志着一个子图形的结束，以及一个新的子图形的开始。<br><br>另外，不是所有的子图形都需要使用 <code>close()</code> 来封闭。当需要填充图形时（即 Paint.Style 为 FILL 或  FILL_AND_STROKE），Path 会自动封闭子图形。</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">paint.setStyle(Paint.Style.FILL);</span><br><span class="line">path.moveTo(<span class="number">200</span>, <span class="number">200</span>);</span><br><span class="line">path.lineTo(<span class="number">400</span>, <span class="number">200</span>);</span><br><span class="line">path.lineTo(<span class="number">300</span>, <span class="number">350</span>);</span><br><span class="line">canvas.drawPath(path, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20170818153332.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20170818153332.png" alt="此处输入图片的描述"></p>
 <h3 id="3-11-2-Path-方法第二类：辅助的设置或计算"><a href="#3-11-2-Path-方法第二类：辅助的设置或计算" class="headerlink" title="3.11.2 Path 方法第二类：辅助的设置或计算"></a>3.11.2 Path 方法第二类：辅助的设置或计算</h3><p>这类方法的使用场景比较少，在这里就不多讲了，只讲其中一个方法：  <code>setFillType(FillType fillType)</code>。前面在说 dir 参数的时候提到， <code>Path.setFillType(fillType)</code> 是用来设置图形自相交时的填充算法的：</p>
-<p><img src="http://image.sunzn.com/blog/20170818153333.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20170818153333.png" alt="此处输入图片的描述"></p>
 <p>方法中填入不同的 FillType 值，就会有不同的填充效果。FillType 的取值有四个：</p>
 <ul>
 <li>EVEN_ODD</li>
@@ -529,20 +529,20 @@ var _hmt = _hmt || [];
 </ul>
 <p>其中后面的两个带有 INVERSE_ 前缀的，只是前两个的反色版本，所以只要把前两个，即 EVEN_ODD 和  WINDING，搞明白就可以了。</p>
 <p><code>EVEN_ODD</code> 和 <code>WINDING</code> 的原理有点复杂，直接讲出来的话信息量太大，所以先给一个简单粗暴版的总结感受一下： <code>WINDING</code> 是「全填充」，而 <code>EVEN_ODD</code> 是「交叉填充」：</p>
-<p><img src="http://image.sunzn.com/blog/20170818153334.jpg" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20170818153334.jpg" alt="此处输入图片的描述"></p>
 <p>之所以叫「简单粗暴版」，是因为这些只是通常情形下的效果；而如果要准确了解它们在所有情况下的效果，就得先知道它们的原理，即它们的具体算法。</p>
 <blockquote>
-<h3 id="EVEN-ODD-和-WINDING-的原理"><a href="#EVEN-ODD-和-WINDING-的原理" class="headerlink" title="EVEN_ODD 和 WINDING 的原理"></a><strong>EVEN_ODD 和 WINDING 的原理</strong></h3><p><strong>EVEN_ODD</strong><br><br>即 even-odd rule （奇偶原则）：对于平面中的任意一点，向任意方向射出一条射线，这条射线和图形相交的次数（相交才算，相切不算）如果是奇数，则这个点被认为在图形内部，是要被涂色的区域；如果是偶数，则这个点被认为在图形外部，是不被涂色的区域。还以左右相交的双圆为例：<br><br><img src="http://image.sunzn.com/blog/20170818153335.png" alt="此处输入图片的描述"><br><br>射线的方向无所谓，同一个点射向任何方向的射线，结果都是一样的，从上图可以看出，射线每穿过图形中的一条线，内外状态就发生一次切换，这就是为什么 EVEN_ODD 是一个「交叉填充」的模式。<br><br><strong>WINDING</strong><br><br>即 non-zero winding rule （非零环绕数原则）：首先，它需要你图形中的所有线条都是有绘制方向的。<br><br><img src="http://image.sunzn.com/blog/20170818153336.jpg" alt="此处输入图片的描述"><br><br>然后，同样是从平面中的点向任意方向射出一条射线，但计算规则不一样：以 0 为初始值，对于射线和图形的所有交点，遇到每个顺时针的交点（图形从射线的左边向右穿过）把结果加 1，遇到每个逆时针的交点（图形从射线的右边向左穿过）把结果减 1，最终把所有的交点都算上，得到的结果如果不是 0，则认为这个点在图形内部，是要被涂色的区域；如果是 0，则认为这个点在图形外部，是不被涂色的区域。<br><br><img src="http://image.sunzn.com/blog/20170818153337.png" alt="此处输入图片的描述"><br><br>和 EVEN_ODD 相同，射线的方向并不影响结果。所以，前面的那个「简单粗暴」的总结，对于 WINDING 来说并不完全正确：如果你所有的图形都用相同的方向来绘制，那么 WINDING 确实是一个「全填充」的规则；但如果使用不同的方向来绘制图形，结果就不一样了。</p>
+<h3 id="EVEN-ODD-和-WINDING-的原理"><a href="#EVEN-ODD-和-WINDING-的原理" class="headerlink" title="EVEN_ODD 和 WINDING 的原理"></a><strong>EVEN_ODD 和 WINDING 的原理</strong></h3><p><strong>EVEN_ODD</strong><br><br>即 even-odd rule （奇偶原则）：对于平面中的任意一点，向任意方向射出一条射线，这条射线和图形相交的次数（相交才算，相切不算）如果是奇数，则这个点被认为在图形内部，是要被涂色的区域；如果是偶数，则这个点被认为在图形外部，是不被涂色的区域。还以左右相交的双圆为例：<br><br><img src="https://image.sunzn.com/blog/20170818153335.png" alt="此处输入图片的描述"><br><br>射线的方向无所谓，同一个点射向任何方向的射线，结果都是一样的，从上图可以看出，射线每穿过图形中的一条线，内外状态就发生一次切换，这就是为什么 EVEN_ODD 是一个「交叉填充」的模式。<br><br><strong>WINDING</strong><br><br>即 non-zero winding rule （非零环绕数原则）：首先，它需要你图形中的所有线条都是有绘制方向的。<br><br><img src="https://image.sunzn.com/blog/20170818153336.jpg" alt="此处输入图片的描述"><br><br>然后，同样是从平面中的点向任意方向射出一条射线，但计算规则不一样：以 0 为初始值，对于射线和图形的所有交点，遇到每个顺时针的交点（图形从射线的左边向右穿过）把结果加 1，遇到每个逆时针的交点（图形从射线的右边向左穿过）把结果减 1，最终把所有的交点都算上，得到的结果如果不是 0，则认为这个点在图形内部，是要被涂色的区域；如果是 0，则认为这个点在图形外部，是不被涂色的区域。<br><br><img src="https://image.sunzn.com/blog/20170818153337.png" alt="此处输入图片的描述"><br><br>和 EVEN_ODD 相同，射线的方向并不影响结果。所以，前面的那个「简单粗暴」的总结，对于 WINDING 来说并不完全正确：如果你所有的图形都用相同的方向来绘制，那么 WINDING 确实是一个「全填充」的规则；但如果使用不同的方向来绘制图形，结果就不一样了。</p>
 </blockquote>
 <p>所以，完整版的 EVEN_ODD 和 WINDING 的效果应该是这样的：</p>
-<p><img src="http://image.sunzn.com/blog/20170818153338.jpg" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20170818153338.jpg" alt="此处输入图片的描述"></p>
 <p>而 INVERSE_EVEN_ODD 和 INVERSE_WINDING ，只是把这两种效果进行反转而已，你懂了 EVEN_ODD 和 WINDING ，自然也就懂 INVERSE_EVEN_ODD 和 INVERSE_WINDING 了，这里就不讲了。</p>
 <p>好，花了好长的篇幅来讲 drawPath(path) 和 Path，终于讲完了。同时，Canvas 对图形的绘制就也讲完了。图形简单时，使用 drawCircle() drawRect() 等方法来直接绘制；图形复杂时，使用 drawPath() 来绘制自定义图形。</p>
 <h2 id="3-12-画-Bitmap"><a href="#3-12-画-Bitmap" class="headerlink" title="3.12 画 Bitmap"></a>3.12 画 Bitmap</h2><table><tr><td colspan="2" bgcolor="#F8F8F8"><b>方法</b></td></tr><tr><td colspan="2">drawBitmap(Bitmap bitmap, float left, float top, Paint paint)<br>绘制指定的位图</td></tr><tr><td colspan="2" bgcolor="#F8F8F8"><b>参数</b></td></tr><tr><td>bitmap</td><td>Bitmap: 要绘制的位图（不能为空）</td></tr><tr><td>left</td><td>float: 绘制位图左侧的位置</td></tr><tr><td>top</td><td>float: 绘制位图的顶端的位置</td></tr><tr><td>paint</td><td>Paint: 用来绘制位图的画笔（不能为空）</td></tr></table>
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">canvas.drawBitmap(bitmap, <span class="number">100</span>, <span class="number">150</span>, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20170818153339.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20170818153339.png" alt="此处输入图片的描述"></p>
 <p>绘制 Bitmap 对象，也就是把这个 Bitmap 中的像素内容贴过来。其中 left 和 top 是绘制 bitmap 的左上角位置坐标。它的重载方法：</p>
 <ul>
 <li>drawBitmap(Bitmap bitmap, Rect src, Rect dst, Paint paint)</li>
@@ -556,13 +556,13 @@ var _hmt = _hmt || [];
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">paint.setTextSize(<span class="number">120</span>);</span><br><span class="line">paint.setStrokeWidth(<span class="number">2f</span>);</span><br><span class="line">paint.setColor(Color.RED);</span><br><span class="line">paint.setStyle(Paint.Style.FILL);</span><br><span class="line">canvas.drawText(<span class="string">"Hello World"</span>, <span class="number">100</span>, <span class="number">150</span>, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20170818153340.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20170818153340.png" alt="此处输入图片的描述"></p>
 <blockquote>
 <p>通过 <strong>Paint.setTextSize(float textSize)</strong>，可以设置文字的大小。</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">paint.setStrokeWidth(<span class="number">1f</span>);</span><br><span class="line">paint.setColor(Color.RED);</span><br><span class="line">paint.setStyle(Paint.Style.FILL);</span><br><span class="line"></span><br><span class="line">paint.setTextSize(<span class="number">18</span>);</span><br><span class="line">canvas.drawText(<span class="string">"Hello World"</span>, <span class="number">100</span>, <span class="number">25</span>, paint);</span><br><span class="line">paint.setTextSize(<span class="number">36</span>);</span><br><span class="line">canvas.drawText(<span class="string">"Hello World"</span>, <span class="number">100</span>, <span class="number">70</span>, paint);</span><br><span class="line">paint.setTextSize(<span class="number">60</span>);</span><br><span class="line">canvas.drawText(<span class="string">"Hello World"</span>, <span class="number">100</span>, <span class="number">145</span>, paint);</span><br><span class="line">paint.setTextSize(<span class="number">84</span>);</span><br><span class="line">canvas.drawText(<span class="string">"Hello World"</span>, <span class="number">100</span>, <span class="number">240</span>, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20170818153341.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20170818153341.png" alt="此处输入图片的描述"></p>
 <blockquote>
 <p>设置文字的位置和尺寸，这些只是绘制文字最基本的操作。文字的绘制具有极高的定制性，不过由于它的定制性实在太高了，所以会在后面专门用一期来讲文字的绘制。</p>
 </blockquote>
@@ -826,15 +826,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -850,6 +850,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">File</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">组件化</a>
               </li>
              
@@ -862,10 +866,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">File</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
@@ -874,19 +874,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -898,11 +890,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ADB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Issue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -938,6 +942,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
@@ -946,19 +954,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">方案</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Version</a>
+                <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -975,6 +975,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Burpsuite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Version</a>
               </li>
              
               <li class="article-tag-list-item">

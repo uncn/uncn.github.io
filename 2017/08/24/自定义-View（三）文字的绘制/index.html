@@ -16,45 +16,45 @@
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="上期的 Paint 详解里已经说过，文字的绘制所能控制的内容太多太细，必须拆成单独的一期专门来讲。今天这期，就是来把这些细节讲清楚的。下面进入正题： 1. Canvas 绘制文字的方式Canvas 的文字绘制方法有三个：drawText()、drawTextRun() 和 drawTextOnPath()。 1.1 drawText(String text, float x, float y, P">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180201100801.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180201100802.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180201100804.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180201100803.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180201100805.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180201100806.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180201100807.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180201100808.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180201100809.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180201100810.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180201100811.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180201100812.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180201100813.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180201100814.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180201100815.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180201100816.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180201100817.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180201100818.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180201100819.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180201100820.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180201100821.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180201100822.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180201100823.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180201100824.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180201100825.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180201100826.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180201100827.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180201100828.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180201100829.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180201100830.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180201100831.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180201100832.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180201100833.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180201100834.png">
-<meta property="og:updated_time" content="2018-11-01T13:39:06.000Z">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180201100801.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180201100802.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180201100804.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180201100803.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180201100805.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180201100806.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180201100807.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180201100808.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180201100809.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180201100810.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180201100811.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180201100812.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180201100813.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180201100814.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180201100815.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180201100816.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180201100817.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180201100818.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180201100819.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180201100820.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180201100821.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180201100822.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180201100823.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180201100824.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180201100825.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180201100826.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180201100827.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180201100828.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180201100829.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180201100830.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180201100831.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180201100832.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180201100833.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180201100834.png">
+<meta property="og:updated_time" content="2023-03-21T14:54:41.476Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自定义 View（三）文字的绘制">
 <meta name="twitter:description" content="上期的 Paint 详解里已经说过，文字的绘制所能控制的内容太多太细，必须拆成单独的一期专门来讲。今天这期，就是来把这些细节讲清楚的。下面进入正题： 1. Canvas 绘制文字的方式Canvas 的文字绘制方法有三个：drawText()、drawTextRun() 和 drawTextOnPath()。 1.1 drawText(String text, float x, float y, P">
-<meta name="twitter:image" content="http://image.sunzn.com/blog/20180201100801.png">
+<meta name="twitter:image" content="https://image.sunzn.com/blog/20180201100801.png">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -230,29 +230,29 @@ var _hmt = _hmt || [];
 
 <a id="more"></a>
 
-<p><img src="http://image.sunzn.com/blog/20180201100801.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180201100801.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String text = <span class="string">"Hello World"</span>;</span><br><span class="line">...</span><br><span class="line">canvas.drawText(text, <span class="number">100</span>, <span class="number">200</span>, paint);</span><br></pre></td></tr></table></figure>
 
 <p>这里需要注意的是：这个坐标并不是文字的左上角，而是一个与左下角比较接近的位置。大概在这里：</p>
-<p><img src="http://image.sunzn.com/blog/20180201100802.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180201100802.png" alt="此处输入图片的描述"></p>
 <p>而如果你像绘制其他内容一样，在绘制文字的时候把坐标填成 (0, 0)，文字并不会显示在 View 的左上角，而是会几乎完全显示在 View 的上方，到了 View 外部看不到的位置：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">canvas.drawText(text, <span class="number">100</span>, <span class="number">200</span>, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20180201100804.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180201100804.png" alt="此处输入图片的描述"></p>
 <p>再附上一张示意图，应该能更清楚地表达：</p>
-<p><img src="http://image.sunzn.com/blog/20180201100803.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180201100803.png" alt="此处输入图片的描述"></p>
 <p>这是为什么？为什么其它的 Canvas.drawXXX() 方法，都是以左上角作为基准点的，而 drawText() 却是文字左下方？</p>
 <p>这种设计其实是有道理的。drawText() 参数中的 y ，指的是文字的 <strong><a href="https://zh.wikipedia.org/wiki/%E5%9F%BA%E7%B7%9A" target="_blank" rel="noopener">基线（ baseline ）</a></strong> 的位置。也就是这条线：</p>
-<p><img src="http://image.sunzn.com/blog/20180201100805.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180201100805.png" alt="此处输入图片的描述"></p>
 <p>众所周知，不同的语言和文字，每个字符的高度和上下位置都是不一样的。要让不同的文字并排显示的时候整体看起来稳当，需要让它们上下对齐。但这个对齐的方式，不能是简单的「底部对齐」或「顶部对齐」或「中间对齐」，而应该是一种类似于「重心对齐」的方式。就像电线上的小鸟一样：</p>
-<p><img src="http://image.sunzn.com/blog/20180201100806.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180201100806.png" alt="此处输入图片的描述"></p>
 <blockquote>
 <p>每只小鸟的最高点和最低点都不一样，但画面很平衡。</p>
 </blockquote>
 <p>而这个用来让所有文字互相对齐的基准线，就是基线（ baseline ）。drawText() 方法参数中的 y 值，就是指定的基线的位置。</p>
 <p>说完 y 值，再说说 x 值。从前面图中的标记可以看出来，「Hello World」绘制出来之后的 x 点并不是字母 “H” 左边的位置，而是比它的左边再往左一点点。那么这个「往左的一点点」是什么呢？</p>
 <p>它是字母 “H” 的左边的空隙。绝大多数的字符，它们的宽度都是要略微大于实际显示的宽度的。字符的左右两边会留出一部分空隙，用于文字之间的间隔，以及文字和边框的间隔。就像这样：</p>
-<p><img src="http://image.sunzn.com/blog/20180201100807.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180201100807.png" alt="此处输入图片的描述"></p>
 <blockquote>
 <p>用竖线标记出边界后的文字。</p>
 </blockquote>
@@ -263,7 +263,7 @@ var _hmt = _hmt || [];
 
 <h3 id="1-2-1-上下文"><a href="#1-2-1-上下文" class="headerlink" title="1.2.1 上下文"></a>1.2.1 上下文</h3><p>有些语言的文字，字符的形状会互相之间影响：一个字你单独写是一个样，和别的字放在一起写又是另外一个样。不过由于我们最熟悉的语言「汉语」和「英语」都没有这种情况，所以只靠说可能不太好理解，我就用图说明一下吧。</p>
 <p>以阿拉伯文为例。阿拉伯文里的「عربى（阿拉伯）」是一个四字词，它的中间两个字符「رب」在这个词里的样子，和单独写的时候的样子是不同的。也就是说，当这四个字写在一起的时候，中间两个字由于受到两边的字的影响，形状被改变了。看图吧：</p>
-<p><img src="http://image.sunzn.com/blog/20180201100808.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180201100808.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String text1 = <span class="string">"عربى"</span>;</span><br><span class="line">canvas.drawTextRun(text1, <span class="number">0</span>, text1.length(), <span class="number">0</span>, text1.length(), <span class="number">600</span>, <span class="number">400</span>, <span class="keyword">true</span>, paint);</span><br><span class="line"></span><br><span class="line">String text2 = <span class="string">"رب"</span>;</span><br><span class="line">canvas.drawTextRun(text2, <span class="number">0</span>, text2.length(), <span class="number">0</span>, text2.length(), <span class="number">600</span>, <span class="number">800</span>, <span class="keyword">true</span>, paint);</span><br></pre></td></tr></table></figure>
 
 <p>图中第二行的两个字符是第一行的中间两个字符，你敢信？不管你信不信，绘制的视觉效果就是这样。drawTextRun() 除了文字的内容和位置之外，还可以设置文字的上下文（也就是要绘制的文字的左边和右边是什么文字，虽然这些文字并不会被绘制出来），从而让同样的文字可以按需表现出不同的显示效果。</p>
@@ -271,7 +271,7 @@ var _hmt = _hmt || [];
 <p>这就是 drawTextRun() ，一个增加了「上下文」和「RTL」支持的增强版本的 drawText() 。</p>
 <h2 id="1-3-drawTextOnPath"><a href="#1-3-drawTextOnPath" class="headerlink" title="1.3 drawTextOnPath()"></a>1.3 drawTextOnPath()</h2><table><tr><td colspan="2" bgcolor="#F8F8F8"><b>方法</b></td></tr><tr><td colspan="2">drawTextOnPath(String text, Path path, float hOffset, float vOffset, Paint paint)<br>沿着一条 Path 绘制文字。</td></tr><tr><td colspan="2" bgcolor="#F8F8F8"><b>参数</b></td></tr><tr><td>text</td><td>String：要绘制的文本，不能为空。</td></tr><tr><td>path</td><td>Path：文本绘制的基准线路径，不能为空。</td></tr><tr><td>hOffset</td><td>float：水平偏移量。</td></tr><tr><td>vOffset</td><td>float：垂直偏移量，（+）向下偏移，（-）向上偏移。</td></tr><tr><td>paint</td><td>Paint：画笔，不能为空。</td></tr></table>
 
-<p><img src="http://image.sunzn.com/blog/20180201100809.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180201100809.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">paint.setTextSize(<span class="number">50f</span>);</span><br><span class="line">paint.setAntiAlias(<span class="keyword">true</span>);</span><br><span class="line">paint.setStyle(Paint.Style.STROKE);</span><br><span class="line"></span><br><span class="line">String text = <span class="string">"Night gave me black eyes, but I used it to find the light."</span>;</span><br><span class="line"></span><br><span class="line">path.reset();</span><br><span class="line">path.moveTo(<span class="number">128</span>, <span class="number">540</span>);</span><br><span class="line">path.lineTo(<span class="number">200</span>, <span class="number">700</span>);</span><br><span class="line">path.lineTo(<span class="number">400</span>, <span class="number">410</span>);</span><br><span class="line">path.lineTo(<span class="number">550</span>, <span class="number">700</span>);</span><br><span class="line">path.lineTo(<span class="number">700</span>, <span class="number">540</span>);</span><br><span class="line">path.lineTo(<span class="number">800</span>, <span class="number">660</span>);</span><br><span class="line">canvas.drawTextOnPath(text, path, <span class="number">0</span>, <span class="number">0</span>, paint);</span><br></pre></td></tr></table></figure>
 
 <p>参数里，需要解释的只有两个：hOffset 和 vOffset。它们是文字相对于 Path 的水平偏移量和竖直偏移量，利用它们可以调整文字的位置。例如你设置 hOffset 为 5， vOffset 为 10，文字就会右移 5 像素和下移 10 像素。</p>
@@ -282,18 +282,18 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>不能在 View 的边缘自动折行，到了 View 的边缘处，文字继续向后绘制到看不见的地方，而不是自动换行。</p>
 </blockquote>
-<p><img src="http://image.sunzn.com/blog/20180201100810.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180201100810.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String text = <span class="string">"Night gave me black eyes, but I used it to find the light."</span>;</span><br><span class="line">canvas.drawText(text, <span class="number">300</span>, <span class="number">550</span>, paint);</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>不能在换行符 \n 处换行，在换行符 \n 的位置并没有换行，而只是加了个空格。</p>
 </blockquote>
-<p><img src="http://image.sunzn.com/blog/20180201100811.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180201100811.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String text = <span class="string">"A\nB\nC\nD\nE\nF\nG\nH\nI\nJ\nK\nL\nM"</span>;</span><br><span class="line">canvas.drawText(text, <span class="number">300</span>, <span class="number">550</span>, paint);</span><br></pre></td></tr></table></figure>
 
 <p>如果需要绘制多行的文字，你必须自行把文字切断后分多次使用 drawText() 来绘制，或者——使用  StaticLayout 。</p>
 <p>StaticLayout 并不是一个 View 或者 ViewGroup ，而是 android.text.Layout 的子类，它是纯粹用来绘制文字的。 StaticLayout 支持换行，它既可以为文字设置宽度上限来让文字自动换行，也会在 \n 处主动换行。</p>
-<p><img src="http://image.sunzn.com/blog/20180201100812.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180201100812.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">TextPaint paint = <span class="keyword">new</span> TextPaint();</span><br><span class="line"></span><br><span class="line">paint.setTextSize(<span class="number">100f</span>);</span><br><span class="line">paint.setAntiAlias(<span class="keyword">true</span>);</span><br><span class="line">paint.setStyle(Paint.Style.STROKE);</span><br><span class="line"></span><br><span class="line">String text1 = <span class="string">"Night gave me black eyes, but I used it to find the light."</span>;</span><br><span class="line">StaticLayout staticLayout1 = <span class="keyword">new</span> StaticLayout(text1, paint, <span class="number">1280</span>, Layout.Alignment.ALIGN_NORMAL, <span class="number">1</span>, <span class="number">0</span>, <span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">String text2 = <span class="string">"A\nB\nC\nD\nE\nF\nG\nH\nI\nJ\nK\nL\nM"</span>;</span><br><span class="line">StaticLayout staticLayout2 = <span class="keyword">new</span> StaticLayout(text2, paint, <span class="number">1280</span>, Layout.Alignment.ALIGN_NORMAL, <span class="number">1</span>, <span class="number">0</span>, <span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">canvas.save();</span><br><span class="line">canvas.translate(<span class="number">50</span>, <span class="number">100</span>);</span><br><span class="line">staticLayout1.draw(canvas);</span><br><span class="line">canvas.translate(<span class="number">0</span>, <span class="number">250</span>);</span><br><span class="line">staticLayout2.draw(canvas);</span><br><span class="line">canvas.restore();</span><br></pre></td></tr></table></figure>
 
 <blockquote>
@@ -304,63 +304,63 @@ var _hmt = _hmt || [];
 <h2 id="2-1-设置显示效果类"><a href="#2-1-设置显示效果类" class="headerlink" title="2.1 设置显示效果类"></a>2.1 设置显示效果类</h2><h3 id="2-1-1-setTextSize-float-textSize"><a href="#2-1-1-setTextSize-float-textSize" class="headerlink" title="2.1.1 setTextSize(float textSize)"></a>2.1.1 setTextSize(float textSize)</h3><blockquote>
 <p>设置文字大小。</p>
 </blockquote>
-<p><img src="http://image.sunzn.com/blog/20180201100813.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180201100813.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">String text = <span class="string">"Hello World"</span>;</span><br><span class="line"></span><br><span class="line">paint.setTextSize(<span class="number">18</span>);</span><br><span class="line">canvas.drawText(text, <span class="number">100</span>, <span class="number">25</span>, paint);</span><br><span class="line">paint.setTextSize(<span class="number">36</span>);</span><br><span class="line">canvas.drawText(text, <span class="number">100</span>, <span class="number">70</span>, paint);</span><br><span class="line">paint.setTextSize(<span class="number">60</span>);</span><br><span class="line">canvas.drawText(text, <span class="number">100</span>, <span class="number">145</span>, paint);</span><br><span class="line">paint.setTextSize(<span class="number">84</span>);</span><br><span class="line">canvas.drawText(text, <span class="number">100</span>, <span class="number">240</span>, paint);</span><br></pre></td></tr></table></figure>
 
 <h3 id="2-1-2-setTypeface-Typeface-typeface"><a href="#2-1-2-setTypeface-Typeface-typeface" class="headerlink" title="2.1.2 setTypeface(Typeface typeface)"></a>2.1.2 setTypeface(Typeface typeface)</h3><blockquote>
 <p>设置字体。</p>
 </blockquote>
-<p><img src="http://image.sunzn.com/blog/20180201100814.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180201100814.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">String text = <span class="string">"Hello World"</span>;</span><br><span class="line"></span><br><span class="line">paint.setTypeface(Typeface.DEFAULT);</span><br><span class="line">canvas.drawText(text, <span class="number">200</span>, <span class="number">300</span>, paint);</span><br><span class="line">paint.setTypeface(Typeface.SERIF);</span><br><span class="line">canvas.drawText(text, <span class="number">200</span>, <span class="number">450</span>, paint);</span><br><span class="line">paint.setTypeface(Typeface.createFromAsset(getContext().getAssets(), <span class="string">"Satisfy-Regular.ttf"</span>));</span><br><span class="line">canvas.drawText(text, <span class="number">200</span>, <span class="number">600</span>, paint);</span><br></pre></td></tr></table></figure>
 
 <p>设置不同的 Typeface 就可以显示不同的字体。我们中国人谈到「字体」，比较熟悉的词是 font，typeface 和 font 是一个意思，都表示字体。Typeface 这个类的具体用法，需要了解的话可以直接<a href="https://developer.android.com/reference/android/graphics/Typeface.html" target="_blank" rel="noopener">看文档</a>，很简单。</p>
 <h3 id="2-1-3-setFakeBoldText-boolean-fakeBoldText"><a href="#2-1-3-setFakeBoldText-boolean-fakeBoldText" class="headerlink" title="2.1.3 setFakeBoldText(boolean fakeBoldText)"></a>2.1.3 setFakeBoldText(boolean fakeBoldText)</h3><blockquote>
 <p>是否使用伪粗体。</p>
 </blockquote>
-<p><img src="http://image.sunzn.com/blog/20180201100815.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180201100815.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">paint.setFakeBoldText(<span class="keyword">false</span>);</span><br><span class="line">canvas.drawText(text, <span class="number">600</span>, <span class="number">450</span>, paint);</span><br><span class="line">paint.setFakeBoldText(<span class="keyword">true</span>);</span><br><span class="line">canvas.drawText(text, <span class="number">600</span>, <span class="number">600</span>, paint);</span><br></pre></td></tr></table></figure>
 
 <h3 id="2-1-4-setStrikeThruText-boolean-strikeThruText"><a href="#2-1-4-setStrikeThruText-boolean-strikeThruText" class="headerlink" title="2.1.4 setStrikeThruText(boolean strikeThruText)"></a>2.1.4 setStrikeThruText(boolean strikeThruText)</h3><blockquote>
 <p>是否加删除线。</p>
 </blockquote>
-<p><img src="http://image.sunzn.com/blog/20180201100816.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180201100816.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">paint.setStrikeThruText(<span class="keyword">true</span>);</span><br><span class="line">canvas.drawText(text, <span class="number">600</span>, <span class="number">600</span>, paint);</span><br></pre></td></tr></table></figure>
 
 <h3 id="2-1-5-setUnderlineText-boolean-underlineText"><a href="#2-1-5-setUnderlineText-boolean-underlineText" class="headerlink" title="2.1.5 setUnderlineText(boolean underlineText)"></a>2.1.5 setUnderlineText(boolean underlineText)</h3><blockquote>
 <p>是否加下划线。</p>
 </blockquote>
-<p><img src="http://image.sunzn.com/blog/20180201100817.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180201100817.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">paint.setUnderlineText(<span class="keyword">true</span>);</span><br><span class="line">canvas.drawText(text, <span class="number">600</span>, <span class="number">600</span>, paint);</span><br></pre></td></tr></table></figure>
 
 <h3 id="2-1-6-setTextSkewX-float-skewX"><a href="#2-1-6-setTextSkewX-float-skewX" class="headerlink" title="2.1.6 setTextSkewX(float skewX)"></a>2.1.6 setTextSkewX(float skewX)</h3><blockquote>
 <p>设置文字横向错切角度，其实就是文字倾斜度。</p>
 </blockquote>
-<p><img src="http://image.sunzn.com/blog/20180201100818.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180201100818.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">paint.setTextSkewX(-<span class="number">0.5f</span>);</span><br><span class="line">canvas.drawText(text, <span class="number">600</span>, <span class="number">600</span>, paint);</span><br></pre></td></tr></table></figure>
 
 <h3 id="2-1-7-setTextScaleX-float-scaleX"><a href="#2-1-7-setTextScaleX-float-scaleX" class="headerlink" title="2.1.7 setTextScaleX(float scaleX)"></a>2.1.7 setTextScaleX(float scaleX)</h3><blockquote>
 <p>设置文字横向放缩，也就是文字变胖变瘦。</p>
 </blockquote>
-<p><img src="http://image.sunzn.com/blog/20180201100819.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180201100819.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">paint.setTextScaleX(<span class="number">1</span>);</span><br><span class="line">canvas.drawText(text, <span class="number">600</span>, <span class="number">450</span>, paint);</span><br><span class="line">paint.setTextScaleX(<span class="number">0.8f</span>);</span><br><span class="line">canvas.drawText(text, <span class="number">600</span>, <span class="number">600</span>, paint);</span><br><span class="line">paint.setTextScaleX(<span class="number">1.2f</span>);</span><br><span class="line">canvas.drawText(text, <span class="number">600</span>, <span class="number">750</span>, paint);</span><br></pre></td></tr></table></figure>
 
 <h3 id="2-1-8-setLetterSpacing-float-letterSpacing"><a href="#2-1-8-setLetterSpacing-float-letterSpacing" class="headerlink" title="2.1.8 setLetterSpacing(float letterSpacing)"></a>2.1.8 setLetterSpacing(float letterSpacing)</h3><blockquote>
 <p>设置字符间距，默认值是 0。</p>
 </blockquote>
-<p><img src="http://image.sunzn.com/blog/20180201100820.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180201100820.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">paint.setLetterSpacing(<span class="number">0.4f</span>);</span><br><span class="line">canvas.drawText(text, <span class="number">450</span>, <span class="number">600</span>, paint);</span><br></pre></td></tr></table></figure>
 
 <h3 id="2-1-9-setFontFeatureSettings-String-settings"><a href="#2-1-9-setFontFeatureSettings-String-settings" class="headerlink" title="2.1.9 setFontFeatureSettings(String settings)"></a>2.1.9 setFontFeatureSettings(String settings)</h3><blockquote>
 <p>用 CSS 的 font-feature-settings 的方式来设置文字。</p>
 </blockquote>
-<p><img src="http://image.sunzn.com/blog/20180201100821.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180201100821.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">paint.setFontFeatureSettings(<span class="string">"smcp"</span>);</span><br><span class="line">canvas.drawText(text, <span class="number">600</span>, <span class="number">600</span>, paint);</span><br></pre></td></tr></table></figure>
 
 <p>CSS 全称是 Cascading Style Sheets ，是网页开发用来设置页面各种元素的样式的。咦，网页开发的设置怎么会出现在 Android 的 API 里？大多数 Android 开发者都不了解这个 CSS 的 font-feature-settings 属性，不过没关系，这个属性设置的都是文字的一些次要特性，所以不用着急了解这个方法。当然有兴趣的话也可以看一看，文档在<a href="https://drafts.csswg.org/css-fonts/#propdef-font-feature-settings" target="_blank" rel="noopener">这里</a>。</p>
 <h3 id="2-1-10-setTextAlign-Paint-Align-align"><a href="#2-1-10-setTextAlign-Paint-Align-align" class="headerlink" title="2.1.10 setTextAlign(Paint.Align align)"></a>2.1.10 setTextAlign(Paint.Align align)</h3><blockquote>
 <p>设置文字的对齐方式。一共有三个值：LEFT CETNER 和 RIGHT。默认值为 LEFT。</p>
 </blockquote>
-<p><img src="http://image.sunzn.com/blog/20180201100822.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180201100822.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">paint.setTextAlign(Paint.Align.LEFT);</span><br><span class="line">canvas.drawText(text, <span class="number">600</span>, <span class="number">450</span>, paint);</span><br><span class="line">paint.setTextAlign(Paint.Align.CENTER);</span><br><span class="line">canvas.drawText(text, <span class="number">600</span>, <span class="number">600</span>, paint);</span><br><span class="line">paint.setTextAlign(Paint.Align.RIGHT);</span><br><span class="line">canvas.drawText(text, <span class="number">600</span>, <span class="number">750</span>, paint);</span><br></pre></td></tr></table></figure>
 
 <h3 id="2-1-11-setTextLocale-Locale-locale-setTextLocales-LocaleList-locales"><a href="#2-1-11-setTextLocale-Locale-locale-setTextLocales-LocaleList-locales" class="headerlink" title="2.1.11 setTextLocale(Locale locale) / setTextLocales(LocaleList locales)"></a>2.1.11 setTextLocale(Locale locale) / setTextLocales(LocaleList locales)</h3><blockquote>
@@ -368,7 +368,7 @@ var _hmt = _hmt || [];
 </blockquote>
 <p>Locale 直译是「地域」，其实就是你在系统里设置的「语言」或「语言区域」（具体名称取决于你用的是什么手机），比如「简体中文（中国）」「English (US)」「English (UK)」。有些同源的语言，在文化发展过程中对一些相同的字衍生出了不同的写法（比如中国大陆和日本对于某些汉字的写法就有细微差别。注意，不是繁体和简体这种同音同义不同字，而真的是同样的一个字有两种写法）。系统语言不同，同样的一个字的显示就有可能不同。你可以试一下把自己手机的语言改成日文，然后打开微信看看聊天记录，你会明显发现文字的显示发生了很多细微的变化，这就是由于系统的 Locale 改变所导致的。</p>
 <p>Canvas 绘制的时候，默认使用的是系统设置里的 Locale。而通过 Paint.setTextLocale(Locale locale) 就可以在不改变系统设置的情况下，直接修改绘制时的 Locale。</p>
-<p><img src="http://image.sunzn.com/blog/20180201100823.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180201100823.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">String text = <span class="string">"雨骨底微沿写"</span>;</span><br><span class="line">paint.setTextLocale(Locale.CHINA);   <span class="comment">// 简体中文</span></span><br><span class="line">canvas.drawText(text, <span class="number">600</span>, <span class="number">450</span>, paint);</span><br><span class="line">paint.setTextLocale(Locale.TAIWAN);  <span class="comment">// 繁体中文</span></span><br><span class="line">canvas.drawText(text, <span class="number">600</span>, <span class="number">600</span>, paint);</span><br><span class="line">paint.setTextLocale(Locale.JAPAN);   <span class="comment">// 日语</span></span><br><span class="line">canvas.drawText(text, <span class="number">600</span>, <span class="number">750</span>, paint);</span><br></pre></td></tr></table></figure>
 
 <p>另外，由于 Android 7.0 ( API v24) 加入了多语言区域的支持，所以在 API v24 以及更高版本上，还可以使用 setTextLocales(LocaleList locales) 来为绘制设置多个语言区域。</p>
@@ -376,16 +376,16 @@ var _hmt = _hmt || [];
 <p>设置是否启用字体的 hinting（字体微调）。</p>
 </blockquote>
 <p>现在的 Android 设备大多数都是是用的<a href="https://zh.wikipedia.org/wiki/%E7%9F%A2%E9%87%8F%E5%AD%97%E4%BD%93" target="_blank" rel="noopener">矢量字体</a>。矢量字体的原理是对每个字体给出一个字形的矢量描述，然后使用这一个矢量来对所有的尺寸的字体来生成对应的字形。由于不必为所有字号都设计它们的字体形状，所以在字号较大的时候，矢量字体也能够保持字体的圆润，这是矢量字体的优势。不过当文字的尺寸过小（比如高度小于 16 像素），有些文字会由于失去过多细节而变得不太好看。 hinting 技术就是为了解决这种问题的：通过向字体中加入 hinting 信息，让矢量字体在尺寸过小的时候得到针对性的修正，从而提高显示效果。效果图盗一张<a href="https://zh.wikipedia.org/wiki/%E5%AD%97%E4%BD%93%E5%BE%AE%E8%B0%83" target="_blank" rel="noopener">维基百科</a>的：</p>
-<p><img src="http://image.sunzn.com/blog/20180201100824.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180201100824.png" alt="此处输入图片的描述"></p>
 <p>功能很强，效果很赞。不过在现在，手机屏幕的像素密度已经非常高，几乎不会再出现字体尺寸小到需要靠 hinting 来修正的情况，所以这个方法其实没啥用了，可以忽略。</p>
 <h3 id="2-1-13-setElegantTextHeight-boolean-elegant"><a href="#2-1-13-setElegantTextHeight-boolean-elegant" class="headerlink" title="2.1.13 setElegantTextHeight(boolean elegant)"></a>2.1.13 setElegantTextHeight(boolean elegant)</h3><blockquote>
 <p>设置是否开启文字的 elegant height。</p>
 </blockquote>
 <p>在有些语言中，可能会出现一些非常高的字形：</p>
-<p><img src="http://image.sunzn.com/blog/20180201100825.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180201100825.png" alt="此处输入图片的描述"></p>
 <p>左边那几个泰文文字，挺高的吧？但其实它们已经是被压缩过了的，它们本来比这还要高。这些比较高的文字，通常都有两个版本的字体：一个原始版本，一个压缩了高度的版本。压缩版本可以保证让这些「大高个」文字在和普通文字（例如拉丁文字）放在一起的时候看起来不会显得太奇怪。事实上，Paint 绘制文字时是用的默认版本就是压缩版本，就像上图这样。</p>
 <p>不过有的时候，开发者会需要使用它们的原始版本。使用 <code>paint.setElegantTextHeight(true)</code> 就可以切换到原始版本：</p>
-<p><img src="http://image.sunzn.com/blog/20180201100826.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180201100826.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">setLayerType(LAYER_TYPE_SOFTWARE, <span class="keyword">null</span>);</span><br><span class="line"></span><br><span class="line">paint.setTextSize(<span class="number">300f</span>);</span><br><span class="line">paint.setAntiAlias(<span class="keyword">true</span>);</span><br><span class="line">paint.setElegantTextHeight(<span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">String text = <span class="string">"ทั้งผู้  AB"</span>;</span><br><span class="line">canvas.drawText(text, <span class="number">350</span>, <span class="number">600</span>, paint);</span><br></pre></td></tr></table></figure>
 
 <p>那么，setElegantTextHeight() 的作用到这里就很清晰了：</p>
@@ -408,7 +408,7 @@ var _hmt = _hmt || [];
 <p>获取推荐的行距。</p>
 </blockquote>
 <p>即推荐的两行文字的 baseline 的距离。这个值是系统根据文字的字体和字号自动计算的。它的作用是当你要手动绘制多行文字（而不是使用 StaticLayout）的时候，可以在换行的时候给 y 坐标加上这个值来下移文字。</p>
-<p><img src="http://image.sunzn.com/blog/20180201100827.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180201100827.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">String[] text = <span class="keyword">new</span> String[]&#123;<span class="string">"Hello World"</span>, <span class="string">"Jerry 世界"</span>, <span class="string">"ทั้งผู้  ABCD"</span>&#125;;</span><br><span class="line"></span><br><span class="line">paint.setTextSize(<span class="number">100f</span>);</span><br><span class="line">paint.setAntiAlias(<span class="keyword">true</span>);</span><br><span class="line">paint.setStrokeWidth(<span class="number">1f</span>);</span><br><span class="line"></span><br><span class="line">canvas.drawText(text[<span class="number">0</span>], <span class="number">600</span>, <span class="number">450</span>, paint);</span><br><span class="line">canvas.drawText(text[<span class="number">1</span>], <span class="number">600</span>, <span class="number">450</span> + paint.getFontSpacing(), paint);</span><br><span class="line">canvas.drawText(text[<span class="number">2</span>], <span class="number">600</span>, <span class="number">450</span> + paint.getFontSpacing() * <span class="number">2</span>, paint);</span><br></pre></td></tr></table></figure>
 
 <h3 id="2-2-2-FontMetircs-getFontMetrics"><a href="#2-2-2-FontMetircs-getFontMetrics" class="headerlink" title="2.2.2 FontMetircs getFontMetrics()"></a>2.2.2 FontMetircs getFontMetrics()</h3><blockquote>
@@ -417,7 +417,7 @@ var _hmt = _hmt || [];
 <p>FontMetrics 是个相对专业的工具类，它提供了几个文字排印方面的数值：ascent，descent，top，bottom， leading。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">String[] text = <span class="keyword">new</span> String[]&#123;<span class="string">"Jerry Tom"</span>, <span class="string">"ทั้งผู้  信息"</span>&#125;;</span><br><span class="line"></span><br><span class="line">paint.setTextSize(<span class="number">300f</span>);</span><br><span class="line">paint.setAntiAlias(<span class="keyword">true</span>);</span><br><span class="line">paint.setStrokeWidth(<span class="number">1f</span>);</span><br><span class="line"></span><br><span class="line">canvas.drawText(text[<span class="number">0</span>], <span class="number">200</span>, <span class="number">450</span>, paint);</span><br><span class="line">Paint.FontMetrics metrics = paint.getFontMetrics();</span><br><span class="line"></span><br><span class="line">paint.setColor(Color.parseColor(<span class="string">"#666666"</span>));</span><br><span class="line">canvas.drawLine(<span class="number">0</span>, <span class="number">450</span>, <span class="number">5000</span>, <span class="number">450</span>, paint);</span><br><span class="line"></span><br><span class="line">paint.setColor(Color.parseColor(<span class="string">"#0000FF"</span>));</span><br><span class="line">canvas.drawLine(<span class="number">0</span>, <span class="number">450</span> + metrics.top, <span class="number">5000</span>, <span class="number">450</span> + metrics.top, paint);</span><br><span class="line"></span><br><span class="line">paint.setColor(Color.parseColor(<span class="string">"#FF0000"</span>));</span><br><span class="line">canvas.drawLine(<span class="number">0</span>, <span class="number">450</span> + metrics.bottom, <span class="number">5000</span>, <span class="number">450</span> + metrics.bottom, paint);</span><br><span class="line"></span><br><span class="line">paint.setColor(Color.parseColor(<span class="string">"#008000"</span>));</span><br><span class="line">canvas.drawLine(<span class="number">0</span>, <span class="number">450</span> + metrics.ascent, <span class="number">5000</span>, <span class="number">450</span> + metrics.ascent, paint);</span><br><span class="line"></span><br><span class="line">paint.setColor(Color.parseColor(<span class="string">"#FFA500"</span>));</span><br><span class="line">canvas.drawLine(<span class="number">0</span>, <span class="number">450</span> + metrics.descent, <span class="number">5000</span>, <span class="number">450</span> + metrics.descent, paint);</span><br><span class="line"></span><br><span class="line">paint.setColor(Color.BLACK);</span><br><span class="line"><span class="keyword">float</span> nextY = <span class="number">510</span> + paint.getFontSpacing();</span><br><span class="line"></span><br><span class="line">canvas.drawText(text[<span class="number">1</span>], <span class="number">200</span>, nextY, paint);</span><br><span class="line"></span><br><span class="line">paint.setColor(Color.parseColor(<span class="string">"#666666"</span>));</span><br><span class="line">canvas.drawLine(<span class="number">0</span>, nextY, <span class="number">5000</span>, nextY, paint);</span><br><span class="line"></span><br><span class="line">paint.setColor(Color.parseColor(<span class="string">"#0000FF"</span>));</span><br><span class="line">canvas.drawLine(<span class="number">0</span>, nextY + metrics.top, <span class="number">5000</span>, nextY + metrics.top, paint);</span><br><span class="line"></span><br><span class="line">paint.setColor(Color.parseColor(<span class="string">"#FF0000"</span>));</span><br><span class="line">canvas.drawLine(<span class="number">0</span>, nextY + metrics.bottom, <span class="number">5000</span>, nextY + metrics.bottom, paint);</span><br><span class="line"></span><br><span class="line">paint.setColor(Color.parseColor(<span class="string">"#008000"</span>));</span><br><span class="line">canvas.drawLine(<span class="number">0</span>, nextY + metrics.ascent, <span class="number">5000</span>, nextY + metrics.ascent, paint);</span><br><span class="line"></span><br><span class="line">paint.setColor(Color.parseColor(<span class="string">"#FFA500"</span>));</span><br><span class="line">canvas.drawLine(<span class="number">0</span>, nextY + metrics.descent, <span class="number">5000</span>, nextY + metrics.descent, paint);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20180201100828.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180201100828.png" alt="此处输入图片的描述"></p>
 <p>如图，图中有两行文字，每一行都有 5 条线：top，ascent，baseline，descent，bottom。（leading 并没有画出来，因为画不出来，下面会给出解释）</p>
 <ul>
 <li><p>baseline：上图中<strong>黑色</strong>的线。前面已经讲过了，它的作用是作为文字显示的基准线。</p>
@@ -440,14 +440,14 @@ var _hmt = _hmt || [];
 <p>获取文字的显示范围。</p>
 </blockquote>
 <p>参数里，text 是要测量的文字，start 和 end 分别是文字的起始和结束位置，bounds 是存储文字显示范围的对象，方法在测算完成之后会把结果写进 bounds。</p>
-<p><img src="http://image.sunzn.com/blog/20180201100829.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180201100829.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">paint.setStyle(Paint.Style.FILL);  </span><br><span class="line">canvas.drawText(text, offsetX, offsetY, paint);</span><br><span class="line"></span><br><span class="line">paint.getTextBounds(text, <span class="number">0</span>, text.length(), bounds);  </span><br><span class="line">bounds.left += offsetX;  </span><br><span class="line">bounds.top += offsetY;  </span><br><span class="line">bounds.right += offsetX;  </span><br><span class="line">bounds.bottom += offsetY;  </span><br><span class="line">paint.setStyle(Paint.Style.STROKE);  </span><br><span class="line">canvas.drawRect(bounds, paint);</span><br></pre></td></tr></table></figure>
 
 <p>它有一个重载方法 getTextBounds(char[] text, int index, int count, Rect bounds)，用法非常相似，不再介绍。</p>
 <h3 id="2-2-4-float-measureText-String-text"><a href="#2-2-4-float-measureText-String-text" class="headerlink" title="2.2.4 float measureText(String text)"></a>2.2.4 float measureText(String text)</h3><blockquote>
 <p>测量文字的宽度并返回。</p>
 </blockquote>
-<p><img src="http://image.sunzn.com/blog/20180201100830.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180201100830.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">canvas.drawText(text, offsetX, offsetY, paint);  </span><br><span class="line"><span class="keyword">float</span> textWidth = paint.measureText(text);  </span><br><span class="line">canvas.drawLine(offsetX, offsetY, offsetX + textWidth, offsetY, paint);</span><br></pre></td></tr></table></figure>
 
 <p>咦，前面有了 getTextBounds()，这里怎么又有一个 measureText()？</p>
@@ -466,26 +466,26 @@ var _hmt = _hmt || [];
 <p>这相当于 measureText() 的一个快捷方法，它的计算等价于对字符串中的每个字符分别调用 measureText() ，并把它们的计算结果分别填入 widths 的不同元素。</p>
 <p>getTextWidths() 同样也有好几个变种，使用大同小异，不再介绍。</p>
 <h3 id="2-2-6-int-breakText-String-text-boolean-measureForwards-float-maxWidth-float-measuredWidth"><a href="#2-2-6-int-breakText-String-text-boolean-measureForwards-float-maxWidth-float-measuredWidth" class="headerlink" title="2.2.6 int breakText(String text, boolean measureForwards, float maxWidth, float[] measuredWidth)"></a>2.2.6 int breakText(String text, boolean measureForwards, float maxWidth, float[] measuredWidth)</h3><p>这个方法也是用来测量文字宽度的。但和 measureText() 的区别是，breakText() 是在给出宽度上限的前提下测量文字的宽度。如果文字的宽度超出了上限，那么在临近超限的位置截断文字。</p>
-<p><img src="http://image.sunzn.com/blog/20180201100831.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180201100831.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> measuredCount;</span><br><span class="line"><span class="keyword">float</span>[] measuredWidth = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 宽度上限 420 （不够用，截断）</span></span><br><span class="line">measuredCount = paint.breakText(text, <span class="number">0</span>, text.length(), <span class="keyword">true</span>, <span class="number">420</span>, measuredWidth);</span><br><span class="line">canvas.drawText(text, <span class="number">0</span>, measuredCount, <span class="number">150</span>, <span class="number">150</span>, paint);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 宽度上限 500 （不够用，截断）</span></span><br><span class="line">measuredCount = paint.breakText(text, <span class="number">0</span>, text.length(), <span class="keyword">true</span>, <span class="number">500</span>, measuredWidth);</span><br><span class="line">canvas.drawText(text, <span class="number">0</span>, measuredCount, <span class="number">150</span>, <span class="number">150</span> + paint.getFontSpacing(), paint);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 宽度上限 600 （够用）</span></span><br><span class="line">measuredCount = paint.breakText(text, <span class="number">0</span>, text.length(), <span class="keyword">true</span>, <span class="number">600</span>, measuredWidth);</span><br><span class="line">canvas.drawText(text, <span class="number">0</span>, measuredCount, <span class="number">150</span>, <span class="number">150</span> + paint.getFontSpacing() * <span class="number">2</span>, paint);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 宽度上限 700 （够用）</span></span><br><span class="line">measuredCount = paint.breakText(text, <span class="number">0</span>, text.length(), <span class="keyword">true</span>, <span class="number">700</span>, measuredWidth);</span><br><span class="line">canvas.drawText(text, <span class="number">0</span>, measuredCount, <span class="number">150</span>, <span class="number">150</span> + paint.getFontSpacing() * <span class="number">3</span>, paint);</span><br></pre></td></tr></table></figure>
 
 <p>breakText() 的返回值是截取的文字个数（如果宽度没有超限，则是文字的总个数）。参数中，text 是要测量的文字；measureForwards 表示文字的测量方向，true 表示由左往右测量；maxWidth 是给出的宽度上限；measuredWidth 是用于接受数据，而不是用于提供数据的：方法测量完成后会把截取的文字宽度（如果宽度没有超限，则为文字总宽度）赋值给 measuredWidth[0]。</p>
 <p>这个方法可以用于多行文字的折行计算。breakText() 也有几个重载方法，使用大同小异，不再介绍。</p>
 <h3 id="2-2-7-光标相关"><a href="#2-2-7-光标相关" class="headerlink" title="2.2.7 光标相关"></a>2.2.7 光标相关</h3><p>对于 EditText 以及类似的场景，会需要绘制光标。光标的计算很麻烦，不过 API 23 引入了两个新的方法，有了这两个方法后，计算光标就方便了很多。</p>
 <h4 id="2-2-7-1-getRunAdvance-CharSequence-text-int-start-int-end-int-contextStart-int-contextEnd-boolean-isRtl-int-offset"><a href="#2-2-7-1-getRunAdvance-CharSequence-text-int-start-int-end-int-contextStart-int-contextEnd-boolean-isRtl-int-offset" class="headerlink" title="2.2.7.1 getRunAdvance(CharSequence text, int start, int end, int contextStart, int contextEnd, boolean isRtl, int offset)"></a>2.2.7.1 getRunAdvance(CharSequence text, int start, int end, int contextStart, int contextEnd, boolean isRtl, int offset)</h4><p>对于一段文字，计算出某个字符处光标的 x 坐标。start end 是文字的起始和结束坐标；contextStart contextEnd 是上下文的起始和结束坐标；isRtl 是文字的方向；offset 是字数的偏移，即计算第几个字符处的光标。</p>
-<p><img src="http://image.sunzn.com/blog/20180201100832.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180201100832.png" alt="此处输入图片的描述"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> length = text.length();  </span><br><span class="line"><span class="keyword">float</span> advance = paint.getRunAdvance(text, <span class="number">0</span>, length, <span class="number">0</span>, length, <span class="keyword">false</span>, length);  </span><br><span class="line">canvas.drawText(text, offsetX, offsetY, paint);  </span><br><span class="line">canvas.drawLine(offsetX + advance, offsetY - <span class="number">50</span>, offsetX + advance, offsetY + <span class="number">10</span>, paint);</span><br></pre></td></tr></table></figure>
 
 <p>其实，说是测量光标位置的，本质上这也是一个测量文字宽度的方法。上面这个例子中，start 和  contextStart 都是 0，end contextEnd 和 offset 都等于 text.length()。在这种情况下，它是等价于  measureText(text) 的，即完整测量一段文字的宽度。而对于更复杂的需求，getRunAdvance() 能做的事就比  measureText() 多了。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 包含特殊符号的绘制（如 emoji 表情）</span></span><br><span class="line">String text = <span class="string">"Hello World \uD83C\uDDE8\uD83C\uDDF3"</span> <span class="comment">// "Hello World CN"</span></span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="keyword">float</span> advance1 = paint.getRunAdvance(text, <span class="number">0</span>, length, <span class="number">0</span>, length, <span class="keyword">false</span>, length);  </span><br><span class="line"><span class="keyword">float</span> advance2 = paint.getRunAdvance(text, <span class="number">0</span>, length, <span class="number">0</span>, length, <span class="keyword">false</span>, length - <span class="number">1</span>);  </span><br><span class="line"><span class="keyword">float</span> advance3 = paint.getRunAdvance(text, <span class="number">0</span>, length, <span class="number">0</span>, length, <span class="keyword">false</span>, length - <span class="number">2</span>);  </span><br><span class="line"><span class="keyword">float</span> advance4 = paint.getRunAdvance(text, <span class="number">0</span>, length, <span class="number">0</span>, length, <span class="keyword">false</span>, length - <span class="number">3</span>);  </span><br><span class="line"><span class="keyword">float</span> advance5 = paint.getRunAdvance(text, <span class="number">0</span>, length, <span class="number">0</span>, length, <span class="keyword">false</span>, length - <span class="number">4</span>);  </span><br><span class="line"><span class="keyword">float</span> advance6 = paint.getRunAdvance(text, <span class="number">0</span>, length, <span class="number">0</span>, length, <span class="keyword">false</span>, length - <span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20180201100833.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180201100833.png" alt="此处输入图片的描述"></p>
 <p>如上图，CN 虽然占了 4 个字符（<code>\uD83C\uDDE8\uD83C\uDDF3</code>），但当 offset 是表情中间处时，  getRunAdvance() 得出的结果并不会在表情的中间处。为什么？因为这是用来计算光标的方法啊，光标当然不能出现在符号中间啦。</p>
 <h4 id="2-2-7-2-getOffsetForAdvance-CharSequence-text-int-start-int-end-int-contextStart-int-contextEnd-boolean-isRtl-float-advance"><a href="#2-2-7-2-getOffsetForAdvance-CharSequence-text-int-start-int-end-int-contextStart-int-contextEnd-boolean-isRtl-float-advance" class="headerlink" title="2.2.7.2 getOffsetForAdvance(CharSequence text, int start, int end, int contextStart, int contextEnd, boolean isRtl, float advance)"></a>2.2.7.2 getOffsetForAdvance(CharSequence text, int start, int end, int contextStart, int contextEnd, boolean isRtl, float advance)</h4><p>给出一个位置的像素值，计算出文字中最接近这个位置的字符偏移量（即第几个字符最接近这个坐标）。</p>
 <p>方法的参数很简单：text 是要测量的文字；start end 是文字的起始和结束坐标；contextStart contextEnd 是上下文的起始和结束坐标；isRtl 是文字方向；advance 是给出的位置的像素值。填入参数，对应的字符偏移量将作为返回值返回。</p>
 <p>getOffsetForAdvance() 配合上 getRunAdvance() 一起使用，就可以实现「获取用户点击处的文字坐标」的需求。</p>
 <h3 id="2-2-8-hasGlyph-String-string"><a href="#2-2-8-hasGlyph-String-string" class="headerlink" title="2.2.8 hasGlyph(String string)"></a>2.2.8 hasGlyph(String string)</h3><p>检查指定的字符串中是否是一个单独的字形 (glyph）。最简单的情况是，string 只有一个字母（比如 a）。</p>
-<p><img src="http://image.sunzn.com/blog/20180201100834.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180201100834.png" alt="此处输入图片的描述"></p>
 <p>以上这些内容，就是文字绘制的相关知识。它们有的常用，有的不常用，有的甚至可以说是在某些情况下没用，不过你把它们全部搞懂了，在实际的开发中，就知道哪些事情可以做到，哪些事情做不到，以及应该怎么做了。</p>
 
       
@@ -746,15 +746,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -770,6 +770,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">File</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">组件化</a>
               </li>
              
@@ -782,10 +786,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">File</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
@@ -794,19 +794,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -818,11 +810,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ADB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Issue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -858,6 +862,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
@@ -866,19 +874,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">方案</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Version</a>
+                <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -895,6 +895,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Burpsuite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Version</a>
               </li>
              
               <li class="article-tag-list-item">

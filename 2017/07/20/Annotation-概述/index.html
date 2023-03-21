@@ -16,13 +16,13 @@
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="Annotation 对程序运行没有影响，它的目的在于对编译器或分析工具说明程序的某些信息，您可以在包、类、方法、域成员等加上 Annotation。每一个 Annotation 对应于一个实际的 Annotation 类型。 1、限定 Override 父类方法 @Overridejava.lang.Override 是 J2SE 5.0 中标准的 Annotation 类型之一，它对编译器说明">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170726105438.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170726105110.png">
-<meta property="og:updated_time" content="2018-11-19T12:33:32.000Z">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170726105438.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170726105110.png">
+<meta property="og:updated_time" content="2023-03-21T15:06:30.252Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Annotation 概述">
 <meta name="twitter:description" content="Annotation 对程序运行没有影响，它的目的在于对编译器或分析工具说明程序的某些信息，您可以在包、类、方法、域成员等加上 Annotation。每一个 Annotation 对应于一个实际的 Annotation 类型。 1、限定 Override 父类方法 @Overridejava.lang.Override 是 J2SE 5.0 中标准的 Annotation 类型之一，它对编译器说明">
-<meta name="twitter:image" content="http://image.sunzn.com/blog/20170726105438.png">
+<meta name="twitter:image" content="https://image.sunzn.com/blog/20170726105438.png">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -320,12 +320,12 @@ var _hmt = _hmt || [];
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.sunzn.annotation;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@OneAnnotaion</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">exec</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// TODO</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>可以试着使用 javadoc 程序来生成 Java Doc 文件，会发现文件中并不会有 Annotation 的相关信息，如下图所示。</p>
-<p><img src="http://image.sunzn.com/blog/20170726105438.png" alt="默认 Annotation 不会记录至 Java Doc 文件中"></p>
+<p><img src="https://image.sunzn.com/blog/20170726105438.png" alt="默认 Annotation 不会记录至 Java Doc 文件中"></p>
 <p>Annotation 用于标示程序代码以便分析工具使用相关信息，有时 Annotation 包括了重要的信息，你也许会想要在使用者制作 Java Doc 文件的同时，也一并将 Annotation 的信息加入至 API 文件中。所以在定义 Annotation 类型时，可以使用 java.lang.annotation.Documented。下面是一个简单的范例。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.sunzn.annotation;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.lang.annotation.Documented;</span><br><span class="line"><span class="keyword">import</span> java.lang.annotation.Retention;</span><br><span class="line"><span class="keyword">import</span> java.lang.annotation.RetentionPolicy;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> TwoAnnotation &#123;&#125;</span><br></pre></td></tr></table></figure>
 
 <p>使用 java.lang.annotation.Documented 为定义的 Annotation 类型加上 Annotation 时，必须同时使用 Retention 来指定编译器将信息加入 .class 文件，并可以由 VM 读取，也就是要设定 RetentionPolicy 为 RUNTIME。接着可以使用这个 Annotation，并产生 Java Doc 文件，这次可以看到文件中包括了 @TwoAnnotation 的信息，如图所示。</p>
-<p><img src="http://image.sunzn.com/blog/20170726105110.png" alt="Annotation 记录至 Java Doc 文件中"></p>
+<p><img src="https://image.sunzn.com/blog/20170726105110.png" alt="Annotation 记录至 Java Doc 文件中"></p>
 <h3 id="5-4、子类是否继承父类的-annotation-Inherited"><a href="#5-4、子类是否继承父类的-annotation-Inherited" class="headerlink" title="5.4、子类是否继承父类的 annotation @Inherited"></a>5.4、子类是否继承父类的 annotation @Inherited</h3><p>在定义 Annotation 类型并使用于程序代码上后，默认父类中的 Annotation 并不会被继承至子类中。可以在定义 Annotation 类型时加上 java.lang.annotation.Inherited 类型的 Annotation，这让你定义的 Annotation 类型在被继承后仍可以保留至子类中。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.sunzn.annotation;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.lang.annotation.Inherited;</span><br><span class="line"><span class="keyword">import</span> java.lang.annotation.Retention;</span><br><span class="line"><span class="keyword">import</span> java.lang.annotation.RetentionPolicy;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="meta">@Inherited</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> ThreeAnnotation &#123;</span><br><span class="line"></span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function">String <span class="title">name</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -593,15 +593,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -617,6 +617,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">File</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">组件化</a>
               </li>
              
@@ -629,10 +633,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">File</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
@@ -641,19 +641,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -665,11 +657,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ADB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Issue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -705,6 +709,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
@@ -713,19 +721,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">方案</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Version</a>
+                <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -742,6 +742,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Burpsuite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Version</a>
               </li>
              
               <li class="article-tag-list-item">

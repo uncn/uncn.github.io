@@ -16,12 +16,12 @@
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="默认情况下，向 MySQL 数据库插入一条带有中文的数据时，会出现乱码，测试语句如下： 1insert into employee values(null,&apos;张三&apos;,&apos;female&apos;,&apos;1995-10-08&apos;,&apos;2015-11-12&apos;,&apos;Sales&apos;,2000,&apos;是个好员工！&apos;);  出现乱码时，首先需要查看字符集编码是否一致，如果不一致，就可通过调整数据库编集码进行解决，语句如下： 1show">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170930094701.png">
-<meta property="og:updated_time" content="2018-11-01T14:32:50.000Z">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170930094701.png">
+<meta property="og:updated_time" content="2023-03-21T14:50:33.378Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL数据库插入中文乱码的解决方案">
 <meta name="twitter:description" content="默认情况下，向 MySQL 数据库插入一条带有中文的数据时，会出现乱码，测试语句如下： 1insert into employee values(null,&apos;张三&apos;,&apos;female&apos;,&apos;1995-10-08&apos;,&apos;2015-11-12&apos;,&apos;Sales&apos;,2000,&apos;是个好员工！&apos;);  出现乱码时，首先需要查看字符集编码是否一致，如果不一致，就可通过调整数据库编集码进行解决，语句如下： 1show">
-<meta name="twitter:image" content="http://image.sunzn.com/blog/20170930094701.png">
+<meta name="twitter:image" content="https://image.sunzn.com/blog/20170930094701.png">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -197,7 +197,7 @@ var _hmt = _hmt || [];
 <p>出现乱码时，首先需要查看字符集编码是否一致，如果不一致，就可通过调整数据库编集码进行解决，语句如下：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'character%'</span>;</span><br></pre></td></tr></table></figure>
 
-<p> <img src="http://image.sunzn.com/blog/20170930094701.png" alt="此处输入图片的描述"></p>
+<p> <img src="https://image.sunzn.com/blog/20170930094701.png" alt="此处输入图片的描述"></p>
  <a id="more"></a>
 
 <p>从上图中可以看到 MySQL 有六处使用了字符集，分别为：client 、connection、database、results、server 、system。其中与服务器端相关：database、server、system（永远无法修改，就是 utf-8）；与客户端相关：connection、client、results 。</p>
@@ -496,15 +496,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -520,6 +520,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">File</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">组件化</a>
               </li>
              
@@ -532,10 +536,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">File</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
@@ -544,19 +544,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -568,11 +560,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ADB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Issue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -608,6 +612,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
@@ -616,19 +624,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">方案</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Version</a>
+                <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -645,6 +645,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Burpsuite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Version</a>
               </li>
              
               <li class="article-tag-list-item">

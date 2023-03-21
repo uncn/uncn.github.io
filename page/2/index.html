@@ -166,6 +166,84 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Android-DataBinding（二）进阶用法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/11/18/Android-DataBinding（二）进阶用法/">Android DataBinding（二）进阶用法</a>
+    </h1>
+  
+
+        
+        <a href="/2021/11/18/Android-DataBinding（二）进阶用法/" class="archive-article-date">
+  	<time datetime="2021-11-18T14:28:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在《Android-DataBinding（一）基础》一文中对 <a href="https://developer.android.google.cn/jetpack/androidx/releases/databinding" target="_blank" rel="noopener">DataBinding</a> 的接入和使用进行了介绍。本文将会针对 DataBinding 中一些琐碎的知识点进行介绍，比如：Class 属性、Default 属性、Resource 引用等，这些属性被使用的频率或许不是很高，但特定的情况下却会起到意想不到的作用。下面将会针对这些属性进行逐一的讲解。</p>
+<h1 id="1-Data-标签的-Class-属性"><a href="#1-Data-标签的-Class-属性" class="headerlink" title="1. Data 标签的 Class 属性"></a>1. Data 标签的 Class 属性</h1><p>默认情况下，系统会根据布局文件的名称生成对应的 <code>ViewDataBinding</code> 子类，帮助我们操作 <code>XML</code> 中绑定的数据，如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.sunzn.data;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> androidx.appcompat.app.AppCompatActivity;</span><br><span class="line"><span class="keyword">import</span> androidx.databinding.DataBindingUtil;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.sunzn.data.databinding.ActivityMainBinding;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        ActivityMainBinding binding = DataBindingUtil.setContentView(<span class="keyword">this</span>, R.layout.activity_main);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2021/11/18/Android-DataBinding（二）进阶用法/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">DataBinding</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/11/18/Android-DataBinding（二）进阶用法/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Android-DataBinding（一）基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -348,7 +426,7 @@ var _hmt = _hmt || [];
         <p>只要继承 Thread 类或是实现 Runnable 接口，就可以让对象具有多线程功能。入门线程是简单的，但如果多个线程共享某些数据，数据的同步（一致性、整体性）问题就要特别注意。</p>
 <h1 id="1-同步化"><a href="#1-同步化" class="headerlink" title="1. 同步化"></a>1. 同步化</h1><p>如果程序只是一个单线程，即单一流程的程序，那么只要保证程序逻辑正确，程序通常就可以正确地执行你想要的功能。但当程序是多线程程序，即多流程同时执行时，那么就需要注意更多的细节。例如在多线程共享同一对象的数据时。</p>
 <p>如果一个对象所持有的数据可以被多线程同时共享存取，则必须考虑到数据同步的问题。<font style="color:#BF360C;">所谓数据同步指的是两份数据的整体性和一致性。</font>例如对象 A 有 <code>name</code> 与 <code>id</code> 两个属性，而有一份 B 数据有 <code>name</code> 与 <code>id</code> 的数据要用来更新对象 A 的属性，如果 B 的 <code>name</code> 与 <code>id</code> 设定给 A 对象完成，则称 B 与 A 同步。如下图所示：</p>
-<p><img src="http://image.sunzn.com/blog/20200616140301.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20200616140301.png" alt="此处输入图片的描述"></p>
         
           <a class="article-more-a" href="/2020/06/17/Java-的同步化/#more">more >></a>
         
@@ -507,7 +585,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>该来到的终会到来，如果你还没有经历过上下求索的磨砺，说明你的加快前进的脚步了。Google 的大神们早就挖好坑，头也不回的继续挖下一个坑去了，我们能做的只是尽量跟着这些人的脚步，不至于被甩开太远。开始正文之前，我想有必要知道 Android M（6.0）是 Google 在 2015 年 5 月 28 日的 Google I/O 大会上正式推出的版本，没错，这特么是一个 5  年前的版本！但这个版本的行为变更一直默默无闻的在那躺着无人问津，直到你将 minSdkVersion 指向了 23，这时你会发现 APK 签名包的体积极大的超出了预期。到这，你是不是能理解一个程序员在文章开头发出的感叹了？</p>
-<h1 id="1-奇怪的-APK-体积差异"><a href="#1-奇怪的-APK-体积差异" class="headerlink" title="1. 奇怪的 APK 体积差异"></a>1. 奇怪的 APK 体积差异</h1><p><img src="http://image.sunzn.com/blog/20200604143801.png" alt="此处输入图片的描述"></p>
+<h1 id="1-奇怪的-APK-体积差异"><a href="#1-奇怪的-APK-体积差异" class="headerlink" title="1. 奇怪的 APK 体积差异"></a>1. 奇怪的 APK 体积差异</h1><p><img src="https://image.sunzn.com/blog/20200604143801.png" alt="此处输入图片的描述"></p>
         
           <a class="article-more-a" href="/2020/06/05/Android-M-的-NDK-行为变更对-APK-包体积的影响/#more">more >></a>
         
@@ -590,7 +668,7 @@ var _hmt = _hmt || [];
         <p>在移动逆向分析以及 APP 开发的时候，总会需要对其网络行为进行监控测试，本文针对市面上主流的抓包工具进行了抓包测试，并将过程进行了逐一记录，方便日后查用。</p>
 <h1 id="1-基于-Wireshark"><a href="#1-基于-Wireshark" class="headerlink" title="1. 基于 Wireshark"></a>1. 基于 Wireshark</h1><h2 id="1-1-抓包环境"><a href="#1-1-抓包环境" class="headerlink" title="1.1 抓包环境"></a>1.1 抓包环境</h2><p>Windows 10 + 小米5s Plus + Wireshark 3.2.1 【<a href="https://www.wireshark.org/download.html" target="_blank" rel="noopener">下载地址</a>】</p>
 <h2 id="1-2-设置-WiFi"><a href="#1-2-设置-WiFi" class="headerlink" title="1.2 设置 WiFi"></a>1.2 设置 WiFi</h2><p>在电脑主机上使用百度 WiFi之类的工具，开启热点，将所要抓包的手机连接该热点，并记录手机的【IP地址】和【路由器】，这两个信息会在后续的抓包过程中用到。</p>
-<p><img src="http://image.sunzn.com/blog/20200301150201.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20200301150201.png" alt="此处输入图片的描述"></p>
         
           <a class="article-more-a" href="/2020/03/27/手机抓包的几种方式/#more">more >></a>
         
@@ -959,91 +1037,6 @@ A super B 表示 A 是 B 的父类或者祖先，在 B 的上面。</code></pre>
 
 
   
-    <article id="post-Excel-数据导入-SQLite" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/09/Excel-数据导入-SQLite/">Excel 数据导入 SQLite</a>
-    </h1>
-  
-
-        
-        <a href="/2019/05/09/Excel-数据导入-SQLite/" class="archive-article-date">
-  	<time datetime="2019-05-09T14:02:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>新开的项目需要内置一个 SQLite 数据库，内置的库会提前灌入一些基本数据信息以减少客户端和服务器之间的交互。之前一直都是使用 <a href="https://sqliteadmin.orbmu2k.de/" target="_blank" rel="noopener">SQLite Administrator</a> 在灌数据，但这个工具一直存在编码问题，用着不是很舒服。这次对 <a href="http://www.sqliteexpert.com/" target="_blank" rel="noopener">SQLiteExpert</a> 进行了测试，发现 <a href="http://www.sqliteexpert.com/download.html" target="_blank" rel="noopener">SQLite Expert Professional</a> 版具有文件导入功能，并且能完美的解决编码问题。</p>
-<blockquote>
-<p><font style="color:#01579B;font-size:14px;"><strong>注意：</strong>这里要强调的是只有 SQLite Expert Professional [专业版] 具有文件导入功能，SQLite Expert Personal [个人版] 是不具备该功的。</font></p>
-</blockquote>
-<h1 id="1-准备数据"><a href="#1-准备数据" class="headerlink" title="1. 准备数据"></a>1. 准备数据</h1><p>数据的准备如下图所示，第一行为表的列名，列名下填充对应的数据。</p>
-<p><img src="http://image.sunzn.com/blog/20190509173101.png" alt="此处输入图片的描述"></p>
-        
-          <a class="article-more-a" href="/2019/05/09/Excel-数据导入-SQLite/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SQLite</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/09/Excel-数据导入-SQLite/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1142,15 +1135,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1166,6 +1159,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">File</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">组件化</a>
               </li>
              
@@ -1178,10 +1175,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">File</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
@@ -1190,19 +1183,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1214,11 +1199,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ADB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Issue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1254,6 +1251,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
@@ -1262,19 +1263,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">方案</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Version</a>
+                <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1291,6 +1284,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Burpsuite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Version</a>
               </li>
              
               <li class="article-tag-list-item">

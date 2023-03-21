@@ -16,21 +16,21 @@
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="事务定义了一组 SQL 命令的边界，这组命令或者作为一个整体被全部执行，或者都不执行，这被称为数据库完整性的原子性原则。这种关系的典型例子就是银行转账，假设银行程序从一个账户向另一个账户转账，转账程序通过如下方式进行：首先将第一个账户的钱转入第二个账户，然后从第一个账户删除对应的数目；或者首先从第一个账户删除要转账的数目，然后向第二个账户插入对应的数目。无论哪种方式，都是通过两步完成的：先插入，后">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171101133301.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171101133302.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171101133303.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171101133304.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171101133305.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171101133306.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171101133307.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171101133308.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171101133309.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171101133310.png">
-<meta property="og:updated_time" content="2018-11-01T13:41:50.000Z">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171101133301.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171101133302.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171101133303.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171101133304.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171101133305.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171101133306.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171101133307.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171101133308.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171101133309.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171101133310.png">
+<meta property="og:updated_time" content="2023-03-21T14:41:23.467Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQLite 事务">
 <meta name="twitter:description" content="事务定义了一组 SQL 命令的边界，这组命令或者作为一个整体被全部执行，或者都不执行，这被称为数据库完整性的原子性原则。这种关系的典型例子就是银行转账，假设银行程序从一个账户向另一个账户转账，转账程序通过如下方式进行：首先将第一个账户的钱转入第二个账户，然后从第一个账户删除对应的数目；或者首先从第一个账户删除要转账的数目，然后向第二个账户插入对应的数目。无论哪种方式，都是通过两步完成的：先插入，后">
-<meta name="twitter:image" content="http://image.sunzn.com/blog/20171101133301.png">
+<meta name="twitter:image" content="https://image.sunzn.com/blog/20171101133301.png">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -207,7 +207,7 @@ var _hmt = _hmt || [];
 
 <a id="more"></a>
 
-<p><img src="http://image.sunzn.com/blog/20171101133301.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171101133301.png" alt="此处输入图片的描述"></p>
 <p>上面开始了一个事务，先删除了 FOODS 表的所有行，但是又用 <code>rollback</code> 进行了回滚。在执行 SELECT 时发现表中没有发生任何改变。</p>
 <p>默认情况下，<font color="DeepPink">SQLite 中每条 SQL 语句自成事务（自动给提交模式）。</font>也就是说，如果你没有使用 <code>begin...commit/rollback</code> 定义事务的范围，SQLite 默认每条单独的 SQL 命令就是有 <code>begin...commit/rollback</code> 的事务。这种情况下，所有成功完成的命令都自动提交。同样，所有遇见错误的命令都回滚。这种操作模式（<font color="RoyalBlue">隐式事务</font>）也称为自动提交模式：SQLite 以自动提交模式运行单个命令，如果命令没有失败，那它将自动提交。</p>
 <p>SQLite 也支持 <code>savepoint</code> 和 <code>release</code> 命令，这些命令扩展了事务的灵活性，包含多个语句的工作体可以设置 savepoint，回滚可以返回到某个 savepoint。创建 savepoint 和启动 savepoint 命令一样简单，如下所示：</p>
@@ -219,7 +219,7 @@ var _hmt = _hmt || [];
 <p>本例使用 justincase 作为 savepoint 名称，你也可以使用其他名称。</p>
 <h2 id="二、冲突解决"><a href="#二、冲突解决" class="headerlink" title="二、冲突解决"></a>二、冲突解决</h2><p>如前所述，违反约束会导致事务的中止。在对数据进行很多修改的过程中，命令中止会造成什么后果？大多数数据库（管理系统）都是简单地将前面所做的修改全部取消。这也是数据库处理违反约束的方式。</p>
 <p>SQLite 有其独特的方法允许你指定不同的方式来处理约束违反（或者说从约束违反中恢复），这种功能被称为冲突解决，如下例所示：</p>
-<p><img src="http://image.sunzn.com/blog/20171101133302.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171101133302.png" alt="此处输入图片的描述"></p>
 <p>当 UPDATE 语句执行到第 6 个记录时，它视图将 ID 更新为 15-6=9，但是 ID 为 9 的记录已经存在，违反了唯一性约束。因此，该命令终止。但是在违反约束前，SQLite 已经更新了 5 个记录。应该如何处理？默认行为是终止命令并回滚所有的修改，保存事务的完整性。</p>
 <p>如果你想让已经修改的 5 个记录继续保留，该怎么办？其实只需要使用恰当的冲突解决方案就行。SQLite 提供 5 种可能的冲突解决方案或策略，它们可以用来解决冲突（约束违反）：<code>replace</code>、<code>ignore</code>、<code>fail</code>、<code>abort</code> 和 <code>rollback</code>。这 5 种方法定义了错误容忍范围或敏感度：从最宽松的 replace，到最严格的 rollback。这些解决方法的定义如下（按严重度排序）：</p>
 <ul>
@@ -243,18 +243,18 @@ var _hmt = _hmt || [];
 
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 复制 FOODS 表数据到 TEST 表中</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">TEST</span>(<span class="keyword">ID</span> <span class="built_in">INTEGER</span> PRIMARY <span class="keyword">KEY</span>, <span class="keyword">NAME</span> <span class="built_in">TEXT</span>, TYPE_ID <span class="built_in">INTEGER</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">TEST</span> <span class="keyword">SELECT</span> * <span class="keyword">FROM</span> FOODS;</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">TEST</span>;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20171101133303.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171101133303.png" alt="此处输入图片的描述"></p>
 <p>数据复制到新表 TEST 后，可以在 TEST 表中添加一个名为 MODIFIED 的字段，默认值是 N。在 UPDATE 语句中，将其更新为 Y 以追踪哪些记录在约束违反发生前更新了。使用 fail 冲突解决方法时，这些更新将保留，可以追踪之后有多少记录被更新了。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">UNIQUE</span> <span class="keyword">INDEX</span> TEST_IDX <span class="keyword">ON</span> <span class="keyword">TEST</span>(<span class="keyword">ID</span>);</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">TEST</span> <span class="keyword">ADD</span> <span class="keyword">COLUMN</span> MODIFIED <span class="built_in">TEXT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">'N'</span>;</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">TEST</span> <span class="keyword">WHERE</span> MODIFIED=<span class="string">'N'</span>;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20171101133304.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171101133304.png" alt="此处输入图片的描述"></p>
 <p>好了，现在可以使用 fail 冲突解决方法来追踪被更新的记录了。更新报错，然后查询修改状态为 N 的数据，和预期一致。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> <span class="keyword">OR</span> FAIL <span class="keyword">TEST</span> <span class="keyword">SET</span> <span class="keyword">ID</span>=<span class="number">15</span>-<span class="keyword">ID</span>, MODIFIED=<span class="string">'Y'</span>;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20171101133305.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171101133305.png" alt="此处输入图片的描述"></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">TEST</span> <span class="keyword">WHERE</span> MODIFIED=<span class="string">'Y'</span>;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20171101133306.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171101133306.png" alt="此处输入图片的描述"></p>
 <blockquote>
 <p><strong>注意</strong>：fail 需要额外考虑。记录更新的顺序是不确定的，也就是说，你无法确定记录在表中的顺序或者 SQLite 以何种顺序处理它们。你可能假设它遵从 rowid 字段顺序，但是事实并不总是这样，文档中从未这样说过。再次重申，与任何数据库工作时，不要假设有某种隐式的顺序。如果你正在使用 fail，很多情况下，使用 ignore 会更好。ignore 会完成工作，修改所有可以修改的记录，而不是从第一个约束违反处跳出。</p>
 </blockquote>
@@ -263,18 +263,18 @@ var _hmt = _hmt || [];
 
 <p>CAST 表只有一个字段 NAME，该字段具有唯一约束性，冲突解决方法设置为 <font color="DeepPink">ROLLBACK</font>。</p>
 <p>任何触发该字段约束的 <code>insert</code> 或 <code>update</code> 语句都由 <code>rollback</code> 冲突解决来裁决，而不是默认的 <code>abort</code>。结果不仅是该语句被回滚，而且该语句所在的整个事务都将回滚。</p>
-<p><img src="http://image.sunzn.com/blog/20171101133307.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171101133307.png" alt="此处输入图片的描述"></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">BEGIN</span>;</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">CAST</span> <span class="keyword">VALUES</span>(<span class="string">'Jerry'</span>);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20171101133308.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171101133308.png" alt="此处输入图片的描述"></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">COMMIT</span>;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20171101133309.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171101133309.png" alt="此处输入图片的描述"></p>
 <p>本例中的 <code>commit</code> 失败是因为 NAME 字段的冲突解决方法已经终止了事务。<code>create index</code> 的工作方式类似。当某些字段是约束违反的源头时，表或索引内的冲突解决方法将默认的 abort 改变为这些字段上定义的冲突解决方法。</p>
 <p>需要注意的是：<font color="RoyalBlue">冲突解决方法是语句级的（DML），可以覆盖对象级（DDL）定义的。</font>以前面为例：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">BEGIN</span>;</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">OR</span> <span class="keyword">REPLACE</span> <span class="keyword">INTO</span> <span class="keyword">CAST</span> <span class="keyword">VALUES</span>(<span class="string">'Jerry'</span>);</span><br><span class="line"><span class="keyword">COMMIT</span>;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20171101133310.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171101133310.png" alt="此处输入图片的描述"></p>
 <p>replace 冲突解决方法可以覆盖 CAST.NAME 中定义的 rollback 冲突解决方法。</p>
 <h2 id="三、数据库锁"><a href="#三、数据库锁" class="headerlink" title="三、数据库锁"></a>三、数据库锁</h2><p>在 SQLite 中，锁和事务是紧密联系的。要有效地使用事务，需要了解一些关于如何加锁的知识。<font color="DeepPink">SQLiite 采用粗粒度的锁。</font><font color="RoyalBlue">当一个连接要写数据库时，所有其他的连接被锁住，直到写连接结束它的事务。SQLite 有一个加锁表，用来帮助不同的写数据库都能在最后一刻再加锁，以保证最大的并发性。</font></p>
 <p>SQLite 使用锁逐步提升机制，为了写数据库，连接需要逐级获得排它锁。<font color="DeepPink">SQLiite 有 5 种不同的锁状态：未加锁（unlocked）、共享（shared）、预留（reserved）、未决（pending）和排它（exclusive）。</font><font color="RoyalBlue">每个数据库连接在同一时刻只能处于其中一个状态，每个状态（未加锁状态除外）都有一种锁与之对应。</font></p>
@@ -554,15 +554,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -578,6 +578,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">File</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">组件化</a>
               </li>
              
@@ -590,10 +594,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">File</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
@@ -602,19 +602,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -626,11 +618,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ADB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Issue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -666,6 +670,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
@@ -674,19 +682,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">方案</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Version</a>
+                <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -703,6 +703,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Burpsuite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Version</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -16,16 +16,16 @@
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="SQLite 对 ALTER TABLE 的支持有限，你可以用它来将列添加到表的末尾或更改表的名称。如果要对表的结构进行更复杂的更改，则必须重新创建表。你可以将现有数据保存到临时表中，删除旧表，创建新表，然后从临时表中复制数据。 例如，假设你有一个名为 “t1” 的表，有 “a”、”b”、”c” 三列，并且你希望从该表中删除 “c” 列。以下步骤说明如何做到这一点： 12345678BEGIN T">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171019132603.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171019132604.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171019132605.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171019132601.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171019132602.png">
-<meta property="og:updated_time" content="2018-11-01T13:48:44.000Z">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171019132603.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171019132604.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171019132605.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171019132601.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171019132602.png">
+<meta property="og:updated_time" content="2023-03-21T14:47:26.182Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何从 SQLite 的现有表中添加或删除列">
 <meta name="twitter:description" content="SQLite 对 ALTER TABLE 的支持有限，你可以用它来将列添加到表的末尾或更改表的名称。如果要对表的结构进行更复杂的更改，则必须重新创建表。你可以将现有数据保存到临时表中，删除旧表，创建新表，然后从临时表中复制数据。 例如，假设你有一个名为 “t1” 的表，有 “a”、”b”、”c” 三列，并且你希望从该表中删除 “c” 列。以下步骤说明如何做到这一点： 12345678BEGIN T">
-<meta name="twitter:image" content="http://image.sunzn.com/blog/20171019132603.png">
+<meta name="twitter:image" content="https://image.sunzn.com/blog/20171019132603.png">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -204,11 +204,11 @@ var _hmt = _hmt || [];
 <h2 id="案例一：添加列"><a href="#案例一：添加列" class="headerlink" title="案例一：添加列"></a>案例一：添加列</h2><p>现在有一个名为 ACCOUNT 的表，表中包含 ID、NAME、DATE 四列，建表语句如下：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">ACCOUNT</span> (<span class="keyword">ID</span> <span class="built_in">BIGINT</span>, <span class="keyword">NAME</span> <span class="built_in">text</span>, <span class="built_in">DATE</span> datetime, PRIMARY <span class="keyword">KEY</span>(<span class="keyword">ID</span>, <span class="keyword">NAME</span>));</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">ACCOUNT</span> <span class="keyword">VALUES</span> (<span class="number">10</span>,<span class="string">'Adin'</span>,<span class="string">'2000-01-01 01:01:01'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">ACCOUNT</span> <span class="keyword">VALUES</span> (<span class="number">11</span>,<span class="string">'Jada'</span>,<span class="string">'2001-01-01 01:01:01'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">ACCOUNT</span> <span class="keyword">VALUES</span> (<span class="number">12</span>,<span class="string">'Cain'</span>,<span class="string">'2002-01-01 01:01:01'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">ACCOUNT</span> <span class="keyword">VALUES</span> (<span class="number">13</span>,<span class="string">'Dora'</span>,<span class="string">'2003-01-01 01:01:01'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">ACCOUNT</span> <span class="keyword">VALUES</span> (<span class="number">14</span>,<span class="string">'Eden'</span>,<span class="string">'2004-01-01 01:01:01'</span>);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20171019132603.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171019132603.png" alt="此处输入图片的描述"></p>
 <p><font color="DeepPink">现在希望在 ACCOUNT 表中的 NAME 列后增加一个 PASS 列，并为该列默认赋值 123456</font>，需要依次执行：1、创建临时表；2、将旧表数据复制到临时表；3、删除旧表；4、创建新表；5、将临时表数据复制到新表；6、删除临时表。执行语句如下：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TEMPORARY</span> <span class="keyword">TABLE</span> TEMP (<span class="keyword">ID</span> <span class="built_in">BIGINT</span>, <span class="keyword">NAME</span> <span class="built_in">text</span>, <span class="built_in">DATE</span> datetime, PRIMARY <span class="keyword">KEY</span>(<span class="keyword">ID</span>, <span class="keyword">NAME</span>));</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> TEMP <span class="keyword">SELECT</span> <span class="keyword">ID</span>, <span class="keyword">NAME</span>, <span class="built_in">DATE</span> <span class="keyword">FROM</span> <span class="keyword">ACCOUNT</span>;</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">ACCOUNT</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">ACCOUNT</span> (<span class="keyword">ID</span> <span class="built_in">BIGINT</span>, <span class="keyword">NAME</span> <span class="built_in">text</span>, PASS <span class="built_in">text</span>, <span class="built_in">DATE</span> datetime, PRIMARY <span class="keyword">KEY</span>(<span class="keyword">ID</span>, <span class="keyword">NAME</span>));</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">ACCOUNT</span> <span class="keyword">SELECT</span> T.ID, T.NAME, <span class="string">'123456'</span>, T.DATE <span class="keyword">FROM</span> TEMP T;</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> TEMP;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20171019132604.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171019132604.png" alt="此处输入图片的描述"></p>
 <p>语句执行完毕后，刷新界面，会发现 PASS 列已经成功的添加到了 ACCOUNT 表的 NAME 列后，并默认赋值 123456。</p>
 <blockquote>
 <p>提示：使用 SELECT 形式的 INSERT 可以一次插入多行。只要字段匹配，INSERT 可以插入结果集的所有行。</p>
@@ -216,16 +216,16 @@ var _hmt = _hmt || [];
 <p>上面的例子中，<font color="MediumBlue">临时表 TEMP 包含 ID、NAME、DATE 字段，而新建的 ACCOUNT 表包含 ID、NAME、PASS、DATE 字段，</font>使用 SELECT 形式将 TEMP 表数据 INSERT 到新表 ACCOUNT 过程中，为了保持字段匹配，同时进行赋值操作，在 PASS 所在列的索引处手动添加了默认值 123456。当然，如果想将 NAME 列的值赋到 PASS 列，可以参考以下语句：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">ACCOUNT</span> <span class="keyword">SELECT</span> T.ID, T.NAME, T.NAME, T.DATE <span class="keyword">FROM</span> TEMP T;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20171019132605.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171019132605.png" alt="此处输入图片的描述"></p>
 <p>语句执行完毕后，刷新界面，会发现 PASS 列已经成功的添加到了 ACCOUNT 表的 NAME 列后，并成功将 NAME 列的值赋到了 PASS 列。</p>
 <h2 id="案例二：删除列"><a href="#案例二：删除列" class="headerlink" title="案例二：删除列"></a>案例二：删除列</h2><p>现在有一个名为 ACCOUNT 的表，表中包含 ID、NAME、PASS、DATE 四列，建表语句如下：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">ACCOUNT</span> (<span class="keyword">ID</span> <span class="built_in">BIGINT</span>, <span class="keyword">NAME</span> <span class="built_in">text</span>, PASS <span class="built_in">text</span>, <span class="built_in">DATE</span> datetime, PRIMARY <span class="keyword">KEY</span>(<span class="keyword">ID</span>, <span class="keyword">NAME</span>));</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">ACCOUNT</span> <span class="keyword">VALUES</span> (<span class="number">10</span>,<span class="string">'Adin'</span>,<span class="string">'123456'</span>,<span class="string">'2000-01-01 01:01:01'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">ACCOUNT</span> <span class="keyword">VALUES</span> (<span class="number">11</span>,<span class="string">'Jada'</span>,<span class="string">'123456'</span>,<span class="string">'2001-01-01 01:01:01'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">ACCOUNT</span> <span class="keyword">VALUES</span> (<span class="number">12</span>,<span class="string">'Cain'</span>,<span class="string">'123456'</span>,<span class="string">'2002-01-01 01:01:01'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">ACCOUNT</span> <span class="keyword">VALUES</span> (<span class="number">13</span>,<span class="string">'Dora'</span>,<span class="string">'123456'</span>,<span class="string">'2003-01-01 01:01:01'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">ACCOUNT</span> <span class="keyword">VALUES</span> (<span class="number">14</span>,<span class="string">'Eden'</span>,<span class="string">'123456'</span>,<span class="string">'2004-01-01 01:01:01'</span>);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20171019132601.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171019132601.png" alt="此处输入图片的描述"></p>
 <p><font color="DeepPink">现在希望将 ACCOUNT 表中的 DATE 列删除</font>，需要依次执行：1、创建临时表；2、将旧表数据复制到临时表；3、删除旧表；4、创建新表；5、将临时表数据复制到新表；6、删除临时表。执行语句如下：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TEMPORARY</span> <span class="keyword">TABLE</span> TEMP(<span class="keyword">ID</span> <span class="built_in">BIGINT</span>, <span class="keyword">NAME</span> <span class="built_in">text</span>, PASS <span class="built_in">text</span>, PRIMARY <span class="keyword">KEY</span>(<span class="keyword">ID</span>, <span class="keyword">NAME</span>));</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> TEMP <span class="keyword">SELECT</span> <span class="keyword">ID</span>, <span class="keyword">NAME</span>, PASS <span class="keyword">FROM</span> <span class="keyword">ACCOUNT</span>;</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">ACCOUNT</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">ACCOUNT</span>(<span class="keyword">ID</span> <span class="built_in">BIGINT</span>, <span class="keyword">NAME</span> <span class="built_in">text</span>, PASS <span class="built_in">text</span>, PRIMARY <span class="keyword">KEY</span>(<span class="keyword">ID</span>, <span class="keyword">NAME</span>));</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">ACCOUNT</span> <span class="keyword">SELECT</span> <span class="keyword">ID</span>, <span class="keyword">NAME</span>, PASS <span class="keyword">FROM</span> TEMP;</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> TEMP;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20171019132602.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171019132602.png" alt="此处输入图片的描述"></p>
 <p>语句执行完毕后，刷新界面，会发现 ACCOUNT 表中的 DATE 列已经成功删除。</p>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
 <li><a href="http://www.sqlite.org/lang_altertable.html" target="_blank" rel="noopener">SQLite Query Language: ALTER TABLE</a></li>
@@ -487,15 +487,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -511,6 +511,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">File</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">组件化</a>
               </li>
              
@@ -523,10 +527,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">File</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
@@ -535,19 +535,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -559,11 +551,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ADB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Issue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -599,6 +603,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
@@ -607,19 +615,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">方案</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Version</a>
+                <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -636,6 +636,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Burpsuite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Version</a>
               </li>
              
               <li class="article-tag-list-item">

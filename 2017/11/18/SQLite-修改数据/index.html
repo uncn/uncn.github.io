@@ -16,23 +16,23 @@
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="与 select 命令相比，用于修改数据库的语句很容易理解和使用。有 3 个 DML 语句用于修改数据——insert、update 和 delete，不过它们远比字面含义看起来做的事情要多。 插入数据使用 insert 命令向表中插入记录。insert 在单表上工作，使用 insert 命令可以一次插入一条记录，使用 select 命令可以一次插入多条记录。insert 语句的一般格式为： 1i">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171121153401.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171121153402.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171121153403.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171121153404.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171121153405.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171121153406.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171121153407.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171121153408.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171121153409.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171121153410.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171121153411.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171121153412.png">
-<meta property="og:updated_time" content="2018-11-01T13:44:14.000Z">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171121153401.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171121153402.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171121153403.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171121153404.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171121153405.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171121153406.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171121153407.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171121153408.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171121153409.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171121153410.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171121153411.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171121153412.png">
+<meta property="og:updated_time" content="2023-03-21T14:46:16.934Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQLite 修改数据">
 <meta name="twitter:description" content="与 select 命令相比，用于修改数据库的语句很容易理解和使用。有 3 个 DML 语句用于修改数据——insert、update 和 delete，不过它们远比字面含义看起来做的事情要多。 插入数据使用 insert 命令向表中插入记录。insert 在单表上工作，使用 insert 命令可以一次插入一条记录，使用 select 命令可以一次插入多条记录。insert 语句的一般格式为： 1i">
-<meta name="twitter:image" content="http://image.sunzn.com/blog/20171121153401.png">
+<meta name="twitter:image" content="https://image.sunzn.com/blog/20171121153401.png">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -212,24 +212,24 @@ var _hmt = _hmt || [];
 <h3 id="插入一行"><a href="#插入一行" class="headerlink" title="插入一行"></a>插入一行</h3><p>例如，下列语句向 FOODS 表插入数据：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS (<span class="keyword">NAME</span>, TYPE_ID) <span class="keyword">VALUES</span> (<span class="string">'香蕉'</span>, <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20171121153401.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171121153401.png" alt="此处输入图片的描述"></p>
 <p>该语句插入一行，指定两列值：’香蕉’———第一个值，对应字段列表中的第一个字段 NAME；类似地，1 对应 TYPE_ID，就是第二个字段。注意，其中没有 ID 字段。本例中，数据库使用默认值。因为 ID 是整型主键，它会自动产生相关的新值。可以用简单的 select 命令验证一下，也可以查询到 ID 值。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> FOODS <span class="keyword">WHERE</span> <span class="keyword">NAME</span>=<span class="string">'香蕉'</span>;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20171121153402.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171121153402.png" alt="此处输入图片的描述"></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MAX</span>(<span class="keyword">ID</span>) <span class="keyword">FROM</span> FOODS;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20171121153403.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171121153403.png" alt="此处输入图片的描述"></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> LAST_INSERT_ROWID();</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20171121153404.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171121153404.png" alt="此处输入图片的描述"></p>
 <blockquote>
 <p>注意：值 10 是为 ID 字段自动产生的，它也是该字段的最大值。SQLite 提供单增长值，你可以使用 SQLite 内建的 LAST_INSERT_ROWID() 验证这一点，该函数返回最后一个子增长值，如示例所示。</p>
 </blockquote>
 <p>如果<font color="DeepPink">在 insert 语句中为表的所有字段提供值，可以省略字段列表。</font>本例中，假定数据库值的顺序与字段在 CREATE TABLE 语句的顺序一一对应，例如：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS <span class="keyword">VALUES</span>(<span class="literal">NULL</span>, <span class="string">'柚子'</span>, <span class="number">1</span>);</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> FOODS <span class="keyword">WHERE</span> <span class="keyword">NAME</span> <span class="keyword">LIKE</span> <span class="string">'%子'</span>;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20171121153405.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171121153405.png" alt="此处输入图片的描述"></p>
 <p>注意参数的顺序，’柚子’ 在 1 的前面，这是因为创建表的方式如下。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> FOODS(<span class="keyword">ID</span> <span class="built_in">INTEGER</span> PRIMARY <span class="keyword">KEY</span>, <span class="keyword">NAME</span> <span class="built_in">TEXT</span>, TYPE_ID <span class="built_in">INTEGER</span>);</span><br></pre></td></tr></table></figure>
 
@@ -237,16 +237,16 @@ var _hmt = _hmt || [];
 <h3 id="插入一组行"><a href="#插入一组行" class="headerlink" title="插入一组行"></a>插入一组行</h3><p>子查询可以用在 insert 语句中，既可以作为值列表的一部分，也可以完全替代整个值列表。指定子查询为值列表时，实际上是在插入一组行，因为子查询返回的通常是一组行。下面的例子只产生一行值：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS <span class="keyword">VALUES</span>(<span class="literal">NULL</span>, <span class="string">'榴莲'</span>, (<span class="keyword">SELECT</span> <span class="keyword">ID</span> <span class="keyword">FROM</span> TYPES <span class="keyword">WHERE</span> <span class="keyword">NAME</span>=<span class="string">'水果'</span>));</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> FOODS;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20171121153406.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171121153406.png" alt="此处输入图片的描述"></p>
 <p>这里不用硬编码输入 TYPE_ID，而是用 SQLite 来查询，例如：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS</span><br><span class="line"><span class="keyword">SELECT</span> LAST_INSERT_ROWID()+<span class="number">1</span>, <span class="keyword">NAME</span>, TYPE_ID <span class="keyword">FROM</span> FOODS</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">NAME</span>=<span class="string">'桔子'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> FOODS <span class="keyword">WHERE</span> <span class="keyword">NAME</span> <span class="keyword">LIKE</span> <span class="string">'%子'</span>;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20171121153407.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171121153407.png" alt="此处输入图片的描述"></p>
 <p>本例使用 select 语句完全替代了值列表。<font color="DeepPink">只要 select 子句的字段数目与要插入的表的字段数目匹配，或者与提供的字段列表匹配，insert 语句就可以正常工作。</font>上面的例子中，添加另一种桔子，使用 LAST_INSERT_ROWID()+1 作为 ID 字段的值，可以使用 NULL 代替。事实上，应该使用 NULL，而不是 LAST_INSERT_ROWID()，因为如果之前会话中没有插入行，LAST_INSERT_ROWID() 会返回 0。本例中的 LAST_INSERT_ROWID() 可以正常工作，但是最好不要在程序中这样做。</p>
 <h3 id="插入多行"><a href="#插入多行" class="headerlink" title="插入多行"></a>插入多行</h3><p>使用 select 形式的 insert 可以一次插入多行。只要字段匹配，insert 可以插入结果集的所有行，例如：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> FOODS_BAK(<span class="keyword">ID</span> <span class="built_in">INTEGER</span> PRIMARY <span class="keyword">KEY</span>, <span class="keyword">NAME</span> <span class="built_in">TEXT</span>, TYPE_ID <span class="built_in">INTEGER</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS_BAK <span class="keyword">SELECT</span> * <span class="keyword">FROM</span> FOODS;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*) <span class="keyword">FROM</span> FOODS_BAK;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20171121153408.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171121153408.png" alt="此处输入图片的描述"></p>
 <p>上述语句表示创建一个新表 FOODS_BAK，并插入表 FOODS 的所有记录。</p>
 <p>然而，有一种更方便的方式创建和插入表。create table 语句有特殊的语法，可以直接指定从 select 语句中创建表。前面的例子可以用下面的语法一步完成：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> FOODS_BAK <span class="keyword">AS</span> <span class="keyword">SELECT</span> * <span class="keyword">FROM</span> FOODS;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*) <span class="keyword">FROM</span> FOODS_BAK;</span><br></pre></td></tr></table></figure>
@@ -254,19 +254,19 @@ var _hmt = _hmt || [];
 <p>create table 与从 FOODS 表选择数据插入表两步并未一步。这对于创建临时表特别有用。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> TEMP <span class="keyword">TABLE</span> <span class="keyword">LIST</span> <span class="keyword">AS</span></span><br><span class="line"><span class="keyword">SELECT</span> F.NAME FOOD, T.NAME <span class="keyword">NAME</span>,(<span class="keyword">SELECT</span> <span class="keyword">ID</span> <span class="keyword">FROM</span> TYPES <span class="keyword">WHERE</span> T.NAME=<span class="keyword">NAME</span>) <span class="keyword">ID</span></span><br><span class="line"><span class="keyword">FROM</span> FOODS F, TYPES T</span><br><span class="line"><span class="keyword">WHERE</span> F.TYPE_ID=T.ID;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">LIST</span>;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20171121153409.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171121153409.png" alt="此处输入图片的描述"></p>
 <p>使用 create table 的这种形式时，要意识到源表的任何约束是否定义在新表中。特别是，自增长字段不会在新表中创建，索引也不会创建，UNIQUE 约束等都不会创建。许多其他数据库称这种功能为 CTAS（即 Create Table As Select 首字母的组合），但是 CTAS 不是 SQLite 用户普遍使用的称呼。</p>
 <p>有一点值得注意，插入行时的 UNIQUE 约束。也就是说，如果在定义为 UNIQUE 的字段中插入重复值，SQLite 会停止并报错。</p>
-<p><img src="http://image.sunzn.com/blog/20171121153410.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171121153410.png" alt="此处输入图片的描述"></p>
 <h2 id="更新记录"><a href="#更新记录" class="headerlink" title="更新记录"></a>更新记录</h2><p>update 命令用于更新表中的记录，该命令可以修改一个表中一行或多行中的一个或多个字段。update 语句的一般格式为：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> <span class="keyword">table</span> <span class="keyword">set</span> update_list <span class="keyword">where</span> predicate;</span><br></pre></td></tr></table></figure>
 
 <p>update_list 是一个或多个“字段赋值”的列表，字段赋值的格式为 column_name=value。where 子句的用法与 select 语句相同，实际上，update 语句的一半都是 select 语句。where 子句使用断言识别要修改的行，然后将更新列应用到这些行，例如：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> FOODS <span class="keyword">SET</span> <span class="keyword">NAME</span>=<span class="string">'毛桃'</span> <span class="keyword">WHERE</span> <span class="keyword">NAME</span>=<span class="string">'桔子'</span>;</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> FOODS;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20171121153411.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171121153411.png" alt="此处输入图片的描述"></p>
 <p>update 命令非常简单直接，它有很多扩展。正如 insert 语句一样，必须注意 unique 约束，因为也可能停止更新。</p>
-<p><img src="http://image.sunzn.com/blog/20171121153412.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171121153412.png" alt="此处输入图片的描述"></p>
 <h2 id="删除记录"><a href="#删除记录" class="headerlink" title="删除记录"></a>删除记录</h2><p>使用 delete 命令可以删除表中的记录。delete 语句的一般格式为：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> <span class="keyword">table</span> <span class="keyword">where</span> predicate;</span><br></pre></td></tr></table></figure>
 
@@ -528,15 +528,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -552,6 +552,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">File</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">组件化</a>
               </li>
              
@@ -564,10 +568,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">File</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
@@ -576,19 +576,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -600,11 +592,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ADB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Issue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -640,6 +644,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
@@ -648,19 +656,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">方案</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Version</a>
+                <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -677,6 +677,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Burpsuite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Version</a>
               </li>
              
               <li class="article-tag-list-item">

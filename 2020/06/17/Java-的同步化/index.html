@@ -16,13 +16,13 @@
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="只要继承 Thread 类或是实现 Runnable 接口，就可以让对象具有多线程功能。入门线程是简单的，但如果多个线程共享某些数据，数据的同步（一致性、整体性）问题就要特别注意。 1. 同步化如果程序只是一个单线程，即单一流程的程序，那么只要保证程序逻辑正确，程序通常就可以正确地执行你想要的功能。但当程序是多线程程序，即多流程同时执行时，那么就需要注意更多的细节。例如在多线程共享同一对象的数据时">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://image.sunzn.com/blog/20200616140301.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20200616140302.png">
-<meta property="og:updated_time" content="2020-06-19T02:36:06.145Z">
+<meta property="og:image" content="https://image.sunzn.com/blog/20200616140301.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20200616140302.png">
+<meta property="og:updated_time" content="2023-03-21T15:16:14.973Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 的同步化">
 <meta name="twitter:description" content="只要继承 Thread 类或是实现 Runnable 接口，就可以让对象具有多线程功能。入门线程是简单的，但如果多个线程共享某些数据，数据的同步（一致性、整体性）问题就要特别注意。 1. 同步化如果程序只是一个单线程，即单一流程的程序，那么只要保证程序逻辑正确，程序通常就可以正确地执行你想要的功能。但当程序是多线程程序，即多流程同时执行时，那么就需要注意更多的细节。例如在多线程共享同一对象的数据时">
-<meta name="twitter:image" content="http://image.sunzn.com/blog/20200616140301.png">
+<meta name="twitter:image" content="https://image.sunzn.com/blog/20200616140301.png">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -195,11 +195,11 @@ var _hmt = _hmt || [];
         <p>只要继承 Thread 类或是实现 Runnable 接口，就可以让对象具有多线程功能。入门线程是简单的，但如果多个线程共享某些数据，数据的同步（一致性、整体性）问题就要特别注意。</p>
 <h1 id="1-同步化"><a href="#1-同步化" class="headerlink" title="1. 同步化"></a>1. 同步化</h1><p>如果程序只是一个单线程，即单一流程的程序，那么只要保证程序逻辑正确，程序通常就可以正确地执行你想要的功能。但当程序是多线程程序，即多流程同时执行时，那么就需要注意更多的细节。例如在多线程共享同一对象的数据时。</p>
 <p>如果一个对象所持有的数据可以被多线程同时共享存取，则必须考虑到数据同步的问题。<font style="color:#BF360C;">所谓数据同步指的是两份数据的整体性和一致性。</font>例如对象 A 有 <code>name</code> 与 <code>id</code> 两个属性，而有一份 B 数据有 <code>name</code> 与 <code>id</code> 的数据要用来更新对象 A 的属性，如果 B 的 <code>name</code> 与 <code>id</code> 设定给 A 对象完成，则称 B 与 A 同步。如下图所示：</p>
-<p><img src="http://image.sunzn.com/blog/20200616140301.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20200616140301.png" alt="此处输入图片的描述"></p>
 <a id="more"></a>
 
 <p>如果 B 数据在更新了 A 对象的 <code>name</code> 属性时，突然插入了一份 C 数据更新了 A 对象的 <code>id</code> 属性，则显然 B 数据与 A 就不同步，C 数据与 A 也不同步。如下图所示：</p>
-<p><img src="http://image.sunzn.com/blog/20200616140302.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20200616140302.png" alt="此处输入图片的描述"></p>
 <p>数据在多线程下共享时，容易由于同时多个线程可能更新同一个对象的信息，而造成对象数据的不同步，因为数据的不同步而可能引发的错误通常不易察觉，而且可能是在程序执行了几千万次之后，才会发现错误。这通常会发生在产品已经上线之后，甚至是程序已经执行了几年之后。</p>
 <p>这里举个简单的例子，设计了一个 Person 类。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.sunzn.sync;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String id;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> count;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        name = <span class="string">"null"</span>;</span><br><span class="line">        id = <span class="string">"N/A"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNameAndID</span><span class="params">(String name, String id)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">        <span class="keyword">if</span> (!check()) &#123;</span><br><span class="line">            System.out.println(count + <span class="string">" &gt; illegal name or id"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        count++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">check</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name.charAt(<span class="number">0</span>) == id.charAt(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -510,15 +510,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -534,6 +534,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">File</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">组件化</a>
               </li>
              
@@ -546,10 +550,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">File</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
@@ -558,19 +558,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -582,11 +574,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ADB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Issue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -622,6 +626,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
@@ -630,19 +638,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">方案</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Version</a>
+                <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -659,6 +659,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Burpsuite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Version</a>
               </li>
              
               <li class="article-tag-list-item">

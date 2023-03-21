@@ -166,6 +166,111 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-SQLite-存储类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/28/SQLite-存储类/">SQLite 存储类</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/28/SQLite-存储类/" class="archive-article-date">
+  	<time datetime="2017-11-27T23:39:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>SQlite 在处理数据类型时与其他的数据库不同，区别在于它所支持的类型以及这些类型是如何存储、比较、强化（enforced）和指派（assign）的。下面将介绍 SQLite 存储类的基础。</p>
+<p>一般情况下，SQLite 有 5 个原始的数据类型，被称为存储类。存储类通常是指值在磁盘上存储的格式，其实就是类型或数据类型的同义词。下表列出了这 5 个存储类型及说明。</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>integer</td>
+<td>整数值是全部的数字（包括正和负）。整数可以是 1、2、3、4、6 或 8 字节。整数的最大范围（8字节）是 { -9223372036854775808，-1，0，1，+9223372036854775807 }。SQLite 根据数字的值自动控制整数所占的字节数</td>
+</tr>
+<tr>
+<td>real</td>
+<td>实数是十进制的数值。SQLite 使用 8 字节的浮点数来存储实数</td>
+</tr>
+<tr>
+<td>text</td>
+<td>文本是字符数据。SQLite 支持几种字符编码，包括 UTF-8 和 UTF-16（大字节头和小字节头）。字符串的最大值在编译和运行时可以调整，默认最大值是 1,000,000,000 字节</td>
+</tr>
+<tr>
+<td>blob</td>
+<td>二进制大对象（BLOB）数据可以是任意类型的数据，BLOB 的最大值在编译和运行时可以调整，默认最大值是 1,000,000,000 字节</td>
+</tr>
+<tr>
+<td>NULL</td>
+<td>NULL 表示没有值。SQLite 具有对 NULL 的完全支持</td>
+</tr>
+</tbody></table>
+        
+          <a class="article-more-a" href="/2017/11/28/SQLite-存储类/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SQLite</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/28/SQLite-存储类/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-SQLite-数据库管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -948,87 +1053,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Python（2-4）重点复习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/17/Python（2-4）重点复习/">Python（2.4）重点复习</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/17/Python（2-4）重点复习/" class="archive-article-date">
-  	<time datetime="2017-10-17T14:36:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>REPL 环境是个简单、互动式的程序设计环境，在测试一些程序片段的行为时非常方便。</p>
-<p>在 Python 2.x 中，print 是个陈述句（Statement），然而从 Python 3.0 开始，必须使用 print() 函数。</p>
-<p>Python 3 之后，Python 编译器预期的源码文件编码必须是 UTF-8（Python 2.x 预期的是 ASCII）。若不想将文件的文字编码设置为 UTF-8，另一个解决方式是在源码的第一行，使用注解设置编码信息，Python 编译器只要在注解中看到 <code>coding=&lt;encoding name&gt;</code> 或者 <code>coding:&lt;encoding name&gt;</code> 出现就可以了。</p>
-<p>在 Python 源码中，<font color="DeepPink">#开头代表这是一行注解，#之后不会被当成是程序的一部分。</font></p>
-<p>每个 .py 文件本身就是一个模块，文件的文件名就是模块名称，想要引入模块时必须使用 import 关键字指定模块名称，若想取用模块中定义的名称，必须在名称前加上模块名称与一个「.」。</p>
-<p>若想要取得命令列索引，可以通过 sys 模块中的 argv 清单。sys.argv 清单中的资料取用时必须指定索引号，这个索引号实际上从 0 开始，sys.argv[0] 会存储原始文件名，若有提供命令列索引，就依序从 sys.argv[1] 开始存储。</p>
-        
-          <a class="article-more-a" href="/2017/10/17/Python（2-4）重点复习/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/17/Python（2-4）重点复习/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
@@ -1127,15 +1151,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1151,6 +1175,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">File</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">组件化</a>
               </li>
              
@@ -1163,10 +1191,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">File</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
@@ -1175,19 +1199,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1199,11 +1215,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ADB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Issue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1239,6 +1267,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
@@ -1247,19 +1279,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">方案</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Version</a>
+                <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1276,6 +1300,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Burpsuite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Version</a>
               </li>
              
               <li class="article-tag-list-item">

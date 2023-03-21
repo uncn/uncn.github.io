@@ -16,14 +16,14 @@
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="近期将 Android Studio 升级到了 3.3 版本，刚好有个托管在 GitHub 上的库要更新。便索性将库的 Android SDK 升级到了 28；同时将 Android SDK Build-Tools 也升级到了 28.0.3。修改库代码，提交至 GitHub 并发布 Releases，像往常一样在 JitPack 发布版本仓库。JitPack 报错如下： 123456789* Wh">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://image.sunzn.com/blog/20190121143602.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20190121143603.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20190121143601.png">
-<meta property="og:updated_time" content="2019-01-29T12:53:36.000Z">
+<meta property="og:image" content="https://image.sunzn.com/blog/20190121143602.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20190121143603.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20190121143601.png">
+<meta property="og:updated_time" content="2023-03-21T14:32:53.377Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JitPack:Failed to install the following Android SDK packages as some licences have not been accepted">
 <meta name="twitter:description" content="近期将 Android Studio 升级到了 3.3 版本，刚好有个托管在 GitHub 上的库要更新。便索性将库的 Android SDK 升级到了 28；同时将 Android SDK Build-Tools 也升级到了 28.0.3。修改库代码，提交至 GitHub 并发布 Releases，像往常一样在 JitPack 发布版本仓库。JitPack 报错如下： 123456789* Wh">
-<meta name="twitter:image" content="http://image.sunzn.com/blog/20190121143602.png">
+<meta name="twitter:image" content="https://image.sunzn.com/blog/20190121143602.png">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -200,12 +200,12 @@ var _hmt = _hmt || [];
 <a id="more"></a>
 
 <p>这样解释问题可能不够直观，那么想象一下如果你当前 IDE 环境要比你导入项目的版本低，那么项目在 build 过程中会有类似下图的提示，看到这是不是有点清楚了？</p>
-<p><img src="http://image.sunzn.com/blog/20190121143602.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20190121143602.png" alt="此处输入图片的描述"></p>
 <p>点击 <code>Install missing SDK package(s)</code> 安装缺失的组件，安装完毕后重新 build 项目，就可以顺利运行了。</p>
-<p><img src="http://image.sunzn.com/blog/20190121143603.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20190121143603.png" alt="此处输入图片的描述"></p>
 <p>至此，JitPack 报错的原因也就不难理解了 ！JitPack 的项目构建环境缺少最新的组件，并且最新组件的安装是需要同意 SDK 许可协议的，而这个自动“同意”的操作 JitPack 并没有做，并且每次 SDK 和 AS 的升级，JitPack 都会慢那么几天！原因知道了，那么如何解决呢？GitHub 的大神给出了解决方法，在脚本中添加接受安装许可的命令！具体操作如下：</p>
 <p>1、将项目切至 Project 视图，打开项目下的 gradlew 文件，增加许可命令，版本号需与报错提示的一致。</p>
-<pre><code>yes | $ANDROID_HOME/tools/bin/sdkmanager &quot;build-tools;28.0.3&quot;</code></pre><p> <img src="http://image.sunzn.com/blog/20190121143601.png" alt="此处输入图片的描述"></p>
+<pre><code>yes | $ANDROID_HOME/tools/bin/sdkmanager &quot;build-tools;28.0.3&quot;</code></pre><p> <img src="https://image.sunzn.com/blog/20190121143601.png" alt="此处输入图片的描述"></p>
 <p>2、提交 gradlew 至 GitHub，发布新的 Releases 版本，重新到 JitPack 发布版本仓库即可。</p>
 
       
@@ -462,15 +462,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -486,6 +486,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">File</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">组件化</a>
               </li>
              
@@ -498,10 +502,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">File</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
@@ -510,19 +510,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -534,11 +526,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ADB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Issue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -574,6 +578,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
@@ -582,19 +590,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">方案</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Version</a>
+                <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -611,6 +611,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Burpsuite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Version</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -16,20 +16,20 @@
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="在开始使用套件管理模块之后，你必须建立与套件对应的文件夹，还要自行新增 __init__.py 文件，这其实有点麻烦，你可以考虑开始使用 IDE（Integrated Development Environment），由 IDE 代劳一些套件与相关资源管理的工作，提高开发效率。 2.3.1 下载、安装 PyCharm在 Python 的领域中，有为数不少的 IDE，然而使用哪个 IDE，必须根据开">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171016142301.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171016142302.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171016142303.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171016142304.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171016142305.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171016142306.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171016142307.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171016142308.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171016142309.png">
-<meta property="og:updated_time" content="2019-08-19T17:00:49.983Z">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171016142301.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171016142302.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171016142303.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171016142304.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171016142305.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171016142306.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171016142307.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171016142308.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171016142309.png">
+<meta property="og:updated_time" content="2023-03-21T14:48:41.802Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python（2.3）使用 IDE">
 <meta name="twitter:description" content="在开始使用套件管理模块之后，你必须建立与套件对应的文件夹，还要自行新增 __init__.py 文件，这其实有点麻烦，你可以考虑开始使用 IDE（Integrated Development Environment），由 IDE 代劳一些套件与相关资源管理的工作，提高开发效率。 2.3.1 下载、安装 PyCharm在 Python 的领域中，有为数不少的 IDE，然而使用哪个 IDE，必须根据开">
-<meta name="twitter:image" content="http://image.sunzn.com/blog/20171016142301.png">
+<meta name="twitter:image" content="https://image.sunzn.com/blog/20171016142301.png">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -215,26 +215,26 @@ var _hmt = _hmt || [];
  <a id="more"></a>
 
 <p>为了能与现在谈的观念衔接，我在这里选择使用 PyCharm 做个基本介绍，它提供了社群版本，对于入门使用者练习来说，已经足够了，你可以访问 <a href="https://www.jetbrains.com/pycharm/download" target="_blank" rel="noopener">https://www.jetbrains.com/pycharm/download</a>，点击页面右下方的 Community 下的 Download 按钮，就可进行下载。</p>
-<p><img src="http://image.sunzn.com/blog/20171016142301.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171016142301.png" alt="此处输入图片的描述"></p>
 <p>编写这段文字的时候，可下载的 PyCharm Community 版本是 2017.2.3，文件是 pycharm-community-2017.2.3.exe，由于下载后是可执行文件，所以必须「以系统管理员身份执行」进行安装，安装的预设路径是 C:\Program Files\JetBrains\PyCharm Community Edition 2017.2.3，基本上只需要直接一直按 Next 与 Install 就可以完成安装了。</p>
 <p>在安装完成后，初次启动 PyCharm，会有个画面询问是否导入前一版本的 PyCharm 设置，预设是不导入，由于这是初次安装，直接按下「OK」按钮就可以了。</p>
-<p><img src="http://image.sunzn.com/blog/20171016142302.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171016142302.png" alt="此处输入图片的描述"></p>
 <p>在同意使用许可后，下个界面是主题设置，如果你没有特别偏好的主题，直接按下「OK」按钮接受预设值，接下来就可以进行程序开发了。</p>
-<p><img src="http://image.sunzn.com/blog/20171016142303.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171016142303.png" alt="此处输入图片的描述"></p>
 <h2 id="2-3-2-IDE-文件管理基础"><a href="#2-3-2-IDE-文件管理基础" class="headerlink" title="2.3.2 IDE 文件管理基础"></a>2.3.2 IDE 文件管理基础</h2><p>IDE 基本上就是建立于目前安装的 Python 环境之上，无论使用哪个 IDE，最重要的是知道它如何与既有的 Python 环境对应，只有认清这样的对应，才不会沦为只知道 IDE 上一些傻瓜式的操作，却不明白各个操作背后的原理，这也是为何要在这里介绍一下 IDE 的缘故。</p>
 <p>先前在介绍套件与模块时提到，我们会建立一个文件夹，在其中管理套件、模块或其他相关资源，因此，使用 IDE 的第一步，就是先新增项目，因此先按下「Create New Project」</p>
-<p><img src="http://image.sunzn.com/blog/20171016142304.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171016142304.png" alt="此处输入图片的描述"></p>
 <p>下一步需要确定项目文件夹位置与使用的 Python 编译器，未来你的电脑中可能不止安装一个版本的 Python 环境，在 IDE 中通常可以管理、选择不同的 Python 环境来开发程序，这也是使用 IDE 的好处之一。在这里我选择在 E:\Pyhton\workspace\demo 中新建项目：</p>
-<p><img src="http://image.sunzn.com/blog/20171016142305.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171016142305.png" alt="此处输入图片的描述"></p>
 <p>接着按下「Create」按钮就可以创建项目了。</p>
-<p><img src="http://image.sunzn.com/blog/20171016142306.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171016142306.png" alt="此处输入图片的描述"></p>
 <p>如上图中可看到的，在「External Libraries」中，可以直接看到目前使用的 Python 编译器，程序库的位置等，基本上这些信息，你可以试着执行「New/Python Package」建立一个 sunzn 套件，在该套件上执行「New/Python File」建立一个 Hello.py，写点程序并执行看看：</p>
-<p><img src="http://image.sunzn.com/blog/20171016142307.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171016142307.png" alt="此处输入图片的描述"></p>
 <p>可以看到，在建立套件时，IDE 会自动建立 <code>__init__.py</code>，想要执行模块的话，可以按右键执行「Run Hello」，其中 Hello 会依目前的模块名称而有所不同，执行过程显示在下面的窗体中，当中明确地显示了使用的指令，非常地方便。</p>
 <p>你也许会想要设置命令索引数，这可以执行选单「Run/Run…」来设定，这会出现一个「Run」设置窗口，可让你选择要设置哪个模块，例如：</p>
-<p><img src="http://image.sunzn.com/blog/20171016142308.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171016142308.png" alt="此处输入图片的描述"></p>
 <p>在按下「Edit」之后，会出现「Edit configuration settings」，基本上可以发现，这里可以用来设置 Python 编译器的一些选项，像是 PYTHONPATH 之类的设置，其中命令列索引可以在「Script parameters」中设置。</p>
-<p><img src="http://image.sunzn.com/blog/20171016142309.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171016142309.png" alt="此处输入图片的描述"></p>
 <p>篇幅有限，这里不可能详尽地介绍 IDE 的每个功能，不过，在开始使用一个 IDE 时，基本上就是像这样，逐一找出与 Python 环境的对照，而且要知道哪个功能在没有使用 IDE 下，会是如何设置，通过这样的探索，才能一方面享用 IDE 的方便性，另一方面又不至于被 IDE 限制。</p>
 
       
@@ -491,15 +491,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -515,6 +515,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">File</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">组件化</a>
               </li>
              
@@ -527,10 +531,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">File</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
@@ -539,19 +539,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -563,11 +555,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ADB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Issue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -603,6 +607,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
@@ -611,19 +619,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">方案</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Version</a>
+                <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -640,6 +640,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Burpsuite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Version</a>
               </li>
              
               <li class="article-tag-list-item">

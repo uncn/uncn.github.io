@@ -16,16 +16,16 @@
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="现在有这样一种应用场景，需要把路由器内部主机搭建的 FTP 服务映射到路由器 WAN 口的 IP 上，最终的效果是通过访问 WAN 口对应的 IP 和端口，路由器通过规则将请求映射到内网指定 IP 的服务器上，达到访问内网服务的目的，TP-LINK 的虚拟服务器刚好能满足这样的需求。  虚拟服务器：定义了广域网服务端口和局域网网络服务器之间的映射关系，所有对该广域网服务端口的访问将会被重定位给通过">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170809145201.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170809145202.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170809145203.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170809145204.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170809145205.png">
-<meta property="og:updated_time" content="2018-11-01T13:45:32.000Z">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170809145201.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170809145202.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170809145203.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170809145204.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170809145205.png">
+<meta property="og:updated_time" content="2023-03-21T15:02:25.042Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TP-LINK 映射内网 FTP 服务到外网">
 <meta name="twitter:description" content="现在有这样一种应用场景，需要把路由器内部主机搭建的 FTP 服务映射到路由器 WAN 口的 IP 上，最终的效果是通过访问 WAN 口对应的 IP 和端口，路由器通过规则将请求映射到内网指定 IP 的服务器上，达到访问内网服务的目的，TP-LINK 的虚拟服务器刚好能满足这样的需求。  虚拟服务器：定义了广域网服务端口和局域网网络服务器之间的映射关系，所有对该广域网服务端口的访问将会被重定位给通过">
-<meta name="twitter:image" content="http://image.sunzn.com/blog/20170809145201.png">
+<meta name="twitter:image" content="https://image.sunzn.com/blog/20170809145201.png">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -200,17 +200,17 @@ var _hmt = _hmt || [];
 <p>虚拟服务器：定义了广域网服务端口和局域网网络服务器之间的映射关系，所有对该广域网服务端口的访问将会被重定位给通过IP地址指定的局域网网络服务器。</p>
 </blockquote>
 <p>一、路由器所在的网段 IP（也就是路由器 WAN 口的静态IP）是【192.168.21.66】，这种配置在公司中比较常见，一般是个人接入路由器为了使用 Wifi 功能，WAN 口配置结果如下：</p>
-<p><img src="http://image.sunzn.com/blog/20170809145201.png" alt="TP-LINK WAN 口配置"></p>
+<p><img src="https://image.sunzn.com/blog/20170809145201.png" alt="TP-LINK WAN 口配置"></p>
 <a id="more"></a>
 
 <p>二、下面查看搭建有 FTP 服务的主机 IP【192.168.2.100】，因为稍后会用到这个内网 IP，如下图所示：</p>
-<p><img src="http://image.sunzn.com/blog/20170809145202.png" alt="本机连接路由分配的IP"></p>
+<p><img src="https://image.sunzn.com/blog/20170809145202.png" alt="本机连接路由分配的IP"></p>
 <p>三、在 TP-LINK 的菜单栏选择「转发规则」「虚拟服务器」「添加新条目」，在「常用服务端口号」下拉菜单中选择 FTP，上面除 IP 的选项都会进行自动填充，服务端口号可根据实际情况进行更改。在 IP 地址框中输入搭建有 FTP 服务的主机地址【192.168.2.100】，保存，自动返回虚拟服务器列表。</p>
-<p><img src="http://image.sunzn.com/blog/20170809145203.png" alt="增加虚拟服务器"></p>
+<p><img src="https://image.sunzn.com/blog/20170809145203.png" alt="增加虚拟服务器"></p>
 <p>四、如果虚拟服务器的状态是无效的，点击「使所有条目生效」，当然，这里只有一条记录。</p>
-<p><img src="http://image.sunzn.com/blog/20170809145204.png" alt="使所有条目生效"></p>
+<p><img src="https://image.sunzn.com/blog/20170809145204.png" alt="使所有条目生效"></p>
 <p>五、访问 WAN 口 IP 和端口，测试能否访问到内网的 FTP 服务。</p>
-<p><img src="http://image.sunzn.com/blog/20170809145205.png" alt="测试FTP服务"></p>
+<p><img src="https://image.sunzn.com/blog/20170809145205.png" alt="测试FTP服务"></p>
 
       
 
@@ -466,15 +466,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -490,6 +490,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">File</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">组件化</a>
               </li>
              
@@ -502,10 +506,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">File</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
@@ -514,19 +514,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -538,11 +530,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ADB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Issue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -578,6 +582,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
@@ -586,19 +594,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">方案</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Version</a>
+                <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -615,6 +615,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Burpsuite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Version</a>
               </li>
              
               <li class="article-tag-list-item">

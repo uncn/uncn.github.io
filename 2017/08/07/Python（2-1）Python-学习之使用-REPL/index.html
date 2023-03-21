@@ -16,19 +16,19 @@
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="第一个“Hello World”的出现是在 Brian Kernighan 写的《A Tutorial Introduction to the Language B》书籍中（B 语言是 C 语言的前身），用来将‘Hello World’文字显示在电脑屏幕上，自此之后，很多语言将它作为第一个范例程序，所以，我们的第一个示例也要从‘Hello World’开始。 使用 REPL第一个显示‘Hello">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170807202901.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170807202902.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170807202903.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170807202904.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170807202905.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170807202906.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170807202907.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170807202908.png">
-<meta property="og:updated_time" content="2018-11-01T14:37:42.000Z">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170807202901.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170807202902.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170807202903.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170807202904.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170807202905.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170807202906.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170807202907.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170807202908.png">
+<meta property="og:updated_time" content="2023-03-21T15:03:21.126Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python（2.1）Python 学习之使用 REPL">
 <meta name="twitter:description" content="第一个“Hello World”的出现是在 Brian Kernighan 写的《A Tutorial Introduction to the Language B》书籍中（B 语言是 C 语言的前身），用来将‘Hello World’文字显示在电脑屏幕上，自此之后，很多语言将它作为第一个范例程序，所以，我们的第一个示例也要从‘Hello World’开始。 使用 REPL第一个显示‘Hello">
-<meta name="twitter:image" content="http://image.sunzn.com/blog/20170807202901.png">
+<meta name="twitter:image" content="https://image.sunzn.com/blog/20170807202901.png">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -201,7 +201,7 @@ var _hmt = _hmt || [];
         <p>第一个“Hello World”的出现是在 Brian Kernighan 写的《A Tutorial Introduction to the Language B》书籍中（B 语言是 C 语言的前身），用来将‘Hello World’文字显示在电脑屏幕上，自此之后，很多语言将它作为第一个范例程序，所以，我们的第一个示例也要从‘Hello World’开始。</p>
 <h3 id="使用-REPL"><a href="#使用-REPL" class="headerlink" title="使用 REPL"></a>使用 REPL</h3><p>第一个显示‘Hello World’的程序，我们预计在 REPL（Read-Eval-Print Loop）环境中进行（又称为 Python Shell），这是一个简单、互动式的程序设计环境，不过，虽然它很简单，然而在日后开发 Python 程序的日子里，你会经常地使用它，因为 REPL 在测试一些代码片段时非常方便。</p>
 <p><font color="DeepPink">现在打开「命令提示符」，直接输入 Python 命令，这样就会进入 REPL 环境。</font></p>
-<p><img src="http://image.sunzn.com/blog/20170807202901.png" alt="进入 REPL 环境"></p>
+<p><img src="https://image.sunzn.com/blog/20170807202901.png" alt="进入 REPL 环境"></p>
 <a id="more"></a>
 
 <blockquote>
@@ -212,20 +212,20 @@ var _hmt = _hmt || [];
 
 <p>在 Python 中，使用单引号 ‘’ 包含住的文字，会是程序中的一个字符串，有关字符串的特性，先知道这个就可以了。在 REPL 输入一个字符串值后，会被当成是上一次的执行结果，因此 print(&#95;) 时，&#95;就代表着 ‘Hello World’，因此跟 print(‘Hello World’) 的执行结果是相同的。</p>
 <p>如果在 REPL 中出错了，REPL 会有些提示信息，例如下面的情况：</p>
-<p><img src="http://image.sunzn.com/blog/20170807202902.png" alt="REPL 报错"></p>
+<p><img src="https://image.sunzn.com/blog/20170807202902.png" alt="REPL 报错"></p>
 <p>在 Python 2.x 中，print 是个陈述句，然而<font color="blue">从 Python 3.0 开始，必须使用 print() 方法)</font>，因此 print ‘Hello World’ 发生语法错误，其实上面的信息中 SyntaxErroe 也告知发生了语法错误，初学时面对这类错误信息，从找出这个 Error 结尾的文字作为开始，慢慢也能看懂发生了什么错误。</p>
 <p>若要取得帮助信息，可以输入 <font color="DeepPink">help()</font>，例如：</p>
-<p><img src="http://image.sunzn.com/blog/20170807202903.png" alt="帮助信息"></p>
+<p><img src="https://image.sunzn.com/blog/20170807202903.png" alt="帮助信息"></p>
 <p>这会进入 help() 说明页面，注意提示符号变成了 help&gt;，在上面这段文字中有说明页面的使用方式，像是想结束说明页面，可以输入 <font color="DeepPink">quit</font>，想知道有哪些模块、关键字等，可以输入 modules、keywords 等，例如来看看 Python 中有哪些关键字：</p>
-<p><img src="http://image.sunzn.com/blog/20170807202904.png" alt="关键字"></p>
+<p><img src="https://image.sunzn.com/blog/20170807202904.png" alt="关键字"></p>
 <p>刚才使用过的 print() 方法，如果想知道它怎么使用？在说明页面中输入 print 就可以查询了：</p>
-<p><img src="http://image.sunzn.com/blog/20170807202905.png" alt="print"></p>
+<p><img src="https://image.sunzn.com/blog/20170807202905.png" alt="print"></p>
 <p>现在输入 quit，回到 REPL 中，实际上在 REPL 中也可以直接输入 help(print) 来查询方法等说明：</p>
-<p><img src="http://image.sunzn.com/blog/20170807202906.png" alt="help(print)"></p>
+<p><img src="https://image.sunzn.com/blog/20170807202906.png" alt="help(print)"></p>
 <p>如果要离开 REPL 环境，可以执行 quit() 方法。如果只是要执行个小程序片段，又不想麻烦地进入 REPL，可以在使用 python 指令时加上 -c 参数，之后接上使用 <code>&quot;&quot;</code>包含的代码片段。例如：</p>
-<p><img src="http://image.sunzn.com/blog/20170807202907.png" alt="代码片段"></p>
+<p><img src="https://image.sunzn.com/blog/20170807202907.png" alt="代码片段"></p>
 <blockquote>
-<p>提示：在 Python 官方网站 <a href="https://www.python.org/" target="_blank" rel="noopener">www.python.org</a> 首页，也提供了一个互动环境，临时要测试程序小片段，又不想安装 Python 时，打开浏览器就可以使用！<br><img src="http://image.sunzn.com/blog/20170807202908.png" alt="在线环境"></p>
+<p>提示：在 Python 官方网站 <a href="https://www.python.org/" target="_blank" rel="noopener">www.python.org</a> 首页，也提供了一个互动环境，临时要测试程序小片段，又不想安装 Python 时，打开浏览器就可以使用！<br><img src="https://image.sunzn.com/blog/20170807202908.png" alt="在线环境"></p>
 </blockquote>
 
       
@@ -482,15 +482,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -506,6 +506,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">File</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">组件化</a>
               </li>
              
@@ -518,10 +522,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">File</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
@@ -530,19 +530,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -554,11 +546,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ADB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Issue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -594,6 +598,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
@@ -602,19 +610,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">方案</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Version</a>
+                <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -631,6 +631,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Burpsuite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Version</a>
               </li>
              
               <li class="article-tag-list-item">

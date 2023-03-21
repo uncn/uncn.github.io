@@ -16,15 +16,15 @@
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="该来到的终会到来，如果你还没有经历过上下求索的磨砺，说明你的加快前进的脚步了。Google 的大神们早就挖好坑，头也不回的继续挖下一个坑去了，我们能做的只是尽量跟着这些人的脚步，不至于被甩开太远。开始正文之前，我想有必要知道 Android M（6.0）是 Google 在 2015 年 5 月 28 日的 Google I/O 大会上正式推出的版本，没错，这特么是一个 5  年前的版本！但这个版">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://image.sunzn.com/blog/20200604143801.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20200604143802.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20200604143803.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20200604143804.png">
-<meta property="og:updated_time" content="2020-06-05T11:08:00.581Z">
+<meta property="og:image" content="https://image.sunzn.com/blog/20200604143801.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20200604143802.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20200604143803.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20200604143804.png">
+<meta property="og:updated_time" content="2023-03-21T14:04:40.123Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android M 的 NDK 行为变更对 APK 包体积的影响">
 <meta name="twitter:description" content="该来到的终会到来，如果你还没有经历过上下求索的磨砺，说明你的加快前进的脚步了。Google 的大神们早就挖好坑，头也不回的继续挖下一个坑去了，我们能做的只是尽量跟着这些人的脚步，不至于被甩开太远。开始正文之前，我想有必要知道 Android M（6.0）是 Google 在 2015 年 5 月 28 日的 Google I/O 大会上正式推出的版本，没错，这特么是一个 5  年前的版本！但这个版">
-<meta name="twitter:image" content="http://image.sunzn.com/blog/20200604143801.png">
+<meta name="twitter:image" content="https://image.sunzn.com/blog/20200604143801.png">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -195,7 +195,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>该来到的终会到来，如果你还没有经历过上下求索的磨砺，说明你的加快前进的脚步了。Google 的大神们早就挖好坑，头也不回的继续挖下一个坑去了，我们能做的只是尽量跟着这些人的脚步，不至于被甩开太远。开始正文之前，我想有必要知道 Android M（6.0）是 Google 在 2015 年 5 月 28 日的 Google I/O 大会上正式推出的版本，没错，这特么是一个 5  年前的版本！但这个版本的行为变更一直默默无闻的在那躺着无人问津，直到你将 minSdkVersion 指向了 23，这时你会发现 APK 签名包的体积极大的超出了预期。到这，你是不是能理解一个程序员在文章开头发出的感叹了？</p>
-<h1 id="1-奇怪的-APK-体积差异"><a href="#1-奇怪的-APK-体积差异" class="headerlink" title="1. 奇怪的 APK 体积差异"></a>1. 奇怪的 APK 体积差异</h1><p><img src="http://image.sunzn.com/blog/20200604143801.png" alt="此处输入图片的描述"></p>
+<h1 id="1-奇怪的-APK-体积差异"><a href="#1-奇怪的-APK-体积差异" class="headerlink" title="1. 奇怪的 APK 体积差异"></a>1. 奇怪的 APK 体积差异</h1><p><img src="https://image.sunzn.com/blog/20200604143801.png" alt="此处输入图片的描述"></p>
 <a id="more"></a>
 
 <p>上图展示的是 minSdkVersion 分别为 22 和 23 时 APK 签名包的体积对比，估计你看到 68.4M 体积差异的感受和我是一样的，这特么是在逗我？因为，这张图里的总量差异不等于分量差异的和，并且总量差异与分量差异的和的差值也很大，这才是困惑大部分人的原因所在。所以，这里需要说明下 Android Studio 里对比分析 APK 的逻辑：</p>
@@ -234,11 +234,11 @@ var _hmt = _hmt || [];
 <p>这段描述的意思是：如果 <code>extractNativeLibs</code> 属性的值为 <code>false</code>，那么 APK 在打包签名过程中 <code>so</code> 库会保持页面对齐状态并以未压缩的形式被打包到签名包中，并且在 APK 安装的过程也不会将应用内的 <code>so</code> 库提取到系统中。因为 <code>so</code> 库没有被压缩，所以调用 <code>so</code> 库的时候也是直接从 APK 中进行加载。如果 <code>extractNativeLibs</code> 属性的值为 <code>true</code>，那么 APK 在打包签名过程中 <code>so</code> 库会以压缩的形式被打包到签名包中，并且会在 APK 安装的过程中将应用内的 <code>so</code> 库提取到系统中，调用 <code>so</code> 库的时候会从系统的提取目录中进行加载。</p>
 <p>如果 <code>extractNativeLibs</code> 属性值为 <code>false</code> 有什么好处呢？可以节省用户手机的空间。因为应用和系统共同持有一份 <code>so</code> 库，但由于 <code>so</code> 库在打包过程中没有被压缩，会造成签名包体积增大。如果 <code>extractNativeLibs</code> 属性值为 <code>true</code>，那么 <code>so</code> 库会被压缩打包到应用中，优点是 APK 体积会很小；但缺点也显而易见，安装后的应用会持有一份压缩的 <code>so</code> 库，系统会持有一份解压后的 <code>so</code> 库，那份无法被调用的压缩 so 库会占用用户的手机空间。</p>
 <p>明白了这些，我们继续看上面的属性描述，描述中说到默认值为 <code>true</code> 但没有明确从哪个 SDK 开始这个值会被动态的改为 <code>false</code>，直到我给 <a href="https://issuetracker.google.com/" target="_blank" rel="noopener">IssueTracker</a> 提交了 <a href="https://issuetracker.google.com/issues/158132540" target="_blank" rel="noopener">Android Studio 4.0 Generate Signed APK BUG</a>，官方的小伙伴才有了如下回复：</p>
-<p><img src="http://image.sunzn.com/blog/20200604143802.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20200604143802.png" alt="此处输入图片的描述"></p>
 <blockquote>
 <p><font style="color:#BF360C;font-size:14px;"><strong>翻译</strong>：如果 minSdkVersion 为 23+，开发人员也没有手动设置 android:extractNativeLibs=”true”，系统会在清单中自动注入 android:extractNativeLibs=”false”。</font></p>
 </blockquote>
-<p><img src="http://image.sunzn.com/blog/20200604143803.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20200604143803.png" alt="此处输入图片的描述"></p>
 <blockquote>
 <p><font style="color:#BF360C;font-size:14px;"><strong>翻译</strong>：如果 API 级别是 23+，AGP 将不再压缩 APK 中的 so 文件，因为 Android 23+ 能够直接从 APK 中读取它们，而不必提取它们。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这意味着 APK 体积较大时，实际的安装体积反而更小：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• 当 API &lt;= 22 时，已安装的 APK 持有压缩的 so 文件和从 APK 中提取的 so 副本。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• 当 API &gt;= 23 时，已安装的 APK 仅持有未压缩的 so 文件，而没有提取的 so 副本。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;虽然 APK 体积更大了，但下载大小不会受到影响，因为应用商店最终会使用压缩补丁。</font></p>
 </blockquote>
@@ -248,7 +248,7 @@ var _hmt = _hmt || [];
 In API level 23 and above, it’s possible to open a .so file directly from your APK. Just use `System.loadLibrary(&quot;foo&quot;)` exactly as normal but set `android:extractNativeLibs=&quot;false&quot;` in your `AndroidManifest.xml`. In older releases, the .so files were extracted from the APK file at install time. This meant that they took up space in your APK and again in your installation directory (and this was counted against you and reported to the user as space taken up by your app). Any .so file that you want to load directly from your APK must be page aligned (on a 4096-byte boundary) in the zip file and stored uncompressed. Current versions of the zipalign tool take care of alignment.
 
 Note that in API level 23 and above dlopen(3) will open a library from any zip file, not just your APK. Just give dlopen(3) a path of the form “my_zip_file.zip!/libs/libstuff.so”. As with APKs, the library must be page-aligned and stored uncompressed for this to work.</code></pre><p>紧接着，又在 Google Git 上找到了一处标识为 <a href="https://android.googlesource.com/platform/tools/base/+/988bbf3e4fb5e56c050d06665efc3749d74bf6cb" target="_blank" rel="noopener">988bbf3e4fb5e56c050d06665efc3749d74bf6cb</a> 的提交，一个名为 Dmitriy Ivanov 的程序员于 2015 年 5 月 19 日执行了这次提交，9 天后，也就是 2015 年 5 月 28 日，Google I/O 大会上正式推出了 Android M（6.0），意不意外，惊不惊喜！这处提交的 Bug 描述指向了 IssueTracker 的 <a href="https://issuetracker.google.com/issues/37045367" target="_blank" rel="noopener">Gradle support for open native libraries directly from apk</a>，在这个贴子里有详细的关于 Android 运行时支持直接从 APK 打开库的描述，但只有少的可怜的 9 个人关注了这个 issue，包括我在内。</p>
-<p><img src="http://image.sunzn.com/blog/20200604143804.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20200604143804.png" alt="此处输入图片的描述"></p>
 <h1 id="4-开发者的困惑"><a href="#4-开发者的困惑" class="headerlink" title="4. 开发者的困惑"></a>4. 开发者的困惑</h1><p>在 2020 年这个时间节点上，绝大部分开发者设置的 MiniSDK 都是 21 或者更低，因为他们希望自己的 APP 也能够运行在这些低版本系统的手机上。也正是因为这样的设置，绝大部分开发者都不会有 APK 体积变大的困扰。但随着 Android 的版本迭代和手机厂商的跟进，MiniSDK = 23+ 的日子终究会到来，到时候会有很多像我一样困惑的开发者。所以，写这篇文章希望能为几年后遇到同样问题又一头雾水的开发者解惑。</p>
 
       
@@ -509,15 +509,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -533,6 +533,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">File</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">组件化</a>
               </li>
              
@@ -545,10 +549,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">File</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
@@ -557,19 +557,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -581,11 +573,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ADB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Issue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -621,6 +625,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
@@ -629,19 +637,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">方案</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Version</a>
+                <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -658,6 +658,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Burpsuite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Version</a>
               </li>
              
               <li class="article-tag-list-item">

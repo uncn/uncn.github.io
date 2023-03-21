@@ -166,6 +166,87 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Python（2-4）重点复习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/17/Python（2-4）重点复习/">Python（2.4）重点复习</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/17/Python（2-4）重点复习/" class="archive-article-date">
+  	<time datetime="2017-10-17T14:36:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>REPL 环境是个简单、互动式的程序设计环境，在测试一些程序片段的行为时非常方便。</p>
+<p>在 Python 2.x 中，print 是个陈述句（Statement），然而从 Python 3.0 开始，必须使用 print() 函数。</p>
+<p>Python 3 之后，Python 编译器预期的源码文件编码必须是 UTF-8（Python 2.x 预期的是 ASCII）。若不想将文件的文字编码设置为 UTF-8，另一个解决方式是在源码的第一行，使用注解设置编码信息，Python 编译器只要在注解中看到 <code>coding=&lt;encoding name&gt;</code> 或者 <code>coding:&lt;encoding name&gt;</code> 出现就可以了。</p>
+<p>在 Python 源码中，<font color="DeepPink">#开头代表这是一行注解，#之后不会被当成是程序的一部分。</font></p>
+<p>每个 .py 文件本身就是一个模块，文件的文件名就是模块名称，想要引入模块时必须使用 import 关键字指定模块名称，若想取用模块中定义的名称，必须在名称前加上模块名称与一个「.」。</p>
+<p>若想要取得命令列索引，可以通过 sys 模块中的 argv 清单。sys.argv 清单中的资料取用时必须指定索引号，这个索引号实际上从 0 开始，sys.argv[0] 会存储原始文件名，若有提供命令列索引，就依序从 sys.argv[1] 开始存储。</p>
+        
+          <a class="article-more-a" href="/2017/10/17/Python（2-4）重点复习/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/17/Python（2-4）重点复习/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Python（2-3）使用-IDE" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -276,7 +357,7 @@ var _hmt = _hmt || [];
       
         <p>对于初学者来说，通常只需要一个 .py 源码文件，就可以应付各种范例程序，然而实际的应用程序需要的代码数量远比范例程序要来的多，只使用一个 .py 文件来编写，势必造成程序管理上的混乱，你必须学会根据功能将文件划分在不同的模块（Module）中编写，而功能相近或彼此辅助的模块，也要知道如何使用包（Package）来加以管理。</p>
 <h2 id="2-2-1-模块简介"><a href="#2-2-1-模块简介" class="headerlink" title="2.2.1 模块简介"></a>2.2.1 模块简介</h2><p>有件事实也许令人惊讶，其实你已经编写过模块了，每个 .py 文件本身就是一个模块，当你编写完一个 .py 文件，而别人打算直接引用你的成果的话，只需要在他编写的 .py 文件中导入（import）就可以了。举个例子来说，若想在 Hello3.py 中，直接引用先前写好的 Hello2.py，可以按以下方式来编写：</p>
-<p><img src="http://image.sunzn.com/blog/20171012190501.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171012190501.png" alt="此处输入图片的描述"></p>
         
           <a class="article-more-a" href="/2017/10/13/Python（2-2）模块与包/#more">more >></a>
         
@@ -358,7 +439,7 @@ var _hmt = _hmt || [];
 <p>出现乱码时，首先需要查看字符集编码是否一致，如果不一致，就可通过调整数据库编集码进行解决，语句如下：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'character%'</span>;</span><br></pre></td></tr></table></figure>
 
-<p> <img src="http://image.sunzn.com/blog/20170930094701.png" alt="此处输入图片的描述"></p>
+<p> <img src="https://image.sunzn.com/blog/20170930094701.png" alt="此处输入图片的描述"></p>
         
           <a class="article-more-a" href="/2017/10/10/MySQL数据库插入中文乱码的解决方案/#more">more >></a>
         
@@ -514,7 +595,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>Android Studio 出现 Failed to open zip file 错误多发生在新环境部署或升级过程中，出现这种问题的主要原因是对应版本 gradle 的 zip 文件下载不完整，导致 zip 文件解压失败。</p>
-<p><img src="http://image.sunzn.com/blog/20170905200601.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20170905200601.png" alt="此处输入图片的描述"></p>
         
           <a class="article-more-a" href="/2017/09/05/Android-Studio-Failed-to-open-zip-file/#more">more >></a>
         
@@ -867,7 +948,7 @@ var _hmt = _hmt || [];
       
         <h1 id="一、角度与弧度的定义"><a href="#一、角度与弧度的定义" class="headerlink" title="一、角度与弧度的定义"></a>一、角度与弧度的定义</h1><table><tbody><tr><td align="center" bgcolor="#F8F8F8"><b>名称</b></td><td align="center" bgcolor="#F8F8F8"><b>定义</b></td></tr><tr><td align="center" width="110">角度</td><td>两条射线从圆心向圆周射出，形成一个夹角和夹角正对的一段弧。**当这段弧长正好等于圆周长的360分之一时，两条射线的夹角的大小为1度。** </td></tr><tr><td align="center" width="110">弧度</td><td>两条射线从圆心向圆周射出，形成一个夹角和夹角正对的一段弧。**当这段弧长正好等于圆的半径时，两条射线的夹角大小为1弧度。** </td></tr></tbody></table>
 
-<p><img src="http://image.sunzn.com/blog/20180911142101.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180911142101.png" alt="此处输入图片的描述"></p>
         
           <a class="article-more-a" href="/2017/08/21/自定义-View-基础-角度与弧度/#more">more >></a>
         
@@ -898,102 +979,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/08/21/自定义-View-基础-角度与弧度/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-自定义-View-基础-坐标系" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/21/自定义-View-基础-坐标系/">自定义 View 基础 - 坐标系</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/21/自定义-View-基础-坐标系/" class="archive-article-date">
-  	<time datetime="2017-08-21T12:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="一、屏幕坐标系与数学坐标系的区别"><a href="#一、屏幕坐标系与数学坐标系的区别" class="headerlink" title="一、屏幕坐标系与数学坐标系的区别"></a>一、屏幕坐标系与数学坐标系的区别</h1><p><img src="http://image.sunzn.com/blog/20180910144701.png" alt="此处输入图片的描述"></p>
-<table>
-<thead>
-<tr>
-<th>坐标系</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>数学坐标系</td>
-<td>以轴线交叉点为原点，向右 X 轴增大，向上 Y 轴增大，角度逆时针为正向</td>
-</tr>
-<tr>
-<td>屏幕坐标系</td>
-<td>以屏幕左上角为原点，向右 X 轴增大，向下 Y 轴增大，角度顺时针为正向</td>
-</tr>
-</tbody></table>
-        
-          <a class="article-more-a" href="/2017/08/21/自定义-View-基础-坐标系/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">View</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/21/自定义-View-基础-坐标系/">展开全文 >></a>
         </p>
       
 
@@ -1121,15 +1106,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1145,6 +1130,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">File</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">组件化</a>
               </li>
              
@@ -1157,10 +1146,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">File</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
@@ -1169,19 +1154,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1193,11 +1170,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ADB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Issue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1233,6 +1222,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
@@ -1241,19 +1234,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">方案</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Version</a>
+                <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1270,6 +1255,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Burpsuite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Version</a>
               </li>
              
               <li class="article-tag-list-item">

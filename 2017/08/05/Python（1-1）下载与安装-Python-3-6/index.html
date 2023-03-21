@@ -16,21 +16,21 @@
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="Python 诞生于 1991 年，而 Python 3.0 发布于 2008 年，新功能中最引人注目的是 Unicode 的支持，将 str/unicode 做了个结合，并明确地提供了另一个 bytes 类型，解决了许多人处理字符编码的问题，然而，其他语法与程序库方面的变更，也破坏了向后兼容性，导致许多基于 Python 2.x 的程序，无法直接在 Python 3.0 的环境中运行。 使用 P">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170805192301.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170805192302.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170805192303.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170805192304.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170805192305.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170805192306.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170805192307.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170805192308.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170805192309.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20170805192310.png">
-<meta property="og:updated_time" content="2018-11-08T14:42:14.000Z">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170805192301.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170805192302.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170805192303.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170805192304.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170805192305.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170805192306.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170805192307.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170805192308.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170805192309.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20170805192310.png">
+<meta property="og:updated_time" content="2023-03-21T15:04:08.186Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python（1.1）下载与安装 Python 3.6">
 <meta name="twitter:description" content="Python 诞生于 1991 年，而 Python 3.0 发布于 2008 年，新功能中最引人注目的是 Unicode 的支持，将 str/unicode 做了个结合，并明确地提供了另一个 bytes 类型，解决了许多人处理字符编码的问题，然而，其他语法与程序库方面的变更，也破坏了向后兼容性，导致许多基于 Python 2.x 的程序，无法直接在 Python 3.0 的环境中运行。 使用 P">
-<meta name="twitter:image" content="http://image.sunzn.com/blog/20170805192301.png">
+<meta name="twitter:image" content="https://image.sunzn.com/blog/20170805192301.png">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -205,39 +205,39 @@ var _hmt = _hmt || [];
 <h3 id="一、下载与安装"><a href="#一、下载与安装" class="headerlink" title="一、下载与安装"></a>一、下载与安装</h3><p>下载 Python 需要到 Python 官方网站 <a href="https://www.python.org/" target="_blank" rel="noopener">www.python.org</a>，在首页的 「Downloads」选项中，会自动检测操作系统，直接列出可下载安装的文件：</p>
 <a id="more"></a>
 
-<p><img src="http://image.sunzn.com/blog/20170805192301.png" alt="下载文件"></p>
+<p><img src="https://image.sunzn.com/blog/20170805192301.png" alt="下载文件"></p>
 <blockquote>
 <p>注意：从上图可以看到，Python 3.5 或之后的版本，无法在 Windows XP 上使用，本文将在 Windows 10 中示范安装过程。</p>
 </blockquote>
 <p>Pyhton 发布时的版本号是采用 <code>major.minor.micor</code> 的形式，也就是主版本号、次版本号和小版本号。主版本号只有在语言本身确实有重大变革时才会递增，像是从 Python 2 变成 3 就是个例子；次版本号是在增加了重要特性，但不至于影响整个语言层面时递增，基本上约一年多推出一次，像是 Python 3.0 至 3.5 这样的过程；小版本号基本上是每隔一段时间更新，用以修复 BUG 之类的问题。</p>
 <p>对于 Windows 使用者，找到下载好的安装文件，按右键执行选中「以系统管理员身份执行」进行安装，你会看到以下的安装起始画面：</p>
-<p><img src="http://image.sunzn.com/blog/20170805192302.png" alt="安装起始画面"></p>
+<p><img src="https://image.sunzn.com/blog/20170805192302.png" alt="安装起始画面"></p>
 <p>当使用者在「命令提示行」（又称Console，中文常称为主控台）中输入某个指令时，操作系统会去查看 PATH 环境变量设定的文件夹位置中，是否能找到指定的命令集，因此<font color="DeepPink">请勾选「Add Python 3.6 to PATH」</font>，这样就不用自己去设定 PATH 环境变量了。</p>
 <p>从上图中可以看到，预设用来安装 Python 3.6 的路径是使用者文件夹下的 <font color="blue">AppData\Local\Programs\Python\Python36-32</font> 文件夹，若想改变这个路径，可以选择「Customize installation」，然后下一个界面直接点击「Next」，就会出现可进行修改的输入框，例如：你可以将之安装至 C:\Program Files(x86)\Python36-32 中。</p>
 <blockquote>
 <p>注意：如果选择将 Python 安装至 C:\Program Files(x86)，必须拥有系统管理员身份，也就是先前提及的必须「以系统管理员身份执行」，才能顺利完成安装。</p>
 </blockquote>
-<p><img src="http://image.sunzn.com/blog/20170805192303.png" alt="进入Next界面"></p>
-<p><img src="http://image.sunzn.com/blog/20170805192304.png" alt="设置安装目录"></p>
+<p><img src="https://image.sunzn.com/blog/20170805192303.png" alt="进入Next界面"></p>
+<p><img src="https://image.sunzn.com/blog/20170805192304.png" alt="设置安装目录"></p>
 <p>接着点击「Install」按钮，等待安装完成，安装完成后点击「Close」按钮。</p>
-<p><img src="http://image.sunzn.com/blog/20170805192305.png" alt="等待安装完成"></p>
-<p><img src="http://image.sunzn.com/blog/20170805192306.png" alt="安装完成"></p>
+<p><img src="https://image.sunzn.com/blog/20170805192305.png" alt="等待安装完成"></p>
+<p><img src="https://image.sunzn.com/blog/20170805192306.png" alt="安装完成"></p>
 <p>想确定是否可执行基本的 Python 指令，可以在命令行中输入 <font color="DeepPink">python -V</font>（大写的V），这会显示执行的 Python 指令版本。</p>
-<p><img src="http://image.sunzn.com/blog/20170805192307.png" alt="查看指令版本"></p>
+<p><img src="https://image.sunzn.com/blog/20170805192307.png" alt="查看指令版本"></p>
 <h3 id="二、认识安装内容"><a href="#二、认识安装内容" class="headerlink" title="二、认识安装内容"></a>二、认识安装内容</h3><p>那么你到底安装了那些东西呢？无论是预设安装至使用者文件夹中的 AppData\Local\Programs\Python\Python36-32，或者是安装至 C:\Program Files(x86)\Python36-32，现在请打开该文件夹，认识几个重要的安装内容。</p>
-<p><img src="http://image.sunzn.com/blog/20170805192308.png" alt="打开安装目录"></p>
+<p><img src="https://image.sunzn.com/blog/20170805192308.png" alt="打开安装目录"></p>
 <h4 id="python-指令"><a href="#python-指令" class="headerlink" title="python 指令"></a>python 指令</h4><p>在上图中可以看到 python.exe，若你勾选了「Add Python 3.6 to PATH」，那么查看 Python 版本时就是执行的这个程序，它可以用来进入 Python 的 REPL（Read-Eval-Print Loop）环境，也就是一个简单的，互动式的程序设计环境；python 指令也用来执行 Python 源码或模组，我们将会频繁地使用这个指令。</p>
 <blockquote>
 <p>提示：你还能看到 pythonw.exe，你若开发了桌面图形应用程序，使用这个指令可以不出现主控台界面，在 Windows 中也就是可以不出现命令行界面。</p>
 </blockquote>
 <h4 id="Doc-文件夹"><a href="#Doc-文件夹" class="headerlink" title="Doc 文件夹"></a>Doc 文件夹</h4><p>在 Windows 版本的 Python 里，这个文件夹中提供了一个 python362.chm 文件，包含了许多 Python 文件，方便随时取用查阅。</p>
-<p><img src="http://image.sunzn.com/blog/20170805192309.png" alt="python362.chm 文件"></p>
+<p><img src="https://image.sunzn.com/blog/20170805192309.png" alt="python362.chm 文件"></p>
 <h4 id="Lib-文件夹"><a href="#Lib-文件夹" class="headerlink" title="Lib 文件夹"></a>Lib 文件夹</h4><p>在刚安装完 Python 时，这个文件夹包含了许多标准程序库的源码文件，日后有能力且有兴趣时，可以试着找几个源码文件来阅读、学习标准程序库中的相关功能。</p>
 <p>这个文件夹中有个 site-packages 文件夹，将来安装 Python 的第三方（Thrid-party）程序库时，通常会将相关文件放到此文件夹中。</p>
 <h4 id="Scripts-文件夹"><a href="#Scripts-文件夹" class="headerlink" title="Scripts 文件夹"></a>Scripts 文件夹</h4><p>包含了 pip 与 easy_install 指令的相关文件，若你勾选了 「Add Python 3.6 to PATH」，那么 PATH 环境变量中，也会包含 Scripts 文件夹，因此在命令行中，也可以执行 pip 与 easy_install 指令。</p>
 <h4 id="Tools-文件夹"><a href="#Tools-文件夹" class="headerlink" title="Tools 文件夹"></a>Tools 文件夹</h4><p>一些范例代码，以及用 Python 编写的工具程序，例如其中的 scripts 文件夹就包含了 2to3.py 文件。可用来将 Python 2 的源码，转换成 Python 3 的源码。</p>
 <p>进入 Python 的准备工作到此就结束了，下面就可以正式进行 Python 程序的编写了，如果你意犹未尽，那么试着在命令行中输入 python -c “import this”，这会出现一段文字，也就是 Python 禅学，试着先从文字中品味一下 Python 的精神吧！</p>
-<p><img src="http://image.sunzn.com/blog/20170805192310.png" alt="Python 禅学"></p>
+<p><img src="https://image.sunzn.com/blog/20170805192310.png" alt="Python 禅学"></p>
 
       
 
@@ -493,15 +493,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -517,6 +517,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">File</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">组件化</a>
               </li>
              
@@ -529,10 +533,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">File</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
@@ -541,19 +541,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -565,11 +557,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ADB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Issue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -605,6 +609,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
@@ -613,19 +621,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">方案</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Version</a>
+                <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -642,6 +642,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Burpsuite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Version</a>
               </li>
              
               <li class="article-tag-list-item">

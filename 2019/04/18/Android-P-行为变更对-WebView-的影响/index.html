@@ -16,13 +16,13 @@
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="这篇文章是根据项目中遇到的真实情况归纳整理而成的。整个项目组的研发人员从发现 BUG 那一刻开始，到彻底解决这个问题耗费了很长的时间，中间填了很多坑，甚至否定了刚接入没多久的 TBS。不过，好在解决了这个由 Android P 行为变更引发的错误，使得错误率降低到了现在可接受的 0.1113%，下面让我们开始复盘吧！ 1. 奇怪的 WebView 错误">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://image.sunzn.com/blog/20190418200902.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20190418200903.png">
-<meta property="og:updated_time" content="2019-04-22T11:15:12.000Z">
+<meta property="og:image" content="https://image.sunzn.com/blog/20190418200902.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20190418200903.png">
+<meta property="og:updated_time" content="2023-03-21T14:31:23.119Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android P 行为变更对 WebView 的影响">
 <meta name="twitter:description" content="这篇文章是根据项目中遇到的真实情况归纳整理而成的。整个项目组的研发人员从发现 BUG 那一刻开始，到彻底解决这个问题耗费了很长的时间，中间填了很多坑，甚至否定了刚接入没多久的 TBS。不过，好在解决了这个由 Android P 行为变更引发的错误，使得错误率降低到了现在可接受的 0.1113%，下面让我们开始复盘吧！ 1. 奇怪的 WebView 错误">
-<meta name="twitter:image" content="http://image.sunzn.com/blog/20190418200902.png">
+<meta name="twitter:image" content="https://image.sunzn.com/blog/20190418200902.png">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -193,7 +193,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>这篇文章是根据项目中遇到的真实情况归纳整理而成的。整个项目组的研发人员从发现 BUG 那一刻开始，到彻底解决这个问题耗费了很长的时间，中间填了很多坑，甚至否定了刚接入没多久的 TBS。不过，好在解决了这个由 Android P 行为变更引发的错误，使得错误率降低到了现在可接受的 0.1113%，下面让我们开始复盘吧！</p>
-<h1 id="1-奇怪的-WebView-错误"><a href="#1-奇怪的-WebView-错误" class="headerlink" title="1. 奇怪的 WebView 错误"></a>1. 奇怪的 WebView 错误</h1><p><img src="http://image.sunzn.com/blog/20190418200902.png" alt="在此输入正文"></p>
+<h1 id="1-奇怪的-WebView-错误"><a href="#1-奇怪的-WebView-错误" class="headerlink" title="1. 奇怪的 WebView 错误"></a>1. 奇怪的 WebView 错误</h1><p><img src="https://image.sunzn.com/blog/20190418200902.png" alt="在此输入正文"></p>
 <a id="more"></a>
 
 <p>开始之前先看一张后台 BUG 统计图，这个 BUG 从 2019/3/30 开始爆发，并且无一例外的都发生在了 Android 9.0 的系统上，到 4 月中旬大面积爆发。当时已经查找了和 WebView 相关的 BUG，并且在云真机上也针对出错机型进行了测试，并没有出现问题。后台收集到的错误日志如下：</p>
@@ -251,7 +251,7 @@ var _hmt = _hmt || [];
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebApplication</span> <span class="keyword">extends</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String PROCESS = <span class="string">"com.sunzn.core"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate();</span><br><span class="line">        initPieWebView();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initPieWebView</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.P) &#123;</span><br><span class="line">            String processName = getProcessName(<span class="keyword">this</span>);</span><br><span class="line">            <span class="keyword">if</span> (!PROCESS.equals(processName)) &#123;</span><br><span class="line">                WebView.setDataDirectorySuffix(getString(processName, <span class="string">"sunzn"</span>));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>为新进程指定 WebView 数据目录后，重新在 Android P 的模拟器或真机上运行，并进行页面跳转测试，一切正常如初！这时，打开 APP 对应的安装路径会发现多了一个对应进程名后缀的 webview 目录，这证明我们的设置是生效的。至此，我们的适配工作也就完成了。</p>
-<p><img src="http://image.sunzn.com/blog/20190418200903.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20190418200903.png" alt="此处输入图片的描述"></p>
 
       
 
@@ -511,15 +511,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -535,6 +535,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">File</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">组件化</a>
               </li>
              
@@ -547,10 +551,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">File</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
@@ -559,19 +559,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -583,11 +575,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ADB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Issue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -623,6 +627,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
@@ -631,19 +639,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">方案</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Version</a>
+                <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -660,6 +660,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Burpsuite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Version</a>
               </li>
              
               <li class="article-tag-list-item">

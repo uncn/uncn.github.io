@@ -16,21 +16,21 @@
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="当具体的表发生特定的数据库事件时，触发器执行对应的 SQL 命令。创建触发器的一般命令如下： 123create [temp | temporary] trigger name[before | after] [insert | delete | update of columns] on tableaction  触发器是通过名称、行为和表定义的。行为（或者称为触发体）由一系列 SQL 命令组成">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171025161202.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171025161203.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171025161204.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171025161205.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171025161206.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171025161207.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171025161208.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171025161209.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171025161210.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171025161211.png">
-<meta property="og:updated_time" content="2018-11-01T13:40:34.000Z">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171025161202.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171025161203.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171025161204.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171025161205.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171025161206.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171025161207.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171025161208.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171025161209.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171025161210.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171025161211.png">
+<meta property="og:updated_time" content="2023-03-21T14:44:02.697Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQLite 触发器">
 <meta name="twitter:description" content="当具体的表发生特定的数据库事件时，触发器执行对应的 SQL 命令。创建触发器的一般命令如下： 123create [temp | temporary] trigger name[before | after] [insert | delete | update of columns] on tableaction  触发器是通过名称、行为和表定义的。行为（或者称为触发体）由一系列 SQL 命令组成">
-<meta name="twitter:image" content="http://image.sunzn.com/blog/20171025161202.png">
+<meta name="twitter:image" content="https://image.sunzn.com/blog/20171025161202.png">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -215,19 +215,19 @@ var _hmt = _hmt || [];
 <ul>
 <li>该脚本创建了 ACCOUNT 表、LOG 临时表，以及在表 ACCOUNT 的 PASS 字段上的一个临时的 update 触发器，该触发器执行时会向 LOG 表插入一条消息。</li>
 </ul>
-<p><img src="http://image.sunzn.com/blog/20171025161202.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171025161202.png" alt="此处输入图片的描述"></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">BEGIN</span>;</span><br><span class="line"><span class="keyword">UPDATE</span> <span class="keyword">ACCOUNT</span> <span class="keyword">SET</span> PASS=<span class="string">'666666'</span> <span class="keyword">WHERE</span> PASS = <span class="string">'123456'</span>;</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">LOG</span>;</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>该行为发生在事务内部，事务的第一步更新 PASS 字段值为 ‘123456’ 的所有行，这将促使 update 触发器执行。当触发器执行时，它向 LOG 表插入对应变更量的记录。事务的下一步读取 LOG 表，显示触发器确实执行了。</li>
 </ul>
-<p><img src="http://image.sunzn.com/blog/20171025161203.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171025161203.png" alt="此处输入图片的描述"></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ROLLBACK</span>;</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>然后事务回滚刚才的改变，当连接结束时，销毁 LOG 表和 update 触发器。</li>
 </ul>
-<p><img src="http://image.sunzn.com/blog/20171025161204.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171025161204.png" alt="此处输入图片的描述"></p>
 <p>SQLite 提供在 update 触发器中对未更新行（最初的行）和已更新行的访问。未更新行可以引用为 old，已更新行可引用为 new。注意脚本中的触发器是如何引用 new.PASS 和 old.PASS 的。old 和 new 行的所有属性都可以通过点号来引用，例如 new.DATE 或 old.NAME。</p>
 <h2 id="二：错误处理"><a href="#二：错误处理" class="headerlink" title="二：错误处理"></a>二：错误处理</h2><p>定义为事件发生前执行的触发器有机会阻止事件的发生，同样，定义为事件发生后执行的触发器可以检查事件，具备重新思考的机会。before 和 after 触发器可以使您具备实施新的完整性约束。SQLite 提供一个特殊的 SQL 函数 raise() 供触发器调用，该函数允许在触发器内产生错误。raise() 定义如下：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">raise(resolution, error_message);</span><br></pre></td></tr></table></figure>
@@ -236,13 +236,13 @@ var _hmt = _hmt || [];
 <h2 id="三：可更新的视图"><a href="#三：可更新的视图" class="headerlink" title="三：可更新的视图"></a>三：可更新的视图</h2><p>触发器使得创建像可更新的视图一类事物成为可能。这里创建一个视图，然后创建负责处理视图上更新事件的触发器。<font color="DeepPink">SQLite 支持视图触发器，可以使用 instead of 替代触发器的定义。</font>下面创建表 TYPES、FOODS，然后创建一个连接 TYPES 和 FOODS 的视图：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 创建 TYPES 表，插入数据</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> TYPES(<span class="keyword">ID</span> <span class="built_in">INTEGER</span> PRIMARY <span class="keyword">KEY</span>, <span class="keyword">NAME</span> <span class="built_in">TEXT</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> TYPES (<span class="keyword">ID</span>, <span class="keyword">NAME</span>) <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="string">'水果'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> TYPES (<span class="keyword">ID</span>, <span class="keyword">NAME</span>) <span class="keyword">VALUES</span> (<span class="number">2</span>, <span class="string">'蔬菜'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> TYPES (<span class="keyword">ID</span>, <span class="keyword">NAME</span>) <span class="keyword">VALUES</span> (<span class="number">3</span>, <span class="string">'肉类'</span>);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20171025161205.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171025161205.png" alt="此处输入图片的描述"></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 创建 FOODS 表，插入数据</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> FOODS(<span class="keyword">ID</span> <span class="built_in">INTEGER</span> PRIMARY <span class="keyword">KEY</span>, <span class="keyword">NAME</span> <span class="built_in">TEXT</span>, TYPE_ID <span class="built_in">INTEGER</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS (<span class="keyword">NAME</span>, TYPE_ID) <span class="keyword">VALUES</span> (<span class="string">'苹果'</span>, <span class="number">1</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS (<span class="keyword">NAME</span>, TYPE_ID) <span class="keyword">VALUES</span> (<span class="string">'桔子'</span>, <span class="number">1</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS (<span class="keyword">NAME</span>, TYPE_ID) <span class="keyword">VALUES</span> (<span class="string">'西瓜'</span>, <span class="number">1</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS (<span class="keyword">NAME</span>, TYPE_ID) <span class="keyword">VALUES</span> (<span class="string">'芹菜'</span>, <span class="number">2</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS (<span class="keyword">NAME</span>, TYPE_ID) <span class="keyword">VALUES</span> (<span class="string">'黄瓜'</span>, <span class="number">2</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS (<span class="keyword">NAME</span>, TYPE_ID) <span class="keyword">VALUES</span> (<span class="string">'土豆'</span>, <span class="number">2</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS (<span class="keyword">NAME</span>, TYPE_ID) <span class="keyword">VALUES</span> (<span class="string">'牛肉'</span>, <span class="number">3</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS (<span class="keyword">NAME</span>, TYPE_ID) <span class="keyword">VALUES</span> (<span class="string">'猪肉'</span>, <span class="number">3</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS (<span class="keyword">NAME</span>, TYPE_ID) <span class="keyword">VALUES</span> (<span class="string">'鸡肉'</span>, <span class="number">3</span>);</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20171025161206.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171025161206.png" alt="此处输入图片的描述"></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 创建连接 TYPES 和 FOODS 的视图</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">VIEW</span> FOODS_VIEW <span class="keyword">AS</span> <span class="keyword">SELECT</span> F.ID FID, F.NAME FNAME, T.ID TID, T.NAME TNAME <span class="keyword">FROM</span> FOODS F, TYPES T;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20171025161207.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171025161207.png" alt="此处输入图片的描述"></p>
 <p>该视图通过外键关系连接两个表。注意，这里为视图中的所有字段创建了别名。这样就可以在触发器内部应用这些字段时区分各自的 ID 和 NAME。现在，通过创建 update 触发器，实现可更新的视图：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 创建视图的 update 触发器</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TRIGGER</span> FOODS_VIEW_TRIGGER</span><br><span class="line">INSTEAD <span class="keyword">OF</span> <span class="keyword">UPDATE</span> <span class="keyword">ON</span> FOODS_VIEW</span><br><span class="line"><span class="keyword">FOR</span> <span class="keyword">EACH</span> <span class="keyword">ROW</span></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">  <span class="keyword">UPDATE</span> FOODS <span class="keyword">SET</span> <span class="keyword">NAME</span>=NEW.FNAME <span class="keyword">WHERE</span> <span class="keyword">ID</span>=NEW.FID;</span><br><span class="line">  <span class="keyword">UPDATE</span> TYPES <span class="keyword">SET</span> <span class="keyword">NAME</span>=NEW.TNAME <span class="keyword">WHERE</span> <span class="keyword">ID</span>=NEW.TID;</span><br><span class="line"><span class="keyword">END</span>;</span><br></pre></td></tr></table></figure>
 
@@ -250,18 +250,18 @@ var _hmt = _hmt || [];
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">BEGIN</span>;</span><br><span class="line"><span class="keyword">UPDATE</span> FOODS_VIEW <span class="keyword">SET</span> FNAME=<span class="string">'芒果'</span>, TNAME=<span class="string">'鲜果'</span> <span class="keyword">WHERE</span> FID=<span class="number">1</span> <span class="keyword">AND</span> TID=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> FOODS_VIEW <span class="keyword">WHERE</span> FID=<span class="number">1</span> <span class="keyword">AND</span> TID=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> FOODS F, TYPES T <span class="keyword">WHERE</span> F.TYPE_ID=T.ID <span class="keyword">AND</span> F.ID=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">ROLLBACK</span>;</span><br></pre></td></tr></table></figure>
 
 <p>测试过程在事务内进行，逐条执行语句，查看运行结果，<font color="DeepPink">全部语句执行完毕后一定要进行回滚，否则无法开启下一个事务进行测试。</font>首先更新视图，将 FOODS_VIEW 视图中字段 FID=1 和 TID=1 的条目的 FNAME 设置为 ‘芒果’，TNAME 设置为 ‘鲜果’，这时你会发现视图和基本表的数据都发生了变化，如下图所示：</p>
-<p><img src="http://image.sunzn.com/blog/20171025161208.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171025161208.png" alt="此处输入图片的描述"></p>
 <p>紧接着查询视图 FOODS_VIEW 中 FID=1 同时 TID=1 的条目，查询结果和预期一致，如下图所示：</p>
-<p><img src="http://image.sunzn.com/blog/20171025161209.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171025161209.png" alt="此处输入图片的描述"></p>
 <p>验证了视图数据，最后连接 FOODS 表和 TYPES 表继续进行验证，查询结果也和预期一致，如下图所示：</p>
-<p><img src="http://image.sunzn.com/blog/20171025161210.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171025161210.png" alt="此处输入图片的描述"></p>
 <p>测试语句执行完毕后，执行回滚语句，视图 FOODS_VIEW 和表 FOODS、TYPES 的数据回滚到视图更新之前。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ROLLBACK</span>;</span><br></pre></td></tr></table></figure>
 
 <p>数据回滚到视图更新之前，再执行查询，查看数据在视图更新前后的差异，查询语句和运行结果如下：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> FOODS F, TYPES T <span class="keyword">WHERE</span> F.TYPE_ID=T.ID <span class="keyword">AND</span> F.ID=<span class="number">1</span>;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20171025161211.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171025161211.png" alt="此处输入图片的描述"></p>
 <p>现在可以通过添加 insert 和 delete 触发器完成基于触发器通过视图控制数据。</p>
 
       
@@ -518,15 +518,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -542,6 +542,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">File</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">组件化</a>
               </li>
              
@@ -554,10 +558,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">File</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
@@ -566,19 +566,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -590,11 +582,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ADB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Issue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -630,6 +634,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
@@ -638,19 +646,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">方案</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Version</a>
+                <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -667,6 +667,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Burpsuite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Version</a>
               </li>
              
               <li class="article-tag-list-item">

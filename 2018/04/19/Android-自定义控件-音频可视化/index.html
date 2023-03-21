@@ -16,14 +16,14 @@
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="开始正式介绍实现过程之前，先来看下效果图，原点纵向跳动，跳动幅度在上次原点数的基础上随机做增减。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180419095901.gif">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180419095902.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20180419095903.png">
-<meta property="og:updated_time" content="2019-08-19T17:15:48.222Z">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180419095901.gif">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180419095902.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20180419095903.png">
+<meta property="og:updated_time" content="2023-03-21T14:37:15.324Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 自定义控件-音频可视化">
 <meta name="twitter:description" content="开始正式介绍实现过程之前，先来看下效果图，原点纵向跳动，跳动幅度在上次原点数的基础上随机做增减。">
-<meta name="twitter:image" content="http://image.sunzn.com/blog/20180419095901.gif">
+<meta name="twitter:image" content="https://image.sunzn.com/blog/20180419095901.gif">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -196,7 +196,7 @@ var _hmt = _hmt || [];
         <p>开始正式介绍实现过程之前，先来看下效果图，原点纵向跳动，跳动幅度在上次原点数的基础上随机做增减。</p>
 <div align="center">
 
-<p><img src="http://image.sunzn.com/blog/20180419095901.gif" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180419095901.gif" alt="此处输入图片的描述"></p>
 </div>
 
 <a id="more"></a>
@@ -238,9 +238,9 @@ var _hmt = _hmt || [];
 </tr>
 </tbody></table>
 <h1 id="2-实现思路"><a href="#2-实现思路" class="headerlink" title="2. 实现思路"></a>2. 实现思路</h1><p>实现的思路可以解构成下面的示意图，将控件等分为宽高一致的小方块，最下的方块中绘制最大圆点，最上面的方块绘制最小圆点，圆点的直径小于方块宽度，圆点之间的间隙就可以空出来了。如果以列为绘制单位，从左至右逐列绘制该列上每个方块中的圆点。绘制列上的圆点时，再根据圆点所在方块的位置确定圆点半径，从下至上进行绘制。至此，一幅静态的音频图已经绘制完成，如果想让这些圆点跳动起来，可以增加一个驱动的引擎，每隔一段时间去调用重绘方法即可。</p>
-<p><img src="http://image.sunzn.com/blog/20180419095902.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180419095902.png" alt="此处输入图片的描述"></p>
 <p>绘制的时候，需要注意一下默认的坐标系。控件的左上角是坐标原点（0，0），原点右边是 X 轴正方向，原点下面是 Y 轴正方向；右侧的边缘是控件的宽度，下侧的边缘是控件的高度。</p>
-<p><img src="http://image.sunzn.com/blog/20180419095903.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20180419095903.png" alt="此处输入图片的描述"></p>
 <h1 id="3-绘制控件"><a href="#3-绘制控件" class="headerlink" title="3. 绘制控件"></a>3. 绘制控件</h1><p>定义一个控件 RackVew 继承自 ViewGroup 子类，重写 onSizeChanged 和 onDraw 方法。这里为了将代码分层，引入一个 RockViewHelper 帮助类，onSizeChanged 和 onDraw 方法中的复杂操作交由 RockViewHelper 接管，RackVew 对用户开放启动和停止动画的方法。RockViewHelper 在 RackVew 的构造方法中完成初始化。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.sunzn.rock.library;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.content.Context;</span><br><span class="line"><span class="keyword">import</span> android.graphics.Canvas;</span><br><span class="line"><span class="keyword">import</span> android.support.annotation.NonNull;</span><br><span class="line"><span class="keyword">import</span> android.support.annotation.Nullable;</span><br><span class="line"><span class="keyword">import</span> android.util.AttributeSet;</span><br><span class="line"><span class="keyword">import</span> android.widget.LinearLayout;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RackVew</span> <span class="keyword">extends</span> <span class="title">LinearLayout</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> RockViewHelper helper;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">RackVew</span><span class="params">(@NonNull Context context)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>(context, <span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">RackVew</span><span class="params">(@NonNull Context context, @Nullable AttributeSet attrs)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>(context, attrs, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">RackVew</span><span class="params">(@NonNull Context context, @Nullable AttributeSet attrs, <span class="keyword">int</span> defStyleAttr)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(context, attrs, defStyleAttr);</span><br><span class="line">        helper = <span class="keyword">new</span> RockViewHelper(<span class="keyword">this</span>, context, attrs, defStyleAttr);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onSizeChanged</span><span class="params">(<span class="keyword">int</span> w, <span class="keyword">int</span> h, <span class="keyword">int</span> oldw, <span class="keyword">int</span> oldh)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onSizeChanged(w, h, oldw, oldh);</span><br><span class="line">        helper.onSizeChanged(w, h);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onDraw(canvas);</span><br><span class="line">        helper.onDraw(canvas);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        helper.start();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        helper.stop();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -507,15 +507,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -531,6 +531,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">File</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">组件化</a>
               </li>
              
@@ -543,10 +547,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">File</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
@@ -555,19 +555,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -579,11 +571,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ADB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Issue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -619,6 +623,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
@@ -627,19 +635,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">方案</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Version</a>
+                <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -656,6 +656,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Burpsuite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Version</a>
               </li>
              
               <li class="article-tag-list-item">

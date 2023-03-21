@@ -16,14 +16,14 @@
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="SQlite 在处理数据类型时与其他的数据库不同，区别在于它所支持的类型以及这些类型是如何存储、比较、强化（enforced）和指派（assign）的。下面将介绍 SQLite 存储类的基础。 一般情况下，SQLite 有 5 个原始的数据类型，被称为存储类。存储类通常是指值在磁盘上存储的格式，其实就是类型或数据类型的同义词。下表列出了这 5 个存储类型及说明。    名称 说明    integ">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171124112901.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171124112902.png">
-<meta property="og:image" content="http://image.sunzn.com/blog/20171124112903.png">
-<meta property="og:updated_time" content="2018-11-01T13:41:10.000Z">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171124112901.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171124112902.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20171124112903.png">
+<meta property="og:updated_time" content="2023-03-21T14:38:23.888Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQLite 存储类">
 <meta name="twitter:description" content="SQlite 在处理数据类型时与其他的数据库不同，区别在于它所支持的类型以及这些类型是如何存储、比较、强化（enforced）和指派（assign）的。下面将介绍 SQLite 存储类的基础。 一般情况下，SQLite 有 5 个原始的数据类型，被称为存储类。存储类通常是指值在磁盘上存储的格式，其实就是类型或数据类型的同义词。下表列出了这 5 个存储类型及说明。    名称 说明    integ">
-<meta name="twitter:image" content="http://image.sunzn.com/blog/20171124112901.png">
+<meta name="twitter:image" content="https://image.sunzn.com/blog/20171124112901.png">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -234,12 +234,12 @@ var _hmt = _hmt || [];
 <li>如果一个值的格式为 x’ABCD’，其中 ABCD 为 16 进制数字，则该值被指派为 blob。其中，x 前缀大小写皆可。</li>
 </ul>
 <p>SQL 函数 typeof() 根据值的表示方法返回其存储类。使用该函数后，下面 SQL 语句返回的结果为：</p>
-<p><img src="http://image.sunzn.com/blog/20171124112901.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171124112901.png" alt="此处输入图片的描述"></p>
 <p>这是 5 中内部的存储类，其中的 3.14 看起来就像实数，因此它就是实数。’3.14’ 看起来就像文本，因此就是文本，以此类推。</p>
 <p>SQLite 中单独的一个字段可能包含不同存储类的值。这也是 SQLite 处理数据与其他数据库不同的第一个地方，许多熟悉其他数据库的人常常会问到“什么，一个字段可以有不同的存储类型？”请看下面的示例：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">DOMAIN</span>(x);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">DOMAIN</span> <span class="keyword">VALUES</span>(<span class="number">3.142</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">DOMAIN</span> <span class="keyword">VALUES</span>(<span class="string">'3.142'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">DOMAIN</span> <span class="keyword">VALUES</span>(<span class="number">3142</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">DOMAIN</span> <span class="keyword">VALUES</span>(x<span class="string">'3142'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">DOMAIN</span> <span class="keyword">VALUES</span>(<span class="literal">NULL</span>);</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">ROWID</span>, X, TYPEOF(X) <span class="keyword">FROM</span> <span class="keyword">DOMAIN</span>;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.sunzn.com/blog/20171124112902.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171124112902.png" alt="此处输入图片的描述"></p>
 <p>这种操作会带来一些问题。这种字段中的值如何存储和比较？如何对一个包含了 integer、real、text、blob 和 null 值的字段排序？一个整数和一个 blob 如何比较？哪个更大？它们能相等吗？</p>
 <p>答案是：具有不同存储类的值可以存储在同一个字段中。可以被排序，因为这些值可以相互比较。SQLite 实现了完善额定义规则来做这件事。不同存储类的值可以通过它们各自类的“类值”进行排序，定义如下：</p>
 <ol>
@@ -249,7 +249,7 @@ var _hmt = _hmt || [];
 <li>blob 存储类具有最高的类值。具有 blob 类的值大于其他所有类的值。blob 值之间在比较时使用 C 函数 memcmp()。</li>
 </ol>
 <p>所以，当 SQLite 存储一个字段时，它首先按存储类分组———NULL 第一，然后是 integer 和 real，接着是 text，最后是 blob。然后进行分组内的排序，NULL 类内部各值不必排序，integer 和 real 按照数字比较，text 按照恰当的排序算法比较，blob 使用 memcmp()———实际上是比较比特位。下图说明了一个假设字段如何按照升序排序。</p>
-<p><img src="http://image.sunzn.com/blog/20171124112903.png" alt="此处输入图片的描述"></p>
+<p><img src="https://image.sunzn.com/blog/20171124112903.png" alt="此处输入图片的描述"></p>
 
       
 
@@ -505,15 +505,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -529,6 +529,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">File</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">组件化</a>
               </li>
              
@@ -541,10 +545,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">File</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
@@ -553,19 +553,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -577,11 +569,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ADB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Issue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -617,6 +621,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
@@ -625,19 +633,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">方案</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Version</a>
+                <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -654,6 +654,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Burpsuite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Version</a>
               </li>
              
               <li class="article-tag-list-item">
