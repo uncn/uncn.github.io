@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="Android 下载引擎的组件化源于应用场景的广泛性和存储字段的固定性。起初，下载引擎是通过 Module 的形式引入项目的，这种方式的引入在形式上起到了解耦作用，同时，也可针对项目个性化的存储字段进行增减。但随着下载引擎复用需求的增加和业务的积淀，Module 不再是下载引擎的最优引用方式了。首先，随着业务的积淀，存储字段的数量逐渐趋于稳定，这意味着下载引擎已经可以满足大部分的应用场景了；其次，">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2022-12-28T13:03:58.010Z">
+<meta property="og:updated_time" content="2023-05-04T13:52:39.865Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="下载引擎的组件化之路">
 <meta name="twitter:description" content="Android 下载引擎的组件化源于应用场景的广泛性和存储字段的固定性。起初，下载引擎是通过 Module 的形式引入项目的，这种方式的引入在形式上起到了解耦作用，同时，也可针对项目个性化的存储字段进行增减。但随着下载引擎复用需求的增加和业务的积淀，Module 不再是下载引擎的最优引用方式了。首先，随着业务的积淀，存储字段的数量逐渐趋于稳定，这意味着下载引擎已经可以满足大部分的应用场景了；其次，">
@@ -203,7 +203,7 @@ var _hmt = _hmt || [];
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * After being instantiated, this is called to tell the content provider</span></span><br><span class="line"><span class="comment"> * about itself.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> context The context this provider is running in</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> info Registered information about this content provider</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">attachInfo</span><span class="params">(Context context, ProviderInfo info)</span> </span>&#123;</span><br><span class="line">    attachInfo(context, info, <span class="keyword">false</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">attachInfo</span><span class="params">(Context context, ProviderInfo info, <span class="keyword">boolean</span> testing)</span> </span>&#123;</span><br><span class="line">    mNoPerms = testing;</span><br><span class="line">    mCallingAttributionSource = <span class="keyword">new</span> ThreadLocal&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * Only allow it to be set once, so after the content service gives</span></span><br><span class="line"><span class="comment">     * this to us clients can't change it.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">if</span> (mContext == <span class="keyword">null</span>) &#123;</span><br><span class="line">        mContext = context;</span><br><span class="line">        <span class="keyword">if</span> (context != <span class="keyword">null</span> &amp;&amp; mTransport != <span class="keyword">null</span>) &#123;</span><br><span class="line">            mTransport.mAppOpsManager = (AppOpsManager) context.getSystemService(</span><br><span class="line">                    Context.APP_OPS_SERVICE);</span><br><span class="line">        &#125;</span><br><span class="line">        mMyUid = Process.myUid();</span><br><span class="line">        <span class="keyword">if</span> (info != <span class="keyword">null</span>) &#123;</span><br><span class="line">            setReadPermission(info.readPermission);</span><br><span class="line">            setWritePermission(info.writePermission);</span><br><span class="line">            setPathPermissions(info.pathPermissions);</span><br><span class="line">            mExported = info.exported;</span><br><span class="line">            mSingleUser = (info.flags &amp; ProviderInfo.FLAG_SINGLE_USER) != <span class="number">0</span>;</span><br><span class="line">            setAuthorities(info.authority);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (Build.IS_DEBUGGABLE) &#123;</span><br><span class="line">            setTransportLoggingEnabled(Log.isLoggable(getClass().getSimpleName(),</span><br><span class="line">                    Log.VERBOSE));</span><br><span class="line">        &#125;</span><br><span class="line">        ContentProvider.<span class="keyword">this</span>.onCreate();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Change the authorities of the ContentProvider. This is normally set for</span></span><br><span class="line"><span class="comment"> * you from its manifest information when the provider is first created.</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@hide</span></span></span><br><span class="line"><span class="comment"> * Params:authorities - the semi-colon separated authorities of the ContentProvider.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">setAuthorities</span><span class="params">(String authorities)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (authorities != <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (authorities.indexOf(<span class="string">';'</span>) == -<span class="number">1</span>) &#123;</span><br><span class="line">            mAuthority = authorities;</span><br><span class="line">            mAuthorities = <span class="keyword">null</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            mAuthority = <span class="keyword">null</span>;</span><br><span class="line">            mAuthorities = authorities.split(<span class="string">";"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>通过上面的内容，我们已经具备了动态配置和动态读取 Authorities 的能力，同时我们也从源码上得到了验证。下面，只需要在项目中进行配置，并验证结果就可以了。</p>
-<h1 id="2-引用下载引擎库"><a href="#2-引用下载引擎库" class="headerlink" title="2. 引用下载引擎库"></a>2. 引用下载引擎库</h1><p>在主项目 <code>build.gradle</code> 的 <code>defaultConfig</code> 节点下增加 Manifest 占位符配置，这里需要注意的是占位符的键要与 Provider 中预设的一直，这里的值通常是 applicationId，也可自行设定。</p>
+<h1 id="2-引用下载引擎库"><a href="#2-引用下载引擎库" class="headerlink" title="2. 引用下载引擎库"></a>2. 引用下载引擎库</h1><p>在主项目 <code>build.gradle</code> 的 <code>defaultConfig</code> 节点下增加 Manifest 占位符配置，这里需要注意的是占位符的键要与 Provider 中预设的一致，这里的值通常是 applicationId，也可自行设定。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line"></span><br><span class="line">    defaultConfig &#123;</span><br><span class="line"></span><br><span class="line">        applicationId &quot;com.sunzn.down.sample&quot;</span><br><span class="line">        manifestPlaceholders = [AUTHORITIES: applicationId]</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="3-验证结果"><a href="#3-验证结果" class="headerlink" title="3. 验证结果"></a>3. 验证结果</h1><p>运行程序，下载功能正常。转到 build 目录下输出的 APK 文件，查看 AndroidManifest.xml 会发现，上面设置的 Authorities 信息已经被整合到了 provider 节点内。至此，Authorities 的动态配置和动态读取能力验证完毕。</p>
@@ -476,6 +476,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Android Studio</a>
               </li>
              
@@ -485,10 +489,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">组件化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -520,15 +520,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -540,11 +540,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ADB</a>
+                <a href="javascript:void(0)" class="js-tag color1">Issue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Issue</a>
+                <a href="javascript:void(0)" class="js-tag color4">ADB</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -588,15 +588,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Room</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">方案</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Room</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -613,6 +609,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Burpsuite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">

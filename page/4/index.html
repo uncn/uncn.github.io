@@ -166,6 +166,83 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-标识应用所在的-Android-设备" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/07/标识应用所在的-Android-设备/">标识应用所在的 Android 设备</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/07/标识应用所在的-Android-设备/" class="archive-article-date">
+  	<time datetime="2018-08-07T10:13:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>标识一台 Android 设备已经是开发中司空见惯的事情了，但不是每个人都对自己所用 API 获取的标识有着明确的认知。所以，这里又将 <a href="https://android-developers.googleblog.com/" target="_blank" rel="noopener">Android Developers Blog</a> 2011年3月30日的一篇文章<a href="https://android-developers.googleblog.com/2011/03/identifying-app-installations.html" target="_blank" rel="noopener">《Identifying App Installations》</a> 翻了出来，这篇文章里的观点也大致的体现了 Google 官方对标识 Android 设备的态度：<strong>建议使用 UUID 作为标识符。</strong>博客里甚至还贴出了示例代码，建议应用在安装后第一次运行时创建一个新的 UUID 标识。以下是示例代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Installation</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String sID = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String INSTALLATION = <span class="string">"INSTALLATION"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">static</span> String <span class="title">id</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (sID == <span class="keyword">null</span>) &#123;  </span><br><span class="line">            File installation = <span class="keyword">new</span> File(context.getFilesDir(), INSTALLATION);</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (!installation.exists())</span><br><span class="line">                    writeInstallationFile(installation);</span><br><span class="line">                sID = readInstallationFile(installation);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sID;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> String <span class="title">readInstallationFile</span><span class="params">(File installation)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        RandomAccessFile f = <span class="keyword">new</span> RandomAccessFile(installation, <span class="string">"r"</span>);</span><br><span class="line">        <span class="keyword">byte</span>[] bytes = <span class="keyword">new</span> <span class="keyword">byte</span>[(<span class="keyword">int</span>) f.length()];</span><br><span class="line">        f.readFully(bytes);</span><br><span class="line">        f.close();</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> String(bytes);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">writeInstallationFile</span><span class="params">(File installation)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        FileOutputStream out = <span class="keyword">new</span> FileOutputStream(installation);</span><br><span class="line">        String id = UUID.randomUUID().toString();</span><br><span class="line">        out.write(id.getBytes());</span><br><span class="line">        out.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2018/08/07/标识应用所在的-Android-设备/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/07/标识应用所在的-Android-设备/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Windows-10-下配置-ADB-环境变量" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -911,98 +988,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Android-5-0-行为变更对-WebView-的影响" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/24/Android-5-0-行为变更对-WebView-的影响/">Android 5.0 行为变更对 WebView 的影响</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/24/Android-5-0-行为变更对-WebView-的影响/" class="archive-article-date">
-  	<time datetime="2018-01-24T10:09:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Android 5.0 行为变更已经好长时间了，之前进行 WebView 的开发一直没有出现问题，所有也就没有关注这次行为变更对 WebVie 带来的影响。直到要为一个视频网站开发的 APP 里嵌入 WebView 进行音视频播放，才发现问题所在。大概描述一下情况：视频网站使用了 HTTPS 加密，但视频资源采用的是 HTTP，几经测试，发现网站取消 HTTPS 加密后，WebView 就可以正常加载视频了。于是就顺藤摸瓜，有了这篇文章。开始文章之前，先来看看 Google 官方的描述 <a href="https://developer.android.com/about/versions/android-5.0-changes.html#BehaviorWebView" target="_blank" rel="noopener">Android 5.0 行为变更之 WebView</a>。</p>
-<h1 id="1-WebView-行为变更"><a href="#1-WebView-行为变更" class="headerlink" title="1. WebView 行为变更"></a>1. WebView 行为变更</h1><p>Android 5.0 更改了应用的默认行为。</p>
-<ul>
-<li><strong>如果您的应用是面向 API 级别 21 或更高级别：</strong><ul>
-<li>默认情况下，系统会阻止混合内容和第三方 Cookie。要允许混合内容和第三方 Cookie，请分别使用 <a href="https://developer.android.com/reference/android/webkit/WebSettings.html#setMixedContentMode%28int%29" target="_blank" rel="noopener">setMixedContentMode()</a> 和 <a href="https://developer.android.com/reference/android/webkit/CookieManager.html#setAcceptThirdPartyCookies%28android.webkit.WebView,%20boolean%29" target="_blank" rel="noopener">setAcceptThirdPartyCookies()</a> 方法。</li>
-<li>系统现在可以智能地选择要绘制的 HTML 文档部分。这个新的默认行为有助于减少内存占用和提升性能。如果您要一次渲染整个文档，可通过调用 <a href="https://developer.android.com/reference/android/webkit/WebView.html#enableSlowWholeDocumentDraw%28%29" target="_blank" rel="noopener">enableSlowWholeDocumentDraw()</a> 停用此优化。</li>
-</ul>
-</li>
-<li><strong>如果您的应用是面向低于  21 的 API 级别：</strong><ul>
-<li>系统允许混合内容和第三方 Cookie，并始终一次渲染整个文档。</li>
-</ul>
-</li>
-</ul>
-        
-          <a class="article-more-a" href="/2018/01/24/Android-5-0-行为变更对-WebView-的影响/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">WebView</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/24/Android-5-0-行为变更对-WebView-的影响/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
@@ -1113,6 +1098,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Android Studio</a>
               </li>
              
@@ -1122,10 +1111,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">组件化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1157,15 +1142,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1177,11 +1162,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ADB</a>
+                <a href="javascript:void(0)" class="js-tag color1">Issue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Issue</a>
+                <a href="javascript:void(0)" class="js-tag color4">ADB</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1225,15 +1210,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Room</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">方案</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Room</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1250,6 +1231,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Burpsuite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
