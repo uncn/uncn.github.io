@@ -6,22 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Kotlin 中的扩展属性 | Welcome to sunzn&#39;s Blog</title>
+  <title>Kotlin 中的扩展函数与属性 | Welcome to sunzn&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Kotlin 中的扩展属性是一种特殊的扩展函数，它允许我们为现有的类添加新的属性，而无需修改类的源代码。通过扩展属性，我们可以在不继承或修改类的情况下，为类添加额外的属性。 1. 扩展属性语法扩展属性是通过增加 Get、Set 方法实现，没有幕后字段 Filed。本质上来讲，扩展属性并没有真的为类添加了属性，只是通过 Get、Set 方法来访问已有类的属性或方法。因此，扩展属性不能有后备字段，也不">
+  <meta name="description" content="在使用 Java 的时候，我们经常使用诸如 StringUtil、DateUtil 等工具类，代码写起来比较冗长。举个例子，获取一个字符串的第一个字符值、最后一个字符值。如果我们用 Java 代码来写通常要先声明一个 StingUtil  类，然后在里面写相应的方法。那么，我们能不能直接在 String 类上增加获取第一个字符值、最后一个字符值的方法呢？非常遗憾的是，在 Java 中我们无法给 S">
 <meta name="keywords" content="Kotlin">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Kotlin 中的扩展属性">
-<meta property="og:url" content="http://yoursite.com/2023/08/02/Kotlin-中的扩展属性/index.html">
+<meta property="og:title" content="Kotlin 中的扩展函数与属性">
+<meta property="og:url" content="http://yoursite.com/2023/08/08/Kotlin-中的扩展函数与属性/index.html">
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
-<meta property="og:description" content="Kotlin 中的扩展属性是一种特殊的扩展函数，它允许我们为现有的类添加新的属性，而无需修改类的源代码。通过扩展属性，我们可以在不继承或修改类的情况下，为类添加额外的属性。 1. 扩展属性语法扩展属性是通过增加 Get、Set 方法实现，没有幕后字段 Filed。本质上来讲，扩展属性并没有真的为类添加了属性，只是通过 Get、Set 方法来访问已有类的属性或方法。因此，扩展属性不能有后备字段，也不">
+<meta property="og:description" content="在使用 Java 的时候，我们经常使用诸如 StringUtil、DateUtil 等工具类，代码写起来比较冗长。举个例子，获取一个字符串的第一个字符值、最后一个字符值。如果我们用 Java 代码来写通常要先声明一个 StingUtil  类，然后在里面写相应的方法。那么，我们能不能直接在 String 类上增加获取第一个字符值、最后一个字符值的方法呢？非常遗憾的是，在 Java 中我们无法给 S">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://image.sunzn.com/blog/20230802085002.png">
+<meta property="og:image" content="https://image.sunzn.com/blog/20230802085003.png">
 <meta property="og:image" content="https://image.sunzn.com/blog/20230802085001.png">
-<meta property="og:updated_time" content="2023-08-02T15:13:38.573Z">
+<meta property="og:updated_time" content="2023-08-08T13:29:03.633Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Kotlin 中的扩展属性">
-<meta name="twitter:description" content="Kotlin 中的扩展属性是一种特殊的扩展函数，它允许我们为现有的类添加新的属性，而无需修改类的源代码。通过扩展属性，我们可以在不继承或修改类的情况下，为类添加额外的属性。 1. 扩展属性语法扩展属性是通过增加 Get、Set 方法实现，没有幕后字段 Filed。本质上来讲，扩展属性并没有真的为类添加了属性，只是通过 Get、Set 方法来访问已有类的属性或方法。因此，扩展属性不能有后备字段，也不">
-<meta name="twitter:image" content="https://image.sunzn.com/blog/20230802085001.png">
+<meta name="twitter:title" content="Kotlin 中的扩展函数与属性">
+<meta name="twitter:description" content="在使用 Java 的时候，我们经常使用诸如 StringUtil、DateUtil 等工具类，代码写起来比较冗长。举个例子，获取一个字符串的第一个字符值、最后一个字符值。如果我们用 Java 代码来写通常要先声明一个 StingUtil  类，然后在里面写相应的方法。那么，我们能不能直接在 String 类上增加获取第一个字符值、最后一个字符值的方法呢？非常遗憾的是，在 Java 中我们无法给 S">
+<meta name="twitter:image" content="https://image.sunzn.com/blog/20230802085002.png">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -171,31 +173,94 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Kotlin-中的扩展属性" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Kotlin-中的扩展函数与属性" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Kotlin 中的扩展属性
+      Kotlin 中的扩展函数与属性
     </h1>
   
 
         
-        <a href="/2023/08/02/Kotlin-中的扩展属性/" class="archive-article-date">
-  	<time datetime="2023-08-02T14:56:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-02</time>
+        <a href="/2023/08/08/Kotlin-中的扩展函数与属性/" class="archive-article-date">
+  	<time datetime="2023-08-08T12:49:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-08</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Kotlin 中的扩展属性是一种特殊的扩展函数，它允许我们为现有的类添加新的属性，而无需修改类的源代码。通过扩展属性，我们可以在不继承或修改类的情况下，为类添加额外的属性。</p>
-<h1 id="1-扩展属性语法"><a href="#1-扩展属性语法" class="headerlink" title="1. 扩展属性语法"></a>1. 扩展属性语法</h1><p>扩展属性是通过增加 Get、Set 方法实现，没有幕后字段 Filed。本质上来讲，扩展属性并没有真的为类添加了属性，只是通过 Get、Set 方法来访问已有类的属性或方法。因此，扩展属性不能有后备字段，也不能被初始化。例如，我们给 MutableList 扩展两个属性：firstElement 和 lastElement，实现代码如下:</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> &lt;T&gt; MutableList&lt;T&gt;.firstElement: T</span><br><span class="line">    <span class="keyword">get</span>() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>[<span class="number">0</span>]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">set</span>(value) &#123;</span><br><span class="line">        <span class="keyword">this</span>[<span class="number">0</span>] = value</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> &lt;T&gt; MutableList&lt;T&gt;.lastElement: T</span><br><span class="line">    <span class="keyword">get</span>() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>[size - <span class="number">1</span>]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">set</span>(value) &#123;</span><br><span class="line">        <span class="keyword">this</span>[size - <span class="number">1</span>] = value</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
+        <p>在使用 Java 的时候，我们经常使用诸如 StringUtil、DateUtil 等工具类，代码写起来比较冗长。举个例子，获取一个字符串的第一个字符值、最后一个字符值。如果我们用 Java 代码来写通常要先声明一个 StingUtil  类，然后在里面写相应的方法。那么，我们能不能直接在 String 类上增加获取第一个字符值、最后一个字符值的方法呢？非常遗憾的是，在 Java 中我们无法给 String 类增加一个自定义方法。因为 String 类是 JDK 中内置的基础类，而且为 final，不能修改。所以，在 Java 中通常需要引入一个工具类来封装对应的方法，而不是修改或继承 String 类。</p>
+<p>而在 Kotlin 中，情况就完全不一样了，我们完全可以自由扩展任何类的方法和属性。在不修改原类的情况下，Kotlin 能给一个类扩展新功能而无须继承该类。</p>
+<h1 id="1-扩展函数"><a href="#1-扩展函数" class="headerlink" title="1. 扩展函数"></a>1. 扩展函数</h1><p>Kotlin 中提供了非常实用的扩展函数功能。它允许你在不修改原始类的情况下，为该类添加新的函数。通过扩展函数，你可以为任何类添加新的行为，包括标准库中的类、第三方库中的类，甚至是你自己定义的类。</p>
 <a id="more"></a>
+
+<h2 id="1-1-扩展函数语法"><a href="#1-1-扩展函数语法" class="headerlink" title="1.1 扩展函数语法"></a>1.1 扩展函数语法</h2><p>要创建一个扩展函数，你需要使用 fun 关键字，后面跟着接收者类型（即你要为哪个类添加函数），然后是函数名和函数体。在函数体内，你可以像操作普通函数一样使用接收者对象的成员。下面通过两个例子来感受下扩展函数的使用。</p>
+<h3 id="1-1-1-给-String-增加扩展函数"><a href="#1-1-1-给-String-增加扩展函数" class="headerlink" title="1.1.1 给 String 增加扩展函数"></a>1.1.1 给 String 增加扩展函数</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 给 String 扩展一个 firstChar 函数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> String.<span class="title">firstChar</span><span class="params">()</span></span>: String &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">if</span> (<span class="keyword">this</span>.isEmpty()) <span class="string">""</span> <span class="keyword">else</span> <span class="keyword">this</span>[<span class="number">0</span>].toString()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 给 String 扩展一个 lastChar 函数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> String.<span class="title">lastChar</span><span class="params">()</span></span>: String &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">if</span> (<span class="keyword">this</span>.isEmpty()) <span class="string">""</span> <span class="keyword">else</span> <span class="keyword">this</span>[length - <span class="number">1</span>].toString()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">println(<span class="string">"ABC"</span>.firstChar())    <span class="comment">// 返回 A</span></span><br><span class="line">println(<span class="string">"ABC"</span>.lastChar())     <span class="comment">// 返回 C</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码中扩展函数的语法说明如下图所示：</p>
+<p><img src="https://image.sunzn.com/blog/20230802085002.png" alt="此处输入图片的描述"></p>
+<h3 id="1-1-2-给-List-增加扩展函数"><a href="#1-1-2-给-List-增加扩展函数" class="headerlink" title="1.1.2 给 List 增加扩展函数"></a>1.1.2 给 List 增加扩展函数</h3><p>在 Kotlin 中，List 是默认支持 filter() 函数的。那么这个 filter() 函数是如何实现的呢？下面我们分别通过 Java 和 Kotlin 来实现 filter() 函数，通过对比来感受下 Kotlin 扩展功能的简单、优雅性。</p>
+<p>我们先来看看 Java 中的实现方式！首先，我们会去声明一个 ListUtil 类，里面实现一个 List filter(List list, Predicate p) 方法，代码如下:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.function.Predicate;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListUtil</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;T&gt; <span class="title">filter</span><span class="params">(List&lt;T&gt; list, Predicate&lt;T&gt; p)</span> </span>&#123;</span><br><span class="line">        List&lt;T&gt; result = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (T t : list) &#123;</span><br><span class="line">            <span class="keyword">if</span> (p.test(t)) &#123;</span><br><span class="line">                result.add(t);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后，我们在代码中这样使用这个 filter() 方法:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Integer&gt; list = Arrays.asList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>);</span><br><span class="line">ListUtil&lt;Integer&gt; util = <span class="keyword">new</span> ListUtil&lt;&gt;();</span><br><span class="line">List&lt;Integer&gt; result = util.filter(list, integer -&gt; integer % <span class="number">2</span> == <span class="number">1</span>);</span><br><span class="line">println(result.toString())    <span class="comment">// [1, 3, 5, 7]</span></span><br></pre></td></tr></table></figure>
+
+<p>为了调用 filter() 方法，我们还要声明一个 Listutil 对象，这样显得比较烦。能不能直接像下面这样调用呢？</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">list.filter &#123; it % <span class="number">2</span> == <span class="number">1</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>答案是肯定的，只不过必须是在 Kotlin 中，而不是在 Java 中。下面我们就来用 Kotlin 中的扩展函数为 List 扩展一个 filter() 函数并进行调用，代码如下:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 给 List 扩展一个 filter 函数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="type">&lt;T&gt;</span> List<span class="type">&lt;T&gt;</span>.<span class="title">filter</span><span class="params">(test: (<span class="type">T</span>)</span></span> -&gt; <span class="built_in">Boolean</span>): MutableList&lt;T&gt; &#123;</span><br><span class="line">    <span class="keyword">val</span> result = ArrayList&lt;T&gt;()</span><br><span class="line">    <span class="keyword">this</span>.forEach &#123;</span><br><span class="line">        <span class="keyword">if</span> (test(it)) &#123;</span><br><span class="line">            result.add(it)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中扩展函数的语法说明如下图所示：</p>
+<p><img src="https://image.sunzn.com/blog/20230802085003.png" alt="此处输入图片的描述"></p>
+<p>然后我们在代码中只需要这样调用即可:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 调用 List 的扩展函数 filter</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">val</span> list = mutableListOf(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>)</span><br><span class="line"><span class="keyword">val</span> result = list.filter &#123; it % <span class="number">2</span> == <span class="number">1</span> &#125;</span><br><span class="line">println(result)               <span class="comment">// [1, 3, 5, 7]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="1-2-扩展函数限制"><a href="#1-2-扩展函数限制" class="headerlink" title="1.2 扩展函数限制"></a>1.2 扩展函数限制</h2><p>虽然 Kotlin 扩展函数非常方便，但我们也需要注意以下限制：</p>
+<table>
+    <tbody>
+        <tr style="background: #EFEFEF">
+            <th align="center" width="5%">序号</th>
+            <th align="center" width="17%">限制描述</th>
+            <th align="center" width="78%">原因描述</th>
+        </tr>
+        <tr>
+            <td align="center">1</td>
+            <td align="left">扩展函数不能访问类的私有成员</td>
+            <td align="left">这是因为扩展函数并没有修改原始类的代码，它们只是在调用时被插入到类的实例上，因此无法访问私有成员。</td>
+        </tr>
+        <tr>
+            <td align="center">2</td>
+            <td align="left">与 Java 不同，Kotlin 不支持静态成员的扩展</td>
+            <td align="left">因为扩展函数本质上是在类的实例上调用的，而静态成员不属于类的实例，所以无法扩展静态成员。</td>
+        </tr>
+        <tr>
+            <td align="center">3</td>
+            <td align="left">如果类中已经存在同名的函数，那么扩展函数将无法被调用</td>
+            <td align="left">这是因为编译器会优先选择类中已经存在的同名函数。</td>
+        </tr>
+        <tr>
+            <td align="center">4</td>
+            <td align="left">扩展函数不能重载操作符</td>
+            <td align="left">这是因为操作符重载需要在类内部进行，扩展函数无法访问类内部的成员。</td>
+        </tr>
+        <tr>
+            <td align="center">5</td>
+            <td align="left">扩展函数不能访问类的泛型参数</td>
+            <td align="left">这是因为扩展函数不在类的作用域内，无法访问类的泛型参数。</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>总的来说，虽然 Kotlin 扩展函数非常方便，但需要注意它们的限制，避免出现意外的错误。</p>
+<h1 id="2-扩展属性"><a href="#2-扩展属性" class="headerlink" title="2. 扩展属性"></a>2. 扩展属性</h1><p>Kotlin 中的扩展属性是一种特殊的扩展函数，它允许我们为现有的类添加新的属性，而无需修改类的源代码。通过扩展属性，我们可以在不继承或修改类的情况下，为类添加额外的属性。</p>
+<h2 id="2-1-扩展属性语法"><a href="#2-1-扩展属性语法" class="headerlink" title="2.1. 扩展属性语法"></a>2.1. 扩展属性语法</h2><p>扩展属性是通过增加 Get、Set 方法实现，没有幕后字段 Filed。本质上来讲，扩展属性并没有真的为类添加了属性，只是通过 Get、Set 方法来访问已有类的属性或方法。因此，扩展属性不能有后备字段，也不能被初始化。例如，我们给 MutableList 扩展两个属性：firstElement 和 lastElement，实现代码如下:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> &lt;T&gt; MutableList&lt;T&gt;.firstElement: T</span><br><span class="line">    <span class="keyword">get</span>() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>[<span class="number">0</span>]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">set</span>(value) &#123;</span><br><span class="line">        <span class="keyword">this</span>[<span class="number">0</span>] = value</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> &lt;T&gt; MutableList&lt;T&gt;.lastElement: T</span><br><span class="line">    <span class="keyword">get</span>() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>[size - <span class="number">1</span>]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">set</span>(value) &#123;</span><br><span class="line">        <span class="keyword">this</span>[size - <span class="number">1</span>] = value</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 <p>上面代码中扩展属性的语法说明如下图所示：</p>
 <p><img src="https://image.sunzn.com/blog/20230802085001.png" alt="此处输入图片的描述"></p>
@@ -205,13 +270,13 @@ var _hmt = _hmt || [];
 <blockquote>
 <p><font style="color:#BF360C;font-size:14px;"><strong>✦ 注意：</strong> 扩展属性允许定义在类或者 Kotlin 文件中，不允许定义在函数中。</font></p>
 </blockquote>
-<h1 id="2-扩展属性限制"><a href="#2-扩展属性限制" class="headerlink" title="2. 扩展属性限制"></a>2. 扩展属性限制</h1><p>Kotlin 的扩展属性虽然方便易用，但是也有一些限制：</p>
+<h2 id="2-2-扩展属性限制"><a href="#2-2-扩展属性限制" class="headerlink" title="2.2 扩展属性限制"></a>2.2 扩展属性限制</h2><p>Kotlin 的扩展属性虽然方便易用，但是也有一些限制：</p>
 <table>
     <tbody>
         <tr style="background: #EFEFEF">
-            <th align="center" width="6%">序号</th>
+            <th align="center" width="5%">序号</th>
             <th align="center" width="17%">限制描述</th>
-            <th align="center" width="77%">原因描述</th>
+            <th align="center" width="78%">原因描述</th>
         </tr>
         <tr>
             <td align="center">1</td>
@@ -332,7 +397,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2023/08/02/Kotlin-中的扩展属性/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2023/08/08/Kotlin-中的扩展函数与属性/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -375,7 +440,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-扩展属性语法"><span class="toc-number">1.</span> <span class="toc-text">1. 扩展属性语法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-扩展属性限制"><span class="toc-number">2.</span> <span class="toc-text">2. 扩展属性限制</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-扩展函数"><span class="toc-number">1.</span> <span class="toc-text">1. 扩展函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-扩展函数语法"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 扩展函数语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-1-给-String-增加扩展函数"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1.1 给 String 增加扩展函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-2-给-List-增加扩展函数"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.1.2 给 List 增加扩展函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-扩展函数限制"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 扩展函数限制</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-扩展属性"><span class="toc-number">2.</span> <span class="toc-text">2. 扩展属性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-扩展属性语法"><span class="toc-number">2.1.</span> <span class="toc-text">2.1. 扩展属性语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-扩展属性限制"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 扩展属性限制</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -488,10 +553,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -500,15 +561,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Android Studio</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Error</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -560,15 +625,39 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">View</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">FTP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ADB</a>
+                <a href="javascript:void(0)" class="js-tag color1">Issue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Issue</a>
+                <a href="javascript:void(0)" class="js-tag color4">ADB</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -584,35 +673,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">View</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
+                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
+                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Room</a>
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -620,7 +693,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+                <a href="javascript:void(0)" class="js-tag color5">Room</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -641,14 +714,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Version</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
               </li>
             
             <div class="clearfix"></div>

@@ -166,31 +166,31 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Kotlin-中的扩展属性" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Kotlin-中的扩展函数与属性" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2023/08/02/Kotlin-中的扩展属性/">Kotlin 中的扩展属性</a>
+      <a class="article-title" href="/2023/08/08/Kotlin-中的扩展函数与属性/">Kotlin 中的扩展函数与属性</a>
     </h1>
   
 
         
-        <a href="/2023/08/02/Kotlin-中的扩展属性/" class="archive-article-date">
-  	<time datetime="2023-08-02T14:56:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-02</time>
+        <a href="/2023/08/08/Kotlin-中的扩展函数与属性/" class="archive-article-date">
+  	<time datetime="2023-08-08T12:49:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-08</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Kotlin 中的扩展属性是一种特殊的扩展函数，它允许我们为现有的类添加新的属性，而无需修改类的源代码。通过扩展属性，我们可以在不继承或修改类的情况下，为类添加额外的属性。</p>
-<h1 id="1-扩展属性语法"><a href="#1-扩展属性语法" class="headerlink" title="1. 扩展属性语法"></a>1. 扩展属性语法</h1><p>扩展属性是通过增加 Get、Set 方法实现，没有幕后字段 Filed。本质上来讲，扩展属性并没有真的为类添加了属性，只是通过 Get、Set 方法来访问已有类的属性或方法。因此，扩展属性不能有后备字段，也不能被初始化。例如，我们给 MutableList 扩展两个属性：firstElement 和 lastElement，实现代码如下:</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> &lt;T&gt; MutableList&lt;T&gt;.firstElement: T</span><br><span class="line">    <span class="keyword">get</span>() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>[<span class="number">0</span>]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">set</span>(value) &#123;</span><br><span class="line">        <span class="keyword">this</span>[<span class="number">0</span>] = value</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> &lt;T&gt; MutableList&lt;T&gt;.lastElement: T</span><br><span class="line">    <span class="keyword">get</span>() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>[size - <span class="number">1</span>]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">set</span>(value) &#123;</span><br><span class="line">        <span class="keyword">this</span>[size - <span class="number">1</span>] = value</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+        <p>在使用 Java 的时候，我们经常使用诸如 StringUtil、DateUtil 等工具类，代码写起来比较冗长。举个例子，获取一个字符串的第一个字符值、最后一个字符值。如果我们用 Java 代码来写通常要先声明一个 StingUtil  类，然后在里面写相应的方法。那么，我们能不能直接在 String 类上增加获取第一个字符值、最后一个字符值的方法呢？非常遗憾的是，在 Java 中我们无法给 String 类增加一个自定义方法。因为 String 类是 JDK 中内置的基础类，而且为 final，不能修改。所以，在 Java 中通常需要引入一个工具类来封装对应的方法，而不是修改或继承 String 类。</p>
+<p>而在 Kotlin 中，情况就完全不一样了，我们完全可以自由扩展任何类的方法和属性。在不修改原类的情况下，Kotlin 能给一个类扩展新功能而无须继承该类。</p>
+<h1 id="1-扩展函数"><a href="#1-扩展函数" class="headerlink" title="1. 扩展函数"></a>1. 扩展函数</h1><p>Kotlin 中提供了非常实用的扩展函数功能。它允许你在不修改原始类的情况下，为该类添加新的函数。通过扩展函数，你可以为任何类添加新的行为，包括标准库中的类、第三方库中的类，甚至是你自己定义的类。</p>
         
-          <a class="article-more-a" href="/2023/08/02/Kotlin-中的扩展属性/#more">more >></a>
+          <a class="article-more-a" href="/2023/08/08/Kotlin-中的扩展函数与属性/#more">more >></a>
         
       
 
@@ -214,7 +214,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2023/08/02/Kotlin-中的扩展属性/">展开全文 >></a>
+          <a class="article-more-a" href="/2023/08/08/Kotlin-中的扩展函数与属性/">展开全文 >></a>
         </p>
       
 
@@ -1186,10 +1186,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -1198,15 +1194,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Android Studio</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Error</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1258,15 +1258,39 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">View</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">FTP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ADB</a>
+                <a href="javascript:void(0)" class="js-tag color1">Issue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Issue</a>
+                <a href="javascript:void(0)" class="js-tag color4">ADB</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1282,35 +1306,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">View</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
+                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
+                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Room</a>
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1318,7 +1326,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+                <a href="javascript:void(0)" class="js-tag color5">Room</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1339,14 +1347,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Version</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
               </li>
             
             <div class="clearfix"></div>
