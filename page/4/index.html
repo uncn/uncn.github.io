@@ -166,6 +166,85 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-JitPack-Failed-to-install-the-following-Android-SDK-packages-as-some-licences-have-not-been-accepted" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/21/JitPack-Failed-to-install-the-following-Android-SDK-packages-as-some-licences-have-not-been-accepted/">JitPack:Failed to install the following Android SDK packages as some licences have not been accepted</a>
+    </h1>
+  
+
+        
+        <a href="/2019/01/21/JitPack-Failed-to-install-the-following-Android-SDK-packages-as-some-licences-have-not-been-accepted/" class="archive-article-date">
+  	<time datetime="2019-01-21T13:30:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>近期将 Android Studio 升级到了 3.3 版本，刚好有个托管在 GitHub 上的库要更新。便索性将库的 Android SDK 升级到了 28；同时将 Android SDK Build-Tools 也升级到了 28.0.3。修改库代码，提交至 GitHub 并发布 Releases，像往常一样在 JitPack 发布版本仓库。JitPack 报错如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">* What went wrong:</span><br><span class="line">A problem occurred configuring project &apos;:Library&apos;.</span><br><span class="line">&gt; Failed to install the following Android SDK packages as some licences have not been accepted.</span><br><span class="line">     build-tools;28.0.3 Android SDK Build-Tools 28.0.3</span><br><span class="line">     platforms;android-28 Android SDK Platform 28</span><br><span class="line">  To build this project, accept the SDK license agreements and install the missing components using the Android Studio SDK Manager.</span><br><span class="line">  Alternatively, to transfer the license agreements from one workstation to another, see http://d.android.com/r/studio-ui/export-licenses.html</span><br><span class="line">  </span><br><span class="line">  Using Android SDK: /opt/android-sdk-linux</span><br></pre></td></tr></table></figure>
+
+<p>这段报错的大致意思是：项目在构建过程中需要接受 SDK 许可协议，并使用 Android Studio SDK Manager 安装缺少的组件。到这基本明白怎么回事了，本地的测试代码运行没有问题，发布仓库的时候 JitPack 报错，只能说明一个问题，JitPack 的项目构建环境缺少最新的组件！</p>
+        
+          <a class="article-more-a" href="/2019/01/21/JitPack-Failed-to-install-the-following-Android-SDK-packages-as-some-licences-have-not-been-accepted/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JitPack</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/01/21/JitPack-Failed-to-install-the-following-Android-SDK-packages-as-some-licences-have-not-been-accepted/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-自定义-View-感知事件的几种方式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -899,87 +978,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-N-个无序数中找出最大的-M-个数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/30/N-个无序数中找出最大的-M-个数/">N 个无序数中找出最大的 M 个数</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/30/N-个无序数中找出最大的-M-个数/" class="archive-article-date">
-  	<time datetime="2018-03-30T15:25:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>实现思路：新建一个拥有 M 个元素的数组 Find，将 N 个数中的前 M 个元素存入该数组，假设这前 M 个元素就是最大值，在存入的过程中找出最小数值的索引 minIndex。然后从 N 个数中的第 ( M + 1 ) 个元素开始，逐个与 Find 数组中的最小值进行比较，若大于 Find 数组中的最小值，则将其替换。替换完毕后，继续循环找出 Find 数组中最小值的索引，外层的 while 在进行下一次循环时，会直接拿 N 的下一个元素与 Find 数组中的最小值进行比较。这样循环一遍之后，Find 数组中的最小值都被较大的数值替换，这时 Find 中存放的元素就是 N 中最大的 M 个数，这种思路的时间复杂度为O(n*logm)。这种实现方式可以将亿级数据量的运算时间控制在 100 毫秒内。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.sunzn.max;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Random;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FindMax</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        Random random = <span class="keyword">new</span> Random();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> n = <span class="number">100000000</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[] Pool = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            Pool[i] = random.nextInt(n);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        findMax(Pool, <span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">findMax</span><span class="params">(<span class="keyword">int</span>[] data, <span class="keyword">int</span> m)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">long</span> sTime = System.currentTimeMillis();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[] Find = <span class="keyword">new</span> <span class="keyword">int</span>[m];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> minIndex = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; Find.length; i++) &#123;</span><br><span class="line">            Find[i] = data[i];</span><br><span class="line">            <span class="keyword">if</span> (Find[minIndex] &gt; Find[i]) &#123;</span><br><span class="line">                minIndex = i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (m &lt; data.length) &#123;</span><br><span class="line">            <span class="keyword">if</span> (data[m] &gt; Find[minIndex]) &#123;</span><br><span class="line">                Find[minIndex] = data[m];</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; Find.length; i++) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (Find[minIndex] &gt; Find[i]) &#123;</span><br><span class="line">                        minIndex = i;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            m++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; Find.length; i++) &#123;</span><br><span class="line">            System.out.printf(<span class="string">"结果数据:"</span>);</span><br><span class="line">            System.out.printf(<span class="string">"%d"</span>, Find[i]);</span><br><span class="line">            System.out.printf(<span class="string">"\n"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">long</span> eTime = System.currentTimeMillis();</span><br><span class="line"></span><br><span class="line">        System.out.printf(<span class="string">"消耗时间:"</span> + (eTime - sTime) + <span class="string">"毫秒"</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2018/03/30/N-个无序数中找出最大的-M-个数/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/30/N-个无序数中找出最大的-M-个数/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
@@ -1102,11 +1100,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">组件化</a>
+                <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">File</a>
+                <a href="javascript:void(0)" class="js-tag color4">组件化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1126,15 +1124,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1143,6 +1137,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1162,11 +1160,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
+                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1194,11 +1192,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -166,6 +166,85 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Kotlin-中的内部类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/08/09/Kotlin-中的内部类/">Kotlin 中的内部类</a>
+    </h1>
+  
+
+        
+        <a href="/2023/08/09/Kotlin-中的内部类/" class="archive-article-date">
+  	<time datetime="2023-08-09T15:32:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>内部类也叫做嵌套类，在 Java 中是一个被大家经常使用到的东西。内部类除了匿名内部类外还分为三种：一种是可以被独立构造实例且和外部类完全剥离的<strong>静态内部类</strong>，一种是可以自由访问外部类成员变量和方法的<strong>成员内部类</strong>，一种是作用域和生命周期都只处在一个方法中的<strong>方法内部类</strong>，但这种内部类我们不讨论。</p>
+<p>在 Kotlin 中，内部类默认是<strong>静态内部类</strong>，只有用 <code>inner</code> 修饰符声明静态内部类，才能让 Kotlin 中默认的<strong>静态内部类</strong>变为非静态的<strong>成员内部类</strong>。</p>
+<h1 id="1-静态内部类"><a href="#1-静态内部类" class="headerlink" title="1 静态内部类"></a>1 静态内部类</h1><p>Kotlin 中，类可以嵌套。一个类可以嵌套在其他类中，而且可以嵌套多层。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NestedClass</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Outer</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">val</span> zero: <span class="built_in">Int</span> = <span class="number">0</span></span><br><span class="line">        <span class="keyword">val</span> one: <span class="built_in">Int</span> = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="class"><span class="keyword">class</span> <span class="title">Inner</span> </span>&#123;</span><br><span class="line">            <span class="function"><span class="keyword">fun</span> <span class="title">getTwo</span><span class="params">()</span></span> = <span class="number">2</span></span><br><span class="line">            </span><br><span class="line">            <span class="class"><span class="keyword">class</span> <span class="title">Deep</span> </span>&#123;</span><br><span class="line">                <span class="keyword">val</span> three = <span class="number">3</span></span><br><span class="line">                <span class="function"><span class="keyword">fun</span> <span class="title">getFour</span><span class="params">()</span></span> = <span class="number">4</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2023/08/09/Kotlin-中的内部类/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/08/09/Kotlin-中的内部类/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Kotlin-中的扩展函数与属性" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1012,82 +1091,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Android-依赖模块分组" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/09/24/Android-依赖模块分组/">Android 依赖模块分组</a>
-    </h1>
-  
-
-        
-        <a href="/2022/09/24/Android-依赖模块分组/" class="archive-article-date">
-  	<time datetime="2022-09-23T16:32:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Android 项目在经历了长期的迭代开发后，必然会寻求各模块间的逻辑独立和解耦，以降低维护成本，提高代码的可读性。抛开动态下发与动态加载技术，多数研发人员会将一些可模块化的独立逻辑抽取出来，以 Android Library Module 的形式引入到项目中。随着抽取的类库越来越多，Application 和 Library 并列共存，代码维护会异常混乱。为了改善这种情况，Android Studio 提供了将模块放置在子文件夹中的语法。</p>
-        
-          <a class="article-more-a" href="/2022/09/24/Android-依赖模块分组/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">组件化</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/09/24/Android-依赖模块分组/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1210,11 +1213,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">组件化</a>
+                <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">File</a>
+                <a href="javascript:void(0)" class="js-tag color4">组件化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1234,15 +1237,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1251,6 +1250,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1270,11 +1273,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
+                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1302,11 +1305,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
               <li class="article-tag-list-item">
