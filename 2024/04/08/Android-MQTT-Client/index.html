@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://image.sunzn.com/blog/20240409144801.png">
 <meta property="og:image" content="https://image.sunzn.com/blog/20240409144802.png">
 <meta property="og:image" content="https://image.sunzn.com/blog/20240409144803.png">
-<meta property="og:updated_time" content="2024-04-08T12:50:27.312Z">
+<meta property="og:updated_time" content="2024-04-08T12:54:31.568Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android MQTT Client">
 <meta name="twitter:description" content="在上篇《ActiveMQ MQTT Server 搭建》中我们已经搭建好了 MQTT Server，本篇我们将在 Android 上建立 MQTT Client 与 MQTT Server 进行通讯。 1. 执行流程1.1 引入依赖在 build.gradle 中引入依赖项。 123456789101112131415 android &amp;#123;     ... &amp;#125;  reposito">
@@ -207,7 +207,7 @@ var _hmt = _hmt || [];
 <blockquote>
 <p><font style="color:#BF360C;font-size:14px;"><strong>✦ 注意：</strong> 回调的四个方法中，不能进行 UI 的更新操作，可使用 Handler 进行 UI 的更新操作。</font></p>
 </blockquote>
-<h2 id="1-4-初始化-MQTT-Client"><a href="#1-4-初始化-MQTT-Client" class="headerlink" title="1.4 初始化 MQTT Client"></a>1.4 初始化 MQTT Client</h2><p>在『ActiveMQ MQTT Server 搭建』中，服务启动成功后会在控制台输出 MQTT 的监听信息，该信息包含主机名及端口号，如下图所示，MQTT Server 的地址应设置为：tcp://xxx.xxx.xxx.xxx:1883，其中 1883 为端口号，前面为对应服务器的 IP。</p>
+<h2 id="1-4-初始化-MQTT-Client"><a href="#1-4-初始化-MQTT-Client" class="headerlink" title="1.4 初始化 MQTT Client"></a>1.4 初始化 MQTT Client</h2><p>在《ActiveMQ MQTT Server 搭建》中，服务启动成功后会在控制台输出 MQTT 的监听信息，该信息包含主机名及端口号，如下图所示，MQTT Server 的地址应设置为：tcp://xxx.xxx.xxx.xxx:1883，其中 1883 为端口号，前面为对应服务器的 IP。</p>
 <p><img src="https://image.sunzn.com/blog/20240409144801.png" alt="此处输入图片的描述"></p>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">var</span> mMqttClient: MqttAsyncClient? = <span class="literal">null</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">val</span> host = <span class="string">"tcp://192.168.0.98:1883"</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">val</span> mClientID = <span class="string">"xx:xx:xx:xx:xx:xx"</span></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="literal">null</span> == mMqttClient) &#123;</span><br><span class="line">    mMqttClient = MQTTUtils.initClient(host, mClientID, MqttCallback())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -533,15 +533,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -673,10 +673,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Version</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Crack</a>
               </li>
              
@@ -690,6 +686,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Burpsuite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Version</a>
               </li>
              
               <li class="article-tag-list-item">
