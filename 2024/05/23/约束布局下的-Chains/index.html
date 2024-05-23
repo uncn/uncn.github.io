@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://image.sunzn.com/blog/20240523210801.png">
 <meta property="og:image" content="https://image.sunzn.com/blog/20240523210802.png">
 <meta property="og:image" content="https://image.sunzn.com/blog/20240523210803.png">
-<meta property="og:updated_time" content="2024-05-23T13:19:52.923Z">
+<meta property="og:updated_time" content="2024-05-23T13:27:41.768Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="约束布局下的 Chains">
 <meta name="twitter:description" content="1. 什么是 Chains 链Chains 是一种特定类型的约束，它允许我们在链内的视图之间共享空间，并控制可用空间在它们之间的划分方式。与传统 Android 布局最相似的应该是 LinearLayout 中的权重比 weight 属性，但 Chains 能做到的要远远比 weight 多。 2. Chain 链模式前面已经提到了 Chain 链是由多个 View 组成的，所以要创建一个 Cha">
@@ -204,7 +204,7 @@ var _hmt = _hmt || [];
     <td style="vertical-align: middle;">spread</td>
     <td>Chain 链的默认模式就是 spread 模式，它将平分间隙让多个 Views 布局到剩余空间。</td>
 </tr>
-<tr style="text-align:left;background-color:#F8F8F8">
+<tr style="text-align:left;background-color:#EFEFEF">
     <th colspan="2" align="left">图例</th>
 </tr>
 <tr>
@@ -227,7 +227,7 @@ var _hmt = _hmt || [];
     <td style="vertical-align: middle;">spread_inside</td>
     <td>Chain 链的另一个模式就是 spread inside 模式，它会把最边缘的两个 View 到外向父组件边缘的距离去除，然后让剩余的 Views 在剩余的空间内平分间隙布局。</td>
 </tr>
-<tr style="text-align:left;background-color:#F8F8F8">
+<tr style="text-align:left;background-color:#EFEFEF">
     <th colspan="2" align="left">图例</th>
 </tr>
 <tr>
@@ -248,7 +248,7 @@ var _hmt = _hmt || [];
     <td style="vertical-align: middle;">packed</td>
     <td>最后一种模式是 packed ，它将所有 Views 打包到一起不分配多余的间隙（当然不包括通过 margin 设置多个 Views 之间的间隙），然后将整个组件组在可用的剩余位置居中。</td>
 </tr>
-<tr style="text-align:left;background-color:#F8F8F8">
+<tr style="text-align:left;background-color:#EFEFEF">
     <th colspan="2" align="left">图例</th>
 </tr>
 <tr>
@@ -523,14 +523,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Android</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">WebView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
               </li>
              
@@ -539,7 +531,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+                <a href="javascript:void(0)" class="js-tag color3">Android</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">WebView</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -551,11 +547,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">File</a>
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">组件化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -583,11 +583,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -599,11 +599,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ADB</a>
+                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+                <a href="javascript:void(0)" class="js-tag color4">ADB</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -611,11 +611,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
+                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -624,10 +628,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">View</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
               </li>
              
               <li class="article-tag-list-item">
