@@ -511,9 +511,56 @@ var _hmt = _hmt || [];
         <p>SQLite 导入大量数据的时候，可能会存在数据质量问题，例如字段前后有空格、回车换行，或者值为 NULL 等问题，这时就需要对这些问题数据进行清洗。本文将会结合真实的案例将数据清洗过程中用到的 SQL 罗列出来。</p>
 <h1 id="1-重置空值"><a href="#1-重置空值" class="headerlink" title="1. 重置空值"></a>1. 重置空值</h1><p>表中部分为 NULL 的数据如果需要重置成默认值或空字符串的时候，可以使用下面的语句，这里需要注意空值的判断条件。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> [<span class="keyword">Table</span>] <span class="keyword">SET</span> [<span class="keyword">Column</span>]=<span class="string">''</span> <span class="keyword">WHERE</span> [<span class="keyword">Column</span>] <span class="keyword">IS</span> <span class="literal">NULL</span></span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2022/10/19/SQLite-数据清洗/#more">more >></a>
-        
+
+<p>如果要将表中的多个为 NULL 的字段批量重置成默认值或空字符串的时候，可以使用下面的语句。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> [<span class="keyword">Table</span>] <span class="keyword">SET</span> </span><br><span class="line">[Column1]=<span class="keyword">IFNULL</span>([Column1], <span class="string">''</span>),</span><br><span class="line">[Column2]=<span class="keyword">IFNULL</span>([Column2], <span class="string">''</span>),</span><br><span class="line">[Column3]=<span class="keyword">IFNULL</span>([Column3], <span class="string">''</span>),</span><br><span class="line">[Column4]=<span class="keyword">IFNULL</span>([Column4], <span class="string">''</span>);</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-去除首尾"><a href="#2-去除首尾" class="headerlink" title="2. 去除首尾"></a>2. 去除首尾</h1><p>SQLite 语句是不能直接识别回车、换行、空格等特殊字符的，但却可以识别这些字符的十六进制表示。所以，想去除字段首尾的这些字符，就需要以这些字符的<a href="https://blog.csdn.net/mqdxiaoxiao/article/details/88757161" target="_blank" rel="noopener">十六进制</a>来表示。表格如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">序号</th>
+<th align="center">十六进制</th>
+<th align="center">缩写/字符</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">0x0A</td>
+<td align="center">LF (NL line feed, new line)</td>
+<td align="center">换行符</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">0x0D</td>
+<td align="center">CR (carriage return)</td>
+<td align="center">回车符</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">0x20</td>
+<td align="center">(space)</td>
+<td align="center">空格符</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">0x2F</td>
+<td align="center">/</td>
+<td align="center">斜杠</td>
+</tr>
+</tbody></table>
+<p>以下两图分别为字段的前后有换行符、空格的情况。为了明确表达字段的前后内容，这里特意在内容查看器里将整个字段内容都标记了出来。</p>
+<p><img src="https://image.sunzn.com/blog/20221019112301.png" alt="此处输入图片的描述"><br><img src="https://image.sunzn.com/blog/20221019112302.png" alt="此处输入图片的描述"></p>
+<p>执行如下 SQL 语句，继续用内容查看器查看修改后的内容，会发现字段首位的换行符、空格都被清除掉了。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> [<span class="keyword">Table</span>] <span class="keyword">SET</span> [<span class="keyword">Column</span>]=<span class="keyword">TRIM</span>([<span class="keyword">Column</span>], x<span class="string">'0A'</span>)   //　去除换行</span><br><span class="line"><span class="keyword">UPDATE</span> [<span class="keyword">Table</span>] <span class="keyword">SET</span> [<span class="keyword">Column</span>]=<span class="keyword">TRIM</span>([<span class="keyword">Column</span>], x<span class="string">'20'</span>)   //　去除空格</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://image.sunzn.com/blog/20221019112303.png" alt="此处输入图片的描述"></p>
+<h1 id="3-替换字符"><a href="#3-替换字符" class="headerlink" title="3. 替换字符"></a>3. 替换字符</h1><p>还有部分格式不一致的数据。例如，字段中的分隔符同时存在逗号和连接符，如果想将其统一成连接符该怎么操作呢？可以尝试下 REPLACE 语法将字段内的逗号替换为连接符。语句如下；</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> [<span class="keyword">Table</span>] <span class="keyword">SET</span> [<span class="keyword">Column</span>]=<span class="keyword">REPLACE</span>([<span class="keyword">Column</span>],<span class="string">','</span>,<span class="string">'-'</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://image.sunzn.com/blog/20221019112304.png" alt="此处输入图片的描述"><br><img src="https://image.sunzn.com/blog/20221019112305.png" alt="此处输入图片的描述"></p>
+
       
 
       
@@ -1161,15 +1208,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebView</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1217,10 +1264,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
@@ -1230,6 +1273,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1253,11 +1300,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
+                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
+                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
               </li>
              
               <li class="article-tag-list-item">
