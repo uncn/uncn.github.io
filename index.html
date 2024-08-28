@@ -856,8 +856,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这篇文章得从一个 BUG 说起，UI 是由 Viewpager2 嵌套两个 Fragment 构成的。然而，就是这再平常不过的功能以及接近模版化的代码，竟然因为偷懒产生了异常。为了省去繁琐的 Arguments 传值，在 Fragment 的实例化过程中增加了有参构造函数。正是这一操作为后续的应用奔溃埋下了坑，Fragment 源码正在等待合适的时机将异常抛出。</p>
-<h1 id="1-奔溃信息"><a href="#1-奔溃信息" class="headerlink" title="1. 奔溃信息"></a>1. 奔溃信息</h1><p>采用有参构造函数实例化 Fragment 后，进行了功能测试。由于在测试过程中应用一直在前台，所以也就没有发现这一BUG，但当应用上线后，陆续收到了应用奔溃的反馈，查看 BUG 统计得到了如下的奔溃信息：</p>
+        <p>这篇文章得从一个 BUG 说起，UI 是由 Viewpager2 嵌套两个 Fragment 构成的。然而，就是这再平常不过的功能以及接近模版化的代码，竟然因为偷懒产生了异常。为了省去繁琐的 Arguments 传值，在 Fragment 的实例化过程中增加了有参构造函数。正是这一操作为后续的应用崩溃埋下了坑，Fragment 源码正在等待合适的时机将异常抛出。</p>
+<h1 id="1-崩溃信息"><a href="#1-崩溃信息" class="headerlink" title="1. 崩溃信息"></a>1. 崩溃信息</h1><p>采用有参构造函数实例化 Fragment 后，进行了功能测试。由于在测试过程中应用一直在前台，所以也就没有发现这一BUG，但当应用上线后，陆续收到了应用崩溃的反馈，查看 BUG 统计得到了如下的崩溃信息：</p>
         
           <a class="article-more-a" href="/2023/05/04/为什么-Fragment-需要一个无参构造函数/#more">more >></a>
         
@@ -1115,6 +1115,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -1123,11 +1127,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+                <a href="javascript:void(0)" class="js-tag color4">组件化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1139,10 +1143,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">组件化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
@@ -1151,11 +1151,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Fiddler</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">Fiddler</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1175,10 +1175,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
@@ -1187,11 +1183,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ADB</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ADB</a>
               </li>
              
               <li class="article-tag-list-item">

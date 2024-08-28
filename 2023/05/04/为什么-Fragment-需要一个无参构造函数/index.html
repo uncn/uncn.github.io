@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>为什么 Fragment 需要一个无参构造函数 | Welcome to sunzn&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这篇文章得从一个 BUG 说起，UI 是由 Viewpager2 嵌套两个 Fragment 构成的。然而，就是这再平常不过的功能以及接近模版化的代码，竟然因为偷懒产生了异常。为了省去繁琐的 Arguments 传值，在 Fragment 的实例化过程中增加了有参构造函数。正是这一操作为后续的应用奔溃埋下了坑，Fragment 源码正在等待合适的时机将异常抛出。 1. 奔溃信息采用有参构造函数实例">
+  <meta name="description" content="这篇文章得从一个 BUG 说起，UI 是由 Viewpager2 嵌套两个 Fragment 构成的。然而，就是这再平常不过的功能以及接近模版化的代码，竟然因为偷懒产生了异常。为了省去繁琐的 Arguments 传值，在 Fragment 的实例化过程中增加了有参构造函数。正是这一操作为后续的应用崩溃埋下了坑，Fragment 源码正在等待合适的时机将异常抛出。 1. 崩溃信息采用有参构造函数实例">
 <meta name="keywords" content="Fragment">
 <meta property="og:type" content="article">
 <meta property="og:title" content="为什么 Fragment 需要一个无参构造函数">
 <meta property="og:url" content="http://yoursite.com/2023/05/04/为什么-Fragment-需要一个无参构造函数/index.html">
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
-<meta property="og:description" content="这篇文章得从一个 BUG 说起，UI 是由 Viewpager2 嵌套两个 Fragment 构成的。然而，就是这再平常不过的功能以及接近模版化的代码，竟然因为偷懒产生了异常。为了省去繁琐的 Arguments 传值，在 Fragment 的实例化过程中增加了有参构造函数。正是这一操作为后续的应用奔溃埋下了坑，Fragment 源码正在等待合适的时机将异常抛出。 1. 奔溃信息采用有参构造函数实例">
+<meta property="og:description" content="这篇文章得从一个 BUG 说起，UI 是由 Viewpager2 嵌套两个 Fragment 构成的。然而，就是这再平常不过的功能以及接近模版化的代码，竟然因为偷懒产生了异常。为了省去繁琐的 Arguments 传值，在 Fragment 的实例化过程中增加了有参构造函数。正是这一操作为后续的应用崩溃埋下了坑，Fragment 源码正在等待合适的时机将异常抛出。 1. 崩溃信息采用有参构造函数实例">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2023-05-04T13:48:27.862Z">
+<meta property="og:updated_time" content="2024-08-28T11:34:32.411Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="为什么 Fragment 需要一个无参构造函数">
-<meta name="twitter:description" content="这篇文章得从一个 BUG 说起，UI 是由 Viewpager2 嵌套两个 Fragment 构成的。然而，就是这再平常不过的功能以及接近模版化的代码，竟然因为偷懒产生了异常。为了省去繁琐的 Arguments 传值，在 Fragment 的实例化过程中增加了有参构造函数。正是这一操作为后续的应用奔溃埋下了坑，Fragment 源码正在等待合适的时机将异常抛出。 1. 奔溃信息采用有参构造函数实例">
+<meta name="twitter:description" content="这篇文章得从一个 BUG 说起，UI 是由 Viewpager2 嵌套两个 Fragment 构成的。然而，就是这再平常不过的功能以及接近模版化的代码，竟然因为偷懒产生了异常。为了省去繁琐的 Arguments 传值，在 Fragment 的实例化过程中增加了有参构造函数。正是这一操作为后续的应用崩溃埋下了坑，Fragment 源码正在等待合适的时机将异常抛出。 1. 崩溃信息采用有参构造函数实例">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -189,8 +189,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这篇文章得从一个 BUG 说起，UI 是由 Viewpager2 嵌套两个 Fragment 构成的。然而，就是这再平常不过的功能以及接近模版化的代码，竟然因为偷懒产生了异常。为了省去繁琐的 Arguments 传值，在 Fragment 的实例化过程中增加了有参构造函数。正是这一操作为后续的应用奔溃埋下了坑，Fragment 源码正在等待合适的时机将异常抛出。</p>
-<h1 id="1-奔溃信息"><a href="#1-奔溃信息" class="headerlink" title="1. 奔溃信息"></a>1. 奔溃信息</h1><p>采用有参构造函数实例化 Fragment 后，进行了功能测试。由于在测试过程中应用一直在前台，所以也就没有发现这一BUG，但当应用上线后，陆续收到了应用奔溃的反馈，查看 BUG 统计得到了如下的奔溃信息：</p>
+        <p>这篇文章得从一个 BUG 说起，UI 是由 Viewpager2 嵌套两个 Fragment 构成的。然而，就是这再平常不过的功能以及接近模版化的代码，竟然因为偷懒产生了异常。为了省去繁琐的 Arguments 传值，在 Fragment 的实例化过程中增加了有参构造函数。正是这一操作为后续的应用崩溃埋下了坑，Fragment 源码正在等待合适的时机将异常抛出。</p>
+<h1 id="1-崩溃信息"><a href="#1-崩溃信息" class="headerlink" title="1. 崩溃信息"></a>1. 崩溃信息</h1><p>采用有参构造函数实例化 Fragment 后，进行了功能测试。由于在测试过程中应用一直在前台，所以也就没有发现这一BUG，但当应用上线后，陆续收到了应用崩溃的反馈，查看 BUG 统计得到了如下的崩溃信息：</p>
 <a id="more"></a>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">************* Crash Head ****************</span><br><span class="line">Time Of Crash      : 2023_05_03-13_43_10</span><br><span class="line">Rom Info           : RomInfo&#123;name=huawei, version=13.0.0&#125;</span><br><span class="line">Device Manufacturer: HUAWEI</span><br><span class="line">Device Model       : LIO-AN00</span><br><span class="line">Android Version    : 12</span><br><span class="line">Android SDK        : 31</span><br><span class="line">App VersionName    : 2.10.1</span><br><span class="line">App VersionCode    : 210100</span><br><span class="line">************* Crash Head ****************</span><br><span class="line"></span><br><span class="line">java.lang.NoSuchMethodException: com.sunzn.memo.hold.WOK0400ViewHolder$ItemFragment.&lt;init&gt; []</span><br><span class="line">	at java.lang.Class.getConstructor0(Class.java:2363)</span><br><span class="line">	at java.lang.Class.getConstructor(Class.java:1759)</span><br><span class="line">	at androidx.fragment.app.Fragment.instantiate(Fragment.java:548)</span><br><span class="line"> Caused by: androidx.fragment.app.Fragment$InstantiationException: Unable to instantiate fragment com.sunzn.memo.hold.WOK0400ViewHolder$ItemFragment: could not find Fragment constructor</span><br><span class="line">	at androidx.fragment.app.Fragment.instantiate(Fragment.java:563)</span><br><span class="line">	at androidx.fragment.app.FragmentContainer.instantiate(FragmentContainer.java:57)</span><br><span class="line">	at androidx.fragment.app.FragmentManager$3.instantiate(FragmentManager.java:390)</span><br><span class="line">	at androidx.fragment.app.FragmentStateManager.&lt;init&gt;(FragmentStateManager.java:74)</span><br><span class="line">	at androidx.fragment.app.FragmentManager.restoreSaveState(FragmentManager.java:2466)</span><br><span class="line">	at androidx.fragment.app.Fragment.restoreChildFragmentState(Fragment.java:1707)</span><br><span class="line">	at androidx.fragment.app.Fragment.onCreate(Fragment.java:1684)</span><br><span class="line">	at com.sunzn.base.fragment.CommonBaseFragment.onCreate(CommonBaseFragment.java:146)</span><br><span class="line">	at com.sunzn.base.fragment.BranchFragment.onCreate(BranchFragment.kt:46)</span><br><span class="line">	at androidx.fragment.app.Fragment.performCreate(Fragment.java:2685)</span><br><span class="line">	at androidx.fragment.app.FragmentStateManager.create(FragmentStateManager.java:280)</span><br><span class="line">	at androidx.fragment.app.FragmentManager.moveToState(FragmentManager.java:1187)</span><br><span class="line">	at androidx.fragment.app.FragmentManager.moveToState(FragmentManager.java:1368)</span><br><span class="line">	at androidx.fragment.app.FragmentManager.moveFragmentToExpectedState(FragmentManager.java:1446)</span><br><span class="line">	at androidx.fragment.app.FragmentManager.moveToState(FragmentManager.java:1509)</span><br><span class="line">	at androidx.fragment.app.FragmentManager.dispatchStateChange(FragmentManager.java:2637)</span><br><span class="line">	at androidx.fragment.app.FragmentManager.dispatchCreate(FragmentManager.java:2583)</span><br><span class="line">	at androidx.fragment.app.FragmentController.dispatchCreate(FragmentController.java:236)</span><br><span class="line">	at androidx.fragment.app.FragmentActivity.onCreate(FragmentActivity.java:315)</span><br><span class="line">	at com.rk.module.ui_base.activity.CommonBaseActivity.onCreate(CommonBaseActivity.java:167)</span><br><span class="line">	at android.app.Activity.performCreate(Activity.java:8488)</span><br><span class="line">	at android.app.Activity.performCreate(Activity.java:8461)</span><br><span class="line">	at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1343)</span><br><span class="line">	at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:4602)</span><br></pre></td></tr></table></figure>
@@ -356,7 +356,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-奔溃信息"><span class="toc-number">1.</span> <span class="toc-text">1. 奔溃信息</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-查找原因"><span class="toc-number">2.</span> <span class="toc-text">2. 查找原因</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-解决办法"><span class="toc-number">3.</span> <span class="toc-text">3. 解决办法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-后续"><span class="toc-number">4.</span> <span class="toc-text">4. 后续</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-崩溃信息"><span class="toc-number">1.</span> <span class="toc-text">1. 崩溃信息</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-查找原因"><span class="toc-number">2.</span> <span class="toc-text">2. 查找原因</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-解决办法"><span class="toc-number">3.</span> <span class="toc-text">3. 解决办法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-后续"><span class="toc-number">4.</span> <span class="toc-text">4. 后续</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -473,6 +473,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -481,11 +485,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+                <a href="javascript:void(0)" class="js-tag color4">组件化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -497,10 +501,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">组件化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
@@ -509,11 +509,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Fiddler</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">Fiddler</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -533,10 +533,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
@@ -545,11 +541,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ADB</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ADB</a>
               </li>
              
               <li class="article-tag-list-item">
