@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="委托模式是软件设计模式中的一项基本技巧。在委托模式中，有两个对象参与处理同一个请求，接受请求的对象将请求委托给另一个对象来处理。Kotlin 直接支持委托模式，更加优雅，简洁，在 Kotlin 中，通过关键字 by 实现委托。 通过委托方式实现接口的方法，实际上是通过动态代理的方式创建一个接口的实现类对象，并委托给要实现这个接口的类，减少接口不需要的方法的重写。 1. 类委托类的委托即一个类中定义">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2025-01-15T15:37:07.197Z">
+<meta property="og:updated_time" content="2025-01-15T15:42:38.364Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kotlin 通过委托实现接口方法">
 <meta name="twitter:description" content="委托模式是软件设计模式中的一项基本技巧。在委托模式中，有两个对象参与处理同一个请求，接受请求的对象将请求委托给另一个对象来处理。Kotlin 直接支持委托模式，更加优雅，简洁，在 Kotlin 中，通过关键字 by 实现委托。 通过委托方式实现接口的方法，实际上是通过动态代理的方式创建一个接口的实现类对象，并委托给要实现这个接口的类，减少接口不需要的方法的重写。 1. 类委托类的委托即一个类中定义">
@@ -194,7 +194,7 @@ var _hmt = _hmt || [];
 <h1 id="1-类委托"><a href="#1-类委托" class="headerlink" title="1. 类委托"></a>1. 类委托</h1><p>类的委托即一个类中定义的方法实际是调用另一个类的对象的方法来实现的。以下实例中派生类 Leader 继承了接口 Work 所有方法，并且委托一个传入的 Clerk 类的对象来执行这些方法。</p>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建接口</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Work</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">work</span><span class="params">()</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实现此接口的被委托的类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Clerk</span> : <span class="type">Work &#123;</span></span></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">work</span><span class="params">()</span></span> &#123; println(<span class="string">"Clerk is working"</span>) &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过关键字 by 建立委托类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Leader</span></span>(clerk: Clerk) : Work <span class="keyword">by</span> clerk</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> clerk = Clerk()</span><br><span class="line">    Leader(clerk).work()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">------------------------------------</span><br><span class="line">输出：Clerk car <span class="keyword">is</span> working</span><br></pre></td></tr></table></figure>
 
-<p>在 Leader 的声明中，by 字句表示，将 clerk 保存在 Leader 的对象实例内部，而且编译器将会生成继承自 Work 接口的所有方法, 并将调用转发给 clerk。</p>
+<p>在 Leader 的声明中，by 关键字表示，将 clerk 保存在 Leader 的对象实例内部，而且编译器将会生成继承自 Work 接口的所有方法, 并将调用转发给 clerk。</p>
 <a id="more"></a>
 
 <h1 id="2-动态代理"><a href="#2-动态代理" class="headerlink" title="2. 动态代理"></a>2. 动态代理</h1><p>动态代理允许你在运行时动态地创建代理对象，从而在方法调用前后执行额外的操作。其核心思想是创建一个代理对象来代替原始对象。这个代理对象实现了与原始对象相同的接口，但它可以拦截对原始对象方法的调用，并在调用前后执行自定义的逻辑。与静态代理不同，动态代理不需要在编译时就确定代理类，而是在运行时动态生成。</p>
@@ -461,6 +461,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -470,10 +474,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -493,15 +493,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Fiddler</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">组件化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -513,15 +513,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -530,6 +526,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
