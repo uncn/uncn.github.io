@@ -166,6 +166,98 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Android-5-0-行为变更对-WebView-的影响" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/24/Android-5-0-行为变更对-WebView-的影响/">Android 5.0 行为变更对 WebView 的影响</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/24/Android-5-0-行为变更对-WebView-的影响/" class="archive-article-date">
+  	<time datetime="2018-01-24T10:09:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Android 5.0 行为变更已经好长时间了，之前进行 WebView 的开发一直没有出现问题，所有也就没有关注这次行为变更对 WebVie 带来的影响。直到要为一个视频网站开发的 APP 里嵌入 WebView 进行音视频播放，才发现问题所在。大概描述一下情况：视频网站使用了 HTTPS 加密，但视频资源采用的是 HTTP，几经测试，发现网站取消 HTTPS 加密后，WebView 就可以正常加载视频了。于是就顺藤摸瓜，有了这篇文章。开始文章之前，先来看看 Google 官方的描述 <a href="https://developer.android.com/about/versions/android-5.0-changes.html#BehaviorWebView" target="_blank" rel="noopener">Android 5.0 行为变更之 WebView</a>。</p>
+<h1 id="1-WebView-行为变更"><a href="#1-WebView-行为变更" class="headerlink" title="1. WebView 行为变更"></a>1. WebView 行为变更</h1><p>Android 5.0 更改了应用的默认行为。</p>
+<ul>
+<li><strong>如果您的应用是面向 API 级别 21 或更高级别：</strong><ul>
+<li>默认情况下，系统会阻止混合内容和第三方 Cookie。要允许混合内容和第三方 Cookie，请分别使用 <a href="https://developer.android.com/reference/android/webkit/WebSettings.html#setMixedContentMode%28int%29" target="_blank" rel="noopener">setMixedContentMode()</a> 和 <a href="https://developer.android.com/reference/android/webkit/CookieManager.html#setAcceptThirdPartyCookies%28android.webkit.WebView,%20boolean%29" target="_blank" rel="noopener">setAcceptThirdPartyCookies()</a> 方法。</li>
+<li>系统现在可以智能地选择要绘制的 HTML 文档部分。这个新的默认行为有助于减少内存占用和提升性能。如果您要一次渲染整个文档，可通过调用 <a href="https://developer.android.com/reference/android/webkit/WebView.html#enableSlowWholeDocumentDraw%28%29" target="_blank" rel="noopener">enableSlowWholeDocumentDraw()</a> 停用此优化。</li>
+</ul>
+</li>
+<li><strong>如果您的应用是面向低于  21 的 API 级别：</strong><ul>
+<li>系统允许混合内容和第三方 Cookie，并始终一次渲染整个文档。</li>
+</ul>
+</li>
+</ul>
+        
+          <a class="article-more-a" href="/2018/01/24/Android-5-0-行为变更对-WebView-的影响/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">WebView</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/24/Android-5-0-行为变更对-WebView-的影响/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-SQLite-存储类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -975,84 +1067,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-如何从-SQLite-的现有表中添加或删除列" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/17/如何从-SQLite-的现有表中添加或删除列/">如何从 SQLite 的现有表中添加或删除列</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/17/如何从-SQLite-的现有表中添加或删除列/" class="archive-article-date">
-  	<time datetime="2017-11-17T15:16:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>SQLite 对 ALTER TABLE 的支持有限，你可以用它来将列添加到表的末尾或更改表的名称。如果要对表的结构进行更复杂的更改，则必须重新创建表。你可以将现有数据保存到临时表中，删除旧表，创建新表，然后从临时表中复制数据。</p>
-<p>例如，假设你有一个名为 “t1” 的表，有 “a”、”b”、”c” 三列，并且你希望从该表中删除 “c” 列。以下步骤说明如何做到这一点：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">BEGIN</span> <span class="keyword">TRANSACTION</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TEMPORARY</span> <span class="keyword">TABLE</span> t1_backup(a,b);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> t1_backup <span class="keyword">SELECT</span> a,b <span class="keyword">FROM</span> t1;</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> t1;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> t1(a,b);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> t1 <span class="keyword">SELECT</span> a,b <span class="keyword">FROM</span> t1_backup;</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> t1_backup;</span><br><span class="line"><span class="keyword">COMMIT</span>;</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2017/11/17/如何从-SQLite-的现有表中添加或删除列/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SQLite</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/17/如何从-SQLite-的现有表中添加或删除列/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
@@ -1159,11 +1173,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1179,19 +1193,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">组件化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
+                <a href="javascript:void(0)" class="js-tag color3">Fiddler</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Fiddler</a>
+                <a href="javascript:void(0)" class="js-tag color4">组件化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1211,7 +1225,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1223,7 +1237,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1239,11 +1253,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
+                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1251,11 +1265,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
+                <a href="javascript:void(0)" class="js-tag color5">View</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">View</a>
+                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1295,6 +1309,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Version</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Crack</a>
               </li>
              
@@ -1308,10 +1326,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Burpsuite</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Version</a>
               </li>
              
               <li class="article-tag-list-item">

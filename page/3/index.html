@@ -166,6 +166,108 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Android-DataBinding（三）单向绑定-BaseObservable" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/11/19/Android-DataBinding（三）单向绑定-BaseObservable/">Android DataBinding（三）单向绑定-BaseObservable</a>
+    </h1>
+  
+
+        
+        <a href="/2021/11/19/Android-DataBinding（三）单向绑定-BaseObservable/" class="archive-article-date">
+  	<time datetime="2021-11-19T14:28:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>单向绑定刷新 UI 有三种方式：<a href="https://developer.android.google.cn/reference/android/databinding/BaseObservable" target="_blank" rel="noopener">BaseObservable</a>、<a href="https://developer.android.google.cn/reference/android/databinding/ObservableField" target="_blank" rel="noopener">ObservableField</a>、ObservableCollection。</p>
+<table>
+<tr>
+    <th align="left" colspan="2">BaseObservable</th>
+</tr>
+<tr>
+    <td colspan="2">BaseObservable 提供了两个刷新 UI 的方法：notifyPropertyChanged、notifyChange。</td>
+</tr>
+<tr>
+    <th align="left" colspan="2">方法说明</th>
+</tr>
+<tr>
+    <td>notifyPropertyChanged(int fieldId)</td>
+    <td>通知侦听器此实例的特定属性已更改</td>
+</tr>
+<tr>
+    <td>notifyChange()</td>
+    <td>通知监听器此实例的所有属性已更改</td>
+</tr>
+</table>
+
+<p>在局部 UI 的刷新过程中，<code>notifyPropertyChanged()</code> 需要传入一个 int 类型的参数，这个参数就是 <code>fieldId</code>，指的就是特定属性名对应的 ID。这里要注意的是，这个属性必须是 <code>public</code> 类型，并且被 <code>@Bindable</code> 注解进行修饰，否则会报错。本例中以 <code>User</code> 类的 <code>name</code> 属性进行局部 UI 刷新测试，代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.sunzn.bind;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> androidx.databinding.BaseObservable;</span><br><span class="line"><span class="keyword">import</span> androidx.databinding.Bindable;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.sunzn.data.BR;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">extends</span> <span class="title">BaseObservable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bindable</span></span><br><span class="line">    <span class="keyword">public</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">(<span class="keyword">int</span> id, String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(<span class="keyword">int</span> id)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">        notifyChange();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        notifyPropertyChanged(BR.name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><font style="color:#BF360C;font-size:14px;"><strong>✦ 注意：</strong> BR 类在导包的时候需选择项目包名。</font></p>
+</blockquote>
+        
+          <a class="article-more-a" href="/2021/11/19/Android-DataBinding（三）单向绑定-BaseObservable/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">DataBinding</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/11/19/Android-DataBinding（三）单向绑定-BaseObservable/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Android-DataBinding（二）进阶用法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -951,92 +1053,6 @@ A super B 表示 A 是 B 的父类或者祖先，在 B 的上面。</code></pre>
 
 
   
-    <article id="post-Kotlin-中的-Elvis-操作符" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/08/Kotlin-中的-Elvis-操作符/">Kotlin 中的 Elvis 操作符 ?:</a>
-    </h1>
-  
-
-        
-        <a href="/2020/01/08/Kotlin-中的-Elvis-操作符/" class="archive-article-date">
-  	<time datetime="2020-01-08T12:48:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在 Kotlin 中，<font style="color:#01579B;">Elvis 操作符特定是跟 null 进行比较</font>。也就是说</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> y = x ?: <span class="number">0</span>                                          <span class="comment">// 使用 Elvis 操作符 ?:</span></span><br></pre></td></tr></table></figure>
-
-<p>等价于</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> y = <span class="keyword">if</span> (x !== <span class="literal">null</span>) x <span class="keyword">else</span> <span class="number">0</span>                        <span class="comment">// 等价的 if...else 逻辑</span></span><br></pre></td></tr></table></figure>
-
-<p>主要用来做 <code>null</code> 安全性检查。</p>
-<p>Elvis 操作符 <code>?:</code> 是一个二元运算符，如果第一个操作数为真，则返回第一个操作数，否则将计算并返回其第二个操作数。它是三元条件运算符的变体，Kotlin 中没有类似 <code>true? 1 : 0</code> 这样的三元运算符，取而代之的是  <code>if(true) 1 else 0</code> 。而 Elvis 操作符算是精简版的三元运算符。</p>
-<blockquote>
-<p><font style="color:#BF360C;font-size:14px;"><strong>注意</strong>：这里所说的 Elvis 操作符是精简版的三元运算符是一种狭义的概念，因为 Elvis 操作符仅限于跟 null 进行比较，是广义三元运算符中的一个特例。</font></p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2020/01/08/Kotlin-中的-Elvis-操作符/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/08/Kotlin-中的-Elvis-操作符/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
@@ -1143,11 +1159,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1163,19 +1179,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">组件化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
+                <a href="javascript:void(0)" class="js-tag color3">Fiddler</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Fiddler</a>
+                <a href="javascript:void(0)" class="js-tag color4">组件化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1195,7 +1211,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1207,7 +1223,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1223,11 +1239,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
+                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1235,11 +1251,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
+                <a href="javascript:void(0)" class="js-tag color5">View</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">View</a>
+                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1279,6 +1295,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Version</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Crack</a>
               </li>
              
@@ -1292,10 +1312,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Burpsuite</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Version</a>
               </li>
              
               <li class="article-tag-list-item">
