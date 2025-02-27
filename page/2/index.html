@@ -166,6 +166,85 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Kotlin-中的数据操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/06/06/Kotlin-中的数据操作/">Kotlin 中的数据操作</a>
+    </h1>
+  
+
+        
+        <a href="/2023/06/06/Kotlin-中的数据操作/" class="archive-article-date">
+  	<time datetime="2023-06-06T15:09:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Kotlin 提供了丰富的数据处理功能，包括数据的映射、过滤、查找、排序、求和、字符连接、转换、循环等。这些功能可以帮助开发者更加方便地处理数据，而不用关心具体的实现过程，开发者可以将更多的关注放在业务逻辑本身。此外，这些功能还能极大简化代码，提升代码的可读性。下面是一些数据操作的常用模版代码：</p>
+<h1 id="1-映射操作"><a href="#1-映射操作" class="headerlink" title="1. 映射操作"></a>1. 映射操作</h1><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将集合转换为 MAP</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Member</span></span>(<span class="keyword">var</span> id: <span class="built_in">Int</span>, <span class="keyword">var</span> name: String)</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> <span class="keyword">data</span> = mutableListOf(</span><br><span class="line">    Member(<span class="number">1</span>, <span class="string">"Tom"</span>),</span><br><span class="line">    Member(<span class="number">2</span>, <span class="string">"Tim"</span>),</span><br><span class="line">    Member(<span class="number">3</span>, <span class="string">"Tom"</span>)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> map: Map&lt;<span class="built_in">Long</span>, Member&gt; = <span class="keyword">data</span>.associateBy &#123; it.id &#125;</span><br><span class="line"><span class="keyword">val</span> map: Map&lt;<span class="built_in">Long</span>, String&gt; = <span class="keyword">data</span>.associate &#123; it.id to it.name &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将集合中的元素按照某个条件分组，返回 MAP</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Member</span></span>(<span class="keyword">var</span> id: <span class="built_in">Int</span>, <span class="keyword">var</span> name: String)</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> <span class="keyword">data</span> = mutableListOf(</span><br><span class="line">    Member(<span class="number">1</span>, <span class="string">"Tom"</span>),</span><br><span class="line">    Member(<span class="number">2</span>, <span class="string">"Tim"</span>),</span><br><span class="line">    Member(<span class="number">3</span>, <span class="string">"Tom"</span>)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> map = <span class="keyword">data</span>.groupBy &#123; it.id &#125;</span><br><span class="line">map.forEach &#123;</span><br><span class="line">    print(<span class="string">"<span class="subst">$&#123;it.key&#125;</span> - <span class="subst">$&#123;it.value.count()&#125;</span>"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2023/06/06/Kotlin-中的数据操作/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/06/06/Kotlin-中的数据操作/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-为什么-Fragment-需要一个无参构造函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1012,84 +1091,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Android-Studio-离线安装-Lombok-插件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/07/Android-Studio-离线安装-Lombok-插件/">Android Studio 离线安装 Lombok 插件</a>
-    </h1>
-  
-
-        
-        <a href="/2022/03/07/Android-Studio-离线安装-Lombok-插件/" class="archive-article-date">
-  	<time datetime="2022-03-07T14:19:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>通常情况下，我们可以通过 IDE 的插件市场来完成 Lombok 插件的安装。如果网络受阻或新版 Lombok 插件没有及时在插件市场上线，再或者在插件市场搜索不到对应的插件，我们就可以通过离线方式来进行安装。步骤如下：</p>
-<p>1、在  <a href="https://github.com/mplushnikov/lombok-intellij-plugin/releases" target="_blank" rel="noopener">Lombok@Github</a> 或 <a href="https://plugins.jetbrains.com/plugin/6317-lombok/versions" target="_blank" rel="noopener">Lombok@JetBrains</a> 下载最新版本的 Lombok 插件。</p>
-<p><img src="https://image.sunzn.com/blog/20220303105701.png" alt="此处输入图片的描述"></p>
-        
-          <a class="article-more-a" href="/2022/03/07/Android-Studio-离线安装-Lombok-插件/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Lombok</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/07/Android-Studio-离线安装-Lombok-插件/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1188,10 +1189,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -1201,6 +1198,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1248,19 +1249,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1288,11 +1289,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
+                <a href="javascript:void(0)" class="js-tag color5">View</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">View</a>
+                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
               </li>
              
               <li class="article-tag-list-item">
