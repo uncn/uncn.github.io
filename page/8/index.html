@@ -166,6 +166,90 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-自定义-View（二）Paint-详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/23/自定义-View（二）Paint-详解/">自定义 View（二）Paint 详解</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/23/自定义-View（二）Paint-详解/" class="archive-article-date">
+  	<time datetime="2017-08-23T09:45:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>上一期已经介绍过， Canvas 的 drawXXX() 方法配合 <a href="https://developer.android.com/reference/android/graphics/Paint.html" target="_blank" rel="noopener">Paint</a> 的几个常用方法可以实现最常见的绘制需求；而如果你只会基本的绘制， Paint 的完全功能的掌握，能让你更进一步，做出一些更加细致、炫酷的效果。</p>
+<p>对于没有深入研究过 Paint 的人，这期是一个对 Paint 的诠释；而对于尝试过研究 Paint 但仍然对其中一些 API 有疑惑的人，这期也可以帮你解惑。下面进入正题：</p>
+<p>Paint 的 API 大致可以分为 4 类：颜色、效果、drawText() 相关、初始化。</p>
+<h1 id="1-颜色"><a href="#1-颜色" class="headerlink" title="1 颜色"></a>1 颜色</h1><p>Canvas 绘制的内容，有三层对颜色的处理：</p>
+<table><tr><td align="center" bgcolor="#F8F8F8"><b>分类</b></td><td align="center" bgcolor="#F8F8F8"><b>方法</b></td></tr><tr><td align="center" rowspan="3">基本颜色</td><td>Canvas.drawColor/ARGB()</td></tr><tr><td>Canvas.drawBitmap()</td></tr><tr><td>Canvas 图形和文字绘制</td></tr><tr><td align="center">ColorFilter</td><td>Paint.setColorFilter(ColorFilter)</td></tr><tr><td align="center">Xfermode</td><td>Paint.setXfermode(Xfermode)</td></tr></table>
+        
+          <a class="article-more-a" href="/2017/08/23/自定义-View（二）Paint-详解/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">View</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/23/自定义-View（二）Paint-详解/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-自定义-View（一）绘制基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -974,87 +1058,9 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Python（1-1）下载与安装-Python-3-6" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/05/Python（1-1）下载与安装-Python-3-6/">Python（1.1）下载与安装 Python 3.6</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/05/Python（1-1）下载与安装-Python-3-6/" class="archive-article-date">
-  	<time datetime="2017-08-05T11:08:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Python 诞生于 1991 年，而 Python 3.0 发布于 2008 年，新功能中最引人注目的是 Unicode 的支持，将 str/unicode 做了个结合，并明确地提供了另一个 bytes 类型，解决了许多人处理字符编码的问题，然而，其他语法与程序库方面的变更，也破坏了向后兼容性，导致许多基于 Python 2.x 的程序，无法直接在 Python 3.0 的环境中运行。</p>
-<p>使用 Python 不可不认识 Python 的创建者 Guido van Rossum，Guido 是首位享有 BDFL 封号的开放源码软件创建者，BDFL 全名为 Benevolent Dictator For Life，中文常翻译为「仁慈的独裁者」，意思是拥有这类称号的开放源码软件创建者，对社群仍持续关注，在必要时能针对社群中的意见与争议提出想法与做出最后裁决，Python 3.x 得以持续推进就是一个例子，因为 Python 3.x 正是 Guido van Rossum 的最爱，没有他的坚持，或许 Python 3.x 难以有今天的接受度。</p>
-<h3 id="一、下载与安装"><a href="#一、下载与安装" class="headerlink" title="一、下载与安装"></a>一、下载与安装</h3><p>下载 Python 需要到 Python 官方网站 <a href="https://www.python.org/" target="_blank" rel="noopener">www.python.org</a>，在首页的 「Downloads」选项中，会自动检测操作系统，直接列出可下载安装的文件：</p>
-        
-          <a class="article-more-a" href="/2017/08/05/Python（1-1）下载与安装-Python-3-6/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/05/Python（1-1）下载与安装-Python-3-6/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
     </nav>
   
 
@@ -1150,6 +1156,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -1162,15 +1172,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Android Studio</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Error</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1183,10 +1193,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">File</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1210,19 +1216,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1238,11 +1244,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
+                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1319,6 +1325,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Glide</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
               </li>
             
             <div class="clearfix"></div>

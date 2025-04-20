@@ -166,6 +166,107 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Java-泛型中-extends-和-super-的区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/11/Java-泛型中-extends-和-super-的区别/">Java 泛型中 extends 和 super 的区别</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/11/Java-泛型中-extends-和-super-的区别/" class="archive-article-date">
+  	<time datetime="2020-03-11T02:26:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在 Java 中，&lt;? extends T&gt; 和 &lt;? super T&gt; 是 Java 泛型中的「<strong>通配符</strong>」Wildcards 和「<strong>边界</strong>」Bounds的概念。</p>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">中文概念</th>
+<th align="center">英文概念</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">&lt;? extends T&gt;</td>
+<td align="center">上界通配符</td>
+<td align="center">Upper Bounds Wildcards</td>
+</tr>
+<tr>
+<td align="center">&lt;? super T&gt;</td>
+<td align="center">下界通配符</td>
+<td align="center">Lower Bounds Wildcards</td>
+</tr>
+</tbody></table>
+<p>Java 是单继承，所有继承的类构成一棵树。假设 A 和 B 都在一颗继承树里（否则 super，extend 这些词没意义）。</p>
+<pre><code>A extend B 表示 A 是 B 的子类或者子孙，在 B 下面。
+A super B 表示 A 是 B 的父类或者祖先，在 B 的上面。</code></pre><p>由于树这个结构上下是不对称的，所以这两种表达区别很大。假设有两个泛型写在了函数定义里，作为函数形参（形参和实参有区别）：</p>
+<pre><code>参数写成：T&lt;? extends B&gt;，由于指定了 B 为所有元素的“根”，你任何时候都可以安全的用 B 来使用容器里的元素，但是插入有问题，由于供奉 B 为祖先的子树有很多，不同子树并不兼容，由于实参可能来自于任何一颗子树，所以你的插入很可能破坏函数实参，所以，对这种写法的形参，禁止做插入操作，只做读取。
+
+参数写成：T&lt;? super B&gt;，对于这个泛型，? 代表容器里的元素类型，由于只规定了元素必须是 B 的超类，导致元素没有明确统一的“根”（除了 Object 这个必然的根），所以这个泛型你其实无法使用它，对吧，除了把元素强制转成 Object。所以，对把参数写成这样形态的函数，你函数体内，只能对这个泛型做插入操作，而无法读。</code></pre>
+        
+          <a class="article-more-a" href="/2020/03/11/Java-泛型中-extends-和-super-的区别/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Generics</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/11/Java-泛型中-extends-和-super-的区别/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Kotlin-中的-Constructor" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -956,91 +1057,9 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-自定义-View-感知事件的几种方式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/08/自定义-View-感知事件的几种方式/">自定义 View 感知事件的几种方式</a>
-    </h1>
-  
-
-        
-        <a href="/2018/11/08/自定义-View-感知事件的几种方式/" class="archive-article-date">
-  	<time datetime="2018-11-08T14:30:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-事件感知"><a href="#1-事件感知" class="headerlink" title="1 事件感知"></a>1 事件感知</h1><p>绝大多数情况下，View 是不需要感知外部组件的生命周期或系统事件的。但部分情况下，View 对外部事件的感知又是必要的，比如广告轮播组件：<a href="https://github.com/ShortStickBoy/Banner" target="_blank" rel="noopener">Banner</a>，这样的控件在设计之初就要考虑亮屏、息屏、Activity 的 onResume 和 onPause 生命周期，因为谁也不希望 Banner 在这些节点处继续执行轮播操作。</p>
-<p>如果将 Banner 当成一个 ItemView 放入 Listiew、RecyclerView 等具有复用机制的容器中时，新的问题又出现了，当 Banner 被滑出屏幕，又重新滑回屏幕后，之前的轮播状态是无法保持的。所以，我们需要知道 Banner 被销毁和重建的窗口，在销毁时记录轮播状态，在重建时将轮播状态复位。这样，用户就会有一致的轮播状态体验了。</p>
-<p>下面将会结合以上需求对每种事件和生命周期的感知进行详细的阐述。案例项目会托管在 Github 上，如需查看，请点击 <a href="https://github.com/ShortStickBoy/Receptor" target="_blank" rel="noopener">Receptor@Github</a>。</p>
-        
-          <a class="article-more-a" href="/2018/11/08/自定义-View-感知事件的几种方式/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">View</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/11/08/自定义-View-感知事件的几种方式/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
     </nav>
   
 
@@ -1136,6 +1155,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -1148,15 +1171,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Android Studio</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Error</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1169,10 +1192,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">File</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1196,19 +1215,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1224,11 +1243,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
+                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1305,6 +1324,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Glide</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
               </li>
             
             <div class="clearfix"></div>
