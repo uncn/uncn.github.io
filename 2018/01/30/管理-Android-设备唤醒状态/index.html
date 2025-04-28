@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>管理 Android 设备唤醒状态 | Welcome to sunzn&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="当一个 Android 设备闲置时，它的屏幕会先变暗，然后关闭屏幕，最后关闭 CPU。 这样可以防止设备的电量被快速耗尽。 但是，有时候也会存在一些例外：  例如游戏或电影之类的应用可能需要保持屏幕常亮。 其他应用可能不需要屏幕保持常亮，但是可能需要 CPU 保持运行，直到关键操作完成。  本文将描述如何在必要的时候保持设备唤醒，同时又不会过多消耗它的电量。 1. 保持设备唤醒了解如何根据需要保持">
-<meta name="keywords" content="Android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="管理 Android 设备唤醒状态">
-<meta property="og:url" content="http://yoursite.com/2018/01/30/管理-Android-设备唤醒状态/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/01/30/%E7%AE%A1%E7%90%86-Android-%E8%AE%BE%E5%A4%87%E5%94%A4%E9%86%92%E7%8A%B6%E6%80%81/index.html">
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="当一个 Android 设备闲置时，它的屏幕会先变暗，然后关闭屏幕，最后关闭 CPU。 这样可以防止设备的电量被快速耗尽。 但是，有时候也会存在一些例外：  例如游戏或电影之类的应用可能需要保持屏幕常亮。 其他应用可能不需要屏幕保持常亮，但是可能需要 CPU 保持运行，直到关键操作完成。  本文将描述如何在必要的时候保持设备唤醒，同时又不会过多消耗它的电量。 1. 保持设备唤醒了解如何根据需要保持">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-01-30T11:40:14.000Z">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-01-30T11:24:56.000Z">
+<meta property="article:modified_time" content="2018-01-30T11:40:14.000Z">
+<meta property="article:author" content="狮子">
+<meta property="article:tag" content="Android">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="管理 Android 设备唤醒状态">
-<meta name="twitter:description" content="当一个 Android 设备闲置时，它的屏幕会先变暗，然后关闭屏幕，最后关闭 CPU。 这样可以防止设备的电量被快速耗尽。 但是，有时候也会存在一些例外：  例如游戏或电影之类的应用可能需要保持屏幕常亮。 其他应用可能不需要屏幕保持常亮，但是可能需要 CPU 保持运行，直到关键操作完成。  本文将描述如何在必要的时候保持设备唤醒，同时又不会过多消耗它的电量。 1. 保持设备唤醒了解如何根据需要保持">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -47,8 +47,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -61,10 +61,8 @@ var _hmt = _hmt || [];
 			<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">狮子</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">念念不忘，必有回响</p>
 		
 
 		<nav class="header-menu">
@@ -121,10 +119,8 @@ var _hmt = _hmt || [];
 				<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">狮子</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>念念不忘，必有回响<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -181,7 +177,7 @@ var _hmt = _hmt || [];
   
 
         
-        <a href="/2018/01/30/管理-Android-设备唤醒状态/" class="archive-article-date">
+        <a href="/2018/01/30/%E7%AE%A1%E7%90%86-Android-%E8%AE%BE%E5%A4%87%E5%94%A4%E9%86%92%E7%8A%B6%E6%80%81/" class="archive-article-date">
   	<time datetime="2018-01-30T11:24:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-30</time>
 </a>
         
@@ -198,50 +194,50 @@ var _hmt = _hmt || [];
 <h1 id="1-保持设备唤醒"><a href="#1-保持设备唤醒" class="headerlink" title="1. 保持设备唤醒"></a>1. 保持设备唤醒</h1><p>了解如何根据需要保持屏幕或 CPU 的唤醒，同时最大限度地减少对电池寿命的影响。</p>
 <p>为了避免电量耗尽，闲置的 Android 设备会迅速进入睡眠状态。但是，有时应用程序需要唤醒屏幕或 CPU 并保持唤醒状态才能完成某些工作。</p>
 <p>采取什么样的方法取决于你应用程序的需求。然而，一般的经验是，你应该为应用使用最轻量级的方法，以尽量减少其对系统资源的影响。接下来的内容会介绍如何处理设备的默认睡眠行为与应用程序的需求不兼容的情况。</p>
-<a id="more"></a>
+<span id="more"></span>
 
-<h2 id="1-1-保持屏幕常亮"><a href="#1-1-保持屏幕常亮" class="headerlink" title="1.1 保持屏幕常亮"></a>1.1 保持屏幕常亮</h2><p>某些应用需要保持屏幕常亮，比如游戏与视频应用。做到这一点的最佳方式是在 Activity 中使用 <a href="https://developer.android.com/reference/android/view/WindowManager.LayoutParams.html#FLAG_KEEP_SCREEN_ON" target="_blank" rel="noopener">FLAG_KEEP_SCREEN_ON</a> 属性（只能在 Activity 中，而不能在 Service 或其他应用组件）。例如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="1-1-保持屏幕常亮"><a href="#1-1-保持屏幕常亮" class="headerlink" title="1.1 保持屏幕常亮"></a>1.1 保持屏幕常亮</h2><p>某些应用需要保持屏幕常亮，比如游戏与视频应用。做到这一点的最佳方式是在 Activity 中使用 <a href="https://developer.android.com/reference/android/view/WindowManager.LayoutParams.html#FLAG_KEEP_SCREEN_ON">FLAG_KEEP_SCREEN_ON</a> 属性（只能在 Activity 中，而不能在 Service 或其他应用组件）。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainActivity</span> <span class="keyword">extends</span> <span class="title class_">Activity</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onCreate</span><span class="params">(Bundle savedInstanceState)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>这种方法的优点是，不像唤醒锁（在保持CPU唤醒状态中讨论），它不需要特殊的权限，系统会正确地<br>管理应用之间的切换，且不必关心资源释放的问题。</p>
-<p>另一种方法是在应用的 XML 布局文件里，使用 <a href="https://developer.android.com/reference/android/R.attr.html#keepScreenOn" target="_blank" rel="noopener">android:keepScreenOn</a> 属性:</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">RelativeLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:keepScreenOn</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>另一种方法是在应用的 XML 布局文件里，使用 <a href="https://developer.android.com/reference/android/R.attr.html#keepScreenOn">android:keepScreenOn</a> 属性:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">RelativeLayout</span> <span class="attr">xmlns:android</span>=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:keepScreenOn</span>=<span class="string">&quot;true&quot;</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>使用 android:keepScreenOn=”true” 与使用 FLAG_KEEP_SCRRE_ON 等效。你可以选择最适合你应用的方法。在 Activity 中通过代码设置常亮标识的优点在于：你可以通过代码动态清除这个标识，从而使屏幕可以关闭。</p>
+<p>使用 android:keepScreenOn&#x3D;”true” 与使用 FLAG_KEEP_SCRRE_ON 等效。你可以选择最适合你应用的方法。在 Activity 中通过代码设置常亮标识的优点在于：你可以通过代码动态清除这个标识，从而使屏幕可以关闭。</p>
 <blockquote>
-<p><strong>注意：</strong>除非你不再希望正在运行的应用长时间点亮屏幕（例如：在一段时间无操作发生后，你想要将屏幕关闭），否则你是不需要清除 FLAG_KEEP_SCRRE_ON 标识的。WindowManager 会在应用进入后台或者返回前台时，正确管理屏幕的关闭或点亮。但是如果你想要显式地清除这一标识，从而使得屏幕能够关闭，可以使用 <a href="https://developer.android.com/reference/android/view/Window.html#clearFlags%28int%29" target="_blank" rel="noopener">clearFlags()</a>: getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON) 方法。</p>
+<p>**注意：**除非你不再希望正在运行的应用长时间点亮屏幕（例如：在一段时间无操作发生后，你想要将屏幕关闭），否则你是不需要清除 FLAG_KEEP_SCRRE_ON 标识的。WindowManager 会在应用进入后台或者返回前台时，正确管理屏幕的关闭或点亮。但是如果你想要显式地清除这一标识，从而使得屏幕能够关闭，可以使用 <a href="https://developer.android.com/reference/android/view/Window.html#clearFlags%28int%29">clearFlags()</a>: getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON) 方法。</p>
 </blockquote>
-<h2 id="1-2-保持-CPU-运行"><a href="#1-2-保持-CPU-运行" class="headerlink" title="1.2 保持 CPU 运行"></a>1.2 保持 CPU 运行</h2><p>如果需要保持 CPU 运行以便在设备进入睡眠状态之前完成某些工作，你可以使用 <a href="https://developer.android.com/reference/android/os/PowerManager.html" target="_blank" rel="noopener">PowerManager</a> 系统服务中的唤醒锁功能。唤醒锁允许你的应用控制设备的电源状态。</p>
-<p>创建并保持唤醒锁可能会对设备的电池寿命产生巨大影响。 因此你应该仅在你确实需要时使用唤醒锁，且使用的时间应该越短越好。例如，你不应该在 Activity 中使用唤醒锁。如上所述，如果您想要屏幕在 Activity 中保持常亮，请使用 <a href="https://developer.android.com/reference/android/view/WindowManager.LayoutParams.html#FLAG_KEEP_SCREEN_ON" target="_blank" rel="noopener">FLAG_KEEP_SCREEN_ON</a>。</p>
+<h2 id="1-2-保持-CPU-运行"><a href="#1-2-保持-CPU-运行" class="headerlink" title="1.2 保持 CPU 运行"></a>1.2 保持 CPU 运行</h2><p>如果需要保持 CPU 运行以便在设备进入睡眠状态之前完成某些工作，你可以使用 <a href="https://developer.android.com/reference/android/os/PowerManager.html">PowerManager</a> 系统服务中的唤醒锁功能。唤醒锁允许你的应用控制设备的电源状态。</p>
+<p>创建并保持唤醒锁可能会对设备的电池寿命产生巨大影响。 因此你应该仅在你确实需要时使用唤醒锁，且使用的时间应该越短越好。例如，你不应该在 Activity 中使用唤醒锁。如上所述，如果您想要屏幕在 Activity 中保持常亮，请使用 <a href="https://developer.android.com/reference/android/view/WindowManager.LayoutParams.html#FLAG_KEEP_SCREEN_ON">FLAG_KEEP_SCREEN_ON</a>。</p>
 <blockquote>
 <p><strong>不必使用唤醒锁的情况：</strong></p>
 <ul>
-<li>如果你的应用正在执行一个 HTTP 长连接的下载任务，可以考虑使用 <a href="https://developer.android.com/reference/android/app/DownloadManager.html" target="_blank" rel="noopener">DownloadManager</a>。</li>
-<li>如果你的应用正在从一个外部服务器同步数据，可以考虑创建一个 <a href="https://developer.android.com/training/sync-adapters/index.html" target="_blank" rel="noopener">SyncAdapter</a>。</li>
-<li>如果你的应用需要依赖于某些后台服务，可以考虑使用 <a href="https://developer.android.com/training/scheduling/alarms.html" target="_blank" rel="noopener">RepeatingAlarm</a> 或者 <a href="https://developers.google.com/cloud-messaging/gcm" target="_blank" rel="noopener">Google Cloud Messaging</a> 以特定间隔触发这些服务。</li>
+<li>如果你的应用正在执行一个 HTTP 长连接的下载任务，可以考虑使用 <a href="https://developer.android.com/reference/android/app/DownloadManager.html">DownloadManager</a>。</li>
+<li>如果你的应用正在从一个外部服务器同步数据，可以考虑创建一个 <a href="https://developer.android.com/training/sync-adapters/index.html">SyncAdapter</a>。</li>
+<li>如果你的应用需要依赖于某些后台服务，可以考虑使用 <a href="https://developer.android.com/training/scheduling/alarms.html">RepeatingAlarm</a> 或者 <a href="https://developers.google.com/cloud-messaging/gcm">Google Cloud Messaging</a> 以特定间隔触发这些服务。</li>
 </ul>
 </blockquote>
 <p>使用唤醒锁的一种合理情况可能是：一个后台服务需要在屏幕关闭时利用唤醒锁保持 CPU 运行。再次强调，应该尽可能规避使用该方法，因为它会影响到电池寿命。</p>
-<p>如果要使用唤醒锁，首先需要在应用的 Manifest 清单文件中增加 <a href="https://developer.android.com/reference/android/Manifest.permission.html#WAKE_LOCK" target="_blank" rel="noopener">WAKE_LOCK</a> 权限：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.WAKE_LOCK"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如果要使用唤醒锁，首先需要在应用的 Manifest 清单文件中增加 <a href="https://developer.android.com/reference/android/Manifest.permission.html#WAKE_LOCK">WAKE_LOCK</a> 权限：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">&quot;android.permission.WAKE_LOCK&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>如果你的应用包含一个 BroadcastReceiver 并使用 Service 来完成一些工作，你可以通过 <a href="https://developer.android.com/reference/android/support/v4/content/WakefulBroadcastReceiver.html" target="_blank" rel="noopener">WakefulBroadcastReceiver</a> 管理你的唤醒锁。在使用 WakefulBroadcastReceiver 章节中将会提到，这是首选的方法。如果你的应用不遵循这种模式，可以使用下面的方法直接设置唤醒锁：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PowerManager powerManager = (PowerManager) getSystemService(POWER_SERVICE);</span><br><span class="line">WakeLock wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, <span class="string">"MyWakelockTag"</span>);</span><br><span class="line">wakeLock.acquire();</span><br></pre></td></tr></table></figure>
+<p>如果你的应用包含一个 BroadcastReceiver 并使用 Service 来完成一些工作，你可以通过 <a href="https://developer.android.com/reference/android/support/v4/content/WakefulBroadcastReceiver.html">WakefulBroadcastReceiver</a> 管理你的唤醒锁。在使用 WakefulBroadcastReceiver 章节中将会提到，这是首选的方法。如果你的应用不遵循这种模式，可以使用下面的方法直接设置唤醒锁：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">PowerManager</span> <span class="variable">powerManager</span> <span class="operator">=</span> (PowerManager) getSystemService(POWER_SERVICE);</span><br><span class="line"><span class="type">WakeLock</span> <span class="variable">wakeLock</span> <span class="operator">=</span> powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, <span class="string">&quot;MyWakelockTag&quot;</span>);</span><br><span class="line">wakeLock.acquire();</span><br></pre></td></tr></table></figure>
 
-<p>可以调用 <a href="https://developer.android.com/reference/android/os/PowerManager.WakeLock.html#release%28%29" target="_blank" rel="noopener">wakelock.release()</a> 来释放唤醒锁。当应用使用完毕时，应该释放该唤醒锁，以避免电量过度消耗。</p>
+<p>可以调用 <a href="https://developer.android.com/reference/android/os/PowerManager.WakeLock.html#release%28%29">wakelock.release()</a> 来释放唤醒锁。当应用使用完毕时，应该释放该唤醒锁，以避免电量过度消耗。</p>
 <h2 id="1-3-使用-WakefulBroadcastReceiver"><a href="#1-3-使用-WakefulBroadcastReceiver" class="headerlink" title="1.3 使用 WakefulBroadcastReceiver"></a>1.3 使用 WakefulBroadcastReceiver</h2><p>将 BroadcastReceiver 与 Service 结合使用，可以管理后台任务的生命周期。</p>
-<p><a href="https://developer.android.com/reference/android/support/v4/content/WakefulBroadcastReceiver.html" target="_blank" rel="noopener">WakefulBroadcastReceiver</a> 是一种特殊的 BroadcastReceiver，它专注于创建和管理应用的 <a href="https://developer.android.com/reference/android/os/PowerManager.html#PARTIAL_WAKE_LOCK" target="_blank" rel="noopener">PARTIAL_WAKE_LOCK</a>。<a href="https://developer.android.com/reference/android/support/v4/content/WakefulBroadcastReceiver.html" target="_blank" rel="noopener">WakefulBroadcastReceiver</a> 会将任务交付给 <a href="https://developer.android.com/reference/android/app/Service.html" target="_blank" rel="noopener">Service</a>（通常是一个 <a href="https://developer.android.com/reference/android/app/IntentService.html" target="_blank" rel="noopener">IntentService</a>），同时确保设备在此过程中不会进入睡眠状态。如果在该过程当中没有保持住唤醒锁，那么还没等任务完成，设备就有可能进入睡眠状态了。其结果就是：应用可能会在未来的某一个时间节点才把任务完成，这显然不是你所期望的。</p>
-<p>使用 <a href="https://developer.android.com/reference/android/support/v4/content/WakefulBroadcastReceiver.html" target="_blank" rel="noopener">WakefulBroadcastReceiver</a> 的第一步是将其添加到清单中，就像其他广播接收器一样：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;receiver android:name=".MyWakefulReceiver"&gt;&lt;/receiver&gt;</span><br></pre></td></tr></table></figure>
+<p><a href="https://developer.android.com/reference/android/support/v4/content/WakefulBroadcastReceiver.html">WakefulBroadcastReceiver</a> 是一种特殊的 BroadcastReceiver，它专注于创建和管理应用的 <a href="https://developer.android.com/reference/android/os/PowerManager.html#PARTIAL_WAKE_LOCK">PARTIAL_WAKE_LOCK</a>。<a href="https://developer.android.com/reference/android/support/v4/content/WakefulBroadcastReceiver.html">WakefulBroadcastReceiver</a> 会将任务交付给 <a href="https://developer.android.com/reference/android/app/Service.html">Service</a>（通常是一个 <a href="https://developer.android.com/reference/android/app/IntentService.html">IntentService</a>），同时确保设备在此过程中不会进入睡眠状态。如果在该过程当中没有保持住唤醒锁，那么还没等任务完成，设备就有可能进入睡眠状态了。其结果就是：应用可能会在未来的某一个时间节点才把任务完成，这显然不是你所期望的。</p>
+<p>使用 <a href="https://developer.android.com/reference/android/support/v4/content/WakefulBroadcastReceiver.html">WakefulBroadcastReceiver</a> 的第一步是将其添加到清单中，就像其他广播接收器一样：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;receiver android:name=<span class="string">&quot;.MyWakefulReceiver&quot;</span>&gt;&lt;/receiver&gt;</span><br></pre></td></tr></table></figure>
 
-<p>下面的代码通过 <a href="https://developer.android.com/reference/android/support/v4/content/WakefulBroadcastReceiver.html#startWakefulService%28android.content.Context,%20android.content.Intent%29" target="_blank" rel="noopener">startWakefulService()</a> 启动 MyIntentService。该方法和 <a href="https://developer.android.com/reference/android/content/Context.html#startService%28android.content.Intent%29" target="_blank" rel="noopener">startService()</a> 类似，除了 <a href="https://developer.android.com/reference/android/support/v4/content/WakefulBroadcastReceiver.html" target="_blank" rel="noopener">WakeflBroadcastReceiver</a> 会在 Service 启动后将唤醒锁保持住。传递给 startWakefulService() 的 Intent 会携带有一个 Extra 数据，用来标识唤醒锁。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyWakefulReceiver</span> <span class="keyword">extends</span> <span class="title">WakefulBroadcastReceiver</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Start the service, keeping the device awake while the service is</span></span><br><span class="line">        <span class="comment">// launching. This is the Intent to deliver to the service.</span></span><br><span class="line">        Intent service = <span class="keyword">new</span> Intent(context, MyIntentService.class);</span><br><span class="line">        startWakefulService(context, service);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面的代码通过 <a href="https://developer.android.com/reference/android/support/v4/content/WakefulBroadcastReceiver.html#startWakefulService%28android.content.Context,%20android.content.Intent%29">startWakefulService()</a> 启动 MyIntentService。该方法和 <a href="https://developer.android.com/reference/android/content/Context.html#startService%28android.content.Intent%29">startService()</a> 类似，除了 <a href="https://developer.android.com/reference/android/support/v4/content/WakefulBroadcastReceiver.html">WakeflBroadcastReceiver</a> 会在 Service 启动后将唤醒锁保持住。传递给 startWakefulService() 的 Intent 会携带有一个 Extra 数据，用来标识唤醒锁。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyWakefulReceiver</span> <span class="keyword">extends</span> <span class="title class_">WakefulBroadcastReceiver</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onReceive</span><span class="params">(Context context, Intent intent)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Start the service, keeping the device awake while the service is</span></span><br><span class="line">        <span class="comment">// launching. This is the Intent to deliver to the service.</span></span><br><span class="line">        <span class="type">Intent</span> <span class="variable">service</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Intent</span>(context, MyIntentService.class);</span><br><span class="line">        startWakefulService(context, service);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>当 Service 结束之后，它会调用 <a href="https://developer.android.com/reference/android/support/v4/content/WakefulBroadcastReceiver.html#completeWakefulIntent%28android.content.Intent%29" target="_blank" rel="noopener">MyWakefulReceiver.completeWakefulIntent()</a> 来释放唤醒锁。<a href="https://developer.android.com/reference/android/support/v4/content/WakefulBroadcastReceiver.html#completeWakefulIntent%28android.content.Intent%29" target="_blank" rel="noopener">completeWakefulIntent()</a> 方法中的 Intent 参数和 <a href="https://developer.android.com/reference/android/support/v4/content/WakefulBroadcastReceiver.html" target="_blank" rel="noopener">WakefulBroadcastReceiver</a> 传递进来的 Intent 参数是一致的：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyIntentService</span> <span class="keyword">extends</span> <span class="title">IntentService</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> NOTIFICATION_ID = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">private</span> NotificationManager mNotificationManager;</span><br><span class="line">    NotificationCompat.Builder builder;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyIntentService</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(<span class="string">"MyIntentService"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onHandleIntent</span><span class="params">(Intent intent)</span> </span>&#123;</span><br><span class="line">        Bundle extras = intent.getExtras();</span><br><span class="line">        <span class="comment">// Do the work that requires your app to keep the CPU running.</span></span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">        <span class="comment">// Release the wake lock provided by the WakefulBroadcastReceiver.</span></span><br><span class="line">        MyWakefulReceiver.completeWakefulIntent(intent);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当 Service 结束之后，它会调用 <a href="https://developer.android.com/reference/android/support/v4/content/WakefulBroadcastReceiver.html#completeWakefulIntent%28android.content.Intent%29">MyWakefulReceiver.completeWakefulIntent()</a> 来释放唤醒锁。<a href="https://developer.android.com/reference/android/support/v4/content/WakefulBroadcastReceiver.html#completeWakefulIntent%28android.content.Intent%29">completeWakefulIntent()</a> 方法中的 Intent 参数和 <a href="https://developer.android.com/reference/android/support/v4/content/WakefulBroadcastReceiver.html">WakefulBroadcastReceiver</a> 传递进来的 Intent 参数是一致的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyIntentService</span> <span class="keyword">extends</span> <span class="title class_">IntentService</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">NOTIFICATION_ID</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">private</span> NotificationManager mNotificationManager;</span><br><span class="line">    NotificationCompat.Builder builder;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">MyIntentService</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>(<span class="string">&quot;MyIntentService&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onHandleIntent</span><span class="params">(Intent intent)</span> &#123;</span><br><span class="line">        <span class="type">Bundle</span> <span class="variable">extras</span> <span class="operator">=</span> intent.getExtras();</span><br><span class="line">        <span class="comment">// Do the work that requires your app to keep the CPU running.</span></span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">        <span class="comment">// Release the wake lock provided by the WakefulBroadcastReceiver.</span></span><br><span class="line">        MyWakefulReceiver.completeWakefulIntent(intent);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="2-调度重复闹钟"><a href="#2-调度重复闹钟" class="headerlink" title="2. 调度重复闹钟"></a>2. 调度重复闹钟</h1><p>了解如何使用重复闹钟去调度那些发生在应用生命周期之外的操作，即使应用程序未运行或者设备处于睡眠状态。</p>
-<p>闹钟（基于 <a href="https://developer.android.com/reference/android/app/AlarmManager.html" target="_blank" rel="noopener">AlarmManager</a> 类）为你提供了一种在应用程序生命周期外执行基于时间的操作的方法。 例如，你可以使用闹钟初始化一个长时间的操作，例如每天启动一次服务以下载天气预报。</p>
+<p>闹钟（基于 <a href="https://developer.android.com/reference/android/app/AlarmManager.html">AlarmManager</a> 类）为你提供了一种在应用程序生命周期外执行基于时间的操作的方法。 例如，你可以使用闹钟初始化一个长时间的操作，例如每天启动一次服务以下载天气预报。</p>
 <p>闹钟具有以下特点：</p>
 <ul>
 <li>允许你通过预设时间或者设定某个时间间隔，来触发 Intent。</li>
@@ -250,10 +246,10 @@ var _hmt = _hmt || [];
 <li>它们帮助你最大限度地减少应用程序的资源需求。你可以使用闹钟进行任务调度，来替代计时器或长时间连续运行的后台服务。</li>
 </ul>
 <blockquote>
-<p><strong>注意：</strong>对于确保在应用程序生命周期中发生的定时操作，请考虑将 Handler 类与 Timer 和 Thread 结合使用。这样使 Android 更好地控制系统资源。</p>
+<p>**注意：**对于确保在应用程序生命周期中发生的定时操作，请考虑将 Handler 类与 Timer 和 Thread 结合使用。这样使 Android 更好地控制系统资源。</p>
 </blockquote>
 <h2 id="2-1-权衡利弊"><a href="#2-1-权衡利弊" class="headerlink" title="2.1 权衡利弊"></a>2.1 权衡利弊</h2><p>重复闹钟是一种相对简单的机制，灵活性有限。它可能不是你的应用程序的最佳选择，特别是当你想要触发网络操作的时候。设计不当的闹钟可能会导致电池耗尽并给服务器带来很大负担。</p>
-<p>一个常见的应用场景是，在应用的生命周期之外触发一个操作从服务器同步数据。此时你可能希望使用重复闹钟。但是如果存储数据的服务端是由你控制的，使用 <a href="https://developers.google.com/cloud-messaging/gcm" target="_blank" rel="noopener">Google Cloud Messaging（GCM）</a>结合 <a href="https://developer.android.com/training/sync-adapters/index.html" target="_blank" rel="noopener">sync adapter</a> 是一种更好解决方案。SyncAdapter 提供的任务调度选项和 <a href="https://developer.android.com/reference/android/app/AlarmManager.html" target="_blank" rel="noopener">AlarmManager</a> 基本相同，但是它能提供更大的灵活性。例如：同步的触发可能基于来自服务器/设备的“新数据”提示消息，用户的活动与否，每天的某一时刻等。</p>
+<p>一个常见的应用场景是，在应用的生命周期之外触发一个操作从服务器同步数据。此时你可能希望使用重复闹钟。但是如果存储数据的服务端是由你控制的，使用 <a href="https://developers.google.com/cloud-messaging/gcm">Google Cloud Messaging（GCM）</a>结合 <a href="https://developer.android.com/training/sync-adapters/index.html">sync adapter</a> 是一种更好解决方案。SyncAdapter 提供的任务调度选项和 <a href="https://developer.android.com/reference/android/app/AlarmManager.html">AlarmManager</a> 基本相同，但是它能提供更大的灵活性。例如：同步的触发可能基于来自服务器&#x2F;设备的“新数据”提示消息，用户的活动与否，每天的某一时刻等。</p>
 <h3 id="2-1-1-最佳实践方法"><a href="#2-1-1-最佳实践方法" class="headerlink" title="2.1.1 最佳实践方法"></a>2.1.1 最佳实践方法</h3><p>在设计重复闹钟时，你所做的每一个选择都可能会影响你的应用程序使用（或滥用）系统资源的方式。例如，假设一个流行的应用与服务器同步数据。如果同步操作基于时钟时间，并且每个应用程序的实例在晚上 11:00 进行同步，则服务器上的负载可能导致高延迟甚至“拒绝服务”。因此在我们使用闹钟时，请牢记下面的最佳实践建议：</p>
 <ul>
 <li>对任何由重复闹钟触发的网络请求添加一定的随机性（抖动）：<ul>
@@ -263,8 +259,8 @@ var _hmt = _hmt || [];
 </li>
 <li>尽量保持闹钟的频率最低。</li>
 <li>如果不是必要的情况，不要唤醒设备（这一点与闹钟的类型有关，后续内容会提到）。</li>
-<li>触发闹钟的时间不必过于精确。<br>尽量使用 <a href="https://developer.android.com/reference/android/app/AlarmManager.html#setInexactRepeating%28int,%20long,%20long,%20android.app.PendingIntent%29" target="_blank" rel="noopener">setInexactRepeating()</a> 方法替代 <a href="https://developer.android.com/reference/android/app/AlarmManager.html#setRepeating%28int,%20long,%20long,%20android.app.PendingIntent%29" target="_blank" rel="noopener">setRepeating()</a> 方法。当你使用 <a href="https://developer.android.com/reference/android/app/AlarmManager.html#setInexactRepeating%28int,%20long,%20long,%20android.app.PendingIntent%29" target="_blank" rel="noopener">setInexactRepeating()</a> 方法时，Android 系统会集中多个应用的重复闹钟同步请求，并一起触发它们。这可以减少系统唤醒设备的总次数，以此减少电量消耗。从Android 4.4（API Level19）开始，所有的重复闹钟都将是非精确型的。注意虽然 setInexactRepeating() 是 setRepeating() 的改进版本，它依然可能会导致每一个应用的实例在某一时间段内同时访问服务器，造成服务器负荷过重。因此，如上所述，对于网络请求，我们需要为闹钟的触发时机增加随机性。</li>
-<li>尽量避免让闹钟基于时钟时间。<br>重复基于精确触发时间的闹钟不能很好地扩展。我们应该尽可能使用 <a href="https://developer.android.com/reference/android/app/AlarmManager.html#ELAPSED_REALTIME" target="_blank" rel="noopener">ELAPSED_REALTIME</a>。不同的闹钟类型会在本节后半部分展开。</li>
+<li>触发闹钟的时间不必过于精确。<br/>尽量使用 <a href="https://developer.android.com/reference/android/app/AlarmManager.html#setInexactRepeating%28int,%20long,%20long,%20android.app.PendingIntent%29">setInexactRepeating()</a> 方法替代 <a href="https://developer.android.com/reference/android/app/AlarmManager.html#setRepeating%28int,%20long,%20long,%20android.app.PendingIntent%29">setRepeating()</a> 方法。当你使用 <a href="https://developer.android.com/reference/android/app/AlarmManager.html#setInexactRepeating%28int,%20long,%20long,%20android.app.PendingIntent%29">setInexactRepeating()</a> 方法时，Android 系统会集中多个应用的重复闹钟同步请求，并一起触发它们。这可以减少系统唤醒设备的总次数，以此减少电量消耗。从Android 4.4（API Level19）开始，所有的重复闹钟都将是非精确型的。注意虽然 setInexactRepeating() 是 setRepeating() 的改进版本，它依然可能会导致每一个应用的实例在某一时间段内同时访问服务器，造成服务器负荷过重。因此，如上所述，对于网络请求，我们需要为闹钟的触发时机增加随机性。</li>
+<li>尽量避免让闹钟基于时钟时间。<br/>重复基于精确触发时间的闹钟不能很好地扩展。我们应该尽可能使用 <a href="https://developer.android.com/reference/android/app/AlarmManager.html#ELAPSED_REALTIME">ELAPSED_REALTIME</a>。不同的闹钟类型会在本节后半部分展开。</li>
 </ul>
 <h2 id="2-2-设置重复闹钟"><a href="#2-2-设置重复闹钟" class="headerlink" title="2.2 设置重复闹钟"></a>2.2 设置重复闹钟</h2><p>如上所述，对于定期执行的任务或者数据查询而言，使用重复闹钟是一个不错的选择。它具有下列属性：</p>
 <ul>
@@ -280,47 +276,48 @@ var _hmt = _hmt || [];
 <p>如果你需要闹钟在每一天的特定时间被激活，那么你可以选择 <code>REAL_TIME_CLOCK</code> 类型的闹钟。不过需要注意的是，这个方法会有一些缺陷——如果地区发生了变化，应用可能无法做出正确的改变；另外，如果用户改变了设备的时间设置，这可能会造成应用产生预期之外的行为。使用 <code>REAL_TIME_CLOCK</code> 类型的闹钟还会有精度的问题，因此我们建议你尽可能使用 <code>ELAPSED_REALTIME</code> 类型。</p>
 <p>以下是闹钟的具体类型：</p>
 <ul>
-<li><a href="https://developer.android.com/reference/android/app/AlarmManager.html#ELAPSED_REALTIME" target="_blank" rel="noopener">ELAPSED_REALTIME</a>：从设备启动之后开始算起，度过了某一段特定时间后，激活 Pending Intent，但不会唤醒设备。其中设备睡眠的时间也会包含在内。</li>
-<li><a href="https://developer.android.com/reference/android/app/AlarmManager.html#ELAPSED_REALTIME_WAKEUP" target="_blank" rel="noopener">ELAPSED_REALTIME_WAKEUP</a>：从设备启动之后开始算起，度过了某一段特定时间后唤醒设备并激活 Pending Intent。</li>
-<li><a href="https://developer.android.com/reference/android/app/AlarmManager.html#RTC" target="_blank" rel="noopener">RTC</a>：在某个特定时刻激活 Pending Intent，但不会唤醒设备。</li>
-<li><a href="https://developer.android.com/reference/android/app/AlarmManager.html#RTC_WAKEUP" target="_blank" rel="noopener">RTC_WAKEUP</a>：在某个特定时刻唤醒设备并激活 Pending Intent。</li>
+<li><a href="https://developer.android.com/reference/android/app/AlarmManager.html#ELAPSED_REALTIME">ELAPSED_REALTIME</a>：从设备启动之后开始算起，度过了某一段特定时间后，激活 Pending Intent，但不会唤醒设备。其中设备睡眠的时间也会包含在内。</li>
+<li><a href="https://developer.android.com/reference/android/app/AlarmManager.html#ELAPSED_REALTIME_WAKEUP">ELAPSED_REALTIME_WAKEUP</a>：从设备启动之后开始算起，度过了某一段特定时间后唤醒设备并激活 Pending Intent。</li>
+<li><a href="https://developer.android.com/reference/android/app/AlarmManager.html#RTC">RTC</a>：在某个特定时刻激活 Pending Intent，但不会唤醒设备。</li>
+<li><a href="https://developer.android.com/reference/android/app/AlarmManager.html#RTC_WAKEUP">RTC_WAKEUP</a>：在某个特定时刻唤醒设备并激活 Pending Intent。</li>
 </ul>
-<h3 id="2-2-2-ELAPSED-REALTIME-WAKEUP-示例"><a href="#2-2-2-ELAPSED-REALTIME-WAKEUP-示例" class="headerlink" title="2.2.2 ELAPSED_REALTIME_WAKEUP 示例"></a>2.2.2 ELAPSED_REALTIME_WAKEUP 示例</h3><p>下面是一些使用 <a href="https://developer.android.com/reference/android/app/AlarmManager.html#ELAPSED_REALTIME_WAKEUP" target="_blank" rel="noopener">ELAPSED_REALTIME_WAKEUP</a> 的例子。</p>
+<h3 id="2-2-2-ELAPSED-REALTIME-WAKEUP-示例"><a href="#2-2-2-ELAPSED-REALTIME-WAKEUP-示例" class="headerlink" title="2.2.2 ELAPSED_REALTIME_WAKEUP 示例"></a>2.2.2 ELAPSED_REALTIME_WAKEUP 示例</h3><p>下面是一些使用 <a href="https://developer.android.com/reference/android/app/AlarmManager.html#ELAPSED_REALTIME_WAKEUP">ELAPSED_REALTIME_WAKEUP</a> 的例子。</p>
 <p>在 30 分钟内将设备唤醒以激活闹钟，然后每 30 分钟一次：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Hopefully your alarm will have a lower frequency than this!</span></span><br><span class="line">alarmMgr.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,</span><br><span class="line">        SystemClock.elapsedRealtime() + AlarmManager.INTERVAL_HALF_HOUR,</span><br><span class="line">        AlarmManager.INTERVAL_HALF_HOUR, alarmIntent);</span><br></pre></td></tr></table></figure>
 
 <p>在一分钟后唤醒设备并激活一个一次性（无重复）闹钟：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> AlarmManager alarmMgr;</span><br><span class="line"><span class="keyword">private</span> PendingIntent alarmIntent;</span><br><span class="line">...</span><br><span class="line">alarmMgr = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);</span><br><span class="line">Intent intent = <span class="keyword">new</span> Intent(context, AlarmReceiver.class);</span><br><span class="line">alarmIntent = PendingIntent.getBroadcast(context, <span class="number">0</span>, intent, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">alarmMgr.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + <span class="number">60</span> * <span class="number">1000</span>, alarmIntent);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> AlarmManager alarmMgr;</span><br><span class="line"><span class="keyword">private</span> PendingIntent alarmIntent;</span><br><span class="line">...</span><br><span class="line">alarmMgr = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);</span><br><span class="line"><span class="type">Intent</span> <span class="variable">intent</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Intent</span>(context, AlarmReceiver.class);</span><br><span class="line">alarmIntent = PendingIntent.getBroadcast(context, <span class="number">0</span>, intent, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">alarmMgr.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + <span class="number">60</span> * <span class="number">1000</span>, alarmIntent);</span><br></pre></td></tr></table></figure>
 
-<h3 id="2-2-3-RTC-示例"><a href="#2-2-3-RTC-示例" class="headerlink" title="2.2.3 RTC 示例"></a>2.2.3 RTC 示例</h3><p>下面是一些使用 <a href="https://developer.android.com/reference/android/app/AlarmManager.html#RTC_WAKEUP" target="_blank" rel="noopener">RTC_WAKEUP</a> 的例子。</p>
+<h3 id="2-2-3-RTC-示例"><a href="#2-2-3-RTC-示例" class="headerlink" title="2.2.3 RTC 示例"></a>2.2.3 RTC 示例</h3><p>下面是一些使用 <a href="https://developer.android.com/reference/android/app/AlarmManager.html#RTC_WAKEUP">RTC_WAKEUP</a> 的例子。</p>
 <p>在下午 2 点左右唤醒设备并激活闹钟，并且每天重复一次：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Set the alarm to start at approximately 2:00 p.m.</span></span><br><span class="line">Calendar calendar = Calendar.getInstance();</span><br><span class="line">calendar.setTimeInMillis(System.currentTimeMillis());</span><br><span class="line">calendar.set(Calendar.HOUR_OF_DAY, <span class="number">14</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// With setInexactRepeating(), you have to use one of the AlarmManager interval</span></span><br><span class="line"><span class="comment">// constants--in this case, AlarmManager.INTERVAL_DAY.</span></span><br><span class="line">alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, alarmIntent);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Set the alarm to start at approximately 2:00 p.m.</span></span><br><span class="line"><span class="type">Calendar</span> <span class="variable">calendar</span> <span class="operator">=</span> Calendar.getInstance();</span><br><span class="line">calendar.setTimeInMillis(System.currentTimeMillis());</span><br><span class="line">calendar.set(Calendar.HOUR_OF_DAY, <span class="number">14</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// With setInexactRepeating(), you have to use one of the AlarmManager interval</span></span><br><span class="line"><span class="comment">// constants--in this case, AlarmManager.INTERVAL_DAY.</span></span><br><span class="line">alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, alarmIntent);</span><br></pre></td></tr></table></figure>
 
 <p>让设备精确地在上午 8:30 被唤醒并激活闹钟，自此之后每 20 分钟唤醒一次：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> AlarmManager alarmMgr;</span><br><span class="line"><span class="keyword">private</span> PendingIntent alarmIntent;</span><br><span class="line">...</span><br><span class="line">alarmMgr = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);</span><br><span class="line">Intent intent = <span class="keyword">new</span> Intent(context, AlarmReceiver.class);</span><br><span class="line">alarmIntent = PendingIntent.getBroadcast(context, <span class="number">0</span>, intent, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Set the alarm to start at 8:30 a.m.</span></span><br><span class="line">Calendar calendar = Calendar.getInstance();</span><br><span class="line">calendar.setTimeInMillis(System.currentTimeMillis());</span><br><span class="line">calendar.set(Calendar.HOUR_OF_DAY, <span class="number">8</span>);</span><br><span class="line">calendar.set(Calendar.MINUTE, <span class="number">30</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// setRepeating() lets you specify a precise custom interval--in this case,</span></span><br><span class="line"><span class="comment">// 20 minutes.</span></span><br><span class="line">alarmMgr.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), <span class="number">1000</span> * <span class="number">60</span> * <span class="number">20</span>, alarmIntent);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> AlarmManager alarmMgr;</span><br><span class="line"><span class="keyword">private</span> PendingIntent alarmIntent;</span><br><span class="line">...</span><br><span class="line">alarmMgr = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);</span><br><span class="line"><span class="type">Intent</span> <span class="variable">intent</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Intent</span>(context, AlarmReceiver.class);</span><br><span class="line">alarmIntent = PendingIntent.getBroadcast(context, <span class="number">0</span>, intent, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Set the alarm to start at 8:30 a.m.</span></span><br><span class="line"><span class="type">Calendar</span> <span class="variable">calendar</span> <span class="operator">=</span> Calendar.getInstance();</span><br><span class="line">calendar.setTimeInMillis(System.currentTimeMillis());</span><br><span class="line">calendar.set(Calendar.HOUR_OF_DAY, <span class="number">8</span>);</span><br><span class="line">calendar.set(Calendar.MINUTE, <span class="number">30</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// setRepeating() lets you specify a precise custom interval--in this case,</span></span><br><span class="line"><span class="comment">// 20 minutes.</span></span><br><span class="line">alarmMgr.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), <span class="number">1000</span> * <span class="number">60</span> * <span class="number">20</span>, alarmIntent);</span><br></pre></td></tr></table></figure>
 
-<h3 id="2-2-4-确定闹钟的精确度"><a href="#2-2-4-确定闹钟的精确度" class="headerlink" title="2.2.4 确定闹钟的精确度"></a>2.2.4 确定闹钟的精确度</h3><p>如上所述，创建闹钟的第一步是要选择闹钟的类型，然后你需要决定闹钟的精确度。对于大多数应用而言，<a href="https://developer.android.com/reference/android/app/AlarmManager.html#setInexactRepeating%28int,%20long,%20long,%20android.app.PendingIntent%29" target="_blank" rel="noopener">setInexactRepeating()</a> 会是一个正确的选择。当你使用该方法时，Android系统会集中多个应用的重复闹钟同步请求，并一起触发它们。这样可以减少电量的损耗。</p>
-<p>对于另一些实时性要求较高的应用——例如，闹钟需要精确地在上午 8:30 被激活，并且自此之后每隔 1 小时激活一次——那么可以使用 <a href="https://developer.android.com/reference/android/app/AlarmManager.html#setRepeating%28int,%20long,%20long,%20android.app.PendingIntent%29" target="_blank" rel="noopener">setRepeating()</a>。不过你应该尽量避免使用精确的闹钟。</p>
-<p>使用 <a href="https://developer.android.com/reference/android/app/AlarmManager.html#setRepeating%28int,%20long,%20long,%20android.app.PendingIntent%29" target="_blank" rel="noopener">setRepeating()</a> 时，你可以制定一个自定义的时间间隔，但在使用 <a href="https://developer.android.com/reference/android/app/AlarmManager.html#setInexactRepeating%28int,%20long,%20long,%20android.app.PendingIntent%29" target="_blank" rel="noopener">setInexactRepeating()</a> 时不支持这么做。此时你只能选择一些时间间隔常量，例如：<a href="https://developer.android.com/reference/android/app/AlarmManager.html#INTERVAL_FIFTEEN_MINUTES" target="_blank" rel="noopener">INTERVAL_FIFTEEN_MINUTES</a> ，<a href="https://developer.android.com/reference/android/app/AlarmManager.html#INTERVAL_DAY" target="_blank" rel="noopener">INTERVAL_DAY</a> 等。完整的常量列表，可以查看 <a href="https://developer.android.com/reference/android/app/AlarmManager.html" target="_blank" rel="noopener">AlarmManager</a>。</p>
-<h2 id="2-2-取消闹钟"><a href="#2-2-取消闹钟" class="headerlink" title="2.2 取消闹钟"></a>2.2 取消闹钟</h2><p>你可能希望在应用中添加取消闹钟的功能。要取消闹钟，可以调用 AlarmManager 的 <a href="https://developer.android.com/reference/android/app/AlarmManager.html#cancel%28android.app.AlarmManager.OnAlarmListener%29" target="_blank" rel="noopener">cancel()</a> 方法，并把你不想激活的 <a href="https://developer.android.com/reference/android/app/PendingIntent.html" target="_blank" rel="noopener">PendingIntent</a> 传递进去，例如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// If the alarm has been set, cancel it.</span></span><br><span class="line"><span class="keyword">if</span> (alarmMgr!= <span class="keyword">null</span>) &#123;</span><br><span class="line">    alarmMgr.cancel(alarmIntent);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-4-确定闹钟的精确度"><a href="#2-2-4-确定闹钟的精确度" class="headerlink" title="2.2.4 确定闹钟的精确度"></a>2.2.4 确定闹钟的精确度</h3><p>如上所述，创建闹钟的第一步是要选择闹钟的类型，然后你需要决定闹钟的精确度。对于大多数应用而言，<a href="https://developer.android.com/reference/android/app/AlarmManager.html#setInexactRepeating%28int,%20long,%20long,%20android.app.PendingIntent%29">setInexactRepeating()</a> 会是一个正确的选择。当你使用该方法时，Android系统会集中多个应用的重复闹钟同步请求，并一起触发它们。这样可以减少电量的损耗。</p>
+<p>对于另一些实时性要求较高的应用——例如，闹钟需要精确地在上午 8:30 被激活，并且自此之后每隔 1 小时激活一次——那么可以使用 <a href="https://developer.android.com/reference/android/app/AlarmManager.html#setRepeating%28int,%20long,%20long,%20android.app.PendingIntent%29">setRepeating()</a>。不过你应该尽量避免使用精确的闹钟。</p>
+<p>使用 <a href="https://developer.android.com/reference/android/app/AlarmManager.html#setRepeating%28int,%20long,%20long,%20android.app.PendingIntent%29">setRepeating()</a> 时，你可以制定一个自定义的时间间隔，但在使用 <a href="https://developer.android.com/reference/android/app/AlarmManager.html#setInexactRepeating%28int,%20long,%20long,%20android.app.PendingIntent%29">setInexactRepeating()</a> 时不支持这么做。此时你只能选择一些时间间隔常量，例如：<a href="https://developer.android.com/reference/android/app/AlarmManager.html#INTERVAL_FIFTEEN_MINUTES">INTERVAL_FIFTEEN_MINUTES</a> ，<a href="https://developer.android.com/reference/android/app/AlarmManager.html#INTERVAL_DAY">INTERVAL_DAY</a> 等。完整的常量列表，可以查看 <a href="https://developer.android.com/reference/android/app/AlarmManager.html">AlarmManager</a>。</p>
+<h2 id="2-2-取消闹钟"><a href="#2-2-取消闹钟" class="headerlink" title="2.2 取消闹钟"></a>2.2 取消闹钟</h2><p>你可能希望在应用中添加取消闹钟的功能。要取消闹钟，可以调用 AlarmManager 的 <a href="https://developer.android.com/reference/android/app/AlarmManager.html#cancel%28android.app.AlarmManager.OnAlarmListener%29">cancel()</a> 方法，并把你不想激活的 <a href="https://developer.android.com/reference/android/app/PendingIntent.html">PendingIntent</a> 传递进去，例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// If the alarm has been set, cancel it.</span></span><br><span class="line"><span class="keyword">if</span> (alarmMgr!= <span class="literal">null</span>) &#123;</span><br><span class="line">    alarmMgr.cancel(alarmIntent);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="2-3-设备启动后启用闹钟"><a href="#2-3-设备启动后启用闹钟" class="headerlink" title="2.3 设备启动后启用闹钟"></a>2.3 设备启动后启用闹钟</h2><p>默认情况下，所有的闹钟会在设备关闭时被取消。为防止这种情况发生，你可以让你的应用在用户重启设备后自动重启一个重复闹钟。这样可以让 AlarmManager 继续执行它的工作，且不需要用户手动重启闹钟。</p>
 <p>具体步骤如下：</p>
-<p><strong>1.</strong> 在应用的 Manifest 文件中设置 <a href="https://developer.android.com/reference/android/Manifest.permission.html#RECEIVE_BOOT_COMPLETED" target="_blank" rel="noopener">RECEIVE_BOOT_CMPLETED</a> 权限，这将允许你的应用接收系统启动完成后发出的 <a href="https://developer.android.com/reference/android/content/Intent.html#ACTION_BOOT_COMPLETED" target="_blank" rel="noopener">ACTION_BOOT_COMPLETED</a> 广播（只有在用户至少将你的应用启动了一次后，这样做才有效）：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;uses-permission android:name=<span class="string">"android.permission.RECEIVE_BOOT_COMPLETED"</span>/&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>1.</strong> 在应用的 Manifest 文件中设置 <a href="https://developer.android.com/reference/android/Manifest.permission.html#RECEIVE_BOOT_COMPLETED">RECEIVE_BOOT_CMPLETED</a> 权限，这将允许你的应用接收系统启动完成后发出的 <a href="https://developer.android.com/reference/android/content/Intent.html#ACTION_BOOT_COMPLETED">ACTION_BOOT_COMPLETED</a> 广播（只有在用户至少将你的应用启动了一次后，这样做才有效）：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;uses-permission android:name=<span class="string">&quot;android.permission.RECEIVE_BOOT_COMPLETED&quot;</span>/&gt;</span><br></pre></td></tr></table></figure>
 
 <p><strong>2.</strong> 实现 BoradcastReceiver 用于接收广播：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SampleBootReceiver</span> <span class="keyword">extends</span> <span class="title">BroadcastReceiver</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (intent.getAction().equals(<span class="string">"android.intent.action.BOOT_COMPLETED"</span>)) &#123;</span><br><span class="line">            <span class="comment">// Set the alarm here.</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SampleBootReceiver</span> <span class="keyword">extends</span> <span class="title class_">BroadcastReceiver</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onReceive</span><span class="params">(Context context, Intent intent)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (intent.getAction().equals(<span class="string">&quot;android.intent.action.BOOT_COMPLETED&quot;</span>)) &#123;</span><br><span class="line">            <span class="comment">// Set the alarm here.</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>3.</strong> 将接收器添加到应用程序的 Manifest 文件中，并使用意向过滤器对 <a href="https://developer.android.com/reference/android/content/Intent.html#ACTION_BOOT_COMPLETED" target="_blank" rel="noopener">ACTION_BOOT_COMPLETED</a> 操作进行过滤：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">receiver</span> <span class="attr">android:name</span>=<span class="string">".SampleBootReceiver"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:enabled</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.BOOT_COMPLETED"</span>&gt;</span><span class="tag">&lt;/<span class="name">action</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">receiver</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>3.</strong> 将接收器添加到应用程序的 Manifest 文件中，并使用意向过滤器对 <a href="https://developer.android.com/reference/android/content/Intent.html#ACTION_BOOT_COMPLETED">ACTION_BOOT_COMPLETED</a> 操作进行过滤：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">receiver</span> <span class="attr">android:name</span>=<span class="string">&quot;.SampleBootReceiver&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:enabled</span>=<span class="string">&quot;false&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.action.BOOT_COMPLETED&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">action</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">receiver</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>注意 Manifest 文件中，对接收器设置了 <code>android:enabled=&quot;false&quot;</code> 属性。这意味着除非应用显式地启用它，不然该接收器将不被调用。这可以防止接收器被不必要地调用。你可以像下面这样启动接收器（比如用户设置了一个闹钟）：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ComponentName receiver = <span class="keyword">new</span> ComponentName(context, SampleBootReceiver.class);</span><br><span class="line">PackageManager pm = context.getPackageManager();</span><br><span class="line"></span><br><span class="line">pm.setComponentEnabledSetting(receiver,</span><br><span class="line">        PackageManager.COMPONENT_ENABLED_STATE_ENABLED,</span><br><span class="line">        PackageManager.DONT_KILL_APP);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ComponentName</span> <span class="variable">receiver</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ComponentName</span>(context, SampleBootReceiver.class);</span><br><span class="line"><span class="type">PackageManager</span> <span class="variable">pm</span> <span class="operator">=</span> context.getPackageManager();</span><br><span class="line"></span><br><span class="line">pm.setComponentEnabledSetting(receiver,</span><br><span class="line">        PackageManager.COMPONENT_ENABLED_STATE_ENABLED,</span><br><span class="line">        PackageManager.DONT_KILL_APP);</span><br></pre></td></tr></table></figure>
 
 <p>一旦以这种方式启用接收器，它将一直保持启动状态，即使用户重启了设备也不例外。换句话说，通过代码设置的启用配置将会覆盖掉 Manifest 文件中的现有配置，即使重启也不例外。接收器将保持启动状态，直到你的应用将其禁用。你可以像下面这样禁用接收器（比如用户取消了一个闹钟）：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ComponentName receiver = <span class="keyword">new</span> ComponentName(context, SampleBootReceiver.class);</span><br><span class="line">PackageManager pm = context.getPackageManager();</span><br><span class="line"></span><br><span class="line">pm.setComponentEnabledSetting(receiver,</span><br><span class="line">        PackageManager.COMPONENT_ENABLED_STATE_DISABLED,</span><br><span class="line">        PackageManager.DONT_KILL_APP);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ComponentName</span> <span class="variable">receiver</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ComponentName</span>(context, SampleBootReceiver.class);</span><br><span class="line"><span class="type">PackageManager</span> <span class="variable">pm</span> <span class="operator">=</span> context.getPackageManager();</span><br><span class="line"></span><br><span class="line">pm.setComponentEnabledSetting(receiver,</span><br><span class="line">        PackageManager.COMPONENT_ENABLED_STATE_DISABLED,</span><br><span class="line">        PackageManager.DONT_KILL_APP);</span><br></pre></td></tr></table></figure>
+
 
 
       
@@ -412,7 +409,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/01/30/管理-Android-设备唤醒状态/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/01/30/%E7%AE%A1%E7%90%86-Android-%E8%AE%BE%E5%A4%87%E5%94%A4%E9%86%92%E7%8A%B6%E6%80%81/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -426,7 +423,7 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2018/03/22/高效加载大图/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/03/22/%E9%AB%98%E6%95%88%E5%8A%A0%E8%BD%BD%E5%A4%A7%E5%9B%BE/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -436,7 +433,7 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2018/01/24/Android-5-0-行为变更对-WebView-的影响/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/01/24/Android-5-0-%E8%A1%8C%E4%B8%BA%E5%8F%98%E6%9B%B4%E5%AF%B9-WebView-%E7%9A%84%E5%BD%B1%E5%93%8D/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Android 5.0 行为变更对 WebView 的影响</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -464,7 +461,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-保持设备唤醒"><span class="toc-number">1.</span> <span class="toc-text">1. 保持设备唤醒</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-保持屏幕常亮"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 保持屏幕常亮</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-保持-CPU-运行"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 保持 CPU 运行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-使用-WakefulBroadcastReceiver"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 使用 WakefulBroadcastReceiver</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-调度重复闹钟"><span class="toc-number">2.</span> <span class="toc-text">2. 调度重复闹钟</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-权衡利弊"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 权衡利弊</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-1-最佳实践方法"><span class="toc-number">2.1.1.</span> <span class="toc-text">2.1.1 最佳实践方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-设置重复闹钟"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 设置重复闹钟</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-选择闹钟类型"><span class="toc-number">2.2.1.</span> <span class="toc-text">2.2.1 选择闹钟类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-2-ELAPSED-REALTIME-WAKEUP-示例"><span class="toc-number">2.2.2.</span> <span class="toc-text">2.2.2 ELAPSED_REALTIME_WAKEUP 示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-3-RTC-示例"><span class="toc-number">2.2.3.</span> <span class="toc-text">2.2.3 RTC 示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-4-确定闹钟的精确度"><span class="toc-number">2.2.4.</span> <span class="toc-text">2.2.4 确定闹钟的精确度</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-取消闹钟"><span class="toc-number">2.3.</span> <span class="toc-text">2.2 取消闹钟</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-设备启动后启用闹钟"><span class="toc-number">2.4.</span> <span class="toc-text">2.3 设备启动后启用闹钟</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E4%BF%9D%E6%8C%81%E8%AE%BE%E5%A4%87%E5%94%A4%E9%86%92"><span class="toc-number">1.</span> <span class="toc-text">1. 保持设备唤醒</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E4%BF%9D%E6%8C%81%E5%B1%8F%E5%B9%95%E5%B8%B8%E4%BA%AE"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 保持屏幕常亮</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E4%BF%9D%E6%8C%81-CPU-%E8%BF%90%E8%A1%8C"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 保持 CPU 运行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-%E4%BD%BF%E7%94%A8-WakefulBroadcastReceiver"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 使用 WakefulBroadcastReceiver</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E8%B0%83%E5%BA%A6%E9%87%8D%E5%A4%8D%E9%97%B9%E9%92%9F"><span class="toc-number">2.</span> <span class="toc-text">2. 调度重复闹钟</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E6%9D%83%E8%A1%A1%E5%88%A9%E5%BC%8A"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 权衡利弊</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-1-%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%E6%96%B9%E6%B3%95"><span class="toc-number">2.1.1.</span> <span class="toc-text">2.1.1 最佳实践方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E8%AE%BE%E7%BD%AE%E9%87%8D%E5%A4%8D%E9%97%B9%E9%92%9F"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 设置重复闹钟</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-%E9%80%89%E6%8B%A9%E9%97%B9%E9%92%9F%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.2.1.</span> <span class="toc-text">2.2.1 选择闹钟类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-2-ELAPSED-REALTIME-WAKEUP-%E7%A4%BA%E4%BE%8B"><span class="toc-number">2.2.2.</span> <span class="toc-text">2.2.2 ELAPSED_REALTIME_WAKEUP 示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-3-RTC-%E7%A4%BA%E4%BE%8B"><span class="toc-number">2.2.3.</span> <span class="toc-text">2.2.3 RTC 示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-4-%E7%A1%AE%E5%AE%9A%E9%97%B9%E9%92%9F%E7%9A%84%E7%B2%BE%E7%A1%AE%E5%BA%A6"><span class="toc-number">2.2.4.</span> <span class="toc-text">2.2.4 确定闹钟的精确度</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E5%8F%96%E6%B6%88%E9%97%B9%E9%92%9F"><span class="toc-number">2.3.</span> <span class="toc-text">2.2 取消闹钟</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E8%AE%BE%E5%A4%87%E5%90%AF%E5%8A%A8%E5%90%8E%E5%90%AF%E7%94%A8%E9%97%B9%E9%92%9F"><span class="toc-number">2.4.</span> <span class="toc-text">2.3 设备启动后启用闹钟</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -577,10 +574,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -593,6 +586,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Android Studio</a>
               </li>
              
@@ -601,11 +602,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+                <a href="javascript:void(0)" class="js-tag color5">Room</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -613,11 +618,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">View</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Fiddler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -633,7 +662,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -642,10 +683,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -665,59 +702,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">View</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Room</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -741,15 +738,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
+                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Application</a>
               </li>
             
             <div class="clearfix"></div>

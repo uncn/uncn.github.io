@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Windows 下 MySQL 数据库 Root 密码重置 | Welcome to sunzn&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1、首先在开始–&amp;gt;运行中输入“services.msc”，调出服务窗口，找到 MySQL 服务将其停止。">
-<meta name="keywords" content="MySQL">
+  <meta name="description" content="1、首先在开始–&gt;运行中输入“services.msc”，调出服务窗口，找到 MySQL 服务将其停止。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Windows 下 MySQL 数据库 Root 密码重置">
-<meta property="og:url" content="http://yoursite.com/2017/07/29/Windows-下-MySQL-数据库-Root-密码重置/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/07/29/Windows-%E4%B8%8B-MySQL-%E6%95%B0%E6%8D%AE%E5%BA%93-Root-%E5%AF%86%E7%A0%81%E9%87%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
-<meta property="og:description" content="1、首先在开始–&amp;gt;运行中输入“services.msc”，调出服务窗口，找到 MySQL 服务将其停止。">
-<meta property="og:locale" content="default">
+<meta property="og:description" content="1、首先在开始–&gt;运行中输入“services.msc”，调出服务窗口，找到 MySQL 服务将其停止。">
+<meta property="og:locale">
 <meta property="og:image" content="https://image.sunzn.com/blog/20170729232001.png">
 <meta property="og:image" content="https://image.sunzn.com/blog/20170729232002.png">
 <meta property="og:image" content="https://image.sunzn.com/blog/20170729232003.png">
 <meta property="og:image" content="https://image.sunzn.com/blog/20170729232004.png">
 <meta property="og:image" content="https://image.sunzn.com/blog/20170729232005.png">
 <meta property="og:image" content="https://image.sunzn.com/blog/20170729232006.png">
-<meta property="og:updated_time" content="2023-03-21T15:05:16.173Z">
+<meta property="article:published_time" content="2017-07-29T15:06:11.000Z">
+<meta property="article:modified_time" content="2023-03-21T15:05:16.173Z">
+<meta property="article:author" content="狮子">
+<meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Windows 下 MySQL 数据库 Root 密码重置">
-<meta name="twitter:description" content="1、首先在开始–&amp;gt;运行中输入“services.msc”，调出服务窗口，找到 MySQL 服务将其停止。">
 <meta name="twitter:image" content="https://image.sunzn.com/blog/20170729232001.png">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
@@ -54,8 +54,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -68,10 +68,8 @@ var _hmt = _hmt || [];
 			<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">狮子</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">念念不忘，必有回响</p>
 		
 
 		<nav class="header-menu">
@@ -128,10 +126,8 @@ var _hmt = _hmt || [];
 				<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">狮子</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>念念不忘，必有回响<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -188,7 +184,7 @@ var _hmt = _hmt || [];
   
 
         
-        <a href="/2017/07/29/Windows-下-MySQL-数据库-Root-密码重置/" class="archive-article-date">
+        <a href="/2017/07/29/Windows-%E4%B8%8B-MySQL-%E6%95%B0%E6%8D%AE%E5%BA%93-Root-%E5%AF%86%E7%A0%81%E9%87%8D%E7%BD%AE/" class="archive-article-date">
   	<time datetime="2017-07-29T15:06:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-29</time>
 </a>
         
@@ -198,16 +194,16 @@ var _hmt = _hmt || [];
       
         <p>1、首先在开始–&gt;运行中输入“services.msc”，调出服务窗口，找到 MySQL 服务将其停止。</p>
 <p><img src="https://image.sunzn.com/blog/20170729232001.png" alt="停止 MySQL 服务"></p>
-<a id="more"></a>
+<span id="more"></span>
 
-<p>2、重新打开一个 CMD 窗口，键入 <font color="#080DFD">mysqld &ndash;-skip-grant-tables</font> 命令，按回车，（注：该命令在 Windows 7 平台，64 位 MySQL 环境下），窗口进入阻塞状态。</p>
+<p>2、重新打开一个 CMD 窗口，键入 <font color=#080DFD>mysqld &ndash;-skip-grant-tables</font> 命令，按回车，（注：该命令在 Windows 7 平台，64 位 MySQL 环境下），窗口进入阻塞状态。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqld <span class="comment">--skip-grant-tables</span></span><br></pre></td></tr></table></figure>
 
 <p><img src="https://image.sunzn.com/blog/20170729232002.png" alt="键入 mysqld --skip-grant-tables 命令"></p>
 <p>3、保留上一个阻塞窗口，新开一个 CMD 窗口，这时我们可以直接登入 MySQL。</p>
 <p><img src="https://image.sunzn.com/blog/20170729232003.png" alt="直接登入MySQL"></p>
 <p>4、在上一个窗口中输入 <code>use mysql</code> 切换数据库，切换数据库成功后，输入如下更新语句修改密码。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> <span class="keyword">password</span> = <span class="keyword">password</span>(<span class="string">'admin'</span>) <span class="keyword">where</span> <span class="keyword">user</span>=<span class="string">'root'</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> password <span class="operator">=</span> password(<span class="string">&#x27;admin&#x27;</span>) <span class="keyword">where</span> <span class="keyword">user</span><span class="operator">=</span><span class="string">&#x27;root&#x27;</span>;</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://image.sunzn.com/blog/20170729232004.png" alt="重置密码"></p>
 <p>5、修改完密码后使用 quit 退出当前窗口，然后关闭之前保留的阻塞窗口。同时，我们还需要打开任务管理器，将 mysqld.exe 进程关闭。</p>
@@ -303,7 +299,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/07/29/Windows-下-MySQL-数据库-Root-密码重置/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/07/29/Windows-%E4%B8%8B-MySQL-%E6%95%B0%E6%8D%AE%E5%BA%93-Root-%E5%AF%86%E7%A0%81%E9%87%8D%E7%BD%AE/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -317,7 +313,7 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2017/08/02/版本号/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/08/02/%E7%89%88%E6%9C%AC%E5%8F%B7/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -327,7 +323,7 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2017/07/28/泛型/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/07/28/%E6%B3%9B%E5%9E%8B/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">泛型</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -468,10 +464,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -484,6 +476,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Android Studio</a>
               </li>
              
@@ -492,11 +492,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+                <a href="javascript:void(0)" class="js-tag color5">Room</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -504,11 +508,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">View</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Fiddler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -524,7 +552,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -533,10 +573,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -556,59 +592,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">View</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Room</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -632,15 +628,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
+                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Application</a>
               </li>
             
             <div class="clearfix"></div>

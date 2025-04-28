@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Welcome to sunzn&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -12,9 +12,9 @@
 <meta property="og:title" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:url" content="http://yoursite.com/page/7/index.html">
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
-<meta property="og:locale" content="default">
+<meta property="og:locale">
+<meta property="article:author" content="狮子">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Welcome to sunzn&#39;s Blog">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -42,8 +42,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -56,10 +56,8 @@ var _hmt = _hmt || [];
 			<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">狮子</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">念念不忘，必有回响</p>
 		
 
 		<nav class="header-menu">
@@ -116,10 +114,8 @@ var _hmt = _hmt || [];
 				<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">狮子</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>念念不忘，必有回响<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -166,6 +162,131 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-SQLite中的Null" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/20/SQLite%E4%B8%AD%E7%9A%84Null/">SQLite 中的 Null</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/20/SQLite%E4%B8%AD%E7%9A%84Null/" class="archive-article-date">
+  	<time datetime="2017-11-20T03:13:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>绝大多数关系数据库都通过一种称为 Null 特殊占位符支持 <strong>未知</strong> 或 <strong>不可知</strong> 的概念，Null 是缺失信息的占位符，本身不是值。Null 表示该位置没有值：Null 不是什么其他值，Null 不是真，也不是假，不是零，也不是空字符串。简单地理解，Null 就是自己：Null。可能一些人不明白其中的含义。掌握 SQLite 中的 Null，需要了解一些关键规则和观点。</p>
+<ul>
+<li><strong>第一</strong>：为了在逻辑表达式中使用 NULL，SQLite 使用所谓的三值（或三态）逻辑，Null 是真假值之一。下面的表格显示了逻辑与（And）和逻辑或（Or）与 Null 的关系。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">X</th>
+<th align="center">Y</th>
+<th align="center">X AND Y</th>
+<th align="center">X OR Y</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">True</td>
+<td align="center">True</td>
+<td align="center">True</td>
+<td align="center">True</td>
+</tr>
+<tr>
+<td align="center">True</td>
+<td align="center">False</td>
+<td align="center">False</td>
+<td align="center">True</td>
+</tr>
+<tr>
+<td align="center">True</td>
+<td align="center">NULL</td>
+<td align="center">NULL</td>
+<td align="center">True</td>
+</tr>
+<tr>
+<td align="center">False</td>
+<td align="center">False</td>
+<td align="center">False</td>
+<td align="center">False</td>
+</tr>
+<tr>
+<td align="center">False</td>
+<td align="center">NULL</td>
+<td align="center">False</td>
+<td align="center">NULL</td>
+</tr>
+<tr>
+<td align="center">NULL</td>
+<td align="center">NULL</td>
+<td align="center">NULL</td>
+<td align="center">NULL</td>
+</tr>
+</tbody></table>
+        
+          <a class="article-more-a" href="/2017/11/20/SQLite%E4%B8%AD%E7%9A%84Null/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SQLite</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/20/SQLite%E4%B8%AD%E7%9A%84Null/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-SQLite插入、更新或忽略" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -173,12 +294,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/19/SQLite插入、更新或忽略/">SQLite 插入、更新或忽略</a>
+      <a class="article-title" href="/2017/11/19/SQLite%E6%8F%92%E5%85%A5%E3%80%81%E6%9B%B4%E6%96%B0%E6%88%96%E5%BF%BD%E7%95%A5/">SQLite 插入、更新或忽略</a>
     </h1>
   
 
         
-        <a href="/2017/11/19/SQLite插入、更新或忽略/" class="archive-article-date">
+        <a href="/2017/11/19/SQLite%E6%8F%92%E5%85%A5%E3%80%81%E6%9B%B4%E6%96%B0%E6%88%96%E5%BF%BD%E7%95%A5/" class="archive-article-date">
   	<time datetime="2017-11-19T02:30:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-19</time>
 </a>
         
@@ -207,7 +328,7 @@ var _hmt = _hmt || [];
 </tr>
 </tbody></table>
         
-          <a class="article-more-a" href="/2017/11/19/SQLite插入、更新或忽略/#more">more >></a>
+          <a class="article-more-a" href="/2017/11/19/SQLite%E6%8F%92%E5%85%A5%E3%80%81%E6%9B%B4%E6%96%B0%E6%88%96%E5%BF%BD%E7%95%A5/#more">more >></a>
         
       
 
@@ -231,7 +352,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/19/SQLite插入、更新或忽略/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/11/19/SQLite%E6%8F%92%E5%85%A5%E3%80%81%E6%9B%B4%E6%96%B0%E6%88%96%E5%BF%BD%E7%95%A5/">展开全文 >></a>
         </p>
       
 
@@ -268,12 +389,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/18/SQLite-修改数据/">SQLite 修改数据</a>
+      <a class="article-title" href="/2017/11/18/SQLite-%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE/">SQLite 修改数据</a>
     </h1>
   
 
         
-        <a href="/2017/11/18/SQLite-修改数据/" class="archive-article-date">
+        <a href="/2017/11/18/SQLite-%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE/" class="archive-article-date">
   	<time datetime="2017-11-18T12:35:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-18</time>
 </a>
         
@@ -283,11 +404,11 @@ var _hmt = _hmt || [];
       
         <p>与 select 命令相比，用于修改数据库的语句很容易理解和使用。有 3 个 DML 语句用于修改数据——insert、update 和 delete，不过它们远比字面含义看起来做的事情要多。</p>
 <h2 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h2><p>使用 insert 命令向表中插入记录。<font color="DeepPink">insert 在单表上工作，使用 insert 命令可以一次插入一条记录，使用 select 命令可以一次插入多条记录。</font>insert 语句的一般格式为：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">table</span> (column_list) <span class="keyword">values</span> (value_list);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert into</span> <span class="keyword">table</span> (column_list) <span class="keyword">values</span> (value_list);</span><br></pre></td></tr></table></figure>
 
 <p>变量 table 指明数据库插入到哪个表中。变量 column_list 是用逗号分隔的字段名称，这些字段必须是表中存在的。变量 value_list 是用逗号分隔的值列表，这些值与 column_list 中的字段一一对应。</p>
         
-          <a class="article-more-a" href="/2017/11/18/SQLite-修改数据/#more">more >></a>
+          <a class="article-more-a" href="/2017/11/18/SQLite-%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE/#more">more >></a>
         
       
 
@@ -311,7 +432,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/18/SQLite-修改数据/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/11/18/SQLite-%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE/">展开全文 >></a>
         </p>
       
 
@@ -348,12 +469,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/17/如何从-SQLite-的现有表中添加或删除列/">如何从 SQLite 的现有表中添加或删除列</a>
+      <a class="article-title" href="/2017/11/17/%E5%A6%82%E4%BD%95%E4%BB%8E-SQLite-%E7%9A%84%E7%8E%B0%E6%9C%89%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E6%88%96%E5%88%A0%E9%99%A4%E5%88%97/">如何从 SQLite 的现有表中添加或删除列</a>
     </h1>
   
 
         
-        <a href="/2017/11/17/如何从-SQLite-的现有表中添加或删除列/" class="archive-article-date">
+        <a href="/2017/11/17/%E5%A6%82%E4%BD%95%E4%BB%8E-SQLite-%E7%9A%84%E7%8E%B0%E6%9C%89%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E6%88%96%E5%88%A0%E9%99%A4%E5%88%97/" class="archive-article-date">
   	<time datetime="2017-11-17T15:16:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-17</time>
 </a>
         
@@ -363,9 +484,9 @@ var _hmt = _hmt || [];
       
         <p>SQLite 对 ALTER TABLE 的支持有限，你可以用它来将列添加到表的末尾或更改表的名称。如果要对表的结构进行更复杂的更改，则必须重新创建表。你可以将现有数据保存到临时表中，删除旧表，创建新表，然后从临时表中复制数据。</p>
 <p>例如，假设你有一个名为 “t1” 的表，有 “a”、”b”、”c” 三列，并且你希望从该表中删除 “c” 列。以下步骤说明如何做到这一点：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">BEGIN</span> <span class="keyword">TRANSACTION</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TEMPORARY</span> <span class="keyword">TABLE</span> t1_backup(a,b);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> t1_backup <span class="keyword">SELECT</span> a,b <span class="keyword">FROM</span> t1;</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> t1;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> t1(a,b);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> t1 <span class="keyword">SELECT</span> a,b <span class="keyword">FROM</span> t1_backup;</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> t1_backup;</span><br><span class="line"><span class="keyword">COMMIT</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">BEGIN</span> TRANSACTION;</span><br><span class="line"><span class="keyword">CREATE</span> TEMPORARY <span class="keyword">TABLE</span> t1_backup(a,b);</span><br><span class="line"><span class="keyword">INSERT INTO</span> t1_backup <span class="keyword">SELECT</span> a,b <span class="keyword">FROM</span> t1;</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> t1;</span><br><span class="line"><span class="keyword">CREATE TABLE</span> t1(a,b);</span><br><span class="line"><span class="keyword">INSERT INTO</span> t1 <span class="keyword">SELECT</span> a,b <span class="keyword">FROM</span> t1_backup;</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> t1_backup;</span><br><span class="line"><span class="keyword">COMMIT</span>;</span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2017/11/17/如何从-SQLite-的现有表中添加或删除列/#more">more >></a>
+          <a class="article-more-a" href="/2017/11/17/%E5%A6%82%E4%BD%95%E4%BB%8E-SQLite-%E7%9A%84%E7%8E%B0%E6%9C%89%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E6%88%96%E5%88%A0%E9%99%A4%E5%88%97/#more">more >></a>
         
       
 
@@ -389,7 +510,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/17/如何从-SQLite-的现有表中添加或删除列/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/11/17/%E5%A6%82%E4%BD%95%E4%BB%8E-SQLite-%E7%9A%84%E7%8E%B0%E6%9C%89%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E6%88%96%E5%88%A0%E9%99%A4%E5%88%97/">展开全文 >></a>
         </p>
       
 
@@ -426,12 +547,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/17/Python（2-4）重点复习/">Python（2.4）重点复习</a>
+      <a class="article-title" href="/2017/10/17/Python%EF%BC%882-4%EF%BC%89%E9%87%8D%E7%82%B9%E5%A4%8D%E4%B9%A0/">Python（2.4）重点复习</a>
     </h1>
   
 
         
-        <a href="/2017/10/17/Python（2-4）重点复习/" class="archive-article-date">
+        <a href="/2017/10/17/Python%EF%BC%882-4%EF%BC%89%E9%87%8D%E7%82%B9%E5%A4%8D%E4%B9%A0/" class="archive-article-date">
   	<time datetime="2017-10-17T14:36:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-17</time>
 </a>
         
@@ -446,7 +567,7 @@ var _hmt = _hmt || [];
 <p>每个 .py 文件本身就是一个模块，文件的文件名就是模块名称，想要引入模块时必须使用 import 关键字指定模块名称，若想取用模块中定义的名称，必须在名称前加上模块名称与一个「.」。</p>
 <p>若想要取得命令列索引，可以通过 sys 模块中的 argv 清单。sys.argv 清单中的资料取用时必须指定索引号，这个索引号实际上从 0 开始，sys.argv[0] 会存储原始文件名，若有提供命令列索引，就依序从 sys.argv[1] 开始存储。</p>
         
-          <a class="article-more-a" href="/2017/10/17/Python（2-4）重点复习/#more">more >></a>
+          <a class="article-more-a" href="/2017/10/17/Python%EF%BC%882-4%EF%BC%89%E9%87%8D%E7%82%B9%E5%A4%8D%E4%B9%A0/#more">more >></a>
         
       
 
@@ -470,7 +591,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/17/Python（2-4）重点复习/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/10/17/Python%EF%BC%882-4%EF%BC%89%E9%87%8D%E7%82%B9%E5%A4%8D%E4%B9%A0/">展开全文 >></a>
         </p>
       
 
@@ -507,12 +628,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/14/Python（2-3）使用-IDE/">Python（2.3）使用 IDE</a>
+      <a class="article-title" href="/2017/10/14/Python%EF%BC%882-3%EF%BC%89%E4%BD%BF%E7%94%A8-IDE/">Python（2.3）使用 IDE</a>
     </h1>
   
 
         
-        <a href="/2017/10/14/Python（2-3）使用-IDE/" class="archive-article-date">
+        <a href="/2017/10/14/Python%EF%BC%882-3%EF%BC%89%E4%BD%BF%E7%94%A8-IDE/" class="archive-article-date">
   	<time datetime="2017-10-14T11:32:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-14</time>
 </a>
         
@@ -524,17 +645,17 @@ var _hmt = _hmt || [];
 <h2 id="2-3-1-下载、安装-PyCharm"><a href="#2-3-1-下载、安装-PyCharm" class="headerlink" title="2.3.1 下载、安装 PyCharm"></a>2.3.1 下载、安装 PyCharm</h2><p>在 Python 的领域中，有为数不少的 IDE，然而使用哪个 IDE，必须根据开发的应用程序特性，或者基于一些团队管理等因素来决定，有时其实也是个人习惯问题，以下是一些我看过有人推荐或使用过的 IDE：</p>
 <blockquote>
 <ul>
-<li><a href="https://www.jetbrains.com/pycharm/" target="_blank" rel="noopener">PyCharm</a></li>
-<li><a href="http://www.pydev.org/" target="_blank" rel="noopener">PyDev</a></li>
-<li><a href="https://www.activestate.com/komodo-ide" target="_blank" rel="noopener">Komodo IDE</a></li>
-<li><a href="http://code.google.com/archive/p/spyderlib/" target="_blank" rel="noopener">Spyder</a></li>
-<li><a href="http://wingware.com/" target="_blank" rel="noopener">WingIDE</a></li>
-<li><a href="http://ninja-ide.org/" target="_blank" rel="noopener">NINJA-IDE</a></li>
-<li><a href="https://microsoft.github.io/PTVS/" target="_blank" rel="noopener">Python Tools for Visual Studio</a></li>
+<li><a href="https://www.jetbrains.com/pycharm/">PyCharm</a></li>
+<li><a href="http://www.pydev.org/">PyDev</a></li>
+<li><a href="https://www.activestate.com/komodo-ide">Komodo IDE</a></li>
+<li><a href="http://code.google.com/archive/p/spyderlib/">Spyder</a></li>
+<li><a href="http://wingware.com/">WingIDE</a></li>
+<li><a href="http://ninja-ide.org/">NINJA-IDE</a></li>
+<li><a href="https://microsoft.github.io/PTVS/">Python Tools for Visual Studio</a></li>
 </ul>
 </blockquote>
         
-          <a class="article-more-a" href="/2017/10/14/Python（2-3）使用-IDE/#more">more >></a>
+          <a class="article-more-a" href="/2017/10/14/Python%EF%BC%882-3%EF%BC%89%E4%BD%BF%E7%94%A8-IDE/#more">more >></a>
         
       
 
@@ -558,7 +679,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/14/Python（2-3）使用-IDE/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/10/14/Python%EF%BC%882-3%EF%BC%89%E4%BD%BF%E7%94%A8-IDE/">展开全文 >></a>
         </p>
       
 
@@ -595,12 +716,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/13/Python（2-2）模块与包/">Python（2.2）模块与包</a>
+      <a class="article-title" href="/2017/10/13/Python%EF%BC%882-2%EF%BC%89%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%8C%85/">Python（2.2）模块与包</a>
     </h1>
   
 
         
-        <a href="/2017/10/13/Python（2-2）模块与包/" class="archive-article-date">
+        <a href="/2017/10/13/Python%EF%BC%882-2%EF%BC%89%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%8C%85/" class="archive-article-date">
   	<time datetime="2017-10-13T11:32:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-13</time>
 </a>
         
@@ -612,7 +733,7 @@ var _hmt = _hmt || [];
 <h2 id="2-2-1-模块简介"><a href="#2-2-1-模块简介" class="headerlink" title="2.2.1 模块简介"></a>2.2.1 模块简介</h2><p>有件事实也许令人惊讶，其实你已经编写过模块了，每个 .py 文件本身就是一个模块，当你编写完一个 .py 文件，而别人打算直接引用你的成果的话，只需要在他编写的 .py 文件中导入（import）就可以了。举个例子来说，若想在 Hello3.py 中，直接引用先前写好的 Hello2.py，可以按以下方式来编写：</p>
 <p><img src="https://image.sunzn.com/blog/20171012190501.png" alt="此处输入图片的描述"></p>
         
-          <a class="article-more-a" href="/2017/10/13/Python（2-2）模块与包/#more">more >></a>
+          <a class="article-more-a" href="/2017/10/13/Python%EF%BC%882-2%EF%BC%89%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%8C%85/#more">more >></a>
         
       
 
@@ -636,7 +757,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/13/Python（2-2）模块与包/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/10/13/Python%EF%BC%882-2%EF%BC%89%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%8C%85/">展开全文 >></a>
         </p>
       
 
@@ -673,12 +794,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/10/MySQL数据库插入中文乱码的解决方案/">MySQL数据库插入中文乱码的解决方案</a>
+      <a class="article-title" href="/2017/10/10/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">MySQL数据库插入中文乱码的解决方案</a>
     </h1>
   
 
         
-        <a href="/2017/10/10/MySQL数据库插入中文乱码的解决方案/" class="archive-article-date">
+        <a href="/2017/10/10/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="archive-article-date">
   	<time datetime="2017-10-10T15:49:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
 </a>
         
@@ -687,14 +808,13 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>默认情况下，向 MySQL 数据库插入一条带有中文的数据时，会出现乱码，测试语句如下：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> employee <span class="keyword">values</span>(<span class="literal">null</span>,<span class="string">'张三'</span>,<span class="string">'female'</span>,<span class="string">'1995-10-08'</span>,<span class="string">'2015-11-12'</span>,<span class="string">'Sales'</span>,<span class="number">2000</span>,<span class="string">'是个好员工！'</span>);</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert into</span> employee <span class="keyword">values</span>(<span class="keyword">null</span>,<span class="string">&#x27;张三&#x27;</span>,<span class="string">&#x27;female&#x27;</span>,<span class="string">&#x27;1995-10-08&#x27;</span>,<span class="string">&#x27;2015-11-12&#x27;</span>,<span class="string">&#x27;Sales&#x27;</span>,<span class="number">2000</span>,<span class="string">&#x27;是个好员工！&#x27;</span>);</span><br></pre></td></tr></table></figure>
 <p>出现乱码时，首先需要查看字符集编码是否一致，如果不一致，就可通过调整数据库编集码进行解决，语句如下：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'character%'</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;character%&#x27;</span>;</span><br></pre></td></tr></table></figure>
 
 <p> <img src="https://image.sunzn.com/blog/20170930094701.png" alt="此处输入图片的描述"></p>
         
-          <a class="article-more-a" href="/2017/10/10/MySQL数据库插入中文乱码的解决方案/#more">more >></a>
+          <a class="article-more-a" href="/2017/10/10/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/#more">more >></a>
         
       
 
@@ -718,7 +838,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/10/MySQL数据库插入中文乱码的解决方案/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/10/10/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">展开全文 >></a>
         </p>
       
 
@@ -755,12 +875,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/10/JSONArray-值为-NULL-时的容错处理/">JSONArray 值为 NULL 时的容错处理</a>
+      <a class="article-title" href="/2017/10/10/JSONArray-%E5%80%BC%E4%B8%BA-NULL-%E6%97%B6%E7%9A%84%E5%AE%B9%E9%94%99%E5%A4%84%E7%90%86/">JSONArray 值为 NULL 时的容错处理</a>
     </h1>
   
 
         
-        <a href="/2017/10/10/JSONArray-值为-NULL-时的容错处理/" class="archive-article-date">
+        <a href="/2017/10/10/JSONArray-%E5%80%BC%E4%B8%BA-NULL-%E6%97%B6%E7%9A%84%E5%AE%B9%E9%94%99%E5%A4%84%E7%90%86/" class="archive-article-date">
   	<time datetime="2017-10-10T13:54:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
 </a>
         
@@ -769,11 +889,11 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>无论是 Web 端还是移动端开发，都会涉及到对 JSONArray 的解析，通常状况下前端会和后端会约定好返回的数据是一个 JSONArray 数组，当然前端也会按照 <code>JSONObject.getJSONArray(String name)</code> 的方式去解析数据。但现实中的情况是后端由于某些原因直接返回了 <code>null</code>（而非空数组 [ ]），这时候前端依然按照数组的形式去解析就会抛出如下异常：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">org.json.JSONException: Value <span class="keyword">null</span> at users of type org.json.JSONObject$<span class="number">1</span> cannot be converted to JSONArray</span><br><span class="line">    at org.json.JSON.typeMismatch(JSON.java:<span class="number">100</span>)</span><br><span class="line">    at org.json.JSONObject.getJSONArray(JSONObject.java:<span class="number">588</span>)</span><br><span class="line">    at com.sunzn.core.RefreshManager$<span class="number">8</span>.onSuccess(RefreshManager.java:<span class="number">617</span>)</span><br><span class="line">    at com.loopj.android.http.JsonHttpResponseHandler$<span class="number">1</span>$<span class="number">1</span>.run(JsonHttpResponseHandler.java:<span class="number">152</span>)</span><br><span class="line">    at android.os.Handler.handleCallback(Handler.java:<span class="number">739</span>)</span><br><span class="line">    at android.os.Handler.dispatchMessage(Handler.java:<span class="number">95</span>)</span><br><span class="line">    at android.os.Looper.loop(Looper.java:<span class="number">135</span>)</span><br><span class="line">    at android.app.ActivityThread.main(ActivityThread.java:<span class="number">5418</span>)</span><br><span class="line">    at java.lang.reflect.Method.invoke(Native Method)</span><br><span class="line">    at java.lang.reflect.Method.invoke(Method.java:<span class="number">372</span>)</span><br><span class="line">    at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:<span class="number">1037</span>)</span><br><span class="line">    at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:<span class="number">832</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">org.json.JSONException: Value <span class="literal">null</span> at users of type org.json.JSONObject$<span class="number">1</span> cannot be converted to JSONArray</span><br><span class="line">    at org.json.JSON.typeMismatch(JSON.java:<span class="number">100</span>)</span><br><span class="line">    at org.json.JSONObject.getJSONArray(JSONObject.java:<span class="number">588</span>)</span><br><span class="line">    at com.sunzn.core.RefreshManager$<span class="number">8.</span>onSuccess(RefreshManager.java:<span class="number">617</span>)</span><br><span class="line">    at com.loopj.android.http.JsonHttpResponseHandler$<span class="number">1</span>$<span class="number">1.</span>run(JsonHttpResponseHandler.java:<span class="number">152</span>)</span><br><span class="line">    at android.os.Handler.handleCallback(Handler.java:<span class="number">739</span>)</span><br><span class="line">    at android.os.Handler.dispatchMessage(Handler.java:<span class="number">95</span>)</span><br><span class="line">    at android.os.Looper.loop(Looper.java:<span class="number">135</span>)</span><br><span class="line">    at android.app.ActivityThread.main(ActivityThread.java:<span class="number">5418</span>)</span><br><span class="line">    at java.lang.reflect.Method.invoke(Native Method)</span><br><span class="line">    at java.lang.reflect.Method.invoke(Method.java:<span class="number">372</span>)</span><br><span class="line">    at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:<span class="number">1037</span>)</span><br><span class="line">    at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:<span class="number">832</span>)</span><br></pre></td></tr></table></figure>
 
 <p>这个异常明确的告诉我们，当 JSONArray 为 null 的时候，这个对象的属性发生了变化，由 JSONArray 变成了 JSONObject，然而前端却依然认为这是个 JSONArray 对象并以 JSONArray 的形式去取值，结果就抛出了异常。</p>
         
-          <a class="article-more-a" href="/2017/10/10/JSONArray-值为-NULL-时的容错处理/#more">more >></a>
+          <a class="article-more-a" href="/2017/10/10/JSONArray-%E5%80%BC%E4%B8%BA-NULL-%E6%97%B6%E7%9A%84%E5%AE%B9%E9%94%99%E5%A4%84%E7%90%86/#more">more >></a>
         
       
 
@@ -797,7 +917,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/10/JSONArray-值为-NULL-时的容错处理/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/10/10/JSONArray-%E5%80%BC%E4%B8%BA-NULL-%E6%97%B6%E7%9A%84%E5%AE%B9%E9%94%99%E5%A4%84%E7%90%86/">展开全文 >></a>
         </p>
       
 
@@ -879,88 +999,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/09/05/Android-Studio-Failed-to-open-zip-file/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-自定义-View（三）文字的绘制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/24/自定义-View（三）文字的绘制/">自定义 View（三）文字的绘制</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/24/自定义-View（三）文字的绘制/" class="archive-article-date">
-  	<time datetime="2017-08-24T13:56:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>上期的 Paint 详解里已经说过，文字的绘制所能控制的内容太多太细，必须拆成单独的一期专门来讲。今天这期，就是来把这些细节讲清楚的。下面进入正题：</p>
-<h1 id="1-Canvas-绘制文字的方式"><a href="#1-Canvas-绘制文字的方式" class="headerlink" title="1. Canvas 绘制文字的方式"></a>1. Canvas 绘制文字的方式</h1><p><a href="https://developer.android.com/reference/android/graphics/Canvas.html" target="_blank" rel="noopener">Canvas</a> 的文字绘制方法有三个：drawText()、drawTextRun() 和 drawTextOnPath()。</p>
-<h2 id="1-1-drawText-String-text-float-x-float-y-Paint-paint"><a href="#1-1-drawText-String-text-float-x-float-y-Paint-paint" class="headerlink" title="1.1 drawText(String text, float x, float y, Paint paint)"></a>1.1 drawText(String text, float x, float y, Paint paint)</h2><table><tr><td colspan="2" bgcolor="#F8F8F8"><b>方法</b></td></tr><tr><td colspan="2">drawText(String text, float x, float y, Paint paint)<br>以坐标（x, y）为原点，绘制文本。</td></tr><tr><td colspan="2" bgcolor="#F8F8F8"><b>参数</b></td></tr><tr><td>text</td><td>String：文本内容。</td></tr><tr><td>x</td><td>float：绘制文本的原点的 x 坐标。</td></tr><tr><td>y</td><td>float：绘制文本的原点的 y 坐标。</td></tr><tr><td>paint</td><td>Paint：应用到文本的画笔。</td></tr></table>
-        
-          <a class="article-more-a" href="/2017/08/24/自定义-View（三）文字的绘制/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">View</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/24/自定义-View（三）文字的绘制/">展开全文 >></a>
         </p>
       
 
@@ -1088,10 +1126,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -1104,6 +1138,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Android Studio</a>
               </li>
              
@@ -1112,11 +1154,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+                <a href="javascript:void(0)" class="js-tag color5">Room</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1124,11 +1170,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">View</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Fiddler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1144,7 +1214,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1153,10 +1235,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1176,59 +1254,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">View</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Room</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1252,15 +1290,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
+                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Application</a>
               </li>
             
             <div class="clearfix"></div>

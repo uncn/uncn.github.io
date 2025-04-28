@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Python（2.4）重点复习 | Welcome to sunzn&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="REPL 环境是个简单、互动式的程序设计环境，在测试一些程序片段的行为时非常方便。 在 Python 2.x 中，print 是个陈述句（Statement），然而从 Python 3.0 开始，必须使用 print() 函数。 Python 3 之后，Python 编译器预期的源码文件编码必须是 UTF-8（Python 2.x 预期的是 ASCII）。若不想将文件的文字编码设置为 UTF-8，">
-<meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python（2.4）重点复习">
-<meta property="og:url" content="http://yoursite.com/2017/10/17/Python（2-4）重点复习/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/10/17/Python%EF%BC%882-4%EF%BC%89%E9%87%8D%E7%82%B9%E5%A4%8D%E4%B9%A0/index.html">
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="REPL 环境是个简单、互动式的程序设计环境，在测试一些程序片段的行为时非常方便。 在 Python 2.x 中，print 是个陈述句（Statement），然而从 Python 3.0 开始，必须使用 print() 函数。 Python 3 之后，Python 编译器预期的源码文件编码必须是 UTF-8（Python 2.x 预期的是 ASCII）。若不想将文件的文字编码设置为 UTF-8，">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2017-10-17T14:51:58.000Z">
+<meta property="og:locale">
+<meta property="article:published_time" content="2017-10-17T14:36:30.000Z">
+<meta property="article:modified_time" content="2017-10-17T14:51:58.000Z">
+<meta property="article:author" content="狮子">
+<meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python（2.4）重点复习">
-<meta name="twitter:description" content="REPL 环境是个简单、互动式的程序设计环境，在测试一些程序片段的行为时非常方便。 在 Python 2.x 中，print 是个陈述句（Statement），然而从 Python 3.0 开始，必须使用 print() 函数。 Python 3 之后，Python 编译器预期的源码文件编码必须是 UTF-8（Python 2.x 预期的是 ASCII）。若不想将文件的文字编码设置为 UTF-8，">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -47,8 +47,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -61,10 +61,8 @@ var _hmt = _hmt || [];
 			<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">狮子</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">念念不忘，必有回响</p>
 		
 
 		<nav class="header-menu">
@@ -121,10 +119,8 @@ var _hmt = _hmt || [];
 				<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">狮子</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>念念不忘，必有回响<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -181,7 +177,7 @@ var _hmt = _hmt || [];
   
 
         
-        <a href="/2017/10/17/Python（2-4）重点复习/" class="archive-article-date">
+        <a href="/2017/10/17/Python%EF%BC%882-4%EF%BC%89%E9%87%8D%E7%82%B9%E5%A4%8D%E4%B9%A0/" class="archive-article-date">
   	<time datetime="2017-10-17T14:36:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-17</time>
 </a>
         
@@ -195,7 +191,7 @@ var _hmt = _hmt || [];
 <p>在 Python 源码中，<font color="DeepPink">#开头代表这是一行注解，#之后不会被当成是程序的一部分。</font></p>
 <p>每个 .py 文件本身就是一个模块，文件的文件名就是模块名称，想要引入模块时必须使用 import 关键字指定模块名称，若想取用模块中定义的名称，必须在名称前加上模块名称与一个「.」。</p>
 <p>若想要取得命令列索引，可以通过 sys 模块中的 argv 清单。sys.argv 清单中的资料取用时必须指定索引号，这个索引号实际上从 0 开始，sys.argv[0] 会存储原始文件名，若有提供命令列索引，就依序从 sys.argv[1] 开始存储。</p>
- <a id="more"></a>
+ <span id="more"></span>
 
 <p>如果有多个模块需要 import，除了逐行 import 之外，也可以在但一行中使用逗号「,」来分隔模块。</p>
 <p>在<code>__builtins__</code>模块中的函数、类别等名称，都可以不用 import 直接取用，而且不用加上模块名称作为前置。</p>
@@ -293,7 +289,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/10/17/Python（2-4）重点复习/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/10/17/Python%EF%BC%882-4%EF%BC%89%E9%87%8D%E7%82%B9%E5%A4%8D%E4%B9%A0/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -307,7 +303,7 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2017/11/17/如何从-SQLite-的现有表中添加或删除列/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/11/17/%E5%A6%82%E4%BD%95%E4%BB%8E-SQLite-%E7%9A%84%E7%8E%B0%E6%9C%89%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E6%88%96%E5%88%A0%E9%99%A4%E5%88%97/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -317,7 +313,7 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2017/10/14/Python（2-3）使用-IDE/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/10/14/Python%EF%BC%882-3%EF%BC%89%E4%BD%BF%E7%94%A8-IDE/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Python（2.3）使用 IDE</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -458,10 +454,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -474,6 +466,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Android Studio</a>
               </li>
              
@@ -482,11 +482,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+                <a href="javascript:void(0)" class="js-tag color5">Room</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -494,11 +498,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">View</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Fiddler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -514,7 +542,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -523,10 +563,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -546,59 +582,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">View</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Room</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -622,15 +618,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
+                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Application</a>
               </li>
             
             <div class="clearfix"></div>

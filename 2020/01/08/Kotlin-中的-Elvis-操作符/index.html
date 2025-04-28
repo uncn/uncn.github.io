@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Kotlin 中的 Elvis 操作符 ?: | Welcome to sunzn&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在 Kotlin 中，Elvis 操作符特定是跟 null 进行比较。也就是说 1val y = x ?: 0                                          // 使用 Elvis 操作符 ?:  等价于 1val y = if (x !== null) x else 0                        // 等价的 if...else 逻辑  主">
-<meta name="keywords" content="Kotlin">
+  <meta name="description" content="在 Kotlin 中，Elvis 操作符特定是跟 null 进行比较。也就是说 1val y &#x3D; x ?: 0                                          &#x2F;&#x2F; 使用 Elvis 操作符 ?:  等价于 1val y &#x3D; if (x !&#x3D;&#x3D; null) x else 0                        &#x2F;&#x2F; 等价的 if...else 逻辑  主">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kotlin 中的 Elvis 操作符 ?:">
-<meta property="og:url" content="http://yoursite.com/2020/01/08/Kotlin-中的-Elvis-操作符/index.html">
+<meta property="og:url" content="http://yoursite.com/2020/01/08/Kotlin-%E4%B8%AD%E7%9A%84-Elvis-%E6%93%8D%E4%BD%9C%E7%AC%A6/index.html">
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
-<meta property="og:description" content="在 Kotlin 中，Elvis 操作符特定是跟 null 进行比较。也就是说 1val y = x ?: 0                                          // 使用 Elvis 操作符 ?:  等价于 1val y = if (x !== null) x else 0                        // 等价的 if...else 逻辑  主">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-01-08T13:59:33.435Z">
+<meta property="og:description" content="在 Kotlin 中，Elvis 操作符特定是跟 null 进行比较。也就是说 1val y &#x3D; x ?: 0                                          &#x2F;&#x2F; 使用 Elvis 操作符 ?:  等价于 1val y &#x3D; if (x !&#x3D;&#x3D; null) x else 0                        &#x2F;&#x2F; 等价的 if...else 逻辑  主">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-01-08T12:48:25.000Z">
+<meta property="article:modified_time" content="2020-01-08T13:59:33.435Z">
+<meta property="article:author" content="狮子">
+<meta property="article:tag" content="Kotlin">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Kotlin 中的 Elvis 操作符 ?:">
-<meta name="twitter:description" content="在 Kotlin 中，Elvis 操作符特定是跟 null 进行比较。也就是说 1val y = x ?: 0                                          // 使用 Elvis 操作符 ?:  等价于 1val y = if (x !== null) x else 0                        // 等价的 if...else 逻辑  主">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -47,8 +47,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -61,10 +61,8 @@ var _hmt = _hmt || [];
 			<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">狮子</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">念念不忘，必有回响</p>
 		
 
 		<nav class="header-menu">
@@ -121,10 +119,8 @@ var _hmt = _hmt || [];
 				<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">狮子</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>念念不忘，必有回响<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -181,7 +177,7 @@ var _hmt = _hmt || [];
   
 
         
-        <a href="/2020/01/08/Kotlin-中的-Elvis-操作符/" class="archive-article-date">
+        <a href="/2020/01/08/Kotlin-%E4%B8%AD%E7%9A%84-Elvis-%E6%93%8D%E4%BD%9C%E7%AC%A6/" class="archive-article-date">
   	<time datetime="2020-01-08T12:48:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-08</time>
 </a>
         
@@ -200,13 +196,13 @@ var _hmt = _hmt || [];
 <blockquote>
 <p><font style="color:#BF360C;font-size:14px;"><strong>注意</strong>：这里所说的 Elvis 操作符是精简版的三元运算符是一种狭义的概念，因为 Elvis 操作符仅限于跟 null 进行比较，是广义三元运算符中的一个特例。</font></p>
 </blockquote>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>我们在 Java 中使用的三元运算符的语法通常要重复变量两次，示例如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String name = <span class="string">"Elvis Presley"</span>;</span><br><span class="line">String value = (name != <span class="keyword">null</span>) ? name : <span class="string">"Unknown"</span>;       <span class="comment">// Java 中的三元操作符</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> <span class="string">&quot;Elvis Presley&quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">value</span> <span class="operator">=</span> (name != <span class="literal">null</span>) ? name : <span class="string">&quot;Unknown&quot;</span>;       <span class="comment">// Java 中的三元操作符</span></span><br></pre></td></tr></table></figure>
 
 <p>可以使用 Elvis 操作符取而代之：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> name: String = <span class="string">"Elvis Presley"</span></span><br><span class="line"><span class="keyword">val</span> value: String = name ?: <span class="string">"Unknown"</span>                   <span class="comment">// 使用 Elvis 操作符</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> name: String = <span class="string">&quot;Elvis Presley&quot;</span></span><br><span class="line"><span class="keyword">val</span> value: String = name ?: <span class="string">&quot;Unknown&quot;</span>                   <span class="comment">// 使用 Elvis 操作符</span></span><br></pre></td></tr></table></figure>
 
 <p>可以看出，用 Elvis 操作符 <code>?:</code> 可以把带有默认值的 <code>if...else</code> 结构写的极其简短。用 Elvis 操作符不用检查 <code>null</code>（避免空指针），也不用重复变量。</p>
 <p>Elvis 操作符的这个功能在 Spring 表达式语言（SpEL）中有提供，在 Kotlin 中当然没有理由不支持这个特性。代码示例如下：</p>
@@ -214,9 +210,14 @@ var _hmt = _hmt || [];
 
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> x = <span class="literal">false</span></span><br><span class="line"><span class="keyword">val</span> y = x ?: <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 等价逻辑是：if (x !== null) x else 0，此处 x !== null，所以返回值就是 x 本身 false。</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> x = <span class="string">""</span></span><br><span class="line"><span class="keyword">val</span> y = x ?: <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 等价逻辑是：if (x !== null) x else 0，此处 x !== null，所以返回值就是 x 本身空字符。</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> x = <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">val</span> y = x ?: <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 等价逻辑是：if (x !== null) x else 0，此处 x !== null，所以返回值就是 x 本身空字符。</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> x = <span class="string">"ABC"</span></span><br><span class="line"><span class="keyword">val</span> y = x ?: <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 等价逻辑是：if (x !== null) x else 0，此处 x !== null，所以返回值就是 x 本身 ABC。</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> x = <span class="string">&quot;ABC&quot;</span></span><br><span class="line"><span class="keyword">val</span> y = x ?: <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 等价逻辑是：if (x !== null) x else 0，此处 x !== null，所以返回值就是 x 本身 ABC。</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
 
 
       
@@ -308,7 +309,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/01/08/Kotlin-中的-Elvis-操作符/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/01/08/Kotlin-%E4%B8%AD%E7%9A%84-Elvis-%E6%93%8D%E4%BD%9C%E7%AC%A6/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -322,7 +323,7 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2020/01/12/Kotlin-中的-Constructor/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/01/12/Kotlin-%E4%B8%AD%E7%9A%84-Constructor/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -332,7 +333,7 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2019/05/09/Excel-数据导入-SQLite/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/05/09/Excel-%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%85%A5-SQLite/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Excel 数据导入 SQLite</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -473,10 +474,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -489,6 +486,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Android Studio</a>
               </li>
              
@@ -497,11 +502,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+                <a href="javascript:void(0)" class="js-tag color5">Room</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -509,11 +518,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">View</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Fiddler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -529,7 +562,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -538,10 +583,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -561,59 +602,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">View</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Room</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -637,15 +638,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
+                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Application</a>
               </li>
             
             <div class="clearfix"></div>

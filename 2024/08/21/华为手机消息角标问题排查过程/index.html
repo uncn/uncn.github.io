@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>华为手机消息角标问题排查过程 | Welcome to sunzn&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="这是篇过程复盘类的文章，一是想将问题的排查、解决过程梳理出来；二是要将排查过程中涉及到的一些琐碎的知识点记录下来。在开始复盘前，简单交代一下问题背景：我维护的项目基于【网易云信】实现了 IM 功能，与微信类似，用户收到消息后，手机会收到消息推送，状态栏和桌面 LOGO 的角标都会有消息提醒，最近有华为手机用户反馈没有消息提醒了，于是开始了下面的排查过程。 1. 问题描述本次排查的问题为，华为手机用">
-<meta name="keywords" content="Issue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="华为手机消息角标问题排查过程">
-<meta property="og:url" content="http://yoursite.com/2024/08/21/华为手机消息角标问题排查过程/index.html">
+<meta property="og:url" content="http://yoursite.com/2024/08/21/%E5%8D%8E%E4%B8%BA%E6%89%8B%E6%9C%BA%E6%B6%88%E6%81%AF%E8%A7%92%E6%A0%87%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5%E8%BF%87%E7%A8%8B/index.html">
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="这是篇过程复盘类的文章，一是想将问题的排查、解决过程梳理出来；二是要将排查过程中涉及到的一些琐碎的知识点记录下来。在开始复盘前，简单交代一下问题背景：我维护的项目基于【网易云信】实现了 IM 功能，与微信类似，用户收到消息后，手机会收到消息推送，状态栏和桌面 LOGO 的角标都会有消息提醒，最近有华为手机用户反馈没有消息提醒了，于是开始了下面的排查过程。 1. 问题描述本次排查的问题为，华为手机用">
-<meta property="og:locale" content="default">
+<meta property="og:locale">
 <meta property="og:image" content="https://image.sunzn.com/blog/20240821171401.png">
-<meta property="og:updated_time" content="2024-08-21T13:32:53.864Z">
+<meta property="article:published_time" content="2024-08-21T13:15:32.000Z">
+<meta property="article:modified_time" content="2024-08-21T13:32:53.864Z">
+<meta property="article:author" content="狮子">
+<meta property="article:tag" content="Issue">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="华为手机消息角标问题排查过程">
-<meta name="twitter:description" content="这是篇过程复盘类的文章，一是想将问题的排查、解决过程梳理出来；二是要将排查过程中涉及到的一些琐碎的知识点记录下来。在开始复盘前，简单交代一下问题背景：我维护的项目基于【网易云信】实现了 IM 功能，与微信类似，用户收到消息后，手机会收到消息推送，状态栏和桌面 LOGO 的角标都会有消息提醒，最近有华为手机用户反馈没有消息提醒了，于是开始了下面的排查过程。 1. 问题描述本次排查的问题为，华为手机用">
 <meta name="twitter:image" content="https://image.sunzn.com/blog/20240821171401.png">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
@@ -49,8 +49,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -63,10 +63,8 @@ var _hmt = _hmt || [];
 			<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">狮子</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">念念不忘，必有回响</p>
 		
 
 		<nav class="header-menu">
@@ -123,10 +121,8 @@ var _hmt = _hmt || [];
 				<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">狮子</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>念念不忘，必有回响<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -183,7 +179,7 @@ var _hmt = _hmt || [];
   
 
         
-        <a href="/2024/08/21/华为手机消息角标问题排查过程/" class="archive-article-date">
+        <a href="/2024/08/21/%E5%8D%8E%E4%B8%BA%E6%89%8B%E6%9C%BA%E6%B6%88%E6%81%AF%E8%A7%92%E6%A0%87%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5%E8%BF%87%E7%A8%8B/" class="archive-article-date">
   	<time datetime="2024-08-21T13:15:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-08-21</time>
 </a>
         
@@ -191,86 +187,86 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这是篇过程复盘类的文章，一是想将问题的排查、解决过程梳理出来；二是要将排查过程中涉及到的一些琐碎的知识点记录下来。在开始复盘前，简单交代一下问题背景：我维护的项目基于<a href="https://netease.im/" target="_blank" rel="noopener">【网易云信】</a>实现了 IM 功能，与微信类似，用户收到消息后，手机会收到消息推送，状态栏和桌面 LOGO 的角标都会有消息提醒，最近有华为手机用户反馈没有消息提醒了，于是开始了下面的排查过程。</p>
+        <p>这是篇过程复盘类的文章，一是想将问题的排查、解决过程梳理出来；二是要将排查过程中涉及到的一些琐碎的知识点记录下来。在开始复盘前，简单交代一下问题背景：我维护的项目基于<a href="https://netease.im/">【网易云信】</a>实现了 IM 功能，与微信类似，用户收到消息后，手机会收到消息推送，状态栏和桌面 LOGO 的角标都会有消息提醒，最近有华为手机用户反馈没有消息提醒了，于是开始了下面的排查过程。</p>
 <h1 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1. 问题描述"></a>1. 问题描述</h1><p>本次排查的问题为，华为手机用户在收到 IM 消息后，桌面 LOGO 的角标不发生动态更新，只有进入应用的消息列表页面，再重新切到桌面后角标数量才会更新。</p>
 <h1 id="2-排查过程"><a href="#2-排查过程" class="headerlink" title="2. 排查过程"></a>2. 排查过程</h1><h2 id="2-1-角标权限"><a href="#2-1-角标权限" class="headerlink" title="2.1 角标权限"></a>2.1 角标权限</h2><p>桌面图标的角标数量不更新，我们第一时间想到的是用户的「桌面图标角标」权限是否开启？结果是开启的，那就证明问题不在角标权限这里。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="2-2-模拟复现"><a href="#2-2-模拟复现" class="headerlink" title="2.2 模拟复现"></a>2.2 模拟复现</h2><p>排除了角标权限，我们准备了两台华为手机，安装应用后开始互发消息。结果，两台手机的状态栏均可收到消息提醒，但角标数量依然没有更新。通过这样的测试，我们可以得到以下结论：</p>
 <table>
-    <tbody>
-        <tr style="text-align:center;background-color:#EFEFEF">
-            <th align="center">编号</th>
-            <th align="center">结论</th>
-        </tr>
-        <tr>
-            <td align="center">1</td>
-            <td align="center">客户端的消息推送逻辑没有问题</td>
-        </tr>
-        <tr>
-            <td align="center">2</td>
-            <td align="center">角标更新的问题应该在代码层面</td>
-        </tr>
-    </tbody>
+	<tbody>
+		<tr style="text-align:center;background-color:#EFEFEF">
+			<th align="center">编号</th>
+			<th align="center">结论</th>
+		</tr>
+		<tr>
+			<td align="center">1</td>
+			<td align="center">客户端的消息推送逻辑没有问题</td>
+		</tr>
+		<tr>
+			<td align="center">2</td>
+			<td align="center">角标更新的问题应该在代码层面</td>
+		</tr>
+	</tbody>
 </table>
 
 <h2 id="2-3-官方沟通"><a href="#2-3-官方沟通" class="headerlink" title="2.3 官方沟通"></a>2.3 官方沟通</h2><p>在确定问题在代码层面后，我们拿着结论寻求云信技术组的支持，提供了样本消息的参数后，云信技术组反馈说消息体的 <code>payload</code> 中缺少华为 <code>badge</code> 的配置。同时提供了参考文档：</p>
 <table>
-    <tbody>
-        <tr style="text-align:center;background-color:#EFEFEF">
-            <th align="center">编号</th>
-            <th align="center">文档</th>
-            <th align="center">来源</th>
-        </tr>
-        <tr>
-            <td align="center">1</td>
-            <td align="center">
-                <a href="https://faq.yunxin.163.com/#KB0526" target="_blank" rel="noopener">华为角标配置方法</a>
+	<tbody>
+		<tr style="text-align:center;background-color:#EFEFEF">
+			<th align="center">编号</th>
+			<th align="center">文档</th>
+			<th align="center">来源</th>
+		</tr>
+		<tr>
+			<td align="center">1</td>
+			<td align="center">
+                <a href="https://faq.yunxin.163.com/#KB0526">华为角标配置方法</a>
             </td>
             <td align="center">云信</td>
-        </tr>
-        <tr>
-            <td align="center">2</td>
-            <td align="center">
-                <a href="https://developer.huawei.com/consumer/cn/doc/HMS-References/push-sendapi#androidnotification" target="_blank" rel="noopener">AndroidNotification 结构</a>
+		</tr>
+		<tr>
+			<td align="center">2</td>
+			<td align="center">
+                <a href="https://developer.huawei.com/consumer/cn/doc/HMS-References/push-sendapi#androidnotification">AndroidNotification 结构</a>
             </td>
             <td align="center">华为</td>
-        </tr>
-        <tr>
-            <td align="center">3</td>
-            <td align="center">
-                <a href="https://developer.huawei.com/consumer/cn/doc/HMS-References/push-sendapi#badgenotification" target="_blank" rel="noopener">BadgeNotification 结构体</a>
+		</tr>
+		<tr>
+			<td align="center">3</td>
+			<td align="center">
+                <a href="https://developer.huawei.com/consumer/cn/doc/HMS-References/push-sendapi#badgenotification">BadgeNotification 结构体</a>
             </td>
             <td align="center">华为</td>
-        </tr>
-    </tbody>
+		</tr>
+	</tbody>
 </table>
 
 <p>于是按照文档说明，在 <code>payload</code> 的 <code>hwField</code> 节点下增加了 <code>badge</code> 配置，代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;String, Object&gt; hwPush = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">HashMap&lt;String, Object&gt; badge = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">badge.put(<span class="string">"add_num"</span>, <span class="number">1</span>);</span><br><span class="line">badge.put(<span class="string">"class"</span>, <span class="string">"com.user.LoginActivity"</span>);</span><br><span class="line">hwPush.put(<span class="string">"badge"</span>, badge);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;String, Object&gt; hwPush = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">HashMap&lt;String, Object&gt; badge = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">badge.put(<span class="string">&quot;add_num&quot;</span>, <span class="number">1</span>);</span><br><span class="line">badge.put(<span class="string">&quot;class&quot;</span>, <span class="string">&quot;com.user.LoginActivity&quot;</span>);</span><br><span class="line">hwPush.put(<span class="string">&quot;badge&quot;</span>, badge);</span><br></pre></td></tr></table></figure>
 
 <p>重新编译打包安装到两台华为手机上进行消息互发测试，结果和之前的测试结果一样，依然是状态栏有提醒而角标数量无更新。结果提交给云信技术组，技术组的人也一头雾水。云信技术组收集了消息样本参数提交给了华为进行咨询，得到的反馈是：<strong>应用入口 Activity 类的全路径错误所致</strong>，也就是 <code>badge</code> 中的 <code>class</code> 值设置错误了。</p>
 <p>因为这个值需要和云信后台证书中设置的 Activity 保持一致，于是和云信后台证书进行了比较，结果是一致的，唯一的变化是证书中配置的 Activity 已经不是项目中的应用入口了。区别如下：</p>
 <table>
-    <tbody>
-        <tr style="text-align:center;background-color:#EFEFEF">
-            <th align="center">位置</th>
-            <th align="center">应用入口</th>
-        </tr>
-        <tr>
-            <td align="center">项目应用入口</td>
-            <td align="center">com.user.MainActivity</td>
-        </tr>
-        <tr>
-            <td align="center">证书配置入口</td>
-            <td align="center">com.user.LoginActivity</td>
-        </tr>
+	<tbody>
+		<tr style="text-align:center;background-color:#EFEFEF">
+			<th align="center">位置</th>
+			<th align="center">应用入口</th>
+		</tr>
+		<tr>
+			<td align="center">项目应用入口</td>
+			<td align="center">com.user.MainActivity</td>
+		</tr>
+		<tr>
+			<td align="center">证书配置入口</td>
+			<td align="center">com.user.LoginActivity</td>
+		</tr>
         <tr>
             <td colspan="2">
                 <img src="https://image.sunzn.com/blog/20240821171401.png">
             </td>
         </tr>
-    </tbody>
+	</tbody>
 </table>
 
 <blockquote>
@@ -278,7 +274,7 @@ var _hmt = _hmt || [];
 </blockquote>
 <p>现在，能想到的最直接的解决办法就是直接更新证书中的应用入口。但是，在尝试更新的时候，提示需要变更证书。这种操作容易影响线上的应用，所以，这个解决办法只能作为备选方案。经过和官方的确认，可以不更改云信证书的应用入口，只变更 <code>badge</code> 节点内的应用入口即可，<strong>因为 <code>payload</code> 的优先级是最高的，且高于云信证书。</strong></p>
 <h1 id="3-修复问题"><a href="#3-修复问题" class="headerlink" title="3. 修复问题"></a>3. 修复问题</h1><p>现在可以放心的修复问题了，只需要将项目中的入口配置为最新的入口即可，代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;String, Object&gt; hwPush = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">HashMap&lt;String, Object&gt; badge = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">badge.put(<span class="string">"add_num"</span>, <span class="number">1</span>);</span><br><span class="line">badge.put(<span class="string">"class"</span>, <span class="string">"com.user.MainActivity"</span>);</span><br><span class="line">hwPush.put(<span class="string">"badge"</span>, badge);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;String, Object&gt; hwPush = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">HashMap&lt;String, Object&gt; badge = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">badge.put(<span class="string">&quot;add_num&quot;</span>, <span class="number">1</span>);</span><br><span class="line">badge.put(<span class="string">&quot;class&quot;</span>, <span class="string">&quot;com.user.MainActivity&quot;</span>);</span><br><span class="line">hwPush.put(<span class="string">&quot;badge&quot;</span>, badge);</span><br></pre></td></tr></table></figure>
 
 <p>修改代码，重新编译运行到两台华为手机上并互发消息，角标数量可以正确更新了。此时，只是实现了安卓手机间发送消息时角标的更新，如果从 iOS、PC、WEB 端发消息到 Android 端实现角标的正确更新，也需要分别在这些端上配置对应的 <code>payload</code> 信息。</p>
 
@@ -371,7 +367,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2024/08/21/华为手机消息角标问题排查过程/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2024/08/21/%E5%8D%8E%E4%B8%BA%E6%89%8B%E6%9C%BA%E6%B6%88%E6%81%AF%E8%A7%92%E6%A0%87%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5%E8%BF%87%E7%A8%8B/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -385,7 +381,7 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2025/01/14/Kotlin-中的中缀函数/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2025/01/14/Kotlin-%E4%B8%AD%E7%9A%84%E4%B8%AD%E7%BC%80%E5%87%BD%E6%95%B0/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -395,7 +391,7 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2024/05/23/约束布局下的-Chains/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2024/05/23/%E7%BA%A6%E6%9D%9F%E5%B8%83%E5%B1%80%E4%B8%8B%E7%9A%84-Chains/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">约束布局下的 Chains</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -423,7 +419,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-问题描述"><span class="toc-number">1.</span> <span class="toc-text">1. 问题描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-排查过程"><span class="toc-number">2.</span> <span class="toc-text">2. 排查过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-角标权限"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 角标权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-模拟复现"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 模拟复现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-官方沟通"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 官方沟通</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-修复问题"><span class="toc-number">3.</span> <span class="toc-text">3. 修复问题</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">1. 问题描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E6%8E%92%E6%9F%A5%E8%BF%87%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">2. 排查过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E8%A7%92%E6%A0%87%E6%9D%83%E9%99%90"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 角标权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E6%A8%A1%E6%8B%9F%E5%A4%8D%E7%8E%B0"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 模拟复现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E5%AE%98%E6%96%B9%E6%B2%9F%E9%80%9A"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 官方沟通</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E4%BF%AE%E5%A4%8D%E9%97%AE%E9%A2%98"><span class="toc-number">3.</span> <span class="toc-text">3. 修复问题</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -536,10 +532,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -552,6 +544,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Android Studio</a>
               </li>
              
@@ -560,11 +560,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+                <a href="javascript:void(0)" class="js-tag color5">Room</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -572,11 +576,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">View</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Fiddler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -592,7 +620,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -601,10 +641,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -624,59 +660,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">View</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Room</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -700,15 +696,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
+                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Application</a>
               </li>
             
             <div class="clearfix"></div>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Welcome to sunzn&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -12,9 +12,9 @@
 <meta property="og:title" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:url" content="http://yoursite.com/page/9/index.html">
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
-<meta property="og:locale" content="default">
+<meta property="og:locale">
+<meta property="article:author" content="狮子">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Welcome to sunzn&#39;s Blog">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -42,8 +42,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -56,10 +56,8 @@ var _hmt = _hmt || [];
 			<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">狮子</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">念念不忘，必有回响</p>
 		
 
 		<nav class="header-menu">
@@ -116,10 +114,8 @@ var _hmt = _hmt || [];
 				<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">狮子</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>念念不忘，必有回响<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -166,31 +162,32 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Python（1-1）下载与安装-Python-3-6" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Python（2-1）Python-学习之使用-REPL" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/05/Python（1-1）下载与安装-Python-3-6/">Python（1.1）下载与安装 Python 3.6</a>
+      <a class="article-title" href="/2017/08/07/Python%EF%BC%882-1%EF%BC%89Python-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BD%BF%E7%94%A8-REPL/">Python（2.1）Python 学习之使用 REPL</a>
     </h1>
   
 
         
-        <a href="/2017/08/05/Python（1-1）下载与安装-Python-3-6/" class="archive-article-date">
-  	<time datetime="2017-08-05T11:08:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-05</time>
+        <a href="/2017/08/07/Python%EF%BC%882-1%EF%BC%89Python-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BD%BF%E7%94%A8-REPL/" class="archive-article-date">
+  	<time datetime="2017-08-07T12:19:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-07</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Python 诞生于 1991 年，而 Python 3.0 发布于 2008 年，新功能中最引人注目的是 Unicode 的支持，将 str/unicode 做了个结合，并明确地提供了另一个 bytes 类型，解决了许多人处理字符编码的问题，然而，其他语法与程序库方面的变更，也破坏了向后兼容性，导致许多基于 Python 2.x 的程序，无法直接在 Python 3.0 的环境中运行。</p>
-<p>使用 Python 不可不认识 Python 的创建者 Guido van Rossum，Guido 是首位享有 BDFL 封号的开放源码软件创建者，BDFL 全名为 Benevolent Dictator For Life，中文常翻译为「仁慈的独裁者」，意思是拥有这类称号的开放源码软件创建者，对社群仍持续关注，在必要时能针对社群中的意见与争议提出想法与做出最后裁决，Python 3.x 得以持续推进就是一个例子，因为 Python 3.x 正是 Guido van Rossum 的最爱，没有他的坚持，或许 Python 3.x 难以有今天的接受度。</p>
-<h3 id="一、下载与安装"><a href="#一、下载与安装" class="headerlink" title="一、下载与安装"></a>一、下载与安装</h3><p>下载 Python 需要到 Python 官方网站 <a href="https://www.python.org/" target="_blank" rel="noopener">www.python.org</a>，在首页的 「Downloads」选项中，会自动检测操作系统，直接列出可下载安装的文件：</p>
+        <p>第一个“Hello World”的出现是在 Brian Kernighan 写的《A Tutorial Introduction to the Language B》书籍中（B 语言是 C 语言的前身），用来将‘Hello World’文字显示在电脑屏幕上，自此之后，很多语言将它作为第一个范例程序，所以，我们的第一个示例也要从‘Hello World’开始。</p>
+<h3 id="使用-REPL"><a href="#使用-REPL" class="headerlink" title="使用 REPL"></a>使用 REPL</h3><p>第一个显示‘Hello World’的程序，我们预计在 REPL（Read-Eval-Print Loop）环境中进行（又称为 Python Shell），这是一个简单、互动式的程序设计环境，不过，虽然它很简单，然而在日后开发 Python 程序的日子里，你会经常地使用它，因为 REPL 在测试一些代码片段时非常方便。</p>
+<p><font color="DeepPink">现在打开「命令提示符」，直接输入 Python 命令，这样就会进入 REPL 环境。</font></p>
+<p><img src="https://image.sunzn.com/blog/20170807202901.png" alt="进入 REPL 环境"></p>
         
-          <a class="article-more-a" href="/2017/08/05/Python（1-1）下载与安装-Python-3-6/#more">more >></a>
+          <a class="article-more-a" href="/2017/08/07/Python%EF%BC%882-1%EF%BC%89Python-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BD%BF%E7%94%A8-REPL/#more">more >></a>
         
       
 
@@ -214,7 +211,85 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/05/Python（1-1）下载与安装-Python-3-6/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/07/Python%EF%BC%882-1%EF%BC%89Python-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BD%BF%E7%94%A8-REPL/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Python（1-1）下载与安装-Python-3-6" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/05/Python%EF%BC%881-1%EF%BC%89%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85-Python-3-6/">Python（1.1）下载与安装 Python 3.6</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/05/Python%EF%BC%881-1%EF%BC%89%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85-Python-3-6/" class="archive-article-date">
+  	<time datetime="2017-08-05T11:08:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Python 诞生于 1991 年，而 Python 3.0 发布于 2008 年，新功能中最引人注目的是 Unicode 的支持，将 str&#x2F;unicode 做了个结合，并明确地提供了另一个 bytes 类型，解决了许多人处理字符编码的问题，然而，其他语法与程序库方面的变更，也破坏了向后兼容性，导致许多基于 Python 2.x 的程序，无法直接在 Python 3.0 的环境中运行。</p>
+<p>使用 Python 不可不认识 Python 的创建者 Guido van Rossum，Guido 是首位享有 BDFL 封号的开放源码软件创建者，BDFL 全名为 Benevolent Dictator For Life，中文常翻译为「仁慈的独裁者」，意思是拥有这类称号的开放源码软件创建者，对社群仍持续关注，在必要时能针对社群中的意见与争议提出想法与做出最后裁决，Python 3.x 得以持续推进就是一个例子，因为 Python 3.x 正是 Guido van Rossum 的最爱，没有他的坚持，或许 Python 3.x 难以有今天的接受度。</p>
+<h3 id="一、下载与安装"><a href="#一、下载与安装" class="headerlink" title="一、下载与安装"></a>一、下载与安装</h3><p>下载 Python 需要到 Python 官方网站 <a href="https://www.python.org/">www.python.org</a>，在首页的 「Downloads」选项中，会自动检测操作系统，直接列出可下载安装的文件：</p>
+        
+          <a class="article-more-a" href="/2017/08/05/Python%EF%BC%881-1%EF%BC%89%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85-Python-3-6/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/05/Python%EF%BC%881-1%EF%BC%89%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85-Python-3-6/">展开全文 >></a>
         </p>
       
 
@@ -251,12 +326,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/03/由-zipalign-导致的签名无效/">由 zipalign 导致的签名无效</a>
+      <a class="article-title" href="/2017/08/03/%E7%94%B1-zipalign-%E5%AF%BC%E8%87%B4%E7%9A%84%E7%AD%BE%E5%90%8D%E6%97%A0%E6%95%88/">由 zipalign 导致的签名无效</a>
     </h1>
   
 
         
-        <a href="/2017/08/03/由-zipalign-导致的签名无效/" class="archive-article-date">
+        <a href="/2017/08/03/%E7%94%B1-zipalign-%E5%AF%BC%E8%87%B4%E7%9A%84%E7%AD%BE%E5%90%8D%E6%97%A0%E6%95%88/" class="archive-article-date">
   	<time datetime="2017-08-03T12:13:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-03</time>
 </a>
         
@@ -292,7 +367,7 @@ var _hmt = _hmt || [];
 </tr>
 </tbody></table>
         
-          <a class="article-more-a" href="/2017/08/03/由-zipalign-导致的签名无效/#more">more >></a>
+          <a class="article-more-a" href="/2017/08/03/%E7%94%B1-zipalign-%E5%AF%BC%E8%87%B4%E7%9A%84%E7%AD%BE%E5%90%8D%E6%97%A0%E6%95%88/#more">more >></a>
         
       
 
@@ -320,7 +395,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/03/由-zipalign-导致的签名无效/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/03/%E7%94%B1-zipalign-%E5%AF%BC%E8%87%B4%E7%9A%84%E7%AD%BE%E5%90%8D%E6%97%A0%E6%95%88/">展开全文 >></a>
         </p>
       
 
@@ -357,12 +432,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/02/版本号/">版本号</a>
+      <a class="article-title" href="/2017/08/02/%E7%89%88%E6%9C%AC%E5%8F%B7/">版本号</a>
     </h1>
   
 
         
-        <a href="/2017/08/02/版本号/" class="archive-article-date">
+        <a href="/2017/08/02/%E7%89%88%E6%9C%AC%E5%8F%B7/" class="archive-article-date">
   	<time datetime="2017-08-02T11:40:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-02</time>
 </a>
         
@@ -396,7 +471,7 @@ var _hmt = _hmt || [];
 </tr>
 </tbody></table>
         
-          <a class="article-more-a" href="/2017/08/02/版本号/#more">more >></a>
+          <a class="article-more-a" href="/2017/08/02/%E7%89%88%E6%9C%AC%E5%8F%B7/#more">more >></a>
         
       
 
@@ -420,7 +495,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/02/版本号/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/02/%E7%89%88%E6%9C%AC%E5%8F%B7/">展开全文 >></a>
         </p>
       
 
@@ -457,12 +532,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/29/Windows-下-MySQL-数据库-Root-密码重置/">Windows 下 MySQL 数据库 Root 密码重置</a>
+      <a class="article-title" href="/2017/07/29/Windows-%E4%B8%8B-MySQL-%E6%95%B0%E6%8D%AE%E5%BA%93-Root-%E5%AF%86%E7%A0%81%E9%87%8D%E7%BD%AE/">Windows 下 MySQL 数据库 Root 密码重置</a>
     </h1>
   
 
         
-        <a href="/2017/07/29/Windows-下-MySQL-数据库-Root-密码重置/" class="archive-article-date">
+        <a href="/2017/07/29/Windows-%E4%B8%8B-MySQL-%E6%95%B0%E6%8D%AE%E5%BA%93-Root-%E5%AF%86%E7%A0%81%E9%87%8D%E7%BD%AE/" class="archive-article-date">
   	<time datetime="2017-07-29T15:06:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-29</time>
 </a>
         
@@ -473,7 +548,7 @@ var _hmt = _hmt || [];
         <p>1、首先在开始–&gt;运行中输入“services.msc”，调出服务窗口，找到 MySQL 服务将其停止。</p>
 <p><img src="https://image.sunzn.com/blog/20170729232001.png" alt="停止 MySQL 服务"></p>
         
-          <a class="article-more-a" href="/2017/07/29/Windows-下-MySQL-数据库-Root-密码重置/#more">more >></a>
+          <a class="article-more-a" href="/2017/07/29/Windows-%E4%B8%8B-MySQL-%E6%95%B0%E6%8D%AE%E5%BA%93-Root-%E5%AF%86%E7%A0%81%E9%87%8D%E7%BD%AE/#more">more >></a>
         
       
 
@@ -497,7 +572,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/29/Windows-下-MySQL-数据库-Root-密码重置/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/07/29/Windows-%E4%B8%8B-MySQL-%E6%95%B0%E6%8D%AE%E5%BA%93-Root-%E5%AF%86%E7%A0%81%E9%87%8D%E7%BD%AE/">展开全文 >></a>
         </p>
       
 
@@ -534,12 +609,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/28/泛型/">泛型</a>
+      <a class="article-title" href="/2017/07/28/%E6%B3%9B%E5%9E%8B/">泛型</a>
     </h1>
   
 
         
-        <a href="/2017/07/28/泛型/" class="archive-article-date">
+        <a href="/2017/07/28/%E6%B3%9B%E5%9E%8B/" class="archive-article-date">
   	<time datetime="2017-07-28T12:54:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-28</time>
 </a>
         
@@ -550,9 +625,9 @@ var _hmt = _hmt || [];
         <p>在 JSE 5.0 中新增了泛型（Generics）功能，而其许多 API 都根据这个新功能重新改写了，例如 List、Map、Set 等相关类。即使不了解泛型的新功能，也可以按照 J2SE 1.4 或旧版本的语法来使用这些类，但编译时会出现一些警告（Warnings）。</p>
 <p>泛型解决的不只是然你少写了几个类的程序代码，还在于让你定义安全的泛型类（Generics Class）。泛型提供编译时期检查，你不会因为将对象置入某个容器（Contatiner）而失去其类型。</p>
 <h2 id="1、泛型入门"><a href="#1、泛型入门" class="headerlink" title="1、泛型入门"></a>1、泛型入门</h2><h3 id="1-1-没有泛型之前"><a href="#1-1-没有泛型之前" class="headerlink" title="1.1 没有泛型之前"></a>1.1 没有泛型之前</h3><p>考虑设计下面的 BooleanFoo 与 IntegerFoo 两个类，这是两个很无聊的类，但足以说明需求。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.sunzn.generics;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BooleanFoo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Boolean foo;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setFoo</span><span class="params">(Boolean foo)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.foo = foo;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Boolean <span class="title">getFoo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> foo;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.sunzn.generics;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BooleanFoo</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Boolean foo;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setFoo</span><span class="params">(Boolean foo)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.foo = foo;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Boolean <span class="title function_">getFoo</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> foo;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2017/07/28/泛型/#more">more >></a>
+          <a class="article-more-a" href="/2017/07/28/%E6%B3%9B%E5%9E%8B/#more">more >></a>
         
       
 
@@ -580,7 +655,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/28/泛型/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/07/28/%E6%B3%9B%E5%9E%8B/">展开全文 >></a>
         </p>
       
 
@@ -617,12 +692,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/20/Annotation-概述/">Annotation 概述</a>
+      <a class="article-title" href="/2017/07/20/Annotation-%E6%A6%82%E8%BF%B0/">Annotation 概述</a>
     </h1>
   
 
         
-        <a href="/2017/07/20/Annotation-概述/" class="archive-article-date">
+        <a href="/2017/07/20/Annotation-%E6%A6%82%E8%BF%B0/" class="archive-article-date">
   	<time datetime="2017-07-20T11:16:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-20</time>
 </a>
         
@@ -633,11 +708,11 @@ var _hmt = _hmt || [];
         <p>Annotation 对程序运行没有影响，它的目的在于对编译器或分析工具说明程序的某些信息，您可以在包、类、方法、域成员等加上 Annotation。每一个 Annotation 对应于一个实际的 Annotation 类型。</p>
 <h2 id="1、限定-Override-父类方法-Override"><a href="#1、限定-Override-父类方法-Override" class="headerlink" title="1、限定 Override 父类方法 @Override"></a>1、限定 Override 父类方法 @Override</h2><p><code>java.lang.Override</code> 是 J2SE 5.0 中标准的 Annotation 类型之一，它对编译器说明某个方法必须是重写父类中的方法。编译器得知这项信息后，在编译程序时如果发现被 @Override 标示的方法并非重写父类中的方法，就会报告错误。</p>
 <p>举个例子来说，如果在定义新类时想要重写 Object 类的 toString() 方法，可能会写成这样：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">ToString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"user"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">User</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">ToString</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;user&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>在编写 toString() 方法时，因为输入错误或其他的疏忽，将之写成 ToString() 了，编译这个类时并不会出现任何的错误，编译器不会知道你是想重写 toString() 方法，只会以为是定义了一个新的 ToString() 方法。</p>
         
-          <a class="article-more-a" href="/2017/07/20/Annotation-概述/#more">more >></a>
+          <a class="article-more-a" href="/2017/07/20/Annotation-%E6%A6%82%E8%BF%B0/#more">more >></a>
         
       
 
@@ -665,7 +740,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/20/Annotation-概述/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/07/20/Annotation-%E6%A6%82%E8%BF%B0/">展开全文 >></a>
         </p>
       
 
@@ -702,12 +777,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/18/使用-URL-Scheme-唤起应用打开-Activity/">使用 URL Scheme 唤起应用打开 Activity</a>
+      <a class="article-title" href="/2017/07/18/%E4%BD%BF%E7%94%A8-URL-Scheme-%E5%94%A4%E8%B5%B7%E5%BA%94%E7%94%A8%E6%89%93%E5%BC%80-Activity/">使用 URL Scheme 唤起应用打开 Activity</a>
     </h1>
   
 
         
-        <a href="/2017/07/18/使用-URL-Scheme-唤起应用打开-Activity/" class="archive-article-date">
+        <a href="/2017/07/18/%E4%BD%BF%E7%94%A8-URL-Scheme-%E5%94%A4%E8%B5%B7%E5%BA%94%E7%94%A8%E6%89%93%E5%BC%80-Activity/" class="archive-article-date">
   	<time datetime="2017-07-18T10:51:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-18</time>
 </a>
         
@@ -725,7 +800,7 @@ var _hmt = _hmt || [];
 </ul>
 </blockquote>
         
-          <a class="article-more-a" href="/2017/07/18/使用-URL-Scheme-唤起应用打开-Activity/#more">more >></a>
+          <a class="article-more-a" href="/2017/07/18/%E4%BD%BF%E7%94%A8-URL-Scheme-%E5%94%A4%E8%B5%B7%E5%BA%94%E7%94%A8%E6%89%93%E5%BC%80-Activity/#more">more >></a>
         
       
 
@@ -749,7 +824,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/18/使用-URL-Scheme-唤起应用打开-Activity/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/07/18/%E4%BD%BF%E7%94%A8-URL-Scheme-%E5%94%A4%E8%B5%B7%E5%BA%94%E7%94%A8%E6%89%93%E5%BC%80-Activity/">展开全文 >></a>
         </p>
       
 
@@ -786,12 +861,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/13/面试题：反转/">面试题：反转</a>
+      <a class="article-title" href="/2017/07/13/%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%9A%E5%8F%8D%E8%BD%AC/">面试题：反转</a>
     </h1>
   
 
         
-        <a href="/2017/07/13/面试题：反转/" class="archive-article-date">
+        <a href="/2017/07/13/%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%9A%E5%8F%8D%E8%BD%AC/" class="archive-article-date">
   	<time datetime="2017-07-13T13:19:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-13</time>
 </a>
         
@@ -804,9 +879,9 @@ var _hmt = _hmt || [];
 <li><strong>输入</strong>：Android Architecture Components</li>
 <li><strong>输出</strong>：stnenopmoC erutcetihcrA diordnA</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String s = <span class="string">"Android Architecture Components"</span>;</span><br><span class="line">StringBuilder sb = <span class="keyword">new</span> StringBuilder(s);</span><br><span class="line">Log.e(<span class="string">"sunzn"</span>, String.valueOf(sb.reverse()));</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> <span class="string">&quot;Android Architecture Components&quot;</span>;</span><br><span class="line"><span class="type">StringBuilder</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>(s);</span><br><span class="line">Log.e(<span class="string">&quot;sunzn&quot;</span>, String.valueOf(sb.reverse()));</span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2017/07/13/面试题：反转/#more">more >></a>
+          <a class="article-more-a" href="/2017/07/13/%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%9A%E5%8F%8D%E8%BD%AC/#more">more >></a>
         
       
 
@@ -834,7 +909,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/13/面试题：反转/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/07/13/%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%9A%E5%8F%8D%E8%BD%AC/">展开全文 >></a>
         </p>
       
 
@@ -871,12 +946,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/05/Java-字符串格式化-String-format-的使用/">Java 字符串格式化 String.format() 的使用</a>
+      <a class="article-title" href="/2017/07/05/Java-%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A0%BC%E5%BC%8F%E5%8C%96-String-format-%E7%9A%84%E4%BD%BF%E7%94%A8/">Java 字符串格式化 String.format() 的使用</a>
     </h1>
   
 
         
-        <a href="/2017/07/05/Java-字符串格式化-String-format-的使用/" class="archive-article-date">
+        <a href="/2017/07/05/Java-%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A0%BC%E5%BC%8F%E5%8C%96-String-format-%E7%9A%84%E4%BD%BF%E7%94%A8/" class="archive-article-date">
   	<time datetime="2017-07-05T10:37:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-05</time>
 </a>
         
@@ -887,16 +962,16 @@ var _hmt = _hmt || [];
         <p><strong>JDK 1.5</strong> 开始，String 类中提供了一个非常有用的方法 <code>String.format()</code>，极大的方便了格式化输出，该方法有两种重载形式：</p>
 <blockquote>
 <ul>
-<li><strong><font color="#202020">String.format(String format, Object … args)</font></strong><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#757575">使用本地语言环境，制定字符串格式和参数生成格式化的新字符串。</font></li>
+<li><strong><font color=#202020>String.format(String format, Object … args)</font></strong><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color=#757575>使用本地语言环境，制定字符串格式和参数生成格式化的新字符串。</font></li>
 </ul>
 </blockquote>
 <blockquote>
 <ul>
-<li><strong><font color="#202020">String.format(Locale l, String format, Object… args)</font></strong><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#757575">使用指定语言环境，制定字符串格式和参数生成格式化的新字符串。</font></li>
+<li><strong><font color=#202020>String.format(Locale l, String format, Object… args)</font></strong><br>&nbsp;&nbsp;&nbsp;&nbsp;<font color=#757575>使用指定语言环境，制定字符串格式和参数生成格式化的新字符串。</font></li>
 </ul>
 </blockquote>
         
-          <a class="article-more-a" href="/2017/07/05/Java-字符串格式化-String-format-的使用/#more">more >></a>
+          <a class="article-more-a" href="/2017/07/05/Java-%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A0%BC%E5%BC%8F%E5%8C%96-String-format-%E7%9A%84%E4%BD%BF%E7%94%A8/#more">more >></a>
         
       
 
@@ -920,86 +995,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/05/Java-字符串格式化-String-format-的使用/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Hexo下删除文章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/01/Hexo下删除文章/">Hexo下删除文章</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/01/Hexo下删除文章/" class="archive-article-date">
-  	<time datetime="2017-06-01T12:43:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>删除文章</strong>需要进入 <code>Blog › source › _posts</code> 目录下，删除对应的 Markdown 文件，然后再执行 <code>hexo g</code> 重新生成静态页面，最后执行 <code>hexo d</code> 将更新部署到远程站点。这时候，刷新网站会发现对应的静态页面已经删除了。具体操作步骤如下：</p>
-<blockquote>
-<p><strong>第一步</strong>：删除对应标题的 MarkDown 文件</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2017/06/01/Hexo下删除文章/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/01/Hexo下删除文章/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/07/05/Java-%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A0%BC%E5%BC%8F%E5%8C%96-String-format-%E7%9A%84%E4%BD%BF%E7%94%A8/">展开全文 >></a>
         </p>
       
 
@@ -1127,10 +1123,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -1143,6 +1135,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Android Studio</a>
               </li>
              
@@ -1151,11 +1151,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+                <a href="javascript:void(0)" class="js-tag color5">Room</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1163,11 +1167,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">View</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Fiddler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1183,7 +1211,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1192,10 +1232,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1215,59 +1251,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">View</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Room</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1291,15 +1287,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
+                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Application</a>
               </li>
             
             <div class="clearfix"></div>

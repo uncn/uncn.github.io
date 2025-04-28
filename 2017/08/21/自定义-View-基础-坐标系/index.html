@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>自定义 View 基础 - 坐标系 | Welcome to sunzn&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="一、屏幕坐标系与数学坐标系的区别    坐标系 说明    数学坐标系 以轴线交叉点为原点，向右 X 轴增大，向上 Y 轴增大，角度逆时针为正向   屏幕坐标系 以屏幕左上角为原点，向右 X 轴增大，向下 Y 轴增大，角度顺时针为正向">
-<meta name="keywords" content="Android,View">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自定义 View 基础 - 坐标系">
-<meta property="og:url" content="http://yoursite.com/2017/08/21/自定义-View-基础-坐标系/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/08/21/%E8%87%AA%E5%AE%9A%E4%B9%89-View-%E5%9F%BA%E7%A1%80-%E5%9D%90%E6%A0%87%E7%B3%BB/index.html">
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="一、屏幕坐标系与数学坐标系的区别    坐标系 说明    数学坐标系 以轴线交叉点为原点，向右 X 轴增大，向上 Y 轴增大，角度逆时针为正向   屏幕坐标系 以屏幕左上角为原点，向右 X 轴增大，向下 Y 轴增大，角度顺时针为正向">
-<meta property="og:locale" content="default">
+<meta property="og:locale">
 <meta property="og:image" content="https://image.sunzn.com/blog/20180910144701.png">
 <meta property="og:image" content="https://image.sunzn.com/blog/20180910144702.png">
 <meta property="og:image" content="https://image.sunzn.com/blog/20180910144703.png">
 <meta property="og:image" content="https://image.sunzn.com/blog/20180910144704.png">
-<meta property="og:updated_time" content="2023-03-21T14:58:58.527Z">
+<meta property="article:published_time" content="2017-08-21T12:00:00.000Z">
+<meta property="article:modified_time" content="2023-03-21T14:58:58.527Z">
+<meta property="article:author" content="狮子">
+<meta property="article:tag" content="Android">
+<meta property="article:tag" content="View">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="自定义 View 基础 - 坐标系">
-<meta name="twitter:description" content="一、屏幕坐标系与数学坐标系的区别    坐标系 说明    数学坐标系 以轴线交叉点为原点，向右 X 轴增大，向上 Y 轴增大，角度逆时针为正向   屏幕坐标系 以屏幕左上角为原点，向右 X 轴增大，向下 Y 轴增大，角度顺时针为正向">
 <meta name="twitter:image" content="https://image.sunzn.com/blog/20180910144701.png">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
@@ -52,8 +53,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -66,10 +67,8 @@ var _hmt = _hmt || [];
 			<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">狮子</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">念念不忘，必有回响</p>
 		
 
 		<nav class="header-menu">
@@ -126,10 +125,8 @@ var _hmt = _hmt || [];
 				<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">狮子</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>念念不忘，必有回响<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -186,7 +183,7 @@ var _hmt = _hmt || [];
   
 
         
-        <a href="/2017/08/21/自定义-View-基础-坐标系/" class="archive-article-date">
+        <a href="/2017/08/21/%E8%87%AA%E5%AE%9A%E4%B9%89-View-%E5%9F%BA%E7%A1%80-%E5%9D%90%E6%A0%87%E7%B3%BB/" class="archive-article-date">
   	<time datetime="2017-08-21T12:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-21</time>
 </a>
         
@@ -211,7 +208,7 @@ var _hmt = _hmt || [];
 <td>以屏幕左上角为原点，向右 X 轴增大，向下 Y 轴增大，角度顺时针为正向</td>
 </tr>
 </tbody></table>
-<a id="more"></a>
+<span id="more"></span>
 
 <h1 id="二、屏幕坐标系"><a href="#二、屏幕坐标系" class="headerlink" title="二、屏幕坐标系"></a>二、屏幕坐标系</h1><p><img src="https://image.sunzn.com/blog/20180910144702.png" alt="此处输入图片的描述"></p>
 <h1 id="三、View-的坐标系"><a href="#三、View-的坐标系" class="headerlink" title="三、View 的坐标系"></a>三、View 的坐标系</h1><p><img src="https://image.sunzn.com/blog/20180910144703.png" alt="此处输入图片的描述"></p>
@@ -268,8 +265,8 @@ var _hmt = _hmt || [];
 </tr>
 </tbody></table>
 <h1 id="五、参考文章"><a href="#五、参考文章" class="headerlink" title="五、参考文章"></a>五、参考文章</h1><ul>
-<li><a href="https://blog.csdn.net/yanbober/article/details/50419117" target="_blank" rel="noopener">Android应用坐标系统全面详解</a></li>
-<li><a href="https://blog.csdn.net/wangjinyu501/article/details/21827341" target="_blank" rel="noopener">Android 屏幕（View）坐标系统</a></li>
+<li><a href="https://blog.csdn.net/yanbober/article/details/50419117">Android应用坐标系统全面详解</a></li>
+<li><a href="https://blog.csdn.net/wangjinyu501/article/details/21827341">Android 屏幕（View）坐标系统</a></li>
 </ul>
 
       
@@ -365,7 +362,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/08/21/自定义-View-基础-坐标系/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/08/21/%E8%87%AA%E5%AE%9A%E4%B9%89-View-%E5%9F%BA%E7%A1%80-%E5%9D%90%E6%A0%87%E7%B3%BB/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -379,7 +376,7 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2017/08/21/自定义-View-基础-角度与弧度/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/08/21/%E8%87%AA%E5%AE%9A%E4%B9%89-View-%E5%9F%BA%E7%A1%80-%E8%A7%92%E5%BA%A6%E4%B8%8E%E5%BC%A7%E5%BA%A6/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -389,7 +386,7 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2017/08/20/Fiddler（四）状态栏/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/08/20/Fiddler%EF%BC%88%E5%9B%9B%EF%BC%89%E7%8A%B6%E6%80%81%E6%A0%8F/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Fiddler（四）状态栏</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -417,7 +414,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、屏幕坐标系与数学坐标系的区别"><span class="toc-number">1.</span> <span class="toc-text">一、屏幕坐标系与数学坐标系的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、屏幕坐标系"><span class="toc-number">2.</span> <span class="toc-text">二、屏幕坐标系</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、View-的坐标系"><span class="toc-number">3.</span> <span class="toc-text">三、View 的坐标系</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、MotionEvent-中-get-和-getRaw-的区别"><span class="toc-number">4.</span> <span class="toc-text">四、MotionEvent 中 get 和 getRaw 的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、参考文章"><span class="toc-number">5.</span> <span class="toc-text">五、参考文章</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%B1%8F%E5%B9%95%E5%9D%90%E6%A0%87%E7%B3%BB%E4%B8%8E%E6%95%B0%E5%AD%A6%E5%9D%90%E6%A0%87%E7%B3%BB%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.</span> <span class="toc-text">一、屏幕坐标系与数学坐标系的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%B1%8F%E5%B9%95%E5%9D%90%E6%A0%87%E7%B3%BB"><span class="toc-number">2.</span> <span class="toc-text">二、屏幕坐标系</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81View-%E7%9A%84%E5%9D%90%E6%A0%87%E7%B3%BB"><span class="toc-number">3.</span> <span class="toc-text">三、View 的坐标系</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81MotionEvent-%E4%B8%AD-get-%E5%92%8C-getRaw-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">4.</span> <span class="toc-text">四、MotionEvent 中 get 和 getRaw 的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="toc-number">5.</span> <span class="toc-text">五、参考文章</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -530,10 +527,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -546,6 +539,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Android Studio</a>
               </li>
              
@@ -554,11 +555,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+                <a href="javascript:void(0)" class="js-tag color5">Room</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -566,11 +571,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">View</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Fiddler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -586,7 +615,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -595,10 +636,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -618,59 +655,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">View</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Room</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -694,15 +691,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
+                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Application</a>
               </li>
             
             <div class="clearfix"></div>

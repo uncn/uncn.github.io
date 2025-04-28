@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Welcome to sunzn&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -12,9 +12,9 @@
 <meta property="og:title" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:url" content="http://yoursite.com/page/5/index.html">
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
-<meta property="og:locale" content="default">
+<meta property="og:locale">
+<meta property="article:author" content="狮子">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Welcome to sunzn&#39;s Blog">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -42,8 +42,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -56,10 +56,8 @@ var _hmt = _hmt || [];
 			<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">狮子</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">念念不忘，必有回响</p>
 		
 
 		<nav class="header-menu">
@@ -116,10 +114,8 @@ var _hmt = _hmt || [];
 				<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">狮子</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>念念不忘，必有回响<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -166,6 +162,85 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-JitPack-Failed-to-install-the-following-Android-SDK-packages-as-some-licences-have-not-been-accepted" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/21/JitPack-Failed-to-install-the-following-Android-SDK-packages-as-some-licences-have-not-been-accepted/">JitPack:Failed to install the following Android SDK packages as some licences have not been accepted</a>
+    </h1>
+  
+
+        
+        <a href="/2019/01/21/JitPack-Failed-to-install-the-following-Android-SDK-packages-as-some-licences-have-not-been-accepted/" class="archive-article-date">
+  	<time datetime="2019-01-21T13:30:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>近期将 Android Studio 升级到了 3.3 版本，刚好有个托管在 GitHub 上的库要更新。便索性将库的 Android SDK 升级到了 28；同时将 Android SDK Build-Tools 也升级到了 28.0.3。修改库代码，提交至 GitHub 并发布 Releases，像往常一样在 JitPack 发布版本仓库。JitPack 报错如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">* What went wrong:</span><br><span class="line">A problem occurred configuring project &#x27;:Library&#x27;.</span><br><span class="line">&gt; Failed to install the following Android SDK packages as some licences have not been accepted.</span><br><span class="line">     build-tools;28.0.3 Android SDK Build-Tools 28.0.3</span><br><span class="line">     platforms;android-28 Android SDK Platform 28</span><br><span class="line">  To build this project, accept the SDK license agreements and install the missing components using the Android Studio SDK Manager.</span><br><span class="line">  Alternatively, to transfer the license agreements from one workstation to another, see http://d.android.com/r/studio-ui/export-licenses.html</span><br><span class="line">  </span><br><span class="line">  Using Android SDK: /opt/android-sdk-linux</span><br></pre></td></tr></table></figure>
+
+<p>这段报错的大致意思是：项目在构建过程中需要接受 SDK 许可协议，并使用 Android Studio SDK Manager 安装缺少的组件。到这基本明白怎么回事了，本地的测试代码运行没有问题，发布仓库的时候 JitPack 报错，只能说明一个问题，JitPack 的项目构建环境缺少最新的组件！</p>
+        
+          <a class="article-more-a" href="/2019/01/21/JitPack-Failed-to-install-the-following-Android-SDK-packages-as-some-licences-have-not-been-accepted/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JitPack</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/01/21/JitPack-Failed-to-install-the-following-Android-SDK-packages-as-some-licences-have-not-been-accepted/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-自定义-View-感知事件的几种方式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -173,12 +248,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/08/自定义-View-感知事件的几种方式/">自定义 View 感知事件的几种方式</a>
+      <a class="article-title" href="/2018/11/08/%E8%87%AA%E5%AE%9A%E4%B9%89-View-%E6%84%9F%E7%9F%A5%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/">自定义 View 感知事件的几种方式</a>
     </h1>
   
 
         
-        <a href="/2018/11/08/自定义-View-感知事件的几种方式/" class="archive-article-date">
+        <a href="/2018/11/08/%E8%87%AA%E5%AE%9A%E4%B9%89-View-%E6%84%9F%E7%9F%A5%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/" class="archive-article-date">
   	<time datetime="2018-11-08T14:30:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-08</time>
 </a>
         
@@ -186,11 +261,11 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-事件感知"><a href="#1-事件感知" class="headerlink" title="1 事件感知"></a>1 事件感知</h1><p>绝大多数情况下，View 是不需要感知外部组件的生命周期或系统事件的。但部分情况下，View 对外部事件的感知又是必要的，比如广告轮播组件：<a href="https://github.com/ShortStickBoy/Banner" target="_blank" rel="noopener">Banner</a>，这样的控件在设计之初就要考虑亮屏、息屏、Activity 的 onResume 和 onPause 生命周期，因为谁也不希望 Banner 在这些节点处继续执行轮播操作。</p>
+        <h1 id="1-事件感知"><a href="#1-事件感知" class="headerlink" title="1 事件感知"></a>1 事件感知</h1><p>绝大多数情况下，View 是不需要感知外部组件的生命周期或系统事件的。但部分情况下，View 对外部事件的感知又是必要的，比如广告轮播组件：<a href="https://github.com/ShortStickBoy/Banner">Banner</a>，这样的控件在设计之初就要考虑亮屏、息屏、Activity 的 onResume 和 onPause 生命周期，因为谁也不希望 Banner 在这些节点处继续执行轮播操作。</p>
 <p>如果将 Banner 当成一个 ItemView 放入 Listiew、RecyclerView 等具有复用机制的容器中时，新的问题又出现了，当 Banner 被滑出屏幕，又重新滑回屏幕后，之前的轮播状态是无法保持的。所以，我们需要知道 Banner 被销毁和重建的窗口，在销毁时记录轮播状态，在重建时将轮播状态复位。这样，用户就会有一致的轮播状态体验了。</p>
-<p>下面将会结合以上需求对每种事件和生命周期的感知进行详细的阐述。案例项目会托管在 Github 上，如需查看，请点击 <a href="https://github.com/ShortStickBoy/Receptor" target="_blank" rel="noopener">Receptor@Github</a>。</p>
+<p>下面将会结合以上需求对每种事件和生命周期的感知进行详细的阐述。案例项目会托管在 Github 上，如需查看，请点击 <a href="https://github.com/ShortStickBoy/Receptor">Receptor@Github</a>。</p>
         
-          <a class="article-more-a" href="/2018/11/08/自定义-View-感知事件的几种方式/#more">more >></a>
+          <a class="article-more-a" href="/2018/11/08/%E8%87%AA%E5%AE%9A%E4%B9%89-View-%E6%84%9F%E7%9F%A5%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/#more">more >></a>
         
       
 
@@ -218,7 +293,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/11/08/自定义-View-感知事件的几种方式/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/11/08/%E8%87%AA%E5%AE%9A%E4%B9%89-View-%E6%84%9F%E7%9F%A5%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/">展开全文 >></a>
         </p>
       
 
@@ -255,12 +330,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/12/Android-Library-中-switch-语句的-case-不能访问资源-ID-的原因/">Android Library 中 switch 语句的 case 不能访问资源 ID 的原因</a>
+      <a class="article-title" href="/2018/08/12/Android-Library-%E4%B8%AD-switch-%E8%AF%AD%E5%8F%A5%E7%9A%84-case-%E4%B8%8D%E8%83%BD%E8%AE%BF%E9%97%AE%E8%B5%84%E6%BA%90-ID-%E7%9A%84%E5%8E%9F%E5%9B%A0/">Android Library 中 switch 语句的 case 不能访问资源 ID 的原因</a>
     </h1>
   
 
         
-        <a href="/2018/08/12/Android-Library-中-switch-语句的-case-不能访问资源-ID-的原因/" class="archive-article-date">
+        <a href="/2018/08/12/Android-Library-%E4%B8%AD-switch-%E8%AF%AD%E5%8F%A5%E7%9A%84-case-%E4%B8%8D%E8%83%BD%E8%AE%BF%E9%97%AE%E8%B5%84%E6%BA%90-ID-%E7%9A%84%E5%8E%9F%E5%9B%A0/" class="archive-article-date">
   	<time datetime="2018-08-12T08:38:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-12</time>
 </a>
         
@@ -269,9 +344,9 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>使用 switch 语句的的时候，需要注意 case 分支后的引用在 Project 和 Library 下的区别。因为在 Library 中可能存在资源无法被引用的情形。在继续阐述之前，先看一段代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> EditorViewHolder <span class="title">onCreateViewHolder</span><span class="params">(View itemView, <span class="keyword">int</span> itemLayout, EditorAdapter adapter)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">switch</span> (itemLayout) &#123;</span><br><span class="line">        <span class="keyword">case</span> R.layout.item_euu001:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> EUU001ViewHolder(itemView, adapter);</span><br><span class="line">        <span class="keyword">case</span> R.layout.item_euu002:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> EUU002ViewHolder(itemView, adapter);</span><br><span class="line">        <span class="keyword">case</span> R.layout.item_euu003:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> EUU003ViewHolder(itemView, adapter);</span><br><span class="line">        <span class="keyword">case</span> R.layout.item_euu004:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> EUU004ViewHolder(itemView, adapter);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> EditorViewHolder <span class="title function_">onCreateViewHolder</span><span class="params">(View itemView, <span class="type">int</span> itemLayout, EditorAdapter adapter)</span> &#123;</span><br><span class="line">    <span class="keyword">switch</span> (itemLayout) &#123;</span><br><span class="line">        <span class="keyword">case</span> R.layout.item_euu001:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">EUU001ViewHolder</span>(itemView, adapter);</span><br><span class="line">        <span class="keyword">case</span> R.layout.item_euu002:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">EUU002ViewHolder</span>(itemView, adapter);</span><br><span class="line">        <span class="keyword">case</span> R.layout.item_euu003:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">EUU003ViewHolder</span>(itemView, adapter);</span><br><span class="line">        <span class="keyword">case</span> R.layout.item_euu004:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">EUU004ViewHolder</span>(itemView, adapter);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2018/08/12/Android-Library-中-switch-语句的-case-不能访问资源-ID-的原因/#more">more >></a>
+          <a class="article-more-a" href="/2018/08/12/Android-Library-%E4%B8%AD-switch-%E8%AF%AD%E5%8F%A5%E7%9A%84-case-%E4%B8%8D%E8%83%BD%E8%AE%BF%E9%97%AE%E8%B5%84%E6%BA%90-ID-%E7%9A%84%E5%8E%9F%E5%9B%A0/#more">more >></a>
         
       
 
@@ -295,7 +370,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/12/Android-Library-中-switch-语句的-case-不能访问资源-ID-的原因/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/08/12/Android-Library-%E4%B8%AD-switch-%E8%AF%AD%E5%8F%A5%E7%9A%84-case-%E4%B8%8D%E8%83%BD%E8%AE%BF%E9%97%AE%E8%B5%84%E6%BA%90-ID-%E7%9A%84%E5%8E%9F%E5%9B%A0/">展开全文 >></a>
         </p>
       
 
@@ -332,12 +407,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/07/标识应用所在的-Android-设备/">标识应用所在的 Android 设备</a>
+      <a class="article-title" href="/2018/08/07/%E6%A0%87%E8%AF%86%E5%BA%94%E7%94%A8%E6%89%80%E5%9C%A8%E7%9A%84-Android-%E8%AE%BE%E5%A4%87/">标识应用所在的 Android 设备</a>
     </h1>
   
 
         
-        <a href="/2018/08/07/标识应用所在的-Android-设备/" class="archive-article-date">
+        <a href="/2018/08/07/%E6%A0%87%E8%AF%86%E5%BA%94%E7%94%A8%E6%89%80%E5%9C%A8%E7%9A%84-Android-%E8%AE%BE%E5%A4%87/" class="archive-article-date">
   	<time datetime="2018-08-07T10:13:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-07</time>
 </a>
         
@@ -345,10 +420,10 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>标识一台 Android 设备已经是开发中司空见惯的事情了，但不是每个人都对自己所用 API 获取的标识有着明确的认知。所以，这里又将 <a href="https://android-developers.googleblog.com/" target="_blank" rel="noopener">Android Developers Blog</a> 2011年3月30日的一篇文章<a href="https://android-developers.googleblog.com/2011/03/identifying-app-installations.html" target="_blank" rel="noopener">《Identifying App Installations》</a> 翻了出来，这篇文章里的观点也大致的体现了 Google 官方对标识 Android 设备的态度：<strong>建议使用 UUID 作为标识符。</strong>博客里甚至还贴出了示例代码，建议应用在安装后第一次运行时创建一个新的 UUID 标识。以下是示例代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Installation</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String sID = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String INSTALLATION = <span class="string">"INSTALLATION"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">static</span> String <span class="title">id</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (sID == <span class="keyword">null</span>) &#123;  </span><br><span class="line">            File installation = <span class="keyword">new</span> File(context.getFilesDir(), INSTALLATION);</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (!installation.exists())</span><br><span class="line">                    writeInstallationFile(installation);</span><br><span class="line">                sID = readInstallationFile(installation);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sID;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> String <span class="title">readInstallationFile</span><span class="params">(File installation)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        RandomAccessFile f = <span class="keyword">new</span> RandomAccessFile(installation, <span class="string">"r"</span>);</span><br><span class="line">        <span class="keyword">byte</span>[] bytes = <span class="keyword">new</span> <span class="keyword">byte</span>[(<span class="keyword">int</span>) f.length()];</span><br><span class="line">        f.readFully(bytes);</span><br><span class="line">        f.close();</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> String(bytes);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">writeInstallationFile</span><span class="params">(File installation)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        FileOutputStream out = <span class="keyword">new</span> FileOutputStream(installation);</span><br><span class="line">        String id = UUID.randomUUID().toString();</span><br><span class="line">        out.write(id.getBytes());</span><br><span class="line">        out.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>标识一台 Android 设备已经是开发中司空见惯的事情了，但不是每个人都对自己所用 API 获取的标识有着明确的认知。所以，这里又将 <a href="https://android-developers.googleblog.com/">Android Developers Blog</a> 2011年3月30日的一篇文章<a href="https://android-developers.googleblog.com/2011/03/identifying-app-installations.html">《Identifying App Installations》</a> 翻了出来，这篇文章里的观点也大致的体现了 Google 官方对标识 Android 设备的态度：**建议使用 UUID 作为标识符。**博客里甚至还贴出了示例代码，建议应用在安装后第一次运行时创建一个新的 UUID 标识。以下是示例代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Installation</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">String</span> <span class="variable">sID</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">INSTALLATION</span> <span class="operator">=</span> <span class="string">&quot;INSTALLATION&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">static</span> String <span class="title function_">id</span><span class="params">(Context context)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (sID == <span class="literal">null</span>) &#123;  </span><br><span class="line">            <span class="type">File</span> <span class="variable">installation</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(context.getFilesDir(), INSTALLATION);</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (!installation.exists())</span><br><span class="line">                    writeInstallationFile(installation);</span><br><span class="line">                sID = readInstallationFile(installation);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sID;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String <span class="title function_">readInstallationFile</span><span class="params">(File installation)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">RandomAccessFile</span> <span class="variable">f</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">RandomAccessFile</span>(installation, <span class="string">&quot;r&quot;</span>);</span><br><span class="line">        <span class="type">byte</span>[] bytes = <span class="keyword">new</span> <span class="title class_">byte</span>[(<span class="type">int</span>) f.length()];</span><br><span class="line">        f.readFully(bytes);</span><br><span class="line">        f.close();</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">String</span>(bytes);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">writeInstallationFile</span><span class="params">(File installation)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">FileOutputStream</span> <span class="variable">out</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(installation);</span><br><span class="line">        <span class="type">String</span> <span class="variable">id</span> <span class="operator">=</span> UUID.randomUUID().toString();</span><br><span class="line">        out.write(id.getBytes());</span><br><span class="line">        out.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2018/08/07/标识应用所在的-Android-设备/#more">more >></a>
+          <a class="article-more-a" href="/2018/08/07/%E6%A0%87%E8%AF%86%E5%BA%94%E7%94%A8%E6%89%80%E5%9C%A8%E7%9A%84-Android-%E8%AE%BE%E5%A4%87/#more">more >></a>
         
       
 
@@ -372,7 +447,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/07/标识应用所在的-Android-设备/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/08/07/%E6%A0%87%E8%AF%86%E5%BA%94%E7%94%A8%E6%89%80%E5%9C%A8%E7%9A%84-Android-%E8%AE%BE%E5%A4%87/">展开全文 >></a>
         </p>
       
 
@@ -409,12 +484,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/02/Windows-10-下配置-ADB-环境变量/">Windows 10 下配置 ADB 环境变量</a>
+      <a class="article-title" href="/2018/08/02/Windows-10-%E4%B8%8B%E9%85%8D%E7%BD%AE-ADB-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/">Windows 10 下配置 ADB 环境变量</a>
     </h1>
   
 
         
-        <a href="/2018/08/02/Windows-10-下配置-ADB-环境变量/" class="archive-article-date">
+        <a href="/2018/08/02/Windows-10-%E4%B8%8B%E9%85%8D%E7%BD%AE-ADB-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" class="archive-article-date">
   	<time datetime="2018-08-01T16:10:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-02</time>
 </a>
         
@@ -425,7 +500,7 @@ var _hmt = _hmt || [];
         <p>在 Android 开发中，设备和代码的调试都离不开 ADB（Android Debug Bridge），默认情况下 ADB 没有被加入到系统环境变量中，这也就意味着不能在任何地方调起 ADB。如果调用，则会出现 [ adb 不是内部或外部命令，也不是可运行的程序或批处理文件。] 的提示，如下图所示：</p>
 <p><img src="https://image.sunzn.com/blog/20180801224501.png" alt="此处输入图片的描述"></p>
         
-          <a class="article-more-a" href="/2018/08/02/Windows-10-下配置-ADB-环境变量/#more">more >></a>
+          <a class="article-more-a" href="/2018/08/02/Windows-10-%E4%B8%8B%E9%85%8D%E7%BD%AE-ADB-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/#more">more >></a>
         
       
 
@@ -449,7 +524,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/02/Windows-10-下配置-ADB-环境变量/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/08/02/Windows-10-%E4%B8%8B%E9%85%8D%E7%BD%AE-ADB-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/">展开全文 >></a>
         </p>
       
 
@@ -486,12 +561,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/27/将-Android-项目托管到-SVN-上/">将 Android 项目托管到 SVN 上</a>
+      <a class="article-title" href="/2018/05/27/%E5%B0%86-Android-%E9%A1%B9%E7%9B%AE%E6%89%98%E7%AE%A1%E5%88%B0-SVN-%E4%B8%8A/">将 Android 项目托管到 SVN 上</a>
     </h1>
   
 
         
-        <a href="/2018/05/27/将-Android-项目托管到-SVN-上/" class="archive-article-date">
+        <a href="/2018/05/27/%E5%B0%86-Android-%E9%A1%B9%E7%9B%AE%E6%89%98%E7%AE%A1%E5%88%B0-SVN-%E4%B8%8A/" class="archive-article-date">
   	<time datetime="2018-05-27T09:23:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-27</time>
 </a>
         
@@ -503,7 +578,7 @@ var _hmt = _hmt || [];
 <h3 id="1、创建仓库"><a href="#1、创建仓库" class="headerlink" title="1、创建仓库"></a>1、创建仓库</h3><p>打开 SVN 所在服务器的 VisualSVN Server，右键「Repositories」›「Create New Repository」。</p>
 <p><img src="https://image.sunzn.com/blog/20180802092601.png" alt="此处输入图片的描述"></p>
         
-          <a class="article-more-a" href="/2018/05/27/将-Android-项目托管到-SVN-上/#more">more >></a>
+          <a class="article-more-a" href="/2018/05/27/%E5%B0%86-Android-%E9%A1%B9%E7%9B%AE%E6%89%98%E7%AE%A1%E5%88%B0-SVN-%E4%B8%8A/#more">more >></a>
         
       
 
@@ -527,7 +602,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/27/将-Android-项目托管到-SVN-上/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/05/27/%E5%B0%86-Android-%E9%A1%B9%E7%9B%AE%E6%89%98%E7%AE%A1%E5%88%B0-SVN-%E4%B8%8A/">展开全文 >></a>
         </p>
       
 
@@ -564,12 +639,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/26/Glide-V4-API-变更指南/">Glide V4 API 变更指南</a>
+      <a class="article-title" href="/2018/05/26/Glide-V4-API-%E5%8F%98%E6%9B%B4%E6%8C%87%E5%8D%97/">Glide V4 API 变更指南</a>
     </h1>
   
 
         
-        <a href="/2018/05/26/Glide-V4-API-变更指南/" class="archive-article-date">
+        <a href="/2018/05/26/Glide-V4-API-%E5%8F%98%E6%9B%B4%E6%8C%87%E5%8D%97/" class="archive-article-date">
   	<time datetime="2018-05-26T13:37:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-26</time>
 </a>
         
@@ -599,7 +674,7 @@ var _hmt = _hmt || [];
 </tr>
 </tbody></table>
         
-          <a class="article-more-a" href="/2018/05/26/Glide-V4-API-变更指南/#more">more >></a>
+          <a class="article-more-a" href="/2018/05/26/Glide-V4-API-%E5%8F%98%E6%9B%B4%E6%8C%87%E5%8D%97/#more">more >></a>
         
       
 
@@ -623,7 +698,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/26/Glide-V4-API-变更指南/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/05/26/Glide-V4-API-%E5%8F%98%E6%9B%B4%E6%8C%87%E5%8D%97/">展开全文 >></a>
         </p>
       
 
@@ -660,12 +735,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/26/将-Java-对象注入到-WebView-的-JavaScript-上下文/">将 Java 对象注入到 WebView 的 JavaScript 上下文</a>
+      <a class="article-title" href="/2018/04/26/%E5%B0%86-Java-%E5%AF%B9%E8%B1%A1%E6%B3%A8%E5%85%A5%E5%88%B0-WebView-%E7%9A%84-JavaScript-%E4%B8%8A%E4%B8%8B%E6%96%87/">将 Java 对象注入到 WebView 的 JavaScript 上下文</a>
     </h1>
   
 
         
-        <a href="/2018/04/26/将-Java-对象注入到-WebView-的-JavaScript-上下文/" class="archive-article-date">
+        <a href="/2018/04/26/%E5%B0%86-Java-%E5%AF%B9%E8%B1%A1%E6%B3%A8%E5%85%A5%E5%88%B0-WebView-%E7%9A%84-JavaScript-%E4%B8%8A%E4%B8%8B%E6%96%87/" class="archive-article-date">
   	<time datetime="2018-04-26T14:27:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-26</time>
 </a>
         
@@ -673,10 +748,10 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>我们知道使用 WebViewClient 和 WebChromeClient 类可以响应发生在 WebView 里的特定事件。然而，通过注入任意 Java 对象到 WebView 的 JavaScript 中，我们还可以做到更多。查阅 <a href="https://developer.android.com/reference/android/webkit/WebView.html" target="_blank" rel="noopener">WebView</a> 文档，找到 <a href="https://developer.android.com/reference/android/webkit/WebView.html#addJavascriptInterface%28java.lang.Object,%20java.lang.String%29" target="_blank" rel="noopener">addJavascriptInterface (Object object, String name)</a> 方法。使用该方法，可以将任意 Java 对象注入到指定文档中。</p>
-<h1 id="1-API-简介"><a href="#1-API-简介" class="headerlink" title="1. API 简介"></a>1. API 简介</h1><table><tr><td colspan="2" bgcolor="#F8F8F8"><b>方法</b></td></tr><tr><td colspan="2">void addJavascriptInterface (Object object, String name)<br><br>将 Java 对象注入到 WebView 中。该对象会被注入主框架的 JavaScript 上下文，并将对象名暴露给 JavaScript。这样就可以从 JavaScript 中访问 Java 对象的方法。对于面向 API 级 JELLY_BEAN_MR1 及更高版本的应用程序，JavaScript 只能访问被 JavaScriptInterface 注释的公共方法。 对于 API 级 JELLY_BEAN 或更低级别的应用程序，可以访问所有公共方法（包括继承的方法），相关含义，请参阅下面的重要安全说明。</td></tr><tr><td colspan="2" bgcolor="#F8F8F8"><b>参数</b></td></tr><tr><td>object</td><td>Object: Java 对象，用于注入到 WebView 的 JavaScript 上下文。 空值被忽略。</td></tr><tr><td>name</td><td>String: 暴露给 JavaScript 的对象名称。</td></tr></table>
+        <p>我们知道使用 WebViewClient 和 WebChromeClient 类可以响应发生在 WebView 里的特定事件。然而，通过注入任意 Java 对象到 WebView 的 JavaScript 中，我们还可以做到更多。查阅 <a href="https://developer.android.com/reference/android/webkit/WebView.html">WebView</a> 文档，找到 <a href="https://developer.android.com/reference/android/webkit/WebView.html#addJavascriptInterface%28java.lang.Object,%20java.lang.String%29">addJavascriptInterface (Object object, String name)</a> 方法。使用该方法，可以将任意 Java 对象注入到指定文档中。</p>
+<h1 id="1-API-简介"><a href="#1-API-简介" class="headerlink" title="1. API 简介"></a>1. API 简介</h1><table><tr><td colspan="2" bgcolor="#F8F8F8"><b>方法</b></td></tr><tr><td colspan="2">void addJavascriptInterface (Object object, String name)<br/><br/>将 Java 对象注入到 WebView 中。该对象会被注入主框架的 JavaScript 上下文，并将对象名暴露给 JavaScript。这样就可以从 JavaScript 中访问 Java 对象的方法。对于面向 API 级 JELLY_BEAN_MR1 及更高版本的应用程序，JavaScript 只能访问被 JavaScriptInterface 注释的公共方法。 对于 API 级 JELLY_BEAN 或更低级别的应用程序，可以访问所有公共方法（包括继承的方法），相关含义，请参阅下面的重要安全说明。</td></tr><tr><td colspan="2" bgcolor="#F8F8F8"><b>参数</b></td></tr><tr><td>object</td><td>Object: Java 对象，用于注入到 WebView 的 JavaScript 上下文。 空值被忽略。</td></tr><tr><td>name</td><td>String: 暴露给 JavaScript 的对象名称。</td></tr></table>
         
-          <a class="article-more-a" href="/2018/04/26/将-Java-对象注入到-WebView-的-JavaScript-上下文/#more">more >></a>
+          <a class="article-more-a" href="/2018/04/26/%E5%B0%86-Java-%E5%AF%B9%E8%B1%A1%E6%B3%A8%E5%85%A5%E5%88%B0-WebView-%E7%9A%84-JavaScript-%E4%B8%8A%E4%B8%8B%E6%96%87/#more">more >></a>
         
       
 
@@ -704,7 +779,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/26/将-Java-对象注入到-WebView-的-JavaScript-上下文/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/04/26/%E5%B0%86-Java-%E5%AF%B9%E8%B1%A1%E6%B3%A8%E5%85%A5%E5%88%B0-WebView-%E7%9A%84-JavaScript-%E4%B8%8A%E4%B8%8B%E6%96%87/">展开全文 >></a>
         </p>
       
 
@@ -741,12 +816,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/19/Android-自定义控件-音频可视化/">Android 自定义控件-音频可视化</a>
+      <a class="article-title" href="/2018/04/19/Android-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%A7%E4%BB%B6-%E9%9F%B3%E9%A2%91%E5%8F%AF%E8%A7%86%E5%8C%96/">Android 自定义控件-音频可视化</a>
     </h1>
   
 
         
-        <a href="/2018/04/19/Android-自定义控件-音频可视化/" class="archive-article-date">
+        <a href="/2018/04/19/Android-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%A7%E4%BB%B6-%E9%9F%B3%E9%A2%91%E5%8F%AF%E8%A7%86%E5%8C%96/" class="archive-article-date">
   	<time datetime="2018-04-19T13:52:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-19</time>
 </a>
         
@@ -755,12 +830,12 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>开始正式介绍实现过程之前，先来看下效果图，原点纵向跳动，跳动幅度在上次原点数的基础上随机做增减。</p>
-<div align="center">
+<div align=center>
 
 <p><img src="https://image.sunzn.com/blog/20180419095901.gif" alt="此处输入图片的描述"></p>
 </div>
         
-          <a class="article-more-a" href="/2018/04/19/Android-自定义控件-音频可视化/#more">more >></a>
+          <a class="article-more-a" href="/2018/04/19/Android-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%A7%E4%BB%B6-%E9%9F%B3%E9%A2%91%E5%8F%AF%E8%A7%86%E5%8C%96/#more">more >></a>
         
       
 
@@ -788,7 +863,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/19/Android-自定义控件-音频可视化/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/04/19/Android-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%A7%E4%BB%B6-%E9%9F%B3%E9%A2%91%E5%8F%AF%E8%A7%86%E5%8C%96/">展开全文 >></a>
         </p>
       
 
@@ -825,12 +900,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/18/Android-中的-Fragment-懒加载/">Android 中的 Fragment 懒加载</a>
+      <a class="article-title" href="/2018/04/18/Android-%E4%B8%AD%E7%9A%84-Fragment-%E6%87%92%E5%8A%A0%E8%BD%BD/">Android 中的 Fragment 懒加载</a>
     </h1>
   
 
         
-        <a href="/2018/04/18/Android-中的-Fragment-懒加载/" class="archive-article-date">
+        <a href="/2018/04/18/Android-%E4%B8%AD%E7%9A%84-Fragment-%E6%87%92%E5%8A%A0%E8%BD%BD/" class="archive-article-date">
   	<time datetime="2018-04-18T14:18:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-18</time>
 </a>
         
@@ -841,7 +916,7 @@ var _hmt = _hmt || [];
         <p>在一些选项卡滑动切换的应用场景下，我们大多会采用 ViewPager 与 Fragment 组合的方式来实现这样的需求，但 ViewPager 会预加载下一个 Framgment 的内容，这种机制的初衷是为了让用户更流畅的看到后面的内容。但是，当 ViewPager 中持久保留的 Framgment 数量增加，同时 Framgment 中又包含有大量的网络请求和数据库操作的时候，这种机制的弊端就出现了，预加载机制使的 ViewPager 内所有 Fragment 的网络请求和数据库操作同时被触发，CPU 和 内存占用会发生跳跃式的增长，最终造成 APP 卡顿，影响用户体验。</p>
 <p>如果想提升用户体验，理想的状态大概是这样的：让 Fragment 内的网络请求和数据库操作根据需要进行触发。当 Fragment 对用户首次可见时，执行网络请求或数据库操作；当 Fragment 滑出屏幕时，不追加任何后续操作；当 Fragment 对用户再次可见时，根据首次执行状态决定是否执行网络请求或数据库操作。这样一个过程实际上就是 Fragment 的懒加载过程。</p>
         
-          <a class="article-more-a" href="/2018/04/18/Android-中的-Fragment-懒加载/#more">more >></a>
+          <a class="article-more-a" href="/2018/04/18/Android-%E4%B8%AD%E7%9A%84-Fragment-%E6%87%92%E5%8A%A0%E8%BD%BD/#more">more >></a>
         
       
 
@@ -869,88 +944,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/18/Android-中的-Fragment-懒加载/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-N-个无序数中找出最大的-M-个数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/30/N-个无序数中找出最大的-M-个数/">N 个无序数中找出最大的 M 个数</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/30/N-个无序数中找出最大的-M-个数/" class="archive-article-date">
-  	<time datetime="2018-03-30T15:25:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>实现思路：新建一个拥有 M 个元素的数组 Find，将 N 个数中的前 M 个元素存入该数组，假设这前 M 个元素就是最大值，在存入的过程中找出最小数值的索引 minIndex。然后从 N 个数中的第 ( M + 1 ) 个元素开始，逐个与 Find 数组中的最小值进行比较，若大于 Find 数组中的最小值，则将其替换。替换完毕后，继续循环找出 Find 数组中最小值的索引，外层的 while 在进行下一次循环时，会直接拿 N 的下一个元素与 Find 数组中的最小值进行比较。这样循环一遍之后，Find 数组中的最小值都被较大的数值替换，这时 Find 中存放的元素就是 N 中最大的 M 个数，这种思路的时间复杂度为O(n*logm)。这种实现方式可以将亿级数据量的运算时间控制在 100 毫秒内。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.sunzn.max;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Random;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FindMax</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        Random random = <span class="keyword">new</span> Random();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> n = <span class="number">100000000</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[] Pool = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            Pool[i] = random.nextInt(n);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        findMax(Pool, <span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">findMax</span><span class="params">(<span class="keyword">int</span>[] data, <span class="keyword">int</span> m)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">long</span> sTime = System.currentTimeMillis();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[] Find = <span class="keyword">new</span> <span class="keyword">int</span>[m];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> minIndex = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; Find.length; i++) &#123;</span><br><span class="line">            Find[i] = data[i];</span><br><span class="line">            <span class="keyword">if</span> (Find[minIndex] &gt; Find[i]) &#123;</span><br><span class="line">                minIndex = i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (m &lt; data.length) &#123;</span><br><span class="line">            <span class="keyword">if</span> (data[m] &gt; Find[minIndex]) &#123;</span><br><span class="line">                Find[minIndex] = data[m];</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; Find.length; i++) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (Find[minIndex] &gt; Find[i]) &#123;</span><br><span class="line">                        minIndex = i;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            m++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; Find.length; i++) &#123;</span><br><span class="line">            System.out.printf(<span class="string">"结果数据:"</span>);</span><br><span class="line">            System.out.printf(<span class="string">"%d"</span>, Find[i]);</span><br><span class="line">            System.out.printf(<span class="string">"\n"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">long</span> eTime = System.currentTimeMillis();</span><br><span class="line"></span><br><span class="line">        System.out.printf(<span class="string">"消耗时间:"</span> + (eTime - sTime) + <span class="string">"毫秒"</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2018/03/30/N-个无序数中找出最大的-M-个数/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/30/N-个无序数中找出最大的-M-个数/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/04/18/Android-%E4%B8%AD%E7%9A%84-Fragment-%E6%87%92%E5%8A%A0%E8%BD%BD/">展开全文 >></a>
         </p>
       
 
@@ -1078,10 +1072,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -1094,6 +1084,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Android Studio</a>
               </li>
              
@@ -1102,11 +1100,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+                <a href="javascript:void(0)" class="js-tag color5">Room</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1114,11 +1116,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">View</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Fiddler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1134,7 +1160,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1143,10 +1181,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1166,59 +1200,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">View</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Room</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1242,15 +1236,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
+                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Application</a>
               </li>
             
             <div class="clearfix"></div>

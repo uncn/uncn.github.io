@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Welcome to sunzn&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -12,9 +12,9 @@
 <meta property="og:title" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
-<meta property="og:locale" content="default">
+<meta property="og:locale">
+<meta property="article:author" content="狮子">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Welcome to sunzn&#39;s Blog">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -42,8 +42,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -56,10 +56,8 @@ var _hmt = _hmt || [];
 			<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">狮子</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">念念不忘，必有回响</p>
 		
 
 		<nav class="header-menu">
@@ -116,10 +114,8 @@ var _hmt = _hmt || [];
 				<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">狮子</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>念念不忘，必有回响<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -166,31 +162,32 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Kotlin-中的扩展函数与属性" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Kotlin-中的内部类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2023/08/08/Kotlin-中的扩展函数与属性/">Kotlin 中的扩展函数与属性</a>
+      <a class="article-title" href="/2023/08/09/Kotlin-%E4%B8%AD%E7%9A%84%E5%86%85%E9%83%A8%E7%B1%BB/">Kotlin 中的内部类</a>
     </h1>
   
 
         
-        <a href="/2023/08/08/Kotlin-中的扩展函数与属性/" class="archive-article-date">
-  	<time datetime="2023-08-08T12:49:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-08</time>
+        <a href="/2023/08/09/Kotlin-%E4%B8%AD%E7%9A%84%E5%86%85%E9%83%A8%E7%B1%BB/" class="archive-article-date">
+  	<time datetime="2023-08-09T15:32:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-09</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在使用 Java 的时候，我们经常使用诸如 StringUtil、DateUtil 等工具类，代码写起来比较冗长。举个例子，获取一个字符串的第一个字符值、最后一个字符值。如果我们用 Java 代码来写通常要先声明一个 StingUtil  类，然后在里面写相应的方法。那么，我们能不能直接在 String 类上增加获取第一个字符值、最后一个字符值的方法呢？非常遗憾的是，在 Java 中我们无法给 String 类增加一个自定义方法。因为 String 类是 JDK 中内置的基础类，而且为 final，不能修改。所以，在 Java 中通常需要引入一个工具类来封装对应的方法，而不是修改或继承 String 类。</p>
-<p>而在 Kotlin 中，情况就完全不一样了，我们完全可以自由扩展任何类的方法和属性。在不修改原类的情况下，Kotlin 能给一个类扩展新功能而无须继承该类。</p>
-<h1 id="1-扩展函数"><a href="#1-扩展函数" class="headerlink" title="1. 扩展函数"></a>1. 扩展函数</h1><p>Kotlin 中提供了非常实用的扩展函数功能。它允许你在不修改原始类的情况下，为该类添加新的函数。通过扩展函数，你可以为任何类添加新的行为，包括标准库中的类、第三方库中的类，甚至是你自己定义的类。</p>
+        <p>内部类也叫做嵌套类，在 Java 中是一个被大家经常使用到的东西。内部类除了匿名内部类外还分为三种：一种是可以被独立构造实例且和外部类完全剥离的<strong>静态内部类</strong>，一种是可以自由访问外部类成员变量和方法的<strong>成员内部类</strong>，一种是作用域和生命周期都只处在一个方法中的<strong>方法内部类</strong>，但这种内部类我们不讨论。</p>
+<p>在 Kotlin 中，内部类默认是<strong>静态内部类</strong>，只有用 <code>inner</code> 修饰符声明静态内部类，才能让 Kotlin 中默认的<strong>静态内部类</strong>变为非静态的<strong>成员内部类</strong>。</p>
+<h1 id="1-静态内部类"><a href="#1-静态内部类" class="headerlink" title="1 静态内部类"></a>1 静态内部类</h1><p>Kotlin 中，类可以嵌套。一个类可以嵌套在其他类中，而且可以嵌套多层。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">NestedClass</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Outer</span> &#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">val</span> zero: <span class="built_in">Int</span> = <span class="number">0</span></span><br><span class="line">        <span class="keyword">val</span> one: <span class="built_in">Int</span> = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">class</span> <span class="title class_">Inner</span> &#123;</span><br><span class="line">            <span class="function"><span class="keyword">fun</span> <span class="title">getTwo</span><span class="params">()</span></span> = <span class="number">2</span></span><br><span class="line">            </span><br><span class="line">            <span class="keyword">class</span> <span class="title class_">Deep</span> &#123;</span><br><span class="line">                <span class="keyword">val</span> three = <span class="number">3</span></span><br><span class="line">                <span class="function"><span class="keyword">fun</span> <span class="title">getFour</span><span class="params">()</span></span> = <span class="number">4</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2023/08/08/Kotlin-中的扩展函数与属性/#more">more >></a>
+          <a class="article-more-a" href="/2023/08/09/Kotlin-%E4%B8%AD%E7%9A%84%E5%86%85%E9%83%A8%E7%B1%BB/#more">more >></a>
         
       
 
@@ -214,7 +211,85 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2023/08/08/Kotlin-中的扩展函数与属性/">展开全文 >></a>
+          <a class="article-more-a" href="/2023/08/09/Kotlin-%E4%B8%AD%E7%9A%84%E5%86%85%E9%83%A8%E7%B1%BB/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Kotlin-中的扩展函数与属性" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/08/08/Kotlin-%E4%B8%AD%E7%9A%84%E6%89%A9%E5%B1%95%E5%87%BD%E6%95%B0%E4%B8%8E%E5%B1%9E%E6%80%A7/">Kotlin 中的扩展函数与属性</a>
+    </h1>
+  
+
+        
+        <a href="/2023/08/08/Kotlin-%E4%B8%AD%E7%9A%84%E6%89%A9%E5%B1%95%E5%87%BD%E6%95%B0%E4%B8%8E%E5%B1%9E%E6%80%A7/" class="archive-article-date">
+  	<time datetime="2023-08-08T12:49:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在使用 Java 的时候，我们经常使用诸如 StringUtil、DateUtil 等工具类，代码写起来比较冗长。举个例子，获取一个字符串的第一个字符值、最后一个字符值。如果我们用 Java 代码来写通常要先声明一个 StingUtil  类，然后在里面写相应的方法。那么，我们能不能直接在 String 类上增加获取第一个字符值、最后一个字符值的方法呢？非常遗憾的是，在 Java 中我们无法给 String 类增加一个自定义方法。因为 String 类是 JDK 中内置的基础类，而且为 final，不能修改。所以，在 Java 中通常需要引入一个工具类来封装对应的方法，而不是修改或继承 String 类。</p>
+<p>而在 Kotlin 中，情况就完全不一样了，我们完全可以自由扩展任何类的方法和属性。在不修改原类的情况下，Kotlin 能给一个类扩展新功能而无须继承该类。</p>
+<h1 id="1-扩展函数"><a href="#1-扩展函数" class="headerlink" title="1. 扩展函数"></a>1. 扩展函数</h1><p>Kotlin 中提供了非常实用的扩展函数功能。它允许你在不修改原始类的情况下，为该类添加新的函数。通过扩展函数，你可以为任何类添加新的行为，包括标准库中的类、第三方库中的类，甚至是你自己定义的类。</p>
+        
+          <a class="article-more-a" href="/2023/08/08/Kotlin-%E4%B8%AD%E7%9A%84%E6%89%A9%E5%B1%95%E5%87%BD%E6%95%B0%E4%B8%8E%E5%B1%9E%E6%80%A7/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/08/08/Kotlin-%E4%B8%AD%E7%9A%84%E6%89%A9%E5%B1%95%E5%87%BD%E6%95%B0%E4%B8%8E%E5%B1%9E%E6%80%A7/">展开全文 >></a>
         </p>
       
 
@@ -251,12 +326,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2023/06/06/Kotlin-中的数据操作/">Kotlin 中的数据操作</a>
+      <a class="article-title" href="/2023/06/06/Kotlin-%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E6%93%8D%E4%BD%9C/">Kotlin 中的数据操作</a>
     </h1>
   
 
         
-        <a href="/2023/06/06/Kotlin-中的数据操作/" class="archive-article-date">
+        <a href="/2023/06/06/Kotlin-%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E6%93%8D%E4%BD%9C/" class="archive-article-date">
   	<time datetime="2023-06-06T15:09:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-06</time>
 </a>
         
@@ -265,11 +340,11 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>Kotlin 提供了丰富的数据处理功能，包括数据的映射、过滤、查找、排序、求和、字符连接、转换、循环等。这些功能可以帮助开发者更加方便地处理数据，而不用关心具体的实现过程，开发者可以将更多的关注放在业务逻辑本身。此外，这些功能还能极大简化代码，提升代码的可读性。下面是一些数据操作的常用模版代码：</p>
-<h1 id="1-映射操作"><a href="#1-映射操作" class="headerlink" title="1. 映射操作"></a>1. 映射操作</h1><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将集合转换为 MAP</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Member</span></span>(<span class="keyword">var</span> id: <span class="built_in">Int</span>, <span class="keyword">var</span> name: String)</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> <span class="keyword">data</span> = mutableListOf(</span><br><span class="line">    Member(<span class="number">1</span>, <span class="string">"Tom"</span>),</span><br><span class="line">    Member(<span class="number">2</span>, <span class="string">"Tim"</span>),</span><br><span class="line">    Member(<span class="number">3</span>, <span class="string">"Tom"</span>)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> map: Map&lt;<span class="built_in">Long</span>, Member&gt; = <span class="keyword">data</span>.associateBy &#123; it.id &#125;</span><br><span class="line"><span class="keyword">val</span> map: Map&lt;<span class="built_in">Long</span>, String&gt; = <span class="keyword">data</span>.associate &#123; it.id to it.name &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="1-映射操作"><a href="#1-映射操作" class="headerlink" title="1. 映射操作"></a>1. 映射操作</h1><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将集合转换为 MAP</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Member</span>(<span class="keyword">var</span> id: <span class="built_in">Int</span>, <span class="keyword">var</span> name: String)</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> <span class="keyword">data</span> = mutableListOf(</span><br><span class="line">    Member(<span class="number">1</span>, <span class="string">&quot;Tom&quot;</span>),</span><br><span class="line">    Member(<span class="number">2</span>, <span class="string">&quot;Tim&quot;</span>),</span><br><span class="line">    Member(<span class="number">3</span>, <span class="string">&quot;Tom&quot;</span>)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> map: Map&lt;<span class="built_in">Long</span>, Member&gt; = <span class="keyword">data</span>.associateBy &#123; it.id &#125;</span><br><span class="line"><span class="keyword">val</span> map: Map&lt;<span class="built_in">Long</span>, String&gt; = <span class="keyword">data</span>.associate &#123; it.id to it.name &#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将集合中的元素按照某个条件分组，返回 MAP</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Member</span></span>(<span class="keyword">var</span> id: <span class="built_in">Int</span>, <span class="keyword">var</span> name: String)</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> <span class="keyword">data</span> = mutableListOf(</span><br><span class="line">    Member(<span class="number">1</span>, <span class="string">"Tom"</span>),</span><br><span class="line">    Member(<span class="number">2</span>, <span class="string">"Tim"</span>),</span><br><span class="line">    Member(<span class="number">3</span>, <span class="string">"Tom"</span>)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> map = <span class="keyword">data</span>.groupBy &#123; it.id &#125;</span><br><span class="line">map.forEach &#123;</span><br><span class="line">    print(<span class="string">"<span class="subst">$&#123;it.key&#125;</span> - <span class="subst">$&#123;it.value.count()&#125;</span>"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将集合中的元素按照某个条件分组，返回 MAP</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Member</span>(<span class="keyword">var</span> id: <span class="built_in">Int</span>, <span class="keyword">var</span> name: String)</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> <span class="keyword">data</span> = mutableListOf(</span><br><span class="line">    Member(<span class="number">1</span>, <span class="string">&quot;Tom&quot;</span>),</span><br><span class="line">    Member(<span class="number">2</span>, <span class="string">&quot;Tim&quot;</span>),</span><br><span class="line">    Member(<span class="number">3</span>, <span class="string">&quot;Tom&quot;</span>)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> map = <span class="keyword">data</span>.groupBy &#123; it.id &#125;</span><br><span class="line">map.forEach &#123;</span><br><span class="line">    print(<span class="string">&quot;<span class="subst">$&#123;it.key&#125;</span> - <span class="subst">$&#123;it.value.count()&#125;</span>&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2023/06/06/Kotlin-中的数据操作/#more">more >></a>
+          <a class="article-more-a" href="/2023/06/06/Kotlin-%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E6%93%8D%E4%BD%9C/#more">more >></a>
         
       
 
@@ -293,7 +368,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2023/06/06/Kotlin-中的数据操作/">展开全文 >></a>
+          <a class="article-more-a" href="/2023/06/06/Kotlin-%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E6%93%8D%E4%BD%9C/">展开全文 >></a>
         </p>
       
 
@@ -330,12 +405,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2023/05/04/为什么-Fragment-需要一个无参构造函数/">为什么 Fragment 需要一个无参构造函数</a>
+      <a class="article-title" href="/2023/05/04/%E4%B8%BA%E4%BB%80%E4%B9%88-Fragment-%E9%9C%80%E8%A6%81%E4%B8%80%E4%B8%AA%E6%97%A0%E5%8F%82%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/">为什么 Fragment 需要一个无参构造函数</a>
     </h1>
   
 
         
-        <a href="/2023/05/04/为什么-Fragment-需要一个无参构造函数/" class="archive-article-date">
+        <a href="/2023/05/04/%E4%B8%BA%E4%BB%80%E4%B9%88-Fragment-%E9%9C%80%E8%A6%81%E4%B8%80%E4%B8%AA%E6%97%A0%E5%8F%82%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/" class="archive-article-date">
   	<time datetime="2023-05-04T12:04:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-04</time>
 </a>
         
@@ -346,7 +421,7 @@ var _hmt = _hmt || [];
         <p>这篇文章得从一个 BUG 说起，UI 是由 Viewpager2 嵌套两个 Fragment 构成的。然而，就是这再平常不过的功能以及接近模版化的代码，竟然因为偷懒产生了异常。为了省去繁琐的 Arguments 传值，在 Fragment 的实例化过程中增加了有参构造函数。正是这一操作为后续的应用崩溃埋下了坑，Fragment 源码正在等待合适的时机将异常抛出。</p>
 <h1 id="1-崩溃信息"><a href="#1-崩溃信息" class="headerlink" title="1. 崩溃信息"></a>1. 崩溃信息</h1><p>采用有参构造函数实例化 Fragment 后，进行了功能测试。由于在测试过程中应用一直在前台，所以也就没有发现这一BUG，但当应用上线后，陆续收到了应用崩溃的反馈，查看 BUG 统计得到了如下的崩溃信息：</p>
         
-          <a class="article-more-a" href="/2023/05/04/为什么-Fragment-需要一个无参构造函数/#more">more >></a>
+          <a class="article-more-a" href="/2023/05/04/%E4%B8%BA%E4%BB%80%E4%B9%88-Fragment-%E9%9C%80%E8%A6%81%E4%B8%80%E4%B8%AA%E6%97%A0%E5%8F%82%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/#more">more >></a>
         
       
 
@@ -370,7 +445,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2023/05/04/为什么-Fragment-需要一个无参构造函数/">展开全文 >></a>
+          <a class="article-more-a" href="/2023/05/04/%E4%B8%BA%E4%BB%80%E4%B9%88-Fragment-%E9%9C%80%E8%A6%81%E4%B8%80%E4%B8%AA%E6%97%A0%E5%8F%82%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/">展开全文 >></a>
         </p>
       
 
@@ -407,12 +482,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2023/03/21/从-APK-签名包安装失败说起/">从 APK 签名包安装失败说起</a>
+      <a class="article-title" href="/2023/03/21/%E4%BB%8E-APK-%E7%AD%BE%E5%90%8D%E5%8C%85%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%E8%AF%B4%E8%B5%B7/">从 APK 签名包安装失败说起</a>
     </h1>
   
 
         
-        <a href="/2023/03/21/从-APK-签名包安装失败说起/" class="archive-article-date">
+        <a href="/2023/03/21/%E4%BB%8E-APK-%E7%AD%BE%E5%90%8D%E5%8C%85%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%E8%AF%B4%E8%B5%B7/" class="archive-article-date">
   	<time datetime="2023-03-21T13:41:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-21</time>
 </a>
         
@@ -420,7 +495,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>看到标题就应该知道，这又是一篇 BUG 修复的复盘文章。这个 BUG 起源于 Google 程序员多年前埋的坑【<a href="https://developer.android.google.cn/reference/android/content/pm/ApplicationInfo.html#FLAG_TEST_ONLY" target="_blank" rel="noopener">FLAG_TEST_ONLY</a>】，这是一个 API 级别 4 时候就存在的属性。这是一个没有存在感的属性，以至于十几年的时间内都没有引起多少人注意。直到 Android Studio 3.0 的发布，这个版本的 IDE 会在测试版 APK 的清单文件中自动注入 <code>android:testOnly=&quot;true&quot;</code> 属性配置。如果清单文件中有这样的配置，那就意味着 APK 只能通过 adb 的方式安装。为了更加精准的了解这个属性的作用，我们还是看下<a href="https://developer.android.google.cn/guide/topics/manifest/application-element?hl=zh-cn" target="_blank" rel="noopener">官方文档</a>是怎么描述的。</p>
+        <p>看到标题就应该知道，这又是一篇 BUG 修复的复盘文章。这个 BUG 起源于 Google 程序员多年前埋的坑【<a href="https://developer.android.google.cn/reference/android/content/pm/ApplicationInfo.html#FLAG_TEST_ONLY">FLAG_TEST_ONLY</a>】，这是一个 API 级别 4 时候就存在的属性。这是一个没有存在感的属性，以至于十几年的时间内都没有引起多少人注意。直到 Android Studio 3.0 的发布，这个版本的 IDE 会在测试版 APK 的清单文件中自动注入 <code>android:testOnly=&quot;true&quot;</code> 属性配置。如果清单文件中有这样的配置，那就意味着 APK 只能通过 adb 的方式安装。为了更加精准的了解这个属性的作用，我们还是看下<a href="https://developer.android.google.cn/guide/topics/manifest/application-element?hl=zh-cn">官方文档</a>是怎么描述的。</p>
 <blockquote>
 <p><font style="color:#01579B;font-size:14px;"><strong>✦ 官方文档 | android:testOnly</strong> 指示此应用是否仅用于测试目的。例如，它可能会在自身之外公开功能或数据，这样会导致安全漏洞，但对测试很有用。此类 APK 只能通过 adb 安装，您不能将其发布到 Google Play。当您点击 Run 图标时，Android Studio 会自动添加此属性。</font></p>
 </blockquote>
@@ -442,7 +517,7 @@ var _hmt = _hmt || [];
 
 <p>如果通过这两种方式就能解决应用安装失败的话，就不会有这篇文章了。下面，我们正式开始复盘问题的定位和解决过程。</p>
         
-          <a class="article-more-a" href="/2023/03/21/从-APK-签名包安装失败说起/#more">more >></a>
+          <a class="article-more-a" href="/2023/03/21/%E4%BB%8E-APK-%E7%AD%BE%E5%90%8D%E5%8C%85%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%E8%AF%B4%E8%B5%B7/#more">more >></a>
         
       
 
@@ -470,7 +545,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2023/03/21/从-APK-签名包安装失败说起/">展开全文 >></a>
+          <a class="article-more-a" href="/2023/03/21/%E4%BB%8E-APK-%E7%AD%BE%E5%90%8D%E5%8C%85%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%E8%AF%B4%E8%B5%B7/">展开全文 >></a>
         </p>
       
 
@@ -507,12 +582,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2023/02/21/SQLite-中的-IFNULL-函数/">SQLite 中的 IFNULL() 函数</a>
+      <a class="article-title" href="/2023/02/21/SQLite-%E4%B8%AD%E7%9A%84-IFNULL-%E5%87%BD%E6%95%B0/">SQLite 中的 IFNULL() 函数</a>
     </h1>
   
 
         
-        <a href="/2023/02/21/SQLite-中的-IFNULL-函数/" class="archive-article-date">
+        <a href="/2023/02/21/SQLite-%E4%B8%AD%E7%9A%84-IFNULL-%E5%87%BD%E6%95%B0/" class="archive-article-date">
   	<time datetime="2023-02-21T13:46:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-21</time>
 </a>
         
@@ -558,7 +633,7 @@ var _hmt = _hmt || [];
 </tr>
 </table>
         
-          <a class="article-more-a" href="/2023/02/21/SQLite-中的-IFNULL-函数/#more">more >></a>
+          <a class="article-more-a" href="/2023/02/21/SQLite-%E4%B8%AD%E7%9A%84-IFNULL-%E5%87%BD%E6%95%B0/#more">more >></a>
         
       
 
@@ -582,7 +657,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2023/02/21/SQLite-中的-IFNULL-函数/">展开全文 >></a>
+          <a class="article-more-a" href="/2023/02/21/SQLite-%E4%B8%AD%E7%9A%84-IFNULL-%E5%87%BD%E6%95%B0/">展开全文 >></a>
         </p>
       
 
@@ -619,12 +694,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2023/01/30/Android-访问文件与目录/">Android 访问文件与目录</a>
+      <a class="article-title" href="/2023/01/30/Android-%E8%AE%BF%E9%97%AE%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95/">Android 访问文件与目录</a>
     </h1>
   
 
         
-        <a href="/2023/01/30/Android-访问文件与目录/" class="archive-article-date">
+        <a href="/2023/01/30/Android-%E8%AE%BF%E9%97%AE%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95/" class="archive-article-date">
   	<time datetime="2023-01-30T15:33:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-30</time>
 </a>
         
@@ -722,7 +797,7 @@ var _hmt = _hmt || [];
 </tr>
 </table>
         
-          <a class="article-more-a" href="/2023/01/30/Android-访问文件与目录/#more">more >></a>
+          <a class="article-more-a" href="/2023/01/30/Android-%E8%AE%BF%E9%97%AE%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95/#more">more >></a>
         
       
 
@@ -750,7 +825,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2023/01/30/Android-访问文件与目录/">展开全文 >></a>
+          <a class="article-more-a" href="/2023/01/30/Android-%E8%AE%BF%E9%97%AE%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95/">展开全文 >></a>
         </p>
       
 
@@ -787,12 +862,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/12/28/下载引擎的组件化之路/">下载引擎的组件化之路</a>
+      <a class="article-title" href="/2022/12/28/%E4%B8%8B%E8%BD%BD%E5%BC%95%E6%93%8E%E7%9A%84%E7%BB%84%E4%BB%B6%E5%8C%96%E4%B9%8B%E8%B7%AF/">下载引擎的组件化之路</a>
     </h1>
   
 
         
-        <a href="/2022/12/28/下载引擎的组件化之路/" class="archive-article-date">
+        <a href="/2022/12/28/%E4%B8%8B%E8%BD%BD%E5%BC%95%E6%93%8E%E7%9A%84%E7%BB%84%E4%BB%B6%E5%8C%96%E4%B9%8B%E8%B7%AF/" class="archive-article-date">
   	<time datetime="2022-12-28T13:00:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-12-28</time>
 </a>
         
@@ -803,7 +878,7 @@ var _hmt = _hmt || [];
         <p>Android 下载引擎的组件化源于应用场景的广泛性和存储字段的固定性。起初，下载引擎是通过 Module 的形式引入项目的，这种方式的引入在形式上起到了解耦作用，同时，也可针对项目个性化的存储字段进行增减。但随着下载引擎复用需求的增加和业务的积淀，Module 不再是下载引擎的最优引用方式了。首先，随着业务的积淀，存储字段的数量逐渐趋于稳定，这意味着下载引擎已经可以满足大部分的应用场景了；其次，Module 引入项目的方式不利于源码的维护。试想下，如果下载引擎出现了问题，并且修复过程异常复杂，那么每个以 Module 方式引入下载引擎的应用在修复同类问题的时候将会非常痛苦，如果再考虑个性化存储字段，这个修复过程将会变成一场灾难。所以，需要一种更加便捷的引用方式来改变现状，比如：AAR 或者 Maven。</p>
 <p>引用方式的改变还是比较棘手的。为了理解这里的困惑，需要了解一下下载引擎的实现方式。下载引擎是通过服务启动下载线程来下载内容的，如果下载的信息有变更，这些信息在入库的同时会通知已注册的观察者，前台会通过内容提供者获取下载信息，并展示在界面上。这里需要注意的是内容提供者，也就是 ContentProvider，同一部手机上是不允许同时存在拥有相同 Authorities 的两个应用的。这意味着下载的引擎的内容提供者应该同时具备动态配置和动态读取 Authorities 的能力。下面，就通过改造让下载引擎来具备这些能力。</p>
         
-          <a class="article-more-a" href="/2022/12/28/下载引擎的组件化之路/#more">more >></a>
+          <a class="article-more-a" href="/2022/12/28/%E4%B8%8B%E8%BD%BD%E5%BC%95%E6%93%8E%E7%9A%84%E7%BB%84%E4%BB%B6%E5%8C%96%E4%B9%8B%E8%B7%AF/#more">more >></a>
         
       
 
@@ -827,7 +902,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/12/28/下载引擎的组件化之路/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/12/28/%E4%B8%8B%E8%BD%BD%E5%BC%95%E6%93%8E%E7%9A%84%E7%BB%84%E4%BB%B6%E5%8C%96%E4%B9%8B%E8%B7%AF/">展开全文 >></a>
         </p>
       
 
@@ -864,12 +939,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/11/24/后台弹出界面权限/">后台弹出界面权限</a>
+      <a class="article-title" href="/2022/11/24/%E5%90%8E%E5%8F%B0%E5%BC%B9%E5%87%BA%E7%95%8C%E9%9D%A2%E6%9D%83%E9%99%90/">后台弹出界面权限</a>
     </h1>
   
 
         
-        <a href="/2022/11/24/后台弹出界面权限/" class="archive-article-date">
+        <a href="/2022/11/24/%E5%90%8E%E5%8F%B0%E5%BC%B9%E5%87%BA%E7%95%8C%E9%9D%A2%E6%9D%83%E9%99%90/" class="archive-article-date">
   	<time datetime="2022-11-24T06:08:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-24</time>
 </a>
         
@@ -877,10 +952,10 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在开始正文之前，我觉得有必要明确下【后台弹出界面】权限的由来，这个权限来自小米官方于 2019 年发布的一则<a href="https://web.vip.miui.com/page/info/mio/mio/detail?postId=9216439" target="_blank" rel="noopener">《关于默认关闭“后台弹出页面”权限的通知》</a>，该权限旨在限制多种三方应用随意从后台弹出页面，进行各种传播、引导、广告等操作。并且，该权限默认是拒绝的，即应用默认不允许在后台弹出页面，并会针对特殊应用提供白名单。</p>
+        <p>在开始正文之前，我觉得有必要明确下【后台弹出界面】权限的由来，这个权限来自小米官方于 2019 年发布的一则<a href="https://web.vip.miui.com/page/info/mio/mio/detail?postId=9216439">《关于默认关闭“后台弹出页面”权限的通知》</a>，该权限旨在限制多种三方应用随意从后台弹出页面，进行各种传播、引导、广告等操作。并且，该权限默认是拒绝的，即应用默认不允许在后台弹出页面，并会针对特殊应用提供白名单。</p>
 <p>这个权限在限制恶意行为的同时，也限制了一些合理的行为。例如，我们希望在 APP 中内置调试页面，当程序出现 BUG 时可以通过 Secret Code 的方式唤起该页面，以获取必要的调试信息。然而，由于小米系统中“后台弹出界面”权限默认是拒绝的，使得调试页面无法被正常唤起。</p>
         
-          <a class="article-more-a" href="/2022/11/24/后台弹出界面权限/#more">more >></a>
+          <a class="article-more-a" href="/2022/11/24/%E5%90%8E%E5%8F%B0%E5%BC%B9%E5%87%BA%E7%95%8C%E9%9D%A2%E6%9D%83%E9%99%90/#more">more >></a>
         
       
 
@@ -904,7 +979,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/11/24/后台弹出界面权限/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/11/24/%E5%90%8E%E5%8F%B0%E5%BC%B9%E5%87%BA%E7%95%8C%E9%9D%A2%E6%9D%83%E9%99%90/">展开全文 >></a>
         </p>
       
 
@@ -941,12 +1016,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/10/19/SQLite-数据清洗/">SQLite 数据清洗</a>
+      <a class="article-title" href="/2022/10/19/SQLite-%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97/">SQLite 数据清洗</a>
     </h1>
   
 
         
-        <a href="/2022/10/19/SQLite-数据清洗/" class="archive-article-date">
+        <a href="/2022/10/19/SQLite-%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97/" class="archive-article-date">
   	<time datetime="2022-10-19T14:13:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-19</time>
 </a>
         
@@ -956,12 +1031,12 @@ var _hmt = _hmt || [];
       
         <p>SQLite 导入大量数据的时候，可能会存在数据质量问题，例如字段前后有空格、回车换行，或者值为 NULL 等问题，这时就需要对这些问题数据进行清洗。本文将会结合真实的案例将数据清洗过程中用到的 SQL 罗列出来。</p>
 <h1 id="1-重置空值"><a href="#1-重置空值" class="headerlink" title="1. 重置空值"></a>1. 重置空值</h1><p>表中部分为 NULL 的数据如果需要重置成默认值或空字符串的时候，可以使用下面的语句，这里需要注意空值的判断条件。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> [<span class="keyword">Table</span>] <span class="keyword">SET</span> [<span class="keyword">Column</span>]=<span class="string">''</span> <span class="keyword">WHERE</span> [<span class="keyword">Column</span>] <span class="keyword">IS</span> <span class="literal">NULL</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> [<span class="keyword">Table</span>] <span class="keyword">SET</span> [<span class="keyword">Column</span>]<span class="operator">=</span><span class="string">&#x27;&#x27;</span> <span class="keyword">WHERE</span> [<span class="keyword">Column</span>] <span class="keyword">IS</span> <span class="keyword">NULL</span></span><br></pre></td></tr></table></figure>
 
 <p>如果要将表中的多个为 NULL 的字段批量重置成默认值或空字符串的时候，可以使用下面的语句。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> [<span class="keyword">Table</span>] <span class="keyword">SET</span> </span><br><span class="line">[Column1]=<span class="keyword">IFNULL</span>([Column1], <span class="string">''</span>),</span><br><span class="line">[Column2]=<span class="keyword">IFNULL</span>([Column2], <span class="string">''</span>),</span><br><span class="line">[Column3]=<span class="keyword">IFNULL</span>([Column3], <span class="string">''</span>),</span><br><span class="line">[Column4]=<span class="keyword">IFNULL</span>([Column4], <span class="string">''</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> [<span class="keyword">Table</span>] <span class="keyword">SET</span> </span><br><span class="line">[Column1]<span class="operator">=</span>IFNULL([Column1], <span class="string">&#x27;&#x27;</span>),</span><br><span class="line">[Column2]<span class="operator">=</span>IFNULL([Column2], <span class="string">&#x27;&#x27;</span>),</span><br><span class="line">[Column3]<span class="operator">=</span>IFNULL([Column3], <span class="string">&#x27;&#x27;</span>),</span><br><span class="line">[Column4]<span class="operator">=</span>IFNULL([Column4], <span class="string">&#x27;&#x27;</span>);</span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2022/10/19/SQLite-数据清洗/#more">more >></a>
+          <a class="article-more-a" href="/2022/10/19/SQLite-%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97/#more">more >></a>
         
       
 
@@ -985,83 +1060,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/10/19/SQLite-数据清洗/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Android-依赖模块分组" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/09/24/Android-依赖模块分组/">Android 依赖模块分组</a>
-    </h1>
-  
-
-        
-        <a href="/2022/09/24/Android-依赖模块分组/" class="archive-article-date">
-  	<time datetime="2022-09-23T16:32:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Android 项目在经历了长期的迭代开发后，必然会寻求各模块间的逻辑独立和解耦，以降低维护成本，提高代码的可读性。抛开动态下发与动态加载技术，多数研发人员会将一些可模块化的独立逻辑抽取出来，以 Android Library Module 的形式引入到项目中。随着抽取的类库越来越多，Application 和 Library 并列共存，代码维护会异常混乱。为了改善这种情况，Android Studio 提供了将模块放置在子文件夹中的语法。</p>
-        
-          <a class="article-more-a" href="/2022/09/24/Android-依赖模块分组/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">组件化</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/09/24/Android-依赖模块分组/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/10/19/SQLite-%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97/">展开全文 >></a>
         </p>
       
 
@@ -1189,10 +1188,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -1205,6 +1200,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Android Studio</a>
               </li>
              
@@ -1213,11 +1216,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+                <a href="javascript:void(0)" class="js-tag color5">Room</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1225,11 +1232,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">View</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Fiddler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1245,7 +1276,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1254,10 +1297,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1277,59 +1316,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">View</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Room</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1353,15 +1352,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
+                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Application</a>
               </li>
             
             <div class="clearfix"></div>

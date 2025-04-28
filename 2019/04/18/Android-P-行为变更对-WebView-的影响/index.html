@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Android P 行为变更对 WebView 的影响 | Welcome to sunzn&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="这篇文章是根据项目中遇到的真实情况归纳整理而成的。整个项目组的研发人员从发现 BUG 那一刻开始，到彻底解决这个问题耗费了很长的时间，中间填了很多坑，甚至否定了刚接入没多久的 TBS。不过，好在解决了这个由 Android P 行为变更引发的错误，使得错误率降低到了现在可接受的 0.1113%，下面让我们开始复盘吧！ 1. 奇怪的 WebView 错误">
-<meta name="keywords" content="Android,WebView">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android P 行为变更对 WebView 的影响">
-<meta property="og:url" content="http://yoursite.com/2019/04/18/Android-P-行为变更对-WebView-的影响/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/04/18/Android-P-%E8%A1%8C%E4%B8%BA%E5%8F%98%E6%9B%B4%E5%AF%B9-WebView-%E7%9A%84%E5%BD%B1%E5%93%8D/index.html">
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="这篇文章是根据项目中遇到的真实情况归纳整理而成的。整个项目组的研发人员从发现 BUG 那一刻开始，到彻底解决这个问题耗费了很长的时间，中间填了很多坑，甚至否定了刚接入没多久的 TBS。不过，好在解决了这个由 Android P 行为变更引发的错误，使得错误率降低到了现在可接受的 0.1113%，下面让我们开始复盘吧！ 1. 奇怪的 WebView 错误">
-<meta property="og:locale" content="default">
+<meta property="og:locale">
 <meta property="og:image" content="https://image.sunzn.com/blog/20190418200902.png">
 <meta property="og:image" content="https://image.sunzn.com/blog/20190418200903.png">
-<meta property="og:updated_time" content="2023-03-21T14:31:23.119Z">
+<meta property="article:published_time" content="2019-04-18T12:33:41.000Z">
+<meta property="article:modified_time" content="2023-03-21T14:31:23.119Z">
+<meta property="article:author" content="狮子">
+<meta property="article:tag" content="Android">
+<meta property="article:tag" content="WebView">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android P 行为变更对 WebView 的影响">
-<meta name="twitter:description" content="这篇文章是根据项目中遇到的真实情况归纳整理而成的。整个项目组的研发人员从发现 BUG 那一刻开始，到彻底解决这个问题耗费了很长的时间，中间填了很多坑，甚至否定了刚接入没多久的 TBS。不过，好在解决了这个由 Android P 行为变更引发的错误，使得错误率降低到了现在可接受的 0.1113%，下面让我们开始复盘吧！ 1. 奇怪的 WebView 错误">
 <meta name="twitter:image" content="https://image.sunzn.com/blog/20190418200902.png">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
@@ -50,8 +51,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -64,10 +65,8 @@ var _hmt = _hmt || [];
 			<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">狮子</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">念念不忘，必有回响</p>
 		
 
 		<nav class="header-menu">
@@ -124,10 +123,8 @@ var _hmt = _hmt || [];
 				<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">狮子</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>念念不忘，必有回响<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -184,7 +181,7 @@ var _hmt = _hmt || [];
   
 
         
-        <a href="/2019/04/18/Android-P-行为变更对-WebView-的影响/" class="archive-article-date">
+        <a href="/2019/04/18/Android-P-%E8%A1%8C%E4%B8%BA%E5%8F%98%E6%9B%B4%E5%AF%B9-WebView-%E7%9A%84%E5%BD%B1%E5%93%8D/" class="archive-article-date">
   	<time datetime="2019-04-18T12:33:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-18</time>
 </a>
         
@@ -194,25 +191,27 @@ var _hmt = _hmt || [];
       
         <p>这篇文章是根据项目中遇到的真实情况归纳整理而成的。整个项目组的研发人员从发现 BUG 那一刻开始，到彻底解决这个问题耗费了很长的时间，中间填了很多坑，甚至否定了刚接入没多久的 TBS。不过，好在解决了这个由 Android P 行为变更引发的错误，使得错误率降低到了现在可接受的 0.1113%，下面让我们开始复盘吧！</p>
 <h1 id="1-奇怪的-WebView-错误"><a href="#1-奇怪的-WebView-错误" class="headerlink" title="1. 奇怪的 WebView 错误"></a>1. 奇怪的 WebView 错误</h1><p><img src="https://image.sunzn.com/blog/20190418200902.png" alt="在此输入正文"></p>
-<a id="more"></a>
+<span id="more"></span>
 
-<p>开始之前先看一张后台 BUG 统计图，这个 BUG 从 2019/3/30 开始爆发，并且无一例外的都发生在了 Android 9.0 的系统上，到 4 月中旬大面积爆发。当时已经查找了和 WebView 相关的 BUG，并且在云真机上也针对出错机型进行了测试，并没有出现问题。后台收集到的错误日志如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">android.view.InflateException: Binary XML file line #13: Binary XML file line #56: Error inflating class android.webkit.WebView</span><br><span class="line">Caused by: android.view.InflateException: Binary XML file line #56: Error inflating class android.webkit.WebView</span><br><span class="line">Caused by: java.lang.reflect.InvocationTargetException</span><br><span class="line">	......</span><br><span class="line">	at com.sunzn.core.subs.onCreateView(NodeFragment.java:<span class="number">115</span>)</span><br><span class="line">	......</span><br><span class="line">Caused by: java.lang.RuntimeException: Using WebView from more than one process at once with the same data directory is not supported. https:<span class="comment">//crbug.com/558377</span></span><br><span class="line">	at jP.b(PG:<span class="number">104</span>)</span><br><span class="line">	at jP.b(PG:<span class="number">184</span>)</span><br><span class="line">	at jP.a(PG:<span class="number">165</span>)</span><br><span class="line">	at com.android.webview.chromium.WebViewChromiumFactoryProvider.a(PG:<span class="number">243</span>)</span><br><span class="line">	at com.android.webview.chromium.WebViewChromium.init(PG:<span class="number">44</span>)</span><br><span class="line">	at android.webkit.WebView.(WebView.java:<span class="number">678</span>)</span><br><span class="line">	at android.webkit.WebView.(WebView.java:<span class="number">604</span>)</span><br><span class="line">	at android.webkit.WebView.(WebView.java:<span class="number">587</span>)</span><br><span class="line">	at android.webkit.WebView.(WebView.java:<span class="number">574</span>)</span><br><span class="line">	... <span class="number">46</span> more</span><br></pre></td></tr></table></figure>
+<p>开始之前先看一张后台 BUG 统计图，这个 BUG 从 2019&#x2F;3&#x2F;30 开始爆发，并且无一例外的都发生在了 Android 9.0 的系统上，到 4 月中旬大面积爆发。当时已经查找了和 WebView 相关的 BUG，并且在云真机上也针对出错机型进行了测试，并没有出现问题。后台收集到的错误日志如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">android.view.InflateException: Binary XML file line #<span class="number">13</span>: Binary XML file line #<span class="number">56</span>: Error inflating <span class="keyword">class</span> <span class="title class_">android</span>.webkit.WebView</span><br><span class="line">Caused by: android.view.InflateException: Binary XML file line #<span class="number">56</span>: Error inflating <span class="keyword">class</span> <span class="title class_">android</span>.webkit.WebView</span><br><span class="line">Caused by: java.lang.reflect.InvocationTargetException</span><br><span class="line">	......</span><br><span class="line">	at com.sunzn.core.subs.onCreateView(NodeFragment.java:<span class="number">115</span>)</span><br><span class="line">	......</span><br><span class="line">Caused by: java.lang.RuntimeException: Using WebView from more than one process at once with the same data directory is not supported. https:<span class="comment">//crbug.com/558377</span></span><br><span class="line">	at jP.b(PG:<span class="number">104</span>)</span><br><span class="line">	at jP.b(PG:<span class="number">184</span>)</span><br><span class="line">	at jP.a(PG:<span class="number">165</span>)</span><br><span class="line">	at com.android.webview.chromium.WebViewChromiumFactoryProvider.a(PG:<span class="number">243</span>)</span><br><span class="line">	at com.android.webview.chromium.WebViewChromium.init(PG:<span class="number">44</span>)</span><br><span class="line">	at android.webkit.WebView.(WebView.java:<span class="number">678</span>)</span><br><span class="line">	at android.webkit.WebView.(WebView.java:<span class="number">604</span>)</span><br><span class="line">	at android.webkit.WebView.(WebView.java:<span class="number">587</span>)</span><br><span class="line">	at android.webkit.WebView.(WebView.java:<span class="number">574</span>)</span><br><span class="line">	... <span class="number">46</span> more</span><br></pre></td></tr></table></figure>
 
 <p>后来就开始追查这个版本上线的时候新增了哪些功能，结果发现集成了腾讯的 TBS，并且用 TBS X5 内核的 WebView 替换了系统原生 WebVieW。到这看起来是找到了原因，所以去除 TBS 组件后，紧急升级了一个版本并发布上线。观察一段时间后，发现错误还在，并且错误率还在增加。这下，才意识到这个 BUG 仿佛不可控了，后来经过一位研发人员不懈的尝试，终于将这个 BUG 与 Android 的行为变更联系了起来，庆幸解决问题的方向是正确的。</p>
-<h1 id="2-Android-Pie-行为变更"><a href="#2-Android-Pie-行为变更" class="headerlink" title="2. Android Pie 行为变更"></a>2. Android Pie 行为变更</h1><p>Android Pie ( API 级别 28 ) 是谷歌于 2018 年 8 月 7 日发布的正式版系统。和以往一样，每个重大版本的发布都伴随着一系列的安全策略和性能优化方面的行为变更，Android Pie 向 Android 系统引入了多项<a href="https://developer.android.google.cn/about/versions/pie/android-9.0-changes-28" target="_blank" rel="noopener">行为变更</a>，这些行为变更仅影响以 API 28 或更高级别为目标的应用。将 targetSdkVersion 设为 API 28 或更高级别的应用必须进行修改，以便正确支持这些行为。</p>
-<p>Android Pie 的行为变更包括：前台服务、隐私权变更、框架安全性变更、连接变更、界面变更。其中，在<a href="https://developer.android.google.cn/about/versions/pie/android-9.0-changes-28#framework-security-changes" target="_blank" rel="noopener">框架安全性变更</a>中包含了 WebView 的行为变更。以下内容来自官方文档对 “按进程分设基于网络的数据目录” 的描述。</p>
+<h1 id="2-Android-Pie-行为变更"><a href="#2-Android-Pie-行为变更" class="headerlink" title="2. Android Pie 行为变更"></a>2. Android Pie 行为变更</h1><p>Android Pie ( API 级别 28 ) 是谷歌于 2018 年 8 月 7 日发布的正式版系统。和以往一样，每个重大版本的发布都伴随着一系列的安全策略和性能优化方面的行为变更，Android Pie 向 Android 系统引入了多项<a href="https://developer.android.google.cn/about/versions/pie/android-9.0-changes-28">行为变更</a>，这些行为变更仅影响以 API 28 或更高级别为目标的应用。将 targetSdkVersion 设为 API 28 或更高级别的应用必须进行修改，以便正确支持这些行为。</p>
+<p>Android Pie 的行为变更包括：前台服务、隐私权变更、框架安全性变更、连接变更、界面变更。其中，在<a href="https://developer.android.google.cn/about/versions/pie/android-9.0-changes-28#framework-security-changes">框架安全性变更</a>中包含了 WebView 的行为变更。以下内容来自官方文档对 “按进程分设基于网络的数据目录” 的描述。</p>
 <pre><code>为改善 Android 9 中的应用稳定性和数据完整性，应用无法再让多个进程共用同一 WebView 数据目录。 此类数据目录一般存储 Cookie、HTTP 缓存以及其他与网络浏览有关的持久性和临时性存储。
 
 在大多数情况下，您的应用只应在一个进程中使用 android.webkit 软件包中的类，例如 WebView 和 CookieManager。 例如，您应该将所有使用 WebView 的 Activity 对象移入同一进程。 您可以通过在应用的其他进程中调用 disableWebView()，更严格地执行&quot;仅限一个进程”规则。该调用可防止 WebView 在这些其他进程中被错误地初始化，即使是从依赖内容库进行的调用也能防止。
 
-如果您的应用必须在多个进程中使用 WebView 的实例，则必须先利用 WebView.setDataDirectorySuffix() 函数为每个进程指定唯一的数据目录后缀，然后再在该进程中使用 WebView 的给定实例。 该函数会将每个进程的网络数据放入其在应用数据目录内自己的目录中。</code></pre><blockquote>
-<p><font style="color:#01579B;font-size:14px;"><strong>注意</strong>：即使您使用 <code>setDataDirectorySuffix()</code>，系统也不会跨应用的进程界限共享 Cookie 以及其他网络数据。 如果应用中的多个进程需要访问同一网络数据，您需要自行在这些进程之间复制数据。 例如，您可以调用 <a href="https://developer.android.google.cn/reference/android/webkit/CookieManager.html#getCookie%28java.lang.String%29" target="_blank" rel="noopener">getCookie()</a> 和 <a href="https://developer.android.google.cn/reference/android/webkit/CookieManager.html#setCookie%28java.lang.String,%20java.lang.String,%20android.webkit.ValueCallback%3Cjava.lang.Boolean%3E%29" target="_blank" rel="noopener">setCookie()</a>，在不同进程之间手动传输 Cookie 数据。</font></p>
+如果您的应用必须在多个进程中使用 WebView 的实例，则必须先利用 WebView.setDataDirectorySuffix() 函数为每个进程指定唯一的数据目录后缀，然后再在该进程中使用 WebView 的给定实例。 该函数会将每个进程的网络数据放入其在应用数据目录内自己的目录中。
+</code></pre>
+<blockquote>
+<p><font style="color:#01579B;font-size:14px;"><strong>注意</strong>：即使您使用 <code>setDataDirectorySuffix()</code>，系统也不会跨应用的进程界限共享 Cookie 以及其他网络数据。 如果应用中的多个进程需要访问同一网络数据，您需要自行在这些进程之间复制数据。 例如，您可以调用 <a href="https://developer.android.google.cn/reference/android/webkit/CookieManager.html#getCookie%28java.lang.String%29">getCookie()</a> 和 <a href="https://developer.android.google.cn/reference/android/webkit/CookieManager.html#setCookie%28java.lang.String,%20java.lang.String,%20android.webkit.ValueCallback%3Cjava.lang.Boolean%3E%29">setCookie()</a>，在不同进程之间手动传输 Cookie 数据。</font></p>
 </blockquote>
 <h1 id="3-Google-的渐进式策略"><a href="#3-Google-的渐进式策略" class="headerlink" title="3. Google 的渐进式策略"></a>3. Google 的渐进式策略</h1><p>其实 Google 早就为 Android P 的行为变更做了准备，并且是渐进执行的，还记得开始的错误日志吗？如果没注意，不必重新回去看了，我将日志的关键部分放到了下面：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Caused by: java.lang.RuntimeException: Using WebView from more than one process at once with the same data directory is not supported. https:<span class="comment">//crbug.com/558377</span></span><br></pre></td></tr></table></figure>
 
-<p>这个异常是从系统 WebView 的 <a href="https://chromium.googlesource.com/chromium/src/+/7259fe14ee467fb7286ad6c65589fefaabe60f2e/android_webview/java/src/org/chromium/android_webview/AwBrowserProcess.java" target="_blank" rel="noopener">AwBrowserProcess</a> 文件抛出的，这个异常的意思是：来自不同进程的 WebView 不允许共享数据目录。并且还给出了一个网址供参考，事实上不论你是否科学上网，这个地址都无法访问！当时在查找问题的时候已经定位到了这个文件，可惜没有深入下去查看这个文件的<a href="https://chromium.googlesource.com/chromium/src/+log/master/android_webview/java/src/org/chromium/android_webview/AwBrowserProcess.java" target="_blank" rel="noopener">提交日志</a>，所以错失了解决问题的最佳时机，现在在复盘的时候才注意到，为了保持文章的完整性，也为以后解决问题提供一个思路，所以将查看提交日志的过程也写了进来。</p>
+<p>这个异常是从系统 WebView 的 <a href="https://chromium.googlesource.com/chromium/src/+/7259fe14ee467fb7286ad6c65589fefaabe60f2e/android_webview/java/src/org/chromium/android_webview/AwBrowserProcess.java">AwBrowserProcess</a> 文件抛出的，这个异常的意思是：来自不同进程的 WebView 不允许共享数据目录。并且还给出了一个网址供参考，事实上不论你是否科学上网，这个地址都无法访问！当时在查找问题的时候已经定位到了这个文件，可惜没有深入下去查看这个文件的<a href="https://chromium.googlesource.com/chromium/src/+log/master/android_webview/java/src/org/chromium/android_webview/AwBrowserProcess.java">提交日志</a>，所以错失了解决问题的最佳时机，现在在复盘的时候才注意到，为了保持文章的完整性，也为以后解决问题提供一个思路，所以将查看提交日志的过程也写了进来。</p>
 <p>为了看着直接明了，我将提交日志按时间先后筛了出来，整理到一个表格中，从这你基本就能看出 Google 的程序员是如何渐进的为 Android 行为变更做准备的。</p>
 <table>
 <thead>
@@ -224,31 +223,31 @@ var _hmt = _hmt || [];
 </thead>
 <tbody><tr>
 <td>7259fe14</td>
-<td><a href="https://chromium.googlesource.com/chromium/src/+/7259fe14ee467fb7286ad6c65589fefaabe60f2e" target="_blank" rel="noopener">Inline isAtLeastP and targetAtLeastP.</a></td>
+<td><a href="https://chromium.googlesource.com/chromium/src/+/7259fe14ee467fb7286ad6c65589fefaabe60f2e">Inline isAtLeastP and targetAtLeastP.</a></td>
 <td>Tue Oct 23 19:31:33 2018</td>
 </tr>
 <tr>
 <td>8902e04</td>
-<td><a href="https://chromium.googlesource.com/chromium/src/+/8902e046054fc8b3c3bfe5fa69c4593681a46b02" target="_blank" rel="noopener">Relax WebView data dir check to only fire on P.</a></td>
+<td><a href="https://chromium.googlesource.com/chromium/src/+/8902e046054fc8b3c3bfe5fa69c4593681a46b02">Relax WebView data dir check to only fire on P.</a></td>
 <td>Fri Mar 09 16:45:32 2018</td>
 </tr>
 <tr>
 <td>160a68e</td>
-<td><a href="https://chromium.googlesource.com/chromium/src/+/160a68ef4d6a4ab16e0544b2ea1363689ed3801b" target="_blank" rel="noopener">Support defining a different data dir for WebView.</a></td>
+<td><a href="https://chromium.googlesource.com/chromium/src/+/160a68ef4d6a4ab16e0544b2ea1363689ed3801b">Support defining a different data dir for WebView.</a></td>
 <td>Thu Dec 21 20:23:15 2017</td>
 </tr>
 </tbody></table>
 <p>2017 年 12 月为 WebView 定义不同的数据目录提供支持；2018 年 3 月放松 WebView 数据目录检查，只在 Android P 上触发；2018 年 10 月 Android P 已发布，内联 isAtLeastP 和 targetAtLeastP，正式对 WebView 的行为变更生效。然后，各个厂商基于 Android P 进行二次开发，开发者如果没有针对这次行为变更做出对应的适配，就会在多进程 WebView 使用的时候出现错误。 </p>
-<h1 id="4-模拟-WebView-错误"><a href="#4-模拟-WebView-错误" class="headerlink" title="4. 模拟 WebView 错误"></a>4. 模拟 WebView 错误</h1><p>想要模拟 WebView 的错误，首先，需要将应用的 targetSdkVersion 的 API 级别设为 28；然后，通过两个处于不同进程的 Activity 分别使用 WebView 加网页实现。为 Activity 设置进程需要在 <code>AndroidManifest.xml</code> 文件中对应的 <a href="https://developer.android.com/guide/topics/manifest/activity-element.html" target="_blank" rel="noopener">Activity 节点</a>下增加 <code>process</code> 属性，并设置进程名。大概像这样：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">manifest</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">package</span>=<span class="string">"com.sunzn.core"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">application</span>&gt;</span></span><br><span class="line">        ......</span><br><span class="line">        <span class="tag">&lt;<span class="name">activity</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:name</span>=<span class="string">".WebActivity"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:process</span>=<span class="string">":ProcessName"</span> /&gt;</span></span><br><span class="line">        ......</span><br><span class="line">    <span class="tag">&lt;/<span class="name">application</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">manifest</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="4-模拟-WebView-错误"><a href="#4-模拟-WebView-错误" class="headerlink" title="4. 模拟 WebView 错误"></a>4. 模拟 WebView 错误</h1><p>想要模拟 WebView 的错误，首先，需要将应用的 targetSdkVersion 的 API 级别设为 28；然后，通过两个处于不同进程的 Activity 分别使用 WebView 加网页实现。为 Activity 设置进程需要在 <code>AndroidManifest.xml</code> 文件中对应的 <a href="https://developer.android.com/guide/topics/manifest/activity-element.html">Activity 节点</a>下增加 <code>process</code> 属性，并设置进程名。大概像这样：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">manifest</span> <span class="attr">xmlns:android</span>=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">package</span>=<span class="string">&quot;com.sunzn.core&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">application</span>&gt;</span></span><br><span class="line">        ......</span><br><span class="line">        <span class="tag">&lt;<span class="name">activity</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:name</span>=<span class="string">&quot;.WebActivity&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:process</span>=<span class="string">&quot;:ProcessName&quot;</span> /&gt;</span></span><br><span class="line">        ......</span><br><span class="line">    <span class="tag">&lt;/<span class="name">application</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">manifest</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p><font style="color:#01579B;font-size:14px;"><strong>注意</strong>：process 的命名不能以数字开头，否正会提示 Install failed。</font></p>
 </blockquote>
-<p>详细的示例请代码访问 <a href="https://github.com/ShortStickBoy/WebView" target="_blank" rel="noopener">WebView@Github</a>，下载完成并在 Android P 的模拟器或真机上运行，就可以重现之前提到的错误。如果没有重现，请将清单文件中 Application 节点下的 name 属性注释后重试。</p>
+<p>详细的示例请代码访问 <a href="https://github.com/ShortStickBoy/WebView">WebView@Github</a>，下载完成并在 Android P 的模拟器或真机上运行，就可以重现之前提到的错误。如果没有重现，请将清单文件中 Application 节点下的 name 属性注释后重试。</p>
 <h1 id="5-修复-WebView-错误"><a href="#5-修复-WebView-错误" class="headerlink" title="5. 修复 WebView 错误"></a>5. 修复 WebView 错误</h1><p>经过上面的模拟，现在可以确定 WebView 的报错就是由多进程导致的。但是，仔细查了清单文件，发现项目中以新进程运行的只有消息推送，唯一的可能就是消息推送进程内打开了带有 WebView 的页面。从业务需求角度来说，收到消息推送，点击打开带有 WebView 的页面是不可避免的。所以，解决问题只能从兼容 Android P 的角度去考虑。</p>
 <p>重新回到 Android P 的行为变更，我们可以为每个进程指定唯一的数据目录后缀，然后再在该进程中使用 WebView 的给定实例。什么时候指定数据目录最合适？Application 初始化的时候。因为每新开一个进程，Application 的 <code>onCreate()</code> 方法都会重新执行一次。我们可以在新开进程的时候，拿到当前进程名，然后和我们的主进程名进行对比，如果不一致，我们就为该进程指定对应的 WebView 数据目录后缀，代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebApplication</span> <span class="keyword">extends</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String PROCESS = <span class="string">"com.sunzn.core"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate();</span><br><span class="line">        initPieWebView();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initPieWebView</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.P) &#123;</span><br><span class="line">            String processName = getProcessName(<span class="keyword">this</span>);</span><br><span class="line">            <span class="keyword">if</span> (!PROCESS.equals(processName)) &#123;</span><br><span class="line">                WebView.setDataDirectorySuffix(getString(processName, <span class="string">"sunzn"</span>));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WebApplication</span> <span class="keyword">extends</span> <span class="title class_">Application</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">PROCESS</span> <span class="operator">=</span> <span class="string">&quot;com.sunzn.core&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onCreate</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onCreate();</span><br><span class="line">        initPieWebView();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">initPieWebView</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.P) &#123;</span><br><span class="line">            <span class="type">String</span> <span class="variable">processName</span> <span class="operator">=</span> getProcessName(<span class="built_in">this</span>);</span><br><span class="line">            <span class="keyword">if</span> (!PROCESS.equals(processName)) &#123;</span><br><span class="line">                WebView.setDataDirectorySuffix(getString(processName, <span class="string">&quot;sunzn&quot;</span>));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>为新进程指定 WebView 数据目录后，重新在 Android P 的模拟器或真机上运行，并进行页面跳转测试，一切正常如初！这时，打开 APP 对应的安装路径会发现多了一个对应进程名后缀的 webview 目录，这证明我们的设置是生效的。至此，我们的适配工作也就完成了。</p>
 <p><img src="https://image.sunzn.com/blog/20190418200903.png" alt="此处输入图片的描述"></p>
@@ -346,7 +345,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/18/Android-P-行为变更对-WebView-的影响/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/18/Android-P-%E8%A1%8C%E4%B8%BA%E5%8F%98%E6%9B%B4%E5%AF%B9-WebView-%E7%9A%84%E5%BD%B1%E5%93%8D/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -360,7 +359,7 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2019/05/09/Excel-数据导入-SQLite/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/05/09/Excel-%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%85%A5-SQLite/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -370,7 +369,7 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2019/02/28/Time-在-Room-中的使用/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/02/28/Time-%E5%9C%A8-Room-%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Time 在 Room 中的使用</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -398,7 +397,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-奇怪的-WebView-错误"><span class="toc-number">1.</span> <span class="toc-text">1. 奇怪的 WebView 错误</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Android-Pie-行为变更"><span class="toc-number">2.</span> <span class="toc-text">2. Android Pie 行为变更</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Google-的渐进式策略"><span class="toc-number">3.</span> <span class="toc-text">3. Google 的渐进式策略</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-模拟-WebView-错误"><span class="toc-number">4.</span> <span class="toc-text">4. 模拟 WebView 错误</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-修复-WebView-错误"><span class="toc-number">5.</span> <span class="toc-text">5. 修复 WebView 错误</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%A5%87%E6%80%AA%E7%9A%84-WebView-%E9%94%99%E8%AF%AF"><span class="toc-number">1.</span> <span class="toc-text">1. 奇怪的 WebView 错误</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Android-Pie-%E8%A1%8C%E4%B8%BA%E5%8F%98%E6%9B%B4"><span class="toc-number">2.</span> <span class="toc-text">2. Android Pie 行为变更</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Google-%E7%9A%84%E6%B8%90%E8%BF%9B%E5%BC%8F%E7%AD%96%E7%95%A5"><span class="toc-number">3.</span> <span class="toc-text">3. Google 的渐进式策略</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E6%A8%A1%E6%8B%9F-WebView-%E9%94%99%E8%AF%AF"><span class="toc-number">4.</span> <span class="toc-text">4. 模拟 WebView 错误</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E4%BF%AE%E5%A4%8D-WebView-%E9%94%99%E8%AF%AF"><span class="toc-number">5.</span> <span class="toc-text">5. 修复 WebView 错误</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -511,10 +510,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -527,6 +522,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Android Studio</a>
               </li>
              
@@ -535,11 +538,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+                <a href="javascript:void(0)" class="js-tag color5">Room</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -547,11 +554,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">View</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Fiddler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -567,7 +598,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -576,10 +619,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -599,59 +638,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">View</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Room</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -675,15 +674,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
+                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Application</a>
               </li>
             
             <div class="clearfix"></div>

@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>JSONArray 值为 NULL 时的容错处理 | Welcome to sunzn&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="无论是 Web 端还是移动端开发，都会涉及到对 JSONArray 的解析，通常状况下前端会和后端会约定好返回的数据是一个 JSONArray 数组，当然前端也会按照 JSONObject.getJSONArray(String name) 的方式去解析数据。但现实中的情况是后端由于某些原因直接返回了 null（而非空数组 [ ]），这时候前端依然按照数组的形式去解析就会抛出如下异常： 12345">
-<meta name="keywords" content="Json">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JSONArray 值为 NULL 时的容错处理">
-<meta property="og:url" content="http://yoursite.com/2017/10/10/JSONArray-值为-NULL-时的容错处理/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/10/10/JSONArray-%E5%80%BC%E4%B8%BA-NULL-%E6%97%B6%E7%9A%84%E5%AE%B9%E9%94%99%E5%A4%84%E7%90%86/index.html">
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="无论是 Web 端还是移动端开发，都会涉及到对 JSONArray 的解析，通常状况下前端会和后端会约定好返回的数据是一个 JSONArray 数组，当然前端也会按照 JSONObject.getJSONArray(String name) 的方式去解析数据。但现实中的情况是后端由于某些原因直接返回了 null（而非空数组 [ ]），这时候前端依然按照数组的形式去解析就会抛出如下异常： 12345">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2017-11-16T22:06:08.000Z">
+<meta property="og:locale">
+<meta property="article:published_time" content="2017-10-10T13:54:55.000Z">
+<meta property="article:modified_time" content="2017-11-16T22:06:08.000Z">
+<meta property="article:author" content="狮子">
+<meta property="article:tag" content="Json">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JSONArray 值为 NULL 时的容错处理">
-<meta name="twitter:description" content="无论是 Web 端还是移动端开发，都会涉及到对 JSONArray 的解析，通常状况下前端会和后端会约定好返回的数据是一个 JSONArray 数组，当然前端也会按照 JSONObject.getJSONArray(String name) 的方式去解析数据。但现实中的情况是后端由于某些原因直接返回了 null（而非空数组 [ ]），这时候前端依然按照数组的形式去解析就会抛出如下异常： 12345">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -47,8 +47,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -61,10 +61,8 @@ var _hmt = _hmt || [];
 			<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">狮子</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">念念不忘，必有回响</p>
 		
 
 		<nav class="header-menu">
@@ -121,10 +119,8 @@ var _hmt = _hmt || [];
 				<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">狮子</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>念念不忘，必有回响<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -181,7 +177,7 @@ var _hmt = _hmt || [];
   
 
         
-        <a href="/2017/10/10/JSONArray-值为-NULL-时的容错处理/" class="archive-article-date">
+        <a href="/2017/10/10/JSONArray-%E5%80%BC%E4%B8%BA-NULL-%E6%97%B6%E7%9A%84%E5%AE%B9%E9%94%99%E5%A4%84%E7%90%86/" class="archive-article-date">
   	<time datetime="2017-10-10T13:54:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
 </a>
         
@@ -190,21 +186,21 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>无论是 Web 端还是移动端开发，都会涉及到对 JSONArray 的解析，通常状况下前端会和后端会约定好返回的数据是一个 JSONArray 数组，当然前端也会按照 <code>JSONObject.getJSONArray(String name)</code> 的方式去解析数据。但现实中的情况是后端由于某些原因直接返回了 <code>null</code>（而非空数组 [ ]），这时候前端依然按照数组的形式去解析就会抛出如下异常：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">org.json.JSONException: Value <span class="keyword">null</span> at users of type org.json.JSONObject$<span class="number">1</span> cannot be converted to JSONArray</span><br><span class="line">    at org.json.JSON.typeMismatch(JSON.java:<span class="number">100</span>)</span><br><span class="line">    at org.json.JSONObject.getJSONArray(JSONObject.java:<span class="number">588</span>)</span><br><span class="line">    at com.sunzn.core.RefreshManager$<span class="number">8</span>.onSuccess(RefreshManager.java:<span class="number">617</span>)</span><br><span class="line">    at com.loopj.android.http.JsonHttpResponseHandler$<span class="number">1</span>$<span class="number">1</span>.run(JsonHttpResponseHandler.java:<span class="number">152</span>)</span><br><span class="line">    at android.os.Handler.handleCallback(Handler.java:<span class="number">739</span>)</span><br><span class="line">    at android.os.Handler.dispatchMessage(Handler.java:<span class="number">95</span>)</span><br><span class="line">    at android.os.Looper.loop(Looper.java:<span class="number">135</span>)</span><br><span class="line">    at android.app.ActivityThread.main(ActivityThread.java:<span class="number">5418</span>)</span><br><span class="line">    at java.lang.reflect.Method.invoke(Native Method)</span><br><span class="line">    at java.lang.reflect.Method.invoke(Method.java:<span class="number">372</span>)</span><br><span class="line">    at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:<span class="number">1037</span>)</span><br><span class="line">    at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:<span class="number">832</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">org.json.JSONException: Value <span class="literal">null</span> at users of type org.json.JSONObject$<span class="number">1</span> cannot be converted to JSONArray</span><br><span class="line">    at org.json.JSON.typeMismatch(JSON.java:<span class="number">100</span>)</span><br><span class="line">    at org.json.JSONObject.getJSONArray(JSONObject.java:<span class="number">588</span>)</span><br><span class="line">    at com.sunzn.core.RefreshManager$<span class="number">8.</span>onSuccess(RefreshManager.java:<span class="number">617</span>)</span><br><span class="line">    at com.loopj.android.http.JsonHttpResponseHandler$<span class="number">1</span>$<span class="number">1.</span>run(JsonHttpResponseHandler.java:<span class="number">152</span>)</span><br><span class="line">    at android.os.Handler.handleCallback(Handler.java:<span class="number">739</span>)</span><br><span class="line">    at android.os.Handler.dispatchMessage(Handler.java:<span class="number">95</span>)</span><br><span class="line">    at android.os.Looper.loop(Looper.java:<span class="number">135</span>)</span><br><span class="line">    at android.app.ActivityThread.main(ActivityThread.java:<span class="number">5418</span>)</span><br><span class="line">    at java.lang.reflect.Method.invoke(Native Method)</span><br><span class="line">    at java.lang.reflect.Method.invoke(Method.java:<span class="number">372</span>)</span><br><span class="line">    at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:<span class="number">1037</span>)</span><br><span class="line">    at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:<span class="number">832</span>)</span><br></pre></td></tr></table></figure>
 
 <p>这个异常明确的告诉我们，当 JSONArray 为 null 的时候，这个对象的属性发生了变化，由 JSONArray 变成了 JSONObject，然而前端却依然认为这是个 JSONArray 对象并以 JSONArray 的形式去取值，结果就抛出了异常。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>那么，应该如何避免这种异常的发生呢？异常发生的原因是：我们以固定的取值方式去获取类型不定的值。如果我们在取值之前知道当前值的类型，并以对应的方式去取值就可以避免这种异常了。下面以一个例子进行说明：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"status"</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">"msg"</span>: <span class="string">"获取数据成功"</span>,</span><br><span class="line">    <span class="attr">"users"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"Name"</span>: <span class="string">"Tom"</span>,</span><br><span class="line">            <span class="attr">"Pass"</span>: <span class="string">"123456"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"Name"</span>: <span class="string">"Lei"</span>,</span><br><span class="line">            <span class="attr">"Pass"</span>: <span class="string">"123456"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;status&quot;</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;msg&quot;</span><span class="punctuation">:</span> <span class="string">&quot;获取数据成功&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;users&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;Name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Tom&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;Pass&quot;</span><span class="punctuation">:</span> <span class="string">&quot;123456&quot;</span></span><br><span class="line">        <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;Name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Lei&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;Pass&quot;</span><span class="punctuation">:</span> <span class="string">&quot;123456&quot;</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"status"</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">"msg"</span>: <span class="string">"获取数据成功"</span>,</span><br><span class="line">    <span class="attr">"users"</span>: <span class="literal">null</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;status&quot;</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;msg&quot;</span><span class="punctuation">:</span> <span class="string">&quot;获取数据成功&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;users&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">null</span></span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
 
 <p>上面两组 Json 值分别为返回数组和 NULL 时的情况，常规取值方式如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="number">1</span> == response.getInt(<span class="string">"status"</span>)) &#123;</span><br><span class="line">        JSONArray UserList = response.getJSONArray(<span class="string">"users"</span>);</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">catch</span> (JSONException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="number">1</span> == response.getInt(<span class="string">&quot;status&quot;</span>)) &#123;</span><br><span class="line">        <span class="type">JSONArray</span> <span class="variable">UserList</span> <span class="operator">=</span> response.getJSONArray(<span class="string">&quot;users&quot;</span>);</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">catch</span> (JSONException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>正如之前的分析可知，当 users 值为 NULL 时会抛出异常。容错取值方式如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="number">1</span> == response.getInt(<span class="string">"status"</span>)) &#123;</span><br><span class="line">        Object Users = response.get(<span class="string">"users"</span>);</span><br><span class="line">        <span class="keyword">if</span> (Users <span class="keyword">instanceof</span> JSONArray) &#123;</span><br><span class="line">            JSONArray UserList = (JSONArray) Users;</span><br><span class="line">            ...</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">catch</span> (JSONException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="number">1</span> == response.getInt(<span class="string">&quot;status&quot;</span>)) &#123;</span><br><span class="line">        <span class="type">Object</span> <span class="variable">Users</span> <span class="operator">=</span> response.get(<span class="string">&quot;users&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span> (Users <span class="keyword">instanceof</span> JSONArray) &#123;</span><br><span class="line">            <span class="type">JSONArray</span> <span class="variable">UserList</span> <span class="operator">=</span> (JSONArray) Users;</span><br><span class="line">            ...</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">catch</span> (JSONException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>容错取值方式并没有直接去获取 JSONArray，而是先获取了一个 Object 对象（这个对象的类型既可能是 JSONArray 也可能是 JSONObject），然后通过类型判断，将其转换成对应的类型进行后续的操作。</p>
 
@@ -297,7 +293,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/10/10/JSONArray-值为-NULL-时的容错处理/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/10/10/JSONArray-%E5%80%BC%E4%B8%BA-NULL-%E6%97%B6%E7%9A%84%E5%AE%B9%E9%94%99%E5%A4%84%E7%90%86/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -311,7 +307,7 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2017/10/10/MySQL数据库插入中文乱码的解决方案/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/10/10/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -462,10 +458,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -478,6 +470,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Android Studio</a>
               </li>
              
@@ -486,11 +486,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+                <a href="javascript:void(0)" class="js-tag color5">Room</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -498,11 +502,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">View</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Fiddler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -518,7 +546,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -527,10 +567,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -550,59 +586,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">View</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Room</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -626,15 +622,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
+                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Application</a>
               </li>
             
             <div class="clearfix"></div>

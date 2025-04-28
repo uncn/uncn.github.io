@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>SQLite 索引 | Welcome to sunzn&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="索引是一种用来在某中条件下加速查询的结构。考虑如下查询： 1SELECT * FROM FOODS WHERE NAME=&apos;苹果&apos;;  当数据库搜索匹配的行时，执行这种查询的默认方法是调用顺序扫描。也就是说，逐个搜索（扫描）表中的所有行，查看 NAME 属性是否匹配 “苹果”。 但是，如果频繁使用这种查询，并且表 FOODS 非常大，使用索引的方法查找数据就更有意义了。与其他许多数据库类似，SQL">
-<meta name="keywords" content="SQLite">
+  <meta name="description" content="索引是一种用来在某中条件下加速查询的结构。考虑如下查询： 1SELECT * FROM FOODS WHERE NAME&#x3D;&#x27;苹果&#x27;;  当数据库搜索匹配的行时，执行这种查询的默认方法是调用顺序扫描。也就是说，逐个搜索（扫描）表中的所有行，查看 NAME 属性是否匹配 “苹果”。 但是，如果频繁使用这种查询，并且表 FOODS 非常大，使用索引的方法查找数据就更有意义了。与其他许">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SQLite 索引">
-<meta property="og:url" content="http://yoursite.com/2017/11/23/SQLite-索引/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/11/23/SQLite-%E7%B4%A2%E5%BC%95/index.html">
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
-<meta property="og:description" content="索引是一种用来在某中条件下加速查询的结构。考虑如下查询： 1SELECT * FROM FOODS WHERE NAME=&apos;苹果&apos;;  当数据库搜索匹配的行时，执行这种查询的默认方法是调用顺序扫描。也就是说，逐个搜索（扫描）表中的所有行，查看 NAME 属性是否匹配 “苹果”。 但是，如果频繁使用这种查询，并且表 FOODS 非常大，使用索引的方法查找数据就更有意义了。与其他许多数据库类似，SQL">
-<meta property="og:locale" content="default">
+<meta property="og:description" content="索引是一种用来在某中条件下加速查询的结构。考虑如下查询： 1SELECT * FROM FOODS WHERE NAME&#x3D;&#x27;苹果&#x27;;  当数据库搜索匹配的行时，执行这种查询的默认方法是调用顺序扫描。也就是说，逐个搜索（扫描）表中的所有行，查看 NAME 属性是否匹配 “苹果”。 但是，如果频繁使用这种查询，并且表 FOODS 非常大，使用索引的方法查找数据就更有意义了。与其他许">
+<meta property="og:locale">
 <meta property="og:image" content="https://image.sunzn.com/blog/20171031135301.png">
 <meta property="og:image" content="https://image.sunzn.com/blog/20171031135302.png">
-<meta property="og:updated_time" content="2023-03-21T14:42:13.440Z">
+<meta property="article:published_time" content="2017-11-23T12:10:02.000Z">
+<meta property="article:modified_time" content="2023-03-21T14:42:13.440Z">
+<meta property="article:author" content="狮子">
+<meta property="article:tag" content="SQLite">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SQLite 索引">
-<meta name="twitter:description" content="索引是一种用来在某中条件下加速查询的结构。考虑如下查询： 1SELECT * FROM FOODS WHERE NAME=&apos;苹果&apos;;  当数据库搜索匹配的行时，执行这种查询的默认方法是调用顺序扫描。也就是说，逐个搜索（扫描）表中的所有行，查看 NAME 属性是否匹配 “苹果”。 但是，如果频繁使用这种查询，并且表 FOODS 非常大，使用索引的方法查找数据就更有意义了。与其他许多数据库类似，SQL">
 <meta name="twitter:image" content="https://image.sunzn.com/blog/20171031135301.png">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
@@ -50,8 +50,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -64,10 +64,8 @@ var _hmt = _hmt || [];
 			<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">狮子</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">念念不忘，必有回响</p>
 		
 
 		<nav class="header-menu">
@@ -124,10 +122,8 @@ var _hmt = _hmt || [];
 				<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">狮子</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>念念不忘，必有回响<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -184,7 +180,7 @@ var _hmt = _hmt || [];
   
 
         
-        <a href="/2017/11/23/SQLite-索引/" class="archive-article-date">
+        <a href="/2017/11/23/SQLite-%E7%B4%A2%E5%BC%95/" class="archive-article-date">
   	<time datetime="2017-11-23T12:10:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-23</time>
 </a>
         
@@ -193,45 +189,44 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>索引是一种用来在某中条件下加速查询的结构。考虑如下查询：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> FOODS <span class="keyword">WHERE</span> <span class="keyword">NAME</span>=<span class="string">'苹果'</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> FOODS <span class="keyword">WHERE</span> NAME<span class="operator">=</span><span class="string">&#x27;苹果&#x27;</span>;</span><br></pre></td></tr></table></figure>
 
 <p>当数据库搜索匹配的行时，执行这种查询的默认方法是调用顺序扫描。也就是说，逐个搜索（扫描）表中的所有行，查看 NAME 属性是否匹配 “苹果”。</p>
 <p>但是，如果频繁使用这种查询，并且表 FOODS 非常大，使用索引的方法查找数据就更有意义了。<font color=" RoyalBlue">与其他许多数据库类似，SQLite 使用 B-tree 做索引。</font></p>
 <p><font color="RoyalBlue">索引也会增加数据库的大小。从字面上理解，它们复制了一份索引的字段。</font>如果表中的所有字段都创建索引，表的大小可能翻倍。另一个要考虑的情况是索引的维护。进行 insert、update 和 delete 操作时，除了修改表，数据库也必须修改对应的索引。虽然索引可以加速查询，但是它们可能降低 insert、update 和类似操作的速度。创建索引的命令如下：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">index</span> [<span class="keyword">unique</span>] index_name <span class="keyword">on</span> table_name (<span class="keyword">columns</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> index [<span class="keyword">unique</span>] index_name <span class="keyword">on</span> table_name (columns)</span><br></pre></td></tr></table></figure>
 
-<a id="more"></a>
+<span id="more"></span>
 
 <p>变量 index_name 是索引的名称，table_name 是包括索引所在字段的表名称，变量 colums 是一个字段或以逗号分隔的多个字段。</p>
 <p><font color="DeepPink">如果使用关键字 unique，将会在索引上添加约束，索引中的所有值必须是唯一的。这不仅适用于索引，也适用于索引所在字段。unique 关键字覆盖 index 中的所有字段，不管是联合值还是单个值，都必须是唯一的。</font>例如：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">ACCOUNT</span>(<span class="keyword">NAME</span> <span class="built_in">TEXT</span>, PASS <span class="built_in">TEXT</span>);</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">UNIQUE</span> <span class="keyword">INDEX</span> ACCOUNT_IDX <span class="keyword">ON</span> <span class="keyword">ACCOUNT</span>(<span class="keyword">NAME</span>, PASS);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">ACCOUNT</span> <span class="keyword">VALUES</span>(<span class="string">'TOM'</span>, <span class="string">'000000'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">ACCOUNT</span> <span class="keyword">VALUES</span>(<span class="string">'TOM'</span>, <span class="string">'111111'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">ACCOUNT</span> <span class="keyword">VALUES</span>(<span class="string">'TOM'</span>, <span class="string">'000000'</span>);</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE TABLE</span> ACCOUNT(NAME TEXT, PASS TEXT);</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">UNIQUE</span> INDEX ACCOUNT_IDX <span class="keyword">ON</span> ACCOUNT(NAME, PASS);</span><br><span class="line"><span class="keyword">INSERT INTO</span> ACCOUNT <span class="keyword">VALUES</span>(<span class="string">&#x27;TOM&#x27;</span>, <span class="string">&#x27;000000&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> ACCOUNT <span class="keyword">VALUES</span>(<span class="string">&#x27;TOM&#x27;</span>, <span class="string">&#x27;111111&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> ACCOUNT <span class="keyword">VALUES</span>(<span class="string">&#x27;TOM&#x27;</span>, <span class="string">&#x27;000000&#x27;</span>);</span><br></pre></td></tr></table></figure>
 <p><img src="https://image.sunzn.com/blog/20171031135301.png" alt="此处输入图片的描述"></p>
 <p>可以看到，<font color="RoyalBlue">唯一性约束不仅存在于单个字段，也存在于联合字段。注意，排序规则在这发挥了重要作用。</font>若要删除索引，可使用 drop index 命令，该命令定义如下：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">index</span> index_name;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> index index_name;</span><br></pre></td></tr></table></figure>
 
 <h2 id="排序规则"><a href="#排序规则" class="headerlink" title="排序规则"></a>排序规则</h2><p>索引中的每个字段都有相关的排序规则，例如，要在 ACCOUNT.NAME 上创建大小写不敏感的索引，可以使用如下命令：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">INDEX</span> ACCOUNT_NAME_IDX <span class="keyword">ON</span> <span class="keyword">ACCOUNT</span> (<span class="keyword">NAME</span> <span class="keyword">COLLATE</span> NOCASE);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> INDEX ACCOUNT_NAME_IDX <span class="keyword">ON</span> ACCOUNT (NAME <span class="keyword">COLLATE</span> NOCASE);</span><br></pre></td></tr></table></figure>
 
 <p>这意味着 NAME 字段的值将按照大小写无关进行排序。可以切换到 DDL 视图查看表中的索引信息。</p>
 <p><img src="https://image.sunzn.com/blog/20171031135302.png" alt="此处输入图片的描述"></p>
 <h2 id="使用索引"><a href="#使用索引" class="headerlink" title="使用索引"></a>使用索引</h2><p>了解何时使用索引以及何时不用索引是非常重要的。SQLite 中有一些具体的条件来判断是否使用索引。如果可以的话，对于下面会在 where 子句中出现的表达式，SQLite 将使用单个字段索引。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">column &#123;=|&gt;|&gt;=|&lt;=|&lt;&#125; expression</span><br><span class="line">expression &#123;=|&gt;|&gt;=|&lt;=|&lt;&#125; column</span><br><span class="line">column IN (expression-list)</span><br><span class="line">column IN (subquery)</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">column</span> &#123;<span class="operator">=</span><span class="operator">|</span><span class="operator">&gt;</span><span class="operator">|</span><span class="operator">&gt;=</span><span class="operator">|</span><span class="operator">&lt;=</span><span class="operator">|</span><span class="operator">&lt;</span>&#125; expression</span><br><span class="line">expression &#123;<span class="operator">=</span><span class="operator">|</span><span class="operator">&gt;</span><span class="operator">|</span><span class="operator">&gt;=</span><span class="operator">|</span><span class="operator">&lt;=</span><span class="operator">|</span><span class="operator">&lt;</span>&#125; <span class="keyword">column</span></span><br><span class="line"><span class="keyword">column</span> <span class="keyword">IN</span> (expression<span class="operator">-</span>list)</span><br><span class="line"><span class="keyword">column</span> <span class="keyword">IN</span> (subquery)</span><br></pre></td></tr></table></figure>
 
 <p>在使用之前，多字段索引有更复杂的条件。下面通过例子可以更好地说明，假设有如下表定义：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> FOO (A, B, C, D);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE TABLE</span> FOO (A, B, C, D);</span><br></pre></td></tr></table></figure>
 
 <p>此外，创建如下多字段索引：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">INDEX</span> FOO_IDX <span class="keyword">ON</span> FOO (A, B, C, D);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> INDEX FOO_IDX <span class="keyword">ON</span> FOO (A, B, C, D);</span><br></pre></td></tr></table></figure>
 
 <p>FOO_IDX 字段的顺序是从左到右的。也就是说，在如下查询中：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> FOO <span class="keyword">WHERE</span> A=<span class="number">1</span> <span class="keyword">AND</span> B=<span class="number">2</span> <span class="keyword">AND</span> D=<span class="number">3</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> FOO <span class="keyword">WHERE</span> A<span class="operator">=</span><span class="number">1</span> <span class="keyword">AND</span> B<span class="operator">=</span><span class="number">2</span> <span class="keyword">AND</span> D<span class="operator">=</span><span class="number">3</span>;</span><br></pre></td></tr></table></figure>
 
 <p>只有第一个和第二个条件将使用索引。不使用第三个条件的原因是没有条件使用 C 去缩小到 D 的差距。基本上，<font color="DeepPink">当 SQLite 使用多字段索引时，它从左到右智能地使用字段，即从左边的字段开始，查询使用字段的条件，然后移动到第二个字段，以此类推，一直继续，直到 where 子句中无法找出有效条件。</font></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> FOO <span class="keyword">WHERE</span> A&gt;<span class="number">1</span> <span class="keyword">AND</span> B=<span class="number">2</span> <span class="keyword">AND</span> C=<span class="number">3</span> <span class="keyword">AND</span> D=<span class="number">4</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> FOO <span class="keyword">WHERE</span> A<span class="operator">&gt;</span><span class="number">1</span> <span class="keyword">AND</span> B<span class="operator">=</span><span class="number">2</span> <span class="keyword">AND</span> C<span class="operator">=</span><span class="number">3</span> <span class="keyword">AND</span> D<span class="operator">=</span><span class="number">4</span>;</span><br></pre></td></tr></table></figure>
 
 <p>SQLite 会在字段 A 上执行索引扫描，表达式 <code>A&gt;1</code> 称为最右边的索引字段，因为它使用了不等于号。之后的所有字段作为结果是不合格的。类似地，如下语句使用索引字段 A 和 B，在 <code>B&gt;2</code> 处停止，因为它是最右的不等号索引字段。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> FOO <span class="keyword">WHERE</span> A=<span class="number">1</span> <span class="keyword">AND</span> B&gt;<span class="number">2</span> <span class="keyword">AND</span> C=<span class="number">3</span> <span class="keyword">AND</span> D=<span class="number">4</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> FOO <span class="keyword">WHERE</span> A<span class="operator">=</span><span class="number">1</span> <span class="keyword">AND</span> B<span class="operator">&gt;</span><span class="number">2</span> <span class="keyword">AND</span> C<span class="operator">=</span><span class="number">3</span> <span class="keyword">AND</span> D<span class="operator">=</span><span class="number">4</span>;</span><br></pre></td></tr></table></figure>
 
 <p>最后，创建索引时，一定要有理由确保可以获得性能的改善。选择好的索引是非常重要的：分布凌乱的索引可能会导致希望获得良好性能的愿望落空。</p>
 
@@ -324,7 +319,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/11/23/SQLite-索引/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/11/23/SQLite-%E7%B4%A2%E5%BC%95/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -338,7 +333,7 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2017/11/24/SQLite-事务/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/11/24/SQLite-%E4%BA%8B%E5%8A%A1/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -348,7 +343,7 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2017/11/22/SQLite-视图/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/11/22/SQLite-%E8%A7%86%E5%9B%BE/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">SQLite 视图</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -376,7 +371,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#排序规则"><span class="toc-number">1.</span> <span class="toc-text">排序规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用索引"><span class="toc-number">2.</span> <span class="toc-text">使用索引</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F%E8%A7%84%E5%88%99"><span class="toc-number">1.</span> <span class="toc-text">排序规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%B4%A2%E5%BC%95"><span class="toc-number">2.</span> <span class="toc-text">使用索引</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -489,10 +484,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -505,6 +496,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Android Studio</a>
               </li>
              
@@ -513,11 +512,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+                <a href="javascript:void(0)" class="js-tag color5">Room</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -525,11 +528,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">View</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Fiddler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -545,7 +572,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -554,10 +593,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -577,59 +612,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">View</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Room</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -653,15 +648,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
+                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Application</a>
               </li>
             
             <div class="clearfix"></div>

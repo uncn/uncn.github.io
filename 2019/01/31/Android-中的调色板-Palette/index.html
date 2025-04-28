@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Android 中的调色板 Palette | Welcome to sunzn&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="如果试过 Android Lollipop SDK ？您可能已经注意到 Palette 的 API 已更新。和以前一样，Palette 允许您从图像中提取颜色以供 UI 使用。">
-<meta name="keywords" content="Android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 中的调色板 Palette">
-<meta property="og:url" content="http://yoursite.com/2019/01/31/Android-中的调色板-Palette/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/01/31/Android-%E4%B8%AD%E7%9A%84%E8%B0%83%E8%89%B2%E6%9D%BF-Palette/index.html">
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="如果试过 Android Lollipop SDK ？您可能已经注意到 Palette 的 API 已更新。和以前一样，Palette 允许您从图像中提取颜色以供 UI 使用。">
-<meta property="og:locale" content="default">
+<meta property="og:locale">
 <meta property="og:image" content="https://image.sunzn.com/blog/20190130092001.png">
-<meta property="og:updated_time" content="2023-03-21T15:12:41.803Z">
+<meta property="article:published_time" content="2019-01-31T15:49:29.000Z">
+<meta property="article:modified_time" content="2023-03-21T15:12:41.803Z">
+<meta property="article:author" content="狮子">
+<meta property="article:tag" content="Android">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android 中的调色板 Palette">
-<meta name="twitter:description" content="如果试过 Android Lollipop SDK ？您可能已经注意到 Palette 的 API 已更新。和以前一样，Palette 允许您从图像中提取颜色以供 UI 使用。">
 <meta name="twitter:image" content="https://image.sunzn.com/blog/20190130092001.png">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
@@ -49,8 +49,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -63,10 +63,8 @@ var _hmt = _hmt || [];
 			<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">狮子</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">念念不忘，必有回响</p>
 		
 
 		<nav class="header-menu">
@@ -123,10 +121,8 @@ var _hmt = _hmt || [];
 				<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">狮子</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>念念不忘，必有回响<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -183,7 +179,7 @@ var _hmt = _hmt || [];
   
 
         
-        <a href="/2019/01/31/Android-中的调色板-Palette/" class="archive-article-date">
+        <a href="/2019/01/31/Android-%E4%B8%AD%E7%9A%84%E8%B0%83%E8%89%B2%E6%9D%BF-Palette/" class="archive-article-date">
   	<time datetime="2019-01-31T15:49:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-31</time>
 </a>
         
@@ -193,10 +189,10 @@ var _hmt = _hmt || [];
       
         <p><img src="https://image.sunzn.com/blog/20190130092001.png" alt="此处输入图片的描述"></p>
 <p>如果试过 Android Lollipop SDK ？您可能已经注意到 Palette 的 API 已更新。和以前一样，Palette 允许您从图像中提取颜色以供 UI 使用。</p>
- <a id="more"></a>
+ <span id="more"></span>
 
 <h1 id="1-生成调色板（Palette）"><a href="#1-生成调色板（Palette）" class="headerlink" title="1. 生成调色板（Palette）"></a>1. 生成调色板（Palette）</h1><p>第一步是从 Bitmap 生成 Palette 实例。我们有四种相关的方法来做到这一点：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Synchronous methods.</span></span><br><span class="line"><span class="comment">// --------------------------------</span></span><br><span class="line"><span class="comment">// These should be used when you have access to the underlying image loading thread.</span></span><br><span class="line"><span class="comment">// Picasso allows this through a Transformation. For other libraries, YMMV.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Uses the default palette size (16).</span></span><br><span class="line">Palette p = Palette.generate(bitmap);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Allows you to specify the maximum palette size, in this case 24.</span></span><br><span class="line">Palette p = Palette.generate(bitmap, <span class="number">24</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// Asynchronous methods</span></span><br><span class="line"><span class="comment">// --------------------------------</span></span><br><span class="line"><span class="comment">// This is the quick and easy integration path. Internally uses an AsyncTask so </span></span><br><span class="line"><span class="comment">// this may not be optimal (since you're dipping in and out of threads)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Uses the default palette size (16).</span></span><br><span class="line">Palette.generateAsync(bitmap, <span class="keyword">new</span> Palette.PaletteAsyncListener() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onGenerated</span><span class="params">(Palette palette)</span> </span>&#123;</span><br><span class="line">       <span class="comment">// Here's your generated palette</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Allows you to specify the maximum palette size, in this case 24.</span></span><br><span class="line">Palette.generateAsync(bitmap, <span class="number">24</span>, <span class="keyword">new</span> Palette.PaletteAsyncListener() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onGenerated</span><span class="params">(Palette palette)</span> </span>&#123;</span><br><span class="line">       <span class="comment">// Here's your generated palette</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Synchronous methods.</span></span><br><span class="line"><span class="comment">// --------------------------------</span></span><br><span class="line"><span class="comment">// These should be used when you have access to the underlying image loading thread.</span></span><br><span class="line"><span class="comment">// Picasso allows this through a Transformation. For other libraries, YMMV.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Uses the default palette size (16).</span></span><br><span class="line"><span class="type">Palette</span> <span class="variable">p</span> <span class="operator">=</span> Palette.generate(bitmap);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Allows you to specify the maximum palette size, in this case 24.</span></span><br><span class="line"><span class="type">Palette</span> <span class="variable">p</span> <span class="operator">=</span> Palette.generate(bitmap, <span class="number">24</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// Asynchronous methods</span></span><br><span class="line"><span class="comment">// --------------------------------</span></span><br><span class="line"><span class="comment">// This is the quick and easy integration path. Internally uses an AsyncTask so </span></span><br><span class="line"><span class="comment">// this may not be optimal (since you&#x27;re dipping in and out of threads)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Uses the default palette size (16).</span></span><br><span class="line">Palette.generateAsync(bitmap, <span class="keyword">new</span> <span class="title class_">Palette</span>.PaletteAsyncListener() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onGenerated</span><span class="params">(Palette palette)</span> &#123;</span><br><span class="line">       <span class="comment">// Here&#x27;s your generated palette</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Allows you to specify the maximum palette size, in this case 24.</span></span><br><span class="line">Palette.generateAsync(bitmap, <span class="number">24</span>, <span class="keyword">new</span> <span class="title class_">Palette</span>.PaletteAsyncListener() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onGenerated</span><span class="params">(Palette palette)</span> &#123;</span><br><span class="line">       <span class="comment">// Here&#x27;s your generated palette</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <h1 id="2-使用调色板（Palette）"><a href="#2-使用调色板（Palette）" class="headerlink" title="2. 使用调色板（Palette）"></a>2. 使用调色板（Palette）</h1><p>调色板生成后，它会尝试选择符合特定条件的六个样本。具体使用哪种类型取绝于你的项目需求，Vibrant 和 Dark Vibrant 是开发人员主要使用的。</p>
 <table>
@@ -210,35 +206,35 @@ var _hmt = _hmt || [];
 <tbody><tr>
 <td>Vibrant</td>
 <td>充满活力的</td>
-<td><a href="https://developer.android.com/reference/android/support/v7/graphics/Palette.html#getVibrantSwatch%28%29" target="_blank" rel="noopener">Palette.getVibrantSwatch()</a></td>
+<td><a href="https://developer.android.com/reference/android/support/v7/graphics/Palette.html#getVibrantSwatch%28%29">Palette.getVibrantSwatch()</a></td>
 </tr>
 <tr>
 <td>Vibrant Dark</td>
 <td>充满活力的黑</td>
-<td><a href="https://developer.android.com/reference/android/support/v7/graphics/Palette.html#getDarkVibrantSwatch%28%29" target="_blank" rel="noopener">Palette.getDarkVibrantSwatch()</a></td>
+<td><a href="https://developer.android.com/reference/android/support/v7/graphics/Palette.html#getDarkVibrantSwatch%28%29">Palette.getDarkVibrantSwatch()</a></td>
 </tr>
 <tr>
 <td>Vibrant Light</td>
 <td>充满活力的亮</td>
-<td><a href="https://developer.android.com/reference/android/support/v7/graphics/Palette.html#getLightVibrantSwatch%28%29" target="_blank" rel="noopener">Palette.getLightVibrantSwatch()</a></td>
+<td><a href="https://developer.android.com/reference/android/support/v7/graphics/Palette.html#getLightVibrantSwatch%28%29">Palette.getLightVibrantSwatch()</a></td>
 </tr>
 <tr>
 <td>Muted</td>
 <td>柔和的</td>
-<td><a href="https://developer.android.com/reference/android/support/v7/graphics/Palette.html#getMutedSwatch%28%29" target="_blank" rel="noopener">Palette.getMutedSwatch()</a></td>
+<td><a href="https://developer.android.com/reference/android/support/v7/graphics/Palette.html#getMutedSwatch%28%29">Palette.getMutedSwatch()</a></td>
 </tr>
 <tr>
 <td>Muted Dark</td>
 <td>柔和的黑</td>
-<td><a href="https://developer.android.com/reference/android/support/v7/graphics/Palette.html#getDarkMutedSwatch%28%29" target="_blank" rel="noopener">Palette.getDarkMutedSwatch()</a></td>
+<td><a href="https://developer.android.com/reference/android/support/v7/graphics/Palette.html#getDarkMutedSwatch%28%29">Palette.getDarkMutedSwatch()</a></td>
 </tr>
 <tr>
 <td>Muted Light</td>
 <td>柔和的黑</td>
-<td><a href="https://developer.android.com/reference/android/support/v7/graphics/Palette.html#getLightMutedSwatch%28%29" target="_blank" rel="noopener">Palette.getLightMutedSwatch()</a></td>
+<td><a href="https://developer.android.com/reference/android/support/v7/graphics/Palette.html#getLightMutedSwatch%28%29">Palette.getLightMutedSwatch()</a></td>
 </tr>
 </tbody></table>
-<h2 id="2-1-使用样本（Swatch）"><a href="#2-1-使用样本（Swatch）" class="headerlink" title="2.1 使用样本（Swatch）"></a>2.1 使用样本（Swatch）</h2><p>每个 <a href="https://developer.android.com/reference/android/support/v7/graphics/Palette.Swatch.html" target="_blank" rel="noopener">Swatch</a> 包含以下方法：</p>
+<h2 id="2-1-使用样本（Swatch）"><a href="#2-1-使用样本（Swatch）" class="headerlink" title="2.1 使用样本（Swatch）"></a>2.1 使用样本（Swatch）</h2><p>每个 <a href="https://developer.android.com/reference/android/support/v7/graphics/Palette.Swatch.html">Swatch</a> 包含以下方法：</p>
 <table>
 <thead>
 <tr>
@@ -247,28 +243,28 @@ var _hmt = _hmt || [];
 </tr>
 </thead>
 <tbody><tr>
-<td><a href="https://developer.android.com/reference/android/support/v7/graphics/Palette.Swatch.html#getPopulation%28%29" target="_blank" rel="noopener">getPopulation()</a></td>
+<td><a href="https://developer.android.com/reference/android/support/v7/graphics/Palette.Swatch.html#getPopulation%28%29">getPopulation()</a></td>
 <td>此样本表示的像素数量。</td>
 </tr>
 <tr>
-<td><a href="https://developer.android.com/reference/android/support/v7/graphics/Palette.Swatch.html#getRgb%28%29" target="_blank" rel="noopener">getRgb()</a></td>
+<td><a href="https://developer.android.com/reference/android/support/v7/graphics/Palette.Swatch.html#getRgb%28%29">getRgb()</a></td>
 <td>这个颜色的 RGB 值。</td>
 </tr>
 <tr>
-<td><a href="https://developer.android.com/reference/android/support/v7/graphics/Palette.Swatch.html#getHsl%28%29" target="_blank" rel="noopener">getHsl()</a></td>
-<td>这种颜色的 <a href="http://en.wikipedia.org/wiki/HSL_and_HSV" target="_blank" rel="noopener">HSL</a> 值。</td>
+<td><a href="https://developer.android.com/reference/android/support/v7/graphics/Palette.Swatch.html#getHsl%28%29">getHsl()</a></td>
+<td>这种颜色的 <a href="http://en.wikipedia.org/wiki/HSL_and_HSV">HSL</a> 值。</td>
 </tr>
 <tr>
-<td><a href="https://developer.android.com/reference/android/support/v7/graphics/Palette.Swatch.html#getBodyTextColor%28%29" target="_blank" rel="noopener">getBodyTextColor()</a></td>
+<td><a href="https://developer.android.com/reference/android/support/v7/graphics/Palette.Swatch.html#getBodyTextColor%28%29">getBodyTextColor()</a></td>
 <td>文本颜色的 RGB 值，可以显示在此颜色的顶部。</td>
 </tr>
 <tr>
-<td><a href="https://developer.android.com/reference/android/support/v7/graphics/Palette.Swatch.html#getTitleTextColor%28%29" target="_blank" rel="noopener">getTitleTextColor()</a></td>
+<td><a href="https://developer.android.com/reference/android/support/v7/graphics/Palette.Swatch.html#getTitleTextColor%28%29">getTitleTextColor()</a></td>
 <td>文本颜色的 RGB 值，可以显示在此颜色的顶部。</td>
 </tr>
 </tbody></table>
 <p>不同的文本颜色大致匹配同名的材料设计标准样式。标题文本颜色将更加半透明，因为文本较大，所以需要较少的颜色对比度。而正文文字较小，正文颜色将更加不透明，因此需要与颜色形成更多对比。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Palette.Swatch swatch = palette.getVibrantSwatch();</span><br><span class="line">TextView titleView = ...;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (swatch != <span class="keyword">null</span>) &#123;</span><br><span class="line">    titleView.setBackgroundColor(swatch.getRgb());</span><br><span class="line">    titleView.setTextColor(swatch.getTitleTextColor());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Palette.<span class="type">Swatch</span> <span class="variable">swatch</span> <span class="operator">=</span> palette.getVibrantSwatch();</span><br><span class="line"><span class="type">TextView</span> <span class="variable">titleView</span> <span class="operator">=</span> ...;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (swatch != <span class="literal">null</span>) &#123;</span><br><span class="line">    titleView.setBackgroundColor(swatch.getRgb());</span><br><span class="line">    titleView.setTextColor(swatch.getTitleTextColor());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p><font style="color:#01579B;font-size:14px;"><strong>注意</strong>：如果 Palette 找不到符合条件的颜色，那么它将返回 null。这就是上面有一个空检查的原因。</font></p>
@@ -279,15 +275,13 @@ var _hmt = _hmt || [];
 <p>然后，你可以遍历它们并选择您想要的颜色。</p>
 <h1 id="3-Palette-size"><a href="#3-Palette-size" class="headerlink" title="3. Palette size"></a>3. Palette size</h1><p>你可能已经在上面看到，你可以指定调色板大小。数字越大，生成调色板所需的时间越长。数字越低，我们可以选择的颜色越少。要使用的最佳数字取决于图像类型：</p>
 <ul>
-<li>联系人图像/头像：最佳值为 24-32</li>
+<li>联系人图像&#x2F;头像：最佳值为 24-32</li>
 <li>景观：最佳值为 8-16</li>
 </ul>
 <p>Palette size 的默认值为 16，这是一个很好的折衷方案，适用于大多数情况。</p>
 <h1 id="4-添加引用库"><a href="#4-添加引用库" class="headerlink" title="4. 添加引用库"></a>4. 添加引用库</h1><p>如果想使用 Google 原生的 Palette API，需要在项目的 <code>build.gradle</code> 中加入如下引用，版本号根据需要而定：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation <span class="string">'com.android.support:palette-v7:28.0.0'</span></span><br></pre></td></tr></table></figure>
-
-
-<p>如果你想结合 Glide 或 Picasso 来使用，GitHub 上也有对应的类库，分别是 <a href="https://github.com/florent37/GlidePalette" target="_blank" rel="noopener">GlidePalette</a> 和 <a href="https://github.com/yangxuewuWillson/PicassoPalette" target="_blank" rel="noopener">PicassoPalette</a>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation <span class="string">&#x27;com.android.support:palette-v7:28.0.0&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>如果你想结合 Glide 或 Picasso 来使用，GitHub 上也有对应的类库，分别是 <a href="https://github.com/florent37/GlidePalette">GlidePalette</a> 和 <a href="https://github.com/yangxuewuWillson/PicassoPalette">PicassoPalette</a>。</p>
 
       
 
@@ -378,7 +372,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/01/31/Android-中的调色板-Palette/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/01/31/Android-%E4%B8%AD%E7%9A%84%E8%B0%83%E8%89%B2%E6%9D%BF-Palette/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -392,7 +386,7 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2019/02/22/Library-声明的-minSdkVersion-大于-Module-的怎么办？/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/02/22/Library-%E5%A3%B0%E6%98%8E%E7%9A%84-minSdkVersion-%E5%A4%A7%E4%BA%8E-Module-%E7%9A%84%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -430,7 +424,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-生成调色板（Palette）"><span class="toc-number">1.</span> <span class="toc-text">1. 生成调色板（Palette）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-使用调色板（Palette）"><span class="toc-number">2.</span> <span class="toc-text">2. 使用调色板（Palette）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-使用样本（Swatch）"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 使用样本（Swatch）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-自定义颜色选择"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 自定义颜色选择</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Palette-size"><span class="toc-number">3.</span> <span class="toc-text">3. Palette size</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-添加引用库"><span class="toc-number">4.</span> <span class="toc-text">4. 添加引用库</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E7%94%9F%E6%88%90%E8%B0%83%E8%89%B2%E6%9D%BF%EF%BC%88Palette%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">1. 生成调色板（Palette）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E4%BD%BF%E7%94%A8%E8%B0%83%E8%89%B2%E6%9D%BF%EF%BC%88Palette%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">2. 使用调色板（Palette）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E4%BD%BF%E7%94%A8%E6%A0%B7%E6%9C%AC%EF%BC%88Swatch%EF%BC%89"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 使用样本（Swatch）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A2%9C%E8%89%B2%E9%80%89%E6%8B%A9"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 自定义颜色选择</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Palette-size"><span class="toc-number">3.</span> <span class="toc-text">3. Palette size</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E6%B7%BB%E5%8A%A0%E5%BC%95%E7%94%A8%E5%BA%93"><span class="toc-number">4.</span> <span class="toc-text">4. 添加引用库</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -543,10 +537,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -559,6 +549,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Android Studio</a>
               </li>
              
@@ -567,11 +565,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+                <a href="javascript:void(0)" class="js-tag color5">Room</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -579,11 +581,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">View</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Fiddler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -599,7 +625,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -608,10 +646,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -631,59 +665,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">View</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Room</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -707,15 +701,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
+                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Application</a>
               </li>
             
             <div class="clearfix"></div>

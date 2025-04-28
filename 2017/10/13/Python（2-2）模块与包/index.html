@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Python（2.2）模块与包 | Welcome to sunzn&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="对于初学者来说，通常只需要一个 .py 源码文件，就可以应付各种范例程序，然而实际的应用程序需要的代码数量远比范例程序要来的多，只使用一个 .py 文件来编写，势必造成程序管理上的混乱，你必须学会根据功能将文件划分在不同的模块（Module）中编写，而功能相近或彼此辅助的模块，也要知道如何使用包（Package）来加以管理。 2.2.1 模块简介有件事实也许令人惊讶，其实你已经编写过模块了，每个">
-<meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python（2.2）模块与包">
-<meta property="og:url" content="http://yoursite.com/2017/10/13/Python（2-2）模块与包/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/10/13/Python%EF%BC%882-2%EF%BC%89%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%8C%85/index.html">
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="对于初学者来说，通常只需要一个 .py 源码文件，就可以应付各种范例程序，然而实际的应用程序需要的代码数量远比范例程序要来的多，只使用一个 .py 文件来编写，势必造成程序管理上的混乱，你必须学会根据功能将文件划分在不同的模块（Module）中编写，而功能相近或彼此辅助的模块，也要知道如何使用包（Package）来加以管理。 2.2.1 模块简介有件事实也许令人惊讶，其实你已经编写过模块了，每个">
-<meta property="og:locale" content="default">
+<meta property="og:locale">
 <meta property="og:image" content="https://image.sunzn.com/blog/20171012190501.png">
 <meta property="og:image" content="https://image.sunzn.com/blog/20171012190502.png">
 <meta property="og:image" content="https://image.sunzn.com/blog/20171012190503.png">
@@ -29,10 +28,11 @@
 <meta property="og:image" content="https://image.sunzn.com/blog/20171012190511.png">
 <meta property="og:image" content="https://image.sunzn.com/blog/20171012190512.png">
 <meta property="og:image" content="https://image.sunzn.com/blog/20171012190513.png">
-<meta property="og:updated_time" content="2023-03-21T14:49:47.756Z">
+<meta property="article:published_time" content="2017-10-13T11:32:18.000Z">
+<meta property="article:modified_time" content="2023-03-21T14:49:47.756Z">
+<meta property="article:author" content="狮子">
+<meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python（2.2）模块与包">
-<meta name="twitter:description" content="对于初学者来说，通常只需要一个 .py 源码文件，就可以应付各种范例程序，然而实际的应用程序需要的代码数量远比范例程序要来的多，只使用一个 .py 文件来编写，势必造成程序管理上的混乱，你必须学会根据功能将文件划分在不同的模块（Module）中编写，而功能相近或彼此辅助的模块，也要知道如何使用包（Package）来加以管理。 2.2.1 模块简介有件事实也许令人惊讶，其实你已经编写过模块了，每个">
 <meta name="twitter:image" content="https://image.sunzn.com/blog/20171012190501.png">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
@@ -61,8 +61,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -75,10 +75,8 @@ var _hmt = _hmt || [];
 			<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">狮子</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">念念不忘，必有回响</p>
 		
 
 		<nav class="header-menu">
@@ -135,10 +133,8 @@ var _hmt = _hmt || [];
 				<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">狮子</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>念念不忘，必有回响<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -195,7 +191,7 @@ var _hmt = _hmt || [];
   
 
         
-        <a href="/2017/10/13/Python（2-2）模块与包/" class="archive-article-date">
+        <a href="/2017/10/13/Python%EF%BC%882-2%EF%BC%89%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%8C%85/" class="archive-article-date">
   	<time datetime="2017-10-13T11:32:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-13</time>
 </a>
         
@@ -206,13 +202,13 @@ var _hmt = _hmt || [];
         <p>对于初学者来说，通常只需要一个 .py 源码文件，就可以应付各种范例程序，然而实际的应用程序需要的代码数量远比范例程序要来的多，只使用一个 .py 文件来编写，势必造成程序管理上的混乱，你必须学会根据功能将文件划分在不同的模块（Module）中编写，而功能相近或彼此辅助的模块，也要知道如何使用包（Package）来加以管理。</p>
 <h2 id="2-2-1-模块简介"><a href="#2-2-1-模块简介" class="headerlink" title="2.2.1 模块简介"></a>2.2.1 模块简介</h2><p>有件事实也许令人惊讶，其实你已经编写过模块了，每个 .py 文件本身就是一个模块，当你编写完一个 .py 文件，而别人打算直接引用你的成果的话，只需要在他编写的 .py 文件中导入（import）就可以了。举个例子来说，若想在 Hello3.py 中，直接引用先前写好的 Hello2.py，可以按以下方式来编写：</p>
 <p><img src="https://image.sunzn.com/blog/20171012190501.png" alt="此处输入图片的描述"></p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>每个 .py 文件的文件名就是模块名称，想要引入模块时必须使用 import 关键字指定模块名称，若想取用模块中定义的名称，必须在名称前加上模块名称与一个「.」，例如 Hello2.name。接着来直接执行 Hello3.py，看看会有什么结果：</p>
 <p><img src="https://image.sunzn.com/blog/20171012190502.png" alt="此处输入图片的描述"></p>
 <p>执行结果中的前两行显示，就是 Hello2.py 中的内容，被 import 到模块中的程序会被执行，接着执行 Hello3.py 中 import 之后的程序。</p>
 <blockquote>
-<p>提示：此时若查看 .py 文件所在的文件夹，会发现多了个 <strong><strong>pycache</strong></strong> 文件夹，当中会有 .pyc 文件，这是 CPython 将 .py 文件转译后的位元码文件，之前再次引入同一模块，若源码文件检测到没有变更，就不会对源码重新进行语法分析等动作，而可以从位元码开始直译，以加快直译速度。<br><br><img src="https://image.sunzn.com/blog/20171012190503.png" alt="此处输入图片的描述"></p>
+<p>提示：此时若查看 .py 文件所在的文件夹，会发现多了个 <strong><strong>pycache</strong></strong> 文件夹，当中会有 .pyc 文件，这是 CPython 将 .py 文件转译后的位元码文件，之前再次引入同一模块，若源码文件检测到没有变更，就不会对源码重新进行语法分析等动作，而可以从位元码开始直译，以加快直译速度。<br/><br><img src="https://image.sunzn.com/blog/20171012190503.png" alt="此处输入图片的描述"></p>
 </blockquote>
 <p>类似地，Python 本身提供有标准程序库，若需要这些程序库中的某个模块功能，可以将模块引入，例如，若想要获得命令列引数（Command-line-argument），可以通过 sys 模块中的 argv 清单（list）。例如：</p>
 <p><img src="https://image.sunzn.com/blog/20171012190504.png" alt="此处输入图片的描述"></p>
@@ -223,17 +219,17 @@ var _hmt = _hmt || [];
 
 <p>使用模块来管理代码，有利于代码的重用且可避免混乱，然而有些函数，类别等经常使用，每次都要 import 就显得麻烦了，因此这类常用的函数、类别等，也经常被整理在一个 <strong><strong>builtins</strong></strong> 模块中，<strong>在 <strong>builtins</strong> 模块中的函数、类别等名称，都可以不用 import 直接取用，而且不用加上模块名称作为前置</strong>，像是之前使用过的 print()、input()函数。</p>
 <blockquote>
-<p>提示：想知道还有那些函数或类别吗？可以在 REPL 中使用 dir() 函数查询 <code>__builtins__</code> 模块，dir() 函数会将可用的名称列出，例如 <code>dir(__builtins__)</code>：<br><br><img src="https://image.sunzn.com/blog/20171012190506.png" alt="此处输入图片的描述"></p>
+<p>提示：想知道还有那些函数或类别吗？可以在 REPL 中使用 dir() 函数查询 <code>__builtins__</code> 模块，dir() 函数会将可用的名称列出，例如 <code>dir(__builtins__)</code>：<br/><br><img src="https://image.sunzn.com/blog/20171012190506.png" alt="此处输入图片的描述"></p>
 </blockquote>
 <h2 id="2-2-2-设定-PYTHONPATH"><a href="#2-2-2-设定-PYTHONPATH" class="headerlink" title="2.2.2 设定 PYTHONPATH"></a>2.2.2 设定 PYTHONPATH</h2><p>你已经学会使用模块了，现在有个小问题，若想取用他人编写好的模块，一定要将 .py 文件放到当前的文件夹中吗？举个例子来说，目前的 .py 文件都放在 E:\Pyhton\workspace，如果执行 python 指令时也在 E:\Pyhton\workspace，基本上不会有问题，然而若是在其他文件夹就会出错了：</p>
 <p><img src="https://image.sunzn.com/blog/20171012190507.png" alt="此处输入图片的描述"></p>
 <p>python -c 可以指定一段小程序来执行，因此，python -c “import Hello”，就相当于在某个 .py 档案中执行了 import Hello，因此这可以用来测试是否可找到指定模块。可以看到，在找不到指定模块时，会发生 ModuleNotFoundError 错误。</p>
 <p>如果想将他人提供的 .py 文件，放到其他的文件夹（例如 lib 文件夹）中加以管理，可以设定 PYTHONPATH 环境变量来解决这个问题。Python 编译器会在环境变量设定的文件夹中，寻找是否有指定模块名称对应的 .py 文件。例如：</p>
 <p><img src="https://image.sunzn.com/blog/20171012190508.png" alt="此处输入图片的描述"></p>
-<p>在 Windows 中，可以使用 SET PYTHONPATH=路径1;路径2 的方式来设定 PYTHONPATH 环境变量，多个路径时中间使用「;」来分隔。实际上，<strong>Pyhton 编译器会根据 sys.path 清单中的路径来寻找模块</strong>，以目前的设定来看，sys.path 会包含以下内容：</p>
+<p>在 Windows 中，可以使用 SET PYTHONPATH&#x3D;路径1;路径2 的方式来设定 PYTHONPATH 环境变量，多个路径时中间使用「;」来分隔。实际上，<strong>Pyhton 编译器会根据 sys.path 清单中的路径来寻找模块</strong>，以目前的设定来看，sys.path 会包含以下内容：</p>
 <p><img src="https://image.sunzn.com/blog/20171012190509.png" alt="此处输入图片的描述"></p>
 <blockquote>
-<p>提示：如果 Windows 中安装了多个版本的 Python 环境，也可以按照类似方式设定 PATH 环境变量，例如 SET PATH=Python环境路径，这样就可以切换执行的 python 编译器版本。</p>
+<p>提示：如果 Windows 中安装了多个版本的 Python 环境，也可以按照类似方式设定 PATH 环境变量，例如 SET PATH&#x3D;Python环境路径，这样就可以切换执行的 python 编译器版本。</p>
 </blockquote>
 <p>因此，如果想要动态地管理模块的寻找路径，也可以通过程序变更 sys.path 的内容来达到。例如在没有对 PYTHONPATH 设定任何信息的情况下，在进入 REPL 后，可以如下进行设定：</p>
 <p><img src="https://image.sunzn.com/blog/20171012190510.png" alt="此处输入图片的描述"></p>
@@ -251,7 +247,7 @@ var _hmt = _hmt || [];
 <p>要执行 Hello3.py，请再主控台中切换至 E:\Pyhton\workspace\hello_prj 文件夹，一个执行范例如下所示：</p>
 <p><img src="https://image.sunzn.com/blog/20171012190513.png" alt="此处输入图片的描述"></p>
 <p>由于套件名称会成为名称空间的一部分，就先前 A、B 两个部门的例子来说，可以分别建立 a 套件与 b 套件，当中放置各自的 util.py，当两个部分的 a、b 两个文件夹放到同一个 lib 文件夹时，并不会发生 util.py 文件彼此覆盖的问题，而再取用模块时，可以分别 import a.util 与 import b.util，若想取用各自模块中的名称，也可以使用 a.util.some、b.util.other 来区别。</p>
-<p>如果模块数量很多，也可以建立多层次的套件，也就是套件中还会有套件，在这种情况下，<strong>每个担任套件的文件夹与子文件夹中，各要有一个 <strong>init</strong>.py 文件</strong>。举例来说，若想要建立 openhome.blog 套件，那么 openhome 文件夹中要有个 <code>__init__.py</code> 文件，而 openhome/blog 文件夹中，也要有个 <code>__init__.py</code> 文件。</p>
+<p>如果模块数量很多，也可以建立多层次的套件，也就是套件中还会有套件，在这种情况下，<strong>每个担任套件的文件夹与子文件夹中，各要有一个 <strong>init</strong>.py 文件</strong>。举例来说，若想要建立 openhome.blog 套件，那么 openhome 文件夹中要有个 <code>__init__.py</code> 文件，而 openhome&#x2F;blog 文件夹中，也要有个 <code>__init__.py</code> 文件。</p>
 <blockquote>
 <p>提示：还记得在安装 Python 的 lib 文件夹中，包括了许多标准程序库的源码文件吗？lib 文件夹包含在 sys.path 之中，这个文件夹中也使用了一些套件来管理模块，而其中还有个 site-packages 文件夹，用来安装 Python 的第三方库，这个文件夹也包含在 sys.path 之中，通常第三方库也会使用套件来管理相关模块。</p>
 </blockquote>
@@ -260,14 +256,14 @@ var _hmt = _hmt || [];
 <li><strong>import as 重新命名模块</strong></li>
 </ul>
 <p>如果想要改变被引入模块在当前模块中的变量名称，可以使用 import as。例如可修改先前 hello_prj 中的 Hello3.py 为以下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> openhome.Hello2 <span class="keyword">as</span> Hello</span><br><span class="line">print(<span class="string">'今天要来点什么不同的吗？'</span>,Hello.name,<span class="string">'!'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> openhome.Hello2 <span class="keyword">as</span> Hello</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;今天要来点什么不同的吗？&#x27;</span>,Hello.name,<span class="string">&#x27;!&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
 <p>在上面的范例中，<code>import openhome.Hello2 as Hello</code> 将 <code>openhome.Hello2</code> 模块，重新命名为 <code>Hello</code>，接下来就可以使用 <code>Hello</code> 这个名称来直接存取模块中定义的名称。</p>
 <ul>
 <li><strong>from import 直接引入名称</strong></li>
 </ul>
 <p>使用 import as 是将模块重新命名，然而，存取模块中定义的名称时，还是得加上名称前置，如果仍然嫌麻烦，可以使用 from import 直接将模块中指定的名称引入。例如：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sys <span class="keyword">import</span> argv</span><br><span class="line">print(<span class="string">'Hello World'</span>, argv[<span class="number">0</span>], <span class="string">'!'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sys <span class="keyword">import</span> argv</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Hello World&#x27;</span>, argv[<span class="number">0</span>], <span class="string">&#x27;!&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
 <p>在这个范例中，直接将 sys 模块中的 argv 名称引入至 Hello 模块中，也就是目前的 Hello.py 中，接下来你就可以直接使用 argv，而不是 sys.argv 来存取命令列索引。</p>
 <p>如果有多个名称想要直接引入当前模块，除了逐行 from import 之外，也可以在单一行中使用逗号「,」来分隔，例如：</p>
@@ -279,6 +275,7 @@ var _hmt = _hmt || [];
 <p>不过这种方式有点危险，因为很容易造成名称冲突问题，若两个模块中正好都有相同的名称，那么比较后面 from import 的名称会覆盖先前的名称，导致一些意外的 BUG 发生，因此，除非你是在编写一些简单且内容不长的指令稿，否则并不建议使用 from xxx import * 的方式。</p>
 <p>from import 除了从模块引入名称之外，也可以从套件引入模块，例如，若 openhome 套件下有个 hello 模块，就可以如下引入模块名称：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> openhome <span class="keyword">import</span> hello</span><br></pre></td></tr></table></figure>
+
 
 
       
@@ -370,7 +367,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/10/13/Python（2-2）模块与包/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/10/13/Python%EF%BC%882-2%EF%BC%89%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%8C%85/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -384,7 +381,7 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2017/10/14/Python（2-3）使用-IDE/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/10/14/Python%EF%BC%882-3%EF%BC%89%E4%BD%BF%E7%94%A8-IDE/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -394,7 +391,7 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2017/10/10/MySQL数据库插入中文乱码的解决方案/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/10/10/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">MySQL数据库插入中文乱码的解决方案</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -422,7 +419,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-1-模块简介"><span class="toc-number">1.</span> <span class="toc-text">2.2.1 模块简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-2-设定-PYTHONPATH"><span class="toc-number">2.</span> <span class="toc-text">2.2.2 设定 PYTHONPATH</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-3-使用套件管理模块"><span class="toc-number">3.</span> <span class="toc-text">2.2.3 使用套件管理模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-4-使用-import-as-与-from-import"><span class="toc-number">4.</span> <span class="toc-text">2.2.4 使用 import as 与 from import</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-1-%E6%A8%A1%E5%9D%97%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">2.2.1 模块简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-2-%E8%AE%BE%E5%AE%9A-PYTHONPATH"><span class="toc-number">2.</span> <span class="toc-text">2.2.2 设定 PYTHONPATH</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-3-%E4%BD%BF%E7%94%A8%E5%A5%97%E4%BB%B6%E7%AE%A1%E7%90%86%E6%A8%A1%E5%9D%97"><span class="toc-number">3.</span> <span class="toc-text">2.2.3 使用套件管理模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-4-%E4%BD%BF%E7%94%A8-import-as-%E4%B8%8E-from-import"><span class="toc-number">4.</span> <span class="toc-text">2.2.4 使用 import as 与 from import</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -535,10 +532,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -551,6 +544,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Android Studio</a>
               </li>
              
@@ -559,11 +560,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+                <a href="javascript:void(0)" class="js-tag color5">Room</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -571,11 +576,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">View</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Fiddler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -591,7 +620,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -600,10 +641,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -623,59 +660,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">View</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Room</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -699,15 +696,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
+                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Application</a>
               </li>
             
             <div class="clearfix"></div>

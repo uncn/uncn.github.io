@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>SQLite 中的 Null | Welcome to sunzn&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="绝大多数关系数据库都通过一种称为 Null 特殊占位符支持 未知 或 不可知 的概念，Null 是缺失信息的占位符，本身不是值。Null 表示该位置没有值：Null 不是什么其他值，Null 不是真，也不是假，不是零，也不是空字符串。简单地理解，Null 就是自己：Null。可能一些人不明白其中的含义。掌握 SQLite 中的 Null，需要了解一些关键规则和观点。  第一：为了在逻辑表达式中使用">
-<meta name="keywords" content="SQLite">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SQLite 中的 Null">
-<meta property="og:url" content="http://yoursite.com/2017/11/20/SQLite中的Null/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/11/20/SQLite%E4%B8%AD%E7%9A%84Null/index.html">
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="绝大多数关系数据库都通过一种称为 Null 特殊占位符支持 未知 或 不可知 的概念，Null 是缺失信息的占位符，本身不是值。Null 表示该位置没有值：Null 不是什么其他值，Null 不是真，也不是假，不是零，也不是空字符串。简单地理解，Null 就是自己：Null。可能一些人不明白其中的含义。掌握 SQLite 中的 Null，需要了解一些关键规则和观点。  第一：为了在逻辑表达式中使用">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2017-11-25T12:39:42.000Z">
+<meta property="og:locale">
+<meta property="article:published_time" content="2017-11-20T03:13:57.000Z">
+<meta property="article:modified_time" content="2017-11-25T12:39:42.000Z">
+<meta property="article:author" content="狮子">
+<meta property="article:tag" content="SQLite">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SQLite 中的 Null">
-<meta name="twitter:description" content="绝大多数关系数据库都通过一种称为 Null 特殊占位符支持 未知 或 不可知 的概念，Null 是缺失信息的占位符，本身不是值。Null 表示该位置没有值：Null 不是什么其他值，Null 不是真，也不是假，不是零，也不是空字符串。简单地理解，Null 就是自己：Null。可能一些人不明白其中的含义。掌握 SQLite 中的 Null，需要了解一些关键规则和观点。  第一：为了在逻辑表达式中使用">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -47,8 +47,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -61,10 +61,8 @@ var _hmt = _hmt || [];
 			<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">狮子</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">念念不忘，必有回响</p>
 		
 
 		<nav class="header-menu">
@@ -121,10 +119,8 @@ var _hmt = _hmt || [];
 				<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">狮子</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>念念不忘，必有回响<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -181,7 +177,7 @@ var _hmt = _hmt || [];
   
 
         
-        <a href="/2017/11/20/SQLite中的Null/" class="archive-article-date">
+        <a href="/2017/11/20/SQLite%E4%B8%AD%E7%9A%84Null/" class="archive-article-date">
   	<time datetime="2017-11-20T03:13:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-20</time>
 </a>
         
@@ -239,7 +235,7 @@ var _hmt = _hmt || [];
 <td align="center">NULL</td>
 </tr>
 </tbody></table>
-<a id="more"></a>
+<span id="more"></span>
 
 <ul>
 <li><p><strong>第二</strong>：可以通过 <code>is null</code> 或者 <code>is not null</code> 操作符检测 NULL 是否存在。如果试图使用其他操作符，例如 <code>equal</code>、<code>greater than</code> 等。你可能会惊呆，看看第三条关于 NULL 的规则。</p>
@@ -247,18 +243,18 @@ var _hmt = _hmt || [];
 <li><p><strong>第三</strong>：记住 NULL 不等于其他任何值，包括 NULL，不可以将 NULL 与其他值进行比较，NULL 绝对不会大于或小于其他任何 NULL。像下面这样粗心的语句常常不能返回任何行。</p>
 </li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> mtable <span class="keyword">where</span> mvalue = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> mtable <span class="keyword">where</span> mvalue <span class="operator">=</span> <span class="keyword">null</span>;</span><br></pre></td></tr></table></figure>
 
 <p>NULL 不等于任何值，所以该 SQL 语句不会返回任何值。应该感到庆幸的是，SQLite 提供了一些与 NULL 相关的额外功能。其中第一个功能就是对 <strong>NULL 不等于任何值</strong> 这一限制进行变通。从 SQLite v3.6.19 开始，is 操作符可以让一个 null 等于另一个 null。最基本的形式是可以执行简单查询 SQL，看看 NULL 是否是 NULL。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="literal">NULL</span> <span class="keyword">is</span> <span class="literal">NULL</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">NULL</span> <span class="keyword">is</span> <span class="keyword">NULL</span>;</span><br></pre></td></tr></table></figure>
 
 <p>非零的任何值都表示<strong>真</strong>。改例中，SQLite 告诉我们 NULL 等于 NULL。但是不要依赖这种行为。SQLite 的三态逻辑可能有些不适用，如果你期望在其他系统和编程语言中与 is 操作符一起工作的三态逻辑出现这样的预期结果，可能会遇到问题，这是公认的规则。</p>
 <p>coalesce 函数作为 SQL99 标注的一部分，将一组值作为输入并返回其中第一个非 NULL。如下例所示：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">coalesce</span>(<span class="literal">null</span>, <span class="number">7</span>, <span class="literal">null</span>, <span class="number">4</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">coalesce</span>(<span class="keyword">null</span>, <span class="number">7</span>, <span class="keyword">null</span>, <span class="number">4</span>);</span><br></pre></td></tr></table></figure>
 
 <p>在本例中，coalesce 将返回第一个非 NULL 值 7。这在执行一些算数运算时是有帮助的，可以检测是否有 NULL 返回，如果有，可以返回更有意义的值（例如 0）来代替。</p>
 <p>相反，nullif 函数输入两个参数，如果两个参数值相同，则返回 NULL；否则，返回第一个参数：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">nullif</span>(<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line"><span class="comment">-- 输出结果 null</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">nullif</span>(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line"><span class="comment">-- 输出结果 1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">nullif</span>(<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line"><span class="comment">-- 输出结果 null</span></span><br><span class="line"><span class="keyword">select</span> <span class="built_in">nullif</span>(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line"><span class="comment">-- 输出结果 1</span></span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p><strong>注意：</strong> 如果使用 NULL，需要特别注意断言和聚合中引用可能存在的 NULL 值字段的查询，否则，NULL 可能在聚合中产生意想不到的效果。</p>
@@ -353,7 +349,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/11/20/SQLite中的Null/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/11/20/SQLite%E4%B8%AD%E7%9A%84Null/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -367,7 +363,7 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2017/11/21/SQLite-触发器/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/11/21/SQLite-%E8%A7%A6%E5%8F%91%E5%99%A8/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -377,7 +373,7 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2017/11/19/SQLite插入、更新或忽略/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/11/19/SQLite%E6%8F%92%E5%85%A5%E3%80%81%E6%9B%B4%E6%96%B0%E6%88%96%E5%BF%BD%E7%95%A5/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">SQLite 插入、更新或忽略</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -518,10 +514,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -534,6 +526,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Android Studio</a>
               </li>
              
@@ -542,11 +542,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+                <a href="javascript:void(0)" class="js-tag color5">Room</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -554,11 +558,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">View</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Fiddler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -574,7 +602,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -583,10 +623,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -606,59 +642,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">View</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Room</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -682,15 +678,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
+                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Application</a>
               </li>
             
             <div class="clearfix"></div>

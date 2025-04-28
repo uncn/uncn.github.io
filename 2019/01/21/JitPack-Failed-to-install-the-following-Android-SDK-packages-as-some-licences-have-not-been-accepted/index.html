@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>JitPack:Failed to install the following Android SDK packages as some licences have not been accepted | Welcome to sunzn&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="近期将 Android Studio 升级到了 3.3 版本，刚好有个托管在 GitHub 上的库要更新。便索性将库的 Android SDK 升级到了 28；同时将 Android SDK Build-Tools 也升级到了 28.0.3。修改库代码，提交至 GitHub 并发布 Releases，像往常一样在 JitPack 发布版本仓库。JitPack 报错如下： 123456789* Wh">
-<meta name="keywords" content="JitPack">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JitPack:Failed to install the following Android SDK packages as some licences have not been accepted">
 <meta property="og:url" content="http://yoursite.com/2019/01/21/JitPack-Failed-to-install-the-following-Android-SDK-packages-as-some-licences-have-not-been-accepted/index.html">
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="近期将 Android Studio 升级到了 3.3 版本，刚好有个托管在 GitHub 上的库要更新。便索性将库的 Android SDK 升级到了 28；同时将 Android SDK Build-Tools 也升级到了 28.0.3。修改库代码，提交至 GitHub 并发布 Releases，像往常一样在 JitPack 发布版本仓库。JitPack 报错如下： 123456789* Wh">
-<meta property="og:locale" content="default">
+<meta property="og:locale">
 <meta property="og:image" content="https://image.sunzn.com/blog/20190121143602.png">
 <meta property="og:image" content="https://image.sunzn.com/blog/20190121143603.png">
 <meta property="og:image" content="https://image.sunzn.com/blog/20190121143601.png">
-<meta property="og:updated_time" content="2023-03-21T14:32:53.377Z">
+<meta property="article:published_time" content="2019-01-21T13:30:02.000Z">
+<meta property="article:modified_time" content="2023-03-21T14:32:53.377Z">
+<meta property="article:author" content="狮子">
+<meta property="article:tag" content="JitPack">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JitPack:Failed to install the following Android SDK packages as some licences have not been accepted">
-<meta name="twitter:description" content="近期将 Android Studio 升级到了 3.3 版本，刚好有个托管在 GitHub 上的库要更新。便索性将库的 Android SDK 升级到了 28；同时将 Android SDK Build-Tools 也升级到了 28.0.3。修改库代码，提交至 GitHub 并发布 Releases，像往常一样在 JitPack 发布版本仓库。JitPack 报错如下： 123456789* Wh">
 <meta name="twitter:image" content="https://image.sunzn.com/blog/20190121143602.png">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
@@ -51,8 +51,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -65,10 +65,8 @@ var _hmt = _hmt || [];
 			<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">狮子</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">念念不忘，必有回响</p>
 		
 
 		<nav class="header-menu">
@@ -125,10 +123,8 @@ var _hmt = _hmt || [];
 				<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">狮子</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>念念不忘，必有回响<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -194,10 +190,10 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>近期将 Android Studio 升级到了 3.3 版本，刚好有个托管在 GitHub 上的库要更新。便索性将库的 Android SDK 升级到了 28；同时将 Android SDK Build-Tools 也升级到了 28.0.3。修改库代码，提交至 GitHub 并发布 Releases，像往常一样在 JitPack 发布版本仓库。JitPack 报错如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">* What went wrong:</span><br><span class="line">A problem occurred configuring project &apos;:Library&apos;.</span><br><span class="line">&gt; Failed to install the following Android SDK packages as some licences have not been accepted.</span><br><span class="line">     build-tools;28.0.3 Android SDK Build-Tools 28.0.3</span><br><span class="line">     platforms;android-28 Android SDK Platform 28</span><br><span class="line">  To build this project, accept the SDK license agreements and install the missing components using the Android Studio SDK Manager.</span><br><span class="line">  Alternatively, to transfer the license agreements from one workstation to another, see http://d.android.com/r/studio-ui/export-licenses.html</span><br><span class="line">  </span><br><span class="line">  Using Android SDK: /opt/android-sdk-linux</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">* What went wrong:</span><br><span class="line">A problem occurred configuring project &#x27;:Library&#x27;.</span><br><span class="line">&gt; Failed to install the following Android SDK packages as some licences have not been accepted.</span><br><span class="line">     build-tools;28.0.3 Android SDK Build-Tools 28.0.3</span><br><span class="line">     platforms;android-28 Android SDK Platform 28</span><br><span class="line">  To build this project, accept the SDK license agreements and install the missing components using the Android Studio SDK Manager.</span><br><span class="line">  Alternatively, to transfer the license agreements from one workstation to another, see http://d.android.com/r/studio-ui/export-licenses.html</span><br><span class="line">  </span><br><span class="line">  Using Android SDK: /opt/android-sdk-linux</span><br></pre></td></tr></table></figure>
 
 <p>这段报错的大致意思是：项目在构建过程中需要接受 SDK 许可协议，并使用 Android Studio SDK Manager 安装缺少的组件。到这基本明白怎么回事了，本地的测试代码运行没有问题，发布仓库的时候 JitPack 报错，只能说明一个问题，JitPack 的项目构建环境缺少最新的组件！</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>这样解释问题可能不够直观，那么想象一下如果你当前 IDE 环境要比你导入项目的版本低，那么项目在 build 过程中会有类似下图的提示，看到这是不是有点清楚了？</p>
 <p><img src="https://image.sunzn.com/blog/20190121143602.png" alt="此处输入图片的描述"></p>
@@ -205,7 +201,9 @@ var _hmt = _hmt || [];
 <p><img src="https://image.sunzn.com/blog/20190121143603.png" alt="此处输入图片的描述"></p>
 <p>至此，JitPack 报错的原因也就不难理解了 ！JitPack 的项目构建环境缺少最新的组件，并且最新组件的安装是需要同意 SDK 许可协议的，而这个自动“同意”的操作 JitPack 并没有做，并且每次 SDK 和 AS 的升级，JitPack 都会慢那么几天！原因知道了，那么如何解决呢？GitHub 的大神给出了解决方法，在脚本中添加接受安装许可的命令！具体操作如下：</p>
 <p>1、将项目切至 Project 视图，打开项目下的 gradlew 文件，增加许可命令，版本号需与报错提示的一致。</p>
-<pre><code>yes | $ANDROID_HOME/tools/bin/sdkmanager &quot;build-tools;28.0.3&quot;</code></pre><p> <img src="https://image.sunzn.com/blog/20190121143601.png" alt="此处输入图片的描述"></p>
+<pre><code>yes | $ANDROID_HOME/tools/bin/sdkmanager &quot;build-tools;28.0.3&quot;
+</code></pre>
+<p> <img src="https://image.sunzn.com/blog/20190121143601.png" alt="此处输入图片的描述"></p>
 <p>2、提交 gradlew 至 GitHub，发布新的 Releases 版本，重新到 JitPack 发布版本仓库即可。</p>
 
       
@@ -311,7 +309,7 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2019/01/31/Android-中的调色板-Palette/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/01/31/Android-%E4%B8%AD%E7%9A%84%E8%B0%83%E8%89%B2%E6%9D%BF-Palette/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -321,7 +319,7 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2018/11/08/自定义-View-感知事件的几种方式/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/11/08/%E8%87%AA%E5%AE%9A%E4%B9%89-View-%E6%84%9F%E7%9F%A5%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">自定义 View 感知事件的几种方式</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -462,10 +460,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -478,6 +472,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Android Studio</a>
               </li>
              
@@ -486,11 +488,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+                <a href="javascript:void(0)" class="js-tag color5">Room</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -498,11 +504,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">View</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Fiddler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -518,7 +548,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -527,10 +569,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -550,59 +588,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">View</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Room</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -626,15 +624,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
+                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Application</a>
               </li>
             
             <div class="clearfix"></div>

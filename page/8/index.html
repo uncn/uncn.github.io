@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Welcome to sunzn&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -12,9 +12,9 @@
 <meta property="og:title" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:url" content="http://yoursite.com/page/8/index.html">
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
-<meta property="og:locale" content="default">
+<meta property="og:locale">
+<meta property="article:author" content="狮子">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Welcome to sunzn&#39;s Blog">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -42,8 +42,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -56,10 +56,8 @@ var _hmt = _hmt || [];
 			<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">狮子</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">念念不忘，必有回响</p>
 		
 
 		<nav class="header-menu">
@@ -116,10 +114,8 @@ var _hmt = _hmt || [];
 				<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">狮子</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>念念不忘，必有回响<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -166,33 +162,31 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-自定义-View（二）Paint-详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-自定义-View（三）文字的绘制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/23/自定义-View（二）Paint-详解/">自定义 View（二）Paint 详解</a>
+      <a class="article-title" href="/2017/08/24/%E8%87%AA%E5%AE%9A%E4%B9%89-View%EF%BC%88%E4%B8%89%EF%BC%89%E6%96%87%E5%AD%97%E7%9A%84%E7%BB%98%E5%88%B6/">自定义 View（三）文字的绘制</a>
     </h1>
   
 
         
-        <a href="/2017/08/23/自定义-View（二）Paint-详解/" class="archive-article-date">
-  	<time datetime="2017-08-23T09:45:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-23</time>
+        <a href="/2017/08/24/%E8%87%AA%E5%AE%9A%E4%B9%89-View%EF%BC%88%E4%B8%89%EF%BC%89%E6%96%87%E5%AD%97%E7%9A%84%E7%BB%98%E5%88%B6/" class="archive-article-date">
+  	<time datetime="2017-08-24T13:56:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-24</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>上一期已经介绍过， Canvas 的 drawXXX() 方法配合 <a href="https://developer.android.com/reference/android/graphics/Paint.html" target="_blank" rel="noopener">Paint</a> 的几个常用方法可以实现最常见的绘制需求；而如果你只会基本的绘制， Paint 的完全功能的掌握，能让你更进一步，做出一些更加细致、炫酷的效果。</p>
-<p>对于没有深入研究过 Paint 的人，这期是一个对 Paint 的诠释；而对于尝试过研究 Paint 但仍然对其中一些 API 有疑惑的人，这期也可以帮你解惑。下面进入正题：</p>
-<p>Paint 的 API 大致可以分为 4 类：颜色、效果、drawText() 相关、初始化。</p>
-<h1 id="1-颜色"><a href="#1-颜色" class="headerlink" title="1 颜色"></a>1 颜色</h1><p>Canvas 绘制的内容，有三层对颜色的处理：</p>
-<table><tr><td align="center" bgcolor="#F8F8F8"><b>分类</b></td><td align="center" bgcolor="#F8F8F8"><b>方法</b></td></tr><tr><td align="center" rowspan="3">基本颜色</td><td>Canvas.drawColor/ARGB()</td></tr><tr><td>Canvas.drawBitmap()</td></tr><tr><td>Canvas 图形和文字绘制</td></tr><tr><td align="center">ColorFilter</td><td>Paint.setColorFilter(ColorFilter)</td></tr><tr><td align="center">Xfermode</td><td>Paint.setXfermode(Xfermode)</td></tr></table>
+        <p>上期的 Paint 详解里已经说过，文字的绘制所能控制的内容太多太细，必须拆成单独的一期专门来讲。今天这期，就是来把这些细节讲清楚的。下面进入正题：</p>
+<h1 id="1-Canvas-绘制文字的方式"><a href="#1-Canvas-绘制文字的方式" class="headerlink" title="1. Canvas 绘制文字的方式"></a>1. Canvas 绘制文字的方式</h1><p><a href="https://developer.android.com/reference/android/graphics/Canvas.html">Canvas</a> 的文字绘制方法有三个：drawText()、drawTextRun() 和 drawTextOnPath()。</p>
+<h2 id="1-1-drawText-String-text-float-x-float-y-Paint-paint"><a href="#1-1-drawText-String-text-float-x-float-y-Paint-paint" class="headerlink" title="1.1 drawText(String text, float x, float y, Paint paint)"></a>1.1 drawText(String text, float x, float y, Paint paint)</h2><table><tr><td colspan="2" bgcolor="#F8F8F8"><b>方法</b></td></tr><tr><td colspan="2">drawText(String text, float x, float y, Paint paint)<br/>以坐标（x, y）为原点，绘制文本。</td></tr><tr><td colspan="2" bgcolor="#F8F8F8"><b>参数</b></td></tr><tr><td>text</td><td>String：文本内容。</td></tr><tr><td>x</td><td>float：绘制文本的原点的 x 坐标。</td></tr><tr><td>y</td><td>float：绘制文本的原点的 y 坐标。</td></tr><tr><td>paint</td><td>Paint：应用到文本的画笔。</td></tr></table>
         
-          <a class="article-more-a" href="/2017/08/23/自定义-View（二）Paint-详解/#more">more >></a>
+          <a class="article-more-a" href="/2017/08/24/%E8%87%AA%E5%AE%9A%E4%B9%89-View%EF%BC%88%E4%B8%89%EF%BC%89%E6%96%87%E5%AD%97%E7%9A%84%E7%BB%98%E5%88%B6/#more">more >></a>
         
       
 
@@ -220,7 +214,91 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/23/自定义-View（二）Paint-详解/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/24/%E8%87%AA%E5%AE%9A%E4%B9%89-View%EF%BC%88%E4%B8%89%EF%BC%89%E6%96%87%E5%AD%97%E7%9A%84%E7%BB%98%E5%88%B6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-自定义-View（二）Paint-详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/23/%E8%87%AA%E5%AE%9A%E4%B9%89-View%EF%BC%88%E4%BA%8C%EF%BC%89Paint-%E8%AF%A6%E8%A7%A3/">自定义 View（二）Paint 详解</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/23/%E8%87%AA%E5%AE%9A%E4%B9%89-View%EF%BC%88%E4%BA%8C%EF%BC%89Paint-%E8%AF%A6%E8%A7%A3/" class="archive-article-date">
+  	<time datetime="2017-08-23T09:45:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>上一期已经介绍过， Canvas 的 drawXXX() 方法配合 <a href="https://developer.android.com/reference/android/graphics/Paint.html">Paint</a> 的几个常用方法可以实现最常见的绘制需求；而如果你只会基本的绘制， Paint 的完全功能的掌握，能让你更进一步，做出一些更加细致、炫酷的效果。</p>
+<p>对于没有深入研究过 Paint 的人，这期是一个对 Paint 的诠释；而对于尝试过研究 Paint 但仍然对其中一些 API 有疑惑的人，这期也可以帮你解惑。下面进入正题：</p>
+<p>Paint 的 API 大致可以分为 4 类：颜色、效果、drawText() 相关、初始化。</p>
+<h1 id="1-颜色"><a href="#1-颜色" class="headerlink" title="1 颜色"></a>1 颜色</h1><p>Canvas 绘制的内容，有三层对颜色的处理：</p>
+<table><tr><td align="center" bgcolor="#F8F8F8"><b>分类</b></td><td align="center" bgcolor="#F8F8F8"><b>方法</b></td></tr><tr><td align="center" rowspan="3">基本颜色</td><td>Canvas.drawColor/ARGB()</td></tr><tr><td>Canvas.drawBitmap()</td></tr><tr><td>Canvas 图形和文字绘制</td></tr><tr><td align="center">ColorFilter</td><td>Paint.setColorFilter(ColorFilter)</td></tr><tr><td align="center">Xfermode</td><td>Paint.setXfermode(Xfermode)</td></tr></table>
+        
+          <a class="article-more-a" href="/2017/08/23/%E8%87%AA%E5%AE%9A%E4%B9%89-View%EF%BC%88%E4%BA%8C%EF%BC%89Paint-%E8%AF%A6%E8%A7%A3/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">View</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/23/%E8%87%AA%E5%AE%9A%E4%B9%89-View%EF%BC%88%E4%BA%8C%EF%BC%89Paint-%E8%AF%A6%E8%A7%A3/">展开全文 >></a>
         </p>
       
 
@@ -257,12 +335,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/22/自定义-View（一）绘制基础/">自定义 View（一）绘制基础</a>
+      <a class="article-title" href="/2017/08/22/%E8%87%AA%E5%AE%9A%E4%B9%89-View%EF%BC%88%E4%B8%80%EF%BC%89%E7%BB%98%E5%88%B6%E5%9F%BA%E7%A1%80/">自定义 View（一）绘制基础</a>
     </h1>
   
 
         
-        <a href="/2017/08/22/自定义-View（一）绘制基础/" class="archive-article-date">
+        <a href="/2017/08/22/%E8%87%AA%E5%AE%9A%E4%B9%89-View%EF%BC%88%E4%B8%80%EF%BC%89%E7%BB%98%E5%88%B6%E5%9F%BA%E7%A1%80/" class="archive-article-date">
   	<time datetime="2017-08-22T12:59:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-22</time>
 </a>
         
@@ -295,9 +373,9 @@ var _hmt = _hmt || [];
 <td>决定绘制这个 View</td>
 </tr>
 </tbody></table>
-<p>自定义绘制过程中核心的两个 API 是 <a href="https://developer.android.com/reference/android/graphics/Canvas.html" target="_blank" rel="noopener">Canvas</a> 与 <a href="https://developer.android.com/reference/android/graphics/Paint.html" target="_blank" rel="noopener">Paint</a>，Canvas 类持有各种“绘制”方法，要绘制一些东西，需要具备 4 个基本组件：一个用来保存像素的 Bitmap 位图，一个执行绘制方法的 Canvas 画布（用于写入位图），一个用于绘制的图元（如 Rect，Path，text，Bitmap）和一个 Paint 画笔（用于描述绘制的颜色和样式）；Paint 类持有关于绘制几何图形，文本和位图的样式和颜色信息。</p>
+<p>自定义绘制过程中核心的两个 API 是 <a href="https://developer.android.com/reference/android/graphics/Canvas.html">Canvas</a> 与 <a href="https://developer.android.com/reference/android/graphics/Paint.html">Paint</a>，Canvas 类持有各种“绘制”方法，要绘制一些东西，需要具备 4 个基本组件：一个用来保存像素的 Bitmap 位图，一个执行绘制方法的 Canvas 画布（用于写入位图），一个用于绘制的图元（如 Rect，Path，text，Bitmap）和一个 Paint 画笔（用于描述绘制的颜色和样式）；Paint 类持有关于绘制几何图形，文本和位图的样式和颜色信息。</p>
         
-          <a class="article-more-a" href="/2017/08/22/自定义-View（一）绘制基础/#more">more >></a>
+          <a class="article-more-a" href="/2017/08/22/%E8%87%AA%E5%AE%9A%E4%B9%89-View%EF%BC%88%E4%B8%80%EF%BC%89%E7%BB%98%E5%88%B6%E5%9F%BA%E7%A1%80/#more">more >></a>
         
       
 
@@ -325,7 +403,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/22/自定义-View（一）绘制基础/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/22/%E8%87%AA%E5%AE%9A%E4%B9%89-View%EF%BC%88%E4%B8%80%EF%BC%89%E7%BB%98%E5%88%B6%E5%9F%BA%E7%A1%80/">展开全文 >></a>
         </p>
       
 
@@ -362,12 +440,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/21/自定义-View-基础-角度与弧度/">自定义 View 基础 - 角度与弧度</a>
+      <a class="article-title" href="/2017/08/21/%E8%87%AA%E5%AE%9A%E4%B9%89-View-%E5%9F%BA%E7%A1%80-%E8%A7%92%E5%BA%A6%E4%B8%8E%E5%BC%A7%E5%BA%A6/">自定义 View 基础 - 角度与弧度</a>
     </h1>
   
 
         
-        <a href="/2017/08/21/自定义-View-基础-角度与弧度/" class="archive-article-date">
+        <a href="/2017/08/21/%E8%87%AA%E5%AE%9A%E4%B9%89-View-%E5%9F%BA%E7%A1%80-%E8%A7%92%E5%BA%A6%E4%B8%8E%E5%BC%A7%E5%BA%A6/" class="archive-article-date">
   	<time datetime="2017-08-21T12:01:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-21</time>
 </a>
         
@@ -379,7 +457,7 @@ var _hmt = _hmt || [];
 
 <p><img src="https://image.sunzn.com/blog/20180911142101.png" alt="此处输入图片的描述"></p>
         
-          <a class="article-more-a" href="/2017/08/21/自定义-View-基础-角度与弧度/#more">more >></a>
+          <a class="article-more-a" href="/2017/08/21/%E8%87%AA%E5%AE%9A%E4%B9%89-View-%E5%9F%BA%E7%A1%80-%E8%A7%92%E5%BA%A6%E4%B8%8E%E5%BC%A7%E5%BA%A6/#more">more >></a>
         
       
 
@@ -407,7 +485,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/21/自定义-View-基础-角度与弧度/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/21/%E8%87%AA%E5%AE%9A%E4%B9%89-View-%E5%9F%BA%E7%A1%80-%E8%A7%92%E5%BA%A6%E4%B8%8E%E5%BC%A7%E5%BA%A6/">展开全文 >></a>
         </p>
       
 
@@ -444,12 +522,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/21/自定义-View-基础-坐标系/">自定义 View 基础 - 坐标系</a>
+      <a class="article-title" href="/2017/08/21/%E8%87%AA%E5%AE%9A%E4%B9%89-View-%E5%9F%BA%E7%A1%80-%E5%9D%90%E6%A0%87%E7%B3%BB/">自定义 View 基础 - 坐标系</a>
     </h1>
   
 
         
-        <a href="/2017/08/21/自定义-View-基础-坐标系/" class="archive-article-date">
+        <a href="/2017/08/21/%E8%87%AA%E5%AE%9A%E4%B9%89-View-%E5%9F%BA%E7%A1%80-%E5%9D%90%E6%A0%87%E7%B3%BB/" class="archive-article-date">
   	<time datetime="2017-08-21T12:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-21</time>
 </a>
         
@@ -475,7 +553,7 @@ var _hmt = _hmt || [];
 </tr>
 </tbody></table>
         
-          <a class="article-more-a" href="/2017/08/21/自定义-View-基础-坐标系/#more">more >></a>
+          <a class="article-more-a" href="/2017/08/21/%E8%87%AA%E5%AE%9A%E4%B9%89-View-%E5%9F%BA%E7%A1%80-%E5%9D%90%E6%A0%87%E7%B3%BB/#more">more >></a>
         
       
 
@@ -503,7 +581,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/21/自定义-View-基础-坐标系/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/21/%E8%87%AA%E5%AE%9A%E4%B9%89-View-%E5%9F%BA%E7%A1%80-%E5%9D%90%E6%A0%87%E7%B3%BB/">展开全文 >></a>
         </p>
       
 
@@ -540,12 +618,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/20/Fiddler（四）状态栏/">Fiddler（四）状态栏</a>
+      <a class="article-title" href="/2017/08/20/Fiddler%EF%BC%88%E5%9B%9B%EF%BC%89%E7%8A%B6%E6%80%81%E6%A0%8F/">Fiddler（四）状态栏</a>
     </h1>
   
 
         
-        <a href="/2017/08/20/Fiddler（四）状态栏/" class="archive-article-date">
+        <a href="/2017/08/20/Fiddler%EF%BC%88%E5%9B%9B%EF%BC%89%E7%8A%B6%E6%80%81%E6%A0%8F/" class="archive-article-date">
   	<time datetime="2017-08-20T13:53:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-20</time>
 </a>
         
@@ -575,7 +653,7 @@ var _hmt = _hmt || [];
 </tr>
 <tr>
 <td>Session_Counter</td>
-<td>Web Session 列表的条目数。选中一个或多个 Session，显示的是选中的 Session 数以及总 Session 数，如“2/5”</td>
+<td>Web Session 列表的条目数。选中一个或多个 Session，显示的是选中的 Session 数以及总 Session 数，如“2&#x2F;5”</td>
 </tr>
 <tr>
 <td>Status_information</td>
@@ -605,7 +683,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/20/Fiddler（四）状态栏/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/20/Fiddler%EF%BC%88%E5%9B%9B%EF%BC%89%E7%8A%B6%E6%80%81%E6%A0%8F/">展开全文 >></a>
         </p>
       
 
@@ -642,12 +720,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/20/Fiddler（三）工具栏/">Fiddler（三）工具栏</a>
+      <a class="article-title" href="/2017/08/20/Fiddler%EF%BC%88%E4%B8%89%EF%BC%89%E5%B7%A5%E5%85%B7%E6%A0%8F/">Fiddler（三）工具栏</a>
     </h1>
   
 
         
-        <a href="/2017/08/20/Fiddler（三）工具栏/" class="archive-article-date">
+        <a href="/2017/08/20/Fiddler%EF%BC%88%E4%B8%89%EF%BC%89%E5%B7%A5%E5%85%B7%E6%A0%8F/" class="archive-article-date">
   	<time datetime="2017-08-20T01:21:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-20</time>
 </a>
         
@@ -658,7 +736,7 @@ var _hmt = _hmt || [];
         <p>Fiddler 工具栏提供了常见命令和设置的快捷方式，如下图所示，同时附上 Fiddler 的按钮和功能列表。</p>
 <p><img src="https://image.sunzn.com/blog/20170820100201.png" alt="Fiddler 工具栏"></p>
         
-          <a class="article-more-a" href="/2017/08/20/Fiddler（三）工具栏/#more">more >></a>
+          <a class="article-more-a" href="/2017/08/20/Fiddler%EF%BC%88%E4%B8%89%EF%BC%89%E5%B7%A5%E5%85%B7%E6%A0%8F/#more">more >></a>
         
       
 
@@ -682,7 +760,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/20/Fiddler（三）工具栏/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/20/Fiddler%EF%BC%88%E4%B8%89%EF%BC%89%E5%B7%A5%E5%85%B7%E6%A0%8F/">展开全文 >></a>
         </p>
       
 
@@ -719,12 +797,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/14/Fiddler（二）主菜单/">Fiddler（二）主菜单</a>
+      <a class="article-title" href="/2017/08/14/Fiddler%EF%BC%88%E4%BA%8C%EF%BC%89%E4%B8%BB%E8%8F%9C%E5%8D%95/">Fiddler（二）主菜单</a>
     </h1>
   
 
         
-        <a href="/2017/08/14/Fiddler（二）主菜单/" class="archive-article-date">
+        <a href="/2017/08/14/Fiddler%EF%BC%88%E4%BA%8C%EF%BC%89%E4%B8%BB%E8%8F%9C%E5%8D%95/" class="archive-article-date">
   	<time datetime="2017-08-14T11:05:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-14</time>
 </a>
         
@@ -767,7 +845,7 @@ var _hmt = _hmt || [];
 </tr>
 </tbody></table>
         
-          <a class="article-more-a" href="/2017/08/14/Fiddler（二）主菜单/#more">more >></a>
+          <a class="article-more-a" href="/2017/08/14/Fiddler%EF%BC%88%E4%BA%8C%EF%BC%89%E4%B8%BB%E8%8F%9C%E5%8D%95/#more">more >></a>
         
       
 
@@ -791,7 +869,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/14/Fiddler（二）主菜单/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/14/Fiddler%EF%BC%88%E4%BA%8C%EF%BC%89%E4%B8%BB%E8%8F%9C%E5%8D%95/">展开全文 >></a>
         </p>
       
 
@@ -828,12 +906,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/10/Fiddler（一）用户界面/">Fiddler（一）用户界面</a>
+      <a class="article-title" href="/2017/08/10/Fiddler%EF%BC%88%E4%B8%80%EF%BC%89%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2/">Fiddler（一）用户界面</a>
     </h1>
   
 
         
-        <a href="/2017/08/10/Fiddler（一）用户界面/" class="archive-article-date">
+        <a href="/2017/08/10/Fiddler%EF%BC%88%E4%B8%80%EF%BC%89%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2/" class="archive-article-date">
   	<time datetime="2017-08-10T12:58:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-10</time>
 </a>
         
@@ -844,7 +922,7 @@ var _hmt = _hmt || [];
         <p>Fiddler 是一款基于 Windows 系统的专用代理服务器软件。本地运行的程序，如 Web 浏览器，Office 应用程序以及其他客户端应用，可以把 HTTP 和 HTTPS 请求发送给 Fiddler，Fiddler 通常把这些请求转发给 Web 服务器。然后，服务器把这些请求的响应返回给 Fiddler，Fiddler 再把这些响应转发给客户端。</p>
 <p><img src="https://image.sunzn.com/blog/20170810144928.png" alt="流程图"></p>
         
-          <a class="article-more-a" href="/2017/08/10/Fiddler（一）用户界面/#more">more >></a>
+          <a class="article-more-a" href="/2017/08/10/Fiddler%EF%BC%88%E4%B8%80%EF%BC%89%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2/#more">more >></a>
         
       
 
@@ -868,7 +946,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/10/Fiddler（一）用户界面/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/10/Fiddler%EF%BC%88%E4%B8%80%EF%BC%89%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2/">展开全文 >></a>
         </p>
       
 
@@ -905,12 +983,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/09/TP-LINK-映射内网-FTP-服务到外网/">TP-LINK 映射内网 FTP 服务到外网</a>
+      <a class="article-title" href="/2017/08/09/TP-LINK-%E6%98%A0%E5%B0%84%E5%86%85%E7%BD%91-FTP-%E6%9C%8D%E5%8A%A1%E5%88%B0%E5%A4%96%E7%BD%91/">TP-LINK 映射内网 FTP 服务到外网</a>
     </h1>
   
 
         
-        <a href="/2017/08/09/TP-LINK-映射内网-FTP-服务到外网/" class="archive-article-date">
+        <a href="/2017/08/09/TP-LINK-%E6%98%A0%E5%B0%84%E5%86%85%E7%BD%91-FTP-%E6%9C%8D%E5%8A%A1%E5%88%B0%E5%A4%96%E7%BD%91/" class="archive-article-date">
   	<time datetime="2017-08-09T10:21:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-09</time>
 </a>
         
@@ -925,7 +1003,7 @@ var _hmt = _hmt || [];
 <p>一、路由器所在的网段 IP（也就是路由器 WAN 口的静态IP）是【192.168.21.66】，这种配置在公司中比较常见，一般是个人接入路由器为了使用 Wifi 功能，WAN 口配置结果如下：</p>
 <p><img src="https://image.sunzn.com/blog/20170809145201.png" alt="TP-LINK WAN 口配置"></p>
         
-          <a class="article-more-a" href="/2017/08/09/TP-LINK-映射内网-FTP-服务到外网/#more">more >></a>
+          <a class="article-more-a" href="/2017/08/09/TP-LINK-%E6%98%A0%E5%B0%84%E5%86%85%E7%BD%91-FTP-%E6%9C%8D%E5%8A%A1%E5%88%B0%E5%A4%96%E7%BD%91/#more">more >></a>
         
       
 
@@ -949,86 +1027,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/09/TP-LINK-映射内网-FTP-服务到外网/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Python（2-1）Python-学习之使用-REPL" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/07/Python（2-1）Python-学习之使用-REPL/">Python（2.1）Python 学习之使用 REPL</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/07/Python（2-1）Python-学习之使用-REPL/" class="archive-article-date">
-  	<time datetime="2017-08-07T12:19:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>第一个“Hello World”的出现是在 Brian Kernighan 写的《A Tutorial Introduction to the Language B》书籍中（B 语言是 C 语言的前身），用来将‘Hello World’文字显示在电脑屏幕上，自此之后，很多语言将它作为第一个范例程序，所以，我们的第一个示例也要从‘Hello World’开始。</p>
-<h3 id="使用-REPL"><a href="#使用-REPL" class="headerlink" title="使用 REPL"></a>使用 REPL</h3><p>第一个显示‘Hello World’的程序，我们预计在 REPL（Read-Eval-Print Loop）环境中进行（又称为 Python Shell），这是一个简单、互动式的程序设计环境，不过，虽然它很简单，然而在日后开发 Python 程序的日子里，你会经常地使用它，因为 REPL 在测试一些代码片段时非常方便。</p>
-<p><font color="DeepPink">现在打开「命令提示符」，直接输入 Python 命令，这样就会进入 REPL 环境。</font></p>
-<p><img src="https://image.sunzn.com/blog/20170807202901.png" alt="进入 REPL 环境"></p>
-        
-          <a class="article-more-a" href="/2017/08/07/Python（2-1）Python-学习之使用-REPL/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/07/Python（2-1）Python-学习之使用-REPL/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/09/TP-LINK-%E6%98%A0%E5%B0%84%E5%86%85%E7%BD%91-FTP-%E6%9C%8D%E5%8A%A1%E5%88%B0%E5%A4%96%E7%BD%91/">展开全文 >></a>
         </p>
       
 
@@ -1156,10 +1155,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -1172,6 +1167,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Android Studio</a>
               </li>
              
@@ -1180,11 +1183,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+                <a href="javascript:void(0)" class="js-tag color5">Room</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1192,11 +1199,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">View</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Fiddler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1212,7 +1243,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1221,10 +1264,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1244,59 +1283,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">View</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Room</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1320,15 +1319,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
+                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Application</a>
               </li>
             
             <div class="clearfix"></div>

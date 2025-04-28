@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>手机抓包的几种方式 | Welcome to sunzn&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="在移动逆向分析以及 APP 开发的时候，总会需要对其网络行为进行监控测试，本文针对市面上主流的抓包工具进行了抓包测试，并将过程进行了逐一记录，方便日后查用。 1. 基于 Wireshark1.1 抓包环境Windows 10 + 小米5s Plus + Wireshark 3.2.1 【下载地址】 1.2 设置 WiFi在电脑主机上使用百度 WiFi之类的工具，开启热点，将所要抓包的手机连接该热点">
-<meta name="keywords" content="Fiddler,Crack,Wireshark,Charles,Burpsuite">
 <meta property="og:type" content="article">
 <meta property="og:title" content="手机抓包的几种方式">
-<meta property="og:url" content="http://yoursite.com/2020/03/27/手机抓包的几种方式/index.html">
+<meta property="og:url" content="http://yoursite.com/2020/03/27/%E6%89%8B%E6%9C%BA%E6%8A%93%E5%8C%85%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/index.html">
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="在移动逆向分析以及 APP 开发的时候，总会需要对其网络行为进行监控测试，本文针对市面上主流的抓包工具进行了抓包测试，并将过程进行了逐一记录，方便日后查用。 1. 基于 Wireshark1.1 抓包环境Windows 10 + 小米5s Plus + Wireshark 3.2.1 【下载地址】 1.2 设置 WiFi在电脑主机上使用百度 WiFi之类的工具，开启热点，将所要抓包的手机连接该热点">
-<meta property="og:locale" content="default">
+<meta property="og:locale">
 <meta property="og:image" content="https://image.sunzn.com/blog/20200301150201.png">
 <meta property="og:image" content="https://image.sunzn.com/blog/20200301150202.png">
 <meta property="og:image" content="https://image.sunzn.com/blog/20200301150203.png">
@@ -50,10 +49,15 @@
 <meta property="og:image" content="https://image.sunzn.com/blog/20200420142216.png">
 <meta property="og:image" content="https://image.sunzn.com/blog/20200420142217.png">
 <meta property="og:image" content="https://image.sunzn.com/blog/20200420142218.png">
-<meta property="og:updated_time" content="2023-03-21T15:15:19.043Z">
+<meta property="article:published_time" content="2020-03-27T13:36:52.000Z">
+<meta property="article:modified_time" content="2023-03-21T15:15:19.043Z">
+<meta property="article:author" content="狮子">
+<meta property="article:tag" content="Fiddler">
+<meta property="article:tag" content="Crack">
+<meta property="article:tag" content="Wireshark">
+<meta property="article:tag" content="Charles">
+<meta property="article:tag" content="Burpsuite">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="手机抓包的几种方式">
-<meta name="twitter:description" content="在移动逆向分析以及 APP 开发的时候，总会需要对其网络行为进行监控测试，本文针对市面上主流的抓包工具进行了抓包测试，并将过程进行了逐一记录，方便日后查用。 1. 基于 Wireshark1.1 抓包环境Windows 10 + 小米5s Plus + Wireshark 3.2.1 【下载地址】 1.2 设置 WiFi在电脑主机上使用百度 WiFi之类的工具，开启热点，将所要抓包的手机连接该热点">
 <meta name="twitter:image" content="https://image.sunzn.com/blog/20200301150201.png">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
@@ -82,8 +86,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -96,10 +100,8 @@ var _hmt = _hmt || [];
 			<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">狮子</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">念念不忘，必有回响</p>
 		
 
 		<nav class="header-menu">
@@ -156,10 +158,8 @@ var _hmt = _hmt || [];
 				<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">狮子</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>念念不忘，必有回响<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -216,7 +216,7 @@ var _hmt = _hmt || [];
   
 
         
-        <a href="/2020/03/27/手机抓包的几种方式/" class="archive-article-date">
+        <a href="/2020/03/27/%E6%89%8B%E6%9C%BA%E6%8A%93%E5%8C%85%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/" class="archive-article-date">
   	<time datetime="2020-03-27T13:36:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-27</time>
 </a>
         
@@ -225,16 +225,16 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>在移动逆向分析以及 APP 开发的时候，总会需要对其网络行为进行监控测试，本文针对市面上主流的抓包工具进行了抓包测试，并将过程进行了逐一记录，方便日后查用。</p>
-<h1 id="1-基于-Wireshark"><a href="#1-基于-Wireshark" class="headerlink" title="1. 基于 Wireshark"></a>1. 基于 Wireshark</h1><h2 id="1-1-抓包环境"><a href="#1-1-抓包环境" class="headerlink" title="1.1 抓包环境"></a>1.1 抓包环境</h2><p>Windows 10 + 小米5s Plus + Wireshark 3.2.1 【<a href="https://www.wireshark.org/download.html" target="_blank" rel="noopener">下载地址</a>】</p>
+<h1 id="1-基于-Wireshark"><a href="#1-基于-Wireshark" class="headerlink" title="1. 基于 Wireshark"></a>1. 基于 Wireshark</h1><h2 id="1-1-抓包环境"><a href="#1-1-抓包环境" class="headerlink" title="1.1 抓包环境"></a>1.1 抓包环境</h2><p>Windows 10 + 小米5s Plus + Wireshark 3.2.1 【<a href="https://www.wireshark.org/download.html">下载地址</a>】</p>
 <h2 id="1-2-设置-WiFi"><a href="#1-2-设置-WiFi" class="headerlink" title="1.2 设置 WiFi"></a>1.2 设置 WiFi</h2><p>在电脑主机上使用百度 WiFi之类的工具，开启热点，将所要抓包的手机连接该热点，并记录手机的【IP地址】和【路由器】，这两个信息会在后续的抓包过程中用到。</p>
 <p><img src="https://image.sunzn.com/blog/20200301150201.png" alt="此处输入图片的描述"></p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="1-3-设置-Wireshark"><a href="#1-3-设置-Wireshark" class="headerlink" title="1.3 设置 Wireshark"></a>1.3 设置 Wireshark</h2><p>打开 Wireshark，依次点击【捕获】-【选项】，在【输入】选项卡中勾选和手机 WiFi 里【路由器】地址一致的接口，为了不让来自其他接口的数据造成干扰，所以将其他接口都反选。配置完毕后，点击【开始】就可以进行抓包了。</p>
 <p><img src="https://image.sunzn.com/blog/20200301150202.png" alt="此处输入图片的描述"></p>
 <h2 id="1-4-数据包捕获"><a href="#1-4-数据包捕获" class="headerlink" title="1.4 数据包捕获"></a>1.4 数据包捕获</h2><p>准备结束后，打开手机中的浏览器或 APP，访问任意网址或页面，Wireshark 抓包信息如下：</p>
 <p><img src="https://image.sunzn.com/blog/20200301150203.png" alt="此处输入图片的描述"></p>
-<h1 id="2-基于-Fiddler-4"><a href="#2-基于-Fiddler-4" class="headerlink" title="2. 基于 Fiddler 4"></a>2. 基于 Fiddler 4</h1><h2 id="2-1-抓包环境"><a href="#2-1-抓包环境" class="headerlink" title="2.1 抓包环境"></a>2.1 抓包环境</h2><p>Windows 10 + 小米5s Plus + Fiddler 4 【<a href="https://www.telerik.com/download/fiddler" target="_blank" rel="noopener">下载地址</a>】</p>
+<h1 id="2-基于-Fiddler-4"><a href="#2-基于-Fiddler-4" class="headerlink" title="2. 基于 Fiddler 4"></a>2. 基于 Fiddler 4</h1><h2 id="2-1-抓包环境"><a href="#2-1-抓包环境" class="headerlink" title="2.1 抓包环境"></a>2.1 抓包环境</h2><p>Windows 10 + 小米5s Plus + Fiddler 4 【<a href="https://www.telerik.com/download/fiddler">下载地址</a>】</p>
 <h2 id="2-2-设置-Fiddler-4"><a href="#2-2-设置-Fiddler-4" class="headerlink" title="2.2 设置 Fiddler 4"></a>2.2 设置 Fiddler 4</h2><p>打开 Fiddler，Tools -&gt; Options，配置完 HTTPS 和 Connections 选项卡后重启 Fiddler。</p>
 <p><img src="https://image.sunzn.com/blog/20200115150401.png" alt="此处输入图片的描述"></p>
 <p><img src="https://image.sunzn.com/blog/20200115150402.png" alt="此处输入图片的描述"></p>
@@ -242,12 +242,12 @@ var _hmt = _hmt || [];
 <p><img src="https://image.sunzn.com/blog/20200115150403.png" alt="此处输入图片的描述"></p>
 <h2 id="2-4-设置手机代理"><a href="#2-4-设置手机代理" class="headerlink" title="2.4 设置手机代理"></a>2.4 设置手机代理</h2><p>首先，确保手机和安装有 Fiddler 的电脑处于同一局域网，依次点击【设置】-【WLAN】选择已连接的 WIFI，【代理】设置为手动，【主机名】填写电脑 IP，【端口】填写在 Fiddler 上设置的端口，保存配置就可以进行抓包。如果想对 HTTPS 进行抓包，还需要下载 Fiddler 证书，手机浏览器访问电脑地址，点击【FiddlerRoot certificate】下载并安装证书。</p>
 <blockquote>
-<p><font style="color:#01579B;font-size:14px;"><strong>说明</strong>：手机浏览器访问 <a href="http://192.168.2.100:8888" target="_blank" rel="noopener">http://192.168.2.100:8888</a> 下载证书。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;地址：为电脑端 的 IP，端口：为 Fiddler 设置的端口</font></p>
+<p><font style="color:#01579B;font-size:14px;"><strong>说明</strong>：手机浏览器访问 <a href="http://192.168.2.100:8888/">http://192.168.2.100:8888</a> 下载证书。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;地址：为电脑端 的 IP，端口：为 Fiddler 设置的端口</font></p>
 </blockquote>
 <p><img src="https://image.sunzn.com/blog/20200115150404.png" alt="此处输入图片的描述"></p>
 <h2 id="2-5-数据包捕获"><a href="#2-5-数据包捕获" class="headerlink" title="2.5 数据包捕获"></a>2.5 数据包捕获</h2><p>重启 Fiddler，然后打开手机中的浏览器或 APP，访问任意网址或页面，Fiddler 抓包信息如下：</p>
 <p><img src="https://image.sunzn.com/blog/20200115150405.png" alt="此处输入图片的描述"></p>
-<h1 id="3-基于-Charles"><a href="#3-基于-Charles" class="headerlink" title="3. 基于 Charles"></a>3. 基于 Charles</h1><h2 id="3-1-抓包环境"><a href="#3-1-抓包环境" class="headerlink" title="3.1 抓包环境"></a>3.1 抓包环境</h2><p>Windows 10 + 小米5s Plus + Charles V4.5.6 【<a href="https://www.charlesproxy.com/download/" target="_blank" rel="noopener">下载地址</a>】</p>
+<h1 id="3-基于-Charles"><a href="#3-基于-Charles" class="headerlink" title="3. 基于 Charles"></a>3. 基于 Charles</h1><h2 id="3-1-抓包环境"><a href="#3-1-抓包环境" class="headerlink" title="3.1 抓包环境"></a>3.1 抓包环境</h2><p>Windows 10 + 小米5s Plus + Charles V4.5.6 【<a href="https://www.charlesproxy.com/download/">下载地址</a>】</p>
 <h2 id="3-2-设置-Charles"><a href="#3-2-设置-Charles" class="headerlink" title="3.2 设置 Charles"></a>3.2 设置 Charles</h2><h3 id="3-2-1-设置代理"><a href="#3-2-1-设置代理" class="headerlink" title="3.2.1 设置代理"></a>3.2.1 设置代理</h3><p>打开 Charles，【Proxy】-【Proxy Settings…】-【Proxies】选项卡设置【HTTP Proxy】菜单下的代理端口和协议支持。</p>
 <p><img src="https://image.sunzn.com/blog/20200120083101.png" alt="此处输入图片的描述"></p>
 <blockquote>
@@ -267,11 +267,11 @@ var _hmt = _hmt || [];
 <p><img src="https://image.sunzn.com/blog/20200120083108.png" alt="此处输入图片的描述"></p>
 <h2 id="3-5-数据包捕获"><a href="#3-5-数据包捕获" class="headerlink" title="3.5 数据包捕获"></a>3.5 数据包捕获</h2><p>手机设置完代理信息后，打开手机中的浏览器或 APP，访问任意网址或页面，Charles 抓包信息如下：</p>
 <p><img src="https://image.sunzn.com/blog/20200120083109.png" alt="此处输入图片的描述"></p>
-<h1 id="4-基于-Burpsuite"><a href="#4-基于-Burpsuite" class="headerlink" title="4. 基于 Burpsuite"></a>4. 基于 Burpsuite</h1><h2 id="4-1-抓包环境"><a href="#4-1-抓包环境" class="headerlink" title="4.1 抓包环境"></a>4.1 抓包环境</h2><p>Windows 10 + 小米5s Plus + Burp Suite Community Edition V2020.2.1 【<a href="https://portswigger.net/burp/communitydownload" target="_blank" rel="noopener">下载地址</a>】</p>
+<h1 id="4-基于-Burpsuite"><a href="#4-基于-Burpsuite" class="headerlink" title="4. 基于 Burpsuite"></a>4. 基于 Burpsuite</h1><h2 id="4-1-抓包环境"><a href="#4-1-抓包环境" class="headerlink" title="4.1 抓包环境"></a>4.1 抓包环境</h2><p>Windows 10 + 小米5s Plus + Burp Suite Community Edition V2020.2.1 【<a href="https://portswigger.net/burp/communitydownload">下载地址</a>】</p>
 <h2 id="4-2-设置-Burpsuite"><a href="#4-2-设置-Burpsuite" class="headerlink" title="4.2 设置 Burpsuite"></a>4.2 设置 Burpsuite</h2><h3 id="4-2-1-设置代理"><a href="#4-2-1-设置代理" class="headerlink" title="4.2.1 设置代理"></a>4.2.1 设置代理</h3><p>打开 Burp Suite，依次点击【Proxy】-【Options】-【Add】增加代理监听，在打开的【Binding】选项卡填入端口，在【Specific address】下拉菜单中选中本机 IP，点击【OK】完成添加。</p>
 <p><img src="https://image.sunzn.com/blog/20200420142201.png" alt="此处输入图片的描述"></p>
 <h2 id="4-3-证书转换"><a href="#4-3-证书转换" class="headerlink" title="4.3 证书转换"></a>4.3 证书转换</h2><p>这里的证书转换只用于抓取 HTTPS 链接时用，如果你只抓取 HTTP 链接，该步操作可以跳过，直接进入下一步。首先解释下为什么要进行证书转换，因为手机端只识别 crt 格式证书，而 Burp Suite 的证书是 der 格式，所以需要在电脑上将证书转换为手机可识别的格式。证书转换需要经历：证书导出到电脑、证书导入到电脑、证书导出到电脑三步。</p>
-<h3 id="4-3-1-证书导出到电脑（从-Burp-Suite-到-PC）"><a href="#4-3-1-证书导出到电脑（从-Burp-Suite-到-PC）" class="headerlink" title="4.3.1 证书导出到电脑（从 Burp Suite 到 PC）"></a>4.3.1 证书导出到电脑（从 Burp Suite 到 PC）</h3><p>这里所说的导出是指从 Burp Suite 导出到电脑。打开 Burp Suite，依次点击【Proxy】-【Options】-【Import / export CA certificate】，在打开的选项卡中选择【Export】-【Certificate in DER format】一路下一步将证书保存到本地磁盘，这里需要注意的是最后填写保存的文件名时需要加上 der 扩展名。</p>
+<h3 id="4-3-1-证书导出到电脑（从-Burp-Suite-到-PC）"><a href="#4-3-1-证书导出到电脑（从-Burp-Suite-到-PC）" class="headerlink" title="4.3.1 证书导出到电脑（从 Burp Suite 到 PC）"></a>4.3.1 证书导出到电脑（从 Burp Suite 到 PC）</h3><p>这里所说的导出是指从 Burp Suite 导出到电脑。打开 Burp Suite，依次点击【Proxy】-【Options】-【Import &#x2F; export CA certificate】，在打开的选项卡中选择【Export】-【Certificate in DER format】一路下一步将证书保存到本地磁盘，这里需要注意的是最后填写保存的文件名时需要加上 der 扩展名。</p>
 <p><img src="https://image.sunzn.com/blog/20200420142202.png" alt="此处输入图片的描述"></p>
 <h3 id="4-3-2-证书导入到电脑（从-PC-到-PC）"><a href="#4-3-2-证书导入到电脑（从-PC-到-PC）" class="headerlink" title="4.3.2 证书导入到电脑（从 PC 到 PC）"></a>4.3.2 证书导入到电脑（从 PC 到 PC）</h3><p>证书导入到电脑是指将之前从 Burp Suite 导出的 der 格式证书安装到本机，以便本机的浏览器能识别到，为通过浏览器进行证书转换做准备。证书安装比较简单，找到上一步导出的证书，双击进行安装，点击【安装证书】一路下一步直至导入成功。</p>
 <p><img src="https://image.sunzn.com/blog/20200420142203.png" alt="此处输入图片的描述"></p>
@@ -296,7 +296,7 @@ var _hmt = _hmt || [];
 <p><img src="https://image.sunzn.com/blog/20200420142218.png" alt="此处输入图片的描述"></p>
 <p>这里需要说明下，Burp Suite 的抓包是阻塞式的，如果一个页面同时请求了多个接口，需要你点击【Forward】逐个展示拦截的数据。如果你想暂停拦截，可以点击【Intercept is on】将其开启或关闭。</p>
 <h1 id="5-参考文章"><a href="#5-参考文章" class="headerlink" title="5. 参考文章"></a>5. 参考文章</h1><ul>
-<li><a href="https://www.cnblogs.com/TankXiao/archive/2012/10/10/2711777.html" target="_blank" rel="noopener">Wireshark 基本介绍和学习 TCP 三次握手</a></li>
+<li><a href="https://www.cnblogs.com/TankXiao/archive/2012/10/10/2711777.html">Wireshark 基本介绍和学习 TCP 三次握手</a></li>
 </ul>
 
       
@@ -404,7 +404,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/27/手机抓包的几种方式/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/27/%E6%89%8B%E6%9C%BA%E6%8A%93%E5%8C%85%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -418,7 +418,7 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2020/06/05/Android-M-的-NDK-行为变更对-APK-包体积的影响/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/06/05/Android-M-%E7%9A%84-NDK-%E8%A1%8C%E4%B8%BA%E5%8F%98%E6%9B%B4%E5%AF%B9-APK-%E5%8C%85%E4%BD%93%E7%A7%AF%E7%9A%84%E5%BD%B1%E5%93%8D/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -428,7 +428,7 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2020/03/11/Java-泛型中-extends-和-super-的区别/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/03/11/Java-%E6%B3%9B%E5%9E%8B%E4%B8%AD-extends-%E5%92%8C-super-%E7%9A%84%E5%8C%BA%E5%88%AB/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Java 泛型中 extends 和 super 的区别</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -456,7 +456,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-基于-Wireshark"><span class="toc-number">1.</span> <span class="toc-text">1. 基于 Wireshark</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-抓包环境"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 抓包环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-设置-WiFi"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 设置 WiFi</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-设置-Wireshark"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 设置 Wireshark</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-数据包捕获"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 数据包捕获</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-基于-Fiddler-4"><span class="toc-number">2.</span> <span class="toc-text">2. 基于 Fiddler 4</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-抓包环境"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 抓包环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-设置-Fiddler-4"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 设置 Fiddler 4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-获取代理-IP"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 获取代理 IP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-设置手机代理"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 设置手机代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-数据包捕获"><span class="toc-number">2.5.</span> <span class="toc-text">2.5 数据包捕获</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-基于-Charles"><span class="toc-number">3.</span> <span class="toc-text">3. 基于 Charles</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-抓包环境"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 抓包环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-设置-Charles"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 设置 Charles</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-1-设置代理"><span class="toc-number">3.2.1.</span> <span class="toc-text">3.2.1 设置代理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-2-设置SSL"><span class="toc-number">3.2.2.</span> <span class="toc-text">3.2.2 设置SSL</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-获取代理-IP"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 获取代理 IP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-设置手机代理"><span class="toc-number">3.4.</span> <span class="toc-text">3.4 设置手机代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-1-获取-Charles-根证书"><span class="toc-number">3.5.</span> <span class="toc-text">3.4.1 获取 Charles 根证书</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-2-安装-Charles-根证书"><span class="toc-number">3.6.</span> <span class="toc-text">3.4.2 安装 Charles 根证书</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-3-设置代理信息"><span class="toc-number">3.7.</span> <span class="toc-text">3.4.3 设置代理信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-5-数据包捕获"><span class="toc-number">3.8.</span> <span class="toc-text">3.5 数据包捕获</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-基于-Burpsuite"><span class="toc-number">4.</span> <span class="toc-text">4. 基于 Burpsuite</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-抓包环境"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 抓包环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-设置-Burpsuite"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 设置 Burpsuite</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-1-设置代理"><span class="toc-number">4.2.1.</span> <span class="toc-text">4.2.1 设置代理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-证书转换"><span class="toc-number">4.3.</span> <span class="toc-text">4.3 证书转换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-1-证书导出到电脑（从-Burp-Suite-到-PC）"><span class="toc-number">4.3.1.</span> <span class="toc-text">4.3.1 证书导出到电脑（从 Burp Suite 到 PC）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-2-证书导入到电脑（从-PC-到-PC）"><span class="toc-number">4.3.2.</span> <span class="toc-text">4.3.2 证书导入到电脑（从 PC 到 PC）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-2-证书导出到电脑（从-Chrome-到-PC）"><span class="toc-number">4.3.3.</span> <span class="toc-text">4.3.2 证书导出到电脑（从 Chrome 到 PC）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-设置手机代理"><span class="toc-number">4.4.</span> <span class="toc-text">4.4 设置手机代理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-1-安装-Burp-Suite-根证书"><span class="toc-number">4.4.1.</span> <span class="toc-text">4.4.1 安装 Burp Suite 根证书</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-2-设置代理信息"><span class="toc-number">4.4.2.</span> <span class="toc-text">4.4.2 设置代理信息</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-5-数据包捕获"><span class="toc-number">4.5.</span> <span class="toc-text">4.5 数据包捕获</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-参考文章"><span class="toc-number">5.</span> <span class="toc-text">5. 参考文章</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%9F%BA%E4%BA%8E-Wireshark"><span class="toc-number">1.</span> <span class="toc-text">1. 基于 Wireshark</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E6%8A%93%E5%8C%85%E7%8E%AF%E5%A2%83"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 抓包环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E8%AE%BE%E7%BD%AE-WiFi"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 设置 WiFi</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-%E8%AE%BE%E7%BD%AE-Wireshark"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 设置 Wireshark</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-%E6%95%B0%E6%8D%AE%E5%8C%85%E6%8D%95%E8%8E%B7"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 数据包捕获</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E5%9F%BA%E4%BA%8E-Fiddler-4"><span class="toc-number">2.</span> <span class="toc-text">2. 基于 Fiddler 4</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E6%8A%93%E5%8C%85%E7%8E%AF%E5%A2%83"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 抓包环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E8%AE%BE%E7%BD%AE-Fiddler-4"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 设置 Fiddler 4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E8%8E%B7%E5%8F%96%E4%BB%A3%E7%90%86-IP"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 获取代理 IP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-%E8%AE%BE%E7%BD%AE%E6%89%8B%E6%9C%BA%E4%BB%A3%E7%90%86"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 设置手机代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-%E6%95%B0%E6%8D%AE%E5%8C%85%E6%8D%95%E8%8E%B7"><span class="toc-number">2.5.</span> <span class="toc-text">2.5 数据包捕获</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E5%9F%BA%E4%BA%8E-Charles"><span class="toc-number">3.</span> <span class="toc-text">3. 基于 Charles</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E6%8A%93%E5%8C%85%E7%8E%AF%E5%A2%83"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 抓包环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E8%AE%BE%E7%BD%AE-Charles"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 设置 Charles</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-1-%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86"><span class="toc-number">3.2.1.</span> <span class="toc-text">3.2.1 设置代理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-2-%E8%AE%BE%E7%BD%AESSL"><span class="toc-number">3.2.2.</span> <span class="toc-text">3.2.2 设置SSL</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E8%8E%B7%E5%8F%96%E4%BB%A3%E7%90%86-IP"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 获取代理 IP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-%E8%AE%BE%E7%BD%AE%E6%89%8B%E6%9C%BA%E4%BB%A3%E7%90%86"><span class="toc-number">3.4.</span> <span class="toc-text">3.4 设置手机代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-1-%E8%8E%B7%E5%8F%96-Charles-%E6%A0%B9%E8%AF%81%E4%B9%A6"><span class="toc-number">3.5.</span> <span class="toc-text">3.4.1 获取 Charles 根证书</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-2-%E5%AE%89%E8%A3%85-Charles-%E6%A0%B9%E8%AF%81%E4%B9%A6"><span class="toc-number">3.6.</span> <span class="toc-text">3.4.2 安装 Charles 根证书</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-3-%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86%E4%BF%A1%E6%81%AF"><span class="toc-number">3.7.</span> <span class="toc-text">3.4.3 设置代理信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-5-%E6%95%B0%E6%8D%AE%E5%8C%85%E6%8D%95%E8%8E%B7"><span class="toc-number">3.8.</span> <span class="toc-text">3.5 数据包捕获</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E5%9F%BA%E4%BA%8E-Burpsuite"><span class="toc-number">4.</span> <span class="toc-text">4. 基于 Burpsuite</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-%E6%8A%93%E5%8C%85%E7%8E%AF%E5%A2%83"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 抓包环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-%E8%AE%BE%E7%BD%AE-Burpsuite"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 设置 Burpsuite</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-1-%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86"><span class="toc-number">4.2.1.</span> <span class="toc-text">4.2.1 设置代理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-%E8%AF%81%E4%B9%A6%E8%BD%AC%E6%8D%A2"><span class="toc-number">4.3.</span> <span class="toc-text">4.3 证书转换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-1-%E8%AF%81%E4%B9%A6%E5%AF%BC%E5%87%BA%E5%88%B0%E7%94%B5%E8%84%91%EF%BC%88%E4%BB%8E-Burp-Suite-%E5%88%B0-PC%EF%BC%89"><span class="toc-number">4.3.1.</span> <span class="toc-text">4.3.1 证书导出到电脑（从 Burp Suite 到 PC）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-2-%E8%AF%81%E4%B9%A6%E5%AF%BC%E5%85%A5%E5%88%B0%E7%94%B5%E8%84%91%EF%BC%88%E4%BB%8E-PC-%E5%88%B0-PC%EF%BC%89"><span class="toc-number">4.3.2.</span> <span class="toc-text">4.3.2 证书导入到电脑（从 PC 到 PC）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-2-%E8%AF%81%E4%B9%A6%E5%AF%BC%E5%87%BA%E5%88%B0%E7%94%B5%E8%84%91%EF%BC%88%E4%BB%8E-Chrome-%E5%88%B0-PC%EF%BC%89"><span class="toc-number">4.3.3.</span> <span class="toc-text">4.3.2 证书导出到电脑（从 Chrome 到 PC）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-%E8%AE%BE%E7%BD%AE%E6%89%8B%E6%9C%BA%E4%BB%A3%E7%90%86"><span class="toc-number">4.4.</span> <span class="toc-text">4.4 设置手机代理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-1-%E5%AE%89%E8%A3%85-Burp-Suite-%E6%A0%B9%E8%AF%81%E4%B9%A6"><span class="toc-number">4.4.1.</span> <span class="toc-text">4.4.1 安装 Burp Suite 根证书</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-2-%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86%E4%BF%A1%E6%81%AF"><span class="toc-number">4.4.2.</span> <span class="toc-text">4.4.2 设置代理信息</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-5-%E6%95%B0%E6%8D%AE%E5%8C%85%E6%8D%95%E8%8E%B7"><span class="toc-number">4.5.</span> <span class="toc-text">4.5 数据包捕获</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="toc-number">5.</span> <span class="toc-text">5. 参考文章</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -569,10 +569,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -585,6 +581,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Android Studio</a>
               </li>
              
@@ -593,11 +597,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+                <a href="javascript:void(0)" class="js-tag color5">Room</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -605,11 +613,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">View</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Fiddler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -625,7 +657,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -634,10 +678,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -657,59 +697,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">View</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Room</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -733,15 +733,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
+                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Application</a>
               </li>
             
             <div class="clearfix"></div>

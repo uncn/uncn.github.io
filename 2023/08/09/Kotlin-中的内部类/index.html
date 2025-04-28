@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Kotlin 中的内部类 | Welcome to sunzn&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="内部类也叫做嵌套类，在 Java 中是一个被大家经常使用到的东西。内部类除了匿名内部类外还分为三种：一种是可以被独立构造实例且和外部类完全剥离的静态内部类，一种是可以自由访问外部类成员变量和方法的成员内部类，一种是作用域和生命周期都只处在一个方法中的方法内部类，但这种内部类我们不讨论。 在 Kotlin 中，内部类默认是静态内部类，只有用 inner 修饰符声明静态内部类，才能让 Kotlin 中">
-<meta name="keywords" content="Kotlin">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kotlin 中的内部类">
-<meta property="og:url" content="http://yoursite.com/2023/08/09/Kotlin-中的内部类/index.html">
+<meta property="og:url" content="http://yoursite.com/2023/08/09/Kotlin-%E4%B8%AD%E7%9A%84%E5%86%85%E9%83%A8%E7%B1%BB/index.html">
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="内部类也叫做嵌套类，在 Java 中是一个被大家经常使用到的东西。内部类除了匿名内部类外还分为三种：一种是可以被独立构造实例且和外部类完全剥离的静态内部类，一种是可以自由访问外部类成员变量和方法的成员内部类，一种是作用域和生命周期都只处在一个方法中的方法内部类，但这种内部类我们不讨论。 在 Kotlin 中，内部类默认是静态内部类，只有用 inner 修饰符声明静态内部类，才能让 Kotlin 中">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2023-08-09T15:37:07.337Z">
+<meta property="og:locale">
+<meta property="article:published_time" content="2023-08-09T15:32:12.000Z">
+<meta property="article:modified_time" content="2023-08-09T15:37:07.337Z">
+<meta property="article:author" content="狮子">
+<meta property="article:tag" content="Kotlin">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Kotlin 中的内部类">
-<meta name="twitter:description" content="内部类也叫做嵌套类，在 Java 中是一个被大家经常使用到的东西。内部类除了匿名内部类外还分为三种：一种是可以被独立构造实例且和外部类完全剥离的静态内部类，一种是可以自由访问外部类成员变量和方法的成员内部类，一种是作用域和生命周期都只处在一个方法中的方法内部类，但这种内部类我们不讨论。 在 Kotlin 中，内部类默认是静态内部类，只有用 inner 修饰符声明静态内部类，才能让 Kotlin 中">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -47,8 +47,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -61,10 +61,8 @@ var _hmt = _hmt || [];
 			<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">狮子</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">念念不忘，必有回响</p>
 		
 
 		<nav class="header-menu">
@@ -121,10 +119,8 @@ var _hmt = _hmt || [];
 				<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">狮子</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>念念不忘，必有回响<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -181,7 +177,7 @@ var _hmt = _hmt || [];
   
 
         
-        <a href="/2023/08/09/Kotlin-中的内部类/" class="archive-article-date">
+        <a href="/2023/08/09/Kotlin-%E4%B8%AD%E7%9A%84%E5%86%85%E9%83%A8%E7%B1%BB/" class="archive-article-date">
   	<time datetime="2023-08-09T15:32:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-09</time>
 </a>
         
@@ -192,31 +188,30 @@ var _hmt = _hmt || [];
         <p>内部类也叫做嵌套类，在 Java 中是一个被大家经常使用到的东西。内部类除了匿名内部类外还分为三种：一种是可以被独立构造实例且和外部类完全剥离的<strong>静态内部类</strong>，一种是可以自由访问外部类成员变量和方法的<strong>成员内部类</strong>，一种是作用域和生命周期都只处在一个方法中的<strong>方法内部类</strong>，但这种内部类我们不讨论。</p>
 <p>在 Kotlin 中，内部类默认是<strong>静态内部类</strong>，只有用 <code>inner</code> 修饰符声明静态内部类，才能让 Kotlin 中默认的<strong>静态内部类</strong>变为非静态的<strong>成员内部类</strong>。</p>
 <h1 id="1-静态内部类"><a href="#1-静态内部类" class="headerlink" title="1 静态内部类"></a>1 静态内部类</h1><p>Kotlin 中，类可以嵌套。一个类可以嵌套在其他类中，而且可以嵌套多层。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NestedClass</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Outer</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">val</span> zero: <span class="built_in">Int</span> = <span class="number">0</span></span><br><span class="line">        <span class="keyword">val</span> one: <span class="built_in">Int</span> = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="class"><span class="keyword">class</span> <span class="title">Inner</span> </span>&#123;</span><br><span class="line">            <span class="function"><span class="keyword">fun</span> <span class="title">getTwo</span><span class="params">()</span></span> = <span class="number">2</span></span><br><span class="line">            </span><br><span class="line">            <span class="class"><span class="keyword">class</span> <span class="title">Deep</span> </span>&#123;</span><br><span class="line">                <span class="keyword">val</span> three = <span class="number">3</span></span><br><span class="line">                <span class="function"><span class="keyword">fun</span> <span class="title">getFour</span><span class="params">()</span></span> = <span class="number">4</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">NestedClass</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Outer</span> &#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">val</span> zero: <span class="built_in">Int</span> = <span class="number">0</span></span><br><span class="line">        <span class="keyword">val</span> one: <span class="built_in">Int</span> = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">class</span> <span class="title class_">Inner</span> &#123;</span><br><span class="line">            <span class="function"><span class="keyword">fun</span> <span class="title">getTwo</span><span class="params">()</span></span> = <span class="number">2</span></span><br><span class="line">            </span><br><span class="line">            <span class="keyword">class</span> <span class="title class_">Deep</span> &#123;</span><br><span class="line">                <span class="keyword">val</span> three = <span class="number">3</span></span><br><span class="line">                <span class="function"><span class="keyword">fun</span> <span class="title">getFour</span><span class="params">()</span></span> = <span class="number">4</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<a id="more"></a>
+<span id="more"></span>
 
 <p>测试代码如下:</p>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> one = NestedClass.Outer().one</span><br><span class="line"><span class="keyword">val</span> two = NestedClass.Outer.Inner().getTwo()</span><br><span class="line"><span class="keyword">val</span> thr = NestedClass.Outer.Inner.Deep().three</span><br><span class="line"><span class="keyword">val</span> fou = NestedClass.Outer.Inner.Deep().getFour()</span><br></pre></td></tr></table></figure>
 
 <p>可以看出，代码中 NestedClass.Outer.Inner().getTwo() 访问嵌套类的方式是直接使用类名.来访问，有多少层嵌套，就用多少层类名来访问。</p>
 <p>普通嵌套类没有持有外部类的引用，所以是无法访问外部类变量的：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NestedClass</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Outer</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">val</span> zero: <span class="built_in">Int</span> = <span class="number">0</span></span><br><span class="line">        <span class="keyword">val</span> one: <span class="built_in">Int</span> = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="class"><span class="keyword">class</span> <span class="title">Inner</span> </span>&#123;</span><br><span class="line">            <span class="function"><span class="keyword">fun</span> <span class="title">getTwo</span><span class="params">()</span></span> = <span class="number">2</span></span><br><span class="line"></span><br><span class="line">            <span class="function"><span class="keyword">fun</span> <span class="title">accessOuter</span><span class="params">()</span></span> &#123;</span><br><span class="line">                println(zero)   <span class="comment">// 报错：Unresolved reference: zero</span></span><br><span class="line">                println(one)    <span class="comment">// 报错：Unresolved reference: one</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">NestedClass</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Outer</span> &#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">val</span> zero: <span class="built_in">Int</span> = <span class="number">0</span></span><br><span class="line">        <span class="keyword">val</span> one: <span class="built_in">Int</span> = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">class</span> <span class="title class_">Inner</span> &#123;</span><br><span class="line">            <span class="function"><span class="keyword">fun</span> <span class="title">getTwo</span><span class="params">()</span></span> = <span class="number">2</span></span><br><span class="line"></span><br><span class="line">            <span class="function"><span class="keyword">fun</span> <span class="title">accessOuter</span><span class="params">()</span></span> &#123;</span><br><span class="line">                println(zero)   <span class="comment">// 报错：Unresolved reference: zero</span></span><br><span class="line">                println(one)    <span class="comment">// 报错：Unresolved reference: one</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="2-成员内部类"><a href="#2-成员内部类" class="headerlink" title="2 成员内部类"></a>2 成员内部类</h1><p>如果一个类 Inner 想要访问外部类 Outer 中的成员，可以在这个类前面添加修饰符 inner。内部类会带有一个对外部类的对象引用。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NestedClass</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Outer</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">val</span> zero: <span class="built_in">Int</span> = <span class="number">0</span></span><br><span class="line">        <span class="keyword">val</span> one: <span class="built_in">Int</span> = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 使用 Inner 关键字声明内部类</span></span><br><span class="line">        <span class="keyword">inner</span> <span class="class"><span class="keyword">class</span> <span class="title">Inner</span> </span>&#123;</span><br><span class="line">            <span class="function"><span class="keyword">fun</span> <span class="title">getTwo</span><span class="params">()</span></span> = <span class="number">2</span></span><br><span class="line"></span><br><span class="line">            <span class="function"><span class="keyword">fun</span> <span class="title">accessOuter</span><span class="params">()</span></span> &#123;</span><br><span class="line">                println(zero)</span><br><span class="line">                println(one)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">NestedClass</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Outer</span> &#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">val</span> zero: <span class="built_in">Int</span> = <span class="number">0</span></span><br><span class="line">        <span class="keyword">val</span> one: <span class="built_in">Int</span> = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 使用 Inner 关键字声明内部类</span></span><br><span class="line">        <span class="keyword">inner</span> <span class="keyword">class</span> <span class="title class_">Inner</span> &#123;</span><br><span class="line">            <span class="function"><span class="keyword">fun</span> <span class="title">getTwo</span><span class="params">()</span></span> = <span class="number">2</span></span><br><span class="line"></span><br><span class="line">            <span class="function"><span class="keyword">fun</span> <span class="title">accessOuter</span><span class="params">()</span></span> &#123;</span><br><span class="line">                println(zero)</span><br><span class="line">                println(one)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NestedClass.Outer().Inner().accessOuter()</span><br></pre></td></tr></table></figure>
-
 <p>可以看到，当访问嵌套内部类 Inner 的时候，我们使用的是 Outer().Inner()，这是持有了 Outer 的对象引用，与普通嵌套类直接使用类名访问的方式不同。</p>
 <h1 id="3-匿名内部类"><a href="#3-匿名内部类" class="headerlink" title="3 匿名内部类"></a>3 匿名内部类</h1><p>匿名内部类就是没有名字的内部类。匿名内部类也可以访问外部类的变量。下面使用对象表达式创建一个匿名内部类实例：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NestedClass</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">AnonymousInnerClass</span> </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> isRunning = <span class="literal">false</span></span><br><span class="line">        <span class="function"><span class="keyword">fun</span> <span class="title">duRun</span><span class="params">()</span></span> &#123;</span><br><span class="line">            Thread(<span class="keyword">object</span> : Runnable &#123;</span><br><span class="line">                <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">run</span><span class="params">()</span></span> &#123;</span><br><span class="line">                    isRunning = <span class="literal">true</span></span><br><span class="line">                    println(<span class="string">"doRun : i am running, isRunning = <span class="variable">$isRunning</span>"</span>)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;).start()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">NestedClass</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">AnonymousInnerClass</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> isRunning = <span class="literal">false</span></span><br><span class="line">        <span class="function"><span class="keyword">fun</span> <span class="title">duRun</span><span class="params">()</span></span> &#123;</span><br><span class="line">            Thread(<span class="keyword">object</span> : Runnable &#123;</span><br><span class="line">                <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">run</span><span class="params">()</span></span> &#123;</span><br><span class="line">                    isRunning = <span class="literal">true</span></span><br><span class="line">                    println(<span class="string">&quot;doRun : i am running, isRunning = <span class="variable">$isRunning</span>&quot;</span>)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;).start()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>如果对象是函数式 Java 接口，即具有单个抽象方法的 Java 接口的实例，例如上面例子中的 Runnable 接口:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span>            <span class="comment">// Java 8 中引入的函数式接口注解</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>; <span class="comment">// 函数式接口只有一个方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span>            <span class="comment">// Java 8 中引入的函数式接口注解</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Runnable</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span>; <span class="comment">// 函数式接口只有一个方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>我们可以使用 Lambda 表达式实现 Runnable 接口。下面的几种写法都是可以的：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">doStop</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> isRunning = <span class="literal">true</span></span><br><span class="line">    Thread &#123;               <span class="comment">// 直接使用 Lambda 表达式</span></span><br><span class="line">        isRunning = <span class="literal">false</span></span><br><span class="line">        println(<span class="string">"doStop : i am not running, isRunning = <span class="variable">$isRunning</span>"</span>)</span><br><span class="line">    &#125;.start()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">doWait</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> isRunning = <span class="literal">true</span></span><br><span class="line">    <span class="keyword">val</span> wait = Runnable &#123;  <span class="comment">// 使用匿名内部类的方式，使用 Lambda 表达式实现 run 接口</span></span><br><span class="line">        isRunning = <span class="literal">false</span></span><br><span class="line">        println(<span class="string">"doWait : i am waiting, isRunning = <span class="variable">$isRunning</span>"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    Thread(wait).start()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">doNotify</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> isRunning = <span class="literal">true</span></span><br><span class="line">    <span class="keyword">val</span> wait = &#123;           <span class="comment">// 直接声明一个 Lambda 函数</span></span><br><span class="line">        isRunning = <span class="literal">false</span></span><br><span class="line">        println(<span class="string">"doNotify: i notify, isRunning = <span class="variable">$isRunning</span>"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    Thread(wait).start()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">doStop</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> isRunning = <span class="literal">true</span></span><br><span class="line">    Thread &#123;               <span class="comment">// 直接使用 Lambda 表达式</span></span><br><span class="line">        isRunning = <span class="literal">false</span></span><br><span class="line">        println(<span class="string">&quot;doStop : i am not running, isRunning = <span class="variable">$isRunning</span>&quot;</span>)</span><br><span class="line">    &#125;.start()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">doWait</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> isRunning = <span class="literal">true</span></span><br><span class="line">    <span class="keyword">val</span> wait = Runnable &#123;  <span class="comment">// 使用匿名内部类的方式，使用 Lambda 表达式实现 run 接口</span></span><br><span class="line">        isRunning = <span class="literal">false</span></span><br><span class="line">        println(<span class="string">&quot;doWait : i am waiting, isRunning = <span class="variable">$isRunning</span>&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    Thread(wait).start()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">doNotify</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> isRunning = <span class="literal">true</span></span><br><span class="line">    <span class="keyword">val</span> wait = &#123;           <span class="comment">// 直接声明一个 Lambda 函数</span></span><br><span class="line">        isRunning = <span class="literal">false</span></span><br><span class="line">        println(<span class="string">&quot;doNotify: i notify, isRunning = <span class="variable">$isRunning</span>&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    Thread(wait).start()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -306,7 +301,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2023/08/09/Kotlin-中的内部类/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2023/08/09/Kotlin-%E4%B8%AD%E7%9A%84%E5%86%85%E9%83%A8%E7%B1%BB/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -320,7 +315,7 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2024/04/08/ActiveMQ-MQTT-Server-搭建/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2024/04/08/ActiveMQ-MQTT-Server-%E6%90%AD%E5%BB%BA/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -330,7 +325,7 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2023/08/08/Kotlin-中的扩展函数与属性/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2023/08/08/Kotlin-%E4%B8%AD%E7%9A%84%E6%89%A9%E5%B1%95%E5%87%BD%E6%95%B0%E4%B8%8E%E5%B1%9E%E6%80%A7/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Kotlin 中的扩展函数与属性</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -358,7 +353,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-静态内部类"><span class="toc-number">1.</span> <span class="toc-text">1 静态内部类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-成员内部类"><span class="toc-number">2.</span> <span class="toc-text">2 成员内部类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-匿名内部类"><span class="toc-number">3.</span> <span class="toc-text">3 匿名内部类</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E9%9D%99%E6%80%81%E5%86%85%E9%83%A8%E7%B1%BB"><span class="toc-number">1.</span> <span class="toc-text">1 静态内部类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E6%88%90%E5%91%98%E5%86%85%E9%83%A8%E7%B1%BB"><span class="toc-number">2.</span> <span class="toc-text">2 成员内部类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E5%8C%BF%E5%90%8D%E5%86%85%E9%83%A8%E7%B1%BB"><span class="toc-number">3.</span> <span class="toc-text">3 匿名内部类</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -471,10 +466,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -487,6 +478,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Android Studio</a>
               </li>
              
@@ -495,11 +494,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+                <a href="javascript:void(0)" class="js-tag color5">Room</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -507,11 +510,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">View</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Fiddler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -527,7 +554,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -536,10 +575,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -559,59 +594,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">View</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Room</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -635,15 +630,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
+                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Application</a>
               </li>
             
             <div class="clearfix"></div>

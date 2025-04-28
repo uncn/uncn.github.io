@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Welcome to sunzn&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -12,9 +12,9 @@
 <meta property="og:title" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:url" content="http://yoursite.com/page/6/index.html">
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
-<meta property="og:locale" content="default">
+<meta property="og:locale">
+<meta property="article:author" content="狮子">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Welcome to sunzn&#39;s Blog">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -42,8 +42,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -56,10 +56,8 @@ var _hmt = _hmt || [];
 			<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">狮子</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">念念不忘，必有回响</p>
 		
 
 		<nav class="header-menu">
@@ -116,10 +114,8 @@ var _hmt = _hmt || [];
 				<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">狮子</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>念念不忘，必有回响<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -166,6 +162,87 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-N-个无序数中找出最大的-M-个数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/30/N-%E4%B8%AA%E6%97%A0%E5%BA%8F%E6%95%B0%E4%B8%AD%E6%89%BE%E5%87%BA%E6%9C%80%E5%A4%A7%E7%9A%84-M-%E4%B8%AA%E6%95%B0/">N 个无序数中找出最大的 M 个数</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/30/N-%E4%B8%AA%E6%97%A0%E5%BA%8F%E6%95%B0%E4%B8%AD%E6%89%BE%E5%87%BA%E6%9C%80%E5%A4%A7%E7%9A%84-M-%E4%B8%AA%E6%95%B0/" class="archive-article-date">
+  	<time datetime="2018-03-30T15:25:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>实现思路：新建一个拥有 M 个元素的数组 Find，将 N 个数中的前 M 个元素存入该数组，假设这前 M 个元素就是最大值，在存入的过程中找出最小数值的索引 minIndex。然后从 N 个数中的第 ( M + 1 ) 个元素开始，逐个与 Find 数组中的最小值进行比较，若大于 Find 数组中的最小值，则将其替换。替换完毕后，继续循环找出 Find 数组中最小值的索引，外层的 while 在进行下一次循环时，会直接拿 N 的下一个元素与 Find 数组中的最小值进行比较。这样循环一遍之后，Find 数组中的最小值都被较大的数值替换，这时 Find 中存放的元素就是 N 中最大的 M 个数，这种思路的时间复杂度为O(n*logm)。这种实现方式可以将亿级数据量的运算时间控制在 100 毫秒内。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.sunzn.max;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Random;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FindMax</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">Random</span> <span class="variable">random</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> <span class="number">100000000</span>;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span>[] Pool = <span class="keyword">new</span> <span class="title class_">int</span>[n];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            Pool[i] = random.nextInt(n);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        findMax(Pool, <span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">findMax</span><span class="params">(<span class="type">int</span>[] data, <span class="type">int</span> m)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">long</span> <span class="variable">sTime</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span>[] Find = <span class="keyword">new</span> <span class="title class_">int</span>[m];</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">minIndex</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; Find.length; i++) &#123;</span><br><span class="line">            Find[i] = data[i];</span><br><span class="line">            <span class="keyword">if</span> (Find[minIndex] &gt; Find[i]) &#123;</span><br><span class="line">                minIndex = i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (m &lt; data.length) &#123;</span><br><span class="line">            <span class="keyword">if</span> (data[m] &gt; Find[minIndex]) &#123;</span><br><span class="line">                Find[minIndex] = data[m];</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; Find.length; i++) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (Find[minIndex] &gt; Find[i]) &#123;</span><br><span class="line">                        minIndex = i;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            m++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; Find.length; i++) &#123;</span><br><span class="line">            System.out.printf(<span class="string">&quot;结果数据:&quot;</span>);</span><br><span class="line">            System.out.printf(<span class="string">&quot;%d&quot;</span>, Find[i]);</span><br><span class="line">            System.out.printf(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">long</span> <span class="variable">eTime</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line"></span><br><span class="line">        System.out.printf(<span class="string">&quot;消耗时间:&quot;</span> + (eTime - sTime) + <span class="string">&quot;毫秒&quot;</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2018/03/30/N-%E4%B8%AA%E6%97%A0%E5%BA%8F%E6%95%B0%E4%B8%AD%E6%89%BE%E5%87%BA%E6%9C%80%E5%A4%A7%E7%9A%84-M-%E4%B8%AA%E6%95%B0/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/30/N-%E4%B8%AA%E6%97%A0%E5%BA%8F%E6%95%B0%E4%B8%AD%E6%89%BE%E5%87%BA%E6%9C%80%E5%A4%A7%E7%9A%84-M-%E4%B8%AA%E6%95%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-高效加载大图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -173,12 +250,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/22/高效加载大图/">高效加载大图</a>
+      <a class="article-title" href="/2018/03/22/%E9%AB%98%E6%95%88%E5%8A%A0%E8%BD%BD%E5%A4%A7%E5%9B%BE/">高效加载大图</a>
     </h1>
   
 
         
-        <a href="/2018/03/22/高效加载大图/" class="archive-article-date">
+        <a href="/2018/03/22/%E9%AB%98%E6%95%88%E5%8A%A0%E8%BD%BD%E5%A4%A7%E5%9B%BE/" class="archive-article-date">
   	<time datetime="2018-03-22T15:44:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-22</time>
 </a>
         
@@ -189,9 +266,9 @@ var _hmt = _hmt || [];
         <p>图片有不同的形状与大小。在大多数情况下它们的实际大小都比需要呈现的尺寸大很多。例如，系统的图库应用会显示我们使用相机拍摄的照片，但这些图片的分辨率通常都比设备屏幕的分辨率要高很多。</p>
 <p>考虑到应用是在有限的内存下工作的，理想情况下，我们只需要在内存中加载一个低分辨率的照片即可。为了有更好的显示效果，这个低分辨率的照片应该与展示它的UI组件大小相匹配。加载高分辨率的图片不仅没有任何显而易见的好处，还会占用宝贵的内存资源，并且由于图片的即时缩放，还会增加额外的性能开销。</p>
 <p>下面将会介绍如何解码大型位图，加载缩小版图片，从而避免超出应用程序的内存限制。</p>
-<h1 id="1-读取位图的尺寸与类型"><a href="#1-读取位图的尺寸与类型" class="headerlink" title="1.读取位图的尺寸与类型"></a>1.读取位图的尺寸与类型</h1><p><a href="http://developer.android.com/reference/android/graphics/BitmapFactory.html" target="_blank" rel="noopener">BitmapFactory</a> 提供了多种解码方法（<a href="https://developer.android.com/reference/android/graphics/BitmapFactory.html#decodeByteArray%28byte%5B%5D,%20int,%20int,%20android.graphics.BitmapFactory.Options%29" target="_blank" rel="noopener">decodeByteArray()</a>， <a href="https://developer.android.com/reference/android/graphics/BitmapFactory.html#decodeFile%28java.lang.String,%20android.graphics.BitmapFactory.Options%29" target="_blank" rel="noopener">decodeFile()</a>，<a href="https://developer.android.com/reference/android/graphics/BitmapFactory.html#decodeResource%28android.content.res.Resources,%20int,%20android.graphics.BitmapFactory.Options%29" target="_blank" rel="noopener">decodeResource()</a> 等），用于从各种来源创建 Bitmap。我们应该根据图片的数据源选择最合适的解码方法。这些方法在构造位图的时候会尝试分配内存，因此很容易导致 OutOfMemory 异常。每一种解码方法都可以通过 <a href="https://developer.android.com/reference/android/graphics/BitmapFactory.Options.html" target="_blank" rel="noopener">BitmapFactory.Options</a> 设置一些附加的标记，以此来指定解码选项。设置 <a href="https://developer.android.com/reference/android/graphics/BitmapFactory.Options.html#inJustDecodeBounds" target="_blank" rel="noopener">inJustDecodeBounds</a> 属性为 true 可以在解码时避免内存的分配，返回的 Bitmap 为 null，但是可以获取到 <a href="https://developer.android.com/reference/android/graphics/BitmapFactory.Options.html#outWidth" target="_blank" rel="noopener">outWidth</a>，<a href="https://developer.android.com/reference/android/graphics/BitmapFactory.Options.html#outHeight" target="_blank" rel="noopener">outHeight</a> 与 <a href="https://developer.android.com/reference/android/graphics/BitmapFactory.Options.html#outMimeType" target="_blank" rel="noopener">outMimeType</a>。该技术可以允许你在构造 Bitmap 之前优先读图片的尺寸与类型（以及内存分配）。</p>
+<h1 id="1-读取位图的尺寸与类型"><a href="#1-读取位图的尺寸与类型" class="headerlink" title="1.读取位图的尺寸与类型"></a>1.读取位图的尺寸与类型</h1><p><a href="http://developer.android.com/reference/android/graphics/BitmapFactory.html">BitmapFactory</a> 提供了多种解码方法（<a href="https://developer.android.com/reference/android/graphics/BitmapFactory.html#decodeByteArray%28byte%5B%5D,%20int,%20int,%20android.graphics.BitmapFactory.Options%29">decodeByteArray()</a>， <a href="https://developer.android.com/reference/android/graphics/BitmapFactory.html#decodeFile%28java.lang.String,%20android.graphics.BitmapFactory.Options%29">decodeFile()</a>，<a href="https://developer.android.com/reference/android/graphics/BitmapFactory.html#decodeResource%28android.content.res.Resources,%20int,%20android.graphics.BitmapFactory.Options%29">decodeResource()</a> 等），用于从各种来源创建 Bitmap。我们应该根据图片的数据源选择最合适的解码方法。这些方法在构造位图的时候会尝试分配内存，因此很容易导致 OutOfMemory 异常。每一种解码方法都可以通过 <a href="https://developer.android.com/reference/android/graphics/BitmapFactory.Options.html">BitmapFactory.Options</a> 设置一些附加的标记，以此来指定解码选项。设置 <a href="https://developer.android.com/reference/android/graphics/BitmapFactory.Options.html#inJustDecodeBounds">inJustDecodeBounds</a> 属性为 true 可以在解码时避免内存的分配，返回的 Bitmap 为 null，但是可以获取到 <a href="https://developer.android.com/reference/android/graphics/BitmapFactory.Options.html#outWidth">outWidth</a>，<a href="https://developer.android.com/reference/android/graphics/BitmapFactory.Options.html#outHeight">outHeight</a> 与 <a href="https://developer.android.com/reference/android/graphics/BitmapFactory.Options.html#outMimeType">outMimeType</a>。该技术可以允许你在构造 Bitmap 之前优先读图片的尺寸与类型（以及内存分配）。</p>
         
-          <a class="article-more-a" href="/2018/03/22/高效加载大图/#more">more >></a>
+          <a class="article-more-a" href="/2018/03/22/%E9%AB%98%E6%95%88%E5%8A%A0%E8%BD%BD%E5%A4%A7%E5%9B%BE/#more">more >></a>
         
       
 
@@ -219,7 +296,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/22/高效加载大图/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/03/22/%E9%AB%98%E6%95%88%E5%8A%A0%E8%BD%BD%E5%A4%A7%E5%9B%BE/">展开全文 >></a>
         </p>
       
 
@@ -256,12 +333,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/30/管理-Android-设备唤醒状态/">管理 Android 设备唤醒状态</a>
+      <a class="article-title" href="/2018/01/30/%E7%AE%A1%E7%90%86-Android-%E8%AE%BE%E5%A4%87%E5%94%A4%E9%86%92%E7%8A%B6%E6%80%81/">管理 Android 设备唤醒状态</a>
     </h1>
   
 
         
-        <a href="/2018/01/30/管理-Android-设备唤醒状态/" class="archive-article-date">
+        <a href="/2018/01/30/%E7%AE%A1%E7%90%86-Android-%E8%AE%BE%E5%A4%87%E5%94%A4%E9%86%92%E7%8A%B6%E6%80%81/" class="archive-article-date">
   	<time datetime="2018-01-30T11:24:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-30</time>
 </a>
         
@@ -279,7 +356,7 @@ var _hmt = _hmt || [];
 <p>为了避免电量耗尽，闲置的 Android 设备会迅速进入睡眠状态。但是，有时应用程序需要唤醒屏幕或 CPU 并保持唤醒状态才能完成某些工作。</p>
 <p>采取什么样的方法取决于你应用程序的需求。然而，一般的经验是，你应该为应用使用最轻量级的方法，以尽量减少其对系统资源的影响。接下来的内容会介绍如何处理设备的默认睡眠行为与应用程序的需求不兼容的情况。</p>
         
-          <a class="article-more-a" href="/2018/01/30/管理-Android-设备唤醒状态/#more">more >></a>
+          <a class="article-more-a" href="/2018/01/30/%E7%AE%A1%E7%90%86-Android-%E8%AE%BE%E5%A4%87%E5%94%A4%E9%86%92%E7%8A%B6%E6%80%81/#more">more >></a>
         
       
 
@@ -303,7 +380,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/30/管理-Android-设备唤醒状态/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/01/30/%E7%AE%A1%E7%90%86-Android-%E8%AE%BE%E5%A4%87%E5%94%A4%E9%86%92%E7%8A%B6%E6%80%81/">展开全文 >></a>
         </p>
       
 
@@ -340,12 +417,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/24/Android-5-0-行为变更对-WebView-的影响/">Android 5.0 行为变更对 WebView 的影响</a>
+      <a class="article-title" href="/2018/01/24/Android-5-0-%E8%A1%8C%E4%B8%BA%E5%8F%98%E6%9B%B4%E5%AF%B9-WebView-%E7%9A%84%E5%BD%B1%E5%93%8D/">Android 5.0 行为变更对 WebView 的影响</a>
     </h1>
   
 
         
-        <a href="/2018/01/24/Android-5-0-行为变更对-WebView-的影响/" class="archive-article-date">
+        <a href="/2018/01/24/Android-5-0-%E8%A1%8C%E4%B8%BA%E5%8F%98%E6%9B%B4%E5%AF%B9-WebView-%E7%9A%84%E5%BD%B1%E5%93%8D/" class="archive-article-date">
   	<time datetime="2018-01-24T10:09:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-24</time>
 </a>
         
@@ -353,12 +430,12 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Android 5.0 行为变更已经好长时间了，之前进行 WebView 的开发一直没有出现问题，所有也就没有关注这次行为变更对 WebVie 带来的影响。直到要为一个视频网站开发的 APP 里嵌入 WebView 进行音视频播放，才发现问题所在。大概描述一下情况：视频网站使用了 HTTPS 加密，但视频资源采用的是 HTTP，几经测试，发现网站取消 HTTPS 加密后，WebView 就可以正常加载视频了。于是就顺藤摸瓜，有了这篇文章。开始文章之前，先来看看 Google 官方的描述 <a href="https://developer.android.com/about/versions/android-5.0-changes.html#BehaviorWebView" target="_blank" rel="noopener">Android 5.0 行为变更之 WebView</a>。</p>
+        <p>Android 5.0 行为变更已经好长时间了，之前进行 WebView 的开发一直没有出现问题，所有也就没有关注这次行为变更对 WebVie 带来的影响。直到要为一个视频网站开发的 APP 里嵌入 WebView 进行音视频播放，才发现问题所在。大概描述一下情况：视频网站使用了 HTTPS 加密，但视频资源采用的是 HTTP，几经测试，发现网站取消 HTTPS 加密后，WebView 就可以正常加载视频了。于是就顺藤摸瓜，有了这篇文章。开始文章之前，先来看看 Google 官方的描述 <a href="https://developer.android.com/about/versions/android-5.0-changes.html#BehaviorWebView">Android 5.0 行为变更之 WebView</a>。</p>
 <h1 id="1-WebView-行为变更"><a href="#1-WebView-行为变更" class="headerlink" title="1. WebView 行为变更"></a>1. WebView 行为变更</h1><p>Android 5.0 更改了应用的默认行为。</p>
 <ul>
 <li><strong>如果您的应用是面向 API 级别 21 或更高级别：</strong><ul>
-<li>默认情况下，系统会阻止混合内容和第三方 Cookie。要允许混合内容和第三方 Cookie，请分别使用 <a href="https://developer.android.com/reference/android/webkit/WebSettings.html#setMixedContentMode%28int%29" target="_blank" rel="noopener">setMixedContentMode()</a> 和 <a href="https://developer.android.com/reference/android/webkit/CookieManager.html#setAcceptThirdPartyCookies%28android.webkit.WebView,%20boolean%29" target="_blank" rel="noopener">setAcceptThirdPartyCookies()</a> 方法。</li>
-<li>系统现在可以智能地选择要绘制的 HTML 文档部分。这个新的默认行为有助于减少内存占用和提升性能。如果您要一次渲染整个文档，可通过调用 <a href="https://developer.android.com/reference/android/webkit/WebView.html#enableSlowWholeDocumentDraw%28%29" target="_blank" rel="noopener">enableSlowWholeDocumentDraw()</a> 停用此优化。</li>
+<li>默认情况下，系统会阻止混合内容和第三方 Cookie。要允许混合内容和第三方 Cookie，请分别使用 <a href="https://developer.android.com/reference/android/webkit/WebSettings.html#setMixedContentMode%28int%29">setMixedContentMode()</a> 和 <a href="https://developer.android.com/reference/android/webkit/CookieManager.html#setAcceptThirdPartyCookies%28android.webkit.WebView,%20boolean%29">setAcceptThirdPartyCookies()</a> 方法。</li>
+<li>系统现在可以智能地选择要绘制的 HTML 文档部分。这个新的默认行为有助于减少内存占用和提升性能。如果您要一次渲染整个文档，可通过调用 <a href="https://developer.android.com/reference/android/webkit/WebView.html#enableSlowWholeDocumentDraw%28%29">enableSlowWholeDocumentDraw()</a> 停用此优化。</li>
 </ul>
 </li>
 <li><strong>如果您的应用是面向低于  21 的 API 级别：</strong><ul>
@@ -367,7 +444,7 @@ var _hmt = _hmt || [];
 </li>
 </ul>
         
-          <a class="article-more-a" href="/2018/01/24/Android-5-0-行为变更对-WebView-的影响/#more">more >></a>
+          <a class="article-more-a" href="/2018/01/24/Android-5-0-%E8%A1%8C%E4%B8%BA%E5%8F%98%E6%9B%B4%E5%AF%B9-WebView-%E7%9A%84%E5%BD%B1%E5%93%8D/#more">more >></a>
         
       
 
@@ -395,7 +472,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/24/Android-5-0-行为变更对-WebView-的影响/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/01/24/Android-5-0-%E8%A1%8C%E4%B8%BA%E5%8F%98%E6%9B%B4%E5%AF%B9-WebView-%E7%9A%84%E5%BD%B1%E5%93%8D/">展开全文 >></a>
         </p>
       
 
@@ -432,12 +509,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/28/SQLite-存储类/">SQLite 存储类</a>
+      <a class="article-title" href="/2017/11/28/SQLite-%E5%AD%98%E5%82%A8%E7%B1%BB/">SQLite 存储类</a>
     </h1>
   
 
         
-        <a href="/2017/11/28/SQLite-存储类/" class="archive-article-date">
+        <a href="/2017/11/28/SQLite-%E5%AD%98%E5%82%A8%E7%B1%BB/" class="archive-article-date">
   	<time datetime="2017-11-27T23:39:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-28</time>
 </a>
         
@@ -476,7 +553,7 @@ var _hmt = _hmt || [];
 </tr>
 </tbody></table>
         
-          <a class="article-more-a" href="/2017/11/28/SQLite-存储类/#more">more >></a>
+          <a class="article-more-a" href="/2017/11/28/SQLite-%E5%AD%98%E5%82%A8%E7%B1%BB/#more">more >></a>
         
       
 
@@ -500,7 +577,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/28/SQLite-存储类/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/11/28/SQLite-%E5%AD%98%E5%82%A8%E7%B1%BB/">展开全文 >></a>
         </p>
       
 
@@ -537,12 +614,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/25/SQLite-数据库管理/">SQLite 数据库管理</a>
+      <a class="article-title" href="/2017/11/25/SQLite-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86/">SQLite 数据库管理</a>
     </h1>
   
 
         
-        <a href="/2017/11/25/SQLite-数据库管理/" class="archive-article-date">
+        <a href="/2017/11/25/SQLite-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86/" class="archive-article-date">
   	<time datetime="2017-11-25T01:57:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-25</time>
 </a>
         
@@ -552,13 +629,13 @@ var _hmt = _hmt || [];
       
         <p>数据库管理一般用于控制数据库如何操作。要执行的许多数据库管理任务都可以通过 SQL 命令完成。SQLite 包括自己一些独特的管理功能，如将多个数据库附加“attach”到一个连接上，以及用来设置各种配置参数的数据库编译指示（pragma）。</p>
 <h2 id="一、附加数据库"><a href="#一、附加数据库" class="headerlink" title="一、附加数据库"></a>一、附加数据库</h2><p>SQLite 允许你用 attach 命令将多个数据库“附加”到当前连接上。当你附加了一个数据库时，它的所有内容在当前数据库文件的全局范围内都是可存取的。attach 的语法如下：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">attach [database] filename as database_name;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">attach [database] filename <span class="keyword">as</span> database_name; </span><br></pre></td></tr></table></figure>
 
 <p>其中，filename 指 SQLite 数据库的文件名称和路径，database_name 指要引用的数据库和对象的逻辑名称。主数据库自动赋名为 main。如果创建任何临时的对象，SQLite 会创建一个附加的数据库，并命名为 temp（可以使用后面描述的编辑指示 database_list 查看这些对象）。逻辑名称可以用来引用附加数据库内的对象，与此同时，引用附加数据库内的对象必须提供逻辑名。例如，如果两个数据库都有名为 FOODS 的表，附加数据库的逻辑名为 DATA2，查询 DATA2 中 FOODS 表的唯一方式是使用全限定名 DATA2.FOODS，例如：</p>
 <p>TEST 数据库文件路径为：C:\Users\sunzn\Desktop\TEST.db，该数据库下包含一个 FOODS 表，建表语句如下：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> FOODS(<span class="keyword">ID</span> <span class="built_in">INTEGER</span> PRIMARY <span class="keyword">KEY</span>, <span class="keyword">NAME</span> <span class="built_in">TEXT</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS (<span class="keyword">NAME</span>) <span class="keyword">VALUES</span> (<span class="string">'苹果'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS (<span class="keyword">NAME</span>) <span class="keyword">VALUES</span> (<span class="string">'桔子'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS (<span class="keyword">NAME</span>) <span class="keyword">VALUES</span> (<span class="string">'西瓜'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS (<span class="keyword">NAME</span>) <span class="keyword">VALUES</span> (<span class="string">'芹菜'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS (<span class="keyword">NAME</span>) <span class="keyword">VALUES</span> (<span class="string">'黄瓜'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS (<span class="keyword">NAME</span>) <span class="keyword">VALUES</span> (<span class="string">'土豆'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS (<span class="keyword">NAME</span>) <span class="keyword">VALUES</span> (<span class="string">'牛肉'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS (<span class="keyword">NAME</span>) <span class="keyword">VALUES</span> (<span class="string">'猪肉'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS (<span class="keyword">NAME</span>) <span class="keyword">VALUES</span> (<span class="string">'鸡肉'</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE TABLE</span> FOODS(ID <span class="type">INTEGER</span> <span class="keyword">PRIMARY KEY</span>, NAME TEXT);</span><br><span class="line"><span class="keyword">INSERT INTO</span> FOODS (NAME) <span class="keyword">VALUES</span> (<span class="string">&#x27;苹果&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> FOODS (NAME) <span class="keyword">VALUES</span> (<span class="string">&#x27;桔子&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> FOODS (NAME) <span class="keyword">VALUES</span> (<span class="string">&#x27;西瓜&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> FOODS (NAME) <span class="keyword">VALUES</span> (<span class="string">&#x27;芹菜&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> FOODS (NAME) <span class="keyword">VALUES</span> (<span class="string">&#x27;黄瓜&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> FOODS (NAME) <span class="keyword">VALUES</span> (<span class="string">&#x27;土豆&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> FOODS (NAME) <span class="keyword">VALUES</span> (<span class="string">&#x27;牛肉&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> FOODS (NAME) <span class="keyword">VALUES</span> (<span class="string">&#x27;猪肉&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> FOODS (NAME) <span class="keyword">VALUES</span> (<span class="string">&#x27;鸡肉&#x27;</span>);</span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2017/11/25/SQLite-数据库管理/#more">more >></a>
+          <a class="article-more-a" href="/2017/11/25/SQLite-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86/#more">more >></a>
         
       
 
@@ -582,7 +659,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/25/SQLite-数据库管理/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/11/25/SQLite-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86/">展开全文 >></a>
         </p>
       
 
@@ -619,12 +696,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/24/SQLite-事务/">SQLite 事务</a>
+      <a class="article-title" href="/2017/11/24/SQLite-%E4%BA%8B%E5%8A%A1/">SQLite 事务</a>
     </h1>
   
 
         
-        <a href="/2017/11/24/SQLite-事务/" class="archive-article-date">
+        <a href="/2017/11/24/SQLite-%E4%BA%8B%E5%8A%A1/" class="archive-article-date">
   	<time datetime="2017-11-24T13:01:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-24</time>
 </a>
         
@@ -635,9 +712,9 @@ var _hmt = _hmt || [];
         <p><font color="DeepPink">事务定义了一组 SQL 命令的边界，这组命令或者作为一个整体被全部执行，或者都不执行，这被称为数据库完整性的原子性原则。</font>这种关系的典型例子就是银行转账，假设银行程序从一个账户向另一个账户转账，转账程序通过如下方式进行：首先将第一个账户的钱转入第二个账户，然后从第一个账户删除对应的数目；或者首先从第一个账户删除要转账的数目，然后向第二个账户插入对应的数目。无论哪种方式，都是通过两步完成的：先插入，后删除；或者先删除，后插入。</p>
 <p>但是在转账期间，如果数据库服务器突然奔溃或电力中断，第二个操作没有完成怎么办？要么这笔钱存在于两个账户（第一种方式），要么这笔钱在两个账户中都不存在（第二种方式）。无论发生哪种情况，总有人无法接受。数据库也处于不一致的状态，<font color="RoyalBlue">关键是这两步操作必须要同时被执行或者一步都不执行。这就是事务的本质。</font></p>
 <h2 id="一、事务的范围"><a href="#一、事务的范围" class="headerlink" title="一、事务的范围"></a>一、事务的范围</h2><p>事务由 3 个命令控制：<code>begin</code>、<code>commit</code> 和 <code>rollback</code>。begin 开始一个事务，begin 之后的所有操作都可以取消，如果连接中止前没有发出 commit，也会被取消。commit 提交事务开始后所执行的所有操作。类似地，rollback 还原 begin 之后的所有操作。例如：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">BEGIN</span>;</span><br><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> FOODS;</span><br><span class="line"><span class="keyword">ROLLBACK</span>;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*) <span class="keyword">FROM</span> FOODS;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">BEGIN</span>;</span><br><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> FOODS;</span><br><span class="line"><span class="keyword">ROLLBACK</span>;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">FROM</span> FOODS;</span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2017/11/24/SQLite-事务/#more">more >></a>
+          <a class="article-more-a" href="/2017/11/24/SQLite-%E4%BA%8B%E5%8A%A1/#more">more >></a>
         
       
 
@@ -661,7 +738,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/24/SQLite-事务/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/11/24/SQLite-%E4%BA%8B%E5%8A%A1/">展开全文 >></a>
         </p>
       
 
@@ -698,12 +775,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/23/SQLite-索引/">SQLite 索引</a>
+      <a class="article-title" href="/2017/11/23/SQLite-%E7%B4%A2%E5%BC%95/">SQLite 索引</a>
     </h1>
   
 
         
-        <a href="/2017/11/23/SQLite-索引/" class="archive-article-date">
+        <a href="/2017/11/23/SQLite-%E7%B4%A2%E5%BC%95/" class="archive-article-date">
   	<time datetime="2017-11-23T12:10:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-23</time>
 </a>
         
@@ -712,14 +789,14 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>索引是一种用来在某中条件下加速查询的结构。考虑如下查询：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> FOODS <span class="keyword">WHERE</span> <span class="keyword">NAME</span>=<span class="string">'苹果'</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> FOODS <span class="keyword">WHERE</span> NAME<span class="operator">=</span><span class="string">&#x27;苹果&#x27;</span>;</span><br></pre></td></tr></table></figure>
 
 <p>当数据库搜索匹配的行时，执行这种查询的默认方法是调用顺序扫描。也就是说，逐个搜索（扫描）表中的所有行，查看 NAME 属性是否匹配 “苹果”。</p>
 <p>但是，如果频繁使用这种查询，并且表 FOODS 非常大，使用索引的方法查找数据就更有意义了。<font color=" RoyalBlue">与其他许多数据库类似，SQLite 使用 B-tree 做索引。</font></p>
 <p><font color="RoyalBlue">索引也会增加数据库的大小。从字面上理解，它们复制了一份索引的字段。</font>如果表中的所有字段都创建索引，表的大小可能翻倍。另一个要考虑的情况是索引的维护。进行 insert、update 和 delete 操作时，除了修改表，数据库也必须修改对应的索引。虽然索引可以加速查询，但是它们可能降低 insert、update 和类似操作的速度。创建索引的命令如下：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">index</span> [<span class="keyword">unique</span>] index_name <span class="keyword">on</span> table_name (<span class="keyword">columns</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> index [<span class="keyword">unique</span>] index_name <span class="keyword">on</span> table_name (columns)</span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2017/11/23/SQLite-索引/#more">more >></a>
+          <a class="article-more-a" href="/2017/11/23/SQLite-%E7%B4%A2%E5%BC%95/#more">more >></a>
         
       
 
@@ -743,7 +820,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/23/SQLite-索引/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/11/23/SQLite-%E7%B4%A2%E5%BC%95/">展开全文 >></a>
         </p>
       
 
@@ -780,12 +857,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/22/SQLite-视图/">SQLite 视图</a>
+      <a class="article-title" href="/2017/11/22/SQLite-%E8%A7%86%E5%9B%BE/">SQLite 视图</a>
     </h1>
   
 
         
-        <a href="/2017/11/22/SQLite-视图/" class="archive-article-date">
+        <a href="/2017/11/22/SQLite-%E8%A7%86%E5%9B%BE/" class="archive-article-date">
   	<time datetime="2017-11-22T12:15:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-22</time>
 </a>
         
@@ -794,12 +871,12 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>视图即虚拟表，也成为派生表，因为它们的内容都派生自其他表的查询结果。虽然视图看起来感觉就像基本表一样，但是它们不是基本表。<font color="DeepPink">基本表的内容是持久的，而视图的内容是在使用时动态产生的。</font>创建视图的语法如下：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> <span class="keyword">name</span> <span class="keyword">as</span> <span class="keyword">select</span>-stmt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> name <span class="keyword">as</span> <span class="keyword">select</span><span class="operator">-</span>stmt;</span><br></pre></td></tr></table></figure>
 
 <p>视图的名称通过 name 指定，其定义由 select-stmt 定义。最终生成的视图看起来就像名为 name 的基本表。想象一下你有一个一直在运行的查询，你会对多次编写这样的查询感到厌烦，此时视图则是这种情况的最佳选择。在开始创建视图之前，我们先创建基本表 TYPES 和 FOODS：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 创建 TYPES 表，插入数据</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> TYPES(<span class="keyword">ID</span> <span class="built_in">INTEGER</span> PRIMARY <span class="keyword">KEY</span>, <span class="keyword">NAME</span> <span class="built_in">TEXT</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> TYPES (<span class="keyword">ID</span>, <span class="keyword">NAME</span>) <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="string">'水果'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> TYPES (<span class="keyword">ID</span>, <span class="keyword">NAME</span>) <span class="keyword">VALUES</span> (<span class="number">2</span>, <span class="string">'蔬菜'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> TYPES (<span class="keyword">ID</span>, <span class="keyword">NAME</span>) <span class="keyword">VALUES</span> (<span class="number">3</span>, <span class="string">'肉类'</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 创建 TYPES 表，插入数据</span></span><br><span class="line"><span class="keyword">CREATE TABLE</span> TYPES(ID <span class="type">INTEGER</span> <span class="keyword">PRIMARY KEY</span>, NAME TEXT);</span><br><span class="line"><span class="keyword">INSERT INTO</span> TYPES (ID, NAME) <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="string">&#x27;水果&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> TYPES (ID, NAME) <span class="keyword">VALUES</span> (<span class="number">2</span>, <span class="string">&#x27;蔬菜&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> TYPES (ID, NAME) <span class="keyword">VALUES</span> (<span class="number">3</span>, <span class="string">&#x27;肉类&#x27;</span>);</span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2017/11/22/SQLite-视图/#more">more >></a>
+          <a class="article-more-a" href="/2017/11/22/SQLite-%E8%A7%86%E5%9B%BE/#more">more >></a>
         
       
 
@@ -823,7 +900,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/22/SQLite-视图/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/11/22/SQLite-%E8%A7%86%E5%9B%BE/">展开全文 >></a>
         </p>
       
 
@@ -860,12 +937,12 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/21/SQLite-触发器/">SQLite 触发器</a>
+      <a class="article-title" href="/2017/11/21/SQLite-%E8%A7%A6%E5%8F%91%E5%99%A8/">SQLite 触发器</a>
     </h1>
   
 
         
-        <a href="/2017/11/21/SQLite-触发器/" class="archive-article-date">
+        <a href="/2017/11/21/SQLite-%E8%A7%A6%E5%8F%91%E5%99%A8/" class="archive-article-date">
   	<time datetime="2017-11-20T23:38:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-21</time>
 </a>
         
@@ -874,138 +951,13 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>当具体的表发生特定的数据库事件时，触发器执行对应的 SQL 命令。创建触发器的一般命令如下：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> [temp | <span class="keyword">temporary</span>] <span class="keyword">trigger</span> <span class="keyword">name</span></span><br><span class="line">[<span class="keyword">before</span> | <span class="keyword">after</span>] [<span class="keyword">insert</span> | <span class="keyword">delete</span> | <span class="keyword">update</span> <span class="keyword">of</span> <span class="keyword">columns</span>] <span class="keyword">on</span> <span class="keyword">table</span></span><br><span class="line"><span class="keyword">action</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> [temp <span class="operator">|</span> temporary] <span class="keyword">trigger</span> name</span><br><span class="line">[before <span class="operator">|</span> after] [<span class="keyword">insert</span> <span class="operator">|</span> <span class="keyword">delete</span> <span class="operator">|</span> <span class="keyword">update</span> <span class="keyword">of</span> columns] <span class="keyword">on</span> <span class="keyword">table</span></span><br><span class="line">action</span><br></pre></td></tr></table></figure>
 
 <p>触发器是通过名称、行为和表定义的。行为（或者称为触发体）由一系列 SQL 命令组成，当某些事件发生时，触发器负责启动这些命令。此外，可以通过关键字 before 或 after 来指定这些操作是在事件发生前还是发生后执行。事件包括在具体的表中执行的 delete、insert 和 update 命令。触发器可以用来创建自定义完整性约束、日志改变、更新表和其他很多事情。触发器的作用只限于所写的 SQL 命令。</p>
 <h2 id="一：更新触发器"><a href="#一：更新触发器" class="headerlink" title="一：更新触发器"></a>一：更新触发器</h2><p>与 insert 和 delete 触发器不同，update 触发器可以在表的执行字段上定义，这种触发器的一般格式如下：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">trigger</span> <span class="keyword">name</span></span><br><span class="line">[<span class="keyword">before</span> | <span class="keyword">after</span>] <span class="keyword">update</span> <span class="keyword">of</span> <span class="keyword">column</span> <span class="keyword">on</span> <span class="keyword">table</span></span><br><span class="line"><span class="keyword">action</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">trigger</span> name</span><br><span class="line">[before <span class="operator">|</span> after] <span class="keyword">update</span> <span class="keyword">of</span> <span class="keyword">column</span> <span class="keyword">on</span> <span class="keyword">table</span></span><br><span class="line">action</span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2017/11/21/SQLite-触发器/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SQLite</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/21/SQLite-触发器/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SQLite中的Null" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/20/SQLite中的Null/">SQLite 中的 Null</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/20/SQLite中的Null/" class="archive-article-date">
-  	<time datetime="2017-11-20T03:13:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>绝大多数关系数据库都通过一种称为 Null 特殊占位符支持 <strong>未知</strong> 或 <strong>不可知</strong> 的概念，Null 是缺失信息的占位符，本身不是值。Null 表示该位置没有值：Null 不是什么其他值，Null 不是真，也不是假，不是零，也不是空字符串。简单地理解，Null 就是自己：Null。可能一些人不明白其中的含义。掌握 SQLite 中的 Null，需要了解一些关键规则和观点。</p>
-<ul>
-<li><strong>第一</strong>：为了在逻辑表达式中使用 NULL，SQLite 使用所谓的三值（或三态）逻辑，Null 是真假值之一。下面的表格显示了逻辑与（And）和逻辑或（Or）与 Null 的关系。</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center">X</th>
-<th align="center">Y</th>
-<th align="center">X AND Y</th>
-<th align="center">X OR Y</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">True</td>
-<td align="center">True</td>
-<td align="center">True</td>
-<td align="center">True</td>
-</tr>
-<tr>
-<td align="center">True</td>
-<td align="center">False</td>
-<td align="center">False</td>
-<td align="center">True</td>
-</tr>
-<tr>
-<td align="center">True</td>
-<td align="center">NULL</td>
-<td align="center">NULL</td>
-<td align="center">True</td>
-</tr>
-<tr>
-<td align="center">False</td>
-<td align="center">False</td>
-<td align="center">False</td>
-<td align="center">False</td>
-</tr>
-<tr>
-<td align="center">False</td>
-<td align="center">NULL</td>
-<td align="center">False</td>
-<td align="center">NULL</td>
-</tr>
-<tr>
-<td align="center">NULL</td>
-<td align="center">NULL</td>
-<td align="center">NULL</td>
-<td align="center">NULL</td>
-</tr>
-</tbody></table>
-        
-          <a class="article-more-a" href="/2017/11/20/SQLite中的Null/#more">more >></a>
+          <a class="article-more-a" href="/2017/11/21/SQLite-%E8%A7%A6%E5%8F%91%E5%99%A8/#more">more >></a>
         
       
 
@@ -1029,7 +981,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/20/SQLite中的Null/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/11/21/SQLite-%E8%A7%A6%E5%8F%91%E5%99%A8/">展开全文 >></a>
         </p>
       
 
@@ -1157,10 +1109,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -1173,6 +1121,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Android Studio</a>
               </li>
              
@@ -1181,11 +1137,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+                <a href="javascript:void(0)" class="js-tag color5">Room</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1193,11 +1153,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">View</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Fiddler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1213,7 +1197,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1222,10 +1218,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1245,59 +1237,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">View</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Room</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1321,15 +1273,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
+                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Application</a>
               </li>
             
             <div class="clearfix"></div>

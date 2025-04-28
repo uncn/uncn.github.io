@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Glide V4 API 变更指南 | Welcome to sunzn&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="随着 Glide 从 V3 向 V4 的升级，API 的调用方式也发生了一些变化。这些变化主要集中在：选项、类型与目标、配置等方面。本文也会根据这几个方面结合官方文档对 API 变更做一个详细的阐述。在进行正式介绍 API 变更之前，我想非常有必要简述一下 Glide 的接入。这样，每位读者在阅读这篇文章的时候就不会感到陌生和生硬。 1 Android SDK 要求   版本 说明    Min">
-<meta name="keywords" content="Glide">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Glide V4 API 变更指南">
-<meta property="og:url" content="http://yoursite.com/2018/05/26/Glide-V4-API-变更指南/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/05/26/Glide-V4-API-%E5%8F%98%E6%9B%B4%E6%8C%87%E5%8D%97/index.html">
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="随着 Glide 从 V3 向 V4 的升级，API 的调用方式也发生了一些变化。这些变化主要集中在：选项、类型与目标、配置等方面。本文也会根据这几个方面结合官方文档对 API 变更做一个详细的阐述。在进行正式介绍 API 变更之前，我想非常有必要简述一下 Glide 的接入。这样，每位读者在阅读这篇文章的时候就不会感到陌生和生硬。 1 Android SDK 要求   版本 说明    Min">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-01T12:16:10.000Z">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-05-26T13:37:16.000Z">
+<meta property="article:modified_time" content="2018-07-01T12:16:10.000Z">
+<meta property="article:author" content="狮子">
+<meta property="article:tag" content="Glide">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Glide V4 API 变更指南">
-<meta name="twitter:description" content="随着 Glide 从 V3 向 V4 的升级，API 的调用方式也发生了一些变化。这些变化主要集中在：选项、类型与目标、配置等方面。本文也会根据这几个方面结合官方文档对 API 变更做一个详细的阐述。在进行正式介绍 API 变更之前，我想非常有必要简述一下 Glide 的接入。这样，每位读者在阅读这篇文章的时候就不会感到陌生和生硬。 1 Android SDK 要求   版本 说明    Min">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -47,8 +47,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -61,10 +61,8 @@ var _hmt = _hmt || [];
 			<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">狮子</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">念念不忘，必有回响</p>
 		
 
 		<nav class="header-menu">
@@ -121,10 +119,8 @@ var _hmt = _hmt || [];
 				<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">狮子</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>念念不忘，必有回响<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -181,7 +177,7 @@ var _hmt = _hmt || [];
   
 
         
-        <a href="/2018/05/26/Glide-V4-API-变更指南/" class="archive-article-date">
+        <a href="/2018/05/26/Glide-V4-API-%E5%8F%98%E6%9B%B4%E6%8C%87%E5%8D%97/" class="archive-article-date">
   	<time datetime="2018-05-26T13:37:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-26</time>
 </a>
         
@@ -210,65 +206,65 @@ var _hmt = _hmt || [];
 <td>Glide 使用的支持库版本为 27。</td>
 </tr>
 </tbody></table>
-<a id="more"></a>
+<span id="more"></span>
 
 <h1 id="2-Glide-接入项目"><a href="#2-Glide-接入项目" class="headerlink" title="2 Glide 接入项目"></a>2 Glide 接入项目</h1><p>如果您使用的 IDE 是 Android Studio，您可以从 Maven Central 或 JCenter 中添加对 Glide 的依赖。同样，你还需要添加 Android 支持库的依赖。</p>
 <h2 id="2-1-Project-接入"><a href="#2-1-Project-接入" class="headerlink" title="2.1 Project 接入"></a>2.1 Project 接入</h2><p>首先，你需要在 Project 所属的 build.gradle 文件中增加如下配置：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">repositories &#123;</span><br><span class="line">    mavenCentral()</span><br><span class="line">    maven &#123; url <span class="string">'https://maven.google.com'</span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">repositories &#123;</span><br><span class="line">    mavenCentral()</span><br><span class="line">    maven &#123; url <span class="string">&#x27;https://maven.google.com&#x27;</span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="2-2-Module-接入"><a href="#2-2-Module-接入" class="headerlink" title="2.2 Module 接入"></a>2.2 Module 接入</h2><p>其次，你需要在 Module 所属的 build.gradle 文件中增加如下依赖：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    implementation <span class="string">'com.github.bumptech.glide:glide:4.7.1'</span></span><br><span class="line">    annotationProcessor <span class="string">'com.github.bumptech.glide:compiler:4.7.1'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    implementation <span class="string">&#x27;com.github.bumptech.glide:glide:4.7.1&#x27;</span></span><br><span class="line">    annotationProcessor <span class="string">&#x27;com.github.bumptech.glide:compiler:4.7.1&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="2-3-Manifest-权限配置"><a href="#2-3-Manifest-权限配置" class="headerlink" title="2.3 Manifest 权限配置"></a>2.3 Manifest 权限配置</h2><p>Glide 假定你要访问的数据都存储在你的应用中，不要求任何权限。也就是说，大部分应用从设备上（DCIM，图库，或SD卡的其他地方）或 Internet 上加载图片。因此，你可能需要包含一条或多条以下列出的权限，这取决于你的应用场景。</p>
 <h3 id="2-3-1-Internet-权限"><a href="#2-3-1-Internet-权限" class="headerlink" title="2.3.1 Internet 权限"></a>2.3.1 Internet 权限</h3><p>如果你计划从 URL 或一个网络连接中加载数据，你需要添加 INTERNET 和 ACCESS_NETWORK_STATE 权限到你的 AndroidManifest.xml 中：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.INTERNET"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.ACCESS_NETWORK_STATE"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">&quot;android.permission.INTERNET&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">&quot;android.permission.ACCESS_NETWORK_STATE&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>从技术上讲，ACCESS_NETWORK_STATE 对于 Glide 加载 URL 并不是必需的，但是它将帮助 Glide 处理片状网络(flaky network) 和飞行模式。</p>
 <h3 id="2-3-2-Local-Storage-权限"><a href="#2-3-2-Local-Storage-权限" class="headerlink" title="2.3.2 Local Storage 权限"></a>2.3.2 Local Storage 权限</h3><p>要从本地文件夹或 DCIM 或图库中加载图片，你将需要添加 READ_EXTERNAL_STORAGE 权限：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.READ_EXTERNAL_STORAGE"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">&quot;android.permission.READ_EXTERNAL_STORAGE&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>而如果要使用 ExternalPreferredCacheDiskCacheFactory 来将 Glide 的缓存存储到公有 SD 卡上，你还需要添加 WRITE_EXTERNAL_STORAGE 权限：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.WRITE_EXTERNAL_STORAGE"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="2-4-加载图片"><a href="#2-4-加载图片" class="headerlink" title="2.4 加载图片"></a>2.4 加载图片</h2><p>完成以上的配置后，你可以通过 Glide 加载一张图片来验证配置是否生效：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Glide.with(fragment).load(url).into(imageView);</span><br></pre></td></tr></table></figure>
 
-<h1 id="3-Glide-API-变更"><a href="#3-Glide-API-变更" class="headerlink" title="3 Glide API 变更"></a>3 Glide API 变更</h1><h2 id="3-1-选项"><a href="#3-1-选项" class="headerlink" title="3.1 选项"></a>3.1 选项</h2><p>Glide V4 中的一个比较大的改动是 Glide 库处理选项 ( centerCrop(), placeholder() 等 ) 的方式。在 V3 版本中，选项由一系列复杂的异构建造者 ( multityped builders ) 单独处理。在新版本中，由一个单一类型的唯一一个建造者接管一系列选项对象。Glide 的 <a href="https://muyangmin.github.io/glide-docs-cn/doc/generatedapi.html" target="_blank" rel="noopener">Generated API</a> 进一步简化了这个操作：它会合并传入建造者的选项对象和任何已包含的集成库里的选项，以生成一个流畅的 API。</p>
+<h1 id="3-Glide-API-变更"><a href="#3-Glide-API-变更" class="headerlink" title="3 Glide API 变更"></a>3 Glide API 变更</h1><h2 id="3-1-选项"><a href="#3-1-选项" class="headerlink" title="3.1 选项"></a>3.1 选项</h2><p>Glide V4 中的一个比较大的改动是 Glide 库处理选项 ( centerCrop(), placeholder() 等 ) 的方式。在 V3 版本中，选项由一系列复杂的异构建造者 ( multityped builders ) 单独处理。在新版本中，由一个单一类型的唯一一个建造者接管一系列选项对象。Glide 的 <a href="https://muyangmin.github.io/glide-docs-cn/doc/generatedapi.html">Generated API</a> 进一步简化了这个操作：它会合并传入建造者的选项对象和任何已包含的集成库里的选项，以生成一个流畅的 API。</p>
 <h3 id="3-1-1-RequestBuilder-类"><a href="#3-1-1-RequestBuilder-类" class="headerlink" title="3.1.1 RequestBuilder 类"></a>3.1.1 RequestBuilder 类</h3><p>对于这类方法：<code>listener()</code>、<code>thumbnail()</code>、<code>load()</code>、<code>into()</code>，在 Glide v4 版本中，只存在一个 RequestBuilder 对应一个你正在试图加载的类型 (Bitmap, Drawable, GifDrawable 等)。 RequestBuilder 可以直接访问对这个加载过程有影响的选项，包括你想加载的数据模型（url, uri 等），可能存在的缩略图请求，以及任何的监听器。RequestBuilder 也是你使用 into() 或者 preload() 方法开始加载的地方：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">RequestBuilder&lt;Drawable&gt; builder = Glide.with(fragment).load(url);</span><br><span class="line">builder.thumbnail(Glide.with(fragment).load(thumbnailUrl))</span><br><span class="line">       .listener(requestListener)</span><br><span class="line">       .load(url)</span><br><span class="line">       .into(imageView);</span><br></pre></td></tr></table></figure>
 
-<h3 id="3-1-2-请求选项"><a href="#3-1-2-请求选项" class="headerlink" title="3.1.2 请求选项"></a>3.1.2 请求选项</h3><p>对于这类方法：<code>centerCrop()</code>、<code>placeholder()</code>、<code>error()</code>、<code>priority()</code>、<code>diskCacheStrategy()</code>，大部分选项被移动到了一个单独的称为 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/400/com/bumptech/glide/request/RequestOptions.html" target="_blank" rel="noopener">RequestOptions</a> 的对象中：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">RequestOptions options = <span class="keyword">new</span> RequestOptions()</span><br><span class="line">        .centerCrop()</span><br><span class="line">        .placeholder(R.mipmap.placeholder)</span><br><span class="line">        .error(R.mipmap.error)</span><br><span class="line">        .priority(Priority.HIGH)</span><br><span class="line">        .diskCacheStrategy(DiskCacheStrategy.NONE);</span><br></pre></td></tr></table></figure>
+<h3 id="3-1-2-请求选项"><a href="#3-1-2-请求选项" class="headerlink" title="3.1.2 请求选项"></a>3.1.2 请求选项</h3><p>对于这类方法：<code>centerCrop()</code>、<code>placeholder()</code>、<code>error()</code>、<code>priority()</code>、<code>diskCacheStrategy()</code>，大部分选项被移动到了一个单独的称为 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/400/com/bumptech/glide/request/RequestOptions.html">RequestOptions</a> 的对象中：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">RequestOptions</span> <span class="variable">options</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">RequestOptions</span>()</span><br><span class="line">        .centerCrop()</span><br><span class="line">        .placeholder(R.mipmap.placeholder)</span><br><span class="line">        .error(R.mipmap.error)</span><br><span class="line">        .priority(Priority.HIGH)</span><br><span class="line">        .diskCacheStrategy(DiskCacheStrategy.NONE);</span><br></pre></td></tr></table></figure>
 
 <p>RequestOptions 允许你一次指定一系列的选项，然后对多个加载重用它们：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">RequestOptions options = <span class="keyword">new</span> RequestOptions()</span><br><span class="line">        .fitCenter()</span><br><span class="line">        .override(<span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line"></span><br><span class="line">Glide.with(fragment)</span><br><span class="line">        .load(url)</span><br><span class="line">        .apply(options)</span><br><span class="line">        .into(drawableView);</span><br><span class="line"></span><br><span class="line">Glide.with(fragment)</span><br><span class="line">        .asBitmap()</span><br><span class="line">        .apply(options)</span><br><span class="line">        .load(url)</span><br><span class="line">        .into(bitmapView);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">RequestOptions</span> <span class="variable">options</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">RequestOptions</span>()</span><br><span class="line">        .fitCenter()</span><br><span class="line">        .override(<span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line"></span><br><span class="line">Glide.with(fragment)</span><br><span class="line">        .load(url)</span><br><span class="line">        .apply(options)</span><br><span class="line">        .into(drawableView);</span><br><span class="line"></span><br><span class="line">Glide.with(fragment)</span><br><span class="line">        .asBitmap()</span><br><span class="line">        .apply(options)</span><br><span class="line">        .load(url)</span><br><span class="line">        .into(bitmapView);</span><br></pre></td></tr></table></figure>
 
-<h3 id="3-1-3-变换"><a href="#3-1-3-变换" class="headerlink" title="3.1.3 变换"></a>3.1.3 变换</h3><p>Glide V4 里的 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/410/com/bumptech/glide/load/Transformation.html" target="_blank" rel="noopener">Transformations</a> 现在会替换之前设置的任何变换。在 Glide V4 中，如果你想应用超过一个的 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/410/com/bumptech/glide/load/Transformation.html" target="_blank" rel="noopener">Transformation</a>，你需要使用 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/410/com/bumptech/glide/request/RequestOptions.html#transforms-com.bumptech.glide.load.Transformation...-" target="_blank" rel="noopener">transforms()</a> 方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Glide.with(fragment)</span><br><span class="line">        .load(url)</span><br><span class="line">        .apply(<span class="keyword">new</span> RequestOptions().transforms(<span class="keyword">new</span> CenterCrop(), <span class="keyword">new</span> RoundedCorners(<span class="number">20</span>)))</span><br><span class="line">        .into(target);</span><br></pre></td></tr></table></figure>
+<h3 id="3-1-3-变换"><a href="#3-1-3-变换" class="headerlink" title="3.1.3 变换"></a>3.1.3 变换</h3><p>Glide V4 里的 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/410/com/bumptech/glide/load/Transformation.html">Transformations</a> 现在会替换之前设置的任何变换。在 Glide V4 中，如果你想应用超过一个的 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/410/com/bumptech/glide/load/Transformation.html">Transformation</a>，你需要使用 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/410/com/bumptech/glide/request/RequestOptions.html#transforms-com.bumptech.glide.load.Transformation...-">transforms()</a> 方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Glide.with(fragment)</span><br><span class="line">        .load(url)</span><br><span class="line">        .apply(<span class="keyword">new</span> <span class="title class_">RequestOptions</span>().transforms(<span class="keyword">new</span> <span class="title class_">CenterCrop</span>(), <span class="keyword">new</span> <span class="title class_">RoundedCorners</span>(<span class="number">20</span>)))</span><br><span class="line">        .into(target);</span><br></pre></td></tr></table></figure>
 
-<p>或使用 <a href="https://muyangmin.github.io/glide-docs-cn/doc/generatedapi.html" target="_blank" rel="noopener">Generated API</a>，使用 Generated API 之前你需要新建一个类继承 AppGlideModule，并在该类上添加注解 @GlideModule，注意这里的 glideName 参数，这个参数的值默认是 GlideApp，这个值就是你使用 Generated API 进行调用的入口。如果采用默认值，那么你的调用将以 <code>GlideApp.with(fragment)</code> 开始，如果这个值是自定义的，比如 <code>@GlideModule(glideName = &quot;MyGlideApp&quot;)</code>，那么，你的调用将以 <code>MyGlideApp.with(fragment)</code> 开始。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.sunzn.glide;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.bumptech.glide.annotation.GlideModule;</span><br><span class="line"><span class="keyword">import</span> com.bumptech.glide.<span class="keyword">module</span>.AppGlideModule;</span><br><span class="line"></span><br><span class="line"><span class="meta">@GlideModule</span>(glideName = <span class="string">"GlideApp"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyAppGlideModule</span> <span class="keyword">extends</span> <span class="title">AppGlideModule</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Intentionally Empty.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>或使用 <a href="https://muyangmin.github.io/glide-docs-cn/doc/generatedapi.html">Generated API</a>，使用 Generated API 之前你需要新建一个类继承 AppGlideModule，并在该类上添加注解 @GlideModule，注意这里的 glideName 参数，这个参数的值默认是 GlideApp，这个值就是你使用 Generated API 进行调用的入口。如果采用默认值，那么你的调用将以 <code>GlideApp.with(fragment)</code> 开始，如果这个值是自定义的，比如 <code>@GlideModule(glideName = &quot;MyGlideApp&quot;)</code>，那么，你的调用将以 <code>MyGlideApp.with(fragment)</code> 开始。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.sunzn.glide;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.bumptech.glide.annotation.GlideModule;</span><br><span class="line"><span class="keyword">import</span> com.bumptech.glide.<span class="keyword">module</span>.AppGlideModule;</span><br><span class="line"></span><br><span class="line"><span class="meta">@GlideModule(glideName = &quot;GlideApp&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyAppGlideModule</span> <span class="keyword">extends</span> <span class="title class_">AppGlideModule</span> &#123;</span><br><span class="line">    <span class="comment">// Intentionally Empty.</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>下面的调用采用默认值 GlideApp 进行调用：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GlideApp.with(fragment)</span><br><span class="line">        .load(url)</span><br><span class="line">        .transforms(<span class="keyword">new</span> CenterCrop(), <span class="keyword">new</span> RoundedCorners(<span class="number">20</span>))</span><br><span class="line">        .into(target);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GlideApp.with(fragment)</span><br><span class="line">        .load(url)</span><br><span class="line">        .transforms(<span class="keyword">new</span> <span class="title class_">CenterCrop</span>(), <span class="keyword">new</span> <span class="title class_">RoundedCorners</span>(<span class="number">20</span>))</span><br><span class="line">        .into(target);</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p><strong>提示</strong>：如果你正确增的加了 AppGlideModule 的继承类，但是在 Android Studio 中却找不到调用入口，这时你可以尝试 Rebuild Progect 或者直接运行代码。</p>
 </blockquote>
-<h3 id="3-1-4-解码格式"><a href="#3-1-4-解码格式" class="headerlink" title="3.1.4 解码格式"></a>3.1.4 解码格式</h3><p>在 Glide V3， 默认的 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/410/com/bumptech/glide/load/DecodeFormat.html" target="_blank" rel="noopener">DecodeFormat</a> 是 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/410/com/bumptech/glide/load/DecodeFormat.html#PREFER_RGB_565" target="_blank" rel="noopener">DecodeFormat.PREFER_RGB_565</a>，它将使用 [Bitmap.Config.RGB_565]，除非图片包含或可能包含透明像素。对于给定的图片尺寸，RGB_565 只使用 [Bitmap.Config.ARGB_8888] 一半的内存，但对于特定的图片有明显的画质问题，包括条纹(banding)和着色(tinting)。为了避免 RGB_565 的画质问题，Glide 现在默认使用 ARGB_8888。结果是，图片质量变高了，但内存使用也增加了。</p>
-<p>要将 Glide v4 默认的 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/410/com/bumptech/glide/load/DecodeFormat.html" target="_blank" rel="noopener">DecodeFormat</a> 改回 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/410/com/bumptech/glide/load/DecodeFormat.html#PREFER_RGB_565" target="_blank" rel="noopener">DecodeFormat.PREFER_RGB_565</a>，请在 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/400/com/bumptech/glide/module/AppGlideModule.html" target="_blank" rel="noopener">AppGlideModule</a> 中应用一个 RequestOption：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GlideModule</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyAppGlideModule</span> <span class="keyword">extends</span> <span class="title">AppGlideModule</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">applyOptions</span><span class="params">(@NonNull Context context, @NonNull GlideBuilder builder)</span> </span>&#123;</span><br><span class="line">        builder.setDefaultRequestOptions(<span class="keyword">new</span> RequestOptions().format(DecodeFormat.PREFER_RGB_565));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-1-4-解码格式"><a href="#3-1-4-解码格式" class="headerlink" title="3.1.4 解码格式"></a>3.1.4 解码格式</h3><p>在 Glide V3， 默认的 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/410/com/bumptech/glide/load/DecodeFormat.html">DecodeFormat</a> 是 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/410/com/bumptech/glide/load/DecodeFormat.html#PREFER_RGB_565">DecodeFormat.PREFER_RGB_565</a>，它将使用 [Bitmap.Config.RGB_565]，除非图片包含或可能包含透明像素。对于给定的图片尺寸，RGB_565 只使用 [Bitmap.Config.ARGB_8888] 一半的内存，但对于特定的图片有明显的画质问题，包括条纹(banding)和着色(tinting)。为了避免 RGB_565 的画质问题，Glide 现在默认使用 ARGB_8888。结果是，图片质量变高了，但内存使用也增加了。</p>
+<p>要将 Glide v4 默认的 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/410/com/bumptech/glide/load/DecodeFormat.html">DecodeFormat</a> 改回 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/410/com/bumptech/glide/load/DecodeFormat.html#PREFER_RGB_565">DecodeFormat.PREFER_RGB_565</a>，请在 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/400/com/bumptech/glide/module/AppGlideModule.html">AppGlideModule</a> 中应用一个 RequestOption：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GlideModule</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyAppGlideModule</span> <span class="keyword">extends</span> <span class="title class_">AppGlideModule</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">applyOptions</span><span class="params">(<span class="meta">@NonNull</span> Context context, <span class="meta">@NonNull</span> GlideBuilder builder)</span> &#123;</span><br><span class="line">        builder.setDefaultRequestOptions(<span class="keyword">new</span> <span class="title class_">RequestOptions</span>().format(DecodeFormat.PREFER_RGB_565));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>关于使用 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/400/com/bumptech/glide/module/AppGlideModule.html" target="_blank" rel="noopener">AppGlideModules</a> 的更多信息，请查阅 <a href="https://muyangmin.github.io/glide-docs-cn/doc/configuration.html" target="_blank" rel="noopener">配置</a> 页面。请注意，为了让 Glide 发现你的 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/400/com/bumptech/glide/module/AppGlideModule.html" target="_blank" rel="noopener">AppGlideModule</a> 实现，你必须确保添加了对 Glide 的注解解析器的依赖。关于如何设置这个库的更多信息，请查看 <a href="https://muyangmin.github.io/glide-docs-cn/doc/download-setup.html" target="_blank" rel="noopener">下载和设置</a>。</p>
-<h3 id="3-1-5-过渡选项"><a href="#3-1-5-过渡选项" class="headerlink" title="3.1.5 过渡选项"></a>3.1.5 过渡选项</h3><p>对于这类方法：<code>crossFade()</code>、<code>animate()</code> 控制从占位符到图片和/或缩略图到全图的交叉淡入和其他类型变换的选项，被移动到了 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/400/com/bumptech/glide/TransitionOptions.html" target="_blank" rel="noopener">TransitionOptions</a> 中。</p>
+<p>关于使用 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/400/com/bumptech/glide/module/AppGlideModule.html">AppGlideModules</a> 的更多信息，请查阅 <a href="https://muyangmin.github.io/glide-docs-cn/doc/configuration.html">配置</a> 页面。请注意，为了让 Glide 发现你的 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/400/com/bumptech/glide/module/AppGlideModule.html">AppGlideModule</a> 实现，你必须确保添加了对 Glide 的注解解析器的依赖。关于如何设置这个库的更多信息，请查看 <a href="https://muyangmin.github.io/glide-docs-cn/doc/download-setup.html">下载和设置</a>。</p>
+<h3 id="3-1-5-过渡选项"><a href="#3-1-5-过渡选项" class="headerlink" title="3.1.5 过渡选项"></a>3.1.5 过渡选项</h3><p>对于这类方法：<code>crossFade()</code>、<code>animate()</code> 控制从占位符到图片和&#x2F;或缩略图到全图的交叉淡入和其他类型变换的选项，被移动到了 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/400/com/bumptech/glide/TransitionOptions.html">TransitionOptions</a> 中。</p>
 <p>要应用过渡（之前的动画），请使用下列选项中符合你请求的资源类型的一个：</p>
 <ul>
-<li><a href="https://muyangmin.github.io/glide-docs-cn/javadocs/400/com/bumptech/glide/GenericTransitionOptions.html" target="_blank" rel="noopener">GenericTransitionOptions</a></li>
-<li><a href="https://muyangmin.github.io/glide-docs-cn/javadocs/400/com/bumptech/glide/load/resource/drawable/DrawableTransitionOptions.html" target="_blank" rel="noopener">DrawableTransitionOptions</a></li>
-<li><a href="https://muyangmin.github.io/glide-docs-cn/javadocs/400/com/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions.html" target="_blank" rel="noopener">BitmapTransitionOptions</a></li>
+<li><a href="https://muyangmin.github.io/glide-docs-cn/javadocs/400/com/bumptech/glide/GenericTransitionOptions.html">GenericTransitionOptions</a></li>
+<li><a href="https://muyangmin.github.io/glide-docs-cn/javadocs/400/com/bumptech/glide/load/resource/drawable/DrawableTransitionOptions.html">DrawableTransitionOptions</a></li>
+<li><a href="https://muyangmin.github.io/glide-docs-cn/javadocs/400/com/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions.html">BitmapTransitionOptions</a></li>
 </ul>
-<p>如果你想移除任何默认的过渡，可以使用 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/400/com/bumptech/glide/TransitionOptions.html#dontTransition--" target="_blank" rel="noopener">TransitionOptions.dontTransition()</a> 。</p>
-<p>过渡动画通过 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/400/com/bumptech/glide/RequestBuilder.html" target="_blank" rel="noopener">RequestBuilder</a> 应用到请求上：</p>
+<p>如果你想移除任何默认的过渡，可以使用 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/400/com/bumptech/glide/TransitionOptions.html#dontTransition--">TransitionOptions.dontTransition()</a> 。</p>
+<p>过渡动画通过 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/400/com/bumptech/glide/RequestBuilder.html">RequestBuilder</a> 应用到请求上：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;</span><br><span class="line"></span><br><span class="line">Glide.with(fragment)</span><br><span class="line">     .load(url)</span><br><span class="line">     .transition(withCrossFade(<span class="number">5000</span>))</span><br><span class="line">     .into(target);</span><br></pre></td></tr></table></figure>
 
 <h4 id="3-1-5-1-交叉淡入-Cross-fade"><a href="#3-1-5-1-交叉淡入-Cross-fade" class="headerlink" title="3.1.5.1 交叉淡入 (Cross fade)"></a>3.1.5.1 交叉淡入 (Cross fade)</h4><p>不同于 Glide V3，Glide V4 将<strong>不会</strong>默认应用交叉淡入或任何其他的过渡效果。每个请求必须手动应用过渡。</p>
@@ -277,17 +273,15 @@ var _hmt = _hmt || [];
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Glide.with(fragment)</span><br><span class="line">     .load(url)</span><br><span class="line">     .transition(DrawableTransitionOptions.withCrossFade())</span><br><span class="line">     .into(target);</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Glide.with(fragment)</span><br><span class="line">     .load(url)</span><br><span class="line">     .transition(<span class="keyword">new</span> DrawableTransitionOptions().crossFade())</span><br><span class="line">     .into(target);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Glide.with(fragment)</span><br><span class="line">     .load(url)</span><br><span class="line">     .transition(<span class="keyword">new</span> <span class="title class_">DrawableTransitionOptions</span>().crossFade())</span><br><span class="line">     .into(target);</span><br></pre></td></tr></table></figure>
 
-<h4 id="3-1-5-2-动画进入-Animate"><a href="#3-1-5-2-动画进入-Animate" class="headerlink" title="3.1.5.2 动画进入 (Animate)"></a>3.1.5.2 动画进入 (Animate)</h4><p>动画进入的使用与交叉淡入类似，也被移动到了 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/400/com/bumptech/glide/TransitionOptions.html" target="_blank" rel="noopener">TransitionOptions</a> 中。而与 Animate 相关的方法正是在 TransitionOptions 类中：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@NonNull</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> CHILD <span class="title">transition</span> <span class="params">(<span class="keyword">int</span> viewAnimationId)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> transition(<span class="keyword">new</span> ViewAnimationFactory&lt;&gt;(viewAnimationId));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@NonNull</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> CHILD <span class="title">transition</span> <span class="params">(@NonNull ViewPropertyTransition.Animator animator)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> transition(<span class="keyword">new</span> ViewPropertyAnimationFactory&lt;&gt;(animator));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3-1-5-2-动画进入-Animate"><a href="#3-1-5-2-动画进入-Animate" class="headerlink" title="3.1.5.2 动画进入 (Animate)"></a>3.1.5.2 动画进入 (Animate)</h4><p>动画进入的使用与交叉淡入类似，也被移动到了 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/400/com/bumptech/glide/TransitionOptions.html">TransitionOptions</a> 中。而与 Animate 相关的方法正是在 TransitionOptions 类中：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@NonNull</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> CHILD <span class="title function_">transition</span> <span class="params">(<span class="type">int</span> viewAnimationId)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> transition(<span class="keyword">new</span> <span class="title class_">ViewAnimationFactory</span>&lt;&gt;(viewAnimationId));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@NonNull</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> CHILD <span class="title function_">transition</span> <span class="params">(<span class="meta">@NonNull</span> ViewPropertyTransition.Animator animator)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> transition(<span class="keyword">new</span> <span class="title class_">ViewPropertyAnimationFactory</span>&lt;&gt;(animator));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>由于 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/400/com/bumptech/glide/TransitionOptions.html" target="_blank" rel="noopener">TransitionOptions</a> 是抽象类，所以在使用的时候只能使用它的实现类 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/400/com/bumptech/glide/GenericTransitionOptions.html" target="_blank" rel="noopener">GenericTransitionOptions</a>、<a href="https://muyangmin.github.io/glide-docs-cn/javadocs/400/com/bumptech/glide/load/resource/drawable/DrawableTransitionOptions.html" target="_blank" rel="noopener">DrawableTransitionOptions</a> 或 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/400/com/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions.html" target="_blank" rel="noopener">BitmapTransitionOptions</a> 的实例来完成：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Glide.with(fragment)</span><br><span class="line">     .load(url)</span><br><span class="line">     .transition(<span class="keyword">new</span> DrawableTransitionOptions().transition(android.R.anim.slide_in_left))</span><br><span class="line">     .into(target);</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="3-1-6-Generated-API"><a href="#3-1-6-Generated-API" class="headerlink" title="3.1.6 Generated API"></a>3.1.6 Generated API</h3><p>为了让使用 Glide V4 更简单轻松，Glide 现在也提供了一套可以为应用定制化生成的 API。应用可以通过包含一个标记了 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/400/com/bumptech/glide/module/AppGlideModule.html" target="_blank" rel="noopener">AppGlideModule</a> 的实现来访问生成的 API。如果你不了解这是怎么工作的，可以查看 <a href="https://muyangmin.github.io/glide-docs-cn/doc/generatedapi.html" target="_blank" rel="noopener">Generated API</a>。</p>
-<p>Generated API添加了一个 GlideApp 类，该类提供了对 RequestBuilder 和 RequestOptions 子类的访问。RequestOptions 的子类包含了所有 RequestOptions 中的方法，以及 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/400/com/bumptech/glide/annotation/GlideExtension.html" target="_blank" rel="noopener">GlideExtensions</a> 中定义的方法。RequestBuilder 的子类则提供了生成的 RequestOptions 中所有方法的访问，而不需要你再手动调用 apply 。举个例子：</p>
+<p>由于 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/400/com/bumptech/glide/TransitionOptions.html">TransitionOptions</a> 是抽象类，所以在使用的时候只能使用它的实现类 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/400/com/bumptech/glide/GenericTransitionOptions.html">GenericTransitionOptions</a>、<a href="https://muyangmin.github.io/glide-docs-cn/javadocs/400/com/bumptech/glide/load/resource/drawable/DrawableTransitionOptions.html">DrawableTransitionOptions</a> 或 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/400/com/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions.html">BitmapTransitionOptions</a> 的实例来完成：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Glide.with(fragment)</span><br><span class="line">     .load(url)</span><br><span class="line">     .transition(<span class="keyword">new</span> <span class="title class_">DrawableTransitionOptions</span>().transition(android.R.anim.slide_in_left))</span><br><span class="line">     .into(target);</span><br></pre></td></tr></table></figure>
+<h3 id="3-1-6-Generated-API"><a href="#3-1-6-Generated-API" class="headerlink" title="3.1.6 Generated API"></a>3.1.6 Generated API</h3><p>为了让使用 Glide V4 更简单轻松，Glide 现在也提供了一套可以为应用定制化生成的 API。应用可以通过包含一个标记了 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/400/com/bumptech/glide/module/AppGlideModule.html">AppGlideModule</a> 的实现来访问生成的 API。如果你不了解这是怎么工作的，可以查看 <a href="https://muyangmin.github.io/glide-docs-cn/doc/generatedapi.html">Generated API</a>。</p>
+<p>Generated API添加了一个 GlideApp 类，该类提供了对 RequestBuilder 和 RequestOptions 子类的访问。RequestOptions 的子类包含了所有 RequestOptions 中的方法，以及 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/400/com/bumptech/glide/annotation/GlideExtension.html">GlideExtensions</a> 中定义的方法。RequestBuilder 的子类则提供了生成的 RequestOptions 中所有方法的访问，而不需要你再手动调用 apply 。举个例子：</p>
 <p>在没有使用 Generated API 时，请求大概长这样：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Glide.with(fragment)</span><br><span class="line">        .load(url)</span><br><span class="line">        .apply(centerCropTransform()</span><br><span class="line">                .placeholder(R.drawable.placeholder)</span><br><span class="line">                .error(R.drawable.error)</span><br><span class="line">                .priority(Priority.HIGH))</span><br><span class="line">        .into(imageView);</span><br></pre></td></tr></table></figure>
 
@@ -308,15 +302,15 @@ var _hmt = _hmt || [];
 <p>如果要下载一个远程文件到缓存然后创建文件路径：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Glide.with(fragment).downloadOnly()</span><br><span class="line"><span class="comment">// or if you have the url already:</span></span><br><span class="line">Glide.with(fragment).download(url);</span><br></pre></td></tr></table></figure>
 
-<h3 id="3-2-2-Drawables"><a href="#3-2-2-Drawables" class="headerlink" title="3.2.2 Drawables"></a>3.2.2 Drawables</h3><p>Glide v3 版本中的 GlideDrawable 类已经被移除，支持标准的 Android <a href="https://developer.android.com/reference/android/graphics/drawable/Drawable.html" target="_blank" rel="noopener">Drawable</a>。 GlideBitmapDrawable 也已经被删除，由 <a href="https://developer.android.com/reference/android/graphics/drawable/BitmapDrawable.html" target="_blank" rel="noopener">BitmapDrawable</a> 代替之。</p>
-<p>如果你想知道某个 Drawable 是否是动画(animated)，可以检查它是否为 <a href="https://developer.android.com/reference/android/graphics/drawable/Animatable.html" target="_blank" rel="noopener">Animatable</a> 的实例。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">boolean</span> isAnimated = drawable <span class="keyword">instanceof</span> Animatable;</span><br></pre></td></tr></table></figure>
+<h3 id="3-2-2-Drawables"><a href="#3-2-2-Drawables" class="headerlink" title="3.2.2 Drawables"></a>3.2.2 Drawables</h3><p>Glide v3 版本中的 GlideDrawable 类已经被移除，支持标准的 Android <a href="https://developer.android.com/reference/android/graphics/drawable/Drawable.html">Drawable</a>。 GlideBitmapDrawable 也已经被删除，由 <a href="https://developer.android.com/reference/android/graphics/drawable/BitmapDrawable.html">BitmapDrawable</a> 代替之。</p>
+<p>如果你想知道某个 Drawable 是否是动画(animated)，可以检查它是否为 <a href="https://developer.android.com/reference/android/graphics/drawable/Animatable.html">Animatable</a> 的实例。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">boolean</span> <span class="variable">isAnimated</span> <span class="operator">=</span> drawable <span class="keyword">instanceof</span> Animatable;</span><br></pre></td></tr></table></figure>
 
 <h3 id="3-2-3-Targets"><a href="#3-2-3-Targets" class="headerlink" title="3.2.3 Targets"></a>3.2.3 Targets</h3><p>onResourceReady 方法的签名做了一些修改。例如，对于 Drawables:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">onResourceReady(GlideDrawable drawable, GlideAnimation&lt;? <span class="keyword">super</span> GlideDrawable&gt; anim)</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">onResourceReady(GlideDrawable drawable, GlideAnimation&lt;? <span class="built_in">super</span> GlideDrawable&gt; anim) </span><br></pre></td></tr></table></figure>
 
 <p>现在改为：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">onResourceReady(Drawable drawable, Transition&lt;? <span class="keyword">super</span> Drawable&gt; transition);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">onResourceReady(Drawable drawable, Transition&lt;? <span class="built_in">super</span> Drawable&gt; transition);</span><br></pre></td></tr></table></figure>
 
 <p>类似地，onLoadFailed 的签名也有一些变动：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">onLoadFailed(Exception e, Drawable errorDrawable)</span><br></pre></td></tr></table></figure>
@@ -324,13 +318,13 @@ var _hmt = _hmt || [];
 <p>改为：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">onLoadFailed(Drawable errorDrawable)</span><br></pre></td></tr></table></figure>
 
-<p>如果你想要获得更多导致加载失败的错误信息，你可以使用 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/400/com/bumptech/glide/request/RequestListener.html" target="_blank" rel="noopener">RequestListener</a>。</p>
+<p>如果你想要获得更多导致加载失败的错误信息，你可以使用 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/400/com/bumptech/glide/request/RequestListener.html">RequestListener</a>。</p>
 <h4 id="3-2-3-1-ViewTarget-的使用"><a href="#3-2-3-1-ViewTarget-的使用" class="headerlink" title="3.2.3.1 ViewTarget 的使用"></a>3.2.3.1 ViewTarget 的使用</h4><p>最后，普及一下 ViewTarget 的使用方式，否则，部分开发者可能对 onResourceReady 和 onLoadFailed 签名的改变没有直观的概念。ViewTarget 的使用大概如下：</p>
 <p><strong>1、编写自定义的 ViewTarget，覆盖需要实现的方法</strong>。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.sunzn.glide;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.graphics.drawable.Drawable;</span><br><span class="line"><span class="keyword">import</span> android.support.annotation.NonNull;</span><br><span class="line"><span class="keyword">import</span> android.support.annotation.Nullable;</span><br><span class="line"><span class="keyword">import</span> android.widget.ImageView;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.bumptech.glide.request.target.ViewTarget;</span><br><span class="line"><span class="keyword">import</span> com.bumptech.glide.request.transition.Transition;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TargetView</span> <span class="keyword">extends</span> <span class="title">ViewTarget</span>&lt;<span class="title">ImageView</span>, <span class="title">Drawable</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TargetView</span><span class="params">(@NonNull ImageView view)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(view);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onLoadFailed</span><span class="params">(@Nullable Drawable errorDrawable)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onLoadFailed(errorDrawable);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResourceReady</span><span class="params">(@NonNull Drawable resource, @Nullable Transition&lt;? <span class="keyword">super</span> Drawable&gt; transition)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.sunzn.glide;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.graphics.drawable.Drawable;</span><br><span class="line"><span class="keyword">import</span> android.support.annotation.NonNull;</span><br><span class="line"><span class="keyword">import</span> android.support.annotation.Nullable;</span><br><span class="line"><span class="keyword">import</span> android.widget.ImageView;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.bumptech.glide.request.target.ViewTarget;</span><br><span class="line"><span class="keyword">import</span> com.bumptech.glide.request.transition.Transition;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TargetView</span> <span class="keyword">extends</span> <span class="title class_">ViewTarget</span>&lt;ImageView, Drawable&gt; &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">TargetView</span><span class="params">(<span class="meta">@NonNull</span> ImageView view)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>(view);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onLoadFailed</span><span class="params">(<span class="meta">@Nullable</span> Drawable errorDrawable)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onLoadFailed(errorDrawable);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onResourceReady</span><span class="params">(<span class="meta">@NonNull</span> Drawable resource, <span class="meta">@Nullable</span> Transition&lt;? <span class="built_in">super</span> Drawable&gt; transition)</span> &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p><strong>2、将自定义的 ViewTarget 传入 into() 方法。</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ImageView imageView = findViewById(R.id.iv);</span><br><span class="line"></span><br><span class="line">Glide.with(<span class="keyword">this</span>)</span><br><span class="line">        .load(url)</span><br><span class="line">        .into(<span class="keyword">new</span> TargetView(imageView));</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ImageView</span> <span class="variable">imageView</span> <span class="operator">=</span> findViewById(R.id.iv);</span><br><span class="line"></span><br><span class="line">Glide.with(<span class="built_in">this</span>)</span><br><span class="line">        .load(url)</span><br><span class="line">        .into(<span class="keyword">new</span> <span class="title class_">TargetView</span>(imageView));</span><br></pre></td></tr></table></figure>
 
 <h2 id="3-3-配置"><a href="#3-3-配置" class="headerlink" title="3.3 配置"></a>3.3 配置</h2><h3 id="3-3-1-应用程序"><a href="#3-3-1-应用程序" class="headerlink" title="3.3.1 应用程序"></a>3.3.1 应用程序</h3><h3 id="3-3-2-程序库"><a href="#3-3-2-程序库" class="headerlink" title="3.3.2 程序库"></a>3.3.2 程序库</h3><h3 id="3-3-3-清单解析"><a href="#3-3-3-清单解析" class="headerlink" title="3.3.3 清单解析"></a>3.3.3 清单解析</h3><h3 id="3-3-4-using-ModelLoader-StreamModelLoader"><a href="#3-3-4-using-ModelLoader-StreamModelLoader" class="headerlink" title="3.3.4 using(), ModelLoader, StreamModelLoader"></a>3.3.4 using(), ModelLoader, StreamModelLoader</h3>
       
@@ -422,7 +416,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/05/26/Glide-V4-API-变更指南/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/05/26/Glide-V4-API-%E5%8F%98%E6%9B%B4%E6%8C%87%E5%8D%97/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -436,7 +430,7 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2018/05/27/将-Android-项目托管到-SVN-上/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/05/27/%E5%B0%86-Android-%E9%A1%B9%E7%9B%AE%E6%89%98%E7%AE%A1%E5%88%B0-SVN-%E4%B8%8A/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -446,7 +440,7 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2018/04/26/将-Java-对象注入到-WebView-的-JavaScript-上下文/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/04/26/%E5%B0%86-Java-%E5%AF%B9%E8%B1%A1%E6%B3%A8%E5%85%A5%E5%88%B0-WebView-%E7%9A%84-JavaScript-%E4%B8%8A%E4%B8%8B%E6%96%87/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">将 Java 对象注入到 WebView 的 JavaScript 上下文</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -474,7 +468,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Android-SDK-要求"><span class="toc-number">1.</span> <span class="toc-text">1 Android SDK 要求</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Glide-接入项目"><span class="toc-number">2.</span> <span class="toc-text">2 Glide 接入项目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-Project-接入"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 Project 接入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-Module-接入"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 Module 接入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-Manifest-权限配置"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 Manifest 权限配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-1-Internet-权限"><span class="toc-number">2.3.1.</span> <span class="toc-text">2.3.1 Internet 权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-2-Local-Storage-权限"><span class="toc-number">2.3.2.</span> <span class="toc-text">2.3.2 Local Storage 权限</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-加载图片"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 加载图片</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Glide-API-变更"><span class="toc-number">3.</span> <span class="toc-text">3 Glide API 变更</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-选项"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 选项</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-1-RequestBuilder-类"><span class="toc-number">3.1.1.</span> <span class="toc-text">3.1.1 RequestBuilder 类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-2-请求选项"><span class="toc-number">3.1.2.</span> <span class="toc-text">3.1.2 请求选项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-3-变换"><span class="toc-number">3.1.3.</span> <span class="toc-text">3.1.3 变换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-4-解码格式"><span class="toc-number">3.1.4.</span> <span class="toc-text">3.1.4 解码格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-5-过渡选项"><span class="toc-number">3.1.5.</span> <span class="toc-text">3.1.5 过渡选项</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-5-1-交叉淡入-Cross-fade"><span class="toc-number">3.1.5.1.</span> <span class="toc-text">3.1.5.1 交叉淡入 (Cross fade)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-5-2-动画进入-Animate"><span class="toc-number">3.1.5.2.</span> <span class="toc-text">3.1.5.2 动画进入 (Animate)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-6-Generated-API"><span class="toc-number">3.1.6.</span> <span class="toc-text">3.1.6 Generated API</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-类型与目标"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 类型与目标</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-1-选择资源类型"><span class="toc-number">3.2.1.</span> <span class="toc-text">3.2.1 选择资源类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-2-Drawables"><span class="toc-number">3.2.2.</span> <span class="toc-text">3.2.2 Drawables</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-3-Targets"><span class="toc-number">3.2.3.</span> <span class="toc-text">3.2.3 Targets</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-3-1-ViewTarget-的使用"><span class="toc-number">3.2.3.1.</span> <span class="toc-text">3.2.3.1 ViewTarget 的使用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-配置"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-1-应用程序"><span class="toc-number">3.3.1.</span> <span class="toc-text">3.3.1 应用程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-2-程序库"><span class="toc-number">3.3.2.</span> <span class="toc-text">3.3.2 程序库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-3-清单解析"><span class="toc-number">3.3.3.</span> <span class="toc-text">3.3.3 清单解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-4-using-ModelLoader-StreamModelLoader"><span class="toc-number">3.3.4.</span> <span class="toc-text">3.3.4 using(), ModelLoader, StreamModelLoader</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Android-SDK-%E8%A6%81%E6%B1%82"><span class="toc-number">1.</span> <span class="toc-text">1 Android SDK 要求</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Glide-%E6%8E%A5%E5%85%A5%E9%A1%B9%E7%9B%AE"><span class="toc-number">2.</span> <span class="toc-text">2 Glide 接入项目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-Project-%E6%8E%A5%E5%85%A5"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 Project 接入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-Module-%E6%8E%A5%E5%85%A5"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 Module 接入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-Manifest-%E6%9D%83%E9%99%90%E9%85%8D%E7%BD%AE"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 Manifest 权限配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-1-Internet-%E6%9D%83%E9%99%90"><span class="toc-number">2.3.1.</span> <span class="toc-text">2.3.1 Internet 权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-2-Local-Storage-%E6%9D%83%E9%99%90"><span class="toc-number">2.3.2.</span> <span class="toc-text">2.3.2 Local Storage 权限</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-%E5%8A%A0%E8%BD%BD%E5%9B%BE%E7%89%87"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 加载图片</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Glide-API-%E5%8F%98%E6%9B%B4"><span class="toc-number">3.</span> <span class="toc-text">3 Glide API 变更</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E9%80%89%E9%A1%B9"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 选项</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-1-RequestBuilder-%E7%B1%BB"><span class="toc-number">3.1.1.</span> <span class="toc-text">3.1.1 RequestBuilder 类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-2-%E8%AF%B7%E6%B1%82%E9%80%89%E9%A1%B9"><span class="toc-number">3.1.2.</span> <span class="toc-text">3.1.2 请求选项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-3-%E5%8F%98%E6%8D%A2"><span class="toc-number">3.1.3.</span> <span class="toc-text">3.1.3 变换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-4-%E8%A7%A3%E7%A0%81%E6%A0%BC%E5%BC%8F"><span class="toc-number">3.1.4.</span> <span class="toc-text">3.1.4 解码格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-5-%E8%BF%87%E6%B8%A1%E9%80%89%E9%A1%B9"><span class="toc-number">3.1.5.</span> <span class="toc-text">3.1.5 过渡选项</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-5-1-%E4%BA%A4%E5%8F%89%E6%B7%A1%E5%85%A5-Cross-fade"><span class="toc-number">3.1.5.1.</span> <span class="toc-text">3.1.5.1 交叉淡入 (Cross fade)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-5-2-%E5%8A%A8%E7%94%BB%E8%BF%9B%E5%85%A5-Animate"><span class="toc-number">3.1.5.2.</span> <span class="toc-text">3.1.5.2 动画进入 (Animate)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-6-Generated-API"><span class="toc-number">3.1.6.</span> <span class="toc-text">3.1.6 Generated API</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E7%B1%BB%E5%9E%8B%E4%B8%8E%E7%9B%AE%E6%A0%87"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 类型与目标</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-1-%E9%80%89%E6%8B%A9%E8%B5%84%E6%BA%90%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.2.1.</span> <span class="toc-text">3.2.1 选择资源类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-2-Drawables"><span class="toc-number">3.2.2.</span> <span class="toc-text">3.2.2 Drawables</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-3-Targets"><span class="toc-number">3.2.3.</span> <span class="toc-text">3.2.3 Targets</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-3-1-ViewTarget-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">3.2.3.1.</span> <span class="toc-text">3.2.3.1 ViewTarget 的使用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E9%85%8D%E7%BD%AE"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-1-%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F"><span class="toc-number">3.3.1.</span> <span class="toc-text">3.3.1 应用程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-2-%E7%A8%8B%E5%BA%8F%E5%BA%93"><span class="toc-number">3.3.2.</span> <span class="toc-text">3.3.2 程序库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-3-%E6%B8%85%E5%8D%95%E8%A7%A3%E6%9E%90"><span class="toc-number">3.3.3.</span> <span class="toc-text">3.3.3 清单解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-4-using-ModelLoader-StreamModelLoader"><span class="toc-number">3.3.4.</span> <span class="toc-text">3.3.4 using(), ModelLoader, StreamModelLoader</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -587,10 +581,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -603,6 +593,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Android Studio</a>
               </li>
              
@@ -611,11 +609,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+                <a href="javascript:void(0)" class="js-tag color5">Room</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -623,11 +625,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">View</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Fiddler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -643,7 +669,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -652,10 +690,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -675,59 +709,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">View</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Room</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -751,15 +745,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
+                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Application</a>
               </li>
             
             <div class="clearfix"></div>

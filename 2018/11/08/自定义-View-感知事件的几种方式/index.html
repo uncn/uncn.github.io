@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>自定义 View 感知事件的几种方式 | Welcome to sunzn&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="1 事件感知绝大多数情况下，View 是不需要感知外部组件的生命周期或系统事件的。但部分情况下，View 对外部事件的感知又是必要的，比如广告轮播组件：Banner，这样的控件在设计之初就要考虑亮屏、息屏、Activity 的 onResume 和 onPause 生命周期，因为谁也不希望 Banner 在这些节点处继续执行轮播操作。 如果将 Banner 当成一个 ItemView 放入 Lis">
-<meta name="keywords" content="Android,View">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自定义 View 感知事件的几种方式">
-<meta property="og:url" content="http://yoursite.com/2018/11/08/自定义-View-感知事件的几种方式/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/11/08/%E8%87%AA%E5%AE%9A%E4%B9%89-View-%E6%84%9F%E7%9F%A5%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/index.html">
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="1 事件感知绝大多数情况下，View 是不需要感知外部组件的生命周期或系统事件的。但部分情况下，View 对外部事件的感知又是必要的，比如广告轮播组件：Banner，这样的控件在设计之初就要考虑亮屏、息屏、Activity 的 onResume 和 onPause 生命周期，因为谁也不希望 Banner 在这些节点处继续执行轮播操作。 如果将 Banner 当成一个 ItemView 放入 Lis">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-26T17:51:17.341Z">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-11-08T14:30:51.000Z">
+<meta property="article:modified_time" content="2019-09-26T17:51:17.341Z">
+<meta property="article:author" content="狮子">
+<meta property="article:tag" content="Android">
+<meta property="article:tag" content="View">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="自定义 View 感知事件的几种方式">
-<meta name="twitter:description" content="1 事件感知绝大多数情况下，View 是不需要感知外部组件的生命周期或系统事件的。但部分情况下，View 对外部事件的感知又是必要的，比如广告轮播组件：Banner，这样的控件在设计之初就要考虑亮屏、息屏、Activity 的 onResume 和 onPause 生命周期，因为谁也不希望 Banner 在这些节点处继续执行轮播操作。 如果将 Banner 当成一个 ItemView 放入 Lis">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -47,8 +48,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -61,10 +62,8 @@ var _hmt = _hmt || [];
 			<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">狮子</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">念念不忘，必有回响</p>
 		
 
 		<nav class="header-menu">
@@ -121,10 +120,8 @@ var _hmt = _hmt || [];
 				<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">狮子</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>念念不忘，必有回响<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -181,7 +178,7 @@ var _hmt = _hmt || [];
   
 
         
-        <a href="/2018/11/08/自定义-View-感知事件的几种方式/" class="archive-article-date">
+        <a href="/2018/11/08/%E8%87%AA%E5%AE%9A%E4%B9%89-View-%E6%84%9F%E7%9F%A5%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/" class="archive-article-date">
   	<time datetime="2018-11-08T14:30:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-08</time>
 </a>
         
@@ -189,17 +186,17 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-事件感知"><a href="#1-事件感知" class="headerlink" title="1 事件感知"></a>1 事件感知</h1><p>绝大多数情况下，View 是不需要感知外部组件的生命周期或系统事件的。但部分情况下，View 对外部事件的感知又是必要的，比如广告轮播组件：<a href="https://github.com/ShortStickBoy/Banner" target="_blank" rel="noopener">Banner</a>，这样的控件在设计之初就要考虑亮屏、息屏、Activity 的 onResume 和 onPause 生命周期，因为谁也不希望 Banner 在这些节点处继续执行轮播操作。</p>
+        <h1 id="1-事件感知"><a href="#1-事件感知" class="headerlink" title="1 事件感知"></a>1 事件感知</h1><p>绝大多数情况下，View 是不需要感知外部组件的生命周期或系统事件的。但部分情况下，View 对外部事件的感知又是必要的，比如广告轮播组件：<a href="https://github.com/ShortStickBoy/Banner">Banner</a>，这样的控件在设计之初就要考虑亮屏、息屏、Activity 的 onResume 和 onPause 生命周期，因为谁也不希望 Banner 在这些节点处继续执行轮播操作。</p>
 <p>如果将 Banner 当成一个 ItemView 放入 Listiew、RecyclerView 等具有复用机制的容器中时，新的问题又出现了，当 Banner 被滑出屏幕，又重新滑回屏幕后，之前的轮播状态是无法保持的。所以，我们需要知道 Banner 被销毁和重建的窗口，在销毁时记录轮播状态，在重建时将轮播状态复位。这样，用户就会有一致的轮播状态体验了。</p>
-<p>下面将会结合以上需求对每种事件和生命周期的感知进行详细的阐述。案例项目会托管在 Github 上，如需查看，请点击 <a href="https://github.com/ShortStickBoy/Receptor" target="_blank" rel="noopener">Receptor@Github</a>。</p>
-<a id="more"></a>
+<p>下面将会结合以上需求对每种事件和生命周期的感知进行详细的阐述。案例项目会托管在 Github 上，如需查看，请点击 <a href="https://github.com/ShortStickBoy/Receptor">Receptor@Github</a>。</p>
+<span id="more"></span>
 
 <h2 id="1-1-onAttachedToWindow-与-onDetachedFromWindow"><a href="#1-1-onAttachedToWindow-与-onDetachedFromWindow" class="headerlink" title="1.1 onAttachedToWindow 与 onDetachedFromWindow"></a>1.1 onAttachedToWindow 与 onDetachedFromWindow</h2><p>这两个方法是 View 自身的方法。当 View 被添加到窗体中时，onAttachedToWindow 会被调用，此时它有一个 Surface 并将开始绘制，非严格意义上说，这时用户已经可以看到你的 View 了，因为系统渲染 View 的速度非常快。当 View 从窗体中被移除时，onDetachedFromWindow 会被调用，此时它不再拥有用于绘制的 Surface，这时用户的直观感受是看不到你的 View 了。</p>
 <p>View 被添加到窗体和从窗体中被移除的监听很好实现，只需要继承父 View 重写 onAttachedToWindow 和 onDetachedFromWindow，然后增加自己的监听逻辑即可。实现方式大概像这样：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomView</span> <span class="keyword">extends</span> <span class="title">FrameLayout</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    ......</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onAttachedToWindow</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onAttachedToWindow();</span><br><span class="line">        <span class="comment">// TODO 处理监听逻辑</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDetachedFromWindow</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onDetachedFromWindow();</span><br><span class="line">        <span class="comment">// TODO 处理监听逻辑</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CustomView</span> <span class="keyword">extends</span> <span class="title class_">FrameLayout</span> &#123;</span><br><span class="line"></span><br><span class="line">    ......</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onAttachedToWindow</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onAttachedToWindow();</span><br><span class="line">        <span class="comment">// TODO 处理监听逻辑</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onDetachedFromWindow</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onDetachedFromWindow();</span><br><span class="line">        <span class="comment">// TODO 处理监听逻辑</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="1-2-BroadcastReceiver"><a href="#1-2-BroadcastReceiver" class="headerlink" title="1.2 BroadcastReceiver"></a>1.2 BroadcastReceiver</h2><p>onAttachedToWindow 和 onDetachedFromWindow 已经能够实现 View 自身被添加或移除的监听了，但是，我们还想监听亮屏、息屏等系统事件。在 Android 中，这些系统事件是通过广播的方式来告知感兴趣的组件的。所以，我们需要在 View 的生命周期中注册一个广播接收者，来完成系统事件的监听。onAttachedToWindow 和 onDetachedFromWindow 刚好可以成为广播注册、反注册的窗口，实现方式大概像这样：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomView</span> <span class="keyword">extends</span> <span class="title">FrameLayout</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    ......</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> mAttached;</span><br><span class="line"></span><br><span class="line">    IntentFilter mFilter = <span class="keyword">new</span> IntentFilter();</span><br><span class="line">    mFilter.addAction(Intent.ACTION_SCREEN_ON);</span><br><span class="line">    mFilter.addAction(Intent.ACTION_SCREEN_OFF);</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onAttachedToWindow</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onAttachedToWindow();</span><br><span class="line">        <span class="comment">// TODO 处理监听逻辑</span></span><br><span class="line">        regReceiver();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDetachedFromWindow</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onDetachedFromWindow();</span><br><span class="line">        <span class="comment">// TODO 处理监听逻辑</span></span><br><span class="line">        unrReceiver();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">regReceiver</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!mAttached) &#123;</span><br><span class="line">            getContext().registerReceiver(mReceiver, mFilter);</span><br><span class="line">            mAttached = <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">unrReceiver</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (mAttached) &#123;</span><br><span class="line">            getContext().unregisterReceiver(mReceiver);</span><br><span class="line">            mAttached = <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> BroadcastReceiver mReceiver = <span class="keyword">new</span> BroadcastReceiver() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span> </span>&#123;</span><br><span class="line">            String action = intent.getAction();</span><br><span class="line">            <span class="keyword">if</span> (Intent.ACTION_SCREEN_OFF.equals(action)) &#123;</span><br><span class="line">                <span class="comment">// TODO 处理监听逻辑;</span></span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (Intent.ACTION_SCREEN_ON.equals(action)) &#123;</span><br><span class="line">                <span class="comment">// TODO 处理监听逻辑</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CustomView</span> <span class="keyword">extends</span> <span class="title class_">FrameLayout</span> &#123;</span><br><span class="line"></span><br><span class="line">    ......</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">boolean</span> mAttached;</span><br><span class="line"></span><br><span class="line">    <span class="type">IntentFilter</span> <span class="variable">mFilter</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">IntentFilter</span>();</span><br><span class="line">    mFilter.addAction(Intent.ACTION_SCREEN_ON);</span><br><span class="line">    mFilter.addAction(Intent.ACTION_SCREEN_OFF);</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onAttachedToWindow</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onAttachedToWindow();</span><br><span class="line">        <span class="comment">// TODO 处理监听逻辑</span></span><br><span class="line">        regReceiver();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onDetachedFromWindow</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onDetachedFromWindow();</span><br><span class="line">        <span class="comment">// TODO 处理监听逻辑</span></span><br><span class="line">        unrReceiver();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">regReceiver</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (!mAttached) &#123;</span><br><span class="line">            getContext().registerReceiver(mReceiver, mFilter);</span><br><span class="line">            mAttached = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">unrReceiver</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (mAttached) &#123;</span><br><span class="line">            getContext().unregisterReceiver(mReceiver);</span><br><span class="line">            mAttached = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">BroadcastReceiver</span> <span class="variable">mReceiver</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BroadcastReceiver</span>() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onReceive</span><span class="params">(Context context, Intent intent)</span> &#123;</span><br><span class="line">            <span class="type">String</span> <span class="variable">action</span> <span class="operator">=</span> intent.getAction();</span><br><span class="line">            <span class="keyword">if</span> (Intent.ACTION_SCREEN_OFF.equals(action)) &#123;</span><br><span class="line">                <span class="comment">// TODO 处理监听逻辑;</span></span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (Intent.ACTION_SCREEN_ON.equals(action)) &#123;</span><br><span class="line">                <span class="comment">// TODO 处理监听逻辑</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="1-3-Lifecycle"><a href="#1-3-Lifecycle" class="headerlink" title="1.3 Lifecycle"></a>1.3 Lifecycle</h2><p>Lifecycle 是 Android 推出的一个生命周期管理组件，通过观察者模式对 Activity 或 Fragment 进行生命周期的感知。Lifecycle 组件包括 LifecycleOwner 和 LifecycleObserver，LifecycleOwner 是生命周期的持有者，负责提供生命周期事件；LifecycleObserver 是生命周期的观察者，负责感知生命周期事件，做出相应动作。</p>
 <p>Android 系统的 Activity 和 Fragment 均实现了 LifecycleOwner 接口，使得这两个组件成为了生命周期事件的提供者。这时如果在 Activity 或 Fragment 中添加 Observer（生命周期的观察者），它们父类中的 LifecycleRegistry 类会将 [ Activity、 Fragment – 事件提供者] 和 [ LifecycleObserver – 事件观察者] 关联到一起，这样 LifecycleObserver 就会感知到 LifecycleOwner 生命周期的变化。</p>
@@ -208,22 +205,22 @@ var _hmt = _hmt || [];
 <p><font style="color:#01579B;font-size:14px;"><strong>注意</strong>：如果想使用 DefaultLifecycleObserver 接口，minSdkVersion 需要大于等于 24，否则会报错。</font></p>
 </blockquote>
 <h3 id="1-3-1-添加引用"><a href="#1-3-1-添加引用" class="headerlink" title="1.3.1 添加引用"></a>1.3.1 添加引用</h3><p>在 Module 的 build.gradle 文件中的 dependencies 节点增加引用，如果 Android Studio 使用 JDK8，需要引入 Java8 的库。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    ......</span><br><span class="line">    implementation <span class="string">"android.arch.lifecycle:runtime:1.1.1"</span></span><br><span class="line">    implementation <span class="string">"android.arch.lifecycle:extensions:1.1.1"</span></span><br><span class="line">    implementation <span class="string">"android.arch.lifecycle:common-java8:1.1.1"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    ......</span><br><span class="line">    implementation <span class="string">&quot;android.arch.lifecycle:runtime:1.1.1&quot;</span></span><br><span class="line">    implementation <span class="string">&quot;android.arch.lifecycle:extensions:1.1.1&quot;</span></span><br><span class="line">    implementation <span class="string">&quot;android.arch.lifecycle:common-java8:1.1.1&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="1-3-2-实现接口"><a href="#1-3-2-实现接口" class="headerlink" title="1.3.2 实现接口"></a>1.3.2 实现接口</h3><p>笔者的测试项目中使用了 JDK8，并且 minSdkVersion=24，所以这里的自定义 View 直接实现了 DefaultLifecycleObserver 接口并实现了全部方法。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> android.arch.lifecycle.DefaultLifecycleObserver;</span><br><span class="line"><span class="keyword">import</span> android.arch.lifecycle.LifecycleOwner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomView</span> <span class="keyword">extends</span> <span class="title">FrameLayout</span> <span class="keyword">implements</span> <span class="title">DefaultLifecycleObserver</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    ......</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(@NonNull LifecycleOwner owner)</span> </span>&#123;</span><br><span class="line">        Log.d(TAG, <span class="string">"onCreate"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onStart</span><span class="params">(@NonNull LifecycleOwner owner)</span> </span>&#123;</span><br><span class="line">        Log.d(TAG, <span class="string">"onStart"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResume</span><span class="params">(@NonNull LifecycleOwner owner)</span> </span>&#123;</span><br><span class="line">        Log.d(TAG, <span class="string">"onResume"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPause</span><span class="params">(@NonNull LifecycleOwner owner)</span> </span>&#123;</span><br><span class="line">        Log.d(TAG, <span class="string">"onPause"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onStop</span><span class="params">(@NonNull LifecycleOwner owner)</span> </span>&#123;</span><br><span class="line">        Log.d(TAG, <span class="string">"onStop"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">(@NonNull LifecycleOwner owner)</span> </span>&#123;</span><br><span class="line">        Log.d(TAG, <span class="string">"onDestroy"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="1-3-2-实现接口"><a href="#1-3-2-实现接口" class="headerlink" title="1.3.2 实现接口"></a>1.3.2 实现接口</h3><p>笔者的测试项目中使用了 JDK8，并且 minSdkVersion&#x3D;24，所以这里的自定义 View 直接实现了 DefaultLifecycleObserver 接口并实现了全部方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> android.arch.lifecycle.DefaultLifecycleObserver;</span><br><span class="line"><span class="keyword">import</span> android.arch.lifecycle.LifecycleOwner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CustomView</span> <span class="keyword">extends</span> <span class="title class_">FrameLayout</span> <span class="keyword">implements</span> <span class="title class_">DefaultLifecycleObserver</span> &#123;</span><br><span class="line"></span><br><span class="line">    ......</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onCreate</span><span class="params">(<span class="meta">@NonNull</span> LifecycleOwner owner)</span> &#123;</span><br><span class="line">        Log.d(TAG, <span class="string">&quot;onCreate&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onStart</span><span class="params">(<span class="meta">@NonNull</span> LifecycleOwner owner)</span> &#123;</span><br><span class="line">        Log.d(TAG, <span class="string">&quot;onStart&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onResume</span><span class="params">(<span class="meta">@NonNull</span> LifecycleOwner owner)</span> &#123;</span><br><span class="line">        Log.d(TAG, <span class="string">&quot;onResume&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onPause</span><span class="params">(<span class="meta">@NonNull</span> LifecycleOwner owner)</span> &#123;</span><br><span class="line">        Log.d(TAG, <span class="string">&quot;onPause&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onStop</span><span class="params">(<span class="meta">@NonNull</span> LifecycleOwner owner)</span> &#123;</span><br><span class="line">        Log.d(TAG, <span class="string">&quot;onStop&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onDestroy</span><span class="params">(<span class="meta">@NonNull</span> LifecycleOwner owner)</span> &#123;</span><br><span class="line">        Log.d(TAG, <span class="string">&quot;onDestroy&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="1-3-3-布局引用"><a href="#1-3-3-布局引用" class="headerlink" title="1.3.3 布局引用"></a>1.3.3 布局引用</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">android.support.constraint.ConstraintLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">tools:context</span>=<span class="string">".MainActivity"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">com.sunzn.receptor.CustomView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/custom"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">android.support.constraint.ConstraintLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-3-3-布局引用"><a href="#1-3-3-布局引用" class="headerlink" title="1.3.3 布局引用"></a>1.3.3 布局引用</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">android.support.constraint.ConstraintLayout</span> <span class="attr">xmlns:android</span>=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:tools</span>=<span class="string">&quot;http://schemas.android.com/tools&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">tools:context</span>=<span class="string">&quot;.MainActivity&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">com.sunzn.receptor.CustomView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/custom&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">&quot;match_parent&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">android.support.constraint.ConstraintLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="1-3-4-关联组件"><a href="#1-3-4-关联组件" class="headerlink" title="1.3.4 关联组件"></a>1.3.4 关联组件</h3><p>组件关联的时候，需要创建 DefaultLifecycleObserver 的实例，本例中是实现类 CustomView 的实例，然后将其添加到 Observer 中，就可以进行生命周期的感知了。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.sunzn.receptor;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.support.v7.app.AppCompatActivity;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        CustomView view = findViewById(R.id.custom);</span><br><span class="line">        getLifecycle().addObserver(view);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.sunzn.receptor;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.support.v7.app.AppCompatActivity;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainActivity</span> <span class="keyword">extends</span> <span class="title class_">AppCompatActivity</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onCreate</span><span class="params">(Bundle savedInstanceState)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        <span class="type">CustomView</span> <span class="variable">view</span> <span class="operator">=</span> findViewById(R.id.custom);</span><br><span class="line">        getLifecycle().addObserver(view);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="1-3-5-测试结果"><a href="#1-3-5-测试结果" class="headerlink" title="1.3.5 测试结果"></a>1.3.5 测试结果</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2018</span>-<span class="number">11</span>-<span class="number">08</span> <span class="number">09</span>:<span class="number">45</span>:<span class="number">45.241</span> <span class="number">13036</span>-<span class="number">13036</span>/com.sunzn.receptor D/CustomView: onCreate</span><br><span class="line"><span class="number">2018</span>-<span class="number">11</span>-<span class="number">08</span> <span class="number">09</span>:<span class="number">45</span>:<span class="number">45.242</span> <span class="number">13036</span>-<span class="number">13036</span>/com.sunzn.receptor D/CustomView: onStart</span><br><span class="line"><span class="number">2018</span>-<span class="number">11</span>-<span class="number">08</span> <span class="number">09</span>:<span class="number">45</span>:<span class="number">45.245</span> <span class="number">13036</span>-<span class="number">13036</span>/com.sunzn.receptor D/CustomView: onResume</span><br><span class="line"><span class="number">2018</span>-<span class="number">11</span>-<span class="number">08</span> <span class="number">09</span>:<span class="number">45</span>:<span class="number">45.255</span> <span class="number">13036</span>-<span class="number">13036</span>/com.sunzn.receptor D/CustomView: onAttachedToWindow</span><br><span class="line"><span class="number">2018</span>-<span class="number">11</span>-<span class="number">08</span> <span class="number">09</span>:<span class="number">45</span>:<span class="number">47.428</span> <span class="number">13036</span>-<span class="number">13036</span>/com.sunzn.receptor D/CustomView: onPause</span><br><span class="line"><span class="number">2018</span>-<span class="number">11</span>-<span class="number">08</span> <span class="number">09</span>:<span class="number">45</span>:<span class="number">47.839</span> <span class="number">13036</span>-<span class="number">13036</span>/com.sunzn.receptor D/CustomView: onStop</span><br><span class="line"><span class="number">2018</span>-<span class="number">11</span>-<span class="number">08</span> <span class="number">09</span>:<span class="number">45</span>:<span class="number">47.840</span> <span class="number">13036</span>-<span class="number">13036</span>/com.sunzn.receptor D/CustomView: onDestroy</span><br><span class="line"><span class="number">2018</span>-<span class="number">11</span>-<span class="number">08</span> <span class="number">09</span>:<span class="number">45</span>:<span class="number">47.840</span> <span class="number">13036</span>-<span class="number">13036</span>/com.sunzn.receptor D/CustomView: onDetachedFromWindow</span><br></pre></td></tr></table></figure>
+<h3 id="1-3-5-测试结果"><a href="#1-3-5-测试结果" class="headerlink" title="1.3.5 测试结果"></a>1.3.5 测试结果</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2018</span>-<span class="number">11</span>-08 09:<span class="number">45</span>:<span class="number">45.241</span> <span class="number">13036</span>-<span class="number">13036</span>/com.sunzn.receptor D/CustomView: onCreate</span><br><span class="line"><span class="number">2018</span>-<span class="number">11</span>-08 09:<span class="number">45</span>:<span class="number">45.242</span> <span class="number">13036</span>-<span class="number">13036</span>/com.sunzn.receptor D/CustomView: onStart</span><br><span class="line"><span class="number">2018</span>-<span class="number">11</span>-08 09:<span class="number">45</span>:<span class="number">45.245</span> <span class="number">13036</span>-<span class="number">13036</span>/com.sunzn.receptor D/CustomView: onResume</span><br><span class="line"><span class="number">2018</span>-<span class="number">11</span>-08 09:<span class="number">45</span>:<span class="number">45.255</span> <span class="number">13036</span>-<span class="number">13036</span>/com.sunzn.receptor D/CustomView: onAttachedToWindow</span><br><span class="line"><span class="number">2018</span>-<span class="number">11</span>-08 09:<span class="number">45</span>:<span class="number">47.428</span> <span class="number">13036</span>-<span class="number">13036</span>/com.sunzn.receptor D/CustomView: onPause</span><br><span class="line"><span class="number">2018</span>-<span class="number">11</span>-08 09:<span class="number">45</span>:<span class="number">47.839</span> <span class="number">13036</span>-<span class="number">13036</span>/com.sunzn.receptor D/CustomView: onStop</span><br><span class="line"><span class="number">2018</span>-<span class="number">11</span>-08 09:<span class="number">45</span>:<span class="number">47.840</span> <span class="number">13036</span>-<span class="number">13036</span>/com.sunzn.receptor D/CustomView: onDestroy</span><br><span class="line"><span class="number">2018</span>-<span class="number">11</span>-08 09:<span class="number">45</span>:<span class="number">47.840</span> <span class="number">13036</span>-<span class="number">13036</span>/com.sunzn.receptor D/CustomView: onDetachedFromWindow</span><br></pre></td></tr></table></figure>
 
 <h1 id="2-参考文章"><a href="#2-参考文章" class="headerlink" title="2 参考文章"></a>2 参考文章</h1><ul>
-<li><a href="https://blog.csdn.net/zhuzp_blog/article/details/78871374" target="_blank" rel="noopener">Android 架构组件：Lifecycle</a></li>
-<li><a href="https://mp.weixin.qq.com/s/9rC_5GhdAA_EMEbWKJT5vQ" target="_blank" rel="noopener">正式发布 Android 架构组件 1.0 稳定版</a></li>
-<li><a href="https://mp.weixin.qq.com/s/lR7ArxNdyMEL1O61uVxZ0g" target="_blank" rel="noopener">一文带你了解 Lifecycle | 开发者说·DTalk</a></li>
+<li><a href="https://blog.csdn.net/zhuzp_blog/article/details/78871374">Android 架构组件：Lifecycle</a></li>
+<li><a href="https://mp.weixin.qq.com/s/9rC_5GhdAA_EMEbWKJT5vQ">正式发布 Android 架构组件 1.0 稳定版</a></li>
+<li><a href="https://mp.weixin.qq.com/s/lR7ArxNdyMEL1O61uVxZ0g">一文带你了解 Lifecycle | 开发者说·DTalk</a></li>
 </ul>
 
       
@@ -319,7 +316,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/11/08/自定义-View-感知事件的几种方式/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/11/08/%E8%87%AA%E5%AE%9A%E4%B9%89-View-%E6%84%9F%E7%9F%A5%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -343,7 +340,7 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2018/08/12/Android-Library-中-switch-语句的-case-不能访问资源-ID-的原因/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/08/12/Android-Library-%E4%B8%AD-switch-%E8%AF%AD%E5%8F%A5%E7%9A%84-case-%E4%B8%8D%E8%83%BD%E8%AE%BF%E9%97%AE%E8%B5%84%E6%BA%90-ID-%E7%9A%84%E5%8E%9F%E5%9B%A0/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Android Library 中 switch 语句的 case 不能访问资源 ID 的原因</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -371,7 +368,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-事件感知"><span class="toc-number">1.</span> <span class="toc-text">1 事件感知</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-onAttachedToWindow-与-onDetachedFromWindow"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 onAttachedToWindow 与 onDetachedFromWindow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-BroadcastReceiver"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 BroadcastReceiver</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-Lifecycle"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 Lifecycle</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-1-添加引用"><span class="toc-number">1.3.1.</span> <span class="toc-text">1.3.1 添加引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-2-实现接口"><span class="toc-number">1.3.2.</span> <span class="toc-text">1.3.2 实现接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-3-布局引用"><span class="toc-number">1.3.3.</span> <span class="toc-text">1.3.3 布局引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-4-关联组件"><span class="toc-number">1.3.4.</span> <span class="toc-text">1.3.4 关联组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-5-测试结果"><span class="toc-number">1.3.5.</span> <span class="toc-text">1.3.5 测试结果</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-参考文章"><span class="toc-number">2.</span> <span class="toc-text">2 参考文章</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E4%BA%8B%E4%BB%B6%E6%84%9F%E7%9F%A5"><span class="toc-number">1.</span> <span class="toc-text">1 事件感知</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-onAttachedToWindow-%E4%B8%8E-onDetachedFromWindow"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 onAttachedToWindow 与 onDetachedFromWindow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-BroadcastReceiver"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 BroadcastReceiver</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-Lifecycle"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 Lifecycle</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-1-%E6%B7%BB%E5%8A%A0%E5%BC%95%E7%94%A8"><span class="toc-number">1.3.1.</span> <span class="toc-text">1.3.1 添加引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-2-%E5%AE%9E%E7%8E%B0%E6%8E%A5%E5%8F%A3"><span class="toc-number">1.3.2.</span> <span class="toc-text">1.3.2 实现接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-3-%E5%B8%83%E5%B1%80%E5%BC%95%E7%94%A8"><span class="toc-number">1.3.3.</span> <span class="toc-text">1.3.3 布局引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-4-%E5%85%B3%E8%81%94%E7%BB%84%E4%BB%B6"><span class="toc-number">1.3.4.</span> <span class="toc-text">1.3.4 关联组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-5-%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C"><span class="toc-number">1.3.5.</span> <span class="toc-text">1.3.5 测试结果</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="toc-number">2.</span> <span class="toc-text">2 参考文章</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -484,10 +481,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -500,6 +493,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Android Studio</a>
               </li>
              
@@ -508,11 +509,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+                <a href="javascript:void(0)" class="js-tag color5">Room</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -520,11 +525,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">View</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Fiddler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -540,7 +569,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -549,10 +590,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -572,59 +609,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">View</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Room</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -648,15 +645,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
+                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Application</a>
               </li>
             
             <div class="clearfix"></div>

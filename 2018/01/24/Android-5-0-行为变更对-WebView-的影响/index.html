@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Android 5.0 行为变更对 WebView 的影响 | Welcome to sunzn&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Android 5.0 行为变更已经好长时间了，之前进行 WebView 的开发一直没有出现问题，所有也就没有关注这次行为变更对 WebVie 带来的影响。直到要为一个视频网站开发的 APP 里嵌入 WebView 进行音视频播放，才发现问题所在。大概描述一下情况：视频网站使用了 HTTPS 加密，但视频资源采用的是 HTTP，几经测试，发现网站取消 HTTPS 加密后，WebView 就可以正常">
-<meta name="keywords" content="Android,WebView">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 5.0 行为变更对 WebView 的影响">
-<meta property="og:url" content="http://yoursite.com/2018/01/24/Android-5-0-行为变更对-WebView-的影响/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/01/24/Android-5-0-%E8%A1%8C%E4%B8%BA%E5%8F%98%E6%9B%B4%E5%AF%B9-WebView-%E7%9A%84%E5%BD%B1%E5%93%8D/index.html">
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="Android 5.0 行为变更已经好长时间了，之前进行 WebView 的开发一直没有出现问题，所有也就没有关注这次行为变更对 WebVie 带来的影响。直到要为一个视频网站开发的 APP 里嵌入 WebView 进行音视频播放，才发现问题所在。大概描述一下情况：视频网站使用了 HTTPS 加密，但视频资源采用的是 HTTP，几经测试，发现网站取消 HTTPS 加密后，WebView 就可以正常">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-26T14:37:26.000Z">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-01-24T10:09:47.000Z">
+<meta property="article:modified_time" content="2018-04-26T14:37:26.000Z">
+<meta property="article:author" content="狮子">
+<meta property="article:tag" content="Android">
+<meta property="article:tag" content="WebView">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android 5.0 行为变更对 WebView 的影响">
-<meta name="twitter:description" content="Android 5.0 行为变更已经好长时间了，之前进行 WebView 的开发一直没有出现问题，所有也就没有关注这次行为变更对 WebVie 带来的影响。直到要为一个视频网站开发的 APP 里嵌入 WebView 进行音视频播放，才发现问题所在。大概描述一下情况：视频网站使用了 HTTPS 加密，但视频资源采用的是 HTTP，几经测试，发现网站取消 HTTPS 加密后，WebView 就可以正常">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -47,8 +48,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -61,10 +62,8 @@ var _hmt = _hmt || [];
 			<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">狮子</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">念念不忘，必有回响</p>
 		
 
 		<nav class="header-menu">
@@ -121,10 +120,8 @@ var _hmt = _hmt || [];
 				<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">狮子</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>念念不忘，必有回响<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -181,7 +178,7 @@ var _hmt = _hmt || [];
   
 
         
-        <a href="/2018/01/24/Android-5-0-行为变更对-WebView-的影响/" class="archive-article-date">
+        <a href="/2018/01/24/Android-5-0-%E8%A1%8C%E4%B8%BA%E5%8F%98%E6%9B%B4%E5%AF%B9-WebView-%E7%9A%84%E5%BD%B1%E5%93%8D/" class="archive-article-date">
   	<time datetime="2018-01-24T10:09:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-24</time>
 </a>
         
@@ -189,12 +186,12 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Android 5.0 行为变更已经好长时间了，之前进行 WebView 的开发一直没有出现问题，所有也就没有关注这次行为变更对 WebVie 带来的影响。直到要为一个视频网站开发的 APP 里嵌入 WebView 进行音视频播放，才发现问题所在。大概描述一下情况：视频网站使用了 HTTPS 加密，但视频资源采用的是 HTTP，几经测试，发现网站取消 HTTPS 加密后，WebView 就可以正常加载视频了。于是就顺藤摸瓜，有了这篇文章。开始文章之前，先来看看 Google 官方的描述 <a href="https://developer.android.com/about/versions/android-5.0-changes.html#BehaviorWebView" target="_blank" rel="noopener">Android 5.0 行为变更之 WebView</a>。</p>
+        <p>Android 5.0 行为变更已经好长时间了，之前进行 WebView 的开发一直没有出现问题，所有也就没有关注这次行为变更对 WebVie 带来的影响。直到要为一个视频网站开发的 APP 里嵌入 WebView 进行音视频播放，才发现问题所在。大概描述一下情况：视频网站使用了 HTTPS 加密，但视频资源采用的是 HTTP，几经测试，发现网站取消 HTTPS 加密后，WebView 就可以正常加载视频了。于是就顺藤摸瓜，有了这篇文章。开始文章之前，先来看看 Google 官方的描述 <a href="https://developer.android.com/about/versions/android-5.0-changes.html#BehaviorWebView">Android 5.0 行为变更之 WebView</a>。</p>
 <h1 id="1-WebView-行为变更"><a href="#1-WebView-行为变更" class="headerlink" title="1. WebView 行为变更"></a>1. WebView 行为变更</h1><p>Android 5.0 更改了应用的默认行为。</p>
 <ul>
 <li><strong>如果您的应用是面向 API 级别 21 或更高级别：</strong><ul>
-<li>默认情况下，系统会阻止混合内容和第三方 Cookie。要允许混合内容和第三方 Cookie，请分别使用 <a href="https://developer.android.com/reference/android/webkit/WebSettings.html#setMixedContentMode%28int%29" target="_blank" rel="noopener">setMixedContentMode()</a> 和 <a href="https://developer.android.com/reference/android/webkit/CookieManager.html#setAcceptThirdPartyCookies%28android.webkit.WebView,%20boolean%29" target="_blank" rel="noopener">setAcceptThirdPartyCookies()</a> 方法。</li>
-<li>系统现在可以智能地选择要绘制的 HTML 文档部分。这个新的默认行为有助于减少内存占用和提升性能。如果您要一次渲染整个文档，可通过调用 <a href="https://developer.android.com/reference/android/webkit/WebView.html#enableSlowWholeDocumentDraw%28%29" target="_blank" rel="noopener">enableSlowWholeDocumentDraw()</a> 停用此优化。</li>
+<li>默认情况下，系统会阻止混合内容和第三方 Cookie。要允许混合内容和第三方 Cookie，请分别使用 <a href="https://developer.android.com/reference/android/webkit/WebSettings.html#setMixedContentMode%28int%29">setMixedContentMode()</a> 和 <a href="https://developer.android.com/reference/android/webkit/CookieManager.html#setAcceptThirdPartyCookies%28android.webkit.WebView,%20boolean%29">setAcceptThirdPartyCookies()</a> 方法。</li>
+<li>系统现在可以智能地选择要绘制的 HTML 文档部分。这个新的默认行为有助于减少内存占用和提升性能。如果您要一次渲染整个文档，可通过调用 <a href="https://developer.android.com/reference/android/webkit/WebView.html#enableSlowWholeDocumentDraw%28%29">enableSlowWholeDocumentDraw()</a> 停用此优化。</li>
 </ul>
 </li>
 <li><strong>如果您的应用是面向低于  21 的 API 级别：</strong><ul>
@@ -202,7 +199,7 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<a id="more"></a>
+<span id="more"></span>
 
 <h1 id="2-MixedContentMode"><a href="#2-MixedContentMode" class="headerlink" title="2. MixedContentMode"></a>2. MixedContentMode</h1><p>WebView 行为变更中提到了从 Android 5.0（ API 21 ）开始，系统默认会阻止 WebView 从一个安全（HTTPS）源去加载非安全（HTTP）源的内容。例如，从一个 HTTPS 站点的页面加载一个 HTTP 站点的图片，这种行为从 Android 5.0 开始是被禁止的。如果想要 WebView 兼容 HTTPS 和 HTTP 的加载，需要设置 MixedContentMode 为允许模式，MixedContentMode 有三种模式，详细说明如下：</p>
 <table>
@@ -235,7 +232,7 @@ var _hmt = _hmt || [];
 <li>从 Android 5.0 开始，默认采用 MIXED_CONTENT_NEVER_ALLOW 模式，即总是禁止 WebView 同时加载 HTTPS 和 HTTP。虽然官网给出的建议是，为了安全考虑，使用 MIXED_CONTENT_NEVER_ALLOW 模式，但是在实际应用中，当我们的服务器已经升级到 HTTPS，但是一些页面的资源是第三方的，我们不能要求第三方也都升级到 HTTPS，所以我们只能根据系统版本，用代码去设置加载模式为 MIXED_CONTENT_ALWAYS_ALLOW。</li>
 </ul>
 <p>下面的代码片段来自 <code>android.webkit.WebSettings.setMixedContentMode(int mode)</code>，该方法的注释中明确了不同 Android 版本下对应的 MixedContentMode。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Configures the WebView's behavior when a secure origin attempts to load a resource from an</span></span><br><span class="line"><span class="comment"> * insecure origin.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * By default, apps that target &#123;<span class="doctag">@link</span> android.os.Build.VERSION_CODES#KITKAT&#125; or below default</span></span><br><span class="line"><span class="comment"> * to &#123;<span class="doctag">@link</span> #MIXED_CONTENT_ALWAYS_ALLOW&#125;. Apps targeting</span></span><br><span class="line"><span class="comment"> * &#123;<span class="doctag">@link</span> android.os.Build.VERSION_CODES#LOLLIPOP&#125; default to &#123;<span class="doctag">@link</span> #MIXED_CONTENT_NEVER_ALLOW&#125;.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * The preferred and most secure mode of operation for the WebView is</span></span><br><span class="line"><span class="comment"> * &#123;<span class="doctag">@link</span> #MIXED_CONTENT_NEVER_ALLOW&#125; and use of &#123;<span class="doctag">@link</span> #MIXED_CONTENT_ALWAYS_ALLOW&#125; is</span></span><br><span class="line"><span class="comment"> * strongly discouraged.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> mode The mixed content mode to use. One of &#123;<span class="doctag">@link</span> #MIXED_CONTENT_NEVER_ALLOW&#125;,</span></span><br><span class="line"><span class="comment"> *     &#123;<span class="doctag">@link</span> #MIXED_CONTENT_NEVER_ALLOW&#125; or &#123;<span class="doctag">@link</span> #MIXED_CONTENT_COMPATIBILITY_MODE&#125;.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">setMixedContentMode</span><span class="params">(<span class="keyword">int</span> mode)</span></span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Configures the WebView&#x27;s behavior when a secure origin attempts to load a resource from an</span></span><br><span class="line"><span class="comment"> * insecure origin.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * By default, apps that target &#123;<span class="doctag">@link</span> android.os.Build.VERSION_CODES#KITKAT&#125; or below default</span></span><br><span class="line"><span class="comment"> * to &#123;<span class="doctag">@link</span> #MIXED_CONTENT_ALWAYS_ALLOW&#125;. Apps targeting</span></span><br><span class="line"><span class="comment"> * &#123;<span class="doctag">@link</span> android.os.Build.VERSION_CODES#LOLLIPOP&#125; default to &#123;<span class="doctag">@link</span> #MIXED_CONTENT_NEVER_ALLOW&#125;.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * The preferred and most secure mode of operation for the WebView is</span></span><br><span class="line"><span class="comment"> * &#123;<span class="doctag">@link</span> #MIXED_CONTENT_NEVER_ALLOW&#125; and use of &#123;<span class="doctag">@link</span> #MIXED_CONTENT_ALWAYS_ALLOW&#125; is</span></span><br><span class="line"><span class="comment"> * strongly discouraged.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> mode The mixed content mode to use. One of &#123;<span class="doctag">@link</span> #MIXED_CONTENT_NEVER_ALLOW&#125;,</span></span><br><span class="line"><span class="comment"> *     &#123;<span class="doctag">@link</span> #MIXED_CONTENT_NEVER_ALLOW&#125; or &#123;<span class="doctag">@link</span> #MIXED_CONTENT_COMPATIBILITY_MODE&#125;.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title function_">setMixedContentMode</span><span class="params">(<span class="type">int</span> mode)</span>;</span><br></pre></td></tr></table></figure>
 
 <p>所以，setMixedContentMode(int mode) 的使用也非常简单，在 WebView 加载页面之前，对版本进行判断，设置加载模式为 MIXED_CONTENT_ALWAYS_ALLOW 即可，像下面这样：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.LOLLIPOP) &#123;</span><br><span class="line">    mWebView.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -334,7 +331,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/01/24/Android-5-0-行为变更对-WebView-的影响/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/01/24/Android-5-0-%E8%A1%8C%E4%B8%BA%E5%8F%98%E6%9B%B4%E5%AF%B9-WebView-%E7%9A%84%E5%BD%B1%E5%93%8D/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -348,7 +345,7 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2018/01/30/管理-Android-设备唤醒状态/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/01/30/%E7%AE%A1%E7%90%86-Android-%E8%AE%BE%E5%A4%87%E5%94%A4%E9%86%92%E7%8A%B6%E6%80%81/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -358,7 +355,7 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2017/11/28/SQLite-存储类/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/11/28/SQLite-%E5%AD%98%E5%82%A8%E7%B1%BB/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">SQLite 存储类</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -386,7 +383,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-WebView-行为变更"><span class="toc-number">1.</span> <span class="toc-text">1. WebView 行为变更</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-MixedContentMode"><span class="toc-number">2.</span> <span class="toc-text">2. MixedContentMode</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-WebView-代码编写"><span class="toc-number">3.</span> <span class="toc-text">3. WebView 代码编写</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-WebView-%E8%A1%8C%E4%B8%BA%E5%8F%98%E6%9B%B4"><span class="toc-number">1.</span> <span class="toc-text">1. WebView 行为变更</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-MixedContentMode"><span class="toc-number">2.</span> <span class="toc-text">2. MixedContentMode</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-WebView-%E4%BB%A3%E7%A0%81%E7%BC%96%E5%86%99"><span class="toc-number">3.</span> <span class="toc-text">3. WebView 代码编写</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -499,10 +496,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -515,6 +508,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Android Studio</a>
               </li>
              
@@ -523,11 +524,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+                <a href="javascript:void(0)" class="js-tag color5">Room</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -535,11 +540,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">View</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Fiddler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -555,7 +584,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -564,10 +605,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -587,59 +624,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">View</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Room</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -663,15 +660,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
+                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Application</a>
               </li>
             
             <div class="clearfix"></div>

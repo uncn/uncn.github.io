@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>面试题：反转 | Welcome to sunzn&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="在面试中出现频率比较高的一个题，如果不考虑效率的话，可以自己动手写一写。其实，系统的StringBuilder已经为我们提供了高效的字符串反转，感兴趣的同学可以看下StringBuilder.reverse()的实现。以下提供了几种实现方式，包括字符串反转和单词反转。 一、字符串反转 输入：Android Architecture Components 输出：stnenopmoC erutceti">
-<meta name="keywords" content="算法,面试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面试题：反转">
-<meta property="og:url" content="http://yoursite.com/2017/07/13/面试题：反转/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/07/13/%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%9A%E5%8F%8D%E8%BD%AC/index.html">
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="在面试中出现频率比较高的一个题，如果不考虑效率的话，可以自己动手写一写。其实，系统的StringBuilder已经为我们提供了高效的字符串反转，感兴趣的同学可以看下StringBuilder.reverse()的实现。以下提供了几种实现方式，包括字符串反转和单词反转。 一、字符串反转 输入：Android Architecture Components 输出：stnenopmoC erutceti">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2017-07-13T14:32:42.000Z">
+<meta property="og:locale">
+<meta property="article:published_time" content="2017-07-13T13:19:10.000Z">
+<meta property="article:modified_time" content="2017-07-13T14:32:42.000Z">
+<meta property="article:author" content="狮子">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="面试">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="面试题：反转">
-<meta name="twitter:description" content="在面试中出现频率比较高的一个题，如果不考虑效率的话，可以自己动手写一写。其实，系统的StringBuilder已经为我们提供了高效的字符串反转，感兴趣的同学可以看下StringBuilder.reverse()的实现。以下提供了几种实现方式，包括字符串反转和单词反转。 一、字符串反转 输入：Android Architecture Components 输出：stnenopmoC erutceti">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -47,8 +48,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -61,10 +62,8 @@ var _hmt = _hmt || [];
 			<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">狮子</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">念念不忘，必有回响</p>
 		
 
 		<nav class="header-menu">
@@ -121,10 +120,8 @@ var _hmt = _hmt || [];
 				<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">狮子</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>念念不忘，必有回响<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -181,7 +178,7 @@ var _hmt = _hmt || [];
   
 
         
-        <a href="/2017/07/13/面试题：反转/" class="archive-article-date">
+        <a href="/2017/07/13/%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%9A%E5%8F%8D%E8%BD%AC/" class="archive-article-date">
   	<time datetime="2017-07-13T13:19:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-13</time>
 </a>
         
@@ -194,21 +191,21 @@ var _hmt = _hmt || [];
 <li><strong>输入</strong>：Android Architecture Components</li>
 <li><strong>输出</strong>：stnenopmoC erutcetihcrA diordnA</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String s = <span class="string">"Android Architecture Components"</span>;</span><br><span class="line">StringBuilder sb = <span class="keyword">new</span> StringBuilder(s);</span><br><span class="line">Log.e(<span class="string">"sunzn"</span>, String.valueOf(sb.reverse()));</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> <span class="string">&quot;Android Architecture Components&quot;</span>;</span><br><span class="line"><span class="type">StringBuilder</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>(s);</span><br><span class="line">Log.e(<span class="string">&quot;sunzn&quot;</span>, String.valueOf(sb.reverse()));</span><br></pre></td></tr></table></figure>
 
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="二、字符串反转"><a href="#二、字符串反转" class="headerlink" title="二、字符串反转"></a>二、字符串反转</h2><ul>
 <li><strong>输入</strong>：Android Architecture Components</li>
 <li><strong>输出</strong>：stnenopmoC erutcetihcrA diordnA</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">String s = <span class="string">"Android Architecture Components"</span>;</span><br><span class="line"><span class="keyword">char</span>[] chars = <span class="keyword">new</span> <span class="keyword">char</span>[s.length()];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> m = s.length() - <span class="number">1</span>, n = <span class="number">0</span>; m &gt;= <span class="number">0</span>; m--, n++) &#123;</span><br><span class="line">    chars[n] = s.charAt(m);</span><br><span class="line">&#125;</span><br><span class="line">s = String.copyValueOf(chars);</span><br><span class="line">Log.e(<span class="string">"sunzn"</span>, s);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> <span class="string">&quot;Android Architecture Components&quot;</span>;</span><br><span class="line"><span class="type">char</span>[] chars = <span class="keyword">new</span> <span class="title class_">char</span>[s.length()];</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">m</span> <span class="operator">=</span> s.length() - <span class="number">1</span>, n = <span class="number">0</span>; m &gt;= <span class="number">0</span>; m--, n++) &#123;</span><br><span class="line">    chars[n] = s.charAt(m);</span><br><span class="line">&#125;</span><br><span class="line">s = String.copyValueOf(chars);</span><br><span class="line">Log.e(<span class="string">&quot;sunzn&quot;</span>, s);</span><br></pre></td></tr></table></figure>
 
 <h2 id="三、单词反转"><a href="#三、单词反转" class="headerlink" title="三、单词反转"></a>三、单词反转</h2><ul>
 <li><strong>输入</strong>：Android Architecture Components</li>
 <li><strong>输出</strong>：Components Architecture Android</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">String s = <span class="string">"Android Architecture Components"</span>;</span><br><span class="line">StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">String[] split = s.split(<span class="string">" "</span>);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = split.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">    sb.append(split[i]).append(i &gt; <span class="number">0</span> ? <span class="string">" "</span> : <span class="string">""</span>);</span><br><span class="line">&#125;</span><br><span class="line">Log.e(<span class="string">"sunzn"</span>, sb.toString());</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> <span class="string">&quot;Android Architecture Components&quot;</span>;</span><br><span class="line"><span class="type">StringBuilder</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">String[] split = s.split(<span class="string">&quot; &quot;</span>);</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> split.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">    sb.append(split[i]).append(i &gt; <span class="number">0</span> ? <span class="string">&quot; &quot;</span> : <span class="string">&quot;&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">Log.e(<span class="string">&quot;sunzn&quot;</span>, sb.toString());</span><br></pre></td></tr></table></figure>
       
 
       
@@ -302,7 +299,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/07/13/面试题：反转/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/07/13/%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%9A%E5%8F%8D%E8%BD%AC/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -316,7 +313,7 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2017/07/18/使用-URL-Scheme-唤起应用打开-Activity/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/07/18/%E4%BD%BF%E7%94%A8-URL-Scheme-%E5%94%A4%E8%B5%B7%E5%BA%94%E7%94%A8%E6%89%93%E5%BC%80-Activity/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -326,7 +323,7 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2017/07/05/Java-字符串格式化-String-format-的使用/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/07/05/Java-%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A0%BC%E5%BC%8F%E5%8C%96-String-format-%E7%9A%84%E4%BD%BF%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Java 字符串格式化 String.format() 的使用</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -354,7 +351,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、字符串反转"><span class="toc-number">1.</span> <span class="toc-text">一、字符串反转</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、字符串反转"><span class="toc-number">2.</span> <span class="toc-text">二、字符串反转</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、单词反转"><span class="toc-number">3.</span> <span class="toc-text">三、单词反转</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8F%8D%E8%BD%AC"><span class="toc-number">1.</span> <span class="toc-text">一、字符串反转</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8F%8D%E8%BD%AC"><span class="toc-number">2.</span> <span class="toc-text">二、字符串反转</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%8D%95%E8%AF%8D%E5%8F%8D%E8%BD%AC"><span class="toc-number">3.</span> <span class="toc-text">三、单词反转</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -467,10 +464,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -483,6 +476,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Android Studio</a>
               </li>
              
@@ -491,11 +492,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+                <a href="javascript:void(0)" class="js-tag color5">Room</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -503,11 +508,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">View</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Fiddler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -523,7 +552,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -532,10 +573,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -555,59 +592,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">View</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Room</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -631,15 +628,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
+                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Application</a>
               </li>
             
             <div class="clearfix"></div>

@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>使用 URL Scheme 唤起应用打开 Activity | Welcome to sunzn&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Android 开发过程中经常会有 H5 页面和 Native 的交互，比如为了在浏览的网页上推广 APP 或改善用户体验，会有类似于天猫、京东的 Banner 条悬浮在网页底部，当手机上已经安装了对应的 APP 时，点击 Banner 条直接唤起 APP 并打开对应的 Native 页面，否则引导用户至 APP 下载页面。用户点击下载 APP 按钮时，网页再通过 JS 判断 User-Agent">
-<meta name="keywords" content="方案">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用 URL Scheme 唤起应用打开 Activity">
-<meta property="og:url" content="http://yoursite.com/2017/07/18/使用-URL-Scheme-唤起应用打开-Activity/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/07/18/%E4%BD%BF%E7%94%A8-URL-Scheme-%E5%94%A4%E8%B5%B7%E5%BA%94%E7%94%A8%E6%89%93%E5%BC%80-Activity/index.html">
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="Android 开发过程中经常会有 H5 页面和 Native 的交互，比如为了在浏览的网页上推广 APP 或改善用户体验，会有类似于天猫、京东的 Banner 条悬浮在网页底部，当手机上已经安装了对应的 APP 时，点击 Banner 条直接唤起 APP 并打开对应的 Native 页面，否则引导用户至 APP 下载页面。用户点击下载 APP 按钮时，网页再通过 JS 判断 User-Agent">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2017-08-09T10:29:14.000Z">
+<meta property="og:locale">
+<meta property="article:published_time" content="2017-07-18T10:51:20.000Z">
+<meta property="article:modified_time" content="2017-08-09T10:29:14.000Z">
+<meta property="article:author" content="狮子">
+<meta property="article:tag" content="方案">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用 URL Scheme 唤起应用打开 Activity">
-<meta name="twitter:description" content="Android 开发过程中经常会有 H5 页面和 Native 的交互，比如为了在浏览的网页上推广 APP 或改善用户体验，会有类似于天猫、京东的 Banner 条悬浮在网页底部，当手机上已经安装了对应的 APP 时，点击 Banner 条直接唤起 APP 并打开对应的 Native 页面，否则引导用户至 APP 下载页面。用户点击下载 APP 按钮时，网页再通过 JS 判断 User-Agent">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -47,8 +47,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -61,10 +61,8 @@ var _hmt = _hmt || [];
 			<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">狮子</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">念念不忘，必有回响</p>
 		
 
 		<nav class="header-menu">
@@ -121,10 +119,8 @@ var _hmt = _hmt || [];
 				<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">狮子</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>念念不忘，必有回响<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -181,7 +177,7 @@ var _hmt = _hmt || [];
   
 
         
-        <a href="/2017/07/18/使用-URL-Scheme-唤起应用打开-Activity/" class="archive-article-date">
+        <a href="/2017/07/18/%E4%BD%BF%E7%94%A8-URL-Scheme-%E5%94%A4%E8%B5%B7%E5%BA%94%E7%94%A8%E6%89%93%E5%BC%80-Activity/" class="archive-article-date">
   	<time datetime="2017-07-18T10:51:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-18</time>
 </a>
         
@@ -198,10 +194,10 @@ var _hmt = _hmt || [];
 <li>点击消息推送，跳转至某个页面</li>
 </ul>
 </blockquote>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="Android-URL-Scheme-概念"><a href="#Android-URL-Scheme-概念" class="headerlink" title="Android URL Scheme 概念"></a>Android URL Scheme 概念</h2><p>Android 中的 URL 和我们通常了解的 URL 十分相似，也有类似 <code>协议://授权/路径?查询</code> 的格式。我们可以通过定义自己的 scheme 协议，告知手机我们的应用可以处理哪些协议的 URL，通过解析 URL 就可以知道其携带的资源路径和参数，拿到这些信息后就可以非常方便的跳转 APP 中的各个页面了。</p>
-<h2 id="Android-URL-Scheme-格式"><a href="#Android-URL-Scheme-格式" class="headerlink" title="Android URL Scheme 格式"></a>Android URL Scheme 格式</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Scheme://Host:Port/Path?Query=Value</span><br></pre></td></tr></table></figure>
+<h2 id="Android-URL-Scheme-格式"><a href="#Android-URL-Scheme-格式" class="headerlink" title="Android URL Scheme 格式"></a>Android URL Scheme 格式</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Scheme://Host:Port/Path?Query=Value</span><br></pre></td></tr></table></figure>
 
 <table>
 <thead>
@@ -243,9 +239,9 @@ var _hmt = _hmt || [];
 <td align="center">是</td>
 </tr>
 </tbody></table>
-<h2 id="Android-URL-Scheme-使用"><a href="#Android-URL-Scheme-使用" class="headerlink" title="Android URL Scheme 使用"></a>Android URL Scheme 使用</h2><h3 id="1-配置清单文件"><a href="#1-配置清单文件" class="headerlink" title="1. 配置清单文件"></a>1. 配置清单文件</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">activity</span> <span class="attr">android:name</span>=<span class="string">".RouterActivity"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">data</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:host</span>=<span class="string">"baidu"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:path</span>=<span class="string">"/router"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:port</span>=<span class="string">"8888"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:scheme</span>=<span class="string">"sunzn"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.DEFAULT"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.BROWSABLE"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.VIEW"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">activity</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="Android-URL-Scheme-使用"><a href="#Android-URL-Scheme-使用" class="headerlink" title="Android URL Scheme 使用"></a>Android URL Scheme 使用</h2><h3 id="1-配置清单文件"><a href="#1-配置清单文件" class="headerlink" title="1. 配置清单文件"></a>1. 配置清单文件</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">activity</span> <span class="attr">android:name</span>=<span class="string">&quot;.RouterActivity&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">data</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:host</span>=<span class="string">&quot;baidu&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:path</span>=<span class="string">&quot;/router&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:port</span>=<span class="string">&quot;8888&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:scheme</span>=<span class="string">&quot;sunzn&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.category.DEFAULT&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.category.BROWSABLE&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.action.VIEW&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">activity</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="2-获取-Scheme-参数"><a href="#2-获取-Scheme-参数" class="headerlink" title="2. 获取 Scheme 参数"></a>2. 获取 Scheme 参数</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">Uri uri = getIntent().getData();</span><br><span class="line"><span class="keyword">if</span> (uri != <span class="keyword">null</span>) &#123;</span><br><span class="line">    String url = uri.toString();</span><br><span class="line">    Log.e(TAG, <span class="string">"Url : "</span> + url);</span><br><span class="line"></span><br><span class="line">    String scheme = uri.getScheme();</span><br><span class="line">    Log.e(TAG, <span class="string">"Scheme : "</span> + scheme);</span><br><span class="line"></span><br><span class="line">    String host = uri.getHost();</span><br><span class="line">    Log.e(TAG, <span class="string">"Host : "</span> + host);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> port = uri.getPort();</span><br><span class="line">    Log.e(TAG, <span class="string">"Port : "</span> + port);</span><br><span class="line"></span><br><span class="line">    String path = uri.getPath();</span><br><span class="line">    Log.e(TAG, <span class="string">"Path : "</span> + path);</span><br><span class="line"></span><br><span class="line">    String query = uri.getQuery();</span><br><span class="line">    Log.e(TAG, <span class="string">"Query : "</span> + query);</span><br><span class="line"></span><br><span class="line">    String authority = uri.getAuthority();</span><br><span class="line">    Log.e(TAG, <span class="string">"Authority : "</span> + authority);</span><br><span class="line"></span><br><span class="line">    String token = uri.getQueryParameter(<span class="string">"token"</span>);</span><br><span class="line">    Log.e(TAG, <span class="string">"Token : "</span> + token);</span><br><span class="line"></span><br><span class="line">    List&lt;String&gt; segments = uri.getPathSegments();</span><br><span class="line">    Log.e(TAG, <span class="string">"Segments : "</span> + segments);</span><br><span class="line"></span><br><span class="line">    Set&lt;String&gt; names = uri.getQueryParameterNames();</span><br><span class="line">    Log.e(TAG, <span class="string">"QueryParameterNames : "</span> + names);</span><br><span class="line"></span><br><span class="line">    String schemeSpecificPart = uri.getSchemeSpecificPart();</span><br><span class="line">    Log.e(TAG, <span class="string">"SchemeSpecificPart : "</span> + schemeSpecificPart);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-获取-Scheme-参数"><a href="#2-获取-Scheme-参数" class="headerlink" title="2. 获取 Scheme 参数"></a>2. 获取 Scheme 参数</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Uri</span> <span class="variable">uri</span> <span class="operator">=</span> getIntent().getData();</span><br><span class="line"><span class="keyword">if</span> (uri != <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">url</span> <span class="operator">=</span> uri.toString();</span><br><span class="line">    Log.e(TAG, <span class="string">&quot;Url : &quot;</span> + url);</span><br><span class="line"></span><br><span class="line">    <span class="type">String</span> <span class="variable">scheme</span> <span class="operator">=</span> uri.getScheme();</span><br><span class="line">    Log.e(TAG, <span class="string">&quot;Scheme : &quot;</span> + scheme);</span><br><span class="line"></span><br><span class="line">    <span class="type">String</span> <span class="variable">host</span> <span class="operator">=</span> uri.getHost();</span><br><span class="line">    Log.e(TAG, <span class="string">&quot;Host : &quot;</span> + host);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> <span class="variable">port</span> <span class="operator">=</span> uri.getPort();</span><br><span class="line">    Log.e(TAG, <span class="string">&quot;Port : &quot;</span> + port);</span><br><span class="line"></span><br><span class="line">    <span class="type">String</span> <span class="variable">path</span> <span class="operator">=</span> uri.getPath();</span><br><span class="line">    Log.e(TAG, <span class="string">&quot;Path : &quot;</span> + path);</span><br><span class="line"></span><br><span class="line">    <span class="type">String</span> <span class="variable">query</span> <span class="operator">=</span> uri.getQuery();</span><br><span class="line">    Log.e(TAG, <span class="string">&quot;Query : &quot;</span> + query);</span><br><span class="line"></span><br><span class="line">    <span class="type">String</span> <span class="variable">authority</span> <span class="operator">=</span> uri.getAuthority();</span><br><span class="line">    Log.e(TAG, <span class="string">&quot;Authority : &quot;</span> + authority);</span><br><span class="line"></span><br><span class="line">    <span class="type">String</span> <span class="variable">token</span> <span class="operator">=</span> uri.getQueryParameter(<span class="string">&quot;token&quot;</span>);</span><br><span class="line">    Log.e(TAG, <span class="string">&quot;Token : &quot;</span> + token);</span><br><span class="line"></span><br><span class="line">    List&lt;String&gt; segments = uri.getPathSegments();</span><br><span class="line">    Log.e(TAG, <span class="string">&quot;Segments : &quot;</span> + segments);</span><br><span class="line"></span><br><span class="line">    Set&lt;String&gt; names = uri.getQueryParameterNames();</span><br><span class="line">    Log.e(TAG, <span class="string">&quot;QueryParameterNames : &quot;</span> + names);</span><br><span class="line"></span><br><span class="line">    <span class="type">String</span> <span class="variable">schemeSpecificPart</span> <span class="operator">=</span> uri.getSchemeSpecificPart();</span><br><span class="line">    Log.e(TAG, <span class="string">&quot;SchemeSpecificPart : &quot;</span> + schemeSpecificPart);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <table>
 <thead>
@@ -257,7 +253,7 @@ var _hmt = _hmt || [];
 </thead>
 <tbody><tr>
 <td align="center">Url</td>
-<td>sunzn://baidu:8888/router?token=master&amp;id=4625</td>
+<td>sunzn:&#x2F;&#x2F;baidu:8888&#x2F;router?token&#x3D;master&amp;id&#x3D;4625</td>
 <td align="center">无</td>
 </tr>
 <tr>
@@ -277,12 +273,12 @@ var _hmt = _hmt || [];
 </tr>
 <tr>
 <td align="center">Path</td>
-<td>/router</td>
+<td>&#x2F;router</td>
 <td align="center">无</td>
 </tr>
 <tr>
 <td align="center">Query</td>
-<td>token=master&amp;id=4625</td>
+<td>token&#x3D;master&amp;id&#x3D;4625</td>
 <td align="center">无</td>
 </tr>
 <tr>
@@ -307,18 +303,18 @@ var _hmt = _hmt || [];
 </tr>
 <tr>
 <td align="center">SchemeSpecificPart</td>
-<td>//baidu:8888/router?token=master&amp;id=4625</td>
+<td>&#x2F;&#x2F;baidu:8888&#x2F;router?token&#x3D;master&amp;id&#x3D;4625</td>
 <td align="center">无</td>
 </tr>
 </tbody></table>
-<h3 id="3-网页调用"><a href="#3-网页调用" class="headerlink" title="3. 网页调用"></a>3. 网页调用</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"sunzn://baidu:8888/router?token=master&amp;id=4625"</span>&gt;</span>打开APP页面<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-网页调用"><a href="#3-网页调用" class="headerlink" title="3. 网页调用"></a>3. 网页调用</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;sunzn://baidu:8888/router?token=master&amp;id=4625&quot;</span>&gt;</span>打开APP页面<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="4-原生调用"><a href="#4-原生调用" class="headerlink" title="4. 原生调用"></a>4. 原生调用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = <span class="keyword">new</span> Intent(Intent.ACTION_VIEW, Uri.parse(<span class="string">"sunzn://baidu:8888/router?token=master&amp;id=4625"</span>));</span><br><span class="line">startActivity(intent);</span><br></pre></td></tr></table></figure>
+<h3 id="4-原生调用"><a href="#4-原生调用" class="headerlink" title="4. 原生调用"></a>4. 原生调用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Intent</span> <span class="variable">intent</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Intent</span>(Intent.ACTION_VIEW, Uri.parse(<span class="string">&quot;sunzn://baidu:8888/router?token=master&amp;id=4625&quot;</span>));</span><br><span class="line">startActivity(intent);</span><br></pre></td></tr></table></figure>
 
-<h3 id="5-如何判断一个-Scheme-是否有效"><a href="#5-如何判断一个-Scheme-是否有效" class="headerlink" title="5. 如何判断一个 Scheme 是否有效"></a>5. 如何判断一个 Scheme 是否有效</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">PackageManager packageManager = getPackageManager();</span><br><span class="line">Intent intent = <span class="keyword">new</span> Intent(Intent.ACTION_VIEW, Uri.parse(<span class="string">"sunzn://baidu:8888/router?token=master&amp;id=4625"</span>));</span><br><span class="line">List&lt;ResolveInfo&gt; activities = packageManager.queryIntentActivities(intent, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">boolean</span> isValid = !activities.isEmpty();</span><br><span class="line"><span class="keyword">if</span> (isValid) &#123;</span><br><span class="line">    startActivity(intent);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="5-如何判断一个-Scheme-是否有效"><a href="#5-如何判断一个-Scheme-是否有效" class="headerlink" title="5. 如何判断一个 Scheme 是否有效"></a>5. 如何判断一个 Scheme 是否有效</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">PackageManager</span> <span class="variable">packageManager</span> <span class="operator">=</span> getPackageManager();</span><br><span class="line"><span class="type">Intent</span> <span class="variable">intent</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Intent</span>(Intent.ACTION_VIEW, Uri.parse(<span class="string">&quot;sunzn://baidu:8888/router?token=master&amp;id=4625&quot;</span>));</span><br><span class="line">List&lt;ResolveInfo&gt; activities = packageManager.queryIntentActivities(intent, <span class="number">0</span>);</span><br><span class="line"><span class="type">boolean</span> <span class="variable">isValid</span> <span class="operator">=</span> !activities.isEmpty();</span><br><span class="line"><span class="keyword">if</span> (isValid) &#123;</span><br><span class="line">    startActivity(intent);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="Android-URL-Scheme-在项目中的应用"><a href="#Android-URL-Scheme-在项目中的应用" class="headerlink" title="Android URL Scheme 在项目中的应用"></a>Android URL Scheme 在项目中的应用</h2><p>知道了 Android URL Scheme 的简单使用，接下来我们看看如何在实际项目中进行使用。从上面的内容中我们知道：想让一个 Activity 响应并实现跳转，需要在清单文件里对该 Activity 的 <code>&lt;intent-filter&gt;</code> 节点进行设置。在跳转单一页面的情况下，这种方式的实现是可行的。那么，问题来了，如果要跳转多个页面呢？难道也要在每个跳转的 Activity 都设置 <code>&lt;intent-filter&gt;</code> 节点并定义不同的 <code>scheme</code> 吗？我们当然不希望通过这种冗余的方式来实现响应跳转，并且这种方式的扩展性也不高。我们理想的状态是定义一个专门的 Activity 来响应所有的网页调用和原生调用，在这个 Activity 里处理跳转逻辑，然后关闭这个 Activity。具体实现如下：</p>
-<h3 id="1-约定一个可扩展协议"><a href="#1-约定一个可扩展协议" class="headerlink" title="1. 约定一个可扩展协议"></a>1. 约定一个可扩展协议</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sunzn://baidu:8888/router?token=A001&amp;id=4625</span><br></pre></td></tr></table></figure>
+<h3 id="1-约定一个可扩展协议"><a href="#1-约定一个可扩展协议" class="headerlink" title="1. 约定一个可扩展协议"></a>1. 约定一个可扩展协议</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sunzn://baidu:<span class="number">8888</span>/router?token=A001&amp;<span class="built_in">id</span>=<span class="number">4625</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="2-约定跳转标签和页面"><a href="#2-约定跳转标签和页面" class="headerlink" title="2. 约定跳转标签和页面"></a>2. 约定跳转标签和页面</h3><table>
 <thead>
@@ -355,9 +351,9 @@ var _hmt = _hmt || [];
 </tr>
 </tbody></table>
 <h3 id="3-创建一个路由页面"><a href="#3-创建一个路由页面" class="headerlink" title="3. 创建一个路由页面"></a>3. 创建一个路由页面</h3><p>创建路由页面 RouterActivity 并在清单文件中为该页面加入 <code>&lt;intent-filter&gt;</code> 节点设置。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">activity</span> <span class="attr">android:name</span>=<span class="string">".RouterActivity"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">data</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:host</span>=<span class="string">"baidu"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:path</span>=<span class="string">"/router"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:port</span>=<span class="string">"8888"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:scheme</span>=<span class="string">"sunzn"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.DEFAULT"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.BROWSABLE"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.VIEW"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">activity</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">activity</span> <span class="attr">android:name</span>=<span class="string">&quot;.RouterActivity&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">data</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:host</span>=<span class="string">&quot;baidu&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:path</span>=<span class="string">&quot;/router&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:port</span>=<span class="string">&quot;8888&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:scheme</span>=<span class="string">&quot;sunzn&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.category.DEFAULT&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.category.BROWSABLE&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.action.VIEW&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">activity</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="4-在路由页面响应跳转"><a href="#4-在路由页面响应跳转" class="headerlink" title="4. 在路由页面响应跳转"></a>4. 在路由页面响应跳转</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RouterActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        Uri uri = getIntent().getData();</span><br><span class="line">        <span class="keyword">if</span> (isRecognizable(uri)) &#123;</span><br><span class="line">            <span class="keyword">switch</span> (getToken(uri)) &#123;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">"A001"</span>:</span><br><span class="line">                    <span class="comment">// TODO 解析参数，启动 A001_Activity，关闭 RouterActivity</span></span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">"A002"</span>:</span><br><span class="line">                    <span class="comment">// TODO 解析参数，启动 A002_Activity，关闭 RouterActivity</span></span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">"A003"</span>:</span><br><span class="line">                    <span class="comment">// TODO 解析参数，启动 A003_Activity，关闭 RouterActivity</span></span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">"A004"</span>:</span><br><span class="line">                    <span class="comment">// TODO 解析参数，启动 A004_Activity，关闭 RouterActivity</span></span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">"A005"</span>:</span><br><span class="line">                    <span class="comment">// TODO 解析参数，启动 A005_Activity，关闭 RouterActivity</span></span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> String <span class="title">getToken</span><span class="params">(Uri uri)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> uri.getQueryParameter(<span class="string">"token"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">isRecognizable</span><span class="params">(Uri uri)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (uri != <span class="keyword">null</span>) &#123;</span><br><span class="line">            String url = uri.toString();</span><br><span class="line">            <span class="keyword">return</span> url.startsWith(<span class="string">"sunzn://baidu:8888/router?token="</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-在路由页面响应跳转"><a href="#4-在路由页面响应跳转" class="headerlink" title="4. 在路由页面响应跳转"></a>4. 在路由页面响应跳转</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">RouterActivity</span> <span class="keyword">extends</span> <span class="title class_">AppCompatActivity</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onCreate</span><span class="params">(Bundle savedInstanceState)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        <span class="type">Uri</span> <span class="variable">uri</span> <span class="operator">=</span> getIntent().getData();</span><br><span class="line">        <span class="keyword">if</span> (isRecognizable(uri)) &#123;</span><br><span class="line">            <span class="keyword">switch</span> (getToken(uri)) &#123;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">&quot;A001&quot;</span>:</span><br><span class="line">                    <span class="comment">// TODO 解析参数，启动 A001_Activity，关闭 RouterActivity</span></span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">&quot;A002&quot;</span>:</span><br><span class="line">                    <span class="comment">// TODO 解析参数，启动 A002_Activity，关闭 RouterActivity</span></span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">&quot;A003&quot;</span>:</span><br><span class="line">                    <span class="comment">// TODO 解析参数，启动 A003_Activity，关闭 RouterActivity</span></span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">&quot;A004&quot;</span>:</span><br><span class="line">                    <span class="comment">// TODO 解析参数，启动 A004_Activity，关闭 RouterActivity</span></span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">&quot;A005&quot;</span>:</span><br><span class="line">                    <span class="comment">// TODO 解析参数，启动 A005_Activity，关闭 RouterActivity</span></span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String <span class="title function_">getToken</span><span class="params">(Uri uri)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> uri.getQueryParameter(<span class="string">&quot;token&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">boolean</span> <span class="title function_">isRecognizable</span><span class="params">(Uri uri)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (uri != <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="type">String</span> <span class="variable">url</span> <span class="operator">=</span> uri.toString();</span><br><span class="line">            <span class="keyword">return</span> url.startsWith(<span class="string">&quot;sunzn://baidu:8888/router?token=&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>这样，就可以通过一个单一页面来响应请求，并将结果路由到指定的页面了。如果要增加新的页面跳转只需要增加对应的跳转标签和页面即可；如果要增加响应模块，可以在原来的路由协议基础上增加一个新的<code>标签键</code>即可，比如在<code>sunzn://baidu:8888/router?token</code>的基础上增加一个<code>event</code>键，这个页面就能响应以<code>sunzn://baidu:8888/router?token</code>和<code>sunzn://baidu:8888/router?event</code>开头的 URL 了。</p>
 
@@ -450,7 +446,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/07/18/使用-URL-Scheme-唤起应用打开-Activity/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/07/18/%E4%BD%BF%E7%94%A8-URL-Scheme-%E5%94%A4%E8%B5%B7%E5%BA%94%E7%94%A8%E6%89%93%E5%BC%80-Activity/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -464,7 +460,7 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2017/07/20/Annotation-概述/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/07/20/Annotation-%E6%A6%82%E8%BF%B0/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -474,7 +470,7 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2017/07/13/面试题：反转/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/07/13/%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%9A%E5%8F%8D%E8%BD%AC/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">面试题：反转</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -502,7 +498,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-URL-Scheme-概念"><span class="toc-number">1.</span> <span class="toc-text">Android URL Scheme 概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-URL-Scheme-格式"><span class="toc-number">2.</span> <span class="toc-text">Android URL Scheme 格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-URL-Scheme-使用"><span class="toc-number">3.</span> <span class="toc-text">Android URL Scheme 使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-配置清单文件"><span class="toc-number">3.1.</span> <span class="toc-text">1. 配置清单文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-获取-Scheme-参数"><span class="toc-number">3.2.</span> <span class="toc-text">2. 获取 Scheme 参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-网页调用"><span class="toc-number">3.3.</span> <span class="toc-text">3. 网页调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-原生调用"><span class="toc-number">3.4.</span> <span class="toc-text">4. 原生调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-如何判断一个-Scheme-是否有效"><span class="toc-number">3.5.</span> <span class="toc-text">5. 如何判断一个 Scheme 是否有效</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-URL-Scheme-在项目中的应用"><span class="toc-number">4.</span> <span class="toc-text">Android URL Scheme 在项目中的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-约定一个可扩展协议"><span class="toc-number">4.1.</span> <span class="toc-text">1. 约定一个可扩展协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-约定跳转标签和页面"><span class="toc-number">4.2.</span> <span class="toc-text">2. 约定跳转标签和页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-创建一个路由页面"><span class="toc-number">4.3.</span> <span class="toc-text">3. 创建一个路由页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-在路由页面响应跳转"><span class="toc-number">4.4.</span> <span class="toc-text">4. 在路由页面响应跳转</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-URL-Scheme-%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">Android URL Scheme 概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-URL-Scheme-%E6%A0%BC%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text">Android URL Scheme 格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-URL-Scheme-%E4%BD%BF%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">Android URL Scheme 使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E9%85%8D%E7%BD%AE%E6%B8%85%E5%8D%95%E6%96%87%E4%BB%B6"><span class="toc-number">3.1.</span> <span class="toc-text">1. 配置清单文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%8E%B7%E5%8F%96-Scheme-%E5%8F%82%E6%95%B0"><span class="toc-number">3.2.</span> <span class="toc-text">2. 获取 Scheme 参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%BD%91%E9%A1%B5%E8%B0%83%E7%94%A8"><span class="toc-number">3.3.</span> <span class="toc-text">3. 网页调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%8E%9F%E7%94%9F%E8%B0%83%E7%94%A8"><span class="toc-number">3.4.</span> <span class="toc-text">4. 原生调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA-Scheme-%E6%98%AF%E5%90%A6%E6%9C%89%E6%95%88"><span class="toc-number">3.5.</span> <span class="toc-text">5. 如何判断一个 Scheme 是否有效</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-URL-Scheme-%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">Android URL Scheme 在项目中的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%BA%A6%E5%AE%9A%E4%B8%80%E4%B8%AA%E5%8F%AF%E6%89%A9%E5%B1%95%E5%8D%8F%E8%AE%AE"><span class="toc-number">4.1.</span> <span class="toc-text">1. 约定一个可扩展协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%BA%A6%E5%AE%9A%E8%B7%B3%E8%BD%AC%E6%A0%87%E7%AD%BE%E5%92%8C%E9%A1%B5%E9%9D%A2"><span class="toc-number">4.2.</span> <span class="toc-text">2. 约定跳转标签和页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E8%B7%AF%E7%94%B1%E9%A1%B5%E9%9D%A2"><span class="toc-number">4.3.</span> <span class="toc-text">3. 创建一个路由页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%9C%A8%E8%B7%AF%E7%94%B1%E9%A1%B5%E9%9D%A2%E5%93%8D%E5%BA%94%E8%B7%B3%E8%BD%AC"><span class="toc-number">4.4.</span> <span class="toc-text">4. 在路由页面响应跳转</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -615,10 +611,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -631,6 +623,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Android Studio</a>
               </li>
              
@@ -639,11 +639,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+                <a href="javascript:void(0)" class="js-tag color5">Room</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -651,11 +655,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">View</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Fiddler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -671,7 +699,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -680,10 +720,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -703,59 +739,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">View</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Room</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -779,15 +775,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
+                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Application</a>
               </li>
             
             <div class="clearfix"></div>

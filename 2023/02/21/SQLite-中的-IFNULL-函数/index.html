@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>SQLite 中的 IFNULL() 函数 | Welcome to sunzn&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="SQLite 中的 IFNULL() 函数是一个 IF-ELSE 的函数，如果第一个参数为 NULL，返回第二个参数，否则返回第一个参数。       IFNULL 语法       ifnull(expr1, expr2)       参数       expr1     必需的。判断此表达式是否为 NULL。       expr2     必需的。当 expr1 为 NULL 时，返回 ex">
-<meta name="keywords" content="SQLite">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SQLite 中的 IFNULL() 函数">
-<meta property="og:url" content="http://yoursite.com/2023/02/21/SQLite-中的-IFNULL-函数/index.html">
+<meta property="og:url" content="http://yoursite.com/2023/02/21/SQLite-%E4%B8%AD%E7%9A%84-IFNULL-%E5%87%BD%E6%95%B0/index.html">
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="SQLite 中的 IFNULL() 函数是一个 IF-ELSE 的函数，如果第一个参数为 NULL，返回第二个参数，否则返回第一个参数。       IFNULL 语法       ifnull(expr1, expr2)       参数       expr1     必需的。判断此表达式是否为 NULL。       expr2     必需的。当 expr1 为 NULL 时，返回 ex">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2023-05-04T13:55:22.549Z">
+<meta property="og:locale">
+<meta property="article:published_time" content="2023-02-21T13:46:42.000Z">
+<meta property="article:modified_time" content="2023-05-04T13:55:22.549Z">
+<meta property="article:author" content="狮子">
+<meta property="article:tag" content="SQLite">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SQLite 中的 IFNULL() 函数">
-<meta name="twitter:description" content="SQLite 中的 IFNULL() 函数是一个 IF-ELSE 的函数，如果第一个参数为 NULL，返回第二个参数，否则返回第一个参数。       IFNULL 语法       ifnull(expr1, expr2)       参数       expr1     必需的。判断此表达式是否为 NULL。       expr2     必需的。当 expr1 为 NULL 时，返回 ex">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -47,8 +47,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -61,10 +61,8 @@ var _hmt = _hmt || [];
 			<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">狮子</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">念念不忘，必有回响</p>
 		
 
 		<nav class="header-menu">
@@ -121,10 +119,8 @@ var _hmt = _hmt || [];
 				<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">狮子</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>念念不忘，必有回响<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -181,7 +177,7 @@ var _hmt = _hmt || [];
   
 
         
-        <a href="/2023/02/21/SQLite-中的-IFNULL-函数/" class="archive-article-date">
+        <a href="/2023/02/21/SQLite-%E4%B8%AD%E7%9A%84-IFNULL-%E5%87%BD%E6%95%B0/" class="archive-article-date">
   	<time datetime="2023-02-21T13:46:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-21</time>
 </a>
         
@@ -227,16 +223,16 @@ var _hmt = _hmt || [];
 </tr>
 </table>
 
-<a id="more"></a>
+<span id="more"></span>
 
 <p>IFNULL() 函数的语法介绍至此，那么这个函数到底有什么用呢？试想下，有这样一个应用场景，我们正在完成一个阅读类的应用，需要实现一个每日阅读时间的统计功能。首先，需要将单本书籍的阅读时间进行累加；最后，再将不同书籍各自累加的时间进行求和就可以实现每日阅读时间的统计功能。下面进行表的设计：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE time(id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, book_id INTEGER, view_time BIGINT, date TEXT, UNIQUE(username, book_id, date))</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE time(id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, book_id INTEGER, view_time BIGINT, date TEXT, UNIQUE(username, book_id, date))</span><br></pre></td></tr></table></figure>
 
 <p>建表语句共创建了五个字段：id、username、book_id、view_time，date，并将 username、book_id 和 date 组成了联合约束。看到约束语句，估计你已经知道我打算怎么去插入或更新数据了。没错，可以使用插入或替换语句来执行操作。语句如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSERT OR REPLACE INTO time(username, book_id, view_time) VALUES (&apos;sunzn&apos;, 1, 5 + IFNULL((SELECT view_time FROM time WHERE username=&apos;sunzn&apos; AND book_id=1 AND date=&apos;2023-02-21&apos;), 0), &apos;2023-02-21&apos;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSERT OR REPLACE INTO time(username, book_id, view_time) VALUES (&#x27;sunzn&#x27;, 1, 5 + IFNULL((SELECT view_time FROM time WHERE username=&#x27;sunzn&#x27; AND book_id=1 AND date=&#x27;2023-02-21&#x27;), 0), &#x27;2023-02-21&#x27;)</span><br></pre></td></tr></table></figure>
 
 <p>这条语句兼具了插入、更新操作，插入或更新数据的时候会自动将新增的阅读时间和表中记录的阅读时间进行累加。这里我设置的新增时间为 5，插入数据的时候会先去查询对应 username、book_id 和 date 条件的阅读时间，如果查到的数据为空，就返回 0 与 5 相加完成首次数据的新增。如果查到的数据不为空，则用查到的值与 5 进行相加完成数据的更新。至此，单本书籍的阅读时间累加功能就完成了。我们单独将 IFNULL 函数摘出来看下，是不是很简单。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IFNULL((SELECT view_time FROM time WHERE username=&apos;sunzn&apos; AND book_id=1 AND date=&apos;2023-02-21&apos;), 0)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IFNULL((SELECT view_time FROM time WHERE username=&#x27;sunzn&#x27; AND book_id=1 AND date=&#x27;2023-02-21&#x27;), 0)</span><br></pre></td></tr></table></figure>
       
 
       
@@ -326,7 +322,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2023/02/21/SQLite-中的-IFNULL-函数/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2023/02/21/SQLite-%E4%B8%AD%E7%9A%84-IFNULL-%E5%87%BD%E6%95%B0/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -340,7 +336,7 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2023/03/21/从-APK-签名包安装失败说起/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2023/03/21/%E4%BB%8E-APK-%E7%AD%BE%E5%90%8D%E5%8C%85%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%E8%AF%B4%E8%B5%B7/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -350,7 +346,7 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2023/01/30/Android-访问文件与目录/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2023/01/30/Android-%E8%AE%BF%E9%97%AE%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Android 访问文件与目录</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -491,10 +487,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -507,6 +499,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Android Studio</a>
               </li>
              
@@ -515,11 +515,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+                <a href="javascript:void(0)" class="js-tag color5">Room</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -527,11 +531,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">View</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Fiddler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -547,7 +575,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -556,10 +596,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -579,59 +615,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">View</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Room</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -655,15 +651,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
+                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Application</a>
               </li>
             
             <div class="clearfix"></div>

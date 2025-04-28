@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Library 声明的 minSdkVersion 大于 Module 的怎么办？ | Welcome to sunzn&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="1. 问题描述项目在接入第三方库的时候，如果 Library 声明的 minSdkVersion 大于 Module 所声明的，那么在项目编译阶段会抛出错误。错误信息如下： 1234567D:\APP\Project\CLIENT\CHAT\src\main\AndroidManifest.xml Error:	uses-sdk:minSdkVersion 16 cannot be smaller">
-<meta name="keywords" content="Android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Library 声明的 minSdkVersion 大于 Module 的怎么办？">
-<meta property="og:url" content="http://yoursite.com/2019/02/22/Library-声明的-minSdkVersion-大于-Module-的怎么办？/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/02/22/Library-%E5%A3%B0%E6%98%8E%E7%9A%84-minSdkVersion-%E5%A4%A7%E4%BA%8E-Module-%E7%9A%84%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F/index.html">
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="1. 问题描述项目在接入第三方库的时候，如果 Library 声明的 minSdkVersion 大于 Module 所声明的，那么在项目编译阶段会抛出错误。错误信息如下： 1234567D:\APP\Project\CLIENT\CHAT\src\main\AndroidManifest.xml Error:	uses-sdk:minSdkVersion 16 cannot be smaller">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-21T22:53:02.000Z">
+<meta property="og:locale">
+<meta property="article:published_time" content="2019-02-21T22:50:21.000Z">
+<meta property="article:modified_time" content="2019-02-21T22:53:02.000Z">
+<meta property="article:author" content="狮子">
+<meta property="article:tag" content="Android">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Library 声明的 minSdkVersion 大于 Module 的怎么办？">
-<meta name="twitter:description" content="1. 问题描述项目在接入第三方库的时候，如果 Library 声明的 minSdkVersion 大于 Module 所声明的，那么在项目编译阶段会抛出错误。错误信息如下： 1234567D:\APP\Project\CLIENT\CHAT\src\main\AndroidManifest.xml Error:	uses-sdk:minSdkVersion 16 cannot be smaller">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
   
@@ -47,8 +47,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -61,10 +61,8 @@ var _hmt = _hmt || [];
 			<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">狮子</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">念念不忘，必有回响</p>
 		
 
 		<nav class="header-menu">
@@ -121,10 +119,8 @@ var _hmt = _hmt || [];
 				<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">狮子</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>念念不忘，必有回响<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -181,7 +177,7 @@ var _hmt = _hmt || [];
   
 
         
-        <a href="/2019/02/22/Library-声明的-minSdkVersion-大于-Module-的怎么办？/" class="archive-article-date">
+        <a href="/2019/02/22/Library-%E5%A3%B0%E6%98%8E%E7%9A%84-minSdkVersion-%E5%A4%A7%E4%BA%8E-Module-%E7%9A%84%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F/" class="archive-article-date">
   	<time datetime="2019-02-21T22:50:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-22</time>
 </a>
         
@@ -190,24 +186,28 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1. 问题描述"></a>1. 问题描述</h1><p>项目在接入第三方库的时候，如果 Library 声明的 minSdkVersion 大于 Module 所声明的，那么在项目编译阶段会抛出错误。错误信息如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">D:\APP\Project\CLIENT\CHAT\src\main\AndroidManifest.xml Error:</span><br><span class="line">	uses-sdk:minSdkVersion 16 cannot be smaller than version 21 declared in library [com.sunzn.core:chat:1.1.26] C:\Users\sunzn\.gradle\caches\transforms-1\files-1.1\chat-1.1.26.aar\41fa41b910ecb8f65c4b800dc5c2afc5\AndroidManifest.xml as the library might be using APIs not available in 16</span><br><span class="line">	Suggestion: use a compatible library with a minSdk of at most 16,</span><br><span class="line">		or increase this project&apos;s minSdk version to at least 21,</span><br><span class="line">		or use tools:overrideLibrary=&quot;com.sunzn.core.chat&quot; to force usage (may lead to runtime failures)</span><br><span class="line"></span><br><span class="line">See http://g.co/androidstudio/manifest-merger for more information about the manifest merger.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">D:\APP\Project\CLIENT\CHAT\src\main\AndroidManifest.xml Error:</span><br><span class="line">	uses-sdk:minSdkVersion 16 cannot be smaller than version 21 declared in library [com.sunzn.core:chat:1.1.26] C:\Users\sunzn\.gradle\caches\transforms-1\files-1.1\chat-1.1.26.aar\41fa41b910ecb8f65c4b800dc5c2afc5\AndroidManifest.xml as the library might be using APIs not available in 16</span><br><span class="line">	Suggestion: use a compatible library with a minSdk of at most 16,</span><br><span class="line">		or increase this project&#x27;s minSdk version to at least 21,</span><br><span class="line">		or use tools:overrideLibrary=&quot;com.sunzn.core.chat&quot; to force usage (may lead to runtime failures)</span><br><span class="line"></span><br><span class="line">See http://g.co/androidstudio/manifest-merger for more information about the manifest merger.</span><br></pre></td></tr></table></figure>
 
-<a id="more"></a>
+<span id="more"></span>
 
 <p>这段报错的大致意思是：Library 和 Module 的清单在合并过程中发生了冲突。并明确指出项目中的 minSdkVersion（16）低于引用库中声明的 minSdkVersion（21），然后给出了三条解决建议：</p>
 <pre><code>1. 使用 minSDK 为 16 的兼容库
 2. 项目 minSDK 升到 21
-3. 使用 tools:overrideLibrary=&quot;com.sunzn.core.chat&quot; 强制使用（可能导致运行时错误）</code></pre><h1 id="2-解决方案"><a href="#2-解决方案" class="headerlink" title="2. 解决方案"></a>2. 解决方案</h1><p>报错给出解决建议的同时，也附上了参考链接 <a href="http://g.co/androidstudio/manifest-merger" target="_blank" rel="noopener">Manifest-Merger</a>，在 <strong>tools:overrideLibrary marker</strong> 标签下，文档对清单合并问题进行了详述，以下的阐述为官方文档的翻译。</p>
+3. 使用 tools:overrideLibrary=&quot;com.sunzn.core.chat&quot; 强制使用（可能导致运行时错误）
+</code></pre>
+<h1 id="2-解决方案"><a href="#2-解决方案" class="headerlink" title="2. 解决方案"></a>2. 解决方案</h1><p>报错给出解决建议的同时，也附上了参考链接 <a href="http://g.co/androidstudio/manifest-merger">Manifest-Merger</a>，在 <strong>tools:overrideLibrary marker</strong> 标签下，文档对清单合并问题进行了详述，以下的阐述为官方文档的翻译。</p>
 <p>如果引用库的 minSdkVersion 比应用程序的高，只能通过 uses-sdk 标记来声明覆盖引用库的 minSdkVersion。没有这样的标记，清单合并会失败。该标记允许用户选择哪些导入的库可以忽略最低的 SDK 版本。</p>
 <p>例如，在主 Module 的清单中：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">manifest</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">package</span>=<span class="string">"com.sunzn.client"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">uses-sdk</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:minSdkVersion</span>=<span class="string">"2"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:targetSdkVersion</span>=<span class="string">"14"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">tools:overrideLibrary</span>=<span class="string">"com.example.lib1,com.example.lib2"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">manifest</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">manifest</span> <span class="attr">xmlns:android</span>=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:tools</span>=<span class="string">&quot;http://schemas.android.com/tools&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">package</span>=<span class="string">&quot;com.sunzn.client&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">uses-sdk</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:minSdkVersion</span>=<span class="string">&quot;2&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:targetSdkVersion</span>=<span class="string">&quot;14&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">tools:overrideLibrary</span>=<span class="string">&quot;com.example.lib1,com.example.lib2&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">manifest</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>将允许导入具有以下清单的库而不会出现错误：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">manifest</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">package</span>=<span class="string">"com.example.lib1"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">uses-sdk</span> <span class="attr">android:minSdkVersion</span>=<span class="string">"2"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">manifest</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">manifest</span> <span class="attr">xmlns:android</span>=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">package</span>=<span class="string">&quot;com.example.lib1&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">uses-sdk</span> <span class="attr">android:minSdkVersion</span>=<span class="string">&quot;2&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">manifest</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="3-应用方案"><a href="#3-应用方案" class="headerlink" title="3. 应用方案"></a>3. 应用方案</h1><p>重新回到文章开始的问题上来。首先，第三方库我们是无法干预的，所以使用较低版本的兼容库不可行；其次，将项目的最低 SDK 升到 21 是可以解决问题的，但是考虑到从 16 升到 21 不是渐进式的提升，会在短时间内导致大量手机系统 API 低于 16 的用户无法更新和安装。最终，只能折中选择增加声明的方式，尽管这种方式可能会导致运行时错误。</p>
 <p>在 Android Studio 中，minSdkVersion 的配置已经迁至 Module 的 build.gradle 中，所以在清单文件中只需要增加标记即可，本例增加的标记如下：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">manifest</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">package</span>=<span class="string">"com.sunzn.client"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">uses-sdk</span> <span class="attr">tools:overrideLibrary</span>=<span class="string">"com.sunzn.core.chat"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">manifest</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">manifest</span> <span class="attr">xmlns:android</span>=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:tools</span>=<span class="string">&quot;http://schemas.android.com/tools&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">package</span>=<span class="string">&quot;com.sunzn.client&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">uses-sdk</span> <span class="attr">tools:overrideLibrary</span>=<span class="string">&quot;com.sunzn.core.chat&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">manifest</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
 
 
       
@@ -299,7 +299,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/02/22/Library-声明的-minSdkVersion-大于-Module-的怎么办？/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/02/22/Library-%E5%A3%B0%E6%98%8E%E7%9A%84-minSdkVersion-%E5%A4%A7%E4%BA%8E-Module-%E7%9A%84%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -313,7 +313,7 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2019/02/23/Android-Room-使用指南/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/02/23/Android-Room-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -323,7 +323,7 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2019/01/31/Android-中的调色板-Palette/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/01/31/Android-%E4%B8%AD%E7%9A%84%E8%B0%83%E8%89%B2%E6%9D%BF-Palette/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Android 中的调色板 Palette</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -351,7 +351,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-问题描述"><span class="toc-number">1.</span> <span class="toc-text">1. 问题描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-解决方案"><span class="toc-number">2.</span> <span class="toc-text">2. 解决方案</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-应用方案"><span class="toc-number">3.</span> <span class="toc-text">3. 应用方案</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">1. 问题描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">2.</span> <span class="toc-text">2. 解决方案</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E5%BA%94%E7%94%A8%E6%96%B9%E6%A1%88"><span class="toc-number">3.</span> <span class="toc-text">3. 应用方案</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -464,10 +464,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -480,6 +476,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Android Studio</a>
               </li>
              
@@ -488,11 +492,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+                <a href="javascript:void(0)" class="js-tag color5">Room</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -500,11 +508,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">View</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Fiddler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -520,7 +552,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -529,10 +573,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -552,59 +592,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">View</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Room</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -628,15 +628,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
+                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Application</a>
               </li>
             
             <div class="clearfix"></div>

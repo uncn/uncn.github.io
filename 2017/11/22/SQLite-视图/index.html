@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>SQLite 视图 | Welcome to sunzn&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="视图即虚拟表，也成为派生表，因为它们的内容都派生自其他表的查询结果。虽然视图看起来感觉就像基本表一样，但是它们不是基本表。基本表的内容是持久的，而视图的内容是在使用时动态产生的。创建视图的语法如下： 1create view name as select-stmt;  视图的名称通过 name 指定，其定义由 select-stmt 定义。最终生成的视图看起来就像名为 name 的基本表。想象一下">
-<meta name="keywords" content="SQLite">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SQLite 视图">
-<meta property="og:url" content="http://yoursite.com/2017/11/22/SQLite-视图/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/11/22/SQLite-%E8%A7%86%E5%9B%BE/index.html">
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="视图即虚拟表，也成为派生表，因为它们的内容都派生自其他表的查询结果。虽然视图看起来感觉就像基本表一样，但是它们不是基本表。基本表的内容是持久的，而视图的内容是在使用时动态产生的。创建视图的语法如下： 1create view name as select-stmt;  视图的名称通过 name 指定，其定义由 select-stmt 定义。最终生成的视图看起来就像名为 name 的基本表。想象一下">
-<meta property="og:locale" content="default">
+<meta property="og:locale">
 <meta property="og:image" content="https://image.sunzn.com/blog/20171025161205.png">
 <meta property="og:image" content="https://image.sunzn.com/blog/20171025161206.png">
 <meta property="og:image" content="https://image.sunzn.com/blog/20171030155801.png">
 <meta property="og:image" content="https://image.sunzn.com/blog/20171030155802.png">
-<meta property="og:updated_time" content="2023-03-21T14:43:12.428Z">
+<meta property="article:published_time" content="2017-11-22T12:15:42.000Z">
+<meta property="article:modified_time" content="2023-03-21T14:43:12.428Z">
+<meta property="article:author" content="狮子">
+<meta property="article:tag" content="SQLite">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SQLite 视图">
-<meta name="twitter:description" content="视图即虚拟表，也成为派生表，因为它们的内容都派生自其他表的查询结果。虽然视图看起来感觉就像基本表一样，但是它们不是基本表。基本表的内容是持久的，而视图的内容是在使用时动态产生的。创建视图的语法如下： 1create view name as select-stmt;  视图的名称通过 name 指定，其定义由 select-stmt 定义。最终生成的视图看起来就像名为 name 的基本表。想象一下">
 <meta name="twitter:image" content="https://image.sunzn.com/blog/20171025161205.png">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
@@ -52,8 +52,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -66,10 +66,8 @@ var _hmt = _hmt || [];
 			<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">狮子</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">念念不忘，必有回响</p>
 		
 
 		<nav class="header-menu">
@@ -126,10 +124,8 @@ var _hmt = _hmt || [];
 				<img src="https://image.sunzn.com/head/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">狮子</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>念念不忘，必有回响<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -186,7 +182,7 @@ var _hmt = _hmt || [];
   
 
         
-        <a href="/2017/11/22/SQLite-视图/" class="archive-article-date">
+        <a href="/2017/11/22/SQLite-%E8%A7%86%E5%9B%BE/" class="archive-article-date">
   	<time datetime="2017-11-22T12:15:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-22</time>
 </a>
         
@@ -195,31 +191,31 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>视图即虚拟表，也成为派生表，因为它们的内容都派生自其他表的查询结果。虽然视图看起来感觉就像基本表一样，但是它们不是基本表。<font color="DeepPink">基本表的内容是持久的，而视图的内容是在使用时动态产生的。</font>创建视图的语法如下：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> <span class="keyword">name</span> <span class="keyword">as</span> <span class="keyword">select</span>-stmt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> name <span class="keyword">as</span> <span class="keyword">select</span><span class="operator">-</span>stmt;</span><br></pre></td></tr></table></figure>
 
 <p>视图的名称通过 name 指定，其定义由 select-stmt 定义。最终生成的视图看起来就像名为 name 的基本表。想象一下你有一个一直在运行的查询，你会对多次编写这样的查询感到厌烦，此时视图则是这种情况的最佳选择。在开始创建视图之前，我们先创建基本表 TYPES 和 FOODS：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 创建 TYPES 表，插入数据</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> TYPES(<span class="keyword">ID</span> <span class="built_in">INTEGER</span> PRIMARY <span class="keyword">KEY</span>, <span class="keyword">NAME</span> <span class="built_in">TEXT</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> TYPES (<span class="keyword">ID</span>, <span class="keyword">NAME</span>) <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="string">'水果'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> TYPES (<span class="keyword">ID</span>, <span class="keyword">NAME</span>) <span class="keyword">VALUES</span> (<span class="number">2</span>, <span class="string">'蔬菜'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> TYPES (<span class="keyword">ID</span>, <span class="keyword">NAME</span>) <span class="keyword">VALUES</span> (<span class="number">3</span>, <span class="string">'肉类'</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 创建 TYPES 表，插入数据</span></span><br><span class="line"><span class="keyword">CREATE TABLE</span> TYPES(ID <span class="type">INTEGER</span> <span class="keyword">PRIMARY KEY</span>, NAME TEXT);</span><br><span class="line"><span class="keyword">INSERT INTO</span> TYPES (ID, NAME) <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="string">&#x27;水果&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> TYPES (ID, NAME) <span class="keyword">VALUES</span> (<span class="number">2</span>, <span class="string">&#x27;蔬菜&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> TYPES (ID, NAME) <span class="keyword">VALUES</span> (<span class="number">3</span>, <span class="string">&#x27;肉类&#x27;</span>);</span><br></pre></td></tr></table></figure>
 
- <a id="more"></a>
+ <span id="more"></span>
 
 <p><img src="https://image.sunzn.com/blog/20171025161205.png" alt="此处输入图片的描述"></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 创建 FOODS 表，插入数据</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> FOODS(<span class="keyword">ID</span> <span class="built_in">INTEGER</span> PRIMARY <span class="keyword">KEY</span>, <span class="keyword">NAME</span> <span class="built_in">TEXT</span>, TYPE_ID <span class="built_in">INTEGER</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS (<span class="keyword">NAME</span>, TYPE_ID) <span class="keyword">VALUES</span> (<span class="string">'苹果'</span>, <span class="number">1</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS (<span class="keyword">NAME</span>, TYPE_ID) <span class="keyword">VALUES</span> (<span class="string">'桔子'</span>, <span class="number">1</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS (<span class="keyword">NAME</span>, TYPE_ID) <span class="keyword">VALUES</span> (<span class="string">'西瓜'</span>, <span class="number">1</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS (<span class="keyword">NAME</span>, TYPE_ID) <span class="keyword">VALUES</span> (<span class="string">'芹菜'</span>, <span class="number">2</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS (<span class="keyword">NAME</span>, TYPE_ID) <span class="keyword">VALUES</span> (<span class="string">'黄瓜'</span>, <span class="number">2</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS (<span class="keyword">NAME</span>, TYPE_ID) <span class="keyword">VALUES</span> (<span class="string">'土豆'</span>, <span class="number">2</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS (<span class="keyword">NAME</span>, TYPE_ID) <span class="keyword">VALUES</span> (<span class="string">'牛肉'</span>, <span class="number">3</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS (<span class="keyword">NAME</span>, TYPE_ID) <span class="keyword">VALUES</span> (<span class="string">'猪肉'</span>, <span class="number">3</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> FOODS (<span class="keyword">NAME</span>, TYPE_ID) <span class="keyword">VALUES</span> (<span class="string">'鸡肉'</span>, <span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 创建 FOODS 表，插入数据</span></span><br><span class="line"><span class="keyword">CREATE TABLE</span> FOODS(ID <span class="type">INTEGER</span> <span class="keyword">PRIMARY KEY</span>, NAME TEXT, TYPE_ID <span class="type">INTEGER</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> FOODS (NAME, TYPE_ID) <span class="keyword">VALUES</span> (<span class="string">&#x27;苹果&#x27;</span>, <span class="number">1</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> FOODS (NAME, TYPE_ID) <span class="keyword">VALUES</span> (<span class="string">&#x27;桔子&#x27;</span>, <span class="number">1</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> FOODS (NAME, TYPE_ID) <span class="keyword">VALUES</span> (<span class="string">&#x27;西瓜&#x27;</span>, <span class="number">1</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> FOODS (NAME, TYPE_ID) <span class="keyword">VALUES</span> (<span class="string">&#x27;芹菜&#x27;</span>, <span class="number">2</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> FOODS (NAME, TYPE_ID) <span class="keyword">VALUES</span> (<span class="string">&#x27;黄瓜&#x27;</span>, <span class="number">2</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> FOODS (NAME, TYPE_ID) <span class="keyword">VALUES</span> (<span class="string">&#x27;土豆&#x27;</span>, <span class="number">2</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> FOODS (NAME, TYPE_ID) <span class="keyword">VALUES</span> (<span class="string">&#x27;牛肉&#x27;</span>, <span class="number">3</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> FOODS (NAME, TYPE_ID) <span class="keyword">VALUES</span> (<span class="string">&#x27;猪肉&#x27;</span>, <span class="number">3</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> FOODS (NAME, TYPE_ID) <span class="keyword">VALUES</span> (<span class="string">&#x27;鸡肉&#x27;</span>, <span class="number">3</span>);</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://image.sunzn.com/blog/20171025161206.png" alt="此处输入图片的描述"></p>
 <p>基本表创建完毕后，紧接着执行如下查询：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> F.NAME, T.NAME</span><br><span class="line"><span class="keyword">FROM</span> FOODS F</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> TYPES T <span class="keyword">ON</span> F.TYPE_ID=T.ID;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> F.NAME, T.NAME</span><br><span class="line"><span class="keyword">FROM</span> FOODS F</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> TYPES T <span class="keyword">ON</span> F.TYPE_ID<span class="operator">=</span>T.ID;</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://image.sunzn.com/blog/20171030155801.png" alt="此处输入图片的描述"></p>
 <p>该查询返回所有 FOOD 的名称，以及所在系列。如果 FOODS 表的数据量很大的话，查询结果将是一个大表，但不用每次需要这些结果时都写出前面的查询，我们可以将它们整理成命名为 FOODS_VIEW 的视图形式。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">VIEW</span> FOODS_VIEW <span class="keyword">AS</span></span><br><span class="line"><span class="keyword">SELECT</span> F.NAME <span class="keyword">AS</span> FD, T.NAME <span class="keyword">AS</span> TP</span><br><span class="line"><span class="keyword">FROM</span> FOODS F</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> TYPES T <span class="keyword">ON</span> F.TYPE_ID=T.ID;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">VIEW</span> FOODS_VIEW <span class="keyword">AS</span></span><br><span class="line"><span class="keyword">SELECT</span> F.NAME <span class="keyword">AS</span> FD, T.NAME <span class="keyword">AS</span> TP</span><br><span class="line"><span class="keyword">FROM</span> FOODS F</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> TYPES T <span class="keyword">ON</span> F.TYPE_ID<span class="operator">=</span>T.ID;</span><br></pre></td></tr></table></figure>
 
 <p>现在你可以像查询表一样查询 FOODS_VIEW，例如：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> FD <span class="keyword">AS</span> FOOD_NAME, TP <span class="keyword">AS</span> FOOD_TYPE <span class="keyword">FROM</span> FOODS_VIEW <span class="keyword">WHERE</span> FOOD_TYPE <span class="keyword">LIKE</span> <span class="string">'%果'</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> FD <span class="keyword">AS</span> FOOD_NAME, TP <span class="keyword">AS</span> FOOD_TYPE <span class="keyword">FROM</span> FOODS_VIEW <span class="keyword">WHERE</span> FOOD_TYPE <span class="keyword">LIKE</span> <span class="string">&#x27;%果&#x27;</span>;</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://image.sunzn.com/blog/20171030155802.png" alt="此处输入图片的描述"></p>
 <p>视图的内容是动态生成的。因此，每次使用 FOODS_VIEW 时，基于数据库的当前数据执行相关的 SQL 语句，产生结果。其他数据库通常不提供视图的其他功能，例如基于视图的安全，但是 SQLite 提供，使用操作控制工具与 SQLite 编程，就可提供基于视图的安全。</p>
 <p>最后，通过提供 name，使用命令 drop view 删除视图。语句如下：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">view</span> <span class="keyword">name</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">view</span> name;</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p><strong>可更新的视图</strong>：关系模型需要可更新的视图。你可以修改这些视图，可以对这些视图进行 insert 或 update 操作，例如，这些变化可以直接应用到底层表中。<font color="DeepPink">SQLite 不支持可更新的视图。但是，使用触发器可以创建类似的东西。</font>详情请参考文章《SQLite 触发器》。</p>
@@ -314,7 +310,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/11/22/SQLite-视图/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/11/22/SQLite-%E8%A7%86%E5%9B%BE/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -328,7 +324,7 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2017/11/23/SQLite-索引/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/11/23/SQLite-%E7%B4%A2%E5%BC%95/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -338,7 +334,7 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2017/11/21/SQLite-触发器/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/11/21/SQLite-%E8%A7%A6%E5%8F%91%E5%99%A8/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">SQLite 触发器</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -479,10 +475,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -495,6 +487,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Android Studio</a>
               </li>
              
@@ -503,11 +503,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+                <a href="javascript:void(0)" class="js-tag color5">Room</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SQLite</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -515,11 +519,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">View</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Fiddler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -535,7 +563,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -544,10 +584,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -567,59 +603,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">View</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NDK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Fragment</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Generics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Room</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">方案</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -643,15 +639,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+                <a href="javascript:void(0)" class="js-tag color5">Signature</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Glide</a>
+                <a href="javascript:void(0)" class="js-tag color2">ConstraintLayout</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+                <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Application</a>
               </li>
             
             <div class="clearfix"></div>
