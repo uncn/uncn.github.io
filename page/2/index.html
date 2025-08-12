@@ -162,6 +162,84 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Android-MQTT-Client" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2024/04/08/Android-MQTT-Client/">Android MQTT Client</a>
+    </h1>
+  
+
+        
+        <a href="/2024/04/08/Android-MQTT-Client/" class="archive-article-date">
+  	<time datetime="2024-04-08T11:48:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-04-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在上篇《ActiveMQ MQTT Server 搭建》中我们已经搭建好了 MQTT Server，本篇我们将在 Android 上建立 MQTT Client 与 MQTT Server 进行通讯。</p>
+<h1 id="1-执行流程"><a href="#1-执行流程" class="headerlink" title="1. 执行流程"></a>1. 执行流程</h1><h2 id="1-1-引入依赖"><a href="#1-1-引入依赖" class="headerlink" title="1.1 引入依赖"></a>1.1 引入依赖</h2><p>在 build.gradle 中引入依赖项。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"> android &#123;</span><br><span class="line">     ...</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> repositories &#123;</span><br><span class="line">    maven &#123;</span><br><span class="line">        url &quot;https://repo.eclipse.org/content/repositories/paho-snapshots/&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line">    ...</span><br><span class="line">    implementation &#x27;org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.0&#x27;</span><br><span class="line">    implementation &#x27;org.eclipse.paho:org.eclipse.paho.android.service:1.1.1&#x27;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2024/04/08/Android-MQTT-Client/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ActiveMQ</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2024/04/08/Android-MQTT-Client/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-ActiveMQ-MQTT-Server-搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1000,83 +1078,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2022/12/28/%E4%B8%8B%E8%BD%BD%E5%BC%95%E6%93%8E%E7%9A%84%E7%BB%84%E4%BB%B6%E5%8C%96%E4%B9%8B%E8%B7%AF/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-后台弹出界面权限" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/11/24/%E5%90%8E%E5%8F%B0%E5%BC%B9%E5%87%BA%E7%95%8C%E9%9D%A2%E6%9D%83%E9%99%90/">后台弹出界面权限</a>
-    </h1>
-  
-
-        
-        <a href="/2022/11/24/%E5%90%8E%E5%8F%B0%E5%BC%B9%E5%87%BA%E7%95%8C%E9%9D%A2%E6%9D%83%E9%99%90/" class="archive-article-date">
-  	<time datetime="2022-11-24T06:08:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在开始正文之前，我觉得有必要明确下【后台弹出界面】权限的由来，这个权限来自小米官方于 2019 年发布的一则<a href="https://web.vip.miui.com/page/info/mio/mio/detail?postId=9216439">《关于默认关闭“后台弹出页面”权限的通知》</a>，该权限旨在限制多种三方应用随意从后台弹出页面，进行各种传播、引导、广告等操作。并且，该权限默认是拒绝的，即应用默认不允许在后台弹出页面，并会针对特殊应用提供白名单。</p>
-<p>这个权限在限制恶意行为的同时，也限制了一些合理的行为。例如，我们希望在 APP 中内置调试页面，当程序出现 BUG 时可以通过 Secret Code 的方式唤起该页面，以获取必要的调试信息。然而，由于小米系统中“后台弹出界面”权限默认是拒绝的，使得调试页面无法被正常唤起。</p>
-        
-          <a class="article-more-a" href="/2022/11/24/%E5%90%8E%E5%8F%B0%E5%BC%B9%E5%87%BA%E7%95%8C%E9%9D%A2%E6%9D%83%E9%99%90/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Permission</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/11/24/%E5%90%8E%E5%8F%B0%E5%BC%B9%E5%87%BA%E7%95%8C%E9%9D%A2%E6%9D%83%E9%99%90/">展开全文 >></a>
         </p>
       
 

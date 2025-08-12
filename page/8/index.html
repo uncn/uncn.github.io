@@ -162,6 +162,85 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-JSONArray-值为-NULL-时的容错处理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/10/JSONArray-%E5%80%BC%E4%B8%BA-NULL-%E6%97%B6%E7%9A%84%E5%AE%B9%E9%94%99%E5%A4%84%E7%90%86/">JSONArray 值为 NULL 时的容错处理</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/10/JSONArray-%E5%80%BC%E4%B8%BA-NULL-%E6%97%B6%E7%9A%84%E5%AE%B9%E9%94%99%E5%A4%84%E7%90%86/" class="archive-article-date">
+  	<time datetime="2017-10-10T13:54:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>无论是 Web 端还是移动端开发，都会涉及到对 JSONArray 的解析，通常状况下前端会和后端会约定好返回的数据是一个 JSONArray 数组，当然前端也会按照 <code>JSONObject.getJSONArray(String name)</code> 的方式去解析数据。但现实中的情况是后端由于某些原因直接返回了 <code>null</code>（而非空数组 [ ]），这时候前端依然按照数组的形式去解析就会抛出如下异常：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">org.json.JSONException: Value <span class="literal">null</span> at users of type org.json.JSONObject$<span class="number">1</span> cannot be converted to JSONArray</span><br><span class="line">    at org.json.JSON.typeMismatch(JSON.java:<span class="number">100</span>)</span><br><span class="line">    at org.json.JSONObject.getJSONArray(JSONObject.java:<span class="number">588</span>)</span><br><span class="line">    at com.sunzn.core.RefreshManager$<span class="number">8.</span>onSuccess(RefreshManager.java:<span class="number">617</span>)</span><br><span class="line">    at com.loopj.android.http.JsonHttpResponseHandler$<span class="number">1</span>$<span class="number">1.</span>run(JsonHttpResponseHandler.java:<span class="number">152</span>)</span><br><span class="line">    at android.os.Handler.handleCallback(Handler.java:<span class="number">739</span>)</span><br><span class="line">    at android.os.Handler.dispatchMessage(Handler.java:<span class="number">95</span>)</span><br><span class="line">    at android.os.Looper.loop(Looper.java:<span class="number">135</span>)</span><br><span class="line">    at android.app.ActivityThread.main(ActivityThread.java:<span class="number">5418</span>)</span><br><span class="line">    at java.lang.reflect.Method.invoke(Native Method)</span><br><span class="line">    at java.lang.reflect.Method.invoke(Method.java:<span class="number">372</span>)</span><br><span class="line">    at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:<span class="number">1037</span>)</span><br><span class="line">    at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:<span class="number">832</span>)</span><br></pre></td></tr></table></figure>
+
+<p>这个异常明确的告诉我们，当 JSONArray 为 null 的时候，这个对象的属性发生了变化，由 JSONArray 变成了 JSONObject，然而前端却依然认为这是个 JSONArray 对象并以 JSONArray 的形式去取值，结果就抛出了异常。</p>
+        
+          <a class="article-more-a" href="/2017/10/10/JSONArray-%E5%80%BC%E4%B8%BA-NULL-%E6%97%B6%E7%9A%84%E5%AE%B9%E9%94%99%E5%A4%84%E7%90%86/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Json</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/10/JSONArray-%E5%80%BC%E4%B8%BA-NULL-%E6%97%B6%E7%9A%84%E5%AE%B9%E9%94%99%E5%A4%84%E7%90%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Android-Studio-Failed-to-open-zip-file" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -951,83 +1030,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/08/14/Fiddler%EF%BC%88%E4%BA%8C%EF%BC%89%E4%B8%BB%E8%8F%9C%E5%8D%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Fiddler（一）用户界面" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/10/Fiddler%EF%BC%88%E4%B8%80%EF%BC%89%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2/">Fiddler（一）用户界面</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/10/Fiddler%EF%BC%88%E4%B8%80%EF%BC%89%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2/" class="archive-article-date">
-  	<time datetime="2017-08-10T12:58:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Fiddler 是一款基于 Windows 系统的专用代理服务器软件。本地运行的程序，如 Web 浏览器，Office 应用程序以及其他客户端应用，可以把 HTTP 和 HTTPS 请求发送给 Fiddler，Fiddler 通常把这些请求转发给 Web 服务器。然后，服务器把这些请求的响应返回给 Fiddler，Fiddler 再把这些响应转发给客户端。</p>
-<p><img src="https://image.sunzn.com/blog/20170810144928.png" alt="流程图"></p>
-        
-          <a class="article-more-a" href="/2017/08/10/Fiddler%EF%BC%88%E4%B8%80%EF%BC%89%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Fiddler</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/10/Fiddler%EF%BC%88%E4%B8%80%EF%BC%89%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2/">展开全文 >></a>
         </p>
       
 
