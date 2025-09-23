@@ -162,6 +162,83 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-下载引擎的组件化之路" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/12/28/%E4%B8%8B%E8%BD%BD%E5%BC%95%E6%93%8E%E7%9A%84%E7%BB%84%E4%BB%B6%E5%8C%96%E4%B9%8B%E8%B7%AF/">下载引擎的组件化之路</a>
+    </h1>
+  
+
+        
+        <a href="/2022/12/28/%E4%B8%8B%E8%BD%BD%E5%BC%95%E6%93%8E%E7%9A%84%E7%BB%84%E4%BB%B6%E5%8C%96%E4%B9%8B%E8%B7%AF/" class="archive-article-date">
+  	<time datetime="2022-12-28T13:00:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-12-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Android 下载引擎的组件化源于应用场景的广泛性和存储字段的固定性。起初，下载引擎是通过 Module 的形式引入项目的，这种方式的引入在形式上起到了解耦作用，同时，也可针对项目个性化的存储字段进行增减。但随着下载引擎复用需求的增加和业务的积淀，Module 不再是下载引擎的最优引用方式了。首先，随着业务的积淀，存储字段的数量逐渐趋于稳定，这意味着下载引擎已经可以满足大部分的应用场景了；其次，Module 引入项目的方式不利于源码的维护。试想下，如果下载引擎出现了问题，并且修复过程异常复杂，那么每个以 Module 方式引入下载引擎的应用在修复同类问题的时候将会非常痛苦，如果再考虑个性化存储字段，这个修复过程将会变成一场灾难。所以，需要一种更加便捷的引用方式来改变现状，比如：AAR 或者 Maven。</p>
+<p>引用方式的改变还是比较棘手的。为了理解这里的困惑，需要了解一下下载引擎的实现方式。下载引擎是通过服务启动下载线程来下载内容的，如果下载的信息有变更，这些信息在入库的同时会通知已注册的观察者，前台会通过内容提供者获取下载信息，并展示在界面上。这里需要注意的是内容提供者，也就是 ContentProvider，同一部手机上是不允许同时存在拥有相同 Authorities 的两个应用的。这意味着下载的引擎的内容提供者应该同时具备动态配置和动态读取 Authorities 的能力。下面，就通过改造让下载引擎来具备这些能力。</p>
+        
+          <a class="article-more-a" href="/2022/12/28/%E4%B8%8B%E8%BD%BD%E5%BC%95%E6%93%8E%E7%9A%84%E7%BB%84%E4%BB%B6%E5%8C%96%E4%B9%8B%E8%B7%AF/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">组件化</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/12/28/%E4%B8%8B%E8%BD%BD%E5%BC%95%E6%93%8E%E7%9A%84%E7%BB%84%E4%BB%B6%E5%8C%96%E4%B9%8B%E8%B7%AF/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-后台弹出界面权限" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -891,85 +968,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Java-的同步化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/17/Java-%E7%9A%84%E5%90%8C%E6%AD%A5%E5%8C%96/">Java 的同步化</a>
-    </h1>
-  
-
-        
-        <a href="/2020/06/17/Java-%E7%9A%84%E5%90%8C%E6%AD%A5%E5%8C%96/" class="archive-article-date">
-  	<time datetime="2020-06-17T00:23:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>只要继承 Thread 类或是实现 Runnable 接口，就可以让对象具有多线程功能。入门线程是简单的，但如果多个线程共享某些数据，数据的同步（一致性、整体性）问题就要特别注意。</p>
-<h1 id="1-同步化"><a href="#1-同步化" class="headerlink" title="1. 同步化"></a>1. 同步化</h1><p>如果程序只是一个单线程，即单一流程的程序，那么只要保证程序逻辑正确，程序通常就可以正确地执行你想要的功能。但当程序是多线程程序，即多流程同时执行时，那么就需要注意更多的细节。例如在多线程共享同一对象的数据时。</p>
-<p>如果一个对象所持有的数据可以被多线程同时共享存取，则必须考虑到数据同步的问题。<font style="color:#BF360C;">所谓数据同步指的是两份数据的整体性和一致性。</font>例如对象 A 有 <code>name</code> 与 <code>id</code> 两个属性，而有一份 B 数据有 <code>name</code> 与 <code>id</code> 的数据要用来更新对象 A 的属性，如果 B 的 <code>name</code> 与 <code>id</code> 设定给 A 对象完成，则称 B 与 A 同步。如下图所示：</p>
-<p><img src="https://image.sunzn.com/blog/20200616140301.png" alt="此处输入图片的描述"></p>
-        
-          <a class="article-more-a" href="/2020/06/17/Java-%E7%9A%84%E5%90%8C%E6%AD%A5%E5%8C%96/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Thread</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/17/Java-%E7%9A%84%E5%90%8C%E6%AD%A5%E5%8C%96/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
@@ -1320,19 +1318,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             </li>
           
             <li class="search-li">
-              <a href="https://www.kotlincn.net/docs/reference/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Kotlin 语言中文站</a>
+              <a href="https://www.kotlincn.net/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Kotlin 语言中文站</a>
             </li>
           
             <li class="search-li">
               <a href="http://justinsdk.github.io/JavaSE6Tutorial/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Java SE 6 技术手册</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="https://www.iconfont.cn/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>阿里巴巴矢量图标库</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://blog.cgsdream.org/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>小松的技术博客</a>
             </li>
           
             <li class="search-li">
@@ -1360,10 +1350,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             </li>
           
             <li class="search-li">
-              <a href="http://hukai.me/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>HuKai</a>
-            </li>
-          
-            <li class="search-li">
               <a href="http://liuwangshu.cn/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>刘望舒</a>
             </li>
           
@@ -1372,19 +1358,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             </li>
           
             <li class="search-li">
-              <a href="https://mushuichuan.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>木水川</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://blog.chinaunix.net/uid/20771867.html" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>木水川@ChinaUnix</a>
-            </li>
-          
-            <li class="search-li">
               <a href="https://weichao.io/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>魏超</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="https://dandanlove.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>振兴</a>
             </li>
           
             <li class="search-li">

@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017/11 | Welcome to sunzn&#39;s Blog</title>
+  <title>获取 Activity 的返回结果 | Welcome to sunzn&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Welcome to sunzn&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2017/11/index.html">
+  <meta name="description" content="在 Android 开发中，我们有大量的应用场景需要启动一个 Activity 并接收其返回的结果来完成业务逻辑的执行。例如，你的应用可启动相机并接收拍摄的照片作为结果。或者，你可以启动“通讯录”以便用户选择联系人，然后接收联系人详细信息作为结果。 虽然所有 API 级别的 Activity 类均提供了底层 startActivityForResult 和 onActivityResult API">
+<meta property="og:type" content="article">
+<meta property="og:title" content="获取 Activity 的返回结果">
+<meta property="og:url" content="http://yoursite.com/2025/08/23/%E8%8E%B7%E5%8F%96-Activity-%E7%9A%84%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C/index.html">
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
+<meta property="og:description" content="在 Android 开发中，我们有大量的应用场景需要启动一个 Activity 并接收其返回的结果来完成业务逻辑的执行。例如，你的应用可启动相机并接收拍摄的照片作为结果。或者，你可以启动“通讯录”以便用户选择联系人，然后接收联系人详细信息作为结果。 虽然所有 API 级别的 Activity 类均提供了底层 startActivityForResult 和 onActivityResult API">
 <meta property="og:locale">
+<meta property="article:published_time" content="2025-08-23T14:44:46.000Z">
+<meta property="article:modified_time" content="2025-09-23T14:58:54.492Z">
 <meta property="article:author" content="狮子">
+<meta property="article:tag" content="Android">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
@@ -160,402 +165,262 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-获取-Activity-的返回结果" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      获取 Activity 的返回结果
+    </h1>
+  
+
+        
+        <a href="/2025/08/23/%E8%8E%B7%E5%8F%96-Activity-%E7%9A%84%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C/" class="archive-article-date">
+  	<time datetime="2025-08-23T14:44:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-08-23</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在 Android 开发中，我们有大量的应用场景需要启动一个 Activity 并接收其返回的结果来完成业务逻辑的执行。例如，你的应用可启动相机并接收拍摄的照片作为结果。或者，你可以启动“通讯录”以便用户选择联系人，然后接收联系人详细信息作为结果。</p>
+<p>虽然所有 API 级别的 Activity 类均提供了底层 <code>startActivityForResult</code> 和 <code>onActivityResult</code> API，但 Google 强烈建议使用 <code>registerForActivityResult</code> 来替代它们。因为新的 API 可以极大程度的保证数据的类型安全、Activity 的生命周期安全，同时还能增加代码的复用性。详情参考<a href="https://developer.android.google.cn/training/basics/intents/result?hl=zh-cn">「官方文档」</a>。</p>
+<span id="more"></span>
+
+<h1 id="1、新旧-API-使用对比"><a href="#1、新旧-API-使用对比" class="headerlink" title="1、新旧 API 使用对比"></a>1、新旧 API 使用对比</h1><h2 id="1-1-旧方法"><a href="#1-1-旧方法" class="headerlink" title="1.1 旧方法"></a>1.1 旧方法</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">override fun onCreate(savedInstanceState: Bundle?) &#123;</span><br><span class="line">    super.onCreate(savedInstanceState)</span><br><span class="line"></span><br><span class="line">    val button = findViewById&lt;Button&gt;(R.id.button)</span><br><span class="line">    button.setOnClickListener &#123;</span><br><span class="line">        val intent = Intent(this, TargetActivity::class.java)</span><br><span class="line">        startActivityForResult(intent, 1)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">override fun onActivityResult(requestCode: Int, resultCode: Int, intent: Intent?) &#123;</span><br><span class="line">    super.onActivityResult(requestCode, resultCode, intent)</span><br><span class="line">    when (requestCode) &#123;</span><br><span class="line">        1 -&gt; if (resultCode == RESULT_OK) &#123;</span><br><span class="line">            // 处理返回的数据</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-2-新方法"><a href="#1-2-新方法" class="headerlink" title="1.2 新方法"></a>1.2 新方法</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">private val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) &#123; result: ActivityResult -&gt;</span><br><span class="line">    if (result.resultCode == Activity.RESULT_OK) &#123;</span><br><span class="line">        val data: Intent? = result.data</span><br><span class="line">        // 处理返回的数据</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">launcher.launch(Intent(context, TargetActivity::class.java))</span><br></pre></td></tr></table></figure>
+
+<h1 id="2、常用预定义协议"><a href="#2、常用预定义协议" class="headerlink" title="2、常用预定义协议"></a>2、常用预定义协议</h1><p>Jetpack 提供了多种预定义的合约类型，开箱即用：</p>
+<table>
+	<tbody>
+		<tr style="text-align:center;background-color:#EFEFEF">
+			<th align="center" width="40%" colspan="1">合约类型</th>
+			<th align="center" width="30%" colspan="1">用途</th>
+			<th align="center" width="30%" colspan="1">返回值类型</th>
+		</tr>
+		<tr>
+			<td align="center">StartActivityForResult()</td>
+			<td align="center">通用 Activity 启动</td>
+            <td align="center">ActivityResult</td>
+		</tr>
+		<tr>
+			<td align="center">TakePicture()</td>
+			<td align="center">拍照</td>
+            <td align="center">Bitmap?</td>
+		</tr>
+		<tr>
+			<td align="center">PickContact()</td>
+			<td align="center">选择联系人</td>
+            <td align="center">Uri?</td>
+		</tr>
+		<tr>
+			<td align="center">GetContent()</td>
+			<td align="center">选择文件（文本/图片等）</td>
+            <td align="center">Uri?</td>
+		</tr>
+		<tr>
+			<td align="center">RequestPermission()</td>
+			<td align="center">请求单个权限</td>
+            <td align="center">Boolean</td>
+		</tr>
+				<tr>
+			<td align="center">OpenDocument()</td>
+			<td align="center">打开文档</td>
+            <td align="center">Uri?</td>
+		</tr>
+		<tr>
+			<td align="center">OpenDocumentTree()</td>
+			<td align="center">访问目录树</td>
+            <td align="center">Uri?</td>
+		</tr>
+		<tr>
+			<td align="center">StartIntentSenderForResult()</td>
+			<td align="center">处理 PendingIntent</td>
+            <td align="center">ActivityResult</td>
+		</tr>
+	</tbody>
+</table>
+
+<h2 id="2-1-拍照并获取图片"><a href="#2-1-拍照并获取图片" class="headerlink" title="2.1 拍照并获取图片"></a>2.1 拍照并获取图片</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 1. 注册合约</span><br><span class="line">private val launcher = registerForActivityResult(ActivityResultContracts.TakePicturePreview()) &#123; bitmap: Bitmap? -&gt;</span><br><span class="line">    bitmap?.let &#123; </span><br><span class="line">        imageView.setImageBitmap(it) </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 2. 启动相机</span><br><span class="line">launcher.launch(null) // 参数可为保存图片的 Uri</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-2-请求位置权限"><a href="#2-2-请求位置权限" class="headerlink" title="2.2 请求位置权限"></a>2.2 请求位置权限</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">private val launcher = registerForActivityResult(ActivityResultContracts.RequestPermission()) &#123; isGranted: Boolean -&gt;</span><br><span class="line">    if (isGranted) &#123;</span><br><span class="line">        Toast.makeText(this, &quot;权限已授予&quot;, Toast.LENGTH_SHORT).show()</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        Toast.makeText(this, &quot;权限被拒绝&quot;, Toast.LENGTH_SHORT).show()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 请求权限</span><br><span class="line">launcher.launch(Manifest.permission.ACCESS_FINE_LOCATION)</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-3-打开类型文档"><a href="#2-3-打开类型文档" class="headerlink" title="2.3 打开类型文档"></a>2.3 打开类型文档</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">private val launcher = registerForActivityResult(ActivityResultContracts.OpenDocument()) &#123; uri: Uri? -&gt;</span><br><span class="line">    uri?.let &#123; openPDF(it) &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">launcher.launch(arrayOf(&quot;application/pdf&quot;))</span><br></pre></td></tr></table></figure>
+
+<h1 id="3、创建自定义协议"><a href="#3、创建自定义协议" class="headerlink" title="3、创建自定义协议"></a>3、创建自定义协议</h1><p>虽然 <code>ActivityResultContracts</code> 包含一些预先构建的 <code>ActivityResultContract</code> 类供您使用，但您可以使用自己的协定，提供您所需要的精确类型安全 API。</p>
+<p>每个 <code>ActivityResultContract</code> 都需要定义好的输入和输出类，如果您不需要任何输入，请使用 Void 作为输入类型（在 Kotlin 中，请使用 <code>Void?</code> 或 <code>Unit</code>）。</p>
+<p>每个协定都必须实现 <code>createIntent()</code> 方法，该方法接受 <code>Context</code> 和输入内容作为参数，并构造将与 <code>startActivityForResult()</code> 配合使用的 <code>Intent</code>。</p>
+<p>每个协定还必须实现 <code>parseResult()</code>，它会根据指定的 <code>resultCode</code>（如 <code>Activity.RESULT_OK</code> 或 <code>Activity.RESULT_CANCELED</code>）和 <code>Intent</code> 生成输出。</p>
+<p>如果无需调用 <code>createIntent()</code>、启动另一个 activity 并借助 <code>parseResult()</code> 来构建结果即可确定指定输入内容的结果，协定可以选择性地实现 <code>getSynchronousResult()</code>。</p>
+<p>以下示例展示了如何构造 ActivityResultContract：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class PickRingtone : ActivityResultContract&lt;Int, Uri?&gt;() &#123;</span><br><span class="line">    override fun createIntent(context: Context, ringtoneType: Int) =</span><br><span class="line">        Intent(RingtoneManager.ACTION_RINGTONE_PICKER).apply &#123;</span><br><span class="line">            putExtra(RingtoneManager.EXTRA_RINGTONE_TYPE, ringtoneType)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    override fun parseResult(resultCode: Int, result: Intent?) : Uri? &#123;</span><br><span class="line">        if (resultCode != Activity.RESULT_OK) &#123;</span><br><span class="line">            return null</span><br><span class="line">        &#125;</span><br><span class="line">        return result?.getParcelableExtra(RingtoneManager.EXTRA_RINGTONE_PICKED_URI)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/28/SQLite-%E5%AD%98%E5%82%A8%E7%B1%BB/" class="archive-article-date">
-  	<time datetime="2017-11-27T23:39:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/28/SQLite-%E5%AD%98%E5%82%A8%E7%B1%BB/">SQLite 存储类</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SQLite</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2025/08/23/%E8%8E%B7%E5%8F%96-Activity-%E7%9A%84%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/25/SQLite-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86/" class="archive-article-date">
-  	<time datetime="2017-11-25T01:57:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-25</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2035/04/28/%E6%9E%81%E7%AE%80%E4%BE%BF%E7%AD%BE/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          极简便签
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2025/08/12/Android-Studio-%E9%87%8C%E6%9C%89%E7%94%A8%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android Studio 里有用的快捷键</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/25/SQLite-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86/">SQLite 数据库管理</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SQLite</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1%E3%80%81%E6%96%B0%E6%97%A7-API-%E4%BD%BF%E7%94%A8%E5%AF%B9%E6%AF%94"><span class="toc-number">1.</span> <span class="toc-text">1、新旧 API 使用对比</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E6%97%A7%E6%96%B9%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 旧方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E6%96%B0%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 新方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2%E3%80%81%E5%B8%B8%E7%94%A8%E9%A2%84%E5%AE%9A%E4%B9%89%E5%8D%8F%E8%AE%AE"><span class="toc-number">2.</span> <span class="toc-text">2、常用预定义协议</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E6%8B%8D%E7%85%A7%E5%B9%B6%E8%8E%B7%E5%8F%96%E5%9B%BE%E7%89%87"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 拍照并获取图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E8%AF%B7%E6%B1%82%E4%BD%8D%E7%BD%AE%E6%9D%83%E9%99%90"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 请求位置权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E6%89%93%E5%BC%80%E7%B1%BB%E5%9E%8B%E6%96%87%E6%A1%A3"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 打开类型文档</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3%E3%80%81%E5%88%9B%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8D%8F%E8%AE%AE"><span class="toc-number">3.</span> <span class="toc-text">3、创建自定义协议</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/24/SQLite-%E4%BA%8B%E5%8A%A1/" class="archive-article-date">
-  	<time datetime="2017-11-24T13:01:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-24</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/24/SQLite-%E4%BA%8B%E5%8A%A1/">SQLite 事务</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SQLite</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/23/SQLite-%E7%B4%A2%E5%BC%95/" class="archive-article-date">
-  	<time datetime="2017-11-23T12:10:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/23/SQLite-%E7%B4%A2%E5%BC%95/">SQLite 索引</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SQLite</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/22/SQLite-%E8%A7%86%E5%9B%BE/" class="archive-article-date">
-  	<time datetime="2017-11-22T12:15:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/22/SQLite-%E8%A7%86%E5%9B%BE/">SQLite 视图</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SQLite</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/21/SQLite-%E8%A7%A6%E5%8F%91%E5%99%A8/" class="archive-article-date">
-  	<time datetime="2017-11-20T23:38:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/21/SQLite-%E8%A7%A6%E5%8F%91%E5%99%A8/">SQLite 触发器</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SQLite</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/20/SQLite%E4%B8%AD%E7%9A%84Null/" class="archive-article-date">
-  	<time datetime="2017-11-20T03:13:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/20/SQLite%E4%B8%AD%E7%9A%84Null/">SQLite 中的 Null</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SQLite</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/19/SQLite%E6%8F%92%E5%85%A5%E3%80%81%E6%9B%B4%E6%96%B0%E6%88%96%E5%BF%BD%E7%95%A5/" class="archive-article-date">
-  	<time datetime="2017-11-19T02:30:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/19/SQLite%E6%8F%92%E5%85%A5%E3%80%81%E6%9B%B4%E6%96%B0%E6%88%96%E5%BF%BD%E7%95%A5/">SQLite 插入、更新或忽略</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SQLite</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/18/SQLite-%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE/" class="archive-article-date">
-  	<time datetime="2017-11-18T12:35:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/18/SQLite-%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE/">SQLite 修改数据</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SQLite</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/17/%E5%A6%82%E4%BD%95%E4%BB%8E-SQLite-%E7%9A%84%E7%8E%B0%E6%9C%89%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E6%88%96%E5%88%A0%E9%99%A4%E5%88%97/" class="archive-article-date">
-  	<time datetime="2017-11-17T15:16:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/17/%E5%A6%82%E4%BD%95%E4%BB%8E-SQLite-%E7%9A%84%E7%8E%B0%E6%9C%89%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E6%88%96%E5%88%A0%E9%99%A4%E5%88%97/">如何从 SQLite 的现有表中添加或删除列</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SQLite</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -579,8 +444,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

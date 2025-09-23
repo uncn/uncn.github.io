@@ -162,6 +162,87 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-MySQL数据库插入中文乱码的解决方案" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/10/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">MySQL数据库插入中文乱码的解决方案</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/10/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="archive-article-date">
+  	<time datetime="2017-10-10T15:49:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>默认情况下，向 MySQL 数据库插入一条带有中文的数据时，会出现乱码，测试语句如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert into</span> employee <span class="keyword">values</span>(<span class="keyword">null</span>,<span class="string">&#x27;张三&#x27;</span>,<span class="string">&#x27;female&#x27;</span>,<span class="string">&#x27;1995-10-08&#x27;</span>,<span class="string">&#x27;2015-11-12&#x27;</span>,<span class="string">&#x27;Sales&#x27;</span>,<span class="number">2000</span>,<span class="string">&#x27;是个好员工！&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p>出现乱码时，首先需要查看字符集编码是否一致，如果不一致，就可通过调整数据库编集码进行解决，语句如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;character%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p> <img src="https://image.sunzn.com/blog/20170930094701.png" alt="此处输入图片的描述"></p>
+        
+          <a class="article-more-a" href="/2017/10/10/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/10/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-JSONArray-值为-NULL-时的容错处理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -950,115 +1031,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Fiddler（二）主菜单" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/14/Fiddler%EF%BC%88%E4%BA%8C%EF%BC%89%E4%B8%BB%E8%8F%9C%E5%8D%95/">Fiddler（二）主菜单</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/14/Fiddler%EF%BC%88%E4%BA%8C%EF%BC%89%E4%B8%BB%E8%8F%9C%E5%8D%95/" class="archive-article-date">
-  	<time datetime="2017-08-14T11:05:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>主菜单被设计为可以启动几乎所有的 Fiddler 功能。菜单系统可以通过 FidlerScript 或 Extensions 进行扩展和增强，本文将要探讨 Fiddler 本身默认的菜单命令。</p>
-<h2 id="一、File-菜单"><a href="#一、File-菜单" class="headerlink" title="一、File 菜单"></a>一、File 菜单</h2><p><font color="#0077BB">File 菜单中的命令主要支持完成通过 Fiddler 来启动和停止 Web 流量的捕获（Capture），也可以加载或存储捕获的流量。</font></p>
-<table>
-<thead>
-<tr>
-<th>菜单</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Capture_Trafic</td>
-<td>Capture Trafic 是个开关，可以控制是否把 Fiddler 注册为系统代理。当把 Fiddler 注册为系统代理时，所有依赖于 WinINET 代理的应用（如 IE 浏览器和很多其他浏览器）会把 Web 请求发送给 Fiddler。Firefox 的 FiddlerHook 附加组件也可以识别该菜单选项。即使 Fiddler 没有被注册为系统代理，Fiddler 仍然可以显示和处理其接收到的任何请求。</td>
-</tr>
-<tr>
-<td>Load_Archive</td>
-<td>用于重新加载之前捕获的以 SAZ 文件格式保存的流量。</td>
-</tr>
-<tr>
-<td>Save</td>
-<td>子菜单中的选项支持以多种方式把流量保存到文件中；该菜单选项和 Web Session 列表中的上下文菜单中的选项相同。</td>
-</tr>
-<tr>
-<td>Import_Sessions…</td>
-<td>支持导入从其他工具捕获的流量，也支持导入其他格式存储的流量。</td>
-</tr>
-<tr>
-<td>Export_Sessions</td>
-<td>支持把 Fiddler 捕捉到的 Session 以多种文件格式保存。在其子菜单中可以选择 All Sessions… 或 Seleted Sessions…</td>
-</tr>
-<tr>
-<td>Exit</td>
-<td>取消把 Fiddler 注册为系统代理，并关闭工具栏。</td>
-</tr>
-</tbody></table>
-        
-          <a class="article-more-a" href="/2017/08/14/Fiddler%EF%BC%88%E4%BA%8C%EF%BC%89%E4%B8%BB%E8%8F%9C%E5%8D%95/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Fiddler</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/14/Fiddler%EF%BC%88%E4%BA%8C%EF%BC%89%E4%B8%BB%E8%8F%9C%E5%8D%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
@@ -1409,19 +1381,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             </li>
           
             <li class="search-li">
-              <a href="https://www.kotlincn.net/docs/reference/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Kotlin 语言中文站</a>
+              <a href="https://www.kotlincn.net/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Kotlin 语言中文站</a>
             </li>
           
             <li class="search-li">
               <a href="http://justinsdk.github.io/JavaSE6Tutorial/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Java SE 6 技术手册</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="https://www.iconfont.cn/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>阿里巴巴矢量图标库</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://blog.cgsdream.org/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>小松的技术博客</a>
             </li>
           
             <li class="search-li">
@@ -1449,10 +1413,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             </li>
           
             <li class="search-li">
-              <a href="http://hukai.me/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>HuKai</a>
-            </li>
-          
-            <li class="search-li">
               <a href="http://liuwangshu.cn/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>刘望舒</a>
             </li>
           
@@ -1461,19 +1421,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             </li>
           
             <li class="search-li">
-              <a href="https://mushuichuan.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>木水川</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://blog.chinaunix.net/uid/20771867.html" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>木水川@ChinaUnix</a>
-            </li>
-          
-            <li class="search-li">
               <a href="https://weichao.io/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>魏超</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="https://dandanlove.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>振兴</a>
             </li>
           
             <li class="search-li">
