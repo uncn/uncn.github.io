@@ -16,7 +16,7 @@
 <meta property="og:description" content="当一个 Android 设备闲置时，它的屏幕会先变暗，然后关闭屏幕，最后关闭 CPU。 这样可以防止设备的电量被快速耗尽。 但是，有时候也会存在一些例外：  例如游戏或电影之类的应用可能需要保持屏幕常亮。 其他应用可能不需要屏幕保持常亮，但是可能需要 CPU 保持运行，直到关键操作完成。  本文将描述如何在必要的时候保持设备唤醒，同时又不会过多消耗它的电量。 1. 保持设备唤醒了解如何根据需要保持">
 <meta property="og:locale">
 <meta property="article:published_time" content="2018-01-30T11:24:56.000Z">
-<meta property="article:modified_time" content="2018-01-30T11:40:14.000Z">
+<meta property="article:modified_time" content="2025-12-11T16:25:20.558Z">
 <meta property="article:author" content="狮子">
 <meta property="article:tag" content="Android">
 <meta name="twitter:card" content="summary">
@@ -205,7 +205,7 @@ var _hmt = _hmt || [];
 
 <p>使用 android:keepScreenOn&#x3D;”true” 与使用 FLAG_KEEP_SCRRE_ON 等效。你可以选择最适合你应用的方法。在 Activity 中通过代码设置常亮标识的优点在于：你可以通过代码动态清除这个标识，从而使屏幕可以关闭。</p>
 <blockquote>
-<p>**注意：**除非你不再希望正在运行的应用长时间点亮屏幕（例如：在一段时间无操作发生后，你想要将屏幕关闭），否则你是不需要清除 FLAG_KEEP_SCRRE_ON 标识的。WindowManager 会在应用进入后台或者返回前台时，正确管理屏幕的关闭或点亮。但是如果你想要显式地清除这一标识，从而使得屏幕能够关闭，可以使用 <a href="https://developer.android.com/reference/android/view/Window.html#clearFlags%28int%29">clearFlags()</a>: getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON) 方法。</p>
+<p><strong>注意：</strong> 除非你不再希望正在运行的应用长时间点亮屏幕（例如：在一段时间无操作发生后，你想要将屏幕关闭），否则你是不需要清除 FLAG_KEEP_SCRRE_ON 标识的。WindowManager 会在应用进入后台或者返回前台时，正确管理屏幕的关闭或点亮。但是如果你想要显式地清除这一标识，从而使得屏幕能够关闭，可以使用 <a href="https://developer.android.com/reference/android/view/Window.html#clearFlags%28int%29">clearFlags()</a>: getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON) 方法。</p>
 </blockquote>
 <h2 id="1-2-保持-CPU-运行"><a href="#1-2-保持-CPU-运行" class="headerlink" title="1.2 保持 CPU 运行"></a>1.2 保持 CPU 运行</h2><p>如果需要保持 CPU 运行以便在设备进入睡眠状态之前完成某些工作，你可以使用 <a href="https://developer.android.com/reference/android/os/PowerManager.html">PowerManager</a> 系统服务中的唤醒锁功能。唤醒锁允许你的应用控制设备的电源状态。</p>
 <p>创建并保持唤醒锁可能会对设备的电池寿命产生巨大影响。 因此你应该仅在你确实需要时使用唤醒锁，且使用的时间应该越短越好。例如，你不应该在 Activity 中使用唤醒锁。如上所述，如果您想要屏幕在 Activity 中保持常亮，请使用 <a href="https://developer.android.com/reference/android/view/WindowManager.LayoutParams.html#FLAG_KEEP_SCREEN_ON">FLAG_KEEP_SCREEN_ON</a>。</p>
@@ -246,7 +246,7 @@ var _hmt = _hmt || [];
 <li>它们帮助你最大限度地减少应用程序的资源需求。你可以使用闹钟进行任务调度，来替代计时器或长时间连续运行的后台服务。</li>
 </ul>
 <blockquote>
-<p>**注意：**对于确保在应用程序生命周期中发生的定时操作，请考虑将 Handler 类与 Timer 和 Thread 结合使用。这样使 Android 更好地控制系统资源。</p>
+<p><strong>注意：</strong> 对于确保在应用程序生命周期中发生的定时操作，请考虑将 Handler 类与 Timer 和 Thread 结合使用。这样使 Android 更好地控制系统资源。</p>
 </blockquote>
 <h2 id="2-1-权衡利弊"><a href="#2-1-权衡利弊" class="headerlink" title="2.1 权衡利弊"></a>2.1 权衡利弊</h2><p>重复闹钟是一种相对简单的机制，灵活性有限。它可能不是你的应用程序的最佳选择，特别是当你想要触发网络操作的时候。设计不当的闹钟可能会导致电池耗尽并给服务器带来很大负担。</p>
 <p>一个常见的应用场景是，在应用的生命周期之外触发一个操作从服务器同步数据。此时你可能希望使用重复闹钟。但是如果存储数据的服务端是由你控制的，使用 <a href="https://developers.google.com/cloud-messaging/gcm">Google Cloud Messaging（GCM）</a>结合 <a href="https://developer.android.com/training/sync-adapters/index.html">sync adapter</a> 是一种更好解决方案。SyncAdapter 提供的任务调度选项和 <a href="https://developer.android.com/reference/android/app/AlarmManager.html">AlarmManager</a> 基本相同，但是它能提供更大的灵活性。例如：同步的触发可能基于来自服务器&#x2F;设备的“新数据”提示消息，用户的活动与否，每天的某一时刻等。</p>

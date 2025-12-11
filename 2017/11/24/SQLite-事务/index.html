@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://image.sunzn.com/blog/20171101133309.png">
 <meta property="og:image" content="https://image.sunzn.com/blog/20171101133310.png">
 <meta property="article:published_time" content="2017-11-24T13:01:06.000Z">
-<meta property="article:modified_time" content="2023-03-21T14:41:23.467Z">
+<meta property="article:modified_time" content="2025-12-11T16:30:29.669Z">
 <meta property="article:author" content="狮子">
 <meta property="article:tag" content="SQLite">
 <meta name="twitter:card" content="summary">
@@ -282,7 +282,7 @@ var _hmt = _hmt || [];
 <p>一旦所有的其他共享锁都被释放，拥有未决锁的连接就可以将其锁提升至排它锁，此时就可以自由地对数据库进行修改。所有以前缓存的修改都会被写到数据库文件中。</p>
 <h2 id="四、死锁"><a href="#四、死锁" class="headerlink" title="四、死锁"></a>四、死锁</h2><p>虽然你可能觉得前面关于锁的讨论很有趣，但是你可以能也在考虑为什么锁如此重要？为什么需要了解锁的机制呢？如果不了解你正在做什么，你可能会陷入死锁。</p>
 <p>考虑下表的情况，两个连接 A 和 B 完全不知道对方在同一时刻对同一数据库进行操作。连接 A 启动第一个命令，B 启动第二、第三个命令，A 启动第四个，如此等等。</p>
-<table><tr><td colspan="3" bgcolor="#F8F8F8" align="center"><b>假设的死锁情况</b></td></tr><tr><td bgcolor="#F8F8F8" align="center">执行顺序</td><td bgcolor="#F8F8F8" align="center">连接A</td><td bgcolor="#F8F8F8" align="center">连接B</td></tr><tr><td align="center">1</td><td>sqlite> begin;</td><td></td></tr><tr><td align="center">2</td><td></td><td>sqlite> begin;</td></tr><tr><td align="center">3</td><td></td><td>sqlite> insert into foo values('x')</td></tr><tr><td align="center">4</td><td>sqlite> select * from foo;</td><td></td></tr><tr><td align="center">5</td><td></td><td>sqlite> commit;</td></tr><tr><td align="center">6</td><td></td><td>SQL error：database is locked</td></tr><tr><td align="center">7</td><td>sqlite> insert into foo values('x')</td><td></td></tr><tr><td align="center">8</td><td>SQL error：database is locked</td><td></td></tr></table>
+<table><tr><th colspan="3" align="center"><b>假设的死锁情况</b></th></tr><tr><th align="center">执行顺序</th><th align="center">连接A</th><th align="center">连接B</th></tr><tr><td align="center">1</td><td>sqlite> begin;</td><td></td></tr><tr><td align="center">2</td><td></td><td>sqlite> begin;</td></tr><tr><td align="center">3</td><td></td><td>sqlite> insert into foo values('x')</td></tr><tr><td align="center">4</td><td>sqlite> select * from foo;</td><td></td></tr><tr><td align="center">5</td><td></td><td>sqlite> commit;</td></tr><tr><td align="center">6</td><td></td><td>SQL error：database is locked</td></tr><tr><td align="center">7</td><td>sqlite> insert into foo values('x')</td><td></td></tr><tr><td align="center">8</td><td>SQL error：database is locked</td><td></td></tr></table>
 
 <p>两个连接都在死锁中结束。B 首先尝试写数据库，也就拥有了一个未决锁。A 再视图写，但当其 insert 语句视图将共享锁提升为预留锁时失败。</p>
 <p>为了方便讨论，在此假设连接 A 和 B 都一直在等待数据库可写。那么此时，其他的连接都被锁在外面。如果试图打开第三个连接，它甚至不能读数据库。<font color="DeepPink">因为 B 拥有未决锁（它能阻止其他连接获得共享锁）。</font>那么此时，不仅 A 和 B 死锁了，而且它们也将其他人锁在数据库外。基本上，有共享锁和未决锁的那些连接如果不想放弃控制，其他所有的进程都不能再操作此数据库了。</p>

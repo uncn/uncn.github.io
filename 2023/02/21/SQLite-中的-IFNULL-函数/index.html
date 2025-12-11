@@ -16,7 +16,7 @@
 <meta property="og:description" content="SQLite 中的 IFNULL() 函数是一个 IF-ELSE 的函数，如果第一个参数为 NULL，返回第二个参数，否则返回第一个参数。       IFNULL 语法       ifnull(expr1, expr2)       参数       expr1     必需的。判断此表达式是否为 NULL。       expr2     必需的。当 expr1 为 NULL 时，返回 ex">
 <meta property="og:locale">
 <meta property="article:published_time" content="2023-02-21T13:46:42.000Z">
-<meta property="article:modified_time" content="2023-05-04T13:55:22.549Z">
+<meta property="article:modified_time" content="2025-12-11T15:16:43.751Z">
 <meta property="article:author" content="狮子">
 <meta property="article:tag" content="SQLite">
 <meta name="twitter:card" content="summary">
@@ -188,37 +188,37 @@ var _hmt = _hmt || [];
         <p>SQLite 中的 IFNULL() 函数是一个 IF-ELSE 的函数，如果第一个参数为 NULL，返回第二个参数，否则返回第一个参数。</p>
 <table>
 <tr>
-    <th colspan="5" style="background: #EFEFEF; text-align: left; text-indent:1em">IFNULL 语法</th>
+    <th colspan="5" style="text-align: left; text-indent:1em">IFNULL 语法</th>
 </tr>
 <tr>
-    <td colspan="5" style="font-family:Consolas,Menlo,Monaco,Andale Mono,lucida console,Courier New,monospace; text-indent:1em">ifnull(expr1, expr2)</td>
+    <td colspan="5" style="font-family:Roboto Mono,monospace; text-indent:1em">ifnull(expr1, expr2)</td>
 </tr>
 <tr>
-    <th colspan="5" style="background: #EFEFEF; text-align: left; text-indent:1em">参数</th>
+    <th colspan="5" style="text-align: left; text-indent:1em">参数</th>
 </tr>
 <tr>
-    <td colspan="1" width="80px" style="text-align: center; vertical-align: middle; font-family:Consolas,Source Code Pro,Consolas,Monaco,Menlo,monospace">expr1</td>
+    <td colspan="1" width="80px" style="text-align: center; vertical-align: middle; font-family:Roboto Mono,monospace">expr1</td>
     <td colspan="4">必需的。判断此表达式是否为 NULL。</td>
 </tr>
 <tr>
-    <td colspan="1" width="80px" style="text-align: center; vertical-align: middle; font-family:Consolas,Source Code Pro,Consolas,Monaco,Menlo,monospace">expr2</td>
+    <td colspan="1" width="80px" style="text-align: center; vertical-align: middle; font-family:Roboto Mono,monospace">expr2</td>
     <td colspan="3">必需的。当 expr1 为 NULL 时，返回 expr2。</td>
 </tr>
 <tr>
-    <th colspan="5" style="background: #EFEFEF; text-align: left; text-indent:1em">返回值</th>
+    <th colspan="5" style="text-align: left; text-indent:1em">返回值</th>
 </tr>
 <tr>
-    <td colspan="5" style="font-family:Consolas,Menlo,Monaco,Andale Mono,lucida console,Courier New,monospace; text-indent:1em">如果 expr1 为 NULL，ifnull() 函数返回 expr2，否则返回 expr1。</td>
+    <td colspan="5" style="font-family:Roboto Mono,monospace; text-indent:1em">如果 expr1 为 NULL，ifnull() 函数返回 expr2，否则返回 expr1。</td>
 </tr>
 <tr>
-    <th colspan="5" style="background: #EFEFEF; text-align: left; text-indent:1em">示例</th>
+    <th colspan="5" style="text-align: left; text-indent:1em">示例</th>
 </tr>
 <tr>
-    <td colspan="5" style="font-family:Consolas,Menlo,Monaco,Andale Mono,lucida console,Courier New,monospace; text-indent:1em">SELECT ifnull(NULL, 'It is NULL'), ifnull('I am not NULL', 'x');
+    <td colspan="5" style="font-family:Roboto Mono,monospace; text-indent:1em">SELECT ifnull(NULL, 'It is NULL'), ifnull('I am not NULL', 'x');
 </td>
 </tr>
 <tr>
-    <td colspan="5" style="font-family:Consolas,Menlo,Monaco,Andale Mono,lucida console,Courier New,monospace; text-indent:1em">Output It is NULL, I am not NULL
+    <td colspan="5" style="font-family:Roboto Mono,monospace; text-indent:1em">Output It is NULL, I am not NULL
 </td>
 </tr>
 </table>

@@ -16,7 +16,7 @@
 <meta property="og:description" content="应用访问文件和目录最便捷的方式是使用 Context 类提供的方法。Context 类是所有关键应用组件的超类，常见的几个应用组件有：Application、Activity 和 Service。因此，这些子类可使用 Context 类提供的方法（如下表所示）轻松访问文件和目录。       内部缓存       方法     context.getCacheDir()       路径">
 <meta property="og:locale">
 <meta property="article:published_time" content="2023-01-30T15:33:41.000Z">
-<meta property="article:modified_time" content="2023-01-30T15:49:12.740Z">
+<meta property="article:modified_time" content="2025-12-11T15:36:08.331Z">
 <meta property="article:author" content="狮子">
 <meta property="article:tag" content="Android">
 <meta property="article:tag" content="File">
@@ -189,7 +189,7 @@ var _hmt = _hmt || [];
         <p>应用访问文件和目录最便捷的方式是使用 Context 类提供的方法。Context 类是所有关键应用组件的超类，常见的几个应用组件有：Application、Activity 和 Service。因此，这些子类可使用 Context 类提供的方法（如下表所示）轻松访问文件和目录。</p>
 <table>
 <tr>
-    <th colspan="5" style="background: #EFEFEF; text-align: left;">内部缓存</th>
+    <th colspan="5" style="text-align: left;">内部缓存</th>
 </tr>
 <tr>
     <td colspan="1" width="80px" style="text-align: center; vertical-align: middle">方法</td>
@@ -204,7 +204,7 @@ var _hmt = _hmt || [];
     <td colspan="3">对应着应用程序的内部缓存，用来存储临时数据。系统空间不足时可能会被自动清除，应用卸载后该目录下的数据会被清空。</td>
 </tr>
 <tr>
-    <th colspan="5" style="background: #EFEFEF; text-align: left;">内部存储</th>
+    <th colspan="5" style="text-align: left;">内部存储</th>
 </tr>
 <tr>
     <td colspan="1" width="80px" style="text-align: center; vertical-align: middle">方法</td>
@@ -219,7 +219,7 @@ var _hmt = _hmt || [];
     <td colspan="3">对应着应用程序的内部存储，用来存储临时数据。系统空间不足时可能会被自动清除，应用卸载后该目录下的数据会被清空。</td>
 </tr>
 <tr>
-    <th colspan="5" style="background: #EFEFEF; text-align: left;">外部缓存</th>
+    <th colspan="5" style="text-align: left;">外部缓存</th>
 </tr>
 <tr>
     <td colspan="1" width="80px" style="text-align: center; vertical-align: middle">方法</td>
@@ -234,7 +234,7 @@ var _hmt = _hmt || [];
     <td colspan="3">对应着应用程序内的外部缓存，同样是用来存储临时数据的。但由于脱离了应用管理，因此并不会在空间不足时被自动清除，但应用卸载后该目录下的数据会被清空。</td>
 </tr>
 <tr>
-    <th colspan="5" style="background: #EFEFEF; text-align: left;">外部存储</th>
+    <th colspan="5" style="text-align: left;">外部存储</th>
 </tr>
 <tr>
     <td colspan="1" width="80px" style="text-align: center; vertical-align: middle">方法</td>
@@ -249,7 +249,7 @@ var _hmt = _hmt || [];
     <td colspan="3">对应着应用程序内的外部存储，同样是用来存储临时数据的。但由于脱离了应用管理，因此并不会在空间不足时被自动清除，但应用卸载后该目录下的数据会被清空。</td>
 </tr>
 <tr>
-    <th colspan="5" style="background: #EFEFEF; text-align: left;">应用存储</th>
+    <th colspan="5" style="text-align: left;">应用存储</th>
 </tr>
 <tr>
     <td colspan="1" width="80px" style="text-align: center; vertical-align: middle">方法</td>
@@ -266,11 +266,11 @@ var _hmt = _hmt || [];
 <tr>
     <td colspan="1" width="80px" style="text-align: center; vertical-align: middle">取值</td>
     <td colspan="3">
-        <ul>
-            <li>MODE_PRIVATE : 只能被当前程序读写</li>
-            <li>MODE_APPEND :  以追加的方式打开文件，应用程序可以向文件中追加内容</li>
-            <li>MODE_WORLD_READABLE : 可以被其他的应用读取数据</li>
-            <li>MODE_WORLD_WRITEABLE : 可以被其他的应用读写数据</li>
+        <ul style="font-size: 0.890rem">
+            <li style="margin: 0px 0px;">MODE_PRIVATE : 只能被当前程序读写</li>
+            <li style="margin: 0px 0px;">MODE_APPEND :  以追加的方式打开文件，应用程序可以向文件中追加内容</li>
+            <li style="margin: 0px 0px;">MODE_WORLD_READABLE : 可以被其他的应用读取数据</li>
+            <li style="margin: 0px 0px;">MODE_WORLD_WRITEABLE : 可以被其他的应用读写数据</li>
         </ul>
     </td>
 </tr>
