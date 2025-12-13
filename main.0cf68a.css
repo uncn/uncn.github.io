@@ -1005,7 +1005,7 @@ body {
 	padding: 10px;
 	overflow: auto;
 	color: #fff;
-	font-size: .9em;
+	font-size: 1.0em;
 	line-height: 22.400000000000002px
 }
 
@@ -2223,7 +2223,7 @@ pre .css~* .id,pre .id {
     border: 0px solid #ccc;
     font-family: Google Sans Mono,monospacemonospace;
     word-wrap: break-word;
-    font-size: 0.875rem;
+    font-size: 0.845rem;
     font-weight: 400;
     line-height: 1.25rem;
     border-radius: 6px;
@@ -2375,6 +2375,10 @@ pre .css~* .id,pre .id {
 
 .article-entry table tbody th {
 	background: #efefef;
+}
+
+.article-entry table td img {
+    padding: 10px 0px
 }
 
 .article-entry table td,.article-entry table th {
@@ -2690,7 +2694,8 @@ pre .css~* .id,pre .id {
 .toc-container.tooltip-left {
 	background: #ccc;
 	margin-top: 10px;
-	transition: .3s
+	transition: .3s;
+	border-radius: 5px;
 }
 
 .toc-container.tooltip-left:hover {
