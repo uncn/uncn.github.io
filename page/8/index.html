@@ -162,6 +162,172 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Python（2-3）使用-IDE" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/14/Python%EF%BC%882-3%EF%BC%89%E4%BD%BF%E7%94%A8-IDE/">Python（2.3）使用 IDE</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/14/Python%EF%BC%882-3%EF%BC%89%E4%BD%BF%E7%94%A8-IDE/" class="archive-article-date">
+  	<time datetime="2017-10-14T11:32:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在开始使用套件管理模块之后，你必须建立与套件对应的文件夹，还要自行新增 <code>__init__.py</code> 文件，这其实有点麻烦，你可以考虑开始使用 IDE（Integrated Development Environment），由 IDE 代劳一些套件与相关资源管理的工作，提高开发效率。</p>
+<h2 id="2-3-1-下载、安装-PyCharm"><a href="#2-3-1-下载、安装-PyCharm" class="headerlink" title="2.3.1 下载、安装 PyCharm"></a>2.3.1 下载、安装 PyCharm</h2><p>在 Python 的领域中，有为数不少的 IDE，然而使用哪个 IDE，必须根据开发的应用程序特性，或者基于一些团队管理等因素来决定，有时其实也是个人习惯问题，以下是一些我看过有人推荐或使用过的 IDE：</p>
+<blockquote>
+<ul>
+<li><a href="https://www.jetbrains.com/pycharm/">PyCharm</a></li>
+<li><a href="http://www.pydev.org/">PyDev</a></li>
+<li><a href="https://www.activestate.com/komodo-ide">Komodo IDE</a></li>
+<li><a href="http://code.google.com/archive/p/spyderlib/">Spyder</a></li>
+<li><a href="http://wingware.com/">WingIDE</a></li>
+<li><a href="http://ninja-ide.org/">NINJA-IDE</a></li>
+<li><a href="https://microsoft.github.io/PTVS/">Python Tools for Visual Studio</a></li>
+</ul>
+</blockquote>
+        
+          <a class="article-more-a" href="/2017/10/14/Python%EF%BC%882-3%EF%BC%89%E4%BD%BF%E7%94%A8-IDE/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/14/Python%EF%BC%882-3%EF%BC%89%E4%BD%BF%E7%94%A8-IDE/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Python（2-2）模块与包" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/13/Python%EF%BC%882-2%EF%BC%89%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%8C%85/">Python（2.2）模块与包</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/13/Python%EF%BC%882-2%EF%BC%89%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%8C%85/" class="archive-article-date">
+  	<time datetime="2017-10-13T11:32:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>对于初学者来说，通常只需要一个 .py 源码文件，就可以应付各种范例程序，然而实际的应用程序需要的代码数量远比范例程序要来的多，只使用一个 .py 文件来编写，势必造成程序管理上的混乱，你必须学会根据功能将文件划分在不同的模块（Module）中编写，而功能相近或彼此辅助的模块，也要知道如何使用包（Package）来加以管理。</p>
+<h2 id="2-2-1-模块简介"><a href="#2-2-1-模块简介" class="headerlink" title="2.2.1 模块简介"></a>2.2.1 模块简介</h2><p>有件事实也许令人惊讶，其实你已经编写过模块了，每个 .py 文件本身就是一个模块，当你编写完一个 .py 文件，而别人打算直接引用你的成果的话，只需要在他编写的 .py 文件中导入（import）就可以了。举个例子来说，若想在 Hello3.py 中，直接引用先前写好的 Hello2.py，可以按以下方式来编写：</p>
+<p><img src="https://image.sunzn.com/blog/20171012190501.png" alt="此处输入图片的描述"></p>
+        
+          <a class="article-more-a" href="/2017/10/13/Python%EF%BC%882-2%EF%BC%89%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%8C%85/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/13/Python%EF%BC%882-2%EF%BC%89%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%8C%85/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-MySQL数据库插入中文乱码的解决方案" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -852,185 +1018,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Fiddler（四）状态栏" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/20/Fiddler%EF%BC%88%E5%9B%9B%EF%BC%89%E7%8A%B6%E6%80%81%E6%A0%8F/">Fiddler（四）状态栏</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/20/Fiddler%EF%BC%88%E5%9B%9B%EF%BC%89%E7%8A%B6%E6%80%81%E6%A0%8F/" class="archive-article-date">
-  	<time datetime="2017-08-20T13:53:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Fiddler 主窗口最下方的是状态栏，由一组面板组成，显示了 Fiddler 的一些配置信息。点击其中一些面板可以快速更改配置。面板从左到右如下表所示。</p>
-<table>
-<thead>
-<tr>
-<th>面板</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Capturing_Indication</td>
-<td>指示 Fiddler 是否被配置为系统代理。点击面板可以切换状态</td>
-</tr>
-<tr>
-<td>Process_based_Filter</td>
-<td>显示 Fiddler 当前正在捕获的流量的进程类型。点击面板可以显示进程类型的过滤选项菜单</td>
-</tr>
-<tr>
-<td>Breakpoint_Indicator</td>
-<td>指示中断影响的类型，可能的取值有：全部请求、全部响应、无。点击面板可以在这几种类型间快速切换</td>
-</tr>
-<tr>
-<td>Session_Counter</td>
-<td>Web Session 列表的条目数。选中一个或多个 Session，显示的是选中的 Session 数以及总 Session 数，如“2&#x2F;5”</td>
-</tr>
-<tr>
-<td>Status_information</td>
-<td>默认情况下，显示选中的第一个 Session 的 URL。该面板还可以显示操作结果的概要信息，比如何时加载或保存 SAZ 文件</td>
-</tr>
-</tbody></table>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Fiddler</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/20/Fiddler%EF%BC%88%E5%9B%9B%EF%BC%89%E7%8A%B6%E6%80%81%E6%A0%8F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Fiddler（三）工具栏" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/20/Fiddler%EF%BC%88%E4%B8%89%EF%BC%89%E5%B7%A5%E5%85%B7%E6%A0%8F/">Fiddler（三）工具栏</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/20/Fiddler%EF%BC%88%E4%B8%89%EF%BC%89%E5%B7%A5%E5%85%B7%E6%A0%8F/" class="archive-article-date">
-  	<time datetime="2017-08-20T01:21:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Fiddler 工具栏提供了常见命令和设置的快捷方式，如下图所示，同时附上 Fiddler 的按钮和功能列表。</p>
-<p><img src="https://image.sunzn.com/blog/20170820100201.png" alt="Fiddler 工具栏"></p>
-        
-          <a class="article-more-a" href="/2017/08/20/Fiddler%EF%BC%88%E4%B8%89%EF%BC%89%E5%B7%A5%E5%85%B7%E6%A0%8F/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Fiddler</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/20/Fiddler%EF%BC%88%E4%B8%89%EF%BC%89%E5%B7%A5%E5%85%B7%E6%A0%8F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
@@ -1306,6 +1293,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Application</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Flow</a>
               </li>
             
             <div class="clearfix"></div>

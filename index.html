@@ -238,6 +238,179 @@ var _hmt = _hmt || [];
 
 
   
+    <article id="post-Kotlin-Flow-操作符" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/12/19/Kotlin-Flow-%E6%93%8D%E4%BD%9C%E7%AC%A6/">Kotlin Flow 操作符</a>
+    </h1>
+  
+
+        
+        <a href="/2025/12/19/Kotlin-Flow-%E6%93%8D%E4%BD%9C%E7%AC%A6/" class="archive-article-date">
+  	<time datetime="2025-12-19T14:35:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>实时的用户输入、多个网络请求的响应，再加上数据库的频繁更新，很容易让你的代码变得混乱不堪。而这，正是 Kotlin Flow 要帮你解决的问题。作为基于协程构建的响应式流 API，Kotlin Flow 让你可以用声明式的方式优雅地处理异步数据流。但要想真正发挥它的强大能力，关键在于熟练掌握各种操作符。</p>
+<p>本指南就是为你量身打造的速查手册——聚焦最核心的操作符，清晰说明它们的适用场景和使用方法，助你高效驾驭 Kotlin Flow。</p>
+<h1 id="1、一对一转换"><a href="#1、一对一转换" class="headerlink" title="1、一对一转换"></a>1、一对一转换</h1><h2 id="1-1-map"><a href="#1-1-map" class="headerlink" title="1.1 map"></a>1.1 map</h2><p>将 Flow 中发出的每个元素转换为新元素，实现一对一映射。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> = runBlocking &#123;</span><br><span class="line">    flowOf(<span class="string">&quot;Kotlin&quot;</span>, <span class="string">&quot;Flow&quot;</span>).map &#123; <span class="string">&quot;Length of &#x27;<span class="variable">$it</span>&#x27; is <span class="subst">$&#123;it.length&#125;</span>&quot;</span> &#125;.collect &#123; println(it) &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// output:</span></span><br><span class="line"><span class="comment">// Length of &#x27;Kotlin&#x27; is 6</span></span><br><span class="line"><span class="comment">// Length of &#x27;Flow&#x27; is 4</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>output:
+Length of &#39;Kotlin&#39; is 6
+Length of &#39;Flow&#39; is 4
+</code></pre>
+<blockquote>
+<p><font style="color:#01579B;font-size:14px;"><strong>✦ 适用场景</strong>：需要将每个项转换为不同类型或格式，例如在 ViewModel 中将 Date 对象格式化为可显示的 String。</font></p>
+</blockquote>
+        
+          <a class="article-more-a" href="/2025/12/19/Kotlin-Flow-%E6%93%8D%E4%BD%9C%E7%AC%A6/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Flow</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/12/19/Kotlin-Flow-%E6%93%8D%E4%BD%9C%E7%AC%A6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Kotlin-扩展函数的实现原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/12/18/Kotlin-%E6%89%A9%E5%B1%95%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/">Kotlin 扩展函数的实现原理</a>
+    </h1>
+  
+
+        
+        <a href="/2025/12/18/Kotlin-%E6%89%A9%E5%B1%95%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" class="archive-article-date">
+  	<time datetime="2025-12-18T14:25:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Kotlin <strong>扩展函数（Extension Functions）</strong> 的实现原理主要基于 <strong>静态解析（Static Dispatch）</strong> 和 <strong>编译时转换</strong>，它并不是真的修改了被扩展的类。</p>
+<h1 id="1、实现原理"><a href="#1、实现原理" class="headerlink" title="1、实现原理"></a>1、实现原理</h1><h2 id="1-1-静态解析"><a href="#1-1-静态解析" class="headerlink" title="1.1 静态解析"></a>1.1 静态解析</h2><ul>
+<li><p><strong>核心机制：</strong> Kotlin 的扩展函数是<strong>静态解析</strong>的，这意味着它们在<strong>编译时</strong>就确定了。扩展函数<strong>不会</strong>向目标类中插入新的成员，也不会修改类本身的结构。</p>
+</li>
+<li><p><strong>非继承：</strong> 扩展函数与面向对象的多态（如覆盖父类方法）无关。因为它们是静态调度的，所以<strong>不能</strong>被子类重写（Override）。</p>
+</li>
+</ul>
+        
+          <a class="article-more-a" href="/2025/12/18/Kotlin-%E6%89%A9%E5%B1%95%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/12/18/Kotlin-%E6%89%A9%E5%B1%95%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-获取-Activity-的返回结果" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -914,183 +1087,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-华为手机消息角标问题排查过程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2024/08/21/%E5%8D%8E%E4%B8%BA%E6%89%8B%E6%9C%BA%E6%B6%88%E6%81%AF%E8%A7%92%E6%A0%87%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5%E8%BF%87%E7%A8%8B/">华为手机消息角标问题排查过程</a>
-    </h1>
-  
-
-        
-        <a href="/2024/08/21/%E5%8D%8E%E4%B8%BA%E6%89%8B%E6%9C%BA%E6%B6%88%E6%81%AF%E8%A7%92%E6%A0%87%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5%E8%BF%87%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2024-08-21T13:15:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-08-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这是篇过程复盘类的文章，一是想将问题的排查、解决过程梳理出来；二是要将排查过程中涉及到的一些琐碎的知识点记录下来。在开始复盘前，简单交代一下问题背景：我维护的项目基于<a href="https://netease.im/">【网易云信】</a>实现了 IM 功能，与微信类似，用户收到消息后，手机会收到消息推送，状态栏和桌面 LOGO 的角标都会有消息提醒，最近有华为手机用户反馈没有消息提醒了，于是开始了下面的排查过程。</p>
-<h1 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1. 问题描述"></a>1. 问题描述</h1><p>本次排查的问题为，华为手机用户在收到 IM 消息后，桌面 LOGO 的角标不发生动态更新，只有进入应用的消息列表页面，再重新切到桌面后角标数量才会更新。</p>
-<h1 id="2-排查过程"><a href="#2-排查过程" class="headerlink" title="2. 排查过程"></a>2. 排查过程</h1><h2 id="2-1-角标权限"><a href="#2-1-角标权限" class="headerlink" title="2.1 角标权限"></a>2.1 角标权限</h2><p>桌面图标的角标数量不更新，我们第一时间想到的是用户的「桌面图标角标」权限是否开启？结果是开启的，那就证明问题不在角标权限这里。</p>
-        
-          <a class="article-more-a" href="/2024/08/21/%E5%8D%8E%E4%B8%BA%E6%89%8B%E6%9C%BA%E6%B6%88%E6%81%AF%E8%A7%92%E6%A0%87%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5%E8%BF%87%E7%A8%8B/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Issue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2024/08/21/%E5%8D%8E%E4%B8%BA%E6%89%8B%E6%9C%BA%E6%B6%88%E6%81%AF%E8%A7%92%E6%A0%87%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5%E8%BF%87%E7%A8%8B/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-约束布局下的-Chains" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2024/05/23/%E7%BA%A6%E6%9D%9F%E5%B8%83%E5%B1%80%E4%B8%8B%E7%9A%84-Chains/">约束布局下的 Chains</a>
-    </h1>
-  
-
-        
-        <a href="/2024/05/23/%E7%BA%A6%E6%9D%9F%E5%B8%83%E5%B1%80%E4%B8%8B%E7%9A%84-Chains/" class="archive-article-date">
-  	<time datetime="2024-05-23T13:15:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-05-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-什么是-Chains-链"><a href="#1-什么是-Chains-链" class="headerlink" title="1. 什么是 Chains 链"></a>1. 什么是 Chains 链</h1><p><code>Chains</code> 是一种特定类型的约束，它允许我们在链内的视图之间共享空间，并控制可用空间在它们之间的划分方式。与传统 Android 布局最相似的应该是 <code>LinearLayout</code> 中的权重比 <code>weight</code> 属性，但 <code>Chains</code> 能做到的要远远比 <code>weight</code> 多。</p>
-<h1 id="2-Chain-链模式"><a href="#2-Chain-链模式" class="headerlink" title="2. Chain 链模式"></a>2. Chain 链模式</h1><p>前面已经提到了 Chain 链是由多个 View 组成的，所以要创建一个 Chain 链就需要先选择多个想要链接到一起的 Views，然后再通过水平链或垂直链将其链到一起。Chain 链模式一共有三种，分别为：<code>spread</code> ，<code>spread_inside</code> 和 <code>packed</code> ，若想这些模式生效，在链头设置属性即可。</p>
-<h2 id="2-1-Spread-模式"><a href="#2-1-Spread-模式" class="headerlink" title="2.1 Spread 模式"></a>2.1 Spread 模式</h2><table>
-<tr style="text-align:left">
-    <th colspan="1" width="15%">模式</th>
-    <th colspan="1" width="80%">说明</th>
-</tr>
-<tr>
-    <td style="vertical-align: middle;">spread</td>
-    <td>Chain 链的默认模式就是 spread 模式，它将平分间隙让多个 Views 布局到剩余空间。</td>
-</tr>
-<tr style="text-align:left">
-    <th colspan="2" align="left">图例</th>
-</tr>
-<tr>
-    <td colspan="2">
-        <img src="https://image.sunzn.com/blog/20240523210801.png">
-    </td>
-</tr>
-</table>
-        
-          <a class="article-more-a" href="/2024/05/23/%E7%BA%A6%E6%9D%9F%E5%B8%83%E5%B1%80%E4%B8%8B%E7%9A%84-Chains/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">ConstraintLayout</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2024/05/23/%E7%BA%A6%E6%9D%9F%E5%B8%83%E5%B1%80%E4%B8%8B%E7%9A%84-Chains/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1366,6 +1362,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Application</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Flow</a>
               </li>
             
             <div class="clearfix"></div>

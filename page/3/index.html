@@ -162,6 +162,286 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-SQLite-中的-IFNULL-函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/02/21/SQLite-%E4%B8%AD%E7%9A%84-IFNULL-%E5%87%BD%E6%95%B0/">SQLite 中的 IFNULL() 函数</a>
+    </h1>
+  
+
+        
+        <a href="/2023/02/21/SQLite-%E4%B8%AD%E7%9A%84-IFNULL-%E5%87%BD%E6%95%B0/" class="archive-article-date">
+  	<time datetime="2023-02-21T13:46:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>SQLite 中的 IFNULL() 函数是一个 IF-ELSE 的函数，如果第一个参数为 NULL，返回第二个参数，否则返回第一个参数。</p>
+<table>
+<tr>
+    <th colspan="5" style="text-align: left; text-indent:1em">IFNULL 语法</th>
+</tr>
+<tr>
+    <td colspan="5" style="font-family:Roboto Mono,monospace; text-indent:1em">ifnull(expr1, expr2)</td>
+</tr>
+<tr>
+    <th colspan="5" style="text-align: left; text-indent:1em">参数</th>
+</tr>
+<tr>
+    <td colspan="1" width="80px" style="text-align: center; vertical-align: middle; font-family:Roboto Mono,monospace">expr1</td>
+    <td colspan="4">必需的。判断此表达式是否为 NULL。</td>
+</tr>
+<tr>
+    <td colspan="1" width="80px" style="text-align: center; vertical-align: middle; font-family:Roboto Mono,monospace">expr2</td>
+    <td colspan="3">必需的。当 expr1 为 NULL 时，返回 expr2。</td>
+</tr>
+<tr>
+    <th colspan="5" style="text-align: left; text-indent:1em">返回值</th>
+</tr>
+<tr>
+    <td colspan="5" style="font-family:Roboto Mono,monospace; text-indent:1em">如果 expr1 为 NULL，ifnull() 函数返回 expr2，否则返回 expr1。</td>
+</tr>
+<tr>
+    <th colspan="5" style="text-align: left; text-indent:1em">示例</th>
+</tr>
+<tr>
+    <td colspan="5" style="font-family:Roboto Mono,monospace; text-indent:1em">SELECT ifnull(NULL, 'It is NULL'), ifnull('I am not NULL', 'x');
+</td>
+</tr>
+<tr>
+    <td colspan="5" style="font-family:Roboto Mono,monospace; text-indent:1em">Output It is NULL, I am not NULL
+</td>
+</tr>
+</table>
+        
+          <a class="article-more-a" href="/2023/02/21/SQLite-%E4%B8%AD%E7%9A%84-IFNULL-%E5%87%BD%E6%95%B0/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SQLite</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/02/21/SQLite-%E4%B8%AD%E7%9A%84-IFNULL-%E5%87%BD%E6%95%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Android-访问文件与目录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/01/30/Android-%E8%AE%BF%E9%97%AE%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95/">Android 访问文件与目录</a>
+    </h1>
+  
+
+        
+        <a href="/2023/01/30/Android-%E8%AE%BF%E9%97%AE%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95/" class="archive-article-date">
+  	<time datetime="2023-01-30T15:33:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>应用访问文件和目录最便捷的方式是使用 Context 类提供的方法。Context 类是所有关键应用组件的超类，常见的几个应用组件有：Application、Activity 和 Service。因此，这些子类可使用 Context 类提供的方法（如下表所示）轻松访问文件和目录。</p>
+<table>
+<tr>
+    <th colspan="5" style="text-align: left;">内部缓存</th>
+</tr>
+<tr>
+    <td colspan="1" width="80px" style="text-align: center; vertical-align: middle">方法</td>
+    <td colspan="4">context.getCacheDir()</td>
+</tr>
+<tr>
+    <td colspan="1" width="80px" style="text-align: center; vertical-align: middle">路径</td>
+    <td colspan="4">/data/data/&lt;packagename&gt;/cache/1600739295328.jpg</td>
+</tr>
+<tr>
+    <td colspan="1" width="80px" style="text-align: center; vertical-align: middle">描述</td>
+    <td colspan="3">对应着应用程序的内部缓存，用来存储临时数据。系统空间不足时可能会被自动清除，应用卸载后该目录下的数据会被清空。</td>
+</tr>
+<tr>
+    <th colspan="5" style="text-align: left;">内部存储</th>
+</tr>
+<tr>
+    <td colspan="1" width="80px" style="text-align: center; vertical-align: middle">方法</td>
+    <td colspan="4">context.getFilesDir()</td>
+</tr>
+<tr>
+    <td colspan="1" width="80px" style="text-align: center; vertical-align: middle">路径</td>
+    <td colspan="4">/data/data/&lt;packagename&gt;/files/1600739295328.jpg</td>
+</tr>
+<tr>
+    <td colspan="1" width="80px" style="text-align: center; vertical-align: middle">描述</td>
+    <td colspan="3">对应着应用程序的内部存储，用来存储临时数据。系统空间不足时可能会被自动清除，应用卸载后该目录下的数据会被清空。</td>
+</tr>
+<tr>
+    <th colspan="5" style="text-align: left;">外部缓存</th>
+</tr>
+<tr>
+    <td colspan="1" width="80px" style="text-align: center; vertical-align: middle">方法</td>
+    <td colspan="4">context.getExternalCacheDir()</td>
+</tr>
+<tr>
+    <td colspan="1" width="80px" style="text-align: center; vertical-align: middle">路径</td>
+    <td colspan="4">/storage/sdcard/Android/data/&lt;packagename&gt;/cache/1600739295328.jpg</td>
+</tr>
+<tr>
+    <td colspan="1" width="80px" style="text-align: center; vertical-align: middle">描述</td>
+    <td colspan="3">对应着应用程序内的外部缓存，同样是用来存储临时数据的。但由于脱离了应用管理，因此并不会在空间不足时被自动清除，但应用卸载后该目录下的数据会被清空。</td>
+</tr>
+<tr>
+    <th colspan="5" style="text-align: left;">外部存储</th>
+</tr>
+<tr>
+    <td colspan="1" width="80px" style="text-align: center; vertical-align: middle">方法</td>
+    <td colspan="4">context.getExternalCacheDir()</td>
+</tr>
+<tr>
+    <td colspan="1" width="80px" style="text-align: center; vertical-align: middle">路径</td>
+    <td colspan="4">/storage/sdcard/Android/data/&lt;packagename&gt;/files/1600739295328.jpg</td>
+</tr>
+<tr>
+    <td colspan="1" width="80px" style="text-align: center; vertical-align: middle">描述</td>
+    <td colspan="3">对应着应用程序内的外部存储，同样是用来存储临时数据的。但由于脱离了应用管理，因此并不会在空间不足时被自动清除，但应用卸载后该目录下的数据会被清空。</td>
+</tr>
+<tr>
+    <th colspan="5" style="text-align: left;">应用存储</th>
+</tr>
+<tr>
+    <td colspan="1" width="80px" style="text-align: center; vertical-align: middle">方法</td>
+    <td colspan="4">context. getDir(String name, int mode)</td>
+</tr>
+<tr>
+    <td colspan="1" width="80px" style="text-align: center; vertical-align: middle">路径</td>
+    <td colspan="4">/data/data/&lt;packagename&gt;/app_name</td>
+</tr>
+<tr>
+    <td colspan="1" width="80px" style="text-align: center; vertical-align: middle">描述</td>
+    <td colspan="3">获取 /data/data/&lt;packagename&gt;/app_name 目录，如果不存在名为 app_name 的目录，就创建它，路径中的 app 会在目录创建时自动加上。</td>
+</tr>
+<tr>
+    <td colspan="1" width="80px" style="text-align: center; vertical-align: middle">取值</td>
+    <td colspan="3">
+        <ul style="font-size: 0.890rem">
+            <li style="margin: 0px 0px;">MODE_PRIVATE : 只能被当前程序读写</li>
+            <li style="margin: 0px 0px;">MODE_APPEND :  以追加的方式打开文件，应用程序可以向文件中追加内容</li>
+            <li style="margin: 0px 0px;">MODE_WORLD_READABLE : 可以被其他的应用读取数据</li>
+            <li style="margin: 0px 0px;">MODE_WORLD_WRITEABLE : 可以被其他的应用读写数据</li>
+        </ul>
+    </td>
+</tr>
+</table>
+        
+          <a class="article-more-a" href="/2023/01/30/Android-%E8%AE%BF%E9%97%AE%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">File</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/01/30/Android-%E8%AE%BF%E9%97%AE%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-下载引擎的组件化之路" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -809,165 +1089,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Android-DataBinding（一）基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/17/Android-DataBinding%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E7%A1%80/">Android DataBinding（一）基础</a>
-    </h1>
-  
-
-        
-        <a href="/2021/11/17/Android-DataBinding%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2021-11-17T14:29:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://developer.android.google.cn/jetpack/androidx/releases/databinding">DataBinding</a> 是 Android <a href="https://developer.android.google.cn/jetpack">Jetpack</a> 套件下的一个库，其作用是使用<font style="color:#0088CC;">声明性</font>格式将布局中的界面组件绑定到应用中的数据源。借助布局文件中的绑定组件，你可以移除 Activity 中的许多界面框架调用，使其维护起来更简单、方便。还可以提高应用性能，并且有助于防止内存泄漏以及避免发生 Null 指针异常。</p>
-<blockquote>
-<p><font style="color:#01579B;font-size:14px;"><strong>✦ 注意：</strong> 在许多情况下，<a href="https://developer.android.google.cn/topic/libraries/view-binding">视图绑定</a>可简化实现，提高性能，提供与数据绑定相同的好处。如果你使用数据绑定的主要目的是取代 <strong>findViewById()</strong> 调用，请考虑改用视图绑定。</font></p>
-</blockquote>
-<h1 id="1-开始准备"><a href="#1-开始准备" class="headerlink" title="1. 开始准备"></a>1. 开始准备</h1><p>DataBinding 库与 <a href="https://developer.android.google.cn/studio/releases/gradle-plugin">Android Gradle</a> 插件捆绑在一起。所以无需声明对此库的依赖项，但必须启用它。如需启用 DataBinding，需要在 Modle 级的 <code>build.gradle</code> 文件中将 <code>dataBinding</code> 构建选项设置为 <code>true</code>，如下所示：</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    ...</span><br><span class="line">    buildFeatures &#123;</span><br><span class="line">        dataBinding <span class="keyword">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2021/11/17/Android-DataBinding%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E7%A1%80/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">DataBinding</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/11/17/Android-DataBinding%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E7%A1%80/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-DataBinding-下的-EditText-绑定-TextChangedListener" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/16/DataBinding-%E4%B8%8B%E7%9A%84-EditText-%E7%BB%91%E5%AE%9A-TextChangedListener/">DataBinding 下的 EditText 绑定 TextChangedListener</a>
-    </h1>
-  
-
-        
-        <a href="/2021/11/16/DataBinding-%E4%B8%8B%E7%9A%84-EditText-%E7%BB%91%E5%AE%9A-TextChangedListener/" class="archive-article-date">
-  	<time datetime="2021-11-16T13:56:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>随着 <a href="https://developer.android.google.cn/jetpack/androidx/releases/databinding">DataBinding</a> 在项目中使用频率的增加，就越能感觉到 <a href="https://developer.android.google.cn/jetpack">Jetpack</a> 下的这个组件在 Android 开发中所带来的便捷性。DataBinding 不仅在形式上彻底抛弃了传统意义上寻找控件的模版代码，也在本质上防止了控件在使用过程中的空指针、类型转换和内存泄漏等问题，使得开发者可以将更多的精力投入到业务逻辑的开发中。当然，DataBinding 的出现不仅仅是用来解决模版代码的，它还可以将变量和布局中的视图进行关联，同时还可以实现双向数据绑定，既接收对属性的数据更改，又监听用户对此属性的更新。</p>
-<p>毫无疑问，DataBinding 已经在一定程度上改变了你的开发习惯。比如，你可能更习惯于在布局文件中使用 <code>@&#123;onClickListener&#125;</code> 来为一个控件添加点击事件；再比如，你可能更喜欢在布局文件中使用表达式 <code>@&#123;viewmodel.username&#125;</code> 来为一个 TextView 进行赋值。没错，你也会更倾向于采用同样的方法为 EditText 添加一个文字改变监听器。但事实上，DataBinding 是不支持直接为 EditText 添加文字改变监听器的，我们需要依赖 ViewModel 持有一个 TextWatcher 的实例并将其绑定到 EditText 上来进行实现。</p>
-<p>EditText 实现文字改变的监听大致分为三步：一、定义持有 TextWatcher 实例的  ViewModel；二、布局文件引用 ViewModel；三、Activity 调用。伪代码如下，如需访问完整代码请访问 <a href="https://gitee.com/vimeo/watcher">Watcher@Gitee</a>。</p>
-        
-          <a class="article-more-a" href="/2021/11/16/DataBinding-%E4%B8%8B%E7%9A%84-EditText-%E7%BB%91%E5%AE%9A-TextChangedListener/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">DataBinding</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/11/16/DataBinding-%E4%B8%8B%E7%9A%84-EditText-%E7%BB%91%E5%AE%9A-TextChangedListener/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
@@ -1243,6 +1364,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Application</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Flow</a>
               </li>
             
             <div class="clearfix"></div>

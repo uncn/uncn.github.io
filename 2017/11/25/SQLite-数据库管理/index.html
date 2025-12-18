@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://image.sunzn.com/blog/20171116143713.png">
 <meta property="og:image" content="https://image.sunzn.com/blog/20171116143714.png">
 <meta property="article:published_time" content="2017-11-25T01:57:50.000Z">
-<meta property="article:modified_time" content="2023-03-21T14:40:14.750Z">
+<meta property="article:modified_time" content="2025-12-18T14:13:01.218Z">
 <meta property="article:author" content="狮子">
 <meta property="article:tag" content="SQLite">
 <meta name="twitter:card" content="summary">
@@ -283,11 +283,11 @@ var _hmt = _hmt || [];
 <p><img src="https://image.sunzn.com/blog/20171116143711.png" alt="此处输入图片的描述"></p>
 <h3 id="写同步"><a href="#写同步" class="headerlink" title="写同步"></a>写同步</h3><p>通常情况下，SQLite 会在关键时刻将所有的变化提交到磁盘以确保事务的持久性。这与其他数据库中的检查点功能类似。但是，考虑到性能因素，可以关闭这一功能，可以通过编译指示 synchronous 来实现。该编译指示有三种设置：full、normal 和 off。各自定义如下：</p>
 <ul>
-<li><p>full：SQLite 在继续前，在关键点暂停以确保所有的数据都实际写入磁盘。这样确保了即使操作系统奔溃或电力中断，在重启后数据库依然是未损毁的。full 同步是非常安全的，但也较慢。</p>
+<li><p><strong>full</strong>：SQLite 在继续前，在关键点暂停以确保所有的数据都实际写入磁盘。这样确保了即使操作系统奔溃或电力中断，在重启后数据库依然是未损毁的。full 同步是非常安全的，但也较慢。</p>
 </li>
-<li><p>normal：SQLite 会在绝大多数关键点暂停，但是没有 full 模式频繁。normal 模式中某个凑巧的时刻电力中断可能会导致数据库损毁的情况发生，虽然这种概率非常小。实际中，很有可能遭受严重的磁盘操作失败或者其他不可恢复的硬件故障。</p>
+<li><p><strong>normal</strong>：SQLite 会在绝大多数关键点暂停，但是没有 full 模式频繁。normal 模式中某个凑巧的时刻电力中断可能会导致数据库损毁的情况发生，虽然这种概率非常小。实际中，很有可能遭受严重的磁盘操作失败或者其他不可恢复的硬件故障。</p>
 </li>
-<li><p>off：SQLite 将数据抛给操作系统后立即继续操作。这样可以加速一些操作，可加速高达 50 倍。如果运行 SQLite 的应用程序奔溃，数据依然是安全的。然而，如果操作系统奔溃或者计算机断电，数据库可能会损毁。</p>
+<li><p><strong>off</strong>：SQLite 将数据抛给操作系统后立即继续操作。这样可以加速一些操作，可加速高达 50 倍。如果运行 SQLite 的应用程序奔溃，数据依然是安全的。然而，如果操作系统奔溃或者计算机断电，数据库可能会损毁。</p>
 </li>
 </ul>
 <h3 id="临时存储器"><a href="#临时存储器" class="headerlink" title="临时存储器"></a>临时存储器</h3><p>临时存储器就是 SQLite 保存临时性数据，例如临时表、索引和其他对象的地方。在默认情况下，SQLite 使用内编译的位置，这个位置根据平台的不同而有所变化。有两个编译指示控制临时存储器：temp_store 和 temp_store_directory。第一个编译指示决定 SQLite 是使用内存还是磁盘作为临时存储器。实际上有三个可能选项：default、file 和 memory。其中，default 选项使用内编译的默认项，file 选项使用操作系统文件，memory 选项使用内存。如果将 file 设置为存储介质，那么第二个编译指示 temp_store_directory 就是存储临时文件的目录。</p>
@@ -742,6 +742,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Application</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Flow</a>
               </li>
             
             <div class="clearfix"></div>

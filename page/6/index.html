@@ -162,6 +162,180 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-将-Android-项目托管到-SVN-上" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/27/%E5%B0%86-Android-%E9%A1%B9%E7%9B%AE%E6%89%98%E7%AE%A1%E5%88%B0-SVN-%E4%B8%8A/">将 Android 项目托管到 SVN 上</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/27/%E5%B0%86-Android-%E9%A1%B9%E7%9B%AE%E6%89%98%E7%AE%A1%E5%88%B0-SVN-%E4%B8%8A/" class="archive-article-date">
+  	<time datetime="2018-05-27T09:23:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>现在许多公司已经在使用 Git 作为代码托管工具，但仍然有非常多的公司由于各种原因仍然在使用 SVN 进行代码管理。所以，本篇会详细的介绍如何将一个新建的项目托管到 SVN 上。要使用 SVN，首先需要在 SVN 服务端创建一个仓库用来存储项目。</p>
+<h3 id="1、创建仓库"><a href="#1、创建仓库" class="headerlink" title="1、创建仓库"></a>1、创建仓库</h3><p>打开 SVN 所在服务器的 VisualSVN Server，右键「Repositories」›「Create New Repository」。</p>
+<p><img src="https://image.sunzn.com/blog/20180802092601.png" alt="此处输入图片的描述"></p>
+        
+          <a class="article-more-a" href="/2018/05/27/%E5%B0%86-Android-%E9%A1%B9%E7%9B%AE%E6%89%98%E7%AE%A1%E5%88%B0-SVN-%E4%B8%8A/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SVN</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/27/%E5%B0%86-Android-%E9%A1%B9%E7%9B%AE%E6%89%98%E7%AE%A1%E5%88%B0-SVN-%E4%B8%8A/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Glide-V4-API-变更指南" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/26/Glide-V4-API-%E5%8F%98%E6%9B%B4%E6%8C%87%E5%8D%97/">Glide V4 API 变更指南</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/26/Glide-V4-API-%E5%8F%98%E6%9B%B4%E6%8C%87%E5%8D%97/" class="archive-article-date">
+  	<time datetime="2018-05-26T13:37:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>随着 Glide 从 V3 向 V4 的升级，API 的调用方式也发生了一些变化。这些变化主要集中在：选项、类型与目标、配置等方面。本文也会根据这几个方面结合官方文档对 API 变更做一个详细的阐述。在进行正式介绍 API 变更之前，我想非常有必要简述一下 Glide 的接入。这样，每位读者在阅读这篇文章的时候就不会感到陌生和生硬。</p>
+<h1 id="1-Android-SDK-要求"><a href="#1-Android-SDK-要求" class="headerlink" title="1 Android SDK 要求"></a>1 Android SDK 要求</h1><table>
+<thead>
+<tr>
+<th>版本</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Min Sdk Version</td>
+<td>使用 Glide 需要 min SDK 版本 API 14 (Ice Cream Sandwich) 或更高。</td>
+</tr>
+<tr>
+<td>Compile Sdk Version</td>
+<td>Glide 必须使用 API 27 (Oreo MR1) 或更高版本的 SDK 来编译。</td>
+</tr>
+<tr>
+<td>Support Library Version</td>
+<td>Glide 使用的支持库版本为 27。</td>
+</tr>
+</tbody></table>
+        
+          <a class="article-more-a" href="/2018/05/26/Glide-V4-API-%E5%8F%98%E6%9B%B4%E6%8C%87%E5%8D%97/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Glide</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/26/Glide-V4-API-%E5%8F%98%E6%9B%B4%E6%8C%87%E5%8D%97/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-将-Java-对象注入到-WebView-的-JavaScript-上下文" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -853,167 +1027,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-SQLite-数据库管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/25/SQLite-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86/">SQLite 数据库管理</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/25/SQLite-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86/" class="archive-article-date">
-  	<time datetime="2017-11-25T01:57:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>数据库管理一般用于控制数据库如何操作。要执行的许多数据库管理任务都可以通过 SQL 命令完成。SQLite 包括自己一些独特的管理功能，如将多个数据库附加“attach”到一个连接上，以及用来设置各种配置参数的数据库编译指示（pragma）。</p>
-<h2 id="一、附加数据库"><a href="#一、附加数据库" class="headerlink" title="一、附加数据库"></a>一、附加数据库</h2><p>SQLite 允许你用 attach 命令将多个数据库“附加”到当前连接上。当你附加了一个数据库时，它的所有内容在当前数据库文件的全局范围内都是可存取的。attach 的语法如下：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">attach [database] filename <span class="keyword">as</span> database_name; </span><br></pre></td></tr></table></figure>
-
-<p>其中，filename 指 SQLite 数据库的文件名称和路径，database_name 指要引用的数据库和对象的逻辑名称。主数据库自动赋名为 main。如果创建任何临时的对象，SQLite 会创建一个附加的数据库，并命名为 temp（可以使用后面描述的编辑指示 database_list 查看这些对象）。逻辑名称可以用来引用附加数据库内的对象，与此同时，引用附加数据库内的对象必须提供逻辑名。例如，如果两个数据库都有名为 FOODS 的表，附加数据库的逻辑名为 DATA2，查询 DATA2 中 FOODS 表的唯一方式是使用全限定名 DATA2.FOODS，例如：</p>
-<p>TEST 数据库文件路径为：C:\Users\sunzn\Desktop\TEST.db，该数据库下包含一个 FOODS 表，建表语句如下：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE TABLE</span> FOODS(ID <span class="type">INTEGER</span> <span class="keyword">PRIMARY KEY</span>, NAME TEXT);</span><br><span class="line"><span class="keyword">INSERT INTO</span> FOODS (NAME) <span class="keyword">VALUES</span> (<span class="string">&#x27;苹果&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> FOODS (NAME) <span class="keyword">VALUES</span> (<span class="string">&#x27;桔子&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> FOODS (NAME) <span class="keyword">VALUES</span> (<span class="string">&#x27;西瓜&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> FOODS (NAME) <span class="keyword">VALUES</span> (<span class="string">&#x27;芹菜&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> FOODS (NAME) <span class="keyword">VALUES</span> (<span class="string">&#x27;黄瓜&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> FOODS (NAME) <span class="keyword">VALUES</span> (<span class="string">&#x27;土豆&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> FOODS (NAME) <span class="keyword">VALUES</span> (<span class="string">&#x27;牛肉&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> FOODS (NAME) <span class="keyword">VALUES</span> (<span class="string">&#x27;猪肉&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> FOODS (NAME) <span class="keyword">VALUES</span> (<span class="string">&#x27;鸡肉&#x27;</span>);</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2017/11/25/SQLite-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SQLite</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/25/SQLite-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SQLite-事务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/24/SQLite-%E4%BA%8B%E5%8A%A1/">SQLite 事务</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/24/SQLite-%E4%BA%8B%E5%8A%A1/" class="archive-article-date">
-  	<time datetime="2017-11-24T13:01:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><font color="DeepPink">事务定义了一组 SQL 命令的边界，这组命令或者作为一个整体被全部执行，或者都不执行，这被称为数据库完整性的原子性原则。</font>这种关系的典型例子就是银行转账，假设银行程序从一个账户向另一个账户转账，转账程序通过如下方式进行：首先将第一个账户的钱转入第二个账户，然后从第一个账户删除对应的数目；或者首先从第一个账户删除要转账的数目，然后向第二个账户插入对应的数目。无论哪种方式，都是通过两步完成的：先插入，后删除；或者先删除，后插入。</p>
-<p>但是在转账期间，如果数据库服务器突然奔溃或电力中断，第二个操作没有完成怎么办？要么这笔钱存在于两个账户（第一种方式），要么这笔钱在两个账户中都不存在（第二种方式）。无论发生哪种情况，总有人无法接受。数据库也处于不一致的状态，<font color="RoyalBlue">关键是这两步操作必须要同时被执行或者一步都不执行。这就是事务的本质。</font></p>
-<h2 id="一、事务的范围"><a href="#一、事务的范围" class="headerlink" title="一、事务的范围"></a>一、事务的范围</h2><p>事务由 3 个命令控制：<code>begin</code>、<code>commit</code> 和 <code>rollback</code>。begin 开始一个事务，begin 之后的所有操作都可以取消，如果连接中止前没有发出 commit，也会被取消。commit 提交事务开始后所执行的所有操作。类似地，rollback 还原 begin 之后的所有操作。例如：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">BEGIN</span>;</span><br><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> FOODS;</span><br><span class="line"><span class="keyword">ROLLBACK</span>;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">FROM</span> FOODS;</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2017/11/24/SQLite-%E4%BA%8B%E5%8A%A1/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SQLite</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/24/SQLite-%E4%BA%8B%E5%8A%A1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
@@ -1289,6 +1302,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Application</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Flow</a>
               </li>
             
             <div class="clearfix"></div>
