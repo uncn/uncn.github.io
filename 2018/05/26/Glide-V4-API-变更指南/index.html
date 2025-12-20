@@ -16,7 +16,7 @@
 <meta property="og:description" content="随着 Glide 从 V3 向 V4 的升级，API 的调用方式也发生了一些变化。这些变化主要集中在：选项、类型与目标、配置等方面。本文也会根据这几个方面结合官方文档对 API 变更做一个详细的阐述。在进行正式介绍 API 变更之前，我想非常有必要简述一下 Glide 的接入。这样，每位读者在阅读这篇文章的时候就不会感到陌生和生硬。 1 Android SDK 要求   版本 说明    Min">
 <meta property="og:locale">
 <meta property="article:published_time" content="2018-05-26T13:37:16.000Z">
-<meta property="article:modified_time" content="2018-07-01T12:16:10.000Z">
+<meta property="article:modified_time" content="2025-12-20T11:11:59.688Z">
 <meta property="article:author" content="狮子">
 <meta property="article:tag" content="Glide">
 <meta name="twitter:card" content="summary">
@@ -249,7 +249,7 @@ var _hmt = _hmt || [];
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GlideApp.with(fragment)</span><br><span class="line">        .load(url)</span><br><span class="line">        .transforms(<span class="keyword">new</span> <span class="title class_">CenterCrop</span>(), <span class="keyword">new</span> <span class="title class_">RoundedCorners</span>(<span class="number">20</span>))</span><br><span class="line">        .into(target);</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p><strong>提示</strong>：如果你正确增的加了 AppGlideModule 的继承类，但是在 Android Studio 中却找不到调用入口，这时你可以尝试 Rebuild Progect 或者直接运行代码。</p>
+<p><font style="color:#01579B;font-size:14px;"><strong>✦ 提示：</strong> 如果你正确增的加了 AppGlideModule 的继承类，但是在 Android Studio 中却找不到调用入口，这时你可以尝试 Rebuild Progect 或者直接运行代码。</font></p>
 </blockquote>
 <h3 id="3-1-4-解码格式"><a href="#3-1-4-解码格式" class="headerlink" title="3.1.4 解码格式"></a>3.1.4 解码格式</h3><p>在 Glide V3， 默认的 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/410/com/bumptech/glide/load/DecodeFormat.html">DecodeFormat</a> 是 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/410/com/bumptech/glide/load/DecodeFormat.html#PREFER_RGB_565">DecodeFormat.PREFER_RGB_565</a>，它将使用 [Bitmap.Config.RGB_565]，除非图片包含或可能包含透明像素。对于给定的图片尺寸，RGB_565 只使用 [Bitmap.Config.ARGB_8888] 一半的内存，但对于特定的图片有明显的画质问题，包括条纹(banding)和着色(tinting)。为了避免 RGB_565 的画质问题，Glide 现在默认使用 ARGB_8888。结果是，图片质量变高了，但内存使用也增加了。</p>
 <p>要将 Glide v4 默认的 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/410/com/bumptech/glide/load/DecodeFormat.html">DecodeFormat</a> 改回 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/410/com/bumptech/glide/load/DecodeFormat.html#PREFER_RGB_565">DecodeFormat.PREFER_RGB_565</a>，请在 <a href="https://muyangmin.github.io/glide-docs-cn/javadocs/400/com/bumptech/glide/module/AppGlideModule.html">AppGlideModule</a> 中应用一个 RequestOption：</p>

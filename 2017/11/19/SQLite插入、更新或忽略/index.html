@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://image.sunzn.com/blog/20170701175911.png">
 <meta property="og:image" content="https://image.sunzn.com/blog/20170701162125.png">
 <meta property="article:published_time" content="2017-11-19T02:30:08.000Z">
-<meta property="article:modified_time" content="2023-03-21T14:45:11.903Z">
+<meta property="article:modified_time" content="2025-12-20T11:52:55.226Z">
 <meta property="article:author" content="狮子">
 <meta property="article:tag" content="SQLite">
 <meta name="twitter:card" content="summary">
@@ -219,22 +219,22 @@ var _hmt = _hmt || [];
 <p>执行以上两段 SQL 语句中的任意一段，创建表并插入对应的数据，唯一不同的地方在于对 ID、NAME 约束的关键字不同，但都可以起到同样效果。约束了两个字段表示在执行插入更新、插入忽略时，只有 ID 和 NAME 字段的值都相同的情况下才会执行更新、忽略操作，否则执行插入操作。建表，插入数据后的视图如下：</p>
 <p><img src="https://image.sunzn.com/blog/20170701160442.png" alt="建表、插入数据"></p>
 <blockquote>
-<p><strong>插入更新（插入）</strong>：执行以下 SQL 语句，由于 ID 和 NAME 字段中的 NAME 字段值（10,’Adin’）-（10,’Flor’）不同。所以，即使 ID 值一样，依然会执行插入操作。</p>
+<p><font style="color:#01579B;font-size:14px;"><strong>✦ 插入更新（插入）：</strong> 执行以下 SQL 语句，由于 ID 和 NAME 字段中的 NAME 字段值（10,’Adin’）-（10,’Flor’）不同。所以，即使 ID 值一样，依然会执行插入操作。</font></p>
 </blockquote>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">OR</span> REPLACE <span class="keyword">INTO</span> ACCOUNT <span class="keyword">VALUES</span> (<span class="number">10</span>,<span class="string">&#x27;Flor&#x27;</span>,<span class="string">&#x27;123456&#x27;</span>,<span class="string">&#x27;2005-01-01 01:01:01&#x27;</span>); </span><br></pre></td></tr></table></figure>
 <p><img src="https://image.sunzn.com/blog/20170701161205.png" alt="插入更新（插入）"></p>
 <blockquote>
-<p><strong>插入更新（更新）</strong>：执行以下 SQL 语句，由于 ID 和 NAME 字段中的值（10,’Flor’）-（10,’Flor’）都相同。所以，该语句会更新其他字段的数据，该条语句执行完毕后，会发现 Flor 对应的密码已经更新。</p>
+<p><font style="color:#01579B;font-size:14px;"><strong>✦ 插入更新（更新）：</strong> 执行以下 SQL 语句，由于 ID 和 NAME 字段中的值（10,’Flor’）-（10,’Flor’）都相同。所以，该语句会更新其他字段的数据，该条语句执行完毕后，会发现 Flor 对应的密码已经更新。</font></p>
 </blockquote>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">OR</span> REPLACE <span class="keyword">INTO</span> ACCOUNT <span class="keyword">VALUES</span> (<span class="number">10</span>,<span class="string">&#x27;Flor&#x27;</span>,<span class="string">&#x27;888888&#x27;</span>,<span class="string">&#x27;2005-01-01 01:01:01&#x27;</span>);</span><br></pre></td></tr></table></figure>
 <p><img src="https://image.sunzn.com/blog/20170701161403.png" alt="插入更新（更新）"></p>
 <blockquote>
-<p><strong>插入忽略（插入）</strong>：执行以下 SQL 语句，由于 ID 和 NAME 字段中的 NAME 字段值（10,’Jean’）与其他条目的 NAME 字段值不同。所以，即使 ID 值一样，依然会执行插入操作。</p>
+<p><font style="color:#01579B;font-size:14px;"><strong>✦ 插入忽略（插入）：</strong> 执行以下 SQL 语句，由于 ID 和 NAME 字段中的 NAME 字段值（10,’Jean’）与其他条目的 NAME 字段值不同。所以，即使 ID 值一样，依然会执行插入操作。</font></p>
 </blockquote>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">OR</span> IGNORE <span class="keyword">INTO</span> ACCOUNT <span class="keyword">VALUES</span> (<span class="number">10</span>,<span class="string">&#x27;Jean&#x27;</span>,<span class="string">&#x27;123456&#x27;</span>,<span class="string">&#x27;2005-01-01 01:01:01&#x27;</span>); </span><br></pre></td></tr></table></figure>
 <p><img src="https://image.sunzn.com/blog/20170701175911.png" alt="插入忽略（插入）"></p>
 <blockquote>
-<p><strong>插入忽略（忽略）</strong>：执行以下 SQL 语句，由于 ID 和 NAME 字段中的值（10,’Jean’）-（10,’Jean’）都相同。所以，不管其他字段值相同与否，都会执行忽略操作。执行以下操作后，我们会看到主控台提示有零条数据被影响。</p>
+<p><font style="color:#01579B;font-size:14px;"><strong>✦ 插入忽略（忽略）：</strong> 执行以下 SQL 语句，由于 ID 和 NAME 字段中的值（10,’Jean’）-（10,’Jean’）都相同。所以，不管其他字段值相同与否，都会执行忽略操作。执行以下操作后，我们会看到主控台提示有零条数据被影响。</font></p>
 </blockquote>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">OR</span> IGNORE <span class="keyword">INTO</span> ACCOUNT <span class="keyword">VALUES</span> (<span class="number">10</span>,<span class="string">&#x27;Jean&#x27;</span>,<span class="string">&#x27;999999&#x27;</span>,<span class="string">&#x27;2005-01-01 01:01:01&#x27;</span>);</span><br></pre></td></tr></table></figure>
 <p><img src="https://image.sunzn.com/blog/20170701162125.png" alt="插入忽略（忽略）"></p>
