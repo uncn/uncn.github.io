@@ -238,6 +238,85 @@ var _hmt = _hmt || [];
 
 
   
+    <article id="post-Android-Studio-运行-main-函数问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/12/24/Android-Studio-%E8%BF%90%E8%A1%8C-main-%E5%87%BD%E6%95%B0%E9%97%AE%E9%A2%98/">Android Studio 运行 main() 函数问题</a>
+    </h1>
+  
+
+        
+        <a href="/2025/12/24/Android-Studio-%E8%BF%90%E8%A1%8C-main-%E5%87%BD%E6%95%B0%E9%97%AE%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2025-12-24T13:11:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在 Android Studio 中，默认将所有的构建和运行任务都委托给了 Gradle，尤其是 <strong>Arctic Fox | 2020.3.1</strong> 版本之后，IDE 默认处于“全委托模式”。如果仍然尝试运行 <code>main()</code> 函数，就会出现函数找不到的报错，信息如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">A problem occurred configuring project &#x27;:BASE&#x27;.</span><br><span class="line">&gt; Could not create task &#x27;:BASE:com.sunzn.event.TaskKt.main()&#x27;.</span><br><span class="line">   &gt; SourceSet with name &#x27;main&#x27; not found.</span><br><span class="line"></span><br><span class="line">* Try:</span><br><span class="line">&gt; Run with --stacktrace option to get the stack trace.</span><br><span class="line">&gt; Run with --info or --debug option to get more log output.</span><br><span class="line">&gt; Run with --scan to get full insights.</span><br><span class="line">&gt; Get more help at https://help.gradle.org.</span><br></pre></td></tr></table></figure>
+
+<p>其实，这并不是 Android Studio 的 Bug，而是其<strong>构建系统（Gradle）的默认机制</strong>在“作祟”。</p>
+        
+          <a class="article-more-a" href="/2025/12/24/Android-Studio-%E8%BF%90%E8%A1%8C-main-%E5%87%BD%E6%95%B0%E9%97%AE%E9%A2%98/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/12/24/Android-Studio-%E8%BF%90%E8%A1%8C-main-%E5%87%BD%E6%95%B0%E9%97%AE%E9%A2%98/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Kotlin-Flow-操作符" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -957,107 +1036,6 @@ Length of &#39;Flow&#39; is 4
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2025/01/15/Kotlin-%E9%80%9A%E8%BF%87%E5%A7%94%E6%89%98%E5%AE%9E%E7%8E%B0%E6%8E%A5%E5%8F%A3%E6%96%B9%E6%B3%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Kotlin-中的中缀函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/14/Kotlin-%E4%B8%AD%E7%9A%84%E4%B8%AD%E7%BC%80%E5%87%BD%E6%95%B0/">Kotlin 中的中缀函数</a>
-    </h1>
-  
-
-        
-        <a href="/2025/01/14/Kotlin-%E4%B8%AD%E7%9A%84%E4%B8%AD%E7%BC%80%E5%87%BD%E6%95%B0/" class="archive-article-date">
-  	<time datetime="2025-01-14T14:52:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1、什么是中缀函数"><a href="#1、什么是中缀函数" class="headerlink" title="1、什么是中缀函数"></a>1、什么是中缀函数</h1><p><a href="https://kotlinlang.org/docs/functions.html#infix-notation">中缀函数</a>是 Kotlin 中的一种特殊函数，它允许你使用更自然、更接近自然语言的方式来调用函数。通过使用中缀函数，你可以将函数名放置在两个参数之间，就像数学运算符一样，从而使代码更加简洁易读。</p>
-<h1 id="2、中缀函数的定义"><a href="#2、中缀函数的定义" class="headerlink" title="2、中缀函数的定义"></a>2、中缀函数的定义</h1><p>要将一个函数定义为<a href="https://book.kotlincn.net/text/functions.html">中缀函数</a>，需要满足以下条件：</p>
-<table>
-	<tbody>
-		<tr>
-            <th align="center" width="10%">序号</th>
-			<th align="center" width="25%">条件</th>
-			<th align="center" width="70%">描述</th>
-		</tr>
-		<tr>
-			<td align="center">1</td>
-			<td align="left">成员函数或扩展函数</td>
-			<td align="left">中缀函数必须是某个类的成员函数或者某个类型的扩展函数。</td>
-		</tr>
-		<tr>
-		    <td align="center">2</td>
-			<td align="left">单个参数</td>
-			<td align="left">中缀函数只能有一个参数。</td>
-		</tr>
-		<tr>
-		    <td align="center">3</td>
-			<td align="left">infix 关键字</td>
-			<td align="left">函数声明前必须使用 infix 关键字标记。</td>
-		</tr>
-	</tbody>
-</table>
-        
-          <a class="article-more-a" href="/2025/01/14/Kotlin-%E4%B8%AD%E7%9A%84%E4%B8%AD%E7%BC%80%E5%87%BD%E6%95%B0/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/14/Kotlin-%E4%B8%AD%E7%9A%84%E4%B8%AD%E7%BC%80%E5%87%BD%E6%95%B0/">展开全文 >></a>
         </p>
       
 

@@ -162,6 +162,106 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-从-APK-签名包安装失败说起" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/03/21/%E4%BB%8E-APK-%E7%AD%BE%E5%90%8D%E5%8C%85%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%E8%AF%B4%E8%B5%B7/">从 APK 签名包安装失败说起</a>
+    </h1>
+  
+
+        
+        <a href="/2023/03/21/%E4%BB%8E-APK-%E7%AD%BE%E5%90%8D%E5%8C%85%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%E8%AF%B4%E8%B5%B7/" class="archive-article-date">
+  	<time datetime="2023-03-21T13:41:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>看到标题就应该知道，这又是一篇 BUG 修复的复盘文章。这个 BUG 起源于 Google 程序员多年前埋的坑【<a href="https://developer.android.google.cn/reference/android/content/pm/ApplicationInfo.html#FLAG_TEST_ONLY">FLAG_TEST_ONLY</a>】，这是一个 API 级别 4 时候就存在的属性。这是一个没有存在感的属性，以至于十几年的时间内都没有引起多少人注意。直到 Android Studio 3.0 的发布，这个版本的 IDE 会在测试版 APK 的清单文件中自动注入 <code>android:testOnly=&quot;true&quot;</code> 属性配置。如果清单文件中有这样的配置，那就意味着 APK 只能通过 adb 的方式安装。为了更加精准的了解这个属性的作用，我们还是看下<a href="https://developer.android.google.cn/guide/topics/manifest/application-element?hl=zh-cn">官方文档</a>是怎么描述的。</p>
+<blockquote>
+<p><font style="color:#01579B;font-size:14px;"><strong>✦ 官方文档 | android:testOnly</strong> 指示此应用是否仅用于测试目的。例如，它可能会在自身之外公开功能或数据，这样会导致安全漏洞，但对测试很有用。此类 APK 只能通过 adb 安装，您不能将其发布到 Google Play。当您点击 Run 图标时，Android Studio 会自动添加此属性。</font></p>
+</blockquote>
+<p>文档的描述简洁干练，提供的信息也乏善可陈。那么，应该怎么解决这个问题呢？通过考古，网上普遍流行两种方法：</p>
+<table>
+<tr>
+    <th style="text-align:center">编号</th>
+    <th style="text-align:center">解决方法</th>
+</tr>
+<tr>
+    <td style="text-align:center;vertical-align:middle;">1</td>
+    <td colspan="1">通过 Build -> Generate Signed Bundle / APK 生成签名文件</td>
+</tr>
+<tr>
+    <td style="text-align:center;vertical-align:middle;">2</td>
+    <td colspan="1">在 gradle.properties 中增加 android.injected.testOnly=false 配置</td>
+</tr>
+</table>
+
+<p>如果通过这两种方式就能解决应用安装失败的话，就不会有这篇文章了。下面，我们正式开始复盘问题的定位和解决过程。</p>
+        
+          <a class="article-more-a" href="/2023/03/21/%E4%BB%8E-APK-%E7%AD%BE%E5%90%8D%E5%8C%85%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%E8%AF%B4%E8%B5%B7/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Issue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/03/21/%E4%BB%8E-APK-%E7%AD%BE%E5%90%8D%E5%8C%85%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%E8%AF%B4%E8%B5%B7/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-SQLite-中的-IFNULL-函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -982,84 +1082,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021/11/19/Android-DataBinding%EF%BC%88%E4%B8%89%EF%BC%89%E5%8D%95%E5%90%91%E7%BB%91%E5%AE%9A-BaseObservable/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Android-DataBinding（二）进阶用法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/18/Android-DataBinding%EF%BC%88%E4%BA%8C%EF%BC%89%E8%BF%9B%E9%98%B6%E7%94%A8%E6%B3%95/">Android DataBinding（二）进阶用法</a>
-    </h1>
-  
-
-        
-        <a href="/2021/11/18/Android-DataBinding%EF%BC%88%E4%BA%8C%EF%BC%89%E8%BF%9B%E9%98%B6%E7%94%A8%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2021-11-18T14:28:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在《Android-DataBinding（一）基础》一文中对 <a href="https://developer.android.google.cn/jetpack/androidx/releases/databinding">DataBinding</a> 的接入和使用进行了介绍。本文将会针对 DataBinding 中一些琐碎的知识点进行介绍，比如：Class 属性、Default 属性、Resource 引用等，这些属性被使用的频率或许不是很高，但特定的情况下却会起到意想不到的作用。下面将会针对这些属性进行逐一的讲解。</p>
-<h1 id="1-Data-标签的-Class-属性"><a href="#1-Data-标签的-Class-属性" class="headerlink" title="1. Data 标签的 Class 属性"></a>1. Data 标签的 Class 属性</h1><p>默认情况下，系统会根据布局文件的名称生成对应的 <code>ViewDataBinding</code> 子类，帮助我们操作 <code>XML</code> 中绑定的数据，如下所示：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.sunzn.data;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> androidx.appcompat.app.AppCompatActivity;</span><br><span class="line"><span class="keyword">import</span> androidx.databinding.DataBindingUtil;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.sunzn.data.databinding.ActivityMainBinding;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainActivity</span> <span class="keyword">extends</span> <span class="title class_">AppCompatActivity</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onCreate</span><span class="params">(Bundle savedInstanceState)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        <span class="type">ActivityMainBinding</span> <span class="variable">binding</span> <span class="operator">=</span> DataBindingUtil.setContentView(<span class="built_in">this</span>, R.layout.activity_main);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2021/11/18/Android-DataBinding%EF%BC%88%E4%BA%8C%EF%BC%89%E8%BF%9B%E9%98%B6%E7%94%A8%E6%B3%95/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">DataBinding</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/11/18/Android-DataBinding%EF%BC%88%E4%BA%8C%EF%BC%89%E8%BF%9B%E9%98%B6%E7%94%A8%E6%B3%95/">展开全文 >></a>
         </p>
       
 
