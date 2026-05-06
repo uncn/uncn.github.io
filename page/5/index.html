@@ -162,6 +162,716 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Android-DataBinding（一）基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/11/17/Android-DataBinding%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E7%A1%80/">Android DataBinding（一）基础</a>
+    </h1>
+  
+
+        
+        <a href="/2021/11/17/Android-DataBinding%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E7%A1%80/" class="archive-article-date">
+  	<time datetime="2021-11-17T14:29:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://developer.android.google.cn/jetpack/androidx/releases/databinding">DataBinding</a> 是 Android <a href="https://developer.android.google.cn/jetpack">Jetpack</a> 套件下的一个库，其作用是使用<font style="color:#0088CC;">声明性</font>格式将布局中的界面组件绑定到应用中的数据源。借助布局文件中的绑定组件，你可以移除 Activity 中的许多界面框架调用，使其维护起来更简单、方便。还可以提高应用性能，并且有助于防止内存泄漏以及避免发生 Null 指针异常。</p>
+<blockquote>
+<p><font style="color:#01579B;font-size:14px;"><strong>✦ 注意：</strong> 在许多情况下，<a href="https://developer.android.google.cn/topic/libraries/view-binding">视图绑定</a>可简化实现，提高性能，提供与数据绑定相同的好处。如果你使用数据绑定的主要目的是取代 <strong>findViewById()</strong> 调用，请考虑改用视图绑定。</font></p>
+</blockquote>
+<h1 id="1-开始准备"><a href="#1-开始准备" class="headerlink" title="1. 开始准备"></a>1. 开始准备</h1><p>DataBinding 库与 <a href="https://developer.android.google.cn/studio/releases/gradle-plugin">Android Gradle</a> 插件捆绑在一起。所以无需声明对此库的依赖项，但必须启用它。如需启用 DataBinding，需要在 Modle 级的 <code>build.gradle</code> 文件中将 <code>dataBinding</code> 构建选项设置为 <code>true</code>，如下所示：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    ...</span><br><span class="line">    buildFeatures &#123;</span><br><span class="line">        dataBinding <span class="keyword">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2021/11/17/Android-DataBinding%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E7%A1%80/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">DataBinding</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/11/17/Android-DataBinding%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E7%A1%80/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-DataBinding-下的-EditText-绑定-TextChangedListener" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/11/16/DataBinding-%E4%B8%8B%E7%9A%84-EditText-%E7%BB%91%E5%AE%9A-TextChangedListener/">DataBinding 下的 EditText 绑定 TextChangedListener</a>
+    </h1>
+  
+
+        
+        <a href="/2021/11/16/DataBinding-%E4%B8%8B%E7%9A%84-EditText-%E7%BB%91%E5%AE%9A-TextChangedListener/" class="archive-article-date">
+  	<time datetime="2021-11-16T13:56:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>随着 <a href="https://developer.android.google.cn/jetpack/androidx/releases/databinding">DataBinding</a> 在项目中使用频率的增加，就越能感觉到 <a href="https://developer.android.google.cn/jetpack">Jetpack</a> 下的这个组件在 Android 开发中所带来的便捷性。DataBinding 不仅在形式上彻底抛弃了传统意义上寻找控件的模版代码，也在本质上防止了控件在使用过程中的空指针、类型转换和内存泄漏等问题，使得开发者可以将更多的精力投入到业务逻辑的开发中。当然，DataBinding 的出现不仅仅是用来解决模版代码的，它还可以将变量和布局中的视图进行关联，同时还可以实现双向数据绑定，既接收对属性的数据更改，又监听用户对此属性的更新。</p>
+<p>毫无疑问，DataBinding 已经在一定程度上改变了你的开发习惯。比如，你可能更习惯于在布局文件中使用 <code>@&#123;onClickListener&#125;</code> 来为一个控件添加点击事件；再比如，你可能更喜欢在布局文件中使用表达式 <code>@&#123;viewmodel.username&#125;</code> 来为一个 TextView 进行赋值。没错，你也会更倾向于采用同样的方法为 EditText 添加一个文字改变监听器。但事实上，DataBinding 是不支持直接为 EditText 添加文字改变监听器的，我们需要依赖 ViewModel 持有一个 TextWatcher 的实例并将其绑定到 EditText 上来进行实现。</p>
+<p>EditText 实现文字改变的监听大致分为三步：一、定义持有 TextWatcher 实例的  ViewModel；二、布局文件引用 ViewModel；三、Activity 调用。伪代码如下，如需访问完整代码请访问 <a href="https://gitee.com/vimeo/watcher">Watcher@Gitee</a>。</p>
+        
+          <a class="article-more-a" href="/2021/11/16/DataBinding-%E4%B8%8B%E7%9A%84-EditText-%E7%BB%91%E5%AE%9A-TextChangedListener/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">DataBinding</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/11/16/DataBinding-%E4%B8%8B%E7%9A%84-EditText-%E7%BB%91%E5%AE%9A-TextChangedListener/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Java-的同步化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/17/Java-%E7%9A%84%E5%90%8C%E6%AD%A5%E5%8C%96/">Java 的同步化</a>
+    </h1>
+  
+
+        
+        <a href="/2020/06/17/Java-%E7%9A%84%E5%90%8C%E6%AD%A5%E5%8C%96/" class="archive-article-date">
+  	<time datetime="2020-06-17T00:23:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>只要继承 Thread 类或是实现 Runnable 接口，就可以让对象具有多线程功能。入门线程是简单的，但如果多个线程共享某些数据，数据的同步（一致性、整体性）问题就要特别注意。</p>
+<h1 id="1-同步化"><a href="#1-同步化" class="headerlink" title="1. 同步化"></a>1. 同步化</h1><p>如果程序只是一个单线程，即单一流程的程序，那么只要保证程序逻辑正确，程序通常就可以正确地执行你想要的功能。但当程序是多线程程序，即多流程同时执行时，那么就需要注意更多的细节。例如在多线程共享同一对象的数据时。</p>
+<p>如果一个对象所持有的数据可以被多线程同时共享存取，则必须考虑到数据同步的问题。<font style="color:#BF360C;">所谓数据同步指的是两份数据的整体性和一致性。</font>例如对象 A 有 <code>name</code> 与 <code>id</code> 两个属性，而有一份 B 数据有 <code>name</code> 与 <code>id</code> 的数据要用来更新对象 A 的属性，如果 B 的 <code>name</code> 与 <code>id</code> 设定给 A 对象完成，则称 B 与 A 同步。如下图所示：</p>
+<p><img src="https://image.sunzn.com/blog/20200616140301.png" alt="此处输入图片的描述"></p>
+        
+          <a class="article-more-a" href="/2020/06/17/Java-%E7%9A%84%E5%90%8C%E6%AD%A5%E5%8C%96/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Thread</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/06/17/Java-%E7%9A%84%E5%90%8C%E6%AD%A5%E5%8C%96/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-单例模式的安全性演进" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/14/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%AE%89%E5%85%A8%E6%80%A7%E6%BC%94%E8%BF%9B/">单例模式的安全性演进</a>
+    </h1>
+  
+
+        
+        <a href="/2020/06/14/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%AE%89%E5%85%A8%E6%80%A7%E6%BC%94%E8%BF%9B/" class="archive-article-date">
+  	<time datetime="2020-06-14T09:57:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Java 中的单例（Singleton）模式是一种广泛使用的设计模式。单例模式的主要作用是保证在 Java 程序中，某个类只有一个实例存在。一些管理器和控制器常被设计成单例模式。</p>
+<p>单例模式有很多好处，它能够避免实例对象的重复创建，不仅可以减少每次创建对象的时间开销，还可以节约内存空间；能够避免由于操作多个实例导致的逻辑错误。如果一个对象有可能贯穿整个应用程序的生命周期，而且起到了全局统一管理控制的作用，那么单例模式也许是一个值得考虑的选择。</p>
+<p>单例模式有很多种写法，大部分写法都或多或少有一些不足。下面将分别对这几种写法进行介绍。</p>
+<h1 id="1-饿汉模式"><a href="#1-饿汉模式" class="headerlink" title="1. 饿汉模式"></a>1. 饿汉模式</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Singleton</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">Singleton</span> <span class="variable">instance</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Singleton</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title function_">getInstance</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>从代码中我们看到，类的构造函数被定义为 <code>private</code> 的，保证其他类不能实例化此类，然后提供了一个静态实例并返回给调用者。饿汉模式是最简单的一种实现方式，静态变量在类加载的时候就对实例进行创建，实例在整个程序周期都存在。它的好处是静态变量只在类加载的时候创建一次实例，不存在多个线程创建多个实例的情况，避免了多线程同步的问题。它的缺点也很明显，即使这个单例没有用到也会被创建，而且在类加载之后就被创建，内存就被浪费了。</p>
+<p>这种实现方式适合单例占用内存比较小，在初始化时就会被用到的情况。但是，如果单例占用的内存比较大，或单例只是在某个特定场景下才会用到，使用饿汉模式就不合适了，这时候就需要用到懒汉模式进行延迟加载。</p>
+        
+          <a class="article-more-a" href="/2020/06/14/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%AE%89%E5%85%A8%E6%80%A7%E6%BC%94%E8%BF%9B/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/06/14/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%AE%89%E5%85%A8%E6%80%A7%E6%BC%94%E8%BF%9B/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Android-M-的-NDK-行为变更对-APK-包体积的影响" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/05/Android-M-%E7%9A%84-NDK-%E8%A1%8C%E4%B8%BA%E5%8F%98%E6%9B%B4%E5%AF%B9-APK-%E5%8C%85%E4%BD%93%E7%A7%AF%E7%9A%84%E5%BD%B1%E5%93%8D/">Android M 的 NDK 行为变更对 APK 包体积的影响</a>
+    </h1>
+  
+
+        
+        <a href="/2020/06/05/Android-M-%E7%9A%84-NDK-%E8%A1%8C%E4%B8%BA%E5%8F%98%E6%9B%B4%E5%AF%B9-APK-%E5%8C%85%E4%BD%93%E7%A7%AF%E7%9A%84%E5%BD%B1%E5%93%8D/" class="archive-article-date">
+  	<time datetime="2020-06-05T10:56:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>该来到的终会到来，如果你还没有经历过上下求索的磨砺，说明你的加快前进的脚步了。Google 的大神们早就挖好坑，头也不回的继续挖下一个坑去了，我们能做的只是尽量跟着这些人的脚步，不至于被甩开太远。开始正文之前，我想有必要知道 Android M（6.0）是 Google 在 2015 年 5 月 28 日的 Google I&#x2F;O 大会上正式推出的版本，没错，这特么是一个 5  年前的版本！但这个版本的行为变更一直默默无闻的在那躺着无人问津，直到你将 minSdkVersion 指向了 23，这时你会发现 APK 签名包的体积极大的超出了预期。到这，你是不是能理解一个程序员在文章开头发出的感叹了？</p>
+<h1 id="1-奇怪的-APK-体积差异"><a href="#1-奇怪的-APK-体积差异" class="headerlink" title="1. 奇怪的 APK 体积差异"></a>1. 奇怪的 APK 体积差异</h1><p><img src="https://image.sunzn.com/blog/20200604143801.png" alt="此处输入图片的描述"></p>
+        
+          <a class="article-more-a" href="/2020/06/05/Android-M-%E7%9A%84-NDK-%E8%A1%8C%E4%B8%BA%E5%8F%98%E6%9B%B4%E5%AF%B9-APK-%E5%8C%85%E4%BD%93%E7%A7%AF%E7%9A%84%E5%BD%B1%E5%93%8D/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NDK</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/06/05/Android-M-%E7%9A%84-NDK-%E8%A1%8C%E4%B8%BA%E5%8F%98%E6%9B%B4%E5%AF%B9-APK-%E5%8C%85%E4%BD%93%E7%A7%AF%E7%9A%84%E5%BD%B1%E5%93%8D/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-手机抓包的几种方式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/27/%E6%89%8B%E6%9C%BA%E6%8A%93%E5%8C%85%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/">手机抓包的几种方式</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/27/%E6%89%8B%E6%9C%BA%E6%8A%93%E5%8C%85%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/" class="archive-article-date">
+  	<time datetime="2020-03-27T13:36:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在移动逆向分析以及 APP 开发的时候，总会需要对其网络行为进行监控测试，本文针对市面上主流的抓包工具进行了抓包测试，并将过程进行了逐一记录，方便日后查用。</p>
+<h1 id="1-基于-Wireshark"><a href="#1-基于-Wireshark" class="headerlink" title="1. 基于 Wireshark"></a>1. 基于 Wireshark</h1><h2 id="1-1-抓包环境"><a href="#1-1-抓包环境" class="headerlink" title="1.1 抓包环境"></a>1.1 抓包环境</h2><p>Windows 10 + 小米5s Plus + Wireshark 3.2.1 【<a href="https://www.wireshark.org/download.html">下载地址</a>】</p>
+<h2 id="1-2-设置-WiFi"><a href="#1-2-设置-WiFi" class="headerlink" title="1.2 设置 WiFi"></a>1.2 设置 WiFi</h2><p>在电脑主机上使用百度 WiFi之类的工具，开启热点，将所要抓包的手机连接该热点，并记录手机的【IP地址】和【路由器】，这两个信息会在后续的抓包过程中用到。</p>
+<p><img src="https://image.sunzn.com/blog/20200301150201.png" alt="此处输入图片的描述"></p>
+        
+          <a class="article-more-a" href="/2020/03/27/%E6%89%8B%E6%9C%BA%E6%8A%93%E5%8C%85%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Fiddler</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Crack</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Wireshark</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Charles</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Burpsuite</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/27/%E6%89%8B%E6%9C%BA%E6%8A%93%E5%8C%85%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Java-泛型中-extends-和-super-的区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/11/Java-%E6%B3%9B%E5%9E%8B%E4%B8%AD-extends-%E5%92%8C-super-%E7%9A%84%E5%8C%BA%E5%88%AB/">Java 泛型中 extends 和 super 的区别</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/11/Java-%E6%B3%9B%E5%9E%8B%E4%B8%AD-extends-%E5%92%8C-super-%E7%9A%84%E5%8C%BA%E5%88%AB/" class="archive-article-date">
+  	<time datetime="2020-03-11T02:26:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在 Java 中，&lt;? extends T&gt; 和 &lt;? super T&gt; 是 Java 泛型中的「<strong>通配符</strong>」Wildcards 和「<strong>边界</strong>」Bounds的概念。</p>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">中文概念</th>
+<th align="center">英文概念</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">&lt;? extends T&gt;</td>
+<td align="center">上界通配符</td>
+<td align="center">Upper Bounds Wildcards</td>
+</tr>
+<tr>
+<td align="center">&lt;? super T&gt;</td>
+<td align="center">下界通配符</td>
+<td align="center">Lower Bounds Wildcards</td>
+</tr>
+</tbody></table>
+<p>Java 是单继承，所有继承的类构成一棵树。假设 A 和 B 都在一颗继承树里（否则 super，extend 这些词没意义）。</p>
+<pre><code>A extend B 表示 A 是 B 的子类或者子孙，在 B 下面。
+A super B 表示 A 是 B 的父类或者祖先，在 B 的上面。
+</code></pre>
+<p>由于树这个结构上下是不对称的，所以这两种表达区别很大。假设有两个泛型写在了函数定义里，作为函数形参（形参和实参有区别）：</p>
+<pre><code>参数写成：T&lt;? extends B&gt;，由于指定了 B 为所有元素的“根”，你任何时候都可以安全的用 B 来使用容器里的元素，但是插入有问题，由于供奉 B 为祖先的子树有很多，不同子树并不兼容，由于实参可能来自于任何一颗子树，所以你的插入很可能破坏函数实参，所以，对这种写法的形参，禁止做插入操作，只做读取。
+
+参数写成：T&lt;? super B&gt;，对于这个泛型，? 代表容器里的元素类型，由于只规定了元素必须是 B 的超类，导致元素没有明确统一的“根”（除了 Object 这个必然的根），所以这个泛型你其实无法使用它，对吧，除了把元素强制转成 Object。所以，对把参数写成这样形态的函数，你函数体内，只能对这个泛型做插入操作，而无法读。
+</code></pre>
+        
+          <a class="article-more-a" href="/2020/03/11/Java-%E6%B3%9B%E5%9E%8B%E4%B8%AD-extends-%E5%92%8C-super-%E7%9A%84%E5%8C%BA%E5%88%AB/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Generics</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/11/Java-%E6%B3%9B%E5%9E%8B%E4%B8%AD-extends-%E5%92%8C-super-%E7%9A%84%E5%8C%BA%E5%88%AB/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Kotlin-中的-Constructor" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/01/12/Kotlin-%E4%B8%AD%E7%9A%84-Constructor/">Kotlin 中的 Constructor</a>
+    </h1>
+  
+
+        
+        <a href="/2020/01/12/Kotlin-%E4%B8%AD%E7%9A%84-Constructor/" class="archive-article-date">
+  	<time datetime="2020-01-12T10:47:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Kotlin 与 Java 的构造器有着很大的区别，Java 的构造器需要与类同名，Kotlin 的构造器则必须要使用 <code>constructor</code> 进行表示，并且没有 <code>public</code> 关键字修饰，因为 Kotlin 的构造器默认是公开可见的。</p>
+<table>
+<thead>
+<tr>
+<th align="center">语言</th>
+<th align="center">构造器</th>
+<th align="center">默认修饰符</th>
+<th align="center">默认可见性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Java</td>
+<td align="center">与类同名的构造器</td>
+<td align="center">有 public 关键字修饰</td>
+<td align="center">默认可见</td>
+</tr>
+<tr>
+<td align="center">Kotlin</td>
+<td align="center">用 constructor 声明</td>
+<td align="center">无 public 关键字修饰</td>
+<td align="center">默认可见</td>
+</tr>
+</tbody></table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Java : 用同类名方法表示构造器，有 public 关键字修饰，默认可见</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">User</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">User</span><span class="params">(String username, String password)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.username = username;</span><br><span class="line">        <span class="built_in">this</span>.password = password;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Kotlin : 用 constructor 声明构造器，无 public 关键字修饰，默认可见</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">User</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> username: String</span><br><span class="line">    <span class="keyword">val</span> password: String</span><br><span class="line"></span><br><span class="line">    <span class="keyword">constructor</span>(username: String, password: String) &#123;</span><br><span class="line">        <span class="keyword">this</span>.username = username</span><br><span class="line">        <span class="keyword">this</span>.password = password</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>通过上面的代码我们知道了构造器在 Java 与 Kotlin 中的写法和区别。其实在 Kotlin 中，还有更简介的语法来写构造器，我们可以在声明类的同时声明构造器，语法格式是在类的后面使用括号包含构造器的参数列表，示例如下：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">User</span> <span class="keyword">constructor</span>(username: String, password: String) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> username: String = username</span><br><span class="line">    <span class="keyword">var</span> password: String = password</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这种跟在类名后面的构造器称为「主构造器」，写在类中的构造器被称为「次构造器」。在 Kotlin 中，一个类最多只能有一个主构造器（也可以没有），而次构造器则没有个数限制。constructor 构造器移到类名后，类的属性可以引用构造器中的参数，比如以上示例中 User 类的属性 username 可以引用构造器中的 username 参数。此外，<code>init</code> 代码块也可以引用主构造器中的参数：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">User</span> <span class="keyword">constructor</span>(username: String, password: String) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> username: String</span><br><span class="line">    <span class="keyword">var</span> password: String</span><br><span class="line"></span><br><span class="line">    <span class="keyword">init</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.username = username</span><br><span class="line">        <span class="keyword">this</span>.password = password</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><font style="color:#01579B;font-size:14px;"><strong>说明</strong>：其中 init 代码块是紧跟在主构造器之后执行的，这是因为主构造器本身没有代码体，init 代码块就充当了主构造器代码体的功能。</font></p>
+</blockquote>
+<p>另外，如果一个类有主构造器，那么其他次构造器都要通过 <code>this</code> 关键字调用主构造器，可以直接调用或者通过别的次构造器间接调用。如果不调用 IDE 就会报错，比如下面这样：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">User</span> <span class="keyword">constructor</span>(username: String, password: String) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">constructor</span>(username: String, password: String, sex: <span class="built_in">Int</span>) &#123;</span><br><span class="line">        <span class="comment">// Error : Primary constructor call expected</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/01/12/Kotlin-%E4%B8%AD%E7%9A%84-Constructor/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Kotlin-中的-Elvis-操作符" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -333,677 +1043,9 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Android-P-行为变更对-WebView-的影响" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/18/Android-P-%E8%A1%8C%E4%B8%BA%E5%8F%98%E6%9B%B4%E5%AF%B9-WebView-%E7%9A%84%E5%BD%B1%E5%93%8D/">Android P 行为变更对 WebView 的影响</a>
-    </h1>
-  
-
-        
-        <a href="/2019/04/18/Android-P-%E8%A1%8C%E4%B8%BA%E5%8F%98%E6%9B%B4%E5%AF%B9-WebView-%E7%9A%84%E5%BD%B1%E5%93%8D/" class="archive-article-date">
-  	<time datetime="2019-04-18T12:33:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这篇文章是根据项目中遇到的真实情况归纳整理而成的。整个项目组的研发人员从发现 BUG 那一刻开始，到彻底解决这个问题耗费了很长的时间，中间填了很多坑，甚至否定了刚接入没多久的 TBS。不过，好在解决了这个由 Android P 行为变更引发的错误，使得错误率降低到了现在可接受的 0.1113%，下面让我们开始复盘吧！</p>
-<h1 id="1-奇怪的-WebView-错误"><a href="#1-奇怪的-WebView-错误" class="headerlink" title="1. 奇怪的 WebView 错误"></a>1. 奇怪的 WebView 错误</h1><p><img src="https://image.sunzn.com/blog/20190418200902.png" alt="在此输入正文"></p>
-        
-          <a class="article-more-a" href="/2019/04/18/Android-P-%E8%A1%8C%E4%B8%BA%E5%8F%98%E6%9B%B4%E5%AF%B9-WebView-%E7%9A%84%E5%BD%B1%E5%93%8D/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">WebView</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/18/Android-P-%E8%A1%8C%E4%B8%BA%E5%8F%98%E6%9B%B4%E5%AF%B9-WebView-%E7%9A%84%E5%BD%B1%E5%93%8D/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Time-在-Room-中的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/28/Time-%E5%9C%A8-Room-%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/">Time 在 Room 中的使用</a>
-    </h1>
-  
-
-        
-        <a href="/2019/02/28/Time-%E5%9C%A8-Room-%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2019-02-28T08:53:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>如果你已经开始使用 <a href="https://developer.android.com/topic/libraries/architecture/room.html">Room</a>（如果没有，建议使用），你很可能需要对某种类型的日期&#x2F;时间进行存储和检索。Room 不支持开箱即用，而是提供了可扩展的注解 <a href="https://developer.android.com/reference/android/arch/persistence/room/TypeConverter.html">@TypeConverter</a>，它允许你提供从任意对象到 Room 理解的类型的映射，反之亦然。</p>
-<p>Room 官方 API 文档中的 <a href="https://developer.android.com/training/data-storage/room/referencing-data">规范示例</a> 实际上是日期&#x2F;时间：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Converters</span> &#123;</span><br><span class="line">    <span class="meta">@TypeConverter</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Date <span class="title function_">fromTimestamp</span><span class="params">(Long value)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> value == <span class="literal">null</span> ? <span class="literal">null</span> : <span class="keyword">new</span> <span class="title class_">Date</span>(value);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@TypeConverter</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Long <span class="title function_">dateToTimestamp</span><span class="params">(Date date)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> date == <span class="literal">null</span> ? <span class="literal">null</span> : date.getTime();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>我在项目中使用了这个示例代码，并且也是有效的，但是它存在两个问题。第一个是它使用了 Date 类，而我们应该在几乎所有的项目中避免使用 Date 类。Date 类的主要问题是它完全不支持时区。第二个问题是它将值保存为简单的 Long 类型，它再次无法存储任何时区信息。</p>
-        
-          <a class="article-more-a" href="/2019/02/28/Time-%E5%9C%A8-Room-%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Room</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SQLite</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/28/Time-%E5%9C%A8-Room-%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Android-Room-使用指南" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/23/Android-Room-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">Android Room 使用指南</a>
-    </h1>
-  
-
-        
-        <a href="/2019/02/23/Android-Room-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" class="archive-article-date">
-  	<time datetime="2019-02-23T11:02:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://developer.android.com/jetpack/docs/guide#persist-data">Room</a> 是一个对象映射库，可利用最少的样板代码实现本地数据持久性。在编译时，它会根据数据架构验证每个查询，这样损坏的 SQL 查询会导致编译时错误而不是运行时失败。Room 可以抽象化处理原始 SQL 表格和查询的一些底层实现细节。它还允许您观察对数据库数据（包括集合和连接查询）的更改，并使用 LiveData 对象公开这类更改。它甚至明确定义了解决一些常见线程问题（如访问主线程上的存储空间）的执行约束。</p>
-<table>
-<thead>
-<tr>
-<th>描述</th>
-<th>链接</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Room 简单介绍</td>
-<td><a href="https://developer.android.com/topic/libraries/architecture/room">Room Persistence Library</a></td>
-</tr>
-<tr>
-<td>Room 使用指南</td>
-<td><a href="https://developer.android.com/training/data-storage/room/index.html">Save data in a local database using Room</a></td>
-</tr>
-<tr>
-<td>Room 使用实例</td>
-<td><a href="https://codelabs.developers.google.com/codelabs/android-room-with-a-view/#0">Android Room with a View - Java</a></td>
-</tr>
-</tbody></table>
-<blockquote>
-<p><font style="color:#01579B;font-size:14px;"><strong>注意</strong>：如果你的应用已使用 SQLite 对象关系映射 (ORM) 等其他持久性解决方案，那么你无需将现有解决方案替换为 Room。不过，如果你正在编写新应用或重构现有应用，那么我们建议您使用 Room 保留应用数据。这样一来，你便可以利用该库的抽象和查询验证功能。</font></p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2019/02/23/Android-Room-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Room</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SQLite</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/23/Android-Room-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Library-声明的-minSdkVersion-大于-Module-的怎么办？" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/22/Library-%E5%A3%B0%E6%98%8E%E7%9A%84-minSdkVersion-%E5%A4%A7%E4%BA%8E-Module-%E7%9A%84%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F/">Library 声明的 minSdkVersion 大于 Module 的怎么办？</a>
-    </h1>
-  
-
-        
-        <a href="/2019/02/22/Library-%E5%A3%B0%E6%98%8E%E7%9A%84-minSdkVersion-%E5%A4%A7%E4%BA%8E-Module-%E7%9A%84%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F/" class="archive-article-date">
-  	<time datetime="2019-02-21T22:50:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1. 问题描述"></a>1. 问题描述</h1><p>项目在接入第三方库的时候，如果 Library 声明的 minSdkVersion 大于 Module 所声明的，那么在项目编译阶段会抛出错误。错误信息如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">D:\APP\Project\CLIENT\CHAT\src\main\AndroidManifest.xml Error:</span><br><span class="line">	uses-sdk:minSdkVersion 16 cannot be smaller than version 21 declared in library [com.sunzn.core:chat:1.1.26] C:\Users\sunzn\.gradle\caches\transforms-1\files-1.1\chat-1.1.26.aar\41fa41b910ecb8f65c4b800dc5c2afc5\AndroidManifest.xml as the library might be using APIs not available in 16</span><br><span class="line">	Suggestion: use a compatible library with a minSdk of at most 16,</span><br><span class="line">		or increase this project&#x27;s minSdk version to at least 21,</span><br><span class="line">		or use tools:overrideLibrary=&quot;com.sunzn.core.chat&quot; to force usage (may lead to runtime failures)</span><br><span class="line"></span><br><span class="line">See http://g.co/androidstudio/manifest-merger for more information about the manifest merger.</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2019/02/22/Library-%E5%A3%B0%E6%98%8E%E7%9A%84-minSdkVersion-%E5%A4%A7%E4%BA%8E-Module-%E7%9A%84%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/22/Library-%E5%A3%B0%E6%98%8E%E7%9A%84-minSdkVersion-%E5%A4%A7%E4%BA%8E-Module-%E7%9A%84%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Android-中的调色板-Palette" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/31/Android-%E4%B8%AD%E7%9A%84%E8%B0%83%E8%89%B2%E6%9D%BF-Palette/">Android 中的调色板 Palette</a>
-    </h1>
-  
-
-        
-        <a href="/2019/01/31/Android-%E4%B8%AD%E7%9A%84%E8%B0%83%E8%89%B2%E6%9D%BF-Palette/" class="archive-article-date">
-  	<time datetime="2019-01-31T15:49:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://image.sunzn.com/blog/20190130092001.png" alt="此处输入图片的描述"></p>
-<p>如果试过 Android Lollipop SDK ？您可能已经注意到 Palette 的 API 已更新。和以前一样，Palette 允许您从图像中提取颜色以供 UI 使用。</p>
-        
-          <a class="article-more-a" href="/2019/01/31/Android-%E4%B8%AD%E7%9A%84%E8%B0%83%E8%89%B2%E6%9D%BF-Palette/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/31/Android-%E4%B8%AD%E7%9A%84%E8%B0%83%E8%89%B2%E6%9D%BF-Palette/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-JitPack-Failed-to-install-the-following-Android-SDK-packages-as-some-licences-have-not-been-accepted" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/21/JitPack-Failed-to-install-the-following-Android-SDK-packages-as-some-licences-have-not-been-accepted/">JitPack:Failed to install the following Android SDK packages as some licences have not been accepted</a>
-    </h1>
-  
-
-        
-        <a href="/2019/01/21/JitPack-Failed-to-install-the-following-Android-SDK-packages-as-some-licences-have-not-been-accepted/" class="archive-article-date">
-  	<time datetime="2019-01-21T13:30:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>近期将 Android Studio 升级到了 3.3 版本，刚好有个托管在 GitHub 上的库要更新。便索性将库的 Android SDK 升级到了 28；同时将 Android SDK Build-Tools 也升级到了 28.0.3。修改库代码，提交至 GitHub 并发布 Releases，像往常一样在 JitPack 发布版本仓库。JitPack 报错如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">* What went wrong:</span><br><span class="line">A problem occurred configuring project &#x27;:Library&#x27;.</span><br><span class="line">&gt; Failed to install the following Android SDK packages as some licences have not been accepted.</span><br><span class="line">     build-tools;28.0.3 Android SDK Build-Tools 28.0.3</span><br><span class="line">     platforms;android-28 Android SDK Platform 28</span><br><span class="line">  To build this project, accept the SDK license agreements and install the missing components using the Android Studio SDK Manager.</span><br><span class="line">  Alternatively, to transfer the license agreements from one workstation to another, see http://d.android.com/r/studio-ui/export-licenses.html</span><br><span class="line">  </span><br><span class="line">  Using Android SDK: /opt/android-sdk-linux</span><br></pre></td></tr></table></figure>
-
-<p>这段报错的大致意思是：项目在构建过程中需要接受 SDK 许可协议，并使用 Android Studio SDK Manager 安装缺少的组件。到这基本明白怎么回事了，本地的测试代码运行没有问题，发布仓库的时候 JitPack 报错，只能说明一个问题，JitPack 的项目构建环境缺少最新的组件！</p>
-        
-          <a class="article-more-a" href="/2019/01/21/JitPack-Failed-to-install-the-following-Android-SDK-packages-as-some-licences-have-not-been-accepted/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JitPack</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/21/JitPack-Failed-to-install-the-following-Android-SDK-packages-as-some-licences-have-not-been-accepted/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-自定义-View-感知事件的几种方式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/08/%E8%87%AA%E5%AE%9A%E4%B9%89-View-%E6%84%9F%E7%9F%A5%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/">自定义 View 感知事件的几种方式</a>
-    </h1>
-  
-
-        
-        <a href="/2018/11/08/%E8%87%AA%E5%AE%9A%E4%B9%89-View-%E6%84%9F%E7%9F%A5%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2018-11-08T14:30:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-事件感知"><a href="#1-事件感知" class="headerlink" title="1 事件感知"></a>1 事件感知</h1><p>绝大多数情况下，View 是不需要感知外部组件的生命周期或系统事件的。但部分情况下，View 对外部事件的感知又是必要的，比如广告轮播组件：<a href="https://github.com/ShortStickBoy/Banner">Banner</a>，这样的控件在设计之初就要考虑亮屏、息屏、Activity 的 onResume 和 onPause 生命周期，因为谁也不希望 Banner 在这些节点处继续执行轮播操作。</p>
-<p>如果将 Banner 当成一个 ItemView 放入 Listiew、RecyclerView 等具有复用机制的容器中时，新的问题又出现了，当 Banner 被滑出屏幕，又重新滑回屏幕后，之前的轮播状态是无法保持的。所以，我们需要知道 Banner 被销毁和重建的窗口，在销毁时记录轮播状态，在重建时将轮播状态复位。这样，用户就会有一致的轮播状态体验了。</p>
-<p>下面将会结合以上需求对每种事件和生命周期的感知进行详细的阐述。案例项目会托管在 Github 上，如需查看，请点击 <a href="https://github.com/ShortStickBoy/Receptor">Receptor@Github</a>。</p>
-        
-          <a class="article-more-a" href="/2018/11/08/%E8%87%AA%E5%AE%9A%E4%B9%89-View-%E6%84%9F%E7%9F%A5%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">View</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/11/08/%E8%87%AA%E5%AE%9A%E4%B9%89-View-%E6%84%9F%E7%9F%A5%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Android-Library-中-switch-语句的-case-不能访问资源-ID-的原因" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/12/Android-Library-%E4%B8%AD-switch-%E8%AF%AD%E5%8F%A5%E7%9A%84-case-%E4%B8%8D%E8%83%BD%E8%AE%BF%E9%97%AE%E8%B5%84%E6%BA%90-ID-%E7%9A%84%E5%8E%9F%E5%9B%A0/">Android Library 中 switch 语句的 case 不能访问资源 ID 的原因</a>
-    </h1>
-  
-
-        
-        <a href="/2018/08/12/Android-Library-%E4%B8%AD-switch-%E8%AF%AD%E5%8F%A5%E7%9A%84-case-%E4%B8%8D%E8%83%BD%E8%AE%BF%E9%97%AE%E8%B5%84%E6%BA%90-ID-%E7%9A%84%E5%8E%9F%E5%9B%A0/" class="archive-article-date">
-  	<time datetime="2018-08-12T08:38:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>使用 switch 语句的的时候，需要注意 case 分支后的引用在 Project 和 Library 下的区别。因为在 Library 中可能存在资源无法被引用的情形。在继续阐述之前，先看一段代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> EditorViewHolder <span class="title function_">onCreateViewHolder</span><span class="params">(View itemView, <span class="type">int</span> itemLayout, EditorAdapter adapter)</span> &#123;</span><br><span class="line">    <span class="keyword">switch</span> (itemLayout) &#123;</span><br><span class="line">        <span class="keyword">case</span> R.layout.item_euu001:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">EUU001ViewHolder</span>(itemView, adapter);</span><br><span class="line">        <span class="keyword">case</span> R.layout.item_euu002:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">EUU002ViewHolder</span>(itemView, adapter);</span><br><span class="line">        <span class="keyword">case</span> R.layout.item_euu003:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">EUU003ViewHolder</span>(itemView, adapter);</span><br><span class="line">        <span class="keyword">case</span> R.layout.item_euu004:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">EUU004ViewHolder</span>(itemView, adapter);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2018/08/12/Android-Library-%E4%B8%AD-switch-%E8%AF%AD%E5%8F%A5%E7%9A%84-case-%E4%B8%8D%E8%83%BD%E8%AE%BF%E9%97%AE%E8%B5%84%E6%BA%90-ID-%E7%9A%84%E5%8E%9F%E5%9B%A0/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/12/Android-Library-%E4%B8%AD-switch-%E8%AF%AD%E5%8F%A5%E7%9A%84-case-%E4%B8%8D%E8%83%BD%E8%AE%BF%E9%97%AE%E8%B5%84%E6%BA%90-ID-%E7%9A%84%E5%8E%9F%E5%9B%A0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
     </nav>
   
 

@@ -15,8 +15,8 @@
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
 <meta property="og:description" content="在 Kotlin 官方的定义中，协程是一种轻量级的线程，但它不是线程。 协程可以在单个线程中挂起和恢复，支持异步、非阻塞的编程。 1、协程的本质Kotlin 协程本质上是基于线程的封装，其核心优势在于允许开发者以线性、顺序的代码结构编写并发逻辑，从而避免了传统多线程编程中常见的回调嵌套。 简单的概括就是，协程提供了比线程更易用的并发管理方案。协程常被称为“轻量”，并非指其物理资源消耗低于线程，而是">
 <meta property="og:locale">
-<meta property="article:published_time" content="2026-01-07T08:51:31.000Z">
-<meta property="article:modified_time" content="2026-01-07T11:24:23.232Z">
+<meta property="article:published_time" content="2026-01-07T08:51:32.000Z">
+<meta property="article:modified_time" content="2026-05-06T21:03:26.477Z">
 <meta property="article:author" content="狮子">
 <meta property="article:tag" content="协程">
 <meta name="twitter:card" content="summary">
@@ -178,7 +178,7 @@ var _hmt = _hmt || [];
 
         
         <a href="/2026/01/07/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="archive-article-date">
-  	<time datetime="2026-01-07T08:51:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-07</time>
+  	<time datetime="2026-01-07T08:51:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-07</time>
 </a>
         
       </header>
@@ -187,13 +187,696 @@ var _hmt = _hmt || [];
       
         <p>在 Kotlin 官方的定义中，<strong>协程是一种轻量级的线程，但它不是线程。</strong> 协程可以在单个线程中挂起和恢复，支持异步、非阻塞的编程。</p>
 <h1 id="1、协程的本质"><a href="#1、协程的本质" class="headerlink" title="1、协程的本质"></a>1、协程的本质</h1><p><strong>Kotlin 协程本质上是基于线程的封装，其核心优势在于允许开发者以线性、顺序的代码结构编写并发逻辑，从而避免了传统多线程编程中常见的回调嵌套。</strong> 简单的概括就是，协程提供了比线程更易用的并发管理方案。协程常被称为“轻量”，并非指其物理资源消耗低于线程，而是指能用更简洁的代码实现相同的并发效果。</p>
-<h1 id="2、线程的切换"><a href="#2、线程的切换" class="headerlink" title="2、线程的切换"></a>2、线程的切换</h1><p>从功能上看，协程与线程都是并发管理工具。并发管理主要涉及三件事：</p>
-<ol>
-<li>线程切换：在子线程执行耗时任务，完成后切回主线程传回结果；</li>
-<li>线程同步：线程间相互等待，实现流程协同；</li>
-<li>线程安全：通过互斥锁等机制保护共享资源。</li>
-</ol>
+<h1 id="2、线程的切换"><a href="#2、线程的切换" class="headerlink" title="2、线程的切换"></a>2、线程的切换</h1><p>从功能上看，协程与线程都是并发管理工具。并发管理主要涉及三件事：<strong>线程切换</strong>、<strong>线程同步</strong>、<strong>线程安全</strong>。</p>
+<table style="font-family: 'Google Sans Text', 'Noto Sans', 'Noto Sans JP', 'Noto Sans KR', 'Noto Naskh Arabic', 'Noto Sans Thai', 'Noto Sans Hebrew', 'Noto Sans Bengali', sans-serif;">
+	<tbody>
+		<tr style="text-align:center">
+			<th align="center" width="20%" colspan="1">编号</th>
+			<th align="center" width="20%" colspan="1">事项</th>
+			<th align="center" width="60%" colspan="1">描述</th>
+		</tr>
+		<tr>
+			<td align="center">1</td>
+			<td align="center">线程切换</td>
+            <td align="center">在子线程执行耗时任务，完成后切回主线程传回结果。</td>
+		</tr>
+		<tr>
+			<td align="center">2</td>
+			<td align="center">线程同步</td>
+            <td align="center">线程间相互等待，实现流程协同。</td>
+		</tr>
+		<tr>
+			<td align="center">3</td>
+			<td align="center">线程安全</td>
+            <td align="center">通过互斥锁等机制保护共享资源。</td>
+		</tr>
+	</tbody>
+</table>
 
+<p>无论是从线程还是协程的角度，处理并发时都会面对这三个方面。其中<strong>线程切换</strong>是最基本的一环，在后续介绍协程时，通常会将它与线程进行对比说明。</p>
+<span id="more"></span>
+
+<h2 id="2-1-线程的调度"><a href="#2-1-线程的调度" class="headerlink" title="2.1 线程的调度"></a>2.1 线程的调度</h2><p>传统的后台任务调度，通常会启动一个子线程：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">thread &#123; </span><br><span class="line">    println(<span class="string">&quot;Thread: <span class="subst">$&#123;Thread.currentThread().name&#125;</span>&quot;</span>)    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>或者启用一个线程池：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> executor = Executors.newCachedThreadPool()</span><br><span class="line">executor.execute &#123;</span><br><span class="line">    println(<span class="string">&quot;Thread: <span class="subst">$&#123;Thread.currentThread().name&#125;</span>&quot;</span>) </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对于 Android 而言，在子线程执行耗时任务，获取结果后切回主线程更新界面，可以使用 <code>Handle</code> 或 <code>View</code> 进行切换：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> handler = Handler(Looper.getMainLooper())</span><br><span class="line">handler.post &#123;</span><br><span class="line">    println(<span class="string">&quot;Thread: <span class="subst">$&#123;Thread.currentThread().name&#125;</span>&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> view: View = findViewById&lt;View&gt;(R.id.view)</span><br><span class="line">view.post &#123;</span><br><span class="line">    println(<span class="string">&quot;Thread: <span class="subst">$&#123;Thread.currentThread().name&#125;</span>&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-2-启动协程"><a href="#2-2-启动协程" class="headerlink" title="2.2 启动协程"></a>2.2 启动协程</h2><p> 接受一个空的协程上下文，创建一个协程作用域，然后就可以用这个作用域来启动一个协程了：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> scope = CoroutineScope(EmptyCoroutineContext)</span><br><span class="line">scope.launch &#123;</span><br><span class="line">    println(<span class="string">&quot;Thread: <span class="subst">$&#123;Thread.currentThread().name&#125;</span>&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果使用空的协程上下文创建协程作用域，则会使用默认的调度器执行任务。在 Kotlin 协程框架中，<code>ContinuationInterceptor</code> 是核心拦截器接口，负责在协程执行过程中<strong>拦截和修改协程的续体</strong>，主要作用是<strong>控制协程的线程调度</strong>。<code>CoroutineDispatcher</code> 是 <code>ContinuationInterceptor</code> 最主要、最常用的实现：</p>
+<table style="font-family: 'Google Sans Text', 'Noto Sans', 'Noto Sans JP', 'Noto Sans KR', 'Noto Naskh Arabic', 'Noto Sans Thai', 'Noto Sans Hebrew', 'Noto Sans Bengali', sans-serif;">
+	<tbody>
+		<tr style="text-align:center">
+			<th align="center" width="10%" colspan="1">编号</th>
+			<th align="center" width="20%" colspan="1">调度器</th>
+			<th align="center" width="10%" colspan="1">自动切回线程</th>
+			<th align="center" width="60%" colspan="1">描述</th>
+		</tr>
+		<tr>
+			<td align="center">1</td>
+			<td align="center">Dispatchers.Default</td>
+			<td align="center">是</td>
+            <td align="center">CPU 密集型任务调度，执行计算密集型任务。</td>
+		</tr>
+		<tr>
+			<td align="center">2</td>
+			<td align="center">Dispatchers.Main</td>
+			<td align="center">是</td>
+            <td align="center">UI 线程调度，执行切换到住线程任务。</td>
+		</tr>
+		<tr>
+			<td align="center">3</td>
+			<td align="center">Dispatchers.IO</td>
+			<td align="center">是</td>
+            <td align="center">IO 线程池调度，执行网络请求、磁盘读写任务。</td>
+		</tr>
+		<tr>
+			<td align="center">4</td>
+			<td align="center">Dispatchers.Unconfined</td>
+			<td align="center">否</td>
+            <td align="center">不绑定特定线程的调度器，挂起函数执行完后不会自动将线程切回去，而是由恢复它的线程继续执行。</td>
+		</tr>
+	</tbody>
+</table>
+
+<blockquote>
+<p><font style="color:#01579B;font-size:14px;"><strong>✦ 继承链</strong>：Dispatchers.Default  ▸  CoroutineDispatcher  ▸  ContinuationInterceptor  ▸  CoroutineContext.Element  ▸  CoroutineContext</font></p>
+</blockquote>
+<p>开启协程时可以在 <code>CoroutineScope</code> 或 <code>launch()</code> 中传入指定的调度器：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.默认使用 Default</span></span><br><span class="line"><span class="keyword">val</span> scope = CoroutineScope(EmptyCoroutineContext)</span><br><span class="line">scope.launch &#123;  &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.所有通过 scope1 启动的协程使用 IO 线程池</span></span><br><span class="line"><span class="keyword">val</span> scope1 = CoroutineScope(Dispatchers.IO)</span><br><span class="line">scope1.launch &#123; &#125;</span><br><span class="line">scope1.launch &#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3.默认使用 Default，但 launch 的 IO 会覆盖作用域，协程将在 Dispatchers.IO 线程池中执行</span></span><br><span class="line"><span class="keyword">val</span> scope2 = CoroutineScope(EmptyCoroutineContext)</span><br><span class="line">scope.launch(Dispatchers.IO) &#123; &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-3-调度器优先级"><a href="#2-3-调度器优先级" class="headerlink" title="2.3 调度器优先级"></a>2.3 调度器优先级</h2><p>协程会按照<strong>明确指定调度器</strong> ▸ <strong>作用域调度器</strong> ▸ <strong>父协程调度器</strong> ▸ <strong>系统默认调度器</strong>的优先级顺序来确定哪个调度器生效。下面通过几个例子来进行说明：</p>
+<p><strong>（一）最高优先级：明确指定调度器</strong></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> scope = CoroutineScope(Dispatchers.Main)</span><br><span class="line">scope.launch(Dispatchers.IO) &#123;  <span class="comment">// ← 有明确指定，优先级最高</span></span><br><span class="line">    <span class="comment">// 在 IO 线程池执行</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>（二）次高优先级：作用域调度器</strong></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> scope = CoroutineScope(Dispatchers.Main)</span><br><span class="line">scope.launch &#123;  <span class="comment">// ← 没有明确指定，使用作用域的 Main 调度器</span></span><br><span class="line">    <span class="comment">// 在主线程执行</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>（三）第三优先级：父协程调度器</strong></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> scope = CoroutineScope(Dispatchers.Main)</span><br><span class="line">scope.launch(Dispatchers.IO) &#123;</span><br><span class="line">    launch &#123;  <span class="comment">// ← 没有明确指定，继承父协程的 IO 调度器</span></span><br><span class="line">        <span class="comment">// 在 IO 线程池执行</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>（四）默认回退：系统默认调度器</strong></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*** ① 全局作用域，没有指定调度器 ***/</span></span><br><span class="line"></span><br><span class="line">GlobalScope.launch &#123;  <span class="comment">// ← 没有父协程，没有作用域默认值</span></span><br><span class="line">    <span class="comment">// 使用 Dispatchers.Default</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*** ② 自定义作用域但没指定调度器 ***/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> scope = CoroutineScope(Job())  <span class="comment">// 没有默认调度器</span></span><br><span class="line">scope.launch &#123;  <span class="comment">// ← 没有明确指定，作用域也没设置</span></span><br><span class="line">    <span class="comment">// 使用 Dispatchers.Default</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*** ③ runBlocking 的默认子协程 ***/</span></span><br><span class="line"></span><br><span class="line">runBlocking &#123;</span><br><span class="line">    launch &#123;  <span class="comment">// runBlocking 会阻塞当前线程</span></span><br><span class="line">        <span class="comment">// 虽然继承父协程，但父协程是特殊的</span></span><br><span class="line">        <span class="comment">// 实际上也会在调用线程执行，但如果没有其他调度器信息时会回退到 Default</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-4-切回主线程"><a href="#2-4-切回主线程" class="headerlink" title="2.4 切回主线程"></a>2.4 切回主线程</h2><p>最后，我们有必要了解下切回主线程的底层实现细节。在 Android 中，主线程其实就是一个<strong>有 MessageQueue 的 Looper 线程</strong>，所有“切回主线程”的操作都是对 <code>Handler</code> 的直接使用或包装后的调用，协程也不例外。<code>Dispatchers.Main</code> 的实际实现是 <code>androidx.lifecycle.MainThreadCoroutineDispatcher</code>（或旧版中的 <code>HandlerContext</code>），其核心是通过主线程的 <code>Handler</code> 发送消息：</p>
+<ul>
+<li><p>它内部持有一个绑定到主线程 <code>Looper</code> 的 <code>Handler</code>。</p>
+</li>
+<li><p>当你调用 <code>withContext(Dispatchers.Main)</code> 时，协程框架会把后续代码封装成一个 <code>Runnable</code>，通过该 <code>Handler</code> post 到主线程执行。</p>
+</li>
+</ul>
+<p> 相关源码位置（简化）：</p>
+ <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*** kotlinx.coroutines.android/HandlerDispather.kt/HandlerContext ***/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">internal</span> <span class="keyword">class</span> <span class="title class_">HandlerContext</span> <span class="keyword">private</span> <span class="keyword">constructor</span>(</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> handler: Handler,</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> name: String?,</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> invokeImmediately: <span class="built_in">Boolean</span></span><br><span class="line">) : HandlerDispatcher(), Delay &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">dispatch</span><span class="params">(context: <span class="type">CoroutineContext</span>, block: <span class="type">Runnable</span>)</span></span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (!handler.post(block)) &#123;</span><br><span class="line">            cancelOnRejection(context, block)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> 所以，<strong>真正“切回主线程”的动作是由 <code>Handler.post()</code> 完成的</strong>，而 <code>Dispatchers.Main</code> 就是对这个机制的协程封装。</p>
+<h1 id="3、挂起函数"><a href="#3、挂起函数" class="headerlink" title="3、挂起函数"></a>3、挂起函数</h1><p>Kotlin 的<strong>挂起函数</strong>（suspend function）是 Kotlin 协程（Coroutines）的核心概念之一，用于以<strong>非阻塞方式</strong>执行长时间运行的操作（如网络请求、文件读写等），同时保持代码的<strong>顺序性</strong>和<strong>可读性</strong>。</p>
+<h2 id="3-1-基本定义"><a href="#3-1-基本定义" class="headerlink" title="3.1 基本定义"></a>3.1 基本定义</h2><p>挂起函数使用 <code>suspend</code> 关键字修饰：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">suspend</span> <span class="function"><span class="keyword">fun</span> <span class="title">fetchData</span><span class="params">()</span></span>: String &#123;</span><br><span class="line">    delay(<span class="number">1000</span>)  <span class="comment">// 模拟耗时操作（不会阻塞线程）</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Data fetched&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><font style="color:#01579B;font-size:14px;"><strong>✦ 注意</strong>：挂起函数只能在<strong>协程作用域</strong>内或<strong>其他挂起函数</strong>中被调用。</font></p>
+</blockquote>
+<h2 id="3-2-挂起函数的本质"><a href="#3-2-挂起函数的本质" class="headerlink" title="3.2 挂起函数的本质"></a>3.2 挂起函数的本质</h2><p>在 Kotlin 协程中，挂起函数完成任务后切回原线程是由协程的上下文（<strong>Context</strong>）和调度器（<strong>Dispatcher</strong>）控制的，而不是由挂起函数本身完成的。挂起函数本身并“<strong>不具备线程调度能力</strong>”，而是通过 Kotlin 协程的底层机制（特别是 <strong>Continuation</strong> 接口）与协程调度器协作，从而支持“挂起”和“恢复”，并配合协程自动切回原线程。</p>
+<p><strong>挂起函数的本质是一个带有 <code>Continuation</code> 参数的普通函数</strong>。在编译后，每个 <code>suspend fun</code> 实际上会被 Kotlin 编译器转换成一个<strong>带有额外 <code>Continuation</code> 参数的普通函数</strong>：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 源码</span></span><br><span class="line"><span class="keyword">suspend</span> <span class="function"><span class="keyword">fun</span> <span class="title">fetchData</span><span class="params">()</span></span>: String</span><br><span class="line"></span><br><span class="line"><span class="comment">// 编译后近似等价于</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">fetchData</span><span class="params">(continuation: <span class="type">Continuation</span>&lt;<span class="type">String</span>&gt;)</span></span>: Any?</span><br></pre></td></tr></table></figure>
+<p>这个 <code>Continuation</code> 就是协程的“回调接口”，它封装了：</p>
+<ul>
+<li><p><strong>当前协程的下文：</strong> <code>context</code></p>
+</li>
+<li><p><strong>恢复执行的方法：</strong> <code>resume(value)</code> &#x2F; <code>resumeWithException(exception)</code></p>
+</li>
+</ul>
+<p>所以，挂起函数可以理解为是一个持有 <strong>“协程回调接口”</strong> 的普通函数，它通过 <code>Continuation</code> 与协程运行时通信。挂起函数是如何“配合协程切回线程”的呢？大致可以分为以下步骤：</p>
+<ol>
+<li><p><strong>调用挂起函数时</strong>，协程框架会传入一个绑定了<strong>当前协程上下文</strong>（包括 Dispatcher）的 <code>Continuation</code>。</p>
+</li>
+<li><p>挂起函数执行异步操作（如网络请求、<code>delay</code>、<code>withContext</code> 等）。</p>
+</li>
+<li><p>操作完成后，挂起函数调用 <code>continuation.resume(result)</code>。</p>
+</li>
+<li><p>协程调度器（Dispatcher）收到 <code>resume</code> 请求后，<strong>根据 <code>continuation.context</code> 中的 Dispatcher 决定在哪条线程上恢复执行</strong>。</p>
+</li>
+</ol>
+<blockquote>
+<p><font style="color:#01579B;font-size:14px;"><strong>✦ 关键点</strong>：切回哪条线程，是由 Continuation 的上下文决定的，而这个上下文来自启动协程的地方，不是挂起函数自己指定的。</font></p>
+</blockquote>
+<h2 id="3-3-流程分解"><a href="#3-3-流程分解" class="headerlink" title="3.3 流程分解"></a>3.3 流程分解</h2><p>为了直观理解挂起函数的工作原理，我们通过一个示例来演示：模拟网络请求并将结果显示在文本控件上，同时逐步分解其执行流程。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">viewModelScope.launch(Dispatchers.Main) &#123;   <span class="comment">// ← 协程绑定到 Main</span></span><br><span class="line">    <span class="keyword">val</span> <span class="keyword">data</span> = fetchData()                  <span class="comment">// 调用挂起函数</span></span><br><span class="line">    textView.text = <span class="keyword">data</span>                    <span class="comment">// 自动回到 Main 线程</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">suspend</span> <span class="function"><span class="keyword">fun</span> <span class="title">fetchData</span><span class="params">()</span></span>: String = withContext(Dispatchers.IO) &#123;</span><br><span class="line">    <span class="string">&quot;result&quot;</span>                                <span class="comment">// 模拟 IO 操作</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p><code>launch(Dispatchers.Main)</code> 启动协程，其 <code>Continuation</code> 的 <code>context</code> 包含 <code>Main</code> 调度器。</p>
+</li>
+<li><p>调用 <code>fetchData()</code> 时，协程传入这个 <code>Continuation</code>。</p>
+</li>
+<li><p><code>withContext(Dispatchers.IO)</code>：① 创建一个<strong>新的子协程</strong>在 IO 线程执行；② 执行完后，<strong>调用原始协程的 <code>continuation.resume()</code></strong>。</p>
+</li>
+<li><p>调度器看到这个 <code>continuation</code> 属于 <code>Dispatchers.Main</code>，于是把恢复逻辑 <strong>post 到主线程</strong>。</p>
+</li>
+</ol>
+<h2 id="3-4-生活案例"><a href="#3-4-生活案例" class="headerlink" title="3.4 生活案例"></a>3.4 生活案例</h2><p>我们可以用一个生活中的例子来理解协程和挂起函数。现在尝试着<strong>将自己想象成一个线程</strong>，将要完成的<strong>耗时任务比作挂起函数</strong>。那么，我现在要完成的任务是什么呢？一、喝到烧开的热水；二、晾晒洗净的衣服。</p>
+<ul>
+<li><strong>喝到烧开的热水</strong>：分解为烧开热水、喝到热水。<ul>
+<li>烧开热水：耗时操作，挂起函数切到 IO 线程执行，热水器充当 IO 线程。</li>
+<li>喝到热水：界面更新，需要切回到 Main 线程执行，自己充当 Main 线程。</li>
+</ul>
+</li>
+<li><strong>晾晒洗净的衣服</strong>：分解为清洗衣服、晾晒衣服。<ul>
+<li>清洗衣服：耗时操作，挂起函数切到 IO 线程执行，洗衣机充当 IO 线程。</li>
+<li>晾晒衣服：界面更新，需要切回到 Main 线程执行，自己充当 Main 线程。</li>
+</ul>
+</li>
+</ul>
+<p>有了这些前置条件，我们就可以开启协程，按照时间轴的顺序执行任务，获取结果，消费结果了。执行流程如下表所示：</p>
+ <table style="font-family: 'Google Sans Text', 'Noto Sans', 'Noto Sans JP', 'Noto Sans KR', 'Noto Naskh Arabic', 'Noto Sans Thai', 'Noto Sans Hebrew', 'Noto Sans Bengali', sans-serif;">
+	<tbody>
+		<tr style="text-align:center">
+			<th align="center" width="5%" colspan="1">编号</th>
+			<th align="center" width="8%" colspan="1">时间轴</th>
+			<th align="center" width="8%" colspan="1">执行</th>
+			<th align="center" width="10%" colspan="1">动作</th>
+			<th align="center" width="8%" colspan="1">耗时</th>
+			<th align="center" width="60%" colspan="1">描述</th>
+		</tr>
+		<tr>
+			<td align="center">1</td>
+			<td align="center">00:00</td>
+			<td align="center">热水器</td>
+			<td align="center">烧水开始</td>
+			<td align="center">0分钟</td>
+            <td align="center">我开启热水器执行烧水任务，并告诉它烧水结束后将结果告知我。</td>
+		</tr>
+		<tr>
+			<td align="center">2</td>
+			<td align="center">00:00</td>
+			<td align="center">洗衣机</td>
+			<td align="center">洗衣开始</td>
+			<td align="center">0分钟</td>
+            <td align="center">我开启洗衣机执行清洗任务，并告诉它清洗结束后将结果告知我。</td>
+		</tr>
+		<tr>
+			<td align="center">3</td>
+			<td align="center">10:00</td>
+			<td align="center">热水器</td>
+			<td align="center">烧水结束</td>
+			<td align="center">10分钟</td>
+            <td align="center">10 分钟后我接到烧水结束的通知，并意识到烧水的目的是喝水。</td>
+		</tr>
+		<tr>
+			<td align="center">4</td>
+			<td align="center">10:00</td>
+			<td align="center">我自己</td>
+			<td align="center">喝热水</td>
+			<td align="center">10秒钟</td>
+            <td align="center">此时洗衣机仍然在执行清洗任务，并不妨碍我将烧好的水喝掉。</td>
+		</tr>
+		<tr>
+			<td align="center">5</td>
+			<td align="center">30:00</td>
+			<td align="center">洗衣机</td>
+			<td align="center">洗衣结束</td>
+			<td align="center">30分钟</td>
+            <td align="center">30 分钟后我接到清洗结束的通知，并意识到清洗的目的是晾晒。</td>
+		</tr>
+		<tr>
+			<td align="center">6</td>
+			<td align="center">30:00</td>
+			<td align="center">我自己</td>
+			<td align="center">晾衣服</td>
+			<td align="center">20秒钟</td>
+            <td align="center">此时热水器、洗衣机停止工作，于是我又将清洗后的衣服晾晒。</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>表中的信息可以概括为：<strong>我同时开启了热水器、洗衣机</strong>来烧水和洗衣服，我没有被任何一个任务“绑住”傻等，而是让机器（IO操作）在后台工作，完成时通知我，我利用等待时间处理其他事。这就是<strong>协程挂起函数“不阻塞线程”的完美生活比喻</strong>。流程转换后的代码如下：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*** 在 Activity 或 Fragment 中 ***/</span></span><br><span class="line"></span><br><span class="line">lifecycleScope.launch &#123;</span><br><span class="line">    <span class="keyword">val</span> heatResult = async &#123; heatTask() &#125;</span><br><span class="line">    <span class="keyword">val</span> washResult = async &#123; washTask() &#125;</span><br><span class="line"></span><br><span class="line">    println(heatResult.await())</span><br><span class="line">    println(<span class="string">&quot;喝水&quot;</span>)</span><br><span class="line">    println(washResult.await())</span><br><span class="line">    println(<span class="string">&quot;晾衣&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">suspend</span> <span class="function"><span class="keyword">fun</span> <span class="title">heatTask</span><span class="params">()</span></span>: String &#123;</span><br><span class="line">    println(<span class="string">&quot;烧水开始&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> withContext(Dispatchers.IO) &#123;</span><br><span class="line">        delay(<span class="number">10</span> * <span class="number">60</span> * <span class="number">1000</span>)</span><br><span class="line">        <span class="string">&quot;烧水结束&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">suspend</span> <span class="function"><span class="keyword">fun</span> <span class="title">washTask</span><span class="params">()</span></span>: String &#123;</span><br><span class="line">    println(<span class="string">&quot;洗衣开始&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> withContext(Dispatchers.IO) &#123;</span><br><span class="line">        delay(<span class="number">30</span> * <span class="number">60</span> * <span class="number">1000</span>)</span><br><span class="line">        <span class="string">&quot;洗衣结束&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/*** 示例代码中协程运行后的流程日志 ***/</span><br><span class="line"></span><br><span class="line">00:00:00  烧水开始</span><br><span class="line">00:00:00  洗衣开始</span><br><span class="line">00:10:00  烧水结束</span><br><span class="line">00:10:00  喝水</span><br><span class="line">00:30:00  洗衣结束</span><br><span class="line">00:30:00  晾衣</span><br></pre></td></tr></table></figure>
+
+<p>以上就是<strong>协程方式</strong>的实现，如果用<strong>传统阻塞方式</strong>来实现，执行流程如下表所示：</p>
+ <table style="font-family: 'Google Sans Text', 'Noto Sans', 'Noto Sans JP', 'Noto Sans KR', 'Noto Naskh Arabic', 'Noto Sans Thai', 'Noto Sans Hebrew', 'Noto Sans Bengali', sans-serif;">
+	<tbody>
+		<tr style="text-align:center">
+			<th align="center" width="5%" colspan="1">编号</th>
+			<th align="center" width="8%" colspan="1">时间轴</th>
+			<th align="center" width="8%" colspan="1">执行</th>
+			<th align="center" width="10%" colspan="1">动作</th>
+			<th align="center" width="8%" colspan="1">耗时</th>
+			<th align="center" width="60%" colspan="1">描述</th>
+		</tr>
+		<tr>
+			<td align="center">1</td>
+			<td align="center">00:00</td>
+			<td align="center">热水器</td>
+			<td align="center">烧水开始</td>
+			<td align="center">0分钟</td>
+            <td align="center">我开启热水器执行烧水任务，并站在热水器旁等待。</td>
+		</tr>
+		<tr>
+			<td align="center">2</td>
+			<td align="center">10:00</td>
+			<td align="center">热水器</td>
+			<td align="center">烧水结束</td>
+			<td align="center">10分钟</td>
+            <td align="center">10 分钟后水烧开了，我知道下一个动作是喝水。</td>
+		</tr>
+		<tr>
+			<td align="center">3</td>
+			<td align="center">10:00</td>
+			<td align="center">我自己</td>
+			<td align="center">喝热水</td>
+			<td align="center">10秒钟</td>
+            <td align="center">我用了 10 秒钟的时间喝完了烧开的热水。</td>
+		</tr>
+		<tr>
+			<td align="center">4</td>
+			<td align="center">10:10</td>
+			<td align="center">洗衣机</td>
+			<td align="center">洗衣开始</td>
+			<td align="center">0分钟</td>
+            <td align="center">我开启洗衣机执行清洗任务，并站在洗衣机旁等待。</td>
+		</tr>
+		<tr>
+			<td align="center">5</td>
+			<td align="center">40:10</td>
+			<td align="center">洗衣机</td>
+			<td align="center">洗衣结束</td>
+			<td align="center">30分钟</td>
+            <td align="center">30 分钟后衣服洗净了，我知道下一个动作是晾衣服。</td>
+		</tr>
+		<tr>
+			<td align="center">6</td>
+			<td align="center">40:10</td>
+			<td align="center">我自己</td>
+			<td align="center">晾衣服</td>
+			<td align="center">20秒钟</td>
+            <td align="center">我用了 20 秒钟的时间晾晒洗净的衣服。</td>
+		</tr>
+	</tbody>
+</table>
+
+<h2 id="3-5-withContext"><a href="#3-5-withContext" class="headerlink" title="3.5 withContext"></a>3.5 withContext</h2><p>在<strong>生活案例</strong>的代码中，我们用到了 <code>withContext</code>，它是 Kotlin 协程中的<strong>挂起函数</strong>，用于<strong>临时切换协程的上下文（Dispatcher &#x2F; Context）</strong>，并在新上下文中执行一段代码块，最后自动切回原来的上下文。这意味着 <code>withContext</code> 会<strong>阻塞当前协程</strong>，直到代码块执行完成，并返回结果后，当前协程的后续代码才会继续执行。比如下面的打印会按照串行的方式执行。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*** 打印：Step：1 → Step：2 → Step：3 ***/</span></span><br><span class="line"></span><br><span class="line">CoroutineScope(Dispatchers.Main).launch &#123;</span><br><span class="line">    println(<span class="string">&quot;Step：1&quot;</span>)</span><br><span class="line">    withContext(Dispatchers.IO) &#123;</span><br><span class="line">        Thread.sleep(<span class="number">3000</span>)</span><br><span class="line">        println(<span class="string">&quot;Step：2&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    println(<span class="string">&quot;Step：3&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行上述代码，打印结果验证了 <strong><code>withContext</code> 会阻塞当前协程</strong>这一特性。由于「步骤 2」中包含耗时操作（睡眠 3 秒），「步骤 3」必须等待该操作完全执行完毕后，才能继续执行。那么，如果将 <code>withContext</code> 换成 <code>launch</code>，打印结果是一个什么顺序呢？</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*** 打印：Step：1 → Step：3 → Step：2 ***/</span></span><br><span class="line"></span><br><span class="line">CoroutineScope(Dispatchers.Main).launch &#123;</span><br><span class="line">    println(<span class="string">&quot;Step：1&quot;</span>)</span><br><span class="line">    launch(Dispatchers.IO) &#123;</span><br><span class="line">        Thread.sleep(<span class="number">3000</span>)</span><br><span class="line">        println(<span class="string">&quot;Step：2&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    println(<span class="string">&quot;Step：3&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>通过打印结果，我们发现「步骤 3」在「步骤 2」的耗时操作结束前就执行了。这是因为 <code>launch</code> 会启动一个<strong>新的协程</strong>，不会阻塞当前协程，而是<strong>并发执行</strong>新协程。以下是二者的特性对比：</p>
+<table style="font-family: 'Google Sans Text', 'Noto Sans', 'Noto Sans JP', 'Noto Sans KR', 'Noto Naskh Arabic', 'Noto Sans Thai', 'Noto Sans Hebrew', 'Noto Sans Bengali', sans-serif;">
+	<tbody>
+		<tr style="text-align:center">
+			<th align="center" width="20%" colspan="1">特性</th>
+			<th align="center" width="40%" colspan="1">withContext</th>
+			<th align="center" width="40%" colspan="1">launch</th>
+		</tr>
+		<tr>
+			<td align="center">是否是 suspend 函数</td>
+			<td align="center">是</td>
+            <td align="center">不是（普通函数）</td>
+		</tr>
+		<tr>
+			<td align="center">是否启动新协程</td>
+			<td align="center">否（在当前协程中切换上下文）</td>
+            <td align="center">是</td>
+		</tr>
+		<tr>
+			<td align="center">是否挂起当前协程</td>
+			<td align="center">挂起，直到代码块执行完成</td>
+            <td align="center">不挂起</td>
+		</tr>
+		<tr>
+			<td align="center">是否有返回值</td>
+			<td align="center">返回代码块中的值</td>
+            <td align="center">返回 Job（无业务结果）</td>
+		</tr>
+		<tr>
+			<td align="center">典型用途</td>
+			<td align="center">执行需返回结果的异步操作</td>
+            <td align="center">	执行无需结果的后台任务</td>
+		</tr>
+	</tbody>
+</table>
+
+<h1 id="4、Android-中协程的写法"><a href="#4、Android-中协程的写法" class="headerlink" title="4、Android 中协程的写法"></a>4、Android 中协程的写法</h1><p>我们以 Retrofit 在 Android 中的网络请求为例演示协程的用法。首先，我们需要准备 <code>Retrofit</code> 实例和 <code>Github</code> 接口实例，还需要准备一个请求数据的<strong>挂起函数</strong> <code>contributors</code>。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.sunzn.coroutines</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> retrofit2.Retrofit</span><br><span class="line"><span class="keyword">import</span> retrofit2.converter.gson.GsonConverterFactory</span><br><span class="line"><span class="keyword">import</span> retrofit2.http.GET</span><br><span class="line"><span class="keyword">import</span> retrofit2.http.Path</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">val</span> GITHUB = <span class="string">&quot;https://api.github.com&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> retrofit: Retrofit <span class="keyword">by</span> lazy &#123;</span><br><span class="line">    Retrofit.Builder().also &#123;</span><br><span class="line">        it.baseUrl(GITHUB)</span><br><span class="line">        it.addConverterFactory(GsonConverterFactory.create())</span><br><span class="line">    &#125;.build()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> github: Github = retrofit.create(Github::<span class="keyword">class</span>.java)</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">Github</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">data</span> <span class="keyword">class</span> <span class="title class_">Contributor</span>(<span class="keyword">val</span> login: String, <span class="keyword">val</span> contributors: <span class="built_in">Int</span>)</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GET(<span class="string">&quot;repos/&#123;owner&#125;/&#123;repo&#125;/contributors&quot;</span>)</span></span><br><span class="line">    <span class="keyword">suspend</span> <span class="function"><span class="keyword">fun</span> <span class="title">contributors</span><span class="params">(</span></span></span><br><span class="line"><span class="params"><span class="function">        <span class="meta">@Path(<span class="string">&quot;owner&quot;</span>)</span> owner: <span class="type">String</span>,</span></span></span><br><span class="line"><span class="params"><span class="function">        <span class="meta">@Path(<span class="string">&quot;repo&quot;</span>)</span> repo: <span class="type">String</span>,</span></span></span><br><span class="line"><span class="params"><span class="function">    )</span></span>: List&lt;Contributor&gt;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后，我们就可以在 <code>Activity</code> 中启动协程来发起网络请求了。这里启动了一个运行在主线程上的协程，挂起函数 <code>contributors</code> 切到 IO 线程池完成网络请求后，请求结果被 <code>Handler</code> 调用 <code>post()</code> 方法重新返回到主线程，然后在主线程执行 UI 更新操作。这里需要补充的一点是 Retrofit 库提供了对协程的支持，只需对声明的函数增加 <code>suspend</code> 关键字，Retrofit 就可以在接口的 <code>suspend</code> 函数内部，用 <code>suspendCancellableCoroutine</code> 将传统的<strong>回调式网络请求</strong>包装成<strong>挂起函数</strong>，让你能用同步的写法实现异步网络请求。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MainActivity</span> : <span class="type">ComponentActivity</span>() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState)</span><br><span class="line">        enableEdgeToEdge()</span><br><span class="line">        contributors()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">contributors</span><span class="params">()</span></span> = CoroutineScope(Dispatchers.Main).launch &#123;</span><br><span class="line">        <span class="keyword">val</span> contributors = github.contributors(<span class="string">&quot;square&quot;</span>, <span class="string">&quot;retrofit&quot;</span>)</span><br><span class="line">        showContributors(contributors)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">showContributors</span><span class="params">(contributors: <span class="type">List</span>&lt;<span class="type">Github</span>.<span class="type">Contributor</span>&gt;)</span></span> = contributors</span><br><span class="line">        .map &#123; <span class="string">&quot;<span class="subst">$&#123;it.login&#125;</span>(<span class="subst">$&#123;it.contributors&#125;</span>)&quot;</span> &#125;</span><br><span class="line">        .reduce &#123; acc, string -&gt; <span class="string">&quot;<span class="variable">$acc</span>\n<span class="variable">$string</span>&quot;</span> &#125;</span><br><span class="line">        .let &#123; println(<span class="string">&quot;<span class="variable">$it</span>&quot;</span>) &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>虽然 <code>CoroutineScope</code> 可以启动一个协程来完成网络请求任务。但在真实的开发中，我们更习惯于使用 Jetpack 库为我们提供的各种便捷扩展，比如：<code>lifecycleScope</code> 和 <code>viewModelScope</code>。</p>
+<h2 id="4-1-LifecycleScope"><a href="#4-1-LifecycleScope" class="headerlink" title="4.1 LifecycleScope"></a>4.1 LifecycleScope</h2><p>这里的 <code>lifecycleScope</code> 是 <code>LifecycleOwner</code> 的扩展属性，而 <code>LifecycleOwner</code> 是一个接口类，<code>ComponentActivity</code> 和 <code>Fragment</code> 均实现了该接口。因此，在这些组件中可以直接使用 <code>lifecycleScope</code>，并使其具备<strong>感知对应生命周期</strong>的能力。其核心特性如下：</p>
+<ol>
+<li><strong>默认主线程</strong>：<ul>
+<li><code>lifecycleScope</code> 默认使用 <code>Dispatchers.Main.immediate（主线程）</code>，适合更新 UI。</li>
+</ul>
+</li>
+<li><strong>生命周期感知</strong><ul>
+<li><code>lifecycleScope</code> 会自动绑定到组件（如 <code>Activity</code>&#x2F;<code>Fragment</code>）的 <code>Lifecycle</code>。</li>
+<li>协程仅在其关联的 <code>Lifecycle</code> 处于 STARTED（或更高，如 RESUMED）状态时才会执行。</li>
+<li>自动管理协程生命周期，无需手动取消。当 <code>Lifecycle</code> 被销毁（如 <code>onDestroy()</code> 调用）时，所有通过 <code>lifecycleScope</code> 启动的协程会自动取消，避免内存泄漏。</li>
+</ul>
+</li>
+<li><strong>仅适用于 LifecycleOwner</strong><ul>
+<li>只能在实现了 <code>LifecycleOwner</code> 的类中使用（如 <code>ComponentActivity</code>、<code>Fragment</code>）。</li>
+</ul>
+</li>
+</ol>
+<p>与 <code>CoroutineScope</code> 的使用方式类似，<code>lifecycleScope</code> 在 <code>LifecycleOwner</code> 中可以直接<strong>在主线程启动协程</strong>而无需显示的指定。调用方式如下：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">lifecycleScope.launch &#123;</span><br><span class="line">    <span class="keyword">val</span> contributors = github.contributors(<span class="string">&quot;square&quot;</span>, <span class="string">&quot;retrofit&quot;</span>)</span><br><span class="line">    showContributors(contributors)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>相信你注意到了 <code>lifecycleScope</code> 默认使用了 <code>Dispatchers.Main.immediate</code> 调度器，而不是 <code>Dispatchers.Main</code>。那么，它们有什么区别呢？在协程中，<code>Dispatchers.Main</code> 和 <code>Dispatchers.Main.immediate</code> 都用于在主线程（UI 线程）上执行代码，但它们在<strong>调度时机</strong>上有关键区别：</p>
+<ol>
+<li><p><strong>Dispatchers.Main</strong></p>
+<ul>
+<li>将任务<strong>调度到主线程的消息队列末尾</strong>。</li>
+<li>即使当前已经在主线程中，也会<strong>挂起当前协程</strong>，并将后续代码放入消息队列，等待下一次事件循环处理。</li>
+<li>行为类似于 <code>Handler.post()</code>。</li>
+</ul>
+<p><strong>适用场景</strong>：需要确保操作在主线程执行，但不急于立即执行（例如响应网络结果后更新 UI）。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">lifecycleScope.launch(Dispatchers.IO) &#123;</span><br><span class="line">    <span class="keyword">val</span> <span class="keyword">data</span> = fetchData()</span><br><span class="line">    withContext(Dispatchers.Main) &#123;</span><br><span class="line">        <span class="comment">// 此代码会被 post 到主线程队列末尾</span></span><br><span class="line">        updateUI(<span class="keyword">data</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>Dispatchers.Main.immediate</strong></p>
+<ul>
+<li>如果<strong>当前已经在主线程</strong>，则<strong>立即执行</strong>代码，不经过消息队列。</li>
+<li>如果不在主线程，则行为与 <code>Dispatchers.Main</code> 相同（切换到主线程并执行）。</li>
+<li>可避免不必要的上下文切换开销，提升性能。</li>
+</ul>
+<p><strong>适用场景</strong>：希望在主线程中<strong>尽可能快地执行</strong>后续代码（例如在 UI 回调或生命周期方法中启动协程并立即更新状态）。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">lifecycleScope.launch(Dispatchers.Main.immediate) &#123;</span><br><span class="line">    showLoading()     <span class="comment">// 立即执行，无需排队</span></span><br><span class="line">    <span class="keyword">val</span> result = withContext(Dispatchers.IO) &#123; doWork() &#125;</span><br><span class="line">    updateUI(result)  <span class="comment">// 返回主线程时仍使用 immediate，若已在主线程则立即执行</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>最后，我们以表格的形式将 <code>Dispatchers.Main</code> 和 <code>Dispatchers.Main.immediate</code> 的<strong>关键区别</strong>进行对比总结：</p>
+<table style="font-family: 'Google Sans Text', 'Noto Sans', 'Noto Sans JP', 'Noto Sans KR', 'Noto Naskh Arabic', 'Noto Sans Thai', 'Noto Sans Hebrew', 'Noto Sans Bengali', sans-serif;">
+	<tbody>
+		<tr style="text-align:center">
+			<th align="center" width="20%" colspan="1">特性</th>
+			<th align="center" width="40%" colspan="1">Dispatchers.Main</th>
+			<th align="center" width="40%" colspan="1">Dispatchers.Main.immediate</th>
+		</tr>
+		<tr>
+			<td align="center">当前在主线程时</td>
+			<td align="center">排队到消息队列末尾（延迟执行）</td>
+            <td align="center">立即执行</td>
+		</tr>
+		<tr>
+			<td align="center">不在主线程时</td>
+			<td align="center">切换到主线程并排队执行</td>
+            <td align="center">切换到主线程并排队执行（与 Main 相同）</td>
+		</tr>
+		<tr>
+			<td align="center">性能</td>
+			<td align="center">有轻微调度开销</td>
+            <td align="center">减少不必要的调度，更高效</td>
+		</tr>
+		<tr>
+			<td align="center">使用建议</td>
+			<td align="center">通用主线程调度</td>
+            <td align="center">在已知处于主线程且需立即执行时使用</td>
+		</tr>
+	</tbody>
+</table>
+
+<blockquote>
+<p><font style="color:#01579B;font-size:14px;"><strong>✦ 注意</strong>：不要滥用 <code>immediate</code>，仅在确实需要“立即执行”且确认上下文安全时使用。在错误的时机立即执行 UI 操作（如 View 尚未 attach）可能导致崩溃。</font></p>
+</blockquote>
+<h2 id="4-2-ViewModelScope"><a href="#4-2-ViewModelScope" class="headerlink" title="4.2 ViewModelScope"></a>4.2 ViewModelScope</h2><p>这里的 <code>viewModelScope</code> 是 <code>ViewModel</code> 的扩展属性，同样基于 <code>Dispatchers.Main.immediate</code> 调度器。其核心特性如下：</p>
+<ol>
+<li><strong>默认主线程</strong>：<ul>
+<li>与 <code>lifecycleScope</code> 一样，默认在主线程运行，适合更新 LiveData 或 StateFlow。</li>
+</ul>
+</li>
+<li><strong>绑定 ViewModel 的生命周期</strong>：<ul>
+<li><code>viewModelScope</code> 是 <code>ViewModel</code> 类的扩展属性。</li>
+<li>协程的生命周期与 <code>ViewModel</code> 的<strong>作用域一致</strong>：从 <code>ViewModel</code> 创建开始，到 <code>ViewModel</code> 被清除（即关联的 <code>Activity</code>&#x2F;<code>Fragment</code> <strong>永久销毁</strong>，如配置变更不会销毁 <code>ViewModel</code>）时自动取消。</li>
+</ul>
+</li>
+<li><strong>自动取消，避免内存泄漏</strong><ul>
+<li>当 <code>ViewModel</code> 调用 <code>onCleared()</code> 时，所有通过 <code>viewModelScope</code> 启动的协程会自动取消。</li>
+<li>特别适合执行<strong>与 UI 状态无关但需保留跨配置变更的数据操作</strong>（如网络请求、数据库读写）。</li>
+</ul>
+</li>
+<li><strong>仅限 ViewModel 中使用</strong><ul>
+<li>只能在继承 <code>androidx.lifecycle.ViewModel</code> 的类中直接访问。</li>
+</ul>
+</li>
+</ol>
+<p>调用方式如下：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyViewModel</span> : <span class="type">ViewModel</span>() &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> _data = MutableLiveData&lt;String&gt;()</span><br><span class="line">    <span class="keyword">val</span> <span class="keyword">data</span>: LiveData&lt;String&gt; = _data</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">loadData</span><span class="params">()</span></span> &#123;</span><br><span class="line">        viewModelScope.launch &#123;</span><br><span class="line">            <span class="keyword">val</span> result = repository.fetchData()</span><br><span class="line">            _data.value = result  <span class="comment">// 主线程安全</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-3-关键区别对比"><a href="#4-3-关键区别对比" class="headerlink" title="4.3 关键区别对比"></a>4.3 关键区别对比</h2><table style="font-family: 'Google Sans Text', 'Noto Sans', 'Noto Sans JP', 'Noto Sans KR', 'Noto Naskh Arabic', 'Noto Sans Thai', 'Noto Sans Hebrew', 'Noto Sans Bengali', sans-serif;">
+	<tbody>
+		<tr style="text-align:center">
+			<th align="center" width="20%" colspan="1">特性</th>
+			<th align="center" width="40%" colspan="1">viewModelScope</th>
+			<th align="center" width="40%" colspan="1">lifecycleScope</th>
+		</tr>
+		<tr>
+			<td align="center">所属组件</td>
+			<td align="center">ViewModel</td>
+            <td align="center">LifecycleOwner（Activity / Fragment）</td>
+		</tr>
+		<tr>
+			<td align="center">生命周期范围</td>
+			<td align="center">从 ViewModel 创建 → onCleared()（跨配置变更存活）</td>
+            <td align="center">从组件创建 → onDestroy()（配置变更时被销毁）</td>
+		</tr>
+		<tr>
+			<td align="center">适用场景</td>
+			<td align="center">业务逻辑、数据加载、跨配置变更的任务</td>
+            <td align="center">与 UI 生命周期强绑定的操作（如动画、临时监听）</td>
+		</tr>
+		<tr>
+			<td align="center">协程取消时机</td>
+			<td align="center">ViewModel 被清除时（如 Activity 完全 finish）</td>
+            <td align="center">Activity/Fragment 销毁时（包括配置变更）</td>
+		</tr>
+		<tr>
+			<td align="center">是否受配置变更影响</td>
+			<td align="center">不受影响（ViewModel 保留）</td>
+            <td align="center">受影响（旧 scope 被取消）</td>
+		</tr>
+		<tr>
+			<td align="center">典型用途</td>
+			<td align="center">加载数据、调用 Repository、更新 StateFlow/LiveData</td>
+            <td align="center">启动一次性 UI 动画、监听短暂事件、Toast 等</td>
+		</tr>
+	</tbody>
+</table>
+
+<h2 id="4-4-如何选择？"><a href="#4-4-如何选择？" class="headerlink" title="4.4 如何选择？"></a>4.4 如何选择？</h2><ul>
+<li><strong>用 <code>lifecycleScope</code>：</strong> 当任务<strong>与UI 生命周期紧密耦合</strong>，且在界面销毁后<strong>不应继续</strong>（如播放动画、注册临时回调、显示 Snackbar）。</li>
+<li><strong>用 <code>viewModelScope</code>：</strong> 当任务与<strong>业务逻辑或数据状态</strong>相关，且希望在屏幕旋转等配置变更后<strong>继续执行或保留结果</strong>（如网络请求、数据库操作）。</li>
+</ul>
+<h1 id="5、结构化并发"><a href="#5、结构化并发" class="headerlink" title="5、结构化并发"></a>5、结构化并发</h1><p>Kotlin 协程的<strong>结构化并发</strong>是一种编程范式，它的核心思想是：<strong>将协程的生命周期进行显式管理，确保异步代码像普通同步代码一样，具有明确的开始和结束，不会“泄漏”或失控。</strong></p>
+<p>简单来说，它要求你不能像放飞风筝一样随意启动协程（如使用 <code>GlobalScope</code>），而是要将协程绑定在一个特定的“作用域”内。当这个作用域结束时，其内部所有的协程都会被自动取消，从而避免内存泄漏和无效计算。为了深刻的理解这个概念，我们将其核心机制拆解为以下几个关键点：</p>
+<h2 id="5-1-生命周期绑定"><a href="#5-1-生命周期绑定" class="headerlink" title="5.1 生命周期绑定"></a>5.1 生命周期绑定</h2><p>在结构化并发中，协程不再是独立的个体，而是像树一样存在严格的<strong>父子关系</strong>。并且，<strong>父子层级的协程与生命周期深度绑定</strong>。</p>
+<ul>
+<li><strong>父负责子：</strong> 父协程会自动等待所有子协程执行完毕（类似于 <code>join</code>）。</li>
+<li><strong>级联取消：</strong> 如果父协程被取消，所有子协程会立即被递归取消。</li>
+<li><strong>自动回收：</strong> 作用域销毁 &#x3D; 协程自动取消，无需手动干预。</li>
+</ul>
+<p>在 Android 中，<strong>典型的应用场景</strong>是使用 <code>lifecycleScope</code>（绑定 <code>Activity</code>&#x2F;<code>Fragment</code> 生命周期）或 <code>viewModelScope</code>（绑定 <code>ViewModel</code> 生命周期）。</p>
+<ul>
+<li>当页面销毁时，这些作用域会自动取消。</li>
+<li>所有在这个作用域内启动的网络请求或数据库操作会自动停止，防止在销毁的页面上更新 UI 导致崩溃。</li>
+</ul>
+<p>我们还是以第 4 节「Android 中协程的写法」中的代码为例，事实上，当你使用 <code>launch</code>、<code>async</code> 或 <code>GlobalScope.launch</code> 等方式启动协程时，会返回一个 <code>Job</code> 对象。该 <code>Job</code> 是协程的<strong>句柄（handle）</strong>，用于管理和控制协程的生命周期。如果在某个 <code>Activity</code> 中启动了协程，但在网络请求完成前关闭了该 <code>Activity</code>，那么当请求结果返回时，协程可能仍尝试访问已销毁的 UI 组件，从而导致崩溃或引发内存泄漏。为避免此类问题，我们可以在 <code>Activity</code> 的生命周期结束时（如 <code>onDestroy()</code>）主动取消与之关联的协程。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*** 启动协程，请求数据，获取句柄 ***/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> job = lifecycleScope.launch &#123;</span><br><span class="line">    <span class="keyword">val</span> contributors = github.contributors(<span class="string">&quot;square&quot;</span>, <span class="string">&quot;retrofit&quot;</span>)</span><br><span class="line">    showContributors(contributors)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*** 页面销毁时取消协程，防止奔溃 ***/</span></span><br><span class="line"></span><br><span class="line">job.cancel()</span><br></pre></td></tr></table></figure>
+
+<p>除了 <code>Job</code> 可以用于取消协程外，我们还可以使用 <code>lifecycleScope</code> 来取消协程。但二者在作用机制、适用场景以及与生命周期的绑定方式上存在本质区别。<code>Job</code> 代表一个可取消的任务。你可以手动创建、启动、取消它。而 <code>lifecycleScope</code> 是 Android Jetpack 提供的一个<strong>与 <code>Lifecycle</code> 绑定的协程作用域，其内部封装了一个关联了 <code>Job</code> + <code>Main</code> 调度器的 <code>LifecycleCoroutineScopeImpl</code>，并自动将其注册为 <code>LifecycleObserver</code></strong>。当所关联的 <code>Activity</code> 或 <code>Fragment</code> 进入 <code>DESTROYED</code> 状态时，<code>lifecycleScope</code> 会自动调用其 <code>coroutineContext.cancel()</code>，从而取消所有在其作用域内启动的协程。</p>
+<h2 id="5-2-异常处理机制"><a href="#5-2-异常处理机制" class="headerlink" title="5.2 异常处理机制"></a>5.2 异常处理机制</h2><p>这是结构化并发中非常关键的一点。当子协程发生异常时，父协程该如何反应？Kotlin 提供了两种截然不同的作用域来处理：</p>
+<table style="font-family: 'Google Sans Text', 'Noto Sans', 'Noto Sans JP', 'Noto Sans KR', 'Noto Naskh Arabic', 'Noto Sans Thai', 'Noto Sans Hebrew', 'Noto Sans Bengali', sans-serif;">
+	<tbody>
+		<tr style="text-align:center">
+			<th align="center" width="20%" colspan="1">作用域/Job 类型</th>
+			<th align="center" width="40%" colspan="1">异常传播规则</th>
+			<th align="center" width="40%" colspan="1">适用场景</th>
+		</tr>
+		<tr>
+			<td align="center"><strong>coroutineScope</strong><br>(或普通 Job)</td>
+			<td align="left"><strong>严格模式</strong><br>任一子协程抛出未捕获异常 → 取消所有子协程 + 向上传播异常。</td>
+            <td align="left"><strong>事务性任务</strong><br>例如：必须同时获取“用户信息”和“订单列表”才能展示页面，缺一不可。</td>
+		</tr>
+		<tr>
+			<td align="center"><strong>supervisorScope</strong><br>(或 SupervisorJob)</td>
+			<td align="left"><strong>宽容模式</strong><br>子协程异常仅自身终止 → 不影响其他子协程 + 不向上传播。</td>
+            <td align="left"><strong>独立并行任务</strong><br>例如：同时下载多个文件，一个文件下载失败不应中断其他文件的下载。</td>
+		</tr>
+	</tbody>
+</table>
+
+<h2 id="5-3-避免-GlobalScope"><a href="#5-3-避免-GlobalScope" class="headerlink" title="5.3 避免 GlobalScope"></a>5.3 避免 GlobalScope</h2><p>你可能会看到 <code>GlobalScope.launch</code> 这种写法，但在结构化并发的理念下，这通常被视为<strong>反模式（Anti-pattern）</strong>。</p>
+<ul>
+<li><strong>非结构化：</strong> 使用 <code>GlobalScope</code> 启动的协程没有父作用域，也没有绑定任何业务组件。</li>
+<li><strong>使用风险：</strong> 它就像一个“野线程”，如果不在代码中显式调用 <code>cancel()</code>，它会一直运行，导致内存泄漏（例如持有 Activity 引用却在页面销毁后还在运行）。</li>
+</ul>
+<h2 id="5-4-代码示例"><a href="#5-4-代码示例" class="headerlink" title="5.4 代码示例"></a>5.4 代码示例</h2><p>为了更直观地感受<strong>非结构化</strong>、<strong>结构化</strong>的区别，这里有两个简单的对比示例：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*** 非结构化，不推荐，存在风险 ***/</span></span><br><span class="line"></span><br><span class="line">GlobalScope.launch &#123;</span><br><span class="line">    delay(<span class="number">5000</span>)</span><br><span class="line">    <span class="comment">// 更新 UI -&gt; 可能导致崩溃或泄漏，因为 Activity 可能已经销毁了</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*** 结构化，推荐，不存在风险 ***/</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">fetchData</span><span class="params">()</span></span> &#123;</span><br><span class="line">    viewModelScope.launch &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// 结构化作用域：这里可以并发获取数据</span></span><br><span class="line">            <span class="comment">// 如果获取 user 失败，获取 base 的任务也会自动取消</span></span><br><span class="line">            coroutineScope &#123;</span><br><span class="line">                <span class="keyword">val</span> user = async &#123; api.getUser() &#125;</span><br><span class="line">                <span class="keyword">val</span> base = async &#123; api.getBase() &#125;</span><br><span class="line">                updateUI(user.await(), base.await())</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (e: Exception) &#123;</span><br><span class="line">            showError(e)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Kotlin 协程的结构化并发，本质上是一种责任机制</strong>。它通过强制要求你将协程放入一个“容器”（CoroutineScope）中，解决了传统异步编程中“线程泄漏”、“异常难以追踪”和“生命周期不可控”的三大痛点。只要遵循这一原则，你的异步代码就会变得<strong>可预测、可维护且安全</strong>。</p>
+<h1 id="6、并行协程的启动和交互"><a href="#6、并行协程的启动和交互" class="headerlink" title="6、并行协程的启动和交互"></a>6、并行协程的启动和交互</h1><p>在 Kotlin 协程中实现并行处理及交互，核心在于选择正确的启动方式和同步机制。Kotlin 协程的设计理念是“结构化并发”，这意味着所有的协程都应该在一个作用域（<code>CoroutineScope</code>）内启动，并且其生命周期是受管理的。Kotlin 提供了两个主要的构建器来启动协程，分别是 <code>launch</code> 和 <code>async</code>。其中 <code>async</code> 是实现并行的关键。</p>
+<h2 id="6-1-启动并行协程"><a href="#6-1-启动并行协程" class="headerlink" title="6.1 启动并行协程"></a>6.1 启动并行协程</h2><p>Kotlin 提供了两个主要的构建器来启动协程，其中 <code>async</code> 是实现并行的关键。</p>
+<ol>
+<li><p><strong>“一劳永逸”的任务</strong>：<code>launch</code> 用于启动一个不返回结果的协程，通常用于执行后台任务，如日志上传或数据库操作。它返回一个 <code>Job</code> 对象，可用于控制协程的生命周期（如取消），但无法获取执行结果。</p>
+</li>
+<li><p><strong>并行计算与结果聚合</strong>：<code>async</code> 是实现并行的核心。它用于启动一个需要返回结果的协程。它返回一个 <code>Deferred&lt;T&gt;</code> 对象（<code>Job</code> 的子类），代表一个“延迟的结果”。通过 <code>await()</code> 方法，可以在需要时获取这个结果。</p>
+</li>
+</ol>
+<p>在代码层面，<code>async</code> 启动协程的方式与 <code>launch</code> 类似，但需要通过 <code>await()</code> 方法获取结果。如下所示：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> deferred = lifecycleScope.async &#123;</span><br><span class="line">    github.contributors(<span class="string">&quot;square&quot;</span>, <span class="string">&quot;retrofit&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> contributors = deferred.await()</span><br></pre></td></tr></table></figure>
+
+<p>为了直观区分 <code>launch</code> 与 <code>async</code> 的适用场景，我们继续以 Github 贡献者查询为例。假设需要获取两个库的贡献者列表：</p>
+<ol>
+<li><p><strong>顺序执行（低效串行）</strong>：在使用 <code>launch</code> 的代码块中，如果直接调用挂起函数，请求将是<strong>顺序执行</strong>的。代码会在第一行挂起并等待第一个请求完全返回后，才会开始执行第二行代码发起第二个请求。这种模式下，总耗时约为两个网络请求耗时的总和，未能发挥并发优势。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*** 串行请求，挂起函数逐个执行，最后合并结果，耗时为两个请求任务之和  ***/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">contributors</span><span class="params">()</span></span> = lifecycleScope.launch &#123;</span><br><span class="line">    <span class="keyword">val</span> contributors1 = github.contributors(<span class="string">&quot;square&quot;</span>, <span class="string">&quot;retrofit&quot;</span>)  <span class="comment">// 挂起，等待</span></span><br><span class="line">    <span class="keyword">val</span> contributors2 = github.contributors(<span class="string">&quot;square&quot;</span>, <span class="string">&quot;okhttp&quot;</span>)。  <span class="comment">// 挂起，等待</span></span><br><span class="line">    showContributors(contributors1 + contributors2)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>并发执行（利用 Async）</strong>：为了实现<strong>并发</strong>，我们需要利用 <code>async</code> 构建器。<code>async</code> 的作用是立即启动一个“异步任务”，并返回一个 <code>Deferred</code> 对象（代表未来的结果）。通过先启动两个任务，再分别调用 <code>await()</code> 获取结果，我们实现了两个网络请求的并行发起。此时，总耗时仅取决于耗时最长的那个子任务。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*** 并行请求，挂起函数并发执行，最后合并结果，耗时取决于最慢的子任务 ***/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">contributors</span><span class="params">()</span></span> = lifecycleScope.launch &#123;</span><br><span class="line">    <span class="comment">// 1. 立即启动两个异步任务（非阻塞）</span></span><br><span class="line">    <span class="keyword">val</span> contributors1 = lifecycleScope.async &#123; github.contributors(<span class="string">&quot;square&quot;</span>, <span class="string">&quot;retrofit&quot;</span>) &#125;</span><br><span class="line">    <span class="keyword">val</span> contributors2 = lifecycleScope.async &#123; github.contributors(<span class="string">&quot;square&quot;</span>, <span class="string">&quot;okhttp&quot;</span>) &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 等待结果并合并</span></span><br><span class="line">    showContributors(contributors1.await() + contributors2.await())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>并发执行（最佳实践）</strong>：上述代码虽然实现了并发执行，也缩短了请求耗时，但在<strong>异常处理</strong>和<strong>作用域管理</strong>上存在明显的缺陷。</p>
+<ul>
+<li><strong>异常静默失败</strong>：如果 <code>contributors1</code> 的请求失败了（例如抛出了异常），当执行到 <code>contributors1.await()</code> 时，异常会被抛出。此时，代码会直接跳出协程体，导致 <code>contributors2</code> 的 <code>await()</code> 永远不会被执行。</li>
+<li><strong>生命周期风险</strong>：由于 <code>contributors2</code> 的 <code>await()</code> 没有被执行，这个协程任务变成了“孤儿”任务。它虽然在后台继续运行，但其结果已经无人关心。更严重的是，如果 <code>contributors2</code> 的作用域是 <code>lifecycleScope</code>，当 <code>Activity</code>&#x2F;<code>Fragment</code> 销毁时，这个“孤儿”任务虽然会被取消，但在被取消前如果它完成了，试图更新 UI，就可能导致应用崩溃。</li>
+</ul>
+<p> 简单来说，就是如果一个请求失败，另一个请求的结果就丢失了，且可能<strong>导致资源浪费或潜在的生命周期问题</strong>。所以，为了确保两个任务都能正确完成或被正确处理，应该使用 <code>coroutineScope</code> 或 <code>supervisorScope</code> 来包裹 <code>async</code> 代码块。这样可以实现<strong>结构化并发</strong>，确保所有子任务在同一个作用域内，任何一个子任务失败都会取消其他任务，且必须等待所有任务完成（无论是成功还是失败）。最佳实践代码如下：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*** 并行请求，挂起函数并发执行，最后合并结果，耗时取决于最慢的子任务 ***/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">contributors</span><span class="params">()</span></span> = lifecycleScope.launch &#123;</span><br><span class="line">    <span class="comment">// 使用 coroutineScope 确保块内的所有协程都完成或被取消</span></span><br><span class="line">    <span class="keyword">val</span> (contributors1, contributors2) = coroutineScope &#123;</span><br><span class="line">        <span class="comment">// 启动两个异步任务</span></span><br><span class="line">        <span class="keyword">val</span> task1 = async &#123; github.contributors(<span class="string">&quot;square&quot;</span>, <span class="string">&quot;retrofit&quot;</span>) &#125;</span><br><span class="line">        <span class="keyword">val</span> task2 = async &#123; github.contributors(<span class="string">&quot;square&quot;</span>, <span class="string">&quot;okhttp&quot;</span>) &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 挂起等待两个任务都完成</span></span><br><span class="line">        <span class="comment">// 如果 task1 失败，task2 会被自动取消，异常会向上传播</span></span><br><span class="line">        task1.await() to task2.await()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    showContributors(contributors1 + contributors2)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="6-2-并行协程陷阱"><a href="#6-2-并行协程陷阱" class="headerlink" title="6.2 并行协程陷阱"></a>6.2 并行协程陷阱</h2><p>要实现真正的并行，必须先启动所有的 <code>async</code> 协程，最后再统一调用 <code>await()</code> 获取结果。如果在启动一个 <code>async</code> 后立即调用 <code>await()</code>，就会导致代码变成串行执行。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> task1 = async &#123; github.contributors(<span class="string">&quot;square&quot;</span>, <span class="string">&quot;retrofit&quot;</span>) &#125;.await() <span class="comment">// 等待第一个完成</span></span><br><span class="line"><span class="keyword">val</span> task2 = async &#123; github.contributors(<span class="string">&quot;square&quot;</span>, <span class="string">&quot;okhttp&quot;</span>) &#125;.await()   <span class="comment">// 才开始第二个</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="6-3-协程间的交互与同步"><a href="#6-3-协程间的交互与同步" class="headerlink" title="6.3 协程间的交互与同步"></a>6.3 协程间的交互与同步</h2><p>当多个协程需要协调执行顺序时，可以使用以下机制。</p>
+<ol>
+<li><p><strong><code>await</code> 等待结果</strong>：这是最常见的交互方式。一个协程需要另一个协程的计算结果才能继续执行。通过 <code>Deferred.await()</code>，当前协程会挂起，直到结果可用。</p>
+</li>
+<li><p><strong><code>join</code> 仅等待完成</strong>：如果你不关心协程的返回结果，只希望等待它执行完毕，可以使用 <code>Job.join()</code>。这在需要确保某个初始化任务完成后再执行后续任务时非常有用。用一个点外卖的例子来说明下，想象你（<strong>主线程</strong>）点了两份外卖（<strong>两个协程任务</strong>）：①一份米 ②一份菜。你很饿，但你是个讲究人，要 <strong>“饭和菜都到了才开吃”</strong> 。</p>
+<p> <strong>如果不加 <code>join</code></strong>：你点了外卖，然后立刻就开始吃（程序结束），哪怕饭和菜还在路上。<strong>加了 <code>join</code></strong>：你点了米饭，然后对送米饭的小哥说：“你到了叫我（<code>riceJob.join()</code>）”；点了菜，对送菜的小哥说：“你到了也叫我（<code>dishJob.join()</code>）”。只有两人都到了，你才开始吃。</p>
+ <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> kotlinx.coroutines.*</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> = runBlocking &#123;</span><br><span class="line">    println(<span class="string">&quot;点外卖&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 启动两个送餐任务</span></span><br><span class="line">    <span class="keyword">val</span> riceJob = launch &#123;</span><br><span class="line">        delay(<span class="number">1000</span>) <span class="comment">// 送餐耗时</span></span><br><span class="line">        println(<span class="string">&quot;米饭送到了&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> dishJob = launch &#123;</span><br><span class="line">        delay(<span class="number">1500</span>) <span class="comment">// 送菜耗时</span></span><br><span class="line">        println(<span class="string">&quot;红烧肉送到了&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 重点来了：我要等这两个都到了才开动</span></span><br><span class="line">    <span class="comment">// 如果没有这两行 join，主程序（我）会直接打印“开饭”，根本不管饭到了没</span></span><br><span class="line">    riceJob.join() </span><br><span class="line">    dishJob.join()</span><br><span class="line"></span><br><span class="line">    println(<span class="string">&quot;开饭！&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong><code>coroutineScope</code> 结构化并发</strong>：<code>coroutineScope</code> 是一个挂起函数，它会创建一个新的作用域，并等待该作用域内所有协程都完成才会返回。这保证了在函数返回结果前，所有启动的协程都已结束。</p>
+</li>
+</ol>
+<h2 id="6-4-join-和-await-的区别"><a href="#6-4-join-和-await-的区别" class="headerlink" title="6.4 join 和 await 的区别"></a>6.4 join 和 await 的区别</h2><p> 这是最容易混淆的地方，我们继续用外卖来解释：</p>
+<ul>
+<li><p><strong><code>join</code> （等外卖小哥）：</strong> 你点了个外卖，你站在门口等。你只关心“小哥到了没”。小哥到了，你就回家。至于外卖盒里装的是什么，你没接过来，你不知道（没有返回值）。</p>
+</li>
+<li><p><strong><code>await</code>（拿外卖盒子）：</strong> 你点了个外卖，你站在门口等。小哥到了，你必须伸手接过来那个盒子（获取返回值），然后才回家。</p>
+ <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 使用 launch + join (只等结束)</span></span><br><span class="line"><span class="keyword">val</span> job = launch &#123;</span><br><span class="line">    delay(<span class="number">1000</span>)</span><br><span class="line">    println(<span class="string">&quot;任务完成！&quot;</span>) </span><br><span class="line">    <span class="comment">// 这里不能 return 一个值，或者 return Unit (无意义)</span></span><br><span class="line">&#125;</span><br><span class="line">job.join() <span class="comment">// 只是等待打印完成，拿不到任何数据</span></span><br><span class="line">println(<span class="string">&quot;继续执行&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 使用 async + await (等结果)</span></span><br><span class="line"><span class="keyword">val</span> deferred = async &#123;</span><br><span class="line">    delay(<span class="number">1000</span>)</span><br><span class="line">    <span class="string">&quot;这是返回的数据&quot;</span> <span class="comment">// 这里 return 了一个字符串</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">val</span> result = deferred.await() <span class="comment">// 拿到了字符串</span></span><br><span class="line">println(<span class="string">&quot;拿到数据了：<span class="variable">$result</span>&quot;</span>)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="7、协程与线程交互"><a href="#7、协程与线程交互" class="headerlink" title="7、协程与线程交互"></a>7、协程与线程交互</h1><p>在 Kotlin 协程的环境中，我们习惯了 <code>launch</code>、<code>async</code>、<code>await</code> 等<strong>高级函数</strong>，但当需要将<strong>传统的回调式异步代码（如网络请求回调、数据库监听、事件驱动 API）融合到协程体系中</strong>时，标准的协程构建器往往力不从心。这时，Kotlin 提供了两个底层但极其强大的工具：<code>suspendCoroutine</code> 和 <code>suspendCancellableCoroutine</code>，用于<strong>将传统的异步回调代码转换为现代化的挂起函数</strong>。简单来说，它们是桥接阻塞&#x2F;回调代码与协程世界的关键枢纽。</p>
+<h2 id="7-1-回调函数转换为挂起函数"><a href="#7-1-回调函数转换为挂起函数" class="headerlink" title="7.1 回调函数转换为挂起函数"></a>7.1 回调函数转换为挂起函数</h2><p>挂起函数 <code>suspendCoroutine</code> 和 <code>suspendCancellableCoroutine</code> 都能让协程挂起，直到异步操作完成，但它们在 <strong>“善后处理”</strong> 上有着本质区别。</p>
+<ul>
+<li><p><strong>suspendCoroutine</strong></p>
+<p> 这是最基础的挂起工具。当你调用它时，协程会挂起，你拿到一个 <code>Continuation</code> 对象。你需要在异步回调的“成功”或“失败”分支中调用 <code>resume()</code> 或 <code>resumeWithException()</code> 来恢复协程。</p>
+<p> <strong>缺点</strong>：如果外部协程在异步任务完成前调用了 <code>job.cancel()</code>，<code>suspendCoroutine</code> <strong>感知不到外部协程的取消</strong>。底层的线程或请求还在跑，这不仅浪费 CPU 和网络资源，还可能导致在挂起的协程恢复时操作已销毁的 UI 组件而引发崩溃。</p>
+</li>
+<li><p><strong>suspendCancellableCoroutine</strong></p>
+<p> 这是 <code>suspendCoroutine</code> 的增强防御版，<strong>能感知协程取消</strong>，避免内存泄漏或无效操作。它接收一个 <code>CancellableContinuation</code>，其核心优势在于提供了 <code>invokeOnCancellation &#123; &#125;</code> 方法。</p>
+</li>
+</ul>
+<table style="font-family: 'Google Sans Text', 'Noto Sans', 'Noto Sans JP', 'Noto Sans KR', 'Noto Naskh Arabic', 'Noto Sans Thai', 'Noto Sans Hebrew', 'Noto Sans Bengali', sans-serif;">
+	<tbody>
+		<tr style="text-align:center">
+			<th align="center" width="10%" colspan="1">特性</th>
+			<th align="center" width="45%" colspan="1"><code>suspendCoroutine</code></th>
+			<th align="center" width="45%" colspan="1"><code>suspendCancellableCoroutine</code></th>
+		</tr>
+		<tr>
+			<td align="center"><strong>核心能力</strong></td>
+			<td align="left">挂起协程，等待回调</td>
+            <td align="left">挂起协程 + <strong>支持取消</strong></td>
+		</tr>
+		<tr>
+			<td align="center"><strong>返回类型</strong></td>
+			<td align="left"><code>Continuation&lt;T&gt;</code></td>
+            <td align="left"><code>CancellableContinuation&lt;T&gt;</code></td>
+		</tr>
+		<tr>
+			<td align="center"><strong>取消机制</strong></td>
+			<td align="left"><strong>无感知</strong>。即使协程被取消，底层异步任务（如网络请求、线程）仍在运行，可能导致资源泄漏。</td>
+            <td align="left"><strong>可响应</strong>。协程取消时，可自动触发清理逻辑（如取消请求、关闭流）。</td>
+		</tr>
+		<tr>
+			<td align="center"><strong>适用场景</strong></td>
+			<td align="left">简单的、不可取消的、瞬时的操作（如 View 绘制完成监听）。</td>
+            <td align="left"><strong>绝大多数异步操作</strong>（如网络请求、数据库读写、长耗时任务）。</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>下面我们继续以 Github 贡献者查询为例，演示 <code>suspendCoroutine</code> 与 <code>suspendCancellableCoroutine</code> 的差异。首先，我们准备一个 Github 的接口函数：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">Github</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GET(<span class="string">&quot;repos/&#123;owner&#125;/&#123;repo&#125;/contributors&quot;</span>)</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">contributors</span><span class="params">(</span></span></span><br><span class="line"><span class="params"><span class="function">        <span class="meta">@Path(<span class="string">&quot;owner&quot;</span>)</span> owner: <span class="type">String</span>,</span></span></span><br><span class="line"><span class="params"><span class="function">        <span class="meta">@Path(<span class="string">&quot;repo&quot;</span>)</span> repo: <span class="type">String</span>,</span></span></span><br><span class="line"><span class="params"><span class="function">    )</span></span>: Call&lt;List&lt;Contributor&gt;&gt;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用 <code>suspendCoroutine</code> <strong>将异步回调代码转换为挂起函数</strong>，在异步回调的“成功”或“失败”分支中调用 <code>resume()</code> 或 <code>resumeWithException()</code> 来恢复协程。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*** 将异步回调代码转换为挂起函数，无法感知协程取消 ***/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">suspend</span> <span class="function"><span class="keyword">fun</span> <span class="title">contributors</span><span class="params">()</span></span> = suspendCoroutine &#123;</span><br><span class="line">    github.contributors(<span class="string">&quot;square&quot;</span>, <span class="string">&quot;retrofit&quot;</span>).enqueue(<span class="keyword">object</span> : Callback&lt;List&lt;Contributor&gt;&gt; &#123;</span><br><span class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onResponse</span><span class="params">(call: <span class="type">Call</span>&lt;<span class="type">List</span>&lt;<span class="type">Contributor</span>&gt;&gt;, response: <span class="type">Response</span>&lt;<span class="type">List</span>&lt;<span class="type">Contributor</span>&gt;&gt;)</span></span> &#123;</span><br><span class="line">            it.resume(response.body()!!)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onFailure</span><span class="params">(call: <span class="type">Call</span>&lt;<span class="type">List</span>&lt;<span class="type">Contributor</span>&gt;?&gt;, t: <span class="type">Throwable</span>)</span></span> &#123;</span><br><span class="line">            it.resumeWithException(t)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*** 取消协程，挂起函数 contributors() 无法感知 ***/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> job = lifecycleScope.launch &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">val</span> contributors = contributors()</span><br><span class="line">        showContributors(contributors)</span><br><span class="line">    &#125; <span class="keyword">catch</span> (e: Exception) &#123;</span><br><span class="line">        println(e.message)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">job.cancel()</span><br></pre></td></tr></table></figure>
+
+<p>使用 <code>suspendCancellableCoroutine</code> <strong>将异步回调代码转换为挂起函数</strong>，协程恢复与 <code>suspendCoroutine</code> 类似，核心的区别是提供了 <code>invokeOnCancellation &#123; &#125;</code> 方法，在感知到协程取消时自动触发，并可在该回调中释放资源。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*** 将异步回调代码转换为挂起函数，可以感知协程取消 ***/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">suspend</span> <span class="function"><span class="keyword">fun</span> <span class="title">contributors</span><span class="params">()</span></span> = suspendCancellableCoroutine &#123;</span><br><span class="line">    <span class="keyword">val</span> call = github.contributorsCall(<span class="string">&quot;square&quot;</span>, <span class="string">&quot;retrofit&quot;</span>)</span><br><span class="line"></span><br><span class="line">    it.invokeOnCancellation &#123;</span><br><span class="line">        call.cancel()               <span class="comment">// 协程取消，取消底层网络请求，释放资源</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    call.enqueue(<span class="keyword">object</span> : Callback&lt;List&lt;Contributor&gt;&gt; &#123;</span><br><span class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onResponse</span><span class="params">(call: <span class="type">Call</span>&lt;<span class="type">List</span>&lt;<span class="type">Contributor</span>&gt;&gt;, response: <span class="type">Response</span>&lt;<span class="type">List</span>&lt;<span class="type">Contributor</span>&gt;&gt;)</span></span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (it.isActive) &#123;      <span class="comment">// 恢复前检查协程是否还“活着”</span></span><br><span class="line">                <span class="keyword">val</span> body = response.body()</span><br><span class="line">                <span class="keyword">if</span> (body != <span class="literal">null</span>) &#123; <span class="comment">// 处理响应体为空的情况</span></span><br><span class="line">                    it.resume(body)</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;            <span class="comment">// 可以根据需求抛出异常或返回空列表</span></span><br><span class="line">                    it.resumeWithException(HttpException(response))</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onFailure</span><span class="params">(call: <span class="type">Call</span>&lt;<span class="type">List</span>&lt;<span class="type">Contributor</span>&gt;?&gt;, t: <span class="type">Throwable</span>)</span></span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (it.isActive) &#123;      <span class="comment">// 即使协程取消， onFailure 也可能被回调，需要判断</span></span><br><span class="line">                it.resumeWithException(t)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*** 取消协程，挂起函数 contributors() 可以感知 ***/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> job = lifecycleScope.launch &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">val</span> contributors = contributors()</span><br><span class="line">        showContributors(contributors)</span><br><span class="line">    &#125; <span class="keyword">catch</span> (e: Exception) &#123;</span><br><span class="line">        println(e.message)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">job.cancel()</span><br></pre></td></tr></table></figure>
+
+<h2 id="7-2-桥接阻塞代码与挂起代码"><a href="#7-2-桥接阻塞代码与挂起代码" class="headerlink" title="7.2 桥接阻塞代码与挂起代码"></a>7.2 桥接阻塞代码与挂起代码</h2><p>除了 <code>launch</code> 和 <code>async</code>，<code>runBlocking</code> 也可用于启动协程，它的核心作用是<strong>桥接阻塞代码与挂起代码</strong>。简单来说，就是<strong>启动一个新的协程，并阻塞当前线程，直到该协程执行完成</strong>。在深入了解之前，必须强调一个最重要的原则：<strong><code>runBlocking</code> 是协程世界的“紧急刹车”，而不是“正常驾驶模式”</strong>。因为它有以下特点：</p>
+<ul>
+<li><strong>不需要 CoroutineScope：</strong> <code>runBlocking</code> 启动协程时不需要显式的 <code>CoroutineScope</code>。</li>
+<li><strong>它会阻塞线程：</strong> 调用 <code>runBlocking</code> 的线程（比如 Android 的主线程）会被完全占用，无法处理其他任务，直到内部协程结束。如果在主线程滥用，会导致界面卡死（ANR）。</li>
+<li><strong>不应在协程内部使用：</strong> 如果你已经在一个 <code>suspend</code> 函数或协程作用域（<code>CoroutineScope</code>）内，应该使用 <code>coroutineScope</code> 或 <code>withContext</code>，而不是 <code>runBlocking</code>。</li>
+</ul>
+<p>既然 <code>runBlocking</code> 既不能在协程内部使用，又会阻塞线程。那为什么还要提供这样一个函数呢？这是由 <code>runBlocking</code> 设计初衷决定的，<strong>它的主要用途不是启动协程，而是将协程风格的挂起代码封装成传统线程可用的阻塞式接口</strong>。其主要的使用场景为<strong>测试环境</strong>和<strong>主函数入口</strong>。</p>
+<ol>
+<li><p><strong>测试环境（Tests）</strong></p>
+<p> 在编写单元测试或集成测试时，测试框架通常是同步的。你需要等待异步的协程代码执行完毕后再进行断言。下方代码如果没有 <code>runBlocking</code>，测试方法可能在协程执行前就结束了。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">testAsyncFunction</span><span class="params">()</span></span> = runBlocking &#123;</span><br><span class="line">    <span class="keyword">val</span> result = someSuspendFunction()</span><br><span class="line">    assertEquals(<span class="string">&quot;expected&quot;</span>, result)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>主函数入口（Main Function）</strong></p>
+<p> 在普通的 Kotlin 应用（非 Android）中，<code>main</code> 函数是程序入口。为了让程序等待后台协程完成后再退出，可以使用 <code>runBlocking</code>。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> = runBlocking &#123;</span><br><span class="line">    launch &#123;</span><br><span class="line">        delay(<span class="number">1000</span>)</span><br><span class="line">        println(<span class="string">&quot;World!&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    println(<span class="string">&quot;Hello&quot;</span>)</span><br><span class="line">    <span class="comment">// 程序会在这里等待，直到 launch 中的任务完成</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>鉴于 <code>runBlocking</code> 的特殊设计初衷及其阻塞线程的特性，应严格避免在以下场景中使用：</p>
+<ul>
+<li><strong>Android 主线程</strong>：绝对不要在 <code>Activity</code> 或 <code>Fragment</code> 的 <code>onCreate</code> 等生命周期方法中直接使用 <code>runBlocking</code>，这会导致界面完全无响应。</li>
+<li><strong>协程内部嵌套</strong>：在 <code>viewModelScope.launch</code> 或其他协程内部再次使用 <code>runBlocking</code>，会导致线程阻塞，破坏协程的非阻塞特性。</li>
+</ul>
+<p>在 6.3 节“协程间的交互与同步”中，我们提到 <code>coroutineScope</code> 是一个挂起函数，它会创建一个新的作用域，并等待该作用域内所有协程都完成才会返回。虽然 <code>coroutineScope</code> 在代码风格和“等待完成”的概念上与 <code>runBlocking</code> 极为相似，但二者底层机制截然不同：<strong>runBlocking 是阻塞线程，而 coroutineScope 是挂起协程</strong>。下面通过几个维度来了解它们的区别：</p>
+<table style="font-family: 'Google Sans Text', 'Noto Sans', 'Noto Sans JP', 'Noto Sans KR', 'Noto Naskh Arabic', 'Noto Sans Thai', 'Noto Sans Hebrew', 'Noto Sans Bengali', sans-serif;">
+	<tbody>
+		<tr style="text-align:center">
+			<th align="center" width="10%" colspan="1">特性</th>
+			<th align="center" width="45%" colspan="1"><code>runBlocking</code></th>
+			<th align="center" width="45%" colspan="1"><code>coroutineScope</code></th>
+		</tr>
+		<tr>
+			<td align="center"><strong>本质</strong></td>
+			<td align="left"><strong>阻塞函数</strong> (Blocking function)</td>
+            <td align="left"><strong>挂起函数</strong> (Suspending function)</td>
+		</tr>
+		<tr>
+			<td align="center"><strong>对线程的影响</strong></td>
+			<td align="left"><strong>阻塞</strong>当前线程，线程在此处“卡住”不动</td>
+            <td align="left"><strong>挂起</strong>当前协程，<strong>释放</strong>底层线程供其他任务使用</td>
+		</tr>
+		<tr>
+			<td align="center"><strong>机制</strong></td>
+			<td align="left">它会在当前线程上创建一个<strong>事件循环</strong>，并一直占用这个线程，不干别的事，直到里面的任务做完。</td>
+            <td align="left">它会暂停当前协程的执行，把线程的控制权交还给线程池，让线程去干别的活。当 <code>coroutineScope</code> 里的所有子协程都完成后，当前协程会恢复执行。</td>
+		</tr>
+		<tr>
+			<td align="center"><strong>调用位置</strong></td>
+			<td align="left">可以在普通函数（非协程）中调用</td>
+            <td align="left">只能在协程内部（挂起函数中）调用</td>
+		</tr>
+		<tr>
+			<td align="center"><strong>主要用途</strong></td>
+			<td align="left">连接“非协程代码”与“协程世界”；测试</td>
+            <td align="left">在协程内部实现“结构化并发”，等待子任务完成</td>
+		</tr>
+		<tr>
+			<td align="center"><strong>返回值</strong></td>
+			<td align="left">可以返回一个结果</td>
+            <td align="left">通常不返回特定值，主要用于控制流程</td>
+		</tr>
+	</tbody>
+</table>
       
 
       
@@ -297,11 +980,11 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2035/04/28/%E6%9E%81%E7%AE%80%E4%BE%BF%E7%AD%BE/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2026/01/19/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E4%BA%8C%EF%BC%89%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          极简便签
+          Kotlin 协程（二）结构化并发
         
       </div>
     </a>
@@ -335,7 +1018,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1%E3%80%81%E5%8D%8F%E7%A8%8B%E7%9A%84%E6%9C%AC%E8%B4%A8"><span class="toc-number">1.</span> <span class="toc-text">1、协程的本质</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2%E3%80%81%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%88%87%E6%8D%A2"><span class="toc-number">2.</span> <span class="toc-text">2、线程的切换</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1%E3%80%81%E5%8D%8F%E7%A8%8B%E7%9A%84%E6%9C%AC%E8%B4%A8"><span class="toc-number">1.</span> <span class="toc-text">1、协程的本质</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2%E3%80%81%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%88%87%E6%8D%A2"><span class="toc-number">2.</span> <span class="toc-text">2、线程的切换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E7%BA%BF%E7%A8%8B%E7%9A%84%E8%B0%83%E5%BA%A6"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 线程的调度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E5%90%AF%E5%8A%A8%E5%8D%8F%E7%A8%8B"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 启动协程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E8%B0%83%E5%BA%A6%E5%99%A8%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 调度器优先级</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-%E5%88%87%E5%9B%9E%E4%B8%BB%E7%BA%BF%E7%A8%8B"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 切回主线程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3%E3%80%81%E6%8C%82%E8%B5%B7%E5%87%BD%E6%95%B0"><span class="toc-number">3.</span> <span class="toc-text">3、挂起函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E5%9F%BA%E6%9C%AC%E5%AE%9A%E4%B9%89"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 基本定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E6%8C%82%E8%B5%B7%E5%87%BD%E6%95%B0%E7%9A%84%E6%9C%AC%E8%B4%A8"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 挂起函数的本质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E6%B5%81%E7%A8%8B%E5%88%86%E8%A7%A3"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 流程分解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-%E7%94%9F%E6%B4%BB%E6%A1%88%E4%BE%8B"><span class="toc-number">3.4.</span> <span class="toc-text">3.4 生活案例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-5-withContext"><span class="toc-number">3.5.</span> <span class="toc-text">3.5 withContext</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4%E3%80%81Android-%E4%B8%AD%E5%8D%8F%E7%A8%8B%E7%9A%84%E5%86%99%E6%B3%95"><span class="toc-number">4.</span> <span class="toc-text">4、Android 中协程的写法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-LifecycleScope"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 LifecycleScope</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-ViewModelScope"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 ViewModelScope</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-%E5%85%B3%E9%94%AE%E5%8C%BA%E5%88%AB%E5%AF%B9%E6%AF%94"><span class="toc-number">4.3.</span> <span class="toc-text">4.3 关键区别对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%EF%BC%9F"><span class="toc-number">4.4.</span> <span class="toc-text">4.4 如何选择？</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5%E3%80%81%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91"><span class="toc-number">5.</span> <span class="toc-text">5、结构化并发</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%BB%91%E5%AE%9A"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 生命周期绑定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6"><span class="toc-number">5.2.</span> <span class="toc-text">5.2 异常处理机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3-%E9%81%BF%E5%85%8D-GlobalScope"><span class="toc-number">5.3.</span> <span class="toc-text">5.3 避免 GlobalScope</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-4-%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B"><span class="toc-number">5.4.</span> <span class="toc-text">5.4 代码示例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6%E3%80%81%E5%B9%B6%E8%A1%8C%E5%8D%8F%E7%A8%8B%E7%9A%84%E5%90%AF%E5%8A%A8%E5%92%8C%E4%BA%A4%E4%BA%92"><span class="toc-number">6.</span> <span class="toc-text">6、并行协程的启动和交互</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-%E5%90%AF%E5%8A%A8%E5%B9%B6%E8%A1%8C%E5%8D%8F%E7%A8%8B"><span class="toc-number">6.1.</span> <span class="toc-text">6.1 启动并行协程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-%E5%B9%B6%E8%A1%8C%E5%8D%8F%E7%A8%8B%E9%99%B7%E9%98%B1"><span class="toc-number">6.2.</span> <span class="toc-text">6.2 并行协程陷阱</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-3-%E5%8D%8F%E7%A8%8B%E9%97%B4%E7%9A%84%E4%BA%A4%E4%BA%92%E4%B8%8E%E5%90%8C%E6%AD%A5"><span class="toc-number">6.3.</span> <span class="toc-text">6.3 协程间的交互与同步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-4-join-%E5%92%8C-await-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">6.4.</span> <span class="toc-text">6.4 join 和 await 的区别</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7%E3%80%81%E5%8D%8F%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B%E4%BA%A4%E4%BA%92"><span class="toc-number">7.</span> <span class="toc-text">7、协程与线程交互</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#7-1-%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E8%BD%AC%E6%8D%A2%E4%B8%BA%E6%8C%82%E8%B5%B7%E5%87%BD%E6%95%B0"><span class="toc-number">7.1.</span> <span class="toc-text">7.1 回调函数转换为挂起函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-2-%E6%A1%A5%E6%8E%A5%E9%98%BB%E5%A1%9E%E4%BB%A3%E7%A0%81%E4%B8%8E%E6%8C%82%E8%B5%B7%E4%BB%A3%E7%A0%81"><span class="toc-number">7.2.</span> <span class="toc-text">7.2 桥接阻塞代码与挂起代码</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>

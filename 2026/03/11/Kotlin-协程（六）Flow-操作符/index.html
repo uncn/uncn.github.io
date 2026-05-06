@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Android Studio 里有用的快捷键 | Welcome to sunzn&#39;s Blog</title>
+  <title>Kotlin 协程（六）Flow 操作符 | Welcome to sunzn&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Windows 			Mac 			描述 		 		 			Ctrl + E 			Cmd + E             快速查看最近打开过的文件。 		 		 			Ctrl + Shift + E 			Cmd + Shift + E             快速查看最近编辑过的文件。 		 		 			Ctrl + P 			Cmd + P             查看方">
+  <meta name="description" content="Flow 操作符是处理异步数据流的核心工具。它们遵循函数式编程范式，允许你以链式调用的方式对数据进行变换、过滤、组合和缓冲。为了方便理解，我们可以将 Flow 操作符分为 中间操作符、末端操作符、组合操作符、线程上下文与生命周期 四大类：  中间操作符  这类操作符的作用是「转换」。它们会接收一个 Flow，进行处理后返回一个新的 Flow。它们是冷操作符，意味着在调用末端操作符之前，这些逻辑不会">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android Studio 里有用的快捷键">
-<meta property="og:url" content="http://yoursite.com/2025/08/12/Android-Studio-%E9%87%8C%E6%9C%89%E7%94%A8%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE/index.html">
+<meta property="og:title" content="Kotlin 协程（六）Flow 操作符">
+<meta property="og:url" content="http://yoursite.com/2026/03/11/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E5%85%AD%EF%BC%89Flow-%E6%93%8D%E4%BD%9C%E7%AC%A6/index.html">
 <meta property="og:site_name" content="Welcome to sunzn&#39;s Blog">
-<meta property="og:description" content="Windows 			Mac 			描述 		 		 			Ctrl + E 			Cmd + E             快速查看最近打开过的文件。 		 		 			Ctrl + Shift + E 			Cmd + Shift + E             快速查看最近编辑过的文件。 		 		 			Ctrl + P 			Cmd + P             查看方">
+<meta property="og:description" content="Flow 操作符是处理异步数据流的核心工具。它们遵循函数式编程范式，允许你以链式调用的方式对数据进行变换、过滤、组合和缓冲。为了方便理解，我们可以将 Flow 操作符分为 中间操作符、末端操作符、组合操作符、线程上下文与生命周期 四大类：  中间操作符  这类操作符的作用是「转换」。它们会接收一个 Flow，进行处理后返回一个新的 Flow。它们是冷操作符，意味着在调用末端操作符之前，这些逻辑不会">
 <meta property="og:locale">
-<meta property="article:published_time" content="2025-08-12T13:53:41.000Z">
-<meta property="article:modified_time" content="2025-12-11T12:56:54.619Z">
+<meta property="article:published_time" content="2026-03-11T01:09:39.000Z">
+<meta property="article:modified_time" content="2026-03-18T03:36:10.038Z">
 <meta property="article:author" content="狮子">
-<meta property="article:tag" content="Android">
+<meta property="article:tag" content="协程">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to sunzn&#39;s Blog" type="application/atom+xml">
@@ -165,89 +165,535 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Android-Studio-里有用的快捷键" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Kotlin-协程（六）Flow-操作符" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Android Studio 里有用的快捷键
+      Kotlin 协程（六）Flow 操作符
     </h1>
   
 
         
-        <a href="/2025/08/12/Android-Studio-%E9%87%8C%E6%9C%89%E7%94%A8%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="archive-article-date">
-  	<time datetime="2025-08-12T13:53:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-08-12</time>
+        <a href="/2026/03/11/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E5%85%AD%EF%BC%89Flow-%E6%93%8D%E4%BD%9C%E7%AC%A6/" class="archive-article-date">
+  	<time datetime="2026-03-11T01:09:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <table style="font-family: 'Google Sans Text', 'Noto Sans', 'Noto Sans JP', 'Noto Sans KR', 'Noto Naskh Arabic', 'Noto Sans Thai', 'Noto Sans Hebrew', 'Noto Sans Bengali', sans-serif;">
+        <p><strong>Flow 操作符</strong>是处理异步数据流的核心工具。它们遵循函数式编程范式，允许你以链式调用的方式对数据进行变换、过滤、组合和缓冲。为了方便理解，我们可以将 Flow 操作符分为 <strong>中间操作符</strong>、<strong>末端操作符</strong>、<strong>组合操作符</strong>、<strong>线程上下文与生命周期</strong> 四大类：</p>
+<ol>
+<li><p><strong>中间操作符</strong></p>
+<p> 这类操作符的作用是「转换」。它们会接收一个 Flow，进行处理后返回一个新的 Flow。它们是<strong>冷操作符</strong>，意味着在调用末端操作符之前，这些逻辑不会执行。</p>
+<ul>
+<li><strong>过滤类</strong>：<ul>
+<li><code>filter</code>: 保留符合条件的元素。</li>
+<li><code>filterNotNull</code>: 剔除所有 <code>null</code> 值，并自动收紧泛型类型（从 <code>T?</code> 变为 <code>T</code>）。</li>
+<li><code>distinctUntilChanged</code>: 过滤掉连续重复的值。</li>
+</ul>
+</li>
+<li><strong>限流类</strong>：<ul>
+<li><code>take</code>: 仅取前 n 个元素。</li>
+<li><code>drop</code>: 跳过前 n 个元素。</li>
+<li><code>debounce</code>: 防抖处理，仅在指定时间内没有新值发射时才转发最后一个值（常用于搜索框输入）。</li>
+</ul>
+</li>
+<li><strong>变换类</strong>：<ul>
+<li><code>map</code>: 对每个发射的值进行转换（如将 <code>Int</code> 转为 <code>String</code>）。</li>
+<li><code>transform</code>: 比 <code>map</code> 更灵活，可以在 Lambda 中多次调用 <code>emit()</code>，甚至不发射。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<span id="more"></span>
+
+<ol start="2">
+<li><p><strong>末端操作符</strong></p>
+<p> 这类操作符会<strong>触发</strong> Flow 的执行（激活冷流）。它们通常是挂起函数（<code>suspend</code>），并返回一个结果或完成整个流的处理。</p>
+<ul>
+<li><code>collect</code>: 最基础的末端操作符，开始收集流中的值。</li>
+<li><code>first</code> &#x2F; <code>last</code>: 获取流中的第一个或最后一个元素（若为空则抛异常）。</li>
+<li><code>toList</code> &#x2F; <code>toSet</code>: 将流中的所有元素收集到集合中。</li>
+<li><code>reduce</code> &#x2F; <code>fold</code>: 对流中的值进行累加计算。<code>fold</code> 需要提供初始值。</li>
+</ul>
+</li>
+<li><p><strong>组合操作符</strong></p>
+<p> 当你需要处理多个数据源，或者在一个 Flow 中触发另一个 Flow 时，会用到这些操作符。</p>
+<ul>
+<li><code>zip</code>: 将两个流的元素「对齐」合并。只有当两个流都发射了对应索引的值时，才会产出结果。</li>
+<li><code>combine</code>: 只要其中一个流有新值，就取两个流中最新的值进行组合。</li>
+<li><strong>展平流</strong><ul>
+<li><code>flatMapConcat</code>: 按顺序连接流（处理完第一个再处理第二个）。</li>
+<li><code>flatMapMerge</code>: 并发处理多个流。</li>
+<li><code>flatMapLatest</code>: 当新元素到来时，立即取消之前的子流处理，只处理最新的。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>线程上下文与生命周期</strong></p>
+<p> 在 Android 开发中，切换线程和观察声明周期至关重要。</p>
+<ul>
+<li><code>flowOn</code>: 指定上游代码块运行的调度器（如 <code>Dispatchers.IO</code>）。它只改变它之前的操作符所在的上下文。</li>
+<li><code>catch</code>: 优雅地处理异常，而不是直接崩溃。</li>
+<li><code>onStart</code> &#x2F; <code>onCompletion</code>: 分别在 Flow 开始（收集之前）和完成（不论成功与否）时执行操作。</li>
+<li><code>retry</code>: 在发生错误时重新运行上游代码，可指定重试次数和条件。</li>
+</ul>
+</li>
+</ol>
+<h1 id="1、filter-操作符"><a href="#1、filter-操作符" class="headerlink" title="1、filter 操作符"></a>1、filter 操作符</h1><p>在 Kotlin Flow 的开发中，过滤操作符是我们处理数据流的第一道防线。它们决定了哪些数据可以继续传递，哪些数据该被拦截。</p>
+<h2 id="1-1-filter：通用过滤器"><a href="#1-1-filter：通用过滤器" class="headerlink" title="1.1 filter：通用过滤器"></a>1.1 filter：通用过滤器</h2><p><code>filter</code> 是所有过滤操作的基础。它接收一个返回 <code>Boolean</code> 的 Lambda 表达式。</p>
+<ul>
+<li><p><strong>API 语义</strong>：如果 Lambda 返回 <code>true</code>，则保留元素；返回 <code>false</code>，则丢弃。</p>
+</li>
+<li><p><strong>代码示例</strong>：</p>
+ <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">flowOf(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>)</span><br><span class="line">    .filter &#123; it % <span class="number">2</span> == <span class="number">0</span> &#125; <span class="comment">// 只保留偶数</span></span><br><span class="line">    .collect &#123; println(it) &#125; <span class="comment">// 输出: 2, 4</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>适用场景</strong>：最基础的条件筛选，如过滤价格大于 100 的商品。</p>
+</li>
+</ul>
+<h2 id="1-2-filterNot：逻辑取反"><a href="#1-2-filterNot：逻辑取反" class="headerlink" title="1.2 filterNot：逻辑取反"></a>1.2 filterNot：逻辑取反</h2><p><code>filterNot</code> 是 <code>filter</code> 的反向版本。虽然逻辑上等同于 <code>filter &#123; !condition &#125;</code>，但它能让代码更符合自然语言的阅读习惯。</p>
+<ul>
+<li><p><strong>API 语义</strong>：如果 Lambda 返回 <code>true</code>，则丢弃元素；返回 <code>false</code>，则保留。</p>
+</li>
+<li><p><strong>代码示例</strong>：</p>
+ <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> userFlow = flowOf(User(name = <span class="string">&quot;A&quot;</span>, isAdmin = <span class="literal">true</span>), User(name = <span class="string">&quot;B&quot;</span>, isAdmin = <span class="literal">false</span>))</span><br><span class="line">userFlow.filterNot &#123; it.isAdmin &#125; <span class="comment">// 语义明确：过滤掉管理员</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>适用场景</strong>：当你更关注「排除哪些数据」而不是「保留哪些数据」时。</p>
+</li>
+</ul>
+<h2 id="1-3-filterNotNull：空安全处理"><a href="#1-3-filterNotNull：空安全处理" class="headerlink" title="1.3 filterNotNull：空安全处理"></a>1.3 filterNotNull：空安全处理</h2><p>在 Android 开发中，我们经常处理 <code>Flow&lt;T?&gt;</code>。如果后续操作符需要非空对象，手动判断 <code>null</code> 会非常繁琐。</p>
+<ul>
+<li><p><strong>API 语义</strong>：剔除流中所有的 <code>null</code> 元素。</p>
+</li>
+<li><p><strong>类型转换</strong>：这是该 API 最强大的地方。它能将 <code>Flow&lt;T?&gt;</code> 转换为 <code>Flow&lt;T&gt;</code>，在编译器层级实现<strong>类型收紧</strong>。</p>
+</li>
+<li><p><strong>代码示例</strong>：</p>
+ <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> nullableFlow: Flow&lt;String?&gt; = flowOf(<span class="string">&quot;A&quot;</span>, <span class="literal">null</span>, <span class="string">&quot;B&quot;</span>)</span><br><span class="line"><span class="keyword">val</span> nonNullFlow: Flow&lt;String&gt; = nullableFlow.filterNotNull() <span class="comment">// 类型已进化</span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>适用场景</strong>：从数据库或 API 获取到可空数据流，需要清理 <code>null</code> 值以供 UI 渲染。</p>
+</li>
+</ul>
+<h2 id="1-4-filterIsInstance：运行时类型筛选"><a href="#1-4-filterIsInstance：运行时类型筛选" class="headerlink" title="1.4 filterIsInstance：运行时类型筛选"></a>1.4 filterIsInstance：运行时类型筛选</h2><p>当你处理混合类型的流（如 <code>Flow&lt;Any&gt;</code>）时，你可能只对某种特定类型的数据感兴趣。</p>
+<ul>
+<li><p><strong>API 语义</strong>：利用 Kotlin 的 <code>reified</code>（类型实化）关键字，筛选出属于指定类及其子类的元素。</p>
+</li>
+<li><p><strong>代码示例</strong>：</p>
+ <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> values = flowOf(<span class="string">&quot;A&quot;</span>, <span class="number">1</span>, <span class="string">&quot;B&quot;</span>)</span><br><span class="line">values.filterIsInstance&lt;String&gt;()      <span class="comment">// 仅保留 String 类型</span></span><br><span class="line">    .collect &#123; <span class="comment">/* 此时 it 的类型已自动推断为 String */</span> &#125;</span><br><span class="line"></span><br><span class="line">values.filterIsInstance(String::<span class="keyword">class</span>) <span class="comment">// 仅保留 String 类型</span></span><br><span class="line">    .collect &#123; <span class="comment">/* 此时 it 的类型已自动推断为 String */</span> &#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>泛型陷阱</strong>：这是许多开发者最容易忽略的 JVM 底层限制。虽然 <code>reified</code> 允许我们写出 <code>filterIsInstance&lt;List&lt;String&gt;&gt;()</code>，但由于 <strong>JVM 类型擦除</strong>，运行时系统实际上只知道它是一个 <code>List</code>，无法区分它是 <code>List&lt;String&gt; </code>还是 <code>List&lt;Int&gt;</code>。</p>
+<p> <strong>结论</strong>：<code>filterIsInstance</code> 只能精确识别最外层的类，无法穿透嵌套泛型。</p>
+<p> 如果你必须过滤出 <code>List&lt;String&gt;</code>，你需要采用「<strong>先探测外层，再手动校验内层</strong>」的组合策略：</p>
+ <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">flow.filterIsInstance&lt;List&lt;*&gt;&gt;() <span class="comment">// 1. 先确保它是 List</span></span><br><span class="line">    .filter &#123; it.all &#123; element -&gt; element <span class="keyword">is</span> String &#125; &#125; <span class="comment">// 2. 手动校验内部元素类型</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>适用场景</strong>：处理多类型 UI 布局、状态机事件流。</p>
+</li>
+</ul>
+<h1 id="2、distinctUntilChanged-操作符"><a href="#2、distinctUntilChanged-操作符" class="headerlink" title="2、distinctUntilChanged 操作符"></a>2、distinctUntilChanged 操作符</h1><p>处理频繁发射的数据流时，「去重」是优化性能、减少 UI 冗余刷新的关键手段。<code>distinctUntilChanged</code> 系列操作符正是为此而生。</p>
+<h2 id="2-1-distinctUntilChanged：默认去重"><a href="#2-1-distinctUntilChanged：默认去重" class="headerlink" title="2.1 distinctUntilChanged：默认去重"></a>2.1 distinctUntilChanged：默认去重</h2><p>这是最基础、最常用的去重 API。它不需要任何参数，直接作用于数据流。</p>
+<ul>
+<li><p><strong>API 语义</strong>：对比当前发射的元素与上一个元素，若相等则丢弃，若不同则转发。</p>
+</li>
+<li><p><strong>代码示例</strong>：</p>
+ <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">flowOf(<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">1</span>)</span><br><span class="line">    .distinctUntilChanged()</span><br><span class="line">    .collect &#123; println(it) &#125; <span class="comment">// 输出: 1, 2, 3, 1</span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>判断机制</strong>：使用 Kotlin 的 <code>==</code> 操作符。在底层，这对应于 <code>equals()</code> 方法的调用。</p>
+</li>
+<li><p><strong>空安全特性</strong>：该实现天然兼容 <code>null</code>。在 Kotlin 中 <code>null == null</code> 返回 <code>true</code>，因此连续的 <code>null</code> 会被视为重复并过滤。</p>
+</li>
+</ul>
+<h2 id="2-2-distinctUntilChanged-old-new-…-：自定义去重"><a href="#2-2-distinctUntilChanged-old-new-…-：自定义去重" class="headerlink" title="2.2 distinctUntilChanged { old, new -&gt; … }：自定义去重"></a>2.2 distinctUntilChanged { old, new -&gt; … }：自定义去重</h2><p>有时候默认的 <code>equals()</code> 逻辑太死板，无法满足特定的业务需求。此时你可以提供一个自定义的谓词。</p>
+<ul>
+<li><p><strong>API 语义</strong>：自定义「相等」的逻辑。Lambda 接收旧值和新值，返回 <code>true</code> 表示相等（过滤），返回 <code>false</code> 表示不同（保留）。</p>
+</li>
+<li><p><strong>代码示例</strong>：</p>
+ <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 只有当新旧值差值大于 0.1 时才发射</span></span><br><span class="line">flow.distinctUntilChanged &#123; old, new -&gt; </span><br><span class="line">    abs(new - old) &lt; <span class="number">0.1</span> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>实战场景</strong>：处理浮点数精度。例如，当两次位置经纬度的差值小于 0.0001 时，我们认为位置没有显著变化，不需要刷新地图。</p>
+</li>
+</ul>
+<h2 id="2-3-distinctUntilChangedBy-it-property"><a href="#2-3-distinctUntilChangedBy-it-property" class="headerlink" title="2.3 distinctUntilChangedBy { it.property }"></a>2.3 distinctUntilChangedBy { it.property }</h2><p>在处理复杂对象（如 <code>User</code> 或 <code>Order</code>）时，我们往往只想根据某个<strong>核心字段</strong>来决定是否去重，而不是比较整个对象。</p>
+<ul>
+<li><p><strong>API 语义</strong>：接收一个 <code>keySelector</code> 函数，从原始数据中<strong>提取</strong>出一个「键（Key）」。操作符会根据这个 Key 的连续变化来决定是否过滤原始数据。</p>
+</li>
+<li><p><strong>关键特性</strong>：<strong>不改变源数据</strong>。<code>keySelector</code> 提取的 Key 仅用于比较逻辑，<strong>不会修改</strong>发送给下游的原始对象。</p>
+</li>
+<li><p><strong>代码示例</strong>：忽略大小写去重。</p>
+ <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> flow = flowOf(<span class="string">&quot;hello&quot;</span>, <span class="string">&quot;HELLO&quot;</span>, <span class="string">&quot;world&quot;</span>)</span><br><span class="line">flow.distinctUntilChangedBy &#123; it.uppercase() &#125;</span><br><span class="line">    .collect &#123; println(it) &#125; <span class="comment">// 输出: &quot;hello&quot;, &quot;world&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p> <em>注意：虽然比较时用了大写，但输出的依然是原始的小写 “hello”，这保证了数据的完整性。</em></p>
+</li>
+</ul>
+<h2 id="2-4-如何精准选型"><a href="#2-4-如何精准选型" class="headerlink" title="2.4 如何精准选型"></a>2.4 如何精准选型</h2><ul>
+<li><strong>基础类型（Int, String）或 Data Class</strong>：直接使用 <code>distinctUntilChanged()</code>，代码最简洁。</li>
+<li><strong>复杂对象且只需根据 ID 去重</strong>：使用 <code>distinctUntilChangedBy &#123; it.id &#125;</code>，性能最高且不破坏数据结构。</li>
+<li><strong>模糊匹配或范围判断</strong>：使用带 Lambda 的 <code>distinctUntilChanged &#123; old, new -&gt; ... &#125;</code>。</li>
+</ul>
+<h1 id="3、时间操作符"><a href="#3、时间操作符" class="headerlink" title="3、时间操作符"></a>3、时间操作符</h1><p>对「时间」的掌控力往往决定了代码的质量。Kotlin Flow 提供的三个时间相关操作符：<code>timeout</code>、<code>sample</code> 和 <code>debounce</code>，分别对应了三种完全不同的流控哲学。</p>
+<h2 id="3-1-timeout：节奏的“监视器”"><a href="#3-1-timeout：节奏的“监视器”" class="headerlink" title="3.1 timeout：节奏的“监视器”"></a>3.1 timeout：节奏的“监视器”</h2><p><code>timeout</code> 的核心逻辑是：<strong>“上游发射太慢，我就及时止损。”</strong> 它通过监控相邻两发数据之间的时间间隔，确保流的实时性。</p>
+<ul>
+<li><p><strong>核心机制</strong></p>
+<ul>
+<li><strong>计时启动</strong>：从 <code>collect</code> 开始，或从上一条数据发射后立即重新计时。</li>
+<li><strong>抛出异常</strong>：若在预设时间内未等到下条数据，抛出 <code>TimeoutCancellationException</code>。</li>
+</ul>
+</li>
+<li><p><strong>代码示例</strong></p>
+ <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@OptIn(FlowPreview::class)</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">observeInputStatus</span><span class="params">(inputFlow: <span class="type">Flow</span>&lt;<span class="type">String</span>&gt;)</span></span> = scope.launch &#123;</span><br><span class="line">    inputFlow</span><br><span class="line">        .timeout(<span class="number">5.</span>seconds) <span class="comment">// 设置 5 秒超时</span></span><br><span class="line">        .<span class="keyword">catch</span> &#123; e -&gt;</span><br><span class="line">            <span class="keyword">if</span> (e <span class="keyword">is</span> TimeoutCancellationException) &#123;</span><br><span class="line">                emit(<span class="string">&quot;已停止输入&quot;</span>) <span class="comment">// 超时后切换状态</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        .collect &#123; </span><br><span class="line">            println(<span class="string">&quot;用户正在输入: <span class="variable">$it</span>&quot;</span>) </span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="3-2-sample：固定频率的“采样员”"><a href="#3-2-sample：固定频率的“采样员”" class="headerlink" title="3.2 sample：固定频率的“采样员”"></a>3.2 sample：固定频率的“采样员”</h2><p><code>sample</code> 的哲学是：<strong>“不管上游发多快，我只按我的表来。”</strong> 它将连续的流离散化，只捕捉特定时刻的快照。</p>
+<ul>
+<li><p><strong>核心机制</strong></p>
+<ul>
+<li><strong>固定窗口</strong>：开启周期性“掐表”计时（如每 1s 一次）。</li>
+<li><strong>最新获胜</strong>：在一个周期内，无论上游发了多少条数据，只保留<strong>最新</strong>的一条。</li>
+</ul>
+</li>
+<li><p><strong>代码示例</strong></p>
+ <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 模拟高频变化的股票价格</span></span><br><span class="line"><span class="keyword">val</span> stockPriceFlow = flow &#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">        emit(Random.nextDouble(<span class="number">100.0</span>, <span class="number">150.0</span>))</span><br><span class="line">        delay(<span class="number">10</span>) <span class="comment">// 每 10 毫秒发射一次</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">stockPriceFlow</span><br><span class="line">    .sample(<span class="number">1000</span>) <span class="comment">// 每 1 秒采样一次，降低 UI 刷新频率</span></span><br><span class="line">    .onEach &#123; price -&gt; </span><br><span class="line">        updateChart(price) </span><br><span class="line">    &#125;</span><br><span class="line">    .launchIn(viewModelScope)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="3-3-debounce：动中取静的“消音器”"><a href="#3-3-debounce：动中取静的“消音器”" class="headerlink" title="3.3 debounce：动中取静的“消音器”"></a>3.3 debounce：动中取静的“消音器”</h2><p>debounce 的逻辑是：<strong>“等你不折腾了，我再取最后的值。”</strong> 它非常擅长处理那些“高频震荡但最终会趋于稳定”的场景。</p>
+<ul>
+<li><p><strong>核心机制</strong></p>
+<ul>
+<li><strong>动态计时</strong>：每收到新数据，旧计时器立即作废，重新开始计时。</li>
+<li><strong>静默发射</strong>：只有当上游在指定时间内（静默期）没有新数据，才发射最后缓存的数据。</li>
+</ul>
+</li>
+<li><p><strong>代码示例</strong>：</p>
+ <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">searchQueryFlow</span><br><span class="line">    .filter &#123; it.isNotBlank() &#125;</span><br><span class="line">    .debounce(<span class="number">500</span>) <span class="comment">// 只有用户停顿 500ms 才会发起搜索</span></span><br><span class="line">    .distinctUntilChanged() <span class="comment">// 避免重复请求</span></span><br><span class="line">    .flatMapLatest &#123; query -&gt;</span><br><span class="line">        searchApi.search(query)</span><br><span class="line">    &#125;</span><br><span class="line">    .onEach &#123; results -&gt; </span><br><span class="line">        showResults(results) </span><br><span class="line">    &#125;</span><br><span class="line">    .launchIn(viewModelScope)</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>避坑指南</strong>：<strong>不要在按钮点击事件中使用 Debounce。</strong></p>
+<p>  <code>debounce</code> 会引入感知延迟。针对按钮防抖，我们通常需要<strong>立即执行第一次</strong>并忽略后续点击。</p>
+<p>  <strong>推荐方案</strong>：<strong>自定义 <code>throttleFirst</code></strong></p>
+ <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="type">&lt;T&gt;</span> Flow<span class="type">&lt;T&gt;</span>.<span class="title">throttleFirst</span><span class="params">(windowDuration: <span class="type">Long</span>)</span></span>: Flow&lt;T&gt; = flow &#123;</span><br><span class="line">    <span class="keyword">var</span> lastEmissionTime = <span class="number">0L</span></span><br><span class="line">    collect &#123; value -&gt;</span><br><span class="line">        <span class="keyword">val</span> currentTime = System.currentTimeMillis()</span><br><span class="line">        <span class="keyword">if</span> (currentTime - lastEmissionTime &gt; windowDuration) &#123;</span><br><span class="line">            lastEmissionTime = currentTime</span><br><span class="line">            emit(value)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="4、限流操作符-drop-和-take"><a href="#4、限流操作符-drop-和-take" class="headerlink" title="4、限流操作符 drop 和 take"></a>4、限流操作符 drop 和 take</h1><p>在处理数据流（Flow）时，我们经常需要处理「前缀」数据。Kotlin 提供了四种核心操作符来处理这种需求。它们的共同特点是：<strong>一旦判定逻辑触发（达到数量或条件不符），后续的判定行为就会彻底停止。</strong></p>
+<h2 id="4-1-drop-n-Int-：跳过前-N-个"><a href="#4-1-drop-n-Int-：跳过前-N-个" class="headerlink" title="4.1 drop(n: Int)：跳过前 N 个"></a>4.1 drop(n: Int)：跳过前 N 个</h2><p>这是最简单的操作符。它像一个计数器，前 n 个元素进入时会被拦截并丢弃。</p>
+<ul>
+<li><strong>API 语义</strong>：前 n 条数据直接舍弃，从第 n+1 条开始，开启「全量转发」模式。</li>
+<li><strong>代码示例</strong>： <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">flowOf(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>).drop(<span class="number">2</span>).collect &#123; println(it) &#125; </span><br><span class="line"><span class="comment">// 输出: 3, 4, 5</span></span><br></pre></td></tr></table></figure></li>
+<li><strong>应用场景</strong>：当你订阅一个 <code>SharedFlow</code>，但不想处理重播（Replay）出来的旧缓存，只想看之后的新数据时。</li>
+</ul>
+<h2 id="4-2-dropWhile-predicate-：条件触发跳过"><a href="#4-2-dropWhile-predicate-：条件触发跳过" class="headerlink" title="4.2 dropWhile { predicate }：条件触发跳过"></a>4.2 dropWhile { predicate }：条件触发跳过</h2><p><code>dropWhile</code> 更加灵活，它不是看数量，而是看<strong>条件</strong>。</p>
+<ul>
+<li><strong>关键行为</strong>：它会逐一检查流入的数据。只要 <code>predicate</code> 返回 <code>true</code>，就丢弃；<strong>一旦遇到第一个返回 <code>false</code> 的数据</strong>，它会立即转发该数据，并<strong>永久关闭</strong>判定逻辑。</li>
+<li><strong>特别注意</strong>：一旦判定停止，后面即便再出现符合条件的数据，也不会被丢弃了。</li>
+<li><strong>代码示例</strong>： <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 目标：跳过所有小于 3 的前缀数据</span></span><br><span class="line">flowOf(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">5</span>).dropWhile &#123; it &lt; <span class="number">3</span> &#125;.collect &#123; println(it) &#125;</span><br><span class="line"><span class="comment">// 输出: 3, 1, 5 （注意：第二个 1 被转发了，因为判定在遇到 3 时已终止）</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="4-3-take-n-Int-：只取前-N-个"><a href="#4-3-take-n-Int-：只取前-N-个" class="headerlink" title="4.3 take(n: Int)：只取前 N 个"></a>4.3 take(n: Int)：只取前 N 个</h2><p><code>take</code> 的逻辑与 <code>drop</code> 相反，它是为了“尽早结束”。</p>
+<ul>
+<li><strong>API 语义</strong>：仅转发前 n 个元素。发完第 n 个后，它会主动发出一个取消信号，<strong>终止上游 Flow</strong>。</li>
+<li><strong>代码示例</strong>： <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">flowOf(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>).take(<span class="number">2</span>).collect &#123; println(it) &#125;</span><br><span class="line"><span class="comment">// 输出: 1, 2 （流在此处结束，3、4、5 不会被生产）</span></span><br></pre></td></tr></table></figure></li>
+<li><strong>性能意义</strong>：它是「响应式」的，能告诉上游：“我够了，你可以停工了。”这在处理无限循环流时至关重要。</li>
+</ul>
+<h2 id="4-4-takeWhile-predicate-：条件触发截断"><a href="#4-4-takeWhile-predicate-：条件触发截断" class="headerlink" title="4.4 takeWhile { predicate }：条件触发截断"></a>4.4 takeWhile { predicate }：条件触发截断</h2><p>这是最具「破坏性」的操作符，用于维护流的<strong>连续有效性</strong>。</p>
+<ul>
+<li><strong>关键行为</strong>：只要条件满足（<code>true</code>），数据就转发；<strong>一旦遇到第一个返回 <code>false</code> 的数据</strong>，该数据被丢弃，且<strong>整个 Flow 立即宣告结束</strong>。</li>
+<li><strong>代码示例</strong>： <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 目标：只要数字小于 3 就继续转发</span></span><br><span class="line">flowOf(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">5</span>).takeWhile &#123; it &lt; <span class="number">3</span> &#125;.collect &#123; println(it) &#125;</span><br><span class="line"><span class="comment">// 输出: 1, 2 （遇到 3 时不符合条件，流直接掐断，后面的 1 和 5 永远见不到了）</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="5、map-操作符"><a href="#5、map-操作符" class="headerlink" title="5、map 操作符"></a>5、map 操作符</h1><p>在响应式编程中，<code>map</code> 是最基本的操作，但在复杂的业务场景下，单纯的映射往往不够用。为此，Kotlin Flow 提供了三个维度各异的 API 来应对同步转换、空值过滤和异步竞争。</p>
+<h2 id="5-1-map：基础同步映射"><a href="#5-1-map：基础同步映射" class="headerlink" title="5.1 map：基础同步映射"></a>5.1 map：基础同步映射</h2><p><code>map</code> 是最原始的「加工厂」，它对数据流进行一对一的转换。</p>
+<ul>
+<li><strong>工作模式</strong>：<strong>同步且线性</strong>。它会严格按照上游发送数据的顺序进行处理。只有当前面的数据转换完成并发送给下游后，才会处理下一条数据。</li>
+<li><strong>行为逻辑</strong>：<ul>
+<li>输入 1 个，输出 1 个。</li>
+<li>即使转换结果是 <code>null</code>，也会原样转发给下游。</li>
+</ul>
+</li>
+<li><strong>代码示例</strong>： <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">flowOf(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>).map &#123; it * <span class="number">2</span> &#125;.collect &#123; println(it) &#125; </span><br><span class="line"><span class="comment">// 输出: 2, 4, 6</span></span><br></pre></td></tr></table></figure></li>
+<li><strong>适用场景</strong>：简单的格式转换、非耗时的计算逻辑。</li>
+</ul>
+<h2 id="5-2-mapNotNull：映射与空值过滤"><a href="#5-2-mapNotNull：映射与空值过滤" class="headerlink" title="5.2 mapNotNull：映射与空值过滤"></a>5.2 mapNotNull：映射与空值过滤</h2><p>在实际开发中，转换逻辑往往伴随着「有效性检查」。如果转换失败，我们通常希望这条数据直接消失。</p>
+<ul>
+<li><strong>工作模式</strong>：<strong>转换 + 质检</strong>。它在执行完转换逻辑后，会自动检查结果。</li>
+<li><strong>行为逻辑</strong>：<ul>
+<li>等价于 <code>map &#123; ... &#125;.filter &#123; it != null &#125;</code>。</li>
+<li>如果闭包返回 <code>null</code>，这条数据会被流静默丢弃，下游不会收到任何信号。</li>
+</ul>
+</li>
+<li><strong>代码示例</strong>： <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> <span class="keyword">data</span> = flowOf(<span class="string">&quot;1&quot;</span>, <span class="string">&quot;2&quot;</span>, <span class="string">&quot;abc&quot;</span>, <span class="string">&quot;3&quot;</span>)</span><br><span class="line"><span class="keyword">data</span>.mapNotNull &#123; it.toIntOrNull() &#125;.collect &#123; println(it) &#125;</span><br><span class="line"><span class="comment">// 输出: 1, 2, 3 (&quot;abc&quot; 转换结果为 null，被自动过滤)</span></span><br></pre></td></tr></table></figure></li>
+<li><strong>适用场景</strong>：数据清洗、从混合列表中提取特定类型、尝试解析可能失败的 JSON。</li>
+</ul>
+<h2 id="5-3-mapLatest：异步中断映射"><a href="#5-3-mapLatest：异步中断映射" class="headerlink" title="5.3 mapLatest：异步中断映射"></a>5.3 mapLatest：异步中断映射</h2><p>这是处理<strong>高频触发任务</strong>的神器。它的核心逻辑不是「顺序」，而是「<strong>最新优先</strong>」。</p>
+<ul>
+<li><p><strong>工作模式</strong>：<strong>异步且可抢占</strong>。当新数据到达时，如果旧的数据转换任务还在进行，<code>mapLatest</code> 会毫不留情地「<strong>取消</strong>」旧任务，转而启动新任务。</p>
+</li>
+<li><p><strong>行为逻辑</strong>：</p>
+<ul>
+<li>它利用了 Kotlin 协程的取消机制。</li>
+<li>不保证每一个输入都有输出，只保证「最新」的一个输入能最终完成转换（如果之后没有新数据干扰）。</li>
+</ul>
+</li>
+<li><p><strong>经典案例</strong>：<strong>搜索建议</strong>，当用户在搜索框输入“K”、“Ko”、“Kot”时，每一个字母都会触发 API 请求。</p>
+<ul>
+<li>输入“K”，启动请求 R<sub>1</sub>。</li>
+<li>还没等 R<sub>1</sub> 回来，用户输入了“Ko”。</li>
+<li><code>mapLatest</code> 立即取消 R<sub>1</sub>，启动 R<sub>2</sub>。</li>
+</ul>
+<p>  这样可以极大节省资源，并确保 UI 显示的内容永远匹配用户最后一次的操作。</p>
+</li>
+</ul>
+<h2 id="5-4-mapLatest：去重映射"><a href="#5-4-mapLatest：去重映射" class="headerlink" title="5.4 mapLatest：去重映射"></a>5.4 mapLatest：去重映射</h2><p>在实际开发（尤其是搜索框、过滤器联动等场景）中，单纯使用 <code>mapLatest</code> 有时还是会造成资源浪费。配合 <code>distinctUntilChanged</code> 可以实现更高级的性能优化。<code>mapLatest</code> 虽然能取消旧任务，但它无法阻止<strong>重复任务</strong>的开启。</p>
+<ul>
+<li><strong>场景</strong>：用户在搜索框输入了 “Kotlin”，然后误触删除了 “n” 又飞快补了一个 “n”。</li>
+<li><strong>问题</strong>：此时上游发出的内容序列是 <code>[&quot;Kotlin&quot;, &quot;Kotli&quot;, &quot;Kotlin&quot;]</code>。对于 <code>mapLatest</code> 来说，最后的 “Kotlin” 是一个新信号，它会取消之前的请求并重新发起一个新的 “Kotlin” 搜索请求。</li>
+<li><strong>浪费</strong>：明明搜索词没变，却重新请求了一次网络。</li>
+<li><strong>代码示例</strong>：过滤掉与上一次发出的值重复的数据。 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">searchQueryFlow</span><br><span class="line">    .debounce(<span class="number">300</span>)            <span class="comment">// 防抖：停顿300ms才向下发送</span></span><br><span class="line">    .distinctUntilChanged()   <span class="comment">// 去重：如果内容没变，不触发后续逻辑</span></span><br><span class="line">    .mapLatest &#123; query -&gt;     <span class="comment">// 异步：只处理最新的请求</span></span><br><span class="line">        searchApi.doSearch(query)</span><br><span class="line">    &#125;</span><br><span class="line">    .collect &#123; ... &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="6、transform-操作符"><a href="#6、transform-操作符" class="headerlink" title="6、transform 操作符"></a>6、transform 操作符</h1><p>如果说 <code>map</code> 和 <code>filter</code> 是精美的「成品家具」，那么 <code>transform</code> 系列就是你手中的「木材与电锯」——它允许你从底层开始，随心所欲地构建数据流转换逻辑。</p>
+<h2 id="6-1-transform：万能的发射控制器"><a href="#6-1-transform：万能的发射控制器" class="headerlink" title="6.1 transform：万能的发射控制器"></a>6.1 transform：万能的发射控制器</h2><p><code>transform</code> 是所有转换操作符的鼻祖。事实上，<code>map</code> 在底层就是通过调用 <code>transform</code> 实现的。</p>
+<ul>
+<li><strong>核心逻辑</strong>：它不再要求你「返回」一个值，而是给你一个 <code>FlowCollector</code> 上下文。你必须手动调用 <code>emit()</code> 来发送数据。</li>
+<li><strong>API 特性</strong>：<ul>
+<li><strong>灵活性</strong>：你可以不发射（过滤）、发射一次（映射）、或发射多次（一对多）。</li>
+<li><strong>上下文</strong>：大括号内的 <code>this</code> 指向收集器，允许你自由控制发射时机。</li>
+</ul>
+</li>
+<li><strong>代码示例</strong>： <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">flowOf(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>).transform &#123; value -&gt;</span><br><span class="line">    emit(<span class="string">&quot;开始处理 <span class="variable">$value</span>&quot;</span>)</span><br><span class="line">    <span class="keyword">if</span> (value % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">        emit(<span class="string">&quot;发现偶数: <span class="variable">$value</span>&quot;</span>) <span class="comment">// 一对多发射</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;.collect &#123; println(it) &#125;</span><br></pre></td></tr></table></figure></li>
+<li><strong>适用场景</strong>：需要根据上游的一个信号产生多个结果，或者需要复杂的嵌套逻辑决定是否发射数据。</li>
+</ul>
+<h2 id="6-2-transformWhile：带“自毁”机制的转换"><a href="#6-2-transformWhile：带“自毁”机制的转换" class="headerlink" title="6.2 transformWhile：带“自毁”机制的转换"></a>6.2 transformWhile：带“自毁”机制的转换</h2><p>当你需要在满足某个条件时立即掐断整个 Flow，<code>transformWhile</code> 是最高效的工具。它完美结合了 <code>transform</code> 的灵活性和 <code>takeWhile</code> 的截断能力。</p>
+<ul>
+<li><strong>核心逻辑</strong>：闭包必须返回一个 <code>Boolean</code>。只要返回 <code>true</code>，流就继续；一旦返回 <code>false</code>，整个 Flow 立即宣告结束。</li>
+<li><strong>API 特性</strong>：<ul>
+<li><strong>执行时序</strong>：先执行大括号内的代码，最后根据返回值决定是否继续。</li>
+<li><strong>注意事项</strong>：如果你在代码块里先 <code>emit(data)</code> 然后 <code>return false</code>，那么这条 <code>data</code> <strong>依然会被发送</strong>出去，流会在发送完这一条后关闭。</li>
+</ul>
+</li>
+<li><strong>代码示例</strong>： <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">flowOf(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>).transformWhile &#123; value -&gt;</span><br><span class="line">    emit(value)</span><br><span class="line">    value &lt; <span class="number">3</span> <span class="comment">// 当 value 等于 3 时返回 false，Flow 停止，4 和 5 永远不会被处理</span></span><br><span class="line">&#125;.collect &#123; println(it) &#125;</span><br></pre></td></tr></table></figure></li>
+<li><strong>适用场景</strong>：监控数据流，当发现某个异常信号或达到某个阈值时，立即停止所有后续处理。</li>
+</ul>
+<h2 id="6-3-transformLatest：最新优先的异步加工"><a href="#6-3-transformLatest：最新优先的异步加工" class="headerlink" title="6.3 transformLatest：最新优先的异步加工"></a>6.3 transformLatest：最新优先的异步加工</h2><p>这是处理「高频更新」场景的终极利器。它是 <code>mapLatest</code> 的底层实现，核心在于<strong>任务的可取消性</strong>。</p>
+<ul>
+<li><strong>核心逻辑</strong>：当上游发送新数据时，如果上一个数据的 <code>transformLatest</code> 闭包还在运行（比如正在进行耗时的网络请求或 <code>delay</code>），它会<strong>立即取消</strong>旧任务。</li>
+<li><strong>API 特性</strong>：<ul>
+<li><strong>竞争机制</strong>：它不保证每个输入都有产出。如果输入太快，中间过程会被直接“掐掉”。</li>
+<li><strong>异步友好</strong>：非常适合闭包内包含挂起函数（<code>suspend</code>）的场景。</li>
+</ul>
+</li>
+<li><strong>代码示例</strong>： <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">flow &#123;</span><br><span class="line">    emit(<span class="number">1</span>)</span><br><span class="line">    delay(<span class="number">50</span>)</span><br><span class="line">    emit(<span class="number">2</span>)</span><br><span class="line">&#125;.transformLatest &#123; value -&gt;</span><br><span class="line">    delay(<span class="number">100</span>) <span class="comment">// 模拟耗时处理</span></span><br><span class="line">    emit(<span class="string">&quot;结果: <span class="variable">$value</span>&quot;</span>)</span><br><span class="line">&#125;.collect &#123; println(it) &#125;</span><br><span class="line"><span class="comment">// 输出：由于 2 在 50ms 时到达，此时 1 的 100ms 处理还没完，1 被取消，最终只输出 &quot;结果: 2&quot;</span></span><br></pre></td></tr></table></figure></li>
+<li><strong>适用场景</strong>：搜索框实时联想、UI 状态快速连续切换时的资源释放。</li>
+</ul>
+<h1 id="7、withIndex-操作符"><a href="#7、withIndex-操作符" class="headerlink" title="7、withIndex 操作符"></a>7、withIndex 操作符</h1><p>在真实开发过程中，我们经常需要知道某个数据是流中的第几个元素。虽然我们可以手动维护一个外部计数器，但 Kotlin 提供了一个更加优雅的解决方案：<code>withIndex</code> 操作符。</p>
+<h2 id="7-1-withIndex：流的序号化"><a href="#7-1-withIndex：流的序号化" class="headerlink" title="7.1 withIndex：流的序号化"></a>7.1 withIndex：流的序号化</h2><p><code>withIndex</code> 是一个<strong>中间操作符</strong>，它的唯一使命就是为流中的每个元素按顺序编号。</p>
+<ul>
+<li><p><strong>功能定义</strong>：它会将原始流中的每一个元素 T 包装成一个带序号的复合对象。</p>
+</li>
+<li><p><strong>序号规则</strong>：从 <strong>0</strong> 开始递增。</p>
+</li>
+<li><p><strong>输入输出</strong>：</p>
+<ul>
+<li>输入：<code>Flow&lt;T&gt;</code></li>
+<li>输出：<code>Flow&lt;IndexedValue&lt;T&gt;&gt;</code></li>
+</ul>
+</li>
+<li><p><strong>核心结构</strong>：<code>IndexedValue&lt;T&gt;</code></p>
+<p>  当你使用了 <code>withIndex</code> 后，下游接收到的不再是裸数据，而是一个 <code>IndexedValue</code> 类型的 <strong>Data Class</strong>。</p>
+<p>  它在 Kotlin 标准库中的结构大致如下：</p>
+ <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">data</span> <span class="keyword">class</span> <span class="title class_">IndexedValue</span>&lt;<span class="type">out T</span>&gt;(<span class="keyword">val</span> index: <span class="built_in">Int</span>, <span class="keyword">val</span> value: T)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>index</code>：这是系统自动分配的索引，代表它是流中的第几个元素。</li>
+<li><code>value</code>：这是你原来的数据。</li>
+</ul>
+</li>
+<li><p><strong>代码示例</strong>：</p>
+ <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">flowOf(<span class="string">&quot;A&quot;</span>, <span class="string">&quot;B&quot;</span>, <span class="string">&quot;C&quot;</span>)</span><br><span class="line">    .withIndex()</span><br><span class="line">    .collect &#123; item -&gt;</span><br><span class="line">        println(<span class="string">&quot;第 <span class="subst">$&#123;item.index&#125;</span> 个元素是 <span class="subst">$&#123;item.value&#125;</span>&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">flowOf(<span class="string">&quot;A&quot;</span>, <span class="string">&quot;B&quot;</span>, <span class="string">&quot;C&quot;</span>)</span><br><span class="line">    .withIndex()</span><br><span class="line">    .collect &#123; (index, value) -&gt; </span><br><span class="line">        <span class="comment">// 直接使用 index 和 value 变量</span></span><br><span class="line">        println(<span class="string">&quot;第 <span class="variable">$index</span> 个元素是 <span class="variable">$value</span>&quot;</span>)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="7-2-collectIndexed：终端收集的“计数器”"><a href="#7-2-collectIndexed：终端收集的“计数器”" class="headerlink" title="7.2 collectIndexed：终端收集的“计数器”"></a>7.2 collectIndexed：终端收集的“计数器”</h2><p><code>collectIndexed</code> 是一个<strong>终端操作符（Terminal Operator）</strong>。这意味着当你调用它时，整个数据流才会真正开始启动并产生数据。</p>
+<ul>
+<li><p><strong>功能定义</strong>：它在收集上游发出的每一个元素时，会自动附带一个从 <strong>0</strong> 开始的整数索引。</p>
+</li>
+<li><p><strong>函数签名</strong>：</p>
+ <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">suspend</span> <span class="keyword">inline</span> <span class="function"><span class="keyword">fun</span> <span class="type">&lt;T&gt;</span> Flow<span class="type">&lt;T&gt;</span>.<span class="title">collectIndexed</span><span class="params">(</span></span></span><br><span class="line"><span class="params"><span class="function">    <span class="keyword">crossinline</span> action: <span class="type">suspend</span> (<span class="type">index</span>: <span class="type">Int</span>, <span class="type">value</span>: <span class="type">T</span>) -&gt; <span class="type">Unit</span></span></span></span><br><span class="line"><span class="params"><span class="function">)</span></span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>返回值</strong>：<code>Unit</code>。由于它是终结操作，它不会返回新的 Flow，而是直接消费数据。</p>
+</li>
+<li><p><strong>核心语法</strong>：双参数 Lambda。</p>
+<p>  与普通 <code>collect</code> 不同，<code>collectIndexed</code> 的闭包提供两个参数，顺序固定为：<code>(index, value)</code>。</p>
+<ul>
+<li><code>index</code>：<code>Int</code> 类型，表示当前元素在流中的序号（0, 1, 2…）。</li>
+<li><code>value</code>：<code>T</code> 类型，表示上游发出的原始数据。</li>
+</ul>
+</li>
+<li><p><strong>代码示例</strong>：</p>
+ <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> flow = flowOf(<span class="string">&quot;Kotlin&quot;</span>, <span class="string">&quot;Java&quot;</span>, <span class="string">&quot;Python&quot;</span>)</span><br><span class="line"></span><br><span class="line">flow.collectIndexed &#123; index, name -&gt;</span><br><span class="line">    println(<span class="string">&quot;第 <span class="subst">$&#123;index + <span class="number">1</span>&#125;</span> 个录入的语言是: <span class="variable">$name</span>&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">------------------------</span><br><span class="line">第 <span class="number">1</span> 个录入的语言是: Kotlin</span><br><span class="line">第 <span class="number">2</span> 个录入的语言是: Java</span><br><span class="line">第 <span class="number">3</span> 个录入的语言是: Python</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>关键特性</strong>：<strong>直接性与终端性</strong></p>
+<p>  <code>collectIndexed</code> 的设计初衷是为了<strong>简化终点的处理逻辑</strong>。</p>
+<ol>
+<li><strong>无需解构</strong>：不同于 <code>withIndex().collect &#123; (i, v) -&gt; ... &#125;</code>，<code>collectIndexed</code> 的参数直接就是分离的，不需要从 <code>IndexedValue</code> 对象中解构，语法更加直截了当。</li>
+<li><strong>触发执行</strong>：作为一个终端操作符，它是 Flow 的「点火开关」。一旦调用，上游的 <code>flow &#123; ... &#125;</code> 块才会开始运行。</li>
+</ol>
+</li>
+</ul>
+<h2 id="7-3-withIndex-与-collectIndexed-的差异"><a href="#7-3-withIndex-与-collectIndexed-的差异" class="headerlink" title="7.3 withIndex 与 collectIndexed 的差异"></a>7.3 withIndex 与 collectIndexed 的差异</h2><p>这是面试或开发中最容易混淆的两个 API。它们都能提供索引，但定位完全不同：</p>
+<table style="font-family: 'Google Sans Text', 'Noto Sans', 'Noto Sans JP', 'Noto Sans KR', 'Noto Naskh Arabic', 'Noto Sans Thai', 'Noto Sans Hebrew', 'Noto Sans Bengali', sans-serif;">
 	<tbody>
 		<tr style="text-align:center">
-			<th align="center" width="20%" colspan="1">Windows</th>
-			<th align="center" width="20%" colspan="1">Mac</th>
-			<th align="center" width="60%" colspan="1">描述</th>
+			<th align="center" width="20%" colspan="1">特性</th>
+			<th align="center" width="40%" colspan="1"><code>withIndex</code></th>
+			<th align="center" width="40%" colspan="1"><code>collectIndexed</code></th>
 		</tr>
 		<tr>
-			<td align="center">Ctrl + E</td>
-			<td align="center">Cmd + E</td>
-            <td align="center">快速查看最近打开过的文件。</td>
+			<td align="center"><strong>角色定位</strong></td>
+			<td align="center"><strong>中间转换操作符</strong></td>
+			<td align="center"><strong>终端收集操作符</strong></td>
 		</tr>
 		<tr>
-			<td align="center">Ctrl + Shift + E</td>
-			<td align="center">Cmd + Shift + E</td>
-            <td align="center">快速查看最近编辑过的文件。</td>
+			<td align="center"><strong>参数形式</strong></td>
+			<td align="center">包装成 <code>IndexedValue</code> 对象</td>
+			<td align="center">直接提供两个参数 <code>(index, value)</code></td>
 		</tr>
 		<tr>
-			<td align="center">Ctrl + P</td>
-			<td align="center">Cmd + P</td>
-            <td align="center">查看方法的参数信息。</td>
+			<td align="center"><strong>链式调用</strong></td>
+			<td align="center">后面可以继续接 <code>filter</code>,<code>map</code>等</td>
+			<td align="center">它是终点，后面不能再接任何东西</td>
 		</tr>
 		<tr>
-			<td align="center">Ctrl + U</td>
-			<td align="center">Cmd + U</td>
-            <td align="center">跳转到当前方法的父类实现，或者当前类的父类。</td>
-		</tr>
-		<tr>
-			<td align="center">Ctrl + H</td>
-			<td align="center">Cmd + H</td>
-            <td align="center">查看一个类的继承树。</td>
-		</tr>
-		<tr>
-			<td align="center">Ctrl + Shift + H</td>
-			<td align="center">Cmd + Shift + H</td>
-            <td align="center">打开方法层次结构。</td>
-		</tr>
-		<tr>
-			<td align="center">Ctrl + Alt + H</td>
-			<td align="center">Cmd + Option + H</td>
-            <td align="center">打开调用层次结构。</td>
-		</tr>
-		<tr>
-			<td align="center">Ctrl + Alt + B</td>
-			<td align="center">Cmd + Opt + B</td>
-            <td align="center">当光标位于接口名上时，按下快捷键可以快速找到该接口的所有实现类。</td>
-		</tr>
-		<tr>
-			<td align="center">Ctrl + F12</td>
-			<td align="center">Cmd + F12</td>
-            <td align="center">当光标位于类中时，按下快捷键可以显示当前文件的结构，包括所有方法和变量。</td>
-		</tr>
-		<tr>
-			<td align="center">Ctrl + Shift + C</td>
-			<td align="center">Cmd + Shift + C</td>
-            <td align="center">复制当前文件的路径。</td>
+			<td align="center"><strong>灵活性</strong></td>
+			<td align="center"><strong>极高</strong>：可以在流的中间阶段利用索引过滤</td>
+			<td align="center"><strong>一般</strong>：索引仅供最终处理使用</td>
 		</tr>
 	</tbody>
 </table>
 
-<blockquote>
-<p><font style="color:#01579B;font-size:14px;"><strong>✦ 参考链接</strong>：<strong><a href="https://developer.android.google.cn/studio/intro/keyboard-shortcuts?hl=zh-cn">键盘快捷键 @ Google for Developers</a></strong></font></p>
-</blockquote>
+<h1 id="8、reduce-和-fold-操作符"><a href="#8、reduce-和-fold-操作符" class="headerlink" title="8、reduce 和 fold 操作符"></a>8、reduce 和 fold 操作符</h1><p>当我们谈论「把一堆数据变成一个结果」时，<code>reduce</code> 和 <code>fold</code> 是绕不开的双子星。这套操作符体系其实是在解决两个核心问题：“<strong>从哪开始？</strong>” 以及 “<strong>要不要过程？</strong>”</p>
+<h2 id="8-1-reduce：自动初始化的归约器"><a href="#8-1-reduce：自动初始化的归约器" class="headerlink" title="8.1 reduce：自动初始化的归约器"></a>8.1 reduce：自动初始化的归约器</h2><p><code>reduce</code> 是最纯粹的聚合操作，它不依赖外部初始值，完全利用数据流内部的元素进行合并。</p>
+<ul>
+<li><strong>API 特性</strong>：<ul>
+<li><strong>初始值</strong>：默认取集合或流的<strong>第一个元素</strong>作为初始累加器（Accumulator）。</li>
+<li><strong>计算顺序</strong>：从第二个元素开始参与计算。</li>
+<li><strong>类型限制</strong>：累加结果的类型必须与元素类型一致（例如 <code>Int</code> 只能聚合成 <code>Int</code>）。</li>
+</ul>
+</li>
+<li><strong>Flow 中的表现</strong>：<ul>
+<li>属于<strong>终端操作符</strong>（Terminal Operator），是<strong>挂起函数</strong>。</li>
+<li>调用后会启动 Flow 收集，直到流结束才返回最终的单一结果。</li>
+</ul>
+</li>
+<li><strong>代码示例</strong>： <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1+2+3+4+5 = 15</span></span><br><span class="line"><span class="keyword">val</span> result = flowOf(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>).reduce &#123; acc, value -&gt; acc + value &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="8-2-fold：带初始值的灵活聚合"><a href="#8-2-fold：带初始值的灵活聚合" class="headerlink" title="8.2 fold：带初始值的灵活聚合"></a>8.2 fold：带初始值的灵活聚合</h2><p>如果你需要一个「底座」，或者希望聚合后的结果与原数据类型不同，<code>fold</code> 是唯一的选择。</p>
+<ul>
+<li><strong>API 特性</strong>：<ul>
+<li><strong>初始值</strong>：必须显式提供一个 <code>initial</code> 参数。</li>
+<li><strong>计算顺序</strong>：从第一个元素开始就与 <code>initial</code> 进行运算。</li>
+<li><strong>类型自由</strong>：支持跨类型聚合（例如将 <code>Int</code> 流聚合成一个 <code>String</code>）。</li>
+</ul>
+</li>
+<li><strong>Flow 中的表现</strong>：<ul>
+<li>同样是<strong>终端操作符</strong>和<strong>挂起函数</strong>。</li>
+<li>即使上游流为空，它也会安全地返回你设定的初始值，而不会像 <code>reduce</code> 那样抛出异常。</li>
+</ul>
+</li>
+<li><strong>代码示例</strong>： <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 初始值 &quot;Result:&quot;, 结果为 &quot;Result:123&quot;</span></span><br><span class="line"><span class="keyword">val</span> result = flowOf(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>).fold(<span class="string">&quot;Result:&quot;</span>) &#123; acc, value -&gt; acc + value &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="8-3-runningReduce：记录过程的累加流"><a href="#8-3-runningReduce：记录过程的累加流" class="headerlink" title="8.3 runningReduce：记录过程的累加流"></a>8.3 runningReduce：记录过程的累加流</h2><p>当你不仅想要「终点」，还想要「沿途的风景」时，<code>runningReduce</code> 就派上用场了。</p>
+<ul>
+<li><strong>API 特性</strong>：<ul>
+<li>它不是终端操作，而是一个<strong>中间转换操作符</strong>。</li>
+<li>它会记录每一次 <code>reduce</code> 计算的中间结果。</li>
+</ul>
+</li>
+<li><strong>Flow 中的表现</strong>：<ul>
+<li><strong>非挂起函数</strong>，返回的是一个新的 <code>Flow</code>。</li>
+<li>上游每发射一个新数据，它都会把当前的累加值作为一个新数据发射给下游。</li>
+</ul>
+</li>
+<li><strong>代码示例</strong>： <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 输入[1,2,3]，输出 1,3,6（即 1, 1+2, 3+3）</span></span><br><span class="line">flowOf(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>).runningReduce &#123; acc, value -&gt; acc + value &#125;.collect &#123; println(it) &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="8-4-runningFold：状态流的基石"><a href="#8-4-runningFold：状态流的基石" class="headerlink" title="8.4 runningFold：状态流的基石"></a>8.4 runningFold：状态流的基石</h2><p>这是响应式编程中最强大的操作符之一。在 Kotlin Flow 中，它有一个更响亮的别名：<code>scan</code>。</p>
+<ul>
+<li><strong>API 特性</strong>：<ul>
+<li>结合了 <code>fold</code> 的初始值和 <code>running</code> 的过程记录。</li>
+<li>返回结果中，<strong>第一个元素永远是初始值</strong>。</li>
+</ul>
+</li>
+<li><strong>Flow 中的表现</strong>：<ul>
+<li><strong>中间操作符</strong>，返回新 <code>Flow</code>。</li>
+<li>它是处理「状态积累」的核心工具。比如在 Android 中累积用户的点击次数或合并 UI 状态。</li>
+</ul>
+</li>
+<li><strong>代码示例</strong>： <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 输出: 0, 1, 3, 6</span></span><br><span class="line">flowOf(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>).scan(<span class="number">0</span>) &#123; acc, value -&gt; acc + value &#125;.collect &#123; println(it) &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="9、onEach-操作符"><a href="#9、onEach-操作符" class="headerlink" title="9、onEach 操作符"></a>9、onEach 操作符</h1><p><code>onEach</code> 是一个<strong>中间操作符</strong>。它的本质非常纯粹：<strong>数据透传</strong>。它接收什么，就向下游发送什么。如果你在 <code>onEach</code> 里打印数据，数据本身不会受到任何影响。</p>
+<ul>
+<li><p><strong>功能定义</strong>：每当上游 Flow 发射出一个数据项时，<code>onEach</code> 闭包内的代码块就会被触发执行。</p>
+</li>
+<li><p><strong>非修改型</strong>：它是 <strong>「非转换型」</strong> 的。无论你在 <code>onEach</code> 闭包里做了什么（只要不抛出异常），它返回的都是一个与上游完全相同的新 Flow。数据流经它之后，会原封不动地传给下游。</p>
+</li>
+<li><p><strong>API 签名</strong>：</p>
+ <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="type">&lt;T&gt;</span> Flow<span class="type">&lt;T&gt;</span>.<span class="title">onEach</span><span class="params">(action: <span class="type">suspend</span> (<span class="type">T</span>) -&gt; <span class="type">Unit</span>)</span></span>: Flow&lt;T&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>代码示例</strong>：</p>
+ <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">flowOf(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">    .onEach &#123; println(<span class="string">&quot;监听到数据：<span class="variable">$it</span>&quot;</span>) &#125; <span class="comment">// 副作用操作：打印</span></span><br><span class="line">    .collect() <span class="comment">// 触发流的收集</span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>核心机制</strong>：<strong>执行时机与数据流向</strong></p>
+<p>  理解 <code>onEach</code> 的关键在于掌握它的<strong>执行顺序</strong>。</p>
+<p>  当一条数据从上游产生后，它会首先进入 <code>onEach</code> 的代码块。在代码块执行完毕后，该数据才会继续流向下一个操作符或最后的收集器（Collector）。</p>
+<ul>
+<li><strong>参数传递</strong>：<code>onEach</code> 闭包中包含一个参数，即当前正在流经的数据项。</li>
+<li><strong>前置响应</strong>：它确保在下游收到数据<strong>之前</strong>，你的监听逻辑已经执行完毕。这在调试时非常有用，你可以清晰地看到数据进入某个处理环节前的原始状态。</li>
+</ul>
+</li>
+<li><p><strong>链式调用</strong>：<strong>多重监听</strong></p>
+<p>  由于 <code>onEach</code> 遵循「输入什么，输出什么」的原则，它天然支持<strong>连续调用</strong>。你可以根据业务逻辑的职责，将不同的监听任务拆分到多个 <code>onEach</code> 中。</p>
+<ul>
+<li><p><strong>执行逻辑</strong>：数据会像通过流水线岗哨一样，依次触发每一个 <code>onEach</code>。</p>
+</li>
+<li><p><strong>代码示例</strong>：</p>
+ <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">flow.onEach &#123; logToConsole(it) &#125; <span class="comment">// 第一个岗哨：打日志</span></span><br><span class="line">    .onEach &#123; saveToCache(it) &#125;  <span class="comment">// 第二个岗哨：存缓存</span></span><br><span class="line">    .collect()</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p> 这种写法比将所有逻辑堆在同一个 <code>collect</code> 块中更加解耦、易于维护。</p>
+</li>
+<li><p><strong>组合使用</strong>：<strong>与 filter 的协作</strong></p>
+<p>  <code>onEach</code> 的执行频率取决于它在链条中的<strong>位置</strong>以及上游操作符的行为。如果你在 <code>filter</code> 之后接 <code>onEach</code>，那么只有符合过滤条件的数据才会触发监听。</p>
+<p>  <strong>案例逻辑解析：</strong></p>
+ <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">flowOf(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>)</span><br><span class="line">    .filter &#123; it % <span class="number">2</span> == <span class="number">0</span> &#125; <span class="comment">// 只保留偶数</span></span><br><span class="line">    .onEach &#123; println(<span class="string">&quot;通过过滤的数据: <span class="variable">$it</span>&quot;</span>) &#125;</span><br><span class="line">    .collect()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>数据 <code>1</code>：在 <code>filter</code> 处被截断，<strong>不会</strong>触发后面的 <code>onEach</code>。</li>
+<li>数据 <code>2</code>：通过 <code>filter</code>，触发 <code>onEach</code> 打印，最后进入 <code>collect</code>。</li>
+</ul>
+</li>
+<li><p><strong>适用场景</strong>：<strong>与 filter 的协作</strong></p>
+<ol>
+<li><p><strong>调试</strong>：在流的各个环节插入 <code>println</code>，定位数据是在哪一步变掉或丢掉的。</p>
+</li>
+<li><p><strong>UI 反馈</strong>：数据每来一个，就让进度条动一下，但不要影响数据的后续计算。</p>
+</li>
+<li><p><strong>解耦副作用</strong>：将日志记录、埋点等非核心业务逻辑从 <code>collect</code> 或 <code>map</code> 中抽离出来。</p>
+</li>
+</ol>
+</li>
+</ul>
+<h1 id="10、chunked-操作符"><a href="#10、chunked-操作符" class="headerlink" title="10、chunked 操作符"></a>10、chunked 操作符</h1><p>在高性能的流式编程中，我们经常需要处理「批处理」需求。比如，你不想每产生一条日志就发起一次网络请求，也不想每产生一条数据就执行一次数据库事务。这时，<code>chunked</code> 就是一个打包员。它在流水线上放了一个「储物箱」，只有当箱子装满了，或者上游已经没东西发了，它才会把整个箱子封好，发给下游。</p>
+<ul>
+<li><p><strong>核心任务</strong>：<code>chunked</code> 是一个<strong>中间转换操作符</strong>，它的核心任务是改变数据流的“传输粒度”。</p>
+</li>
+<li><p><strong>功能定义</strong>：它会将上游发出的单个元素进行缓存，直到积累到指定的数量，然后将这些元素打包成一个 <code>List</code> 发射给下游。</p>
+</li>
+<li><p><strong>类型转换</strong>：</p>
+<ul>
+<li><strong>输入</strong>：<code>Flow&lt;T&gt;</code></li>
+<li><strong>输出</strong>：<code>Flow&lt;List&lt;T&gt;&gt;</code></li>
+</ul>
+</li>
+<li><p><strong>API 签名</strong>：</p>
+ <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ExperimentalCoroutinesApi</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="type">&lt;T&gt;</span> Flow<span class="type">&lt;T&gt;</span>.<span class="title">chunked</span><span class="params">(size: <span class="type">Int</span>)</span></span>: Flow&lt;List&lt;T&gt;&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>逻辑规范</strong>：<code>chunked</code> 唯一接受的参数就是 <code>size</code>，它决定了每个「<strong>包</strong>」里最多容纳多少个元素。</p>
+<ol>
+<li><strong>满载发射</strong>：当内部缓存的元素数量达到 <code>size</code> 时，立即打包成 <code>List</code> 发出。</li>
+<li><strong>余块发射</strong>：当上游 Flow 正常结束（Complete）时，如果缓存中还有剩余元素（哪怕只有 1 个，不足 <code>size</code>），也会被封装成最后一个 <code>List</code> 发出。</li>
+</ol>
+</li>
+<li><p><strong>代码示例</strong>：</p>
+ <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">flowOf(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>)</span><br><span class="line">    .chunked(<span class="number">2</span>)</span><br><span class="line">    .collect &#123; println(it) &#125;</span><br><span class="line"><span class="comment">/* 输出：</span></span><br><span class="line"><span class="comment">   [1, 2]</span></span><br><span class="line"><span class="comment">   [3, 4]</span></span><br><span class="line"><span class="comment">   [5]  &lt;-- 即使不足2个，也会独立成块</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>实战价值</strong>：为什么我们需要把流变“碎”为“整”？主要基于以下三个维度的考量：</p>
+<ol>
+<li><strong>减少 IO 开销</strong><br>   在 Android 数据库（如 Room）操作中，批量插入 <code>insertAll(list)</code> 的效率远高于循环插入 <code>insert(item)</code>。<code>chunked(50)</code> 可以让原本 100 次的磁盘 IO 降低到 2 次。</li>
+<li><strong>降低请求频率</strong><br>   对于埋点上报，通过 <code>chunked</code> 积累一定数量后再发送，可以有效合并 HTTP 请求，节省用户流量并降低服务器压力。</li>
+<li><strong>提升渲染性能</strong><br>   如果流的发送频率极高（如传感器数据），UI 刷新可能会造成卡顿。通过 <code>chunked</code> 缓冲一小部分数据后再统一更新 UI 列表，可以显著提高帧率。</li>
+</ol>
+</li>
+<li><p><strong>核心建议</strong>：使用 <code>chunked</code> 时要平衡 “实时性” 和 “效率”。<code>size</code> 越大，处理效率越高，但数据到达下游的延迟也会随之增加。</p>
+</li>
+</ul>
 
       
 
@@ -282,7 +728,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">协程</a>
         		</li>
       		
 		</ul>
@@ -338,7 +784,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2025/08/12/Android-Studio-%E9%87%8C%E6%9C%89%E7%94%A8%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2026/03/11/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E5%85%AD%EF%BC%89Flow-%E6%93%8D%E4%BD%9C%E7%AC%A6/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -352,18 +798,18 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2025/08/23/%E8%8E%B7%E5%8F%96-Activity-%E7%9A%84%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2026/03/17/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E4%B8%83%EF%BC%89Flow-%E6%93%8D%E4%BD%9C%E7%AC%A6/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          获取 Activity 的返回结果
+          Kotlin 协程（七）Flow 操作符
         
       </div>
     </a>
   
   
-    <a href="/2025/07/16/ExpiredTargetSdkVersion/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">ExpiredTargetSdkVersion</div>
+    <a href="/2026/03/06/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E4%BA%94%EF%BC%89Flow/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Kotlin-协程（五）Flow</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -390,7 +836,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1%E3%80%81filter-%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">1.</span> <span class="toc-text">1、filter 操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-filter%EF%BC%9A%E9%80%9A%E7%94%A8%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 filter：通用过滤器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-filterNot%EF%BC%9A%E9%80%BB%E8%BE%91%E5%8F%96%E5%8F%8D"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 filterNot：逻辑取反</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-filterNotNull%EF%BC%9A%E7%A9%BA%E5%AE%89%E5%85%A8%E5%A4%84%E7%90%86"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 filterNotNull：空安全处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-filterIsInstance%EF%BC%9A%E8%BF%90%E8%A1%8C%E6%97%B6%E7%B1%BB%E5%9E%8B%E7%AD%9B%E9%80%89"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 filterIsInstance：运行时类型筛选</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2%E3%80%81distinctUntilChanged-%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">2.</span> <span class="toc-text">2、distinctUntilChanged 操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-distinctUntilChanged%EF%BC%9A%E9%BB%98%E8%AE%A4%E5%8E%BB%E9%87%8D"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 distinctUntilChanged：默认去重</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-distinctUntilChanged-old-new-%E2%80%A6-%EF%BC%9A%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8E%BB%E9%87%8D"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 distinctUntilChanged { old, new -&gt; … }：自定义去重</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-distinctUntilChangedBy-it-property"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 distinctUntilChangedBy { it.property }</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-%E5%A6%82%E4%BD%95%E7%B2%BE%E5%87%86%E9%80%89%E5%9E%8B"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 如何精准选型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3%E3%80%81%E6%97%B6%E9%97%B4%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">3.</span> <span class="toc-text">3、时间操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-timeout%EF%BC%9A%E8%8A%82%E5%A5%8F%E7%9A%84%E2%80%9C%E7%9B%91%E8%A7%86%E5%99%A8%E2%80%9D"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 timeout：节奏的“监视器”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-sample%EF%BC%9A%E5%9B%BA%E5%AE%9A%E9%A2%91%E7%8E%87%E7%9A%84%E2%80%9C%E9%87%87%E6%A0%B7%E5%91%98%E2%80%9D"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 sample：固定频率的“采样员”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-debounce%EF%BC%9A%E5%8A%A8%E4%B8%AD%E5%8F%96%E9%9D%99%E7%9A%84%E2%80%9C%E6%B6%88%E9%9F%B3%E5%99%A8%E2%80%9D"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 debounce：动中取静的“消音器”</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4%E3%80%81%E9%99%90%E6%B5%81%E6%93%8D%E4%BD%9C%E7%AC%A6-drop-%E5%92%8C-take"><span class="toc-number">4.</span> <span class="toc-text">4、限流操作符 drop 和 take</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-drop-n-Int-%EF%BC%9A%E8%B7%B3%E8%BF%87%E5%89%8D-N-%E4%B8%AA"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 drop(n: Int)：跳过前 N 个</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-dropWhile-predicate-%EF%BC%9A%E6%9D%A1%E4%BB%B6%E8%A7%A6%E5%8F%91%E8%B7%B3%E8%BF%87"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 dropWhile { predicate }：条件触发跳过</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-take-n-Int-%EF%BC%9A%E5%8F%AA%E5%8F%96%E5%89%8D-N-%E4%B8%AA"><span class="toc-number">4.3.</span> <span class="toc-text">4.3 take(n: Int)：只取前 N 个</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-takeWhile-predicate-%EF%BC%9A%E6%9D%A1%E4%BB%B6%E8%A7%A6%E5%8F%91%E6%88%AA%E6%96%AD"><span class="toc-number">4.4.</span> <span class="toc-text">4.4 takeWhile { predicate }：条件触发截断</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5%E3%80%81map-%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">5.</span> <span class="toc-text">5、map 操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-map%EF%BC%9A%E5%9F%BA%E7%A1%80%E5%90%8C%E6%AD%A5%E6%98%A0%E5%B0%84"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 map：基础同步映射</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-mapNotNull%EF%BC%9A%E6%98%A0%E5%B0%84%E4%B8%8E%E7%A9%BA%E5%80%BC%E8%BF%87%E6%BB%A4"><span class="toc-number">5.2.</span> <span class="toc-text">5.2 mapNotNull：映射与空值过滤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3-mapLatest%EF%BC%9A%E5%BC%82%E6%AD%A5%E4%B8%AD%E6%96%AD%E6%98%A0%E5%B0%84"><span class="toc-number">5.3.</span> <span class="toc-text">5.3 mapLatest：异步中断映射</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-4-mapLatest%EF%BC%9A%E5%8E%BB%E9%87%8D%E6%98%A0%E5%B0%84"><span class="toc-number">5.4.</span> <span class="toc-text">5.4 mapLatest：去重映射</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6%E3%80%81transform-%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">6.</span> <span class="toc-text">6、transform 操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-transform%EF%BC%9A%E4%B8%87%E8%83%BD%E7%9A%84%E5%8F%91%E5%B0%84%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="toc-number">6.1.</span> <span class="toc-text">6.1 transform：万能的发射控制器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-transformWhile%EF%BC%9A%E5%B8%A6%E2%80%9C%E8%87%AA%E6%AF%81%E2%80%9D%E6%9C%BA%E5%88%B6%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="toc-number">6.2.</span> <span class="toc-text">6.2 transformWhile：带“自毁”机制的转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-3-transformLatest%EF%BC%9A%E6%9C%80%E6%96%B0%E4%BC%98%E5%85%88%E7%9A%84%E5%BC%82%E6%AD%A5%E5%8A%A0%E5%B7%A5"><span class="toc-number">6.3.</span> <span class="toc-text">6.3 transformLatest：最新优先的异步加工</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7%E3%80%81withIndex-%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">7.</span> <span class="toc-text">7、withIndex 操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#7-1-withIndex%EF%BC%9A%E6%B5%81%E7%9A%84%E5%BA%8F%E5%8F%B7%E5%8C%96"><span class="toc-number">7.1.</span> <span class="toc-text">7.1 withIndex：流的序号化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-2-collectIndexed%EF%BC%9A%E7%BB%88%E7%AB%AF%E6%94%B6%E9%9B%86%E7%9A%84%E2%80%9C%E8%AE%A1%E6%95%B0%E5%99%A8%E2%80%9D"><span class="toc-number">7.2.</span> <span class="toc-text">7.2 collectIndexed：终端收集的“计数器”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-3-withIndex-%E4%B8%8E-collectIndexed-%E7%9A%84%E5%B7%AE%E5%BC%82"><span class="toc-number">7.3.</span> <span class="toc-text">7.3 withIndex 与 collectIndexed 的差异</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8%E3%80%81reduce-%E5%92%8C-fold-%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">8.</span> <span class="toc-text">8、reduce 和 fold 操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#8-1-reduce%EF%BC%9A%E8%87%AA%E5%8A%A8%E5%88%9D%E5%A7%8B%E5%8C%96%E7%9A%84%E5%BD%92%E7%BA%A6%E5%99%A8"><span class="toc-number">8.1.</span> <span class="toc-text">8.1 reduce：自动初始化的归约器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-2-fold%EF%BC%9A%E5%B8%A6%E5%88%9D%E5%A7%8B%E5%80%BC%E7%9A%84%E7%81%B5%E6%B4%BB%E8%81%9A%E5%90%88"><span class="toc-number">8.2.</span> <span class="toc-text">8.2 fold：带初始值的灵活聚合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-3-runningReduce%EF%BC%9A%E8%AE%B0%E5%BD%95%E8%BF%87%E7%A8%8B%E7%9A%84%E7%B4%AF%E5%8A%A0%E6%B5%81"><span class="toc-number">8.3.</span> <span class="toc-text">8.3 runningReduce：记录过程的累加流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-4-runningFold%EF%BC%9A%E7%8A%B6%E6%80%81%E6%B5%81%E7%9A%84%E5%9F%BA%E7%9F%B3"><span class="toc-number">8.4.</span> <span class="toc-text">8.4 runningFold：状态流的基石</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#9%E3%80%81onEach-%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">9.</span> <span class="toc-text">9、onEach 操作符</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#10%E3%80%81chunked-%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">10.</span> <span class="toc-text">10、chunked 操作符</span></a></li></ol>
                     </div>
                 </span>
             </div>

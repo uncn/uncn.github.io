@@ -238,416 +238,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Kotlin-协程（一）基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2026/01/07/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">Kotlin 协程（一）基础知识</a>
-    </h1>
-  
-
-        
-        <a href="/2026/01/07/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="archive-article-date">
-  	<time datetime="2026-01-07T08:51:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在 Kotlin 官方的定义中，<strong>协程是一种轻量级的线程，但它不是线程。</strong> 协程可以在单个线程中挂起和恢复，支持异步、非阻塞的编程。</p>
-<h1 id="1、协程的本质"><a href="#1、协程的本质" class="headerlink" title="1、协程的本质"></a>1、协程的本质</h1><p><strong>Kotlin 协程本质上是基于线程的封装，其核心优势在于允许开发者以线性、顺序的代码结构编写并发逻辑，从而避免了传统多线程编程中常见的回调嵌套。</strong> 简单的概括就是，协程提供了比线程更易用的并发管理方案。协程常被称为“轻量”，并非指其物理资源消耗低于线程，而是指能用更简洁的代码实现相同的并发效果。</p>
-<h1 id="2、线程的切换"><a href="#2、线程的切换" class="headerlink" title="2、线程的切换"></a>2、线程的切换</h1><p>从功能上看，协程与线程都是并发管理工具。并发管理主要涉及三件事：</p>
-<ol>
-<li>线程切换：在子线程执行耗时任务，完成后切回主线程传回结果；</li>
-<li>线程同步：线程间相互等待，实现流程协同；</li>
-<li>线程安全：通过互斥锁等机制保护共享资源。</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">协程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2026/01/07/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Android-Studio-运行-main-函数问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/12/24/Android-Studio-%E8%BF%90%E8%A1%8C-main-%E5%87%BD%E6%95%B0%E9%97%AE%E9%A2%98/">Android Studio 运行 main() 函数问题</a>
-    </h1>
-  
-
-        
-        <a href="/2025/12/24/Android-Studio-%E8%BF%90%E8%A1%8C-main-%E5%87%BD%E6%95%B0%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2025-12-24T13:11:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在 Android Studio 中，默认将所有的构建和运行任务都委托给了 Gradle，尤其是 <strong>Arctic Fox | 2020.3.1</strong> 版本之后，IDE 默认处于“全委托模式”。如果仍然尝试运行 <code>main()</code> 函数，就会出现函数找不到的报错，信息如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">A problem occurred configuring project &#x27;:BASE&#x27;.</span><br><span class="line">&gt; Could not create task &#x27;:BASE:com.sunzn.event.TaskKt.main()&#x27;.</span><br><span class="line">   &gt; SourceSet with name &#x27;main&#x27; not found.</span><br><span class="line"></span><br><span class="line">* Try:</span><br><span class="line">&gt; Run with --stacktrace option to get the stack trace.</span><br><span class="line">&gt; Run with --info or --debug option to get more log output.</span><br><span class="line">&gt; Run with --scan to get full insights.</span><br><span class="line">&gt; Get more help at https://help.gradle.org.</span><br></pre></td></tr></table></figure>
-
-<p>其实，这并不是 Android Studio 的 Bug，而是其<strong>构建系统（Gradle）的默认机制</strong>在“作祟”。</p>
-        
-          <a class="article-more-a" href="/2025/12/24/Android-Studio-%E8%BF%90%E8%A1%8C-main-%E5%87%BD%E6%95%B0%E9%97%AE%E9%A2%98/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/12/24/Android-Studio-%E8%BF%90%E8%A1%8C-main-%E5%87%BD%E6%95%B0%E9%97%AE%E9%A2%98/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Kotlin-Flow-操作符" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/12/19/Kotlin-Flow-%E6%93%8D%E4%BD%9C%E7%AC%A6/">Kotlin Flow 操作符</a>
-    </h1>
-  
-
-        
-        <a href="/2025/12/19/Kotlin-Flow-%E6%93%8D%E4%BD%9C%E7%AC%A6/" class="archive-article-date">
-  	<time datetime="2025-12-19T14:35:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>实时的用户输入、多个网络请求的响应，再加上数据库的频繁更新，很容易让你的代码变得混乱不堪。而这，正是 Kotlin Flow 要帮你解决的问题。作为基于协程构建的响应式流 API，Kotlin Flow 让你可以用声明式的方式优雅地处理异步数据流。但要想真正发挥它的强大能力，关键在于熟练掌握各种操作符。</p>
-<p>本指南就是为你量身打造的速查手册——聚焦最核心的操作符，清晰说明它们的适用场景和使用方法，助你高效驾驭 Kotlin Flow。</p>
-<h1 id="1、一对一转换"><a href="#1、一对一转换" class="headerlink" title="1、一对一转换"></a>1、一对一转换</h1><h2 id="1-1-map"><a href="#1-1-map" class="headerlink" title="1.1 map"></a>1.1 map</h2><p>将 Flow 中发出的每个元素转换为新元素，实现一对一映射。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> = runBlocking &#123;</span><br><span class="line">    flowOf(<span class="string">&quot;Kotlin&quot;</span>, <span class="string">&quot;Flow&quot;</span>).map &#123; <span class="string">&quot;Length of &#x27;<span class="variable">$it</span>&#x27; is <span class="subst">$&#123;it.length&#125;</span>&quot;</span> &#125;.collect &#123; println(it) &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<pre><code>输出结果:
-Length of &#39;Kotlin&#39; is 6
-Length of &#39;Flow&#39; is 4
-</code></pre>
-<blockquote>
-<p><font style="color:#01579B;font-size:14px;"><strong>✦ 适用场景</strong>：需要将每个项转换为不同类型或格式，例如在 ViewModel 中将 Date 对象格式化为可显示的 String。</font></p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2025/12/19/Kotlin-Flow-%E6%93%8D%E4%BD%9C%E7%AC%A6/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Flow</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/12/19/Kotlin-Flow-%E6%93%8D%E4%BD%9C%E7%AC%A6/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Kotlin-扩展函数的实现原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/12/18/Kotlin-%E6%89%A9%E5%B1%95%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/">Kotlin 扩展函数的实现原理</a>
-    </h1>
-  
-
-        
-        <a href="/2025/12/18/Kotlin-%E6%89%A9%E5%B1%95%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" class="archive-article-date">
-  	<time datetime="2025-12-18T14:25:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Kotlin <strong>扩展函数（Extension Functions）</strong> 的实现原理主要基于 <strong>静态解析（Static Dispatch）</strong> 和 <strong>编译时转换</strong>，它并不是真的修改了被扩展的类。</p>
-<h1 id="1、实现原理"><a href="#1、实现原理" class="headerlink" title="1、实现原理"></a>1、实现原理</h1><h2 id="1-1-静态解析"><a href="#1-1-静态解析" class="headerlink" title="1.1 静态解析"></a>1.1 静态解析</h2><ul>
-<li><p><strong>核心机制：</strong> Kotlin 的扩展函数是<strong>静态解析</strong>的，这意味着它们在<strong>编译时</strong>就确定了。扩展函数<strong>不会</strong>向目标类中插入新的成员，也不会修改类本身的结构。</p>
-</li>
-<li><p><strong>非继承：</strong> 扩展函数与面向对象的多态（如覆盖父类方法）无关。因为它们是静态调度的，所以<strong>不能</strong>被子类重写（Override）。</p>
-</li>
-</ul>
-        
-          <a class="article-more-a" href="/2025/12/18/Kotlin-%E6%89%A9%E5%B1%95%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/12/18/Kotlin-%E6%89%A9%E5%B1%95%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-获取-Activity-的返回结果" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/08/23/%E8%8E%B7%E5%8F%96-Activity-%E7%9A%84%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C/">获取 Activity 的返回结果</a>
-    </h1>
-  
-
-        
-        <a href="/2025/08/23/%E8%8E%B7%E5%8F%96-Activity-%E7%9A%84%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C/" class="archive-article-date">
-  	<time datetime="2025-08-23T14:44:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-08-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在 Android 开发中，我们有大量的应用场景需要启动一个 Activity 并接收其返回的结果来完成业务逻辑的执行。例如，你的应用可启动相机并接收拍摄的照片作为结果。或者，你可以启动“通讯录”以便用户选择联系人，然后接收联系人详细信息作为结果。</p>
-<p>虽然所有 API 级别的 Activity 类均提供了底层 <code>startActivityForResult</code> 和 <code>onActivityResult</code> API，但 Google 强烈建议使用 <code>registerForActivityResult</code> 来替代它们。因为新的 API 可以极大程度的保证数据的类型安全、Activity 的生命周期安全，同时还能增加代码的复用性，详情参考<a href="https://developer.android.google.cn/training/basics/intents/result?hl=zh-cn">「官方文档」</a>。</p>
-        
-          <a class="article-more-a" href="/2025/08/23/%E8%8E%B7%E5%8F%96-Activity-%E7%9A%84%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/08/23/%E8%8E%B7%E5%8F%96-Activity-%E7%9A%84%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-Android-Studio-里有用的快捷键" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -655,13 +245,13 @@ Length of &#39;Flow&#39; is 4
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/08/12/Android-Studio-%E9%87%8C%E6%9C%89%E7%94%A8%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE/">Android Studio 里有用的快捷键</a>
+      <a class="article-title" href="/2035/04/27/Android-Studio-%E9%87%8C%E6%9C%89%E7%94%A8%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE/">Android Studio 里有用的快捷键</a>
     </h1>
   
 
         
-        <a href="/2025/08/12/Android-Studio-%E9%87%8C%E6%9C%89%E7%94%A8%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="archive-article-date">
-  	<time datetime="2025-08-12T13:53:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-08-12</time>
+        <a href="/2035/04/27/Android-Studio-%E9%87%8C%E6%9C%89%E7%94%A8%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="archive-article-date">
+  	<time datetime="2035-04-27T13:53:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2035-04-27</time>
 </a>
         
       </header>
@@ -676,54 +266,64 @@ Length of &#39;Flow&#39; is 4
 			<th align="center" width="60%" colspan="1">描述</th>
 		</tr>
 		<tr>
-			<td align="center">Ctrl + E</td>
-			<td align="center">Cmd + E</td>
-            <td align="center">快速查看最近打开过的文件。</td>
+			<td align="center"><code>Ctrl</code> + <code>E</code></td>
+			<td align="center">Command + E</td>
+      <td align="center">快速查看最近打开过的文件。</td>
 		</tr>
 		<tr>
 			<td align="center">Ctrl + Shift + E</td>
-			<td align="center">Cmd + Shift + E</td>
-            <td align="center">快速查看最近编辑过的文件。</td>
+			<td align="center">Command + Shift + E</td>
+      <td align="center">快速查看最近编辑过的文件。</td>
 		</tr>
 		<tr>
 			<td align="center">Ctrl + P</td>
-			<td align="center">Cmd + P</td>
-            <td align="center">查看方法的参数信息。</td>
+			<td align="center">Command + P</td>
+      <td align="center">查看方法的参数信息。</td>
 		</tr>
 		<tr>
 			<td align="center">Ctrl + U</td>
-			<td align="center">Cmd + U</td>
-            <td align="center">跳转到当前方法的父类实现，或者当前类的父类。</td>
+			<td align="center">Command + U</td>
+      <td align="center">跳转到当前方法的父类实现，或者当前类的父类。</td>
 		</tr>
 		<tr>
 			<td align="center">Ctrl + H</td>
-			<td align="center">Cmd + H</td>
-            <td align="center">查看一个类的继承树。</td>
+			<td align="center">Command + H</td>
+      <td align="center">查看一个类的继承树。</td>
+		</tr>
+		<tr>
+			<td align="center">Alt + 7</td>
+			<td align="center">Command + 7</td>
+      <td align="center">查看一个类的层次结构。</td>
 		</tr>
 		<tr>
 			<td align="center">Ctrl + Shift + H</td>
-			<td align="center">Cmd + Shift + H</td>
-            <td align="center">打开方法层次结构。</td>
+			<td align="center">Command + Shift + H</td>
+      <td align="center">打开方法层次结构。</td>
 		</tr>
 		<tr>
 			<td align="center">Ctrl + Alt + H</td>
-			<td align="center">Cmd + Option + H</td>
-            <td align="center">打开调用层次结构。</td>
+			<td align="center">Command + Option + H</td>
+      <td align="center">打开调用层次结构。</td>
 		</tr>
 		<tr>
 			<td align="center">Ctrl + Alt + B</td>
-			<td align="center">Cmd + Opt + B</td>
-            <td align="center">当光标位于接口名上时，按下快捷键可以快速找到该接口的所有实现类。</td>
+			<td align="center">Command + Option + B</td>
+      <td align="center">当光标位于接口名上时，按下快捷键可以快速找到该接口的所有实现类。</td>
 		</tr>
 		<tr>
 			<td align="center">Ctrl + F12</td>
-			<td align="center">Cmd + F12</td>
-            <td align="center">当光标位于类中时，按下快捷键可以显示当前文件的结构，包括所有方法和变量。</td>
+			<td align="center">Command + F12</td>
+      <td align="center">当光标位于类中时，按下快捷键可以显示当前文件的结构，包括所有方法和变量。</td>
 		</tr>
 		<tr>
 			<td align="center">Ctrl + Shift + C</td>
-			<td align="center">Cmd + Shift + C</td>
-            <td align="center">复制当前文件的路径。</td>
+			<td align="center">Command + Shift + C</td>
+      <td align="center">复制当前文件的路径。</td>
+		</tr>
+		<tr>
+			<td align="center">Ctrl + Alt + M</td>
+			<td align="center">Command + Option + M</td>
+      <td align="center">提取方法。</td>
 		</tr>
 	</tbody>
 </table>
@@ -754,7 +354,7 @@ Length of &#39;Flow&#39; is 4
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/08/12/Android-Studio-%E9%87%8C%E6%9C%89%E7%94%A8%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE/">展开全文 >></a>
+          <a class="article-more-a" href="/2035/04/27/Android-Studio-%E9%87%8C%E6%9C%89%E7%94%A8%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE/">展开全文 >></a>
         </p>
       
 
@@ -784,30 +384,35 @@ Length of &#39;Flow&#39; is 4
 
 
   
-    <article id="post-ExpiredTargetSdkVersion" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Kotlin-协程（九）协作、互斥锁与共享变量" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/07/16/ExpiredTargetSdkVersion/">ExpiredTargetSdkVersion</a>
+      <a class="article-title" href="/2026/03/30/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E4%B9%9D%EF%BC%89%E5%8D%8F%E4%BD%9C%E3%80%81%E4%BA%92%E6%96%A5%E9%94%81%E4%B8%8E%E5%85%B1%E4%BA%AB%E5%8F%98%E9%87%8F/">Kotlin 协程（九）协作、互斥锁与共享变量</a>
     </h1>
   
 
         
-        <a href="/2025/07/16/ExpiredTargetSdkVersion/" class="archive-article-date">
-  	<time datetime="2025-07-16T01:21:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-07-16</time>
+        <a href="/2026/03/30/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E4%B9%9D%EF%BC%89%E5%8D%8F%E4%BD%9C%E3%80%81%E4%BA%92%E6%96%A5%E9%94%81%E4%B8%8E%E5%85%B1%E4%BA%AB%E5%8F%98%E9%87%8F/" class="archive-article-date">
+  	<time datetime="2026-03-30T08:32:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在特定的硬件项目开发中，受部分硬件支持库的限制，项目的目标 SDK 版本可能会设置为已经不受 Google 支持的版本。 如果在生成 APK 的过程中出现 <code>ExpiredTargetSdkVersion</code> 错误，那就标志着项目所设定的 <code>targetSdk</code> 已经过期，我们可能需要升级 API 级别或采取其他措施。错误信息如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Error: Google Play requires that apps target API level 33 or higher. [ExpiredTargetSdkVersion]</span><br><span class="line">        targetSdk = 28</span><br><span class="line">        ~~~~~~~~~~~~~~</span><br><span class="line"></span><br><span class="line">   Explanation for issues of type &quot;ExpiredTargetSdkVersion&quot;:</span><br><span class="line">   Configuring your app or sdk to target a recent API level ensures that users</span><br><span class="line">   benefit from significant security and performance improvements, while still</span><br><span class="line">   allowing your app to run on older Android versions (down to the</span><br><span class="line">   minSdkVersion).</span><br><span class="line"></span><br><span class="line">   To update your targetSdkVersion, follow the steps from &quot;Meeting Google Play</span><br><span class="line">   requirements for target API level&quot;,</span><br><span class="line">   https://developer.android.com/distribute/best-practices/develop/target-sdk.</span><br><span class="line">   html</span><br><span class="line"></span><br><span class="line">   https://support.google.com/googleplay/android-developer/answer/113469#targetsdk</span><br><span class="line">   https://developer.android.com/distribute/best-practices/develop/target-sdk.html</span><br></pre></td></tr></table></figure>
+        <h1 id="1、协作与等待机制的演进之路"><a href="#1、协作与等待机制的演进之路" class="headerlink" title="1、协作与等待机制的演进之路"></a>1、协作与等待机制的演进之路</h1><p>在并发编程中，<strong>协作</strong>永远是一个核心命题。当我们需要多个任务按照特定的先后顺序执行，或者主任务必须等待多个子任务全部完成后才能继续时，传统的 Java 线程模型往往需要借助复杂的同步工具。随着 Kotlin 协程的兴起，这种「停住—等待—恢复」的逻辑发生了范式转移。</p>
+<h2 id="1-1-为什么我们需要协作与等待"><a href="#1-1-为什么我们需要协作与等待" class="headerlink" title="1.1 为什么我们需要协作与等待"></a>1.1 为什么我们需要协作与等待</h2><p>协程天生具有<strong>并行性</strong>。无论是在同一个作用域下启动的同级协程，还是具有父子关系的协程，它们默认都是并发执行的。但在实际业务场景中，我们经常遇到依赖关系：</p>
+<ul>
+<li><strong>场景 A</strong>：必须等待登录接口（协程1）返回 Token 后，才能请求用户信息（协程2）。</li>
+<li><strong>场景 B</strong>：主界面渲染前，必须等待三个独立的初始化数据接口全部加载完成。</li>
+</ul>
+<p>这种「<strong>先后依赖</strong>」或「<strong>一等多</strong>」的需求，正是我们要讨论的协作机制。</p>
         
-          <a class="article-more-a" href="/2025/07/16/ExpiredTargetSdkVersion/#more">more >></a>
+          <a class="article-more-a" href="/2026/03/30/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E4%B9%9D%EF%BC%89%E5%8D%8F%E4%BD%9C%E3%80%81%E4%BA%92%E6%96%A5%E9%94%81%E4%B8%8E%E5%85%B1%E4%BA%AB%E5%8F%98%E9%87%8F/#more">more >></a>
         
       
 
@@ -821,7 +426,7 @@ Length of &#39;Flow&#39; is 4
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Error</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">协程</a>
         		</li>
       		
 		</ul>
@@ -831,7 +436,7 @@ Length of &#39;Flow&#39; is 4
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/07/16/ExpiredTargetSdkVersion/">展开全文 >></a>
+          <a class="article-more-a" href="/2026/03/30/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E4%B9%9D%EF%BC%89%E5%8D%8F%E4%BD%9C%E3%80%81%E4%BA%92%E6%96%A5%E9%94%81%E4%B8%8E%E5%85%B1%E4%BA%AB%E5%8F%98%E9%87%8F/">展开全文 >></a>
         </p>
       
 
@@ -861,53 +466,570 @@ Length of &#39;Flow&#39; is 4
 
 
   
-    <article id="post-Android-启动画面的深色主题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Kotlin-协程（八）SharedFlow-与-StateFlow" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/04/20/Android-%E5%90%AF%E5%8A%A8%E7%94%BB%E9%9D%A2%E7%9A%84%E6%B7%B1%E8%89%B2%E4%B8%BB%E9%A2%98/">Android 启动画面的深色主题</a>
+      <a class="article-title" href="/2026/03/25/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E5%85%AB%EF%BC%89SharedFlow-%E4%B8%8E-StateFlow/">Kotlin 协程（八）SharedFlow 与 StateFlow</a>
     </h1>
   
 
         
-        <a href="/2025/04/20/Android-%E5%90%AF%E5%8A%A8%E7%94%BB%E9%9D%A2%E7%9A%84%E6%B7%B1%E8%89%B2%E4%B8%BB%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2025-04-20T12:52:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-04-20</time>
+        <a href="/2026/03/25/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E5%85%AB%EF%BC%89SharedFlow-%E4%B8%8E-StateFlow/" class="archive-article-date">
+  	<time datetime="2026-03-25T02:50:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>深色主题在 Android 9 及更早些时候，开发者需要通过 AppCompat 库的 DayNight 主题或自定义方案实现应用内深色模式，缺乏系统级联动。从 Android 10（API 级别 29）开始，官方提供了系统级的深色主题支持，并在 Android 11、12 中持续优化。以下是官方对深色主题支持的演进：</p>
-<table>
+        <p>在 Kotlin 协程的生态中，<code>Flow</code> 通常被视为<strong>冷流</strong>，即只有在调用 <code>collect</code> 时才开始生产数据。但在实际开发中，我们往往需要更灵活的机制：<strong>多个订阅者共享数据源、生产与消费解耦、或者持久化状态</strong>。这正是 <code>SharedFlow</code> 与 <code>StateFlow</code> 的用武之地。</p>
+<h1 id="1、SharedFlow"><a href="#1、SharedFlow" class="headerlink" title="1、SharedFlow"></a>1、SharedFlow</h1><p>普通 <code>Flow</code> 的核心逻辑是<strong>收集驱动</strong>。每次调用 <code>collect</code> 都会启动一个新的生产流程，这在处理独立的数据请求时没问题，但在处理全局事件时效率低下。</p>
+<h2 id="1-1-核心本质：从拉取到订阅"><a href="#1-1-核心本质：从拉取到订阅" class="headerlink" title="1.1 核心本质：从拉取到订阅"></a>1.1 核心本质：从拉取到订阅</h2><p>普通的 <code>Flow</code> 是<strong>冷流</strong>。它的逻辑是<strong>按需生产</strong>：只有当你调用 <code>collect</code> 时，生产块才会执行。这就像点外卖，你不下单，厨师就不炒菜。</p>
+<p>而 <code>SharedFlow</code> 的出现，标志着模型从 <strong>「数据流收集」</strong> 向 <strong>「事件流订阅」</strong> 的转换。</p>
+<ul>
+<li><strong>解耦</strong>：生产流程独立于消费流程。</li>
+<li><strong>广播</strong>：一个生产者可以对应多个订阅者（Subscriber）。</li>
+<li><strong>热流</strong>：即使没人听，它也可能在后台默默运行（取决于启动策略）。</li>
+</ul>
+        
+          <a class="article-more-a" href="/2026/03/25/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E5%85%AB%EF%BC%89SharedFlow-%E4%B8%8E-StateFlow/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">协程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2026/03/25/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E5%85%AB%EF%BC%89SharedFlow-%E4%B8%8E-StateFlow/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Kotlin-协程（七）Flow-操作符" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2026/03/17/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E4%B8%83%EF%BC%89Flow-%E6%93%8D%E4%BD%9C%E7%AC%A6/">Kotlin 协程（七）Flow 操作符</a>
+    </h1>
+  
+
+        
+        <a href="/2026/03/17/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E4%B8%83%EF%BC%89Flow-%E6%93%8D%E4%BD%9C%E7%AC%A6/" class="archive-article-date">
+  	<time datetime="2026-03-17T01:53:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1、异常操作符"><a href="#1、异常操作符" class="headerlink" title="1、异常操作符"></a>1、异常操作符</h1><h2 id="1-1-emit-的-try-catch-禁区"><a href="#1-1-emit-的-try-catch-禁区" class="headerlink" title="1.1 emit 的 try-catch 禁区"></a>1.1 emit 的 try-catch 禁区</h2><p>在协程中，Flow 极大地简化了异步数据流的处理。然而，很多开发者在处理异常时，往往会习惯性地在 <code>collect</code> 或 <code>flow &#123; ... &#125;</code> 构建块中使用经典的 <code>try-catch</code>。当你尝试在 <code>emit</code> 周围包裹 <code>try-catch</code> 时，你可能已经踏入了一个被称为 <strong>“下游异常泄露”</strong> 的陷阱。比如，以下的<strong>错误示范：在构建器中拦截一切。</strong></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span>: <span class="built_in">Unit</span> = runBlocking &#123;</span><br><span class="line">    flow &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            emit(<span class="number">1</span>)  <span class="comment">// 这里的 try-catch 会截获下游产生的异常！</span></span><br><span class="line">        &#125; <span class="keyword">catch</span> (e: Exception) &#123;</span><br><span class="line">            println(<span class="string">&quot;上游捕获了: <span class="variable">$e</span>&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;.collect &#123; value -&gt;</span><br><span class="line">        <span class="keyword">throw</span> IllegalStateException(<span class="string">&quot;下游崩溃&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在上面的代码中，下游 <code>collect</code> 抛出的 <code>IllegalStateException</code> 会被上游的 <code>catch</code> 捕获。这破坏了流的封装性，导致下游的逻辑错误被上游悄悄地「消化」或错误处理了。</p>
+        
+          <a class="article-more-a" href="/2026/03/17/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E4%B8%83%EF%BC%89Flow-%E6%93%8D%E4%BD%9C%E7%AC%A6/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">协程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2026/03/17/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E4%B8%83%EF%BC%89Flow-%E6%93%8D%E4%BD%9C%E7%AC%A6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Kotlin-协程（六）Flow-操作符" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2026/03/11/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E5%85%AD%EF%BC%89Flow-%E6%93%8D%E4%BD%9C%E7%AC%A6/">Kotlin 协程（六）Flow 操作符</a>
+    </h1>
+  
+
+        
+        <a href="/2026/03/11/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E5%85%AD%EF%BC%89Flow-%E6%93%8D%E4%BD%9C%E7%AC%A6/" class="archive-article-date">
+  	<time datetime="2026-03-11T01:09:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>Flow 操作符</strong>是处理异步数据流的核心工具。它们遵循函数式编程范式，允许你以链式调用的方式对数据进行变换、过滤、组合和缓冲。为了方便理解，我们可以将 Flow 操作符分为 <strong>中间操作符</strong>、<strong>末端操作符</strong>、<strong>组合操作符</strong>、<strong>线程上下文与生命周期</strong> 四大类：</p>
+<ol>
+<li><p><strong>中间操作符</strong></p>
+<p> 这类操作符的作用是「转换」。它们会接收一个 Flow，进行处理后返回一个新的 Flow。它们是<strong>冷操作符</strong>，意味着在调用末端操作符之前，这些逻辑不会执行。</p>
+<ul>
+<li><strong>过滤类</strong>：<ul>
+<li><code>filter</code>: 保留符合条件的元素。</li>
+<li><code>filterNotNull</code>: 剔除所有 <code>null</code> 值，并自动收紧泛型类型（从 <code>T?</code> 变为 <code>T</code>）。</li>
+<li><code>distinctUntilChanged</code>: 过滤掉连续重复的值。</li>
+</ul>
+</li>
+<li><strong>限流类</strong>：<ul>
+<li><code>take</code>: 仅取前 n 个元素。</li>
+<li><code>drop</code>: 跳过前 n 个元素。</li>
+<li><code>debounce</code>: 防抖处理，仅在指定时间内没有新值发射时才转发最后一个值（常用于搜索框输入）。</li>
+</ul>
+</li>
+<li><strong>变换类</strong>：<ul>
+<li><code>map</code>: 对每个发射的值进行转换（如将 <code>Int</code> 转为 <code>String</code>）。</li>
+<li><code>transform</code>: 比 <code>map</code> 更灵活，可以在 Lambda 中多次调用 <code>emit()</code>，甚至不发射。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+        
+          <a class="article-more-a" href="/2026/03/11/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E5%85%AD%EF%BC%89Flow-%E6%93%8D%E4%BD%9C%E7%AC%A6/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">协程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2026/03/11/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E5%85%AD%EF%BC%89Flow-%E6%93%8D%E4%BD%9C%E7%AC%A6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Kotlin-协程（五）Flow" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2026/03/06/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E4%BA%94%EF%BC%89Flow/">Kotlin-协程（五）Flow</a>
+    </h1>
+  
+
+        
+        <a href="/2026/03/06/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E4%BA%94%EF%BC%89Flow/" class="archive-article-date">
+  	<time datetime="2026-03-06T08:39:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在 Kotlin 的世界里，处理数据流就像是装修房子。虽然工具很多（Channel、Flow、Sequence），但选对工具直接决定了你是「游刃有余」还是「徒手拆墙」。很多开发者在面对这些 API 时常常感到困惑：为什么有了 Sequence，还需要 Flow？Channel 到底还要不要用？</p>
+<p>本文将针对这些疑惑来拆解一下 Kotlin 数据流 API 的设计哲学，看看 Flow 是如何成为现代 Kotlin 开发中的「终极方案」。</p>
+<h1 id="1、从-Channel-到-Flow"><a href="#1、从-Channel-到-Flow" class="headerlink" title="1、从 Channel 到 Flow"></a>1、从 Channel 到 Flow</h1><p>曾经，<code>Channel</code> 是 Kotlin 协程中跨协程通信的「当家花旦」。但如果你还在业务开发中直接使用 <code>Channel</code> 来做数据流转，那可能有点「复古」了。</p>
+<p>现在的设计原则非常明确：<strong>Channel 是「内部零件」，Flow 是「成品引擎」</strong>。</p>
+<ul>
+<li><strong>Channel 的底层化</strong>：它依然是协程间通信的基石，但在架构设计上，它已被下沉为 <code>Flow</code> API 的底层实现。</li>
+<li><strong>Flow 的上层抽象</strong>：Flow 提供了更完整、更安全、体验更好的封装。除非你在编写极度底层的并发组件，否则请把 <code>Channel</code> 放进工具箱底部，直接使用 <code>Flow</code>。</li>
+</ul>
+        
+          <a class="article-more-a" href="/2026/03/06/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E4%BA%94%EF%BC%89Flow/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">协程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2026/03/06/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E4%BA%94%EF%BC%89Flow/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Kotlin-协程（四）Channel" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2026/02/25/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E5%9B%9B%EF%BC%89Channel/">Kotlin 协程（四）Channel</a>
+    </h1>
+  
+
+        
+        <a href="/2026/02/25/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E5%9B%9B%EF%BC%89Channel/" class="archive-article-date">
+  	<time datetime="2026-02-25T08:10:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-02-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在并发编程中，最让人头疼的就是多线程共享变量导致的锁竞争与数据不同步。Kotlin 协程借鉴了 Go 语言的哲学：<strong>“不要通过共享内存来通信，而要通过通信来共享内存。”</strong></p>
+<p>实现这一哲学的核心工具，就是 <strong>Channel（通道）</strong>。通过 Channel，我们避免了复杂的 <code>synchronized</code> 或 <code>Lock</code>，将并发竞争转换成了简单的流式处理。</p>
+<h1 id="1、什么是-Channel"><a href="#1、什么是-Channel" class="headerlink" title="1、什么是 Channel"></a>1、什么是 Channel</h1><p>Channel 是「<strong>协程间</strong>」传递数据的底层协作工具。你可以把 <code>Channel</code> 想象成工厂里的<strong>自动化传送带</strong>：</p>
+<ul>
+<li><strong>生产者</strong>：负责把生产的零件放上传送带，对应 <code>send</code> 方法。</li>
+<li><strong>消费者</strong>：负责从传送带另一头取走零件，对应 <code>receive</code> 方法。</li>
+<li><strong>挂起非阻塞</strong>：如果传送带满了，生产者会自动停下（挂起）等空位；如果传送带空了，消费者会自动停下（挂起）等零件。</li>
+</ul>
+        
+          <a class="article-more-a" href="/2026/02/25/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E5%9B%9B%EF%BC%89Channel/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">协程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2026/02/25/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E5%9B%9B%EF%BC%89Channel/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Kotlin-协程（三）CoroutineScope-与-CoroutineContext" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2026/02/15/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E4%B8%89%EF%BC%89CoroutineScope-%E4%B8%8E-CoroutineContext/">Kotlin 协程（三）CoroutineScope 与 CoroutineContext</a>
+    </h1>
+  
+
+        
+        <a href="/2026/02/15/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E4%B8%89%EF%BC%89CoroutineScope-%E4%B8%8E-CoroutineContext/" class="archive-article-date">
+  	<time datetime="2026-02-15T10:21:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-02-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在 Kotlin 协程的开发中，我们每天都在写 <code>GlobalScope.launch</code> 或者在 ViewModel 中使用 <code>viewModelScope</code>。但你是否曾停下来思考过：<strong>为什么启动协程一定要一个 Scope？既然有了 Context 来描述协程信息，为什么还要多出一个 Scope 概念？</strong></p>
+<p>本文将带你拨开迷雾，厘清 <code>CoroutineScope</code> 与 <code>CoroutineContext</code> 的本质定位及二者的协作逻辑。用一句话概括它们本质：<code>CoroutineContext</code> 是协程的<strong>属性信息</strong>，而 <code>CoroutineScope</code> 是这些信息的<strong>生存空间</strong>。</p>
+<h1 id="1、CoroutineContext-的本质"><a href="#1、CoroutineContext-的本质" class="headerlink" title="1、CoroutineContext 的本质"></a>1、CoroutineContext 的本质</h1><p>从本质上讲，<strong><code>CoroutineContext</code> 是协程执行所依赖的全部信息集合</strong>。如果把协程比作一个正在运行的「<strong>任务</strong>」，那么 Context 就是这个任务的「<strong>简历</strong>」和「<strong>运行环境配置</strong>」。</p>
+<h2 id="1-1-核心组成要素"><a href="#1-1-核心组成要素" class="headerlink" title="1.1 核心组成要素"></a>1.1 核心组成要素</h2><p>Context 并不是一个单一的变量，它更像是一个<strong>元素集合</strong>（类似 Map），常见的成员包括：</p>
+<ul>
+<li><strong>Job</strong>：控制协程的生命周期（取消、完成、父子关系）。</li>
+<li><strong>ContinuationInterceptor（Dispatcher）</strong>：决定协程在哪个线程运行（如 <code>Dispatchers.IO</code>）。</li>
+<li><strong>CoroutineName</strong>：给协程起个名字，方便调试。</li>
+<li><strong>CoroutineExceptionHandler</strong>：处理未捕获的异常。</li>
+</ul>
+<p><strong>技术细节</strong>：你可以使用 <code>+</code> 运算符来合并两个 Context。如果相加的是同类型的元素（例如两个不同的 Job），右侧的元素会覆盖左侧的元素。</p>
+        
+          <a class="article-more-a" href="/2026/02/15/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E4%B8%89%EF%BC%89CoroutineScope-%E4%B8%8E-CoroutineContext/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">协程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2026/02/15/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E4%B8%89%EF%BC%89CoroutineScope-%E4%B8%8E-CoroutineContext/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Kotlin-协程（二）结构化并发" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2026/01/19/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E4%BA%8C%EF%BC%89%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91/">Kotlin 协程（二）结构化并发</a>
+    </h1>
+  
+
+        
+        <a href="/2026/01/19/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E4%BA%8C%EF%BC%89%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91/" class="archive-article-date">
+  	<time datetime="2026-01-19T08:40:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Kotlin 结构化并发的本质是<strong>构建协程间的「层级归属关系」，通过父子作用域的生命周期绑定与异常双向传递，实现并发任务的协同联动与自动收敛</strong>。最终<strong>将异步代码的控制流变得像同步代码一样清晰可预测</strong>。结构化并发在代码层面表现为三个具体的行为：</p>
+<table style="font-family: 'Google Sans Text', 'Noto Sans', 'Noto Sans JP', 'Noto Sans KR', 'Noto Naskh Arabic', 'Noto Sans Thai', 'Noto Sans Hebrew', 'Noto Sans Bengali', sans-serif;">
 	<tbody>
 		<tr style="text-align:center">
-			<th align="center">版本</th>
-			<th align="center">时间</th>
-			<th align="center">描述</th>
+			<th align="center" width="30%" colspan="1">特性</th>
+			<th align="center" width="70%" colspan="1">描述</th>
 		</tr>
 		<tr>
-			<td align="center">Android 10</td>
-			<td align="center">2019</td>
-            <td align="center"> 引入全局深色主题，用户可在系统设置中一键切换，系统界面和应用（适配后）会跟随主题变化。</td>
+			<td align="center"><strong>生命周期绑定</strong></td>
+			<td align="center">只要作用域结束（如 <code>viewModelScope</code>），内部所有协程立即停止。</td>
 		</tr>
 		<tr>
-			<td align="center">Android 11</td>
-			<td align="center">2020</td>
-            <td align="center">优化了深色主题的调度（如定时切换），并增强了对第三方应用图标和控件的适配。</td>
+			<td align="center"><strong>等待子项完成</strong></td>
+			<td align="center">父协程的执行流会挂起，直到内部所有子任务（即使是并行的）都结束。</td>
 		</tr>
 		<tr>
-			<td align="center">Android 12</td>
-			<td align="center">2021</td>
-            <td align="center">引入 Material You 设计语言，支持更灵活的主题自定义（如动态取色），进一步统一深色体验。</td>
+			<td align="center"><strong>异常传播机制</strong></td>
+			<td align="center">异常会沿着树状结构双向传播，确保局部失败能被全局感知或统一处理。</td>
 		</tr>
 	</tbody>
 </table>
+
+<blockquote>
+<p><font style="color:#01579B;font-size:14px;"><strong>✦ 通俗理解</strong>：Kotlin 结构化并发的本质是为异步任务建立了一套“责任制”。 它通过将子协程的生命周期强绑定在父作用域中，把原本散乱的异步逻辑约束为一棵有序的“家族树”。这确保了任务既能像同步代码一样精准收敛（无遗漏、无泄露），又能实现异常的自动感知与协同联动。它真正解决的问题，是让异步开发从“放任自流”回归到了“边界可控”。</font></p>
+</blockquote>
+<h1 id="1、一个协程对象"><a href="#1、一个协程对象" class="headerlink" title="1、一个协程对象"></a>1、一个协程对象</h1><p>在 Kotlin 协程的学习路径中，<strong>结构化并发（Structured Concurrency）</strong> 是最核心也最难理解的内容。许多人在处理父子协程、异常传播和生命周期管理时感到困惑，其根本原因在于：<strong>我们没有在技术层面上明确，到底“什么是协程对象”？</strong></p>
+<p>本文将从 Java 线程模型类比出发，带你拆解协程中 Job 与 CoroutineScope 的职责，揭秘结构化并发的底层逻辑。</p>
         
-          <a class="article-more-a" href="/2025/04/20/Android-%E5%90%AF%E5%8A%A8%E7%94%BB%E9%9D%A2%E7%9A%84%E6%B7%B1%E8%89%B2%E4%B8%BB%E9%A2%98/#more">more >></a>
+          <a class="article-more-a" href="/2026/01/19/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E4%BA%8C%EF%BC%89%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91/#more">more >></a>
         
       
 
@@ -921,7 +1043,7 @@ Length of &#39;Flow&#39; is 4
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Theme</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">协程</a>
         		</li>
       		
 		</ul>
@@ -931,111 +1053,7 @@ Length of &#39;Flow&#39; is 4
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/04/20/Android-%E5%90%AF%E5%8A%A8%E7%94%BB%E9%9D%A2%E7%9A%84%E6%B7%B1%E8%89%B2%E4%B8%BB%E9%A2%98/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-如何在-SQLite-中切换布尔值" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/02/28/%E5%A6%82%E4%BD%95%E5%9C%A8-SQLite-%E4%B8%AD%E5%88%87%E6%8D%A2%E5%B8%83%E5%B0%94%E5%80%BC/">如何在 SQLite 中切换布尔值</a>
-    </h1>
-  
-
-        
-        <a href="/2025/02/28/%E5%A6%82%E4%BD%95%E5%9C%A8-SQLite-%E4%B8%AD%E5%88%87%E6%8D%A2%E5%B8%83%E5%B0%94%E5%80%BC/" class="archive-article-date">
-  	<time datetime="2025-02-27T16:48:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-02-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>首先，<a href="https://www.sqlite.org/datatype3.html">SQLite 中没有单独的布尔数据类型</a>，通常使用整数来存储布尔值。那么，我们可不可以在不先检索存储值的前提下，只使用一条 SQL 语句来切换这个值呢？</p>
-<p>例如，我们有一个 <code>people</code> 表，内容如下：</p>
-<table>
-	<tbody>
-		<tr>
-            <th align="center" width="30%">id</th>
-			<th align="center" width="30%">name</th>
-			<th align="center" width="30%">is_friend</th>
-		</tr>
-		<tr>
-			<td align="center">1</td>
-			<td align="center">Peter</td>
-			<td align="center">0</td>
-		</tr>
-		<tr>
-		    <td align="center">2</td>
-			<td align="center">Mary</td>
-			<td align="center">1</td>
-		</tr>
-		<tr>
-		    <td align="center">3</td>
-			<td align="center">John</td>
-			<td align="center">0</td>
-		</tr>
-	</tbody>
-</table>
-
-<p>要切换 Mary 的 <code>is_friend</code> 属性，我们可以执行这条 SQL 语句：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> `people` <span class="keyword">SET</span> is_friend <span class="operator">=</span> ((is_friend <span class="operator">|</span> <span class="number">1</span>) <span class="operator">-</span> (is_friend <span class="operator">&amp;</span> <span class="number">1</span>)) <span class="keyword">WHERE</span> id <span class="operator">=</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2025/02/28/%E5%A6%82%E4%BD%95%E5%9C%A8-SQLite-%E4%B8%AD%E5%88%87%E6%8D%A2%E5%B8%83%E5%B0%94%E5%80%BC/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SQLite</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/02/28/%E5%A6%82%E4%BD%95%E5%9C%A8-SQLite-%E4%B8%AD%E5%88%87%E6%8D%A2%E5%B8%83%E5%B0%94%E5%80%BC/">展开全文 >></a>
+          <a class="article-more-a" href="/2026/01/19/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E4%BA%8C%EF%BC%89%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91/">展开全文 >></a>
         </p>
       
 
@@ -1067,7 +1085,7 @@ Length of &#39;Flow&#39; is 4
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 

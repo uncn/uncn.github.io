@@ -162,6 +162,710 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-SQLite-数据库管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/25/SQLite-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86/">SQLite 数据库管理</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/25/SQLite-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86/" class="archive-article-date">
+  	<time datetime="2017-11-25T01:57:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>数据库管理一般用于控制数据库如何操作。要执行的许多数据库管理任务都可以通过 SQL 命令完成。SQLite 包括自己一些独特的管理功能，如将多个数据库附加“attach”到一个连接上，以及用来设置各种配置参数的数据库编译指示（pragma）。</p>
+<h2 id="一、附加数据库"><a href="#一、附加数据库" class="headerlink" title="一、附加数据库"></a>一、附加数据库</h2><p>SQLite 允许你用 attach 命令将多个数据库“附加”到当前连接上。当你附加了一个数据库时，它的所有内容在当前数据库文件的全局范围内都是可存取的。attach 的语法如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">attach [database] filename <span class="keyword">as</span> database_name; </span><br></pre></td></tr></table></figure>
+
+<p>其中，filename 指 SQLite 数据库的文件名称和路径，database_name 指要引用的数据库和对象的逻辑名称。主数据库自动赋名为 main。如果创建任何临时的对象，SQLite 会创建一个附加的数据库，并命名为 temp（可以使用后面描述的编辑指示 database_list 查看这些对象）。逻辑名称可以用来引用附加数据库内的对象，与此同时，引用附加数据库内的对象必须提供逻辑名。例如，如果两个数据库都有名为 FOODS 的表，附加数据库的逻辑名为 DATA2，查询 DATA2 中 FOODS 表的唯一方式是使用全限定名 DATA2.FOODS，例如：</p>
+<p>TEST 数据库文件路径为：C:\Users\sunzn\Desktop\TEST.db，该数据库下包含一个 FOODS 表，建表语句如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE TABLE</span> FOODS(ID <span class="type">INTEGER</span> <span class="keyword">PRIMARY KEY</span>, NAME TEXT);</span><br><span class="line"><span class="keyword">INSERT INTO</span> FOODS (NAME) <span class="keyword">VALUES</span> (<span class="string">&#x27;苹果&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> FOODS (NAME) <span class="keyword">VALUES</span> (<span class="string">&#x27;桔子&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> FOODS (NAME) <span class="keyword">VALUES</span> (<span class="string">&#x27;西瓜&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> FOODS (NAME) <span class="keyword">VALUES</span> (<span class="string">&#x27;芹菜&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> FOODS (NAME) <span class="keyword">VALUES</span> (<span class="string">&#x27;黄瓜&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> FOODS (NAME) <span class="keyword">VALUES</span> (<span class="string">&#x27;土豆&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> FOODS (NAME) <span class="keyword">VALUES</span> (<span class="string">&#x27;牛肉&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> FOODS (NAME) <span class="keyword">VALUES</span> (<span class="string">&#x27;猪肉&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> FOODS (NAME) <span class="keyword">VALUES</span> (<span class="string">&#x27;鸡肉&#x27;</span>);</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2017/11/25/SQLite-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SQLite</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/25/SQLite-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-SQLite-事务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/24/SQLite-%E4%BA%8B%E5%8A%A1/">SQLite 事务</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/24/SQLite-%E4%BA%8B%E5%8A%A1/" class="archive-article-date">
+  	<time datetime="2017-11-24T13:01:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>事务定义了一组 SQL 命令的边界，这组命令或者作为一个整体被全部执行，或者都不执行，这被称为数据库完整性的原子性原则。</strong> 这种关系的典型例子就是银行转账，假设银行程序从一个账户向另一个账户转账，转账程序通过如下方式进行：首先将第一个账户的钱转入第二个账户，然后从第一个账户删除对应的数目；或者首先从第一个账户删除要转账的数目，然后向第二个账户插入对应的数目。无论哪种方式，都是通过两步完成的：先插入，后删除；或者先删除，后插入。</p>
+<p>但是在转账期间，如果数据库服务器突然奔溃或电力中断，第二个操作没有完成怎么办？要么这笔钱存在于两个账户（第一种方式），要么这笔钱在两个账户中都不存在（第二种方式）。无论发生哪种情况，总有人无法接受。数据库也处于不一致的状态，<strong>关键是这两步操作必须要同时被执行或者一步都不执行。</strong> 这就是事务的本质。</p>
+<h2 id="一、事务的范围"><a href="#一、事务的范围" class="headerlink" title="一、事务的范围"></a>一、事务的范围</h2><p>事务由 3 个命令控制：<code>begin</code>、<code>commit</code> 和 <code>rollback</code>。begin 开始一个事务，begin 之后的所有操作都可以取消，如果连接中止前没有发出 commit，也会被取消。commit 提交事务开始后所执行的所有操作。类似地，rollback 还原 begin 之后的所有操作。例如：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">BEGIN</span>;</span><br><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> FOODS;</span><br><span class="line"><span class="keyword">ROLLBACK</span>;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">FROM</span> FOODS;</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2017/11/24/SQLite-%E4%BA%8B%E5%8A%A1/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SQLite</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/24/SQLite-%E4%BA%8B%E5%8A%A1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-SQLite-索引" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/23/SQLite-%E7%B4%A2%E5%BC%95/">SQLite 索引</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/23/SQLite-%E7%B4%A2%E5%BC%95/" class="archive-article-date">
+  	<time datetime="2017-11-23T12:10:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>索引是一种用来在某中条件下加速查询的结构。考虑如下查询：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> FOODS <span class="keyword">WHERE</span> NAME<span class="operator">=</span><span class="string">&#x27;苹果&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>当数据库搜索匹配的行时，执行这种查询的默认方法是调用顺序扫描。也就是说，逐个搜索（扫描）表中的所有行，查看 NAME 属性是否匹配 “苹果”。</p>
+<p>但是，如果频繁使用这种查询，并且表 FOODS 非常大，使用索引的方法查找数据就更有意义了。<font color=" RoyalBlue">与其他许多数据库类似，SQLite 使用 B-tree 做索引。</font></p>
+<p><font color="RoyalBlue">索引也会增加数据库的大小。从字面上理解，它们复制了一份索引的字段。</font>如果表中的所有字段都创建索引，表的大小可能翻倍。另一个要考虑的情况是索引的维护。进行 insert、update 和 delete 操作时，除了修改表，数据库也必须修改对应的索引。虽然索引可以加速查询，但是它们可能降低 insert、update 和类似操作的速度。创建索引的命令如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> index [<span class="keyword">unique</span>] index_name <span class="keyword">on</span> table_name (columns)</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2017/11/23/SQLite-%E7%B4%A2%E5%BC%95/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SQLite</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/23/SQLite-%E7%B4%A2%E5%BC%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-SQLite-视图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/22/SQLite-%E8%A7%86%E5%9B%BE/">SQLite 视图</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/22/SQLite-%E8%A7%86%E5%9B%BE/" class="archive-article-date">
+  	<time datetime="2017-11-22T12:15:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>视图即虚拟表，也成为派生表，因为它们的内容都派生自其他表的查询结果。虽然视图看起来感觉就像基本表一样，但是它们不是基本表。<font color="DeepPink">基本表的内容是持久的，而视图的内容是在使用时动态产生的。</font>创建视图的语法如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> name <span class="keyword">as</span> <span class="keyword">select</span><span class="operator">-</span>stmt;</span><br></pre></td></tr></table></figure>
+
+<p>视图的名称通过 name 指定，其定义由 select-stmt 定义。最终生成的视图看起来就像名为 name 的基本表。想象一下你有一个一直在运行的查询，你会对多次编写这样的查询感到厌烦，此时视图则是这种情况的最佳选择。在开始创建视图之前，我们先创建基本表 TYPES 和 FOODS：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 创建 TYPES 表，插入数据</span></span><br><span class="line"><span class="keyword">CREATE TABLE</span> TYPES(ID <span class="type">INTEGER</span> <span class="keyword">PRIMARY KEY</span>, NAME TEXT);</span><br><span class="line"><span class="keyword">INSERT INTO</span> TYPES (ID, NAME) <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="string">&#x27;水果&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> TYPES (ID, NAME) <span class="keyword">VALUES</span> (<span class="number">2</span>, <span class="string">&#x27;蔬菜&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT INTO</span> TYPES (ID, NAME) <span class="keyword">VALUES</span> (<span class="number">3</span>, <span class="string">&#x27;肉类&#x27;</span>);</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2017/11/22/SQLite-%E8%A7%86%E5%9B%BE/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SQLite</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/22/SQLite-%E8%A7%86%E5%9B%BE/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-SQLite-触发器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/21/SQLite-%E8%A7%A6%E5%8F%91%E5%99%A8/">SQLite 触发器</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/21/SQLite-%E8%A7%A6%E5%8F%91%E5%99%A8/" class="archive-article-date">
+  	<time datetime="2017-11-20T23:38:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>当具体的表发生特定的数据库事件时，触发器执行对应的 SQL 命令。创建触发器的一般命令如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> [temp <span class="operator">|</span> temporary] <span class="keyword">trigger</span> name</span><br><span class="line">[before <span class="operator">|</span> after] [<span class="keyword">insert</span> <span class="operator">|</span> <span class="keyword">delete</span> <span class="operator">|</span> <span class="keyword">update</span> <span class="keyword">of</span> columns] <span class="keyword">on</span> <span class="keyword">table</span></span><br><span class="line">action</span><br></pre></td></tr></table></figure>
+
+<p>触发器是通过名称、行为和表定义的。行为（或者称为触发体）由一系列 SQL 命令组成，当某些事件发生时，触发器负责启动这些命令。此外，可以通过关键字 before 或 after 来指定这些操作是在事件发生前还是发生后执行。事件包括在具体的表中执行的 delete、insert 和 update 命令。触发器可以用来创建自定义完整性约束、日志改变、更新表和其他很多事情。触发器的作用只限于所写的 SQL 命令。</p>
+<h2 id="一：更新触发器"><a href="#一：更新触发器" class="headerlink" title="一：更新触发器"></a>一：更新触发器</h2><p>与 insert 和 delete 触发器不同，update 触发器可以在表的执行字段上定义，这种触发器的一般格式如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">trigger</span> name</span><br><span class="line">[before <span class="operator">|</span> after] <span class="keyword">update</span> <span class="keyword">of</span> <span class="keyword">column</span> <span class="keyword">on</span> <span class="keyword">table</span></span><br><span class="line">action</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2017/11/21/SQLite-%E8%A7%A6%E5%8F%91%E5%99%A8/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SQLite</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/21/SQLite-%E8%A7%A6%E5%8F%91%E5%99%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-SQLite中的Null" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/20/SQLite%E4%B8%AD%E7%9A%84Null/">SQLite 中的 Null</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/20/SQLite%E4%B8%AD%E7%9A%84Null/" class="archive-article-date">
+  	<time datetime="2017-11-20T03:13:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>绝大多数关系数据库都通过一种称为 Null 特殊占位符支持 <strong>未知</strong> 或 <strong>不可知</strong> 的概念，Null 是缺失信息的占位符，本身不是值。Null 表示该位置没有值：Null 不是什么其他值，Null 不是真，也不是假，不是零，也不是空字符串。简单地理解，Null 就是自己：Null。可能一些人不明白其中的含义。掌握 SQLite 中的 Null，需要了解一些关键规则和观点。</p>
+<ul>
+<li><strong>第一</strong>：为了在逻辑表达式中使用 NULL，SQLite 使用所谓的三值（或三态）逻辑，Null 是真假值之一。下面的表格显示了逻辑与（And）和逻辑或（Or）与 Null 的关系。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">X</th>
+<th align="center">Y</th>
+<th align="center">X AND Y</th>
+<th align="center">X OR Y</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">True</td>
+<td align="center">True</td>
+<td align="center">True</td>
+<td align="center">True</td>
+</tr>
+<tr>
+<td align="center">True</td>
+<td align="center">False</td>
+<td align="center">False</td>
+<td align="center">True</td>
+</tr>
+<tr>
+<td align="center">True</td>
+<td align="center">NULL</td>
+<td align="center">NULL</td>
+<td align="center">True</td>
+</tr>
+<tr>
+<td align="center">False</td>
+<td align="center">False</td>
+<td align="center">False</td>
+<td align="center">False</td>
+</tr>
+<tr>
+<td align="center">False</td>
+<td align="center">NULL</td>
+<td align="center">False</td>
+<td align="center">NULL</td>
+</tr>
+<tr>
+<td align="center">NULL</td>
+<td align="center">NULL</td>
+<td align="center">NULL</td>
+<td align="center">NULL</td>
+</tr>
+</tbody></table>
+        
+          <a class="article-more-a" href="/2017/11/20/SQLite%E4%B8%AD%E7%9A%84Null/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SQLite</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/20/SQLite%E4%B8%AD%E7%9A%84Null/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-SQLite插入、更新或忽略" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/19/SQLite%E6%8F%92%E5%85%A5%E3%80%81%E6%9B%B4%E6%96%B0%E6%88%96%E5%BF%BD%E7%95%A5/">SQLite 插入、更新或忽略</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/19/SQLite%E6%8F%92%E5%85%A5%E3%80%81%E6%9B%B4%E6%96%B0%E6%88%96%E5%BF%BD%E7%95%A5/" class="archive-article-date">
+  	<time datetime="2017-11-19T02:30:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>多终端数据同步</strong>的应用场景下，如果当前终端数据不存在，则需要执行插入操作；如果已经存在，则视情况执行更新或忽略操作。SQLite 的 <code>INSERT OR REPLACE INTO</code> 和 <code>INSERT OR IGNORE INTO</code> 可以满足以上的需求。语法说明如下：</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th align="center">说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>INSERT OR REPLACE INTO</td>
+<td align="center">如存在，则更新，否则插入</td>
+<td>只对 PRIMARY KEY 或 UNIQUE 约束字段起作用</td>
+</tr>
+<tr>
+<td>INSERT OR IGNORE INTO</td>
+<td align="center">如存在，则忽略，否则插入</td>
+<td>只对 PRIMARY KEY 或 UNIQUE 约束字段起作用</td>
+</tr>
+</tbody></table>
+        
+          <a class="article-more-a" href="/2017/11/19/SQLite%E6%8F%92%E5%85%A5%E3%80%81%E6%9B%B4%E6%96%B0%E6%88%96%E5%BF%BD%E7%95%A5/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SQLite</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/19/SQLite%E6%8F%92%E5%85%A5%E3%80%81%E6%9B%B4%E6%96%B0%E6%88%96%E5%BF%BD%E7%95%A5/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-SQLite-修改数据" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/18/SQLite-%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE/">SQLite 修改数据</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/18/SQLite-%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE/" class="archive-article-date">
+  	<time datetime="2017-11-18T12:35:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>与 select 命令相比，用于修改数据库的语句很容易理解和使用。有 3 个 DML 语句用于修改数据——insert、update 和 delete，不过它们远比字面含义看起来做的事情要多。</p>
+<h2 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h2><p>使用 insert 命令向表中插入记录。<font color="DeepPink">insert 在单表上工作，使用 insert 命令可以一次插入一条记录，使用 select 命令可以一次插入多条记录。</font>insert 语句的一般格式为：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert into</span> <span class="keyword">table</span> (column_list) <span class="keyword">values</span> (value_list);</span><br></pre></td></tr></table></figure>
+
+<p>变量 table 指明数据库插入到哪个表中。变量 column_list 是用逗号分隔的字段名称，这些字段必须是表中存在的。变量 value_list 是用逗号分隔的值列表，这些值与 column_list 中的字段一一对应。</p>
+        
+          <a class="article-more-a" href="/2017/11/18/SQLite-%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SQLite</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/18/SQLite-%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-如何从-SQLite-的现有表中添加或删除列" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -321,687 +1025,9 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Python（2-3）使用-IDE" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/14/Python%EF%BC%882-3%EF%BC%89%E4%BD%BF%E7%94%A8-IDE/">Python（2.3）使用 IDE</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/14/Python%EF%BC%882-3%EF%BC%89%E4%BD%BF%E7%94%A8-IDE/" class="archive-article-date">
-  	<time datetime="2017-10-14T11:32:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在开始使用套件管理模块之后，你必须建立与套件对应的文件夹，还要自行新增 <code>__init__.py</code> 文件，这其实有点麻烦，你可以考虑开始使用 IDE（Integrated Development Environment），由 IDE 代劳一些套件与相关资源管理的工作，提高开发效率。</p>
-<h2 id="2-3-1-下载、安装-PyCharm"><a href="#2-3-1-下载、安装-PyCharm" class="headerlink" title="2.3.1 下载、安装 PyCharm"></a>2.3.1 下载、安装 PyCharm</h2><p>在 Python 的领域中，有为数不少的 IDE，然而使用哪个 IDE，必须根据开发的应用程序特性，或者基于一些团队管理等因素来决定，有时其实也是个人习惯问题，以下是一些我看过有人推荐或使用过的 IDE：</p>
-<blockquote>
-<ul>
-<li><a href="https://www.jetbrains.com/pycharm/">PyCharm</a></li>
-<li><a href="http://www.pydev.org/">PyDev</a></li>
-<li><a href="https://www.activestate.com/komodo-ide">Komodo IDE</a></li>
-<li><a href="http://code.google.com/archive/p/spyderlib/">Spyder</a></li>
-<li><a href="http://wingware.com/">WingIDE</a></li>
-<li><a href="http://ninja-ide.org/">NINJA-IDE</a></li>
-<li><a href="https://microsoft.github.io/PTVS/">Python Tools for Visual Studio</a></li>
-</ul>
-</blockquote>
-        
-          <a class="article-more-a" href="/2017/10/14/Python%EF%BC%882-3%EF%BC%89%E4%BD%BF%E7%94%A8-IDE/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/14/Python%EF%BC%882-3%EF%BC%89%E4%BD%BF%E7%94%A8-IDE/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Python（2-2）模块与包" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/13/Python%EF%BC%882-2%EF%BC%89%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%8C%85/">Python（2.2）模块与包</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/13/Python%EF%BC%882-2%EF%BC%89%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%8C%85/" class="archive-article-date">
-  	<time datetime="2017-10-13T11:32:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>对于初学者来说，通常只需要一个 .py 源码文件，就可以应付各种范例程序，然而实际的应用程序需要的代码数量远比范例程序要来的多，只使用一个 .py 文件来编写，势必造成程序管理上的混乱，你必须学会根据功能将文件划分在不同的模块（Module）中编写，而功能相近或彼此辅助的模块，也要知道如何使用包（Package）来加以管理。</p>
-<h2 id="2-2-1-模块简介"><a href="#2-2-1-模块简介" class="headerlink" title="2.2.1 模块简介"></a>2.2.1 模块简介</h2><p>有件事实也许令人惊讶，其实你已经编写过模块了，每个 .py 文件本身就是一个模块，当你编写完一个 .py 文件，而别人打算直接引用你的成果的话，只需要在他编写的 .py 文件中导入（import）就可以了。举个例子来说，若想在 Hello3.py 中，直接引用先前写好的 Hello2.py，可以按以下方式来编写：</p>
-<p><img src="https://image.sunzn.com/blog/20171012190501.png" alt="此处输入图片的描述"></p>
-        
-          <a class="article-more-a" href="/2017/10/13/Python%EF%BC%882-2%EF%BC%89%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%8C%85/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/13/Python%EF%BC%882-2%EF%BC%89%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%8C%85/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-MySQL数据库插入中文乱码的解决方案" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/10/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">MySQL数据库插入中文乱码的解决方案</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/10/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="archive-article-date">
-  	<time datetime="2017-10-10T15:49:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>默认情况下，向 MySQL 数据库插入一条带有中文的数据时，会出现乱码，测试语句如下：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert into</span> employee <span class="keyword">values</span>(<span class="keyword">null</span>,<span class="string">&#x27;张三&#x27;</span>,<span class="string">&#x27;female&#x27;</span>,<span class="string">&#x27;1995-10-08&#x27;</span>,<span class="string">&#x27;2015-11-12&#x27;</span>,<span class="string">&#x27;Sales&#x27;</span>,<span class="number">2000</span>,<span class="string">&#x27;是个好员工！&#x27;</span>);</span><br></pre></td></tr></table></figure>
-<p>出现乱码时，首先需要查看字符集编码是否一致，如果不一致，就可通过调整数据库编集码进行解决，语句如下：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;character%&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
-<p> <img src="https://image.sunzn.com/blog/20170930094701.png" alt="此处输入图片的描述"></p>
-        
-          <a class="article-more-a" href="/2017/10/10/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/10/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-JSONArray-值为-NULL-时的容错处理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/10/JSONArray-%E5%80%BC%E4%B8%BA-NULL-%E6%97%B6%E7%9A%84%E5%AE%B9%E9%94%99%E5%A4%84%E7%90%86/">JSONArray 值为 NULL 时的容错处理</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/10/JSONArray-%E5%80%BC%E4%B8%BA-NULL-%E6%97%B6%E7%9A%84%E5%AE%B9%E9%94%99%E5%A4%84%E7%90%86/" class="archive-article-date">
-  	<time datetime="2017-10-10T13:54:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>无论是 Web 端还是移动端开发，都会涉及到对 JSONArray 的解析，通常状况下前端会和后端会约定好返回的数据是一个 JSONArray 数组，当然前端也会按照 <code>JSONObject.getJSONArray(String name)</code> 的方式去解析数据。但现实中的情况是后端由于某些原因直接返回了 <code>null</code>（而非空数组 [ ]），这时候前端依然按照数组的形式去解析就会抛出如下异常：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">org.json.JSONException: Value <span class="literal">null</span> at users of type org.json.JSONObject$<span class="number">1</span> cannot be converted to JSONArray</span><br><span class="line">    at org.json.JSON.typeMismatch(JSON.java:<span class="number">100</span>)</span><br><span class="line">    at org.json.JSONObject.getJSONArray(JSONObject.java:<span class="number">588</span>)</span><br><span class="line">    at com.sunzn.core.RefreshManager$<span class="number">8.</span>onSuccess(RefreshManager.java:<span class="number">617</span>)</span><br><span class="line">    at com.loopj.android.http.JsonHttpResponseHandler$<span class="number">1</span>$<span class="number">1.</span>run(JsonHttpResponseHandler.java:<span class="number">152</span>)</span><br><span class="line">    at android.os.Handler.handleCallback(Handler.java:<span class="number">739</span>)</span><br><span class="line">    at android.os.Handler.dispatchMessage(Handler.java:<span class="number">95</span>)</span><br><span class="line">    at android.os.Looper.loop(Looper.java:<span class="number">135</span>)</span><br><span class="line">    at android.app.ActivityThread.main(ActivityThread.java:<span class="number">5418</span>)</span><br><span class="line">    at java.lang.reflect.Method.invoke(Native Method)</span><br><span class="line">    at java.lang.reflect.Method.invoke(Method.java:<span class="number">372</span>)</span><br><span class="line">    at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:<span class="number">1037</span>)</span><br><span class="line">    at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:<span class="number">832</span>)</span><br></pre></td></tr></table></figure>
-
-<p>这个异常明确的告诉我们，当 JSONArray 为 null 的时候，这个对象的属性发生了变化，由 JSONArray 变成了 JSONObject，然而前端却依然认为这是个 JSONArray 对象并以 JSONArray 的形式去取值，结果就抛出了异常。</p>
-        
-          <a class="article-more-a" href="/2017/10/10/JSONArray-%E5%80%BC%E4%B8%BA-NULL-%E6%97%B6%E7%9A%84%E5%AE%B9%E9%94%99%E5%A4%84%E7%90%86/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Json</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/10/JSONArray-%E5%80%BC%E4%B8%BA-NULL-%E6%97%B6%E7%9A%84%E5%AE%B9%E9%94%99%E5%A4%84%E7%90%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Android-Studio-Failed-to-open-zip-file" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/05/Android-Studio-Failed-to-open-zip-file/">Android Studio : Failed to open zip file</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/05/Android-Studio-Failed-to-open-zip-file/" class="archive-article-date">
-  	<time datetime="2017-09-05T12:54:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Android Studio 出现 Failed to open zip file 错误多发生在新环境部署或升级过程中，出现这种问题的主要原因是对应版本 gradle 的 zip 文件下载不完整，导致 zip 文件解压失败。</p>
-<p><img src="https://image.sunzn.com/blog/20170905200601.png" alt="此处输入图片的描述"></p>
-        
-          <a class="article-more-a" href="/2017/09/05/Android-Studio-Failed-to-open-zip-file/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Android Studio</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Error</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/05/Android-Studio-Failed-to-open-zip-file/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-自定义-View（三）文字的绘制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/24/%E8%87%AA%E5%AE%9A%E4%B9%89-View%EF%BC%88%E4%B8%89%EF%BC%89%E6%96%87%E5%AD%97%E7%9A%84%E7%BB%98%E5%88%B6/">自定义 View（三）文字的绘制</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/24/%E8%87%AA%E5%AE%9A%E4%B9%89-View%EF%BC%88%E4%B8%89%EF%BC%89%E6%96%87%E5%AD%97%E7%9A%84%E7%BB%98%E5%88%B6/" class="archive-article-date">
-  	<time datetime="2017-08-24T13:56:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>上期的 Paint 详解里已经说过，文字的绘制所能控制的内容太多太细，必须拆成单独的一期专门来讲。今天这期，就是来把这些细节讲清楚的。下面进入正题：</p>
-<h1 id="1-Canvas-绘制文字的方式"><a href="#1-Canvas-绘制文字的方式" class="headerlink" title="1. Canvas 绘制文字的方式"></a>1. Canvas 绘制文字的方式</h1><p><a href="https://developer.android.com/reference/android/graphics/Canvas.html">Canvas</a> 的文字绘制方法有三个：drawText()、drawTextRun() 和 drawTextOnPath()。</p>
-<h2 id="1-1-drawText-String-text-float-x-float-y-Paint-paint"><a href="#1-1-drawText-String-text-float-x-float-y-Paint-paint" class="headerlink" title="1.1 drawText(String text, float x, float y, Paint paint)"></a>1.1 drawText(String text, float x, float y, Paint paint)</h2><table><tr><td colspan="2" bgcolor="#F8F8F8"><b>方法</b></td></tr><tr><td colspan="2">drawText(String text, float x, float y, Paint paint)<br/>以坐标（x, y）为原点，绘制文本。</td></tr><tr><td colspan="2" bgcolor="#F8F8F8"><b>参数</b></td></tr><tr><td>text</td><td>String：文本内容。</td></tr><tr><td>x</td><td>float：绘制文本的原点的 x 坐标。</td></tr><tr><td>y</td><td>float：绘制文本的原点的 y 坐标。</td></tr><tr><td>paint</td><td>Paint：应用到文本的画笔。</td></tr></table>
-        
-          <a class="article-more-a" href="/2017/08/24/%E8%87%AA%E5%AE%9A%E4%B9%89-View%EF%BC%88%E4%B8%89%EF%BC%89%E6%96%87%E5%AD%97%E7%9A%84%E7%BB%98%E5%88%B6/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">View</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/24/%E8%87%AA%E5%AE%9A%E4%B9%89-View%EF%BC%88%E4%B8%89%EF%BC%89%E6%96%87%E5%AD%97%E7%9A%84%E7%BB%98%E5%88%B6/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-自定义-View（二）Paint-详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/23/%E8%87%AA%E5%AE%9A%E4%B9%89-View%EF%BC%88%E4%BA%8C%EF%BC%89Paint-%E8%AF%A6%E8%A7%A3/">自定义 View（二）Paint 详解</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/23/%E8%87%AA%E5%AE%9A%E4%B9%89-View%EF%BC%88%E4%BA%8C%EF%BC%89Paint-%E8%AF%A6%E8%A7%A3/" class="archive-article-date">
-  	<time datetime="2017-08-23T09:45:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>上一期已经介绍过， Canvas 的 drawXXX() 方法配合 <a href="https://developer.android.com/reference/android/graphics/Paint.html">Paint</a> 的几个常用方法可以实现最常见的绘制需求；而如果你只会基本的绘制， Paint 的完全功能的掌握，能让你更进一步，做出一些更加细致、炫酷的效果。</p>
-<p>对于没有深入研究过 Paint 的人，这期是一个对 Paint 的诠释；而对于尝试过研究 Paint 但仍然对其中一些 API 有疑惑的人，这期也可以帮你解惑。下面进入正题：</p>
-<p>Paint 的 API 大致可以分为 4 类：颜色、效果、drawText() 相关、初始化。</p>
-<h1 id="1-颜色"><a href="#1-颜色" class="headerlink" title="1 颜色"></a>1 颜色</h1><p>Canvas 绘制的内容，有三层对颜色的处理：</p>
-<table><tr><td align="center" bgcolor="#F8F8F8"><b>分类</b></td><td align="center" bgcolor="#F8F8F8"><b>方法</b></td></tr><tr><td align="center" rowspan="3">基本颜色</td><td>Canvas.drawColor/ARGB()</td></tr><tr><td>Canvas.drawBitmap()</td></tr><tr><td>Canvas 图形和文字绘制</td></tr><tr><td align="center">ColorFilter</td><td>Paint.setColorFilter(ColorFilter)</td></tr><tr><td align="center">Xfermode</td><td>Paint.setXfermode(Xfermode)</td></tr></table>
-        
-          <a class="article-more-a" href="/2017/08/23/%E8%87%AA%E5%AE%9A%E4%B9%89-View%EF%BC%88%E4%BA%8C%EF%BC%89Paint-%E8%AF%A6%E8%A7%A3/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">View</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/23/%E8%87%AA%E5%AE%9A%E4%B9%89-View%EF%BC%88%E4%BA%8C%EF%BC%89Paint-%E8%AF%A6%E8%A7%A3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-自定义-View（一）绘制基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/22/%E8%87%AA%E5%AE%9A%E4%B9%89-View%EF%BC%88%E4%B8%80%EF%BC%89%E7%BB%98%E5%88%B6%E5%9F%BA%E7%A1%80/">自定义 View（一）绘制基础</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/22/%E8%87%AA%E5%AE%9A%E4%B9%89-View%EF%BC%88%E4%B8%80%EF%BC%89%E7%BB%98%E5%88%B6%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2017-08-22T12:59:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1、自定义绘制概述"><a href="#1、自定义绘制概述" class="headerlink" title="1、自定义绘制概述"></a>1、自定义绘制概述</h1><p>View 要在 Activity 中显示出来，要经过测量、布局和绘制三个步骤，分别对应三个方法：onMeasure()、onLayout() 和 onDraw()。由于本文的目的是明确阐述 View 的绘制，所以篇幅着重会针对第三个步骤〈绘制〉进行展开，测量和布局会在代码片段中提及，下表是三个方法对应的说明：</p>
-<table>
-<thead>
-<tr>
-<th>动作</th>
-<th>方法</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>测量</td>
-<td>onMeasure()</td>
-<td>决定 View 的大小</td>
-</tr>
-<tr>
-<td>布局</td>
-<td>onLayout()</td>
-<td>决定 View 在 ViewGroup 中的位置</td>
-</tr>
-<tr>
-<td>绘制</td>
-<td>onDraw()</td>
-<td>决定绘制这个 View</td>
-</tr>
-</tbody></table>
-<p>自定义绘制过程中核心的两个 API 是 <a href="https://developer.android.com/reference/android/graphics/Canvas.html">Canvas</a> 与 <a href="https://developer.android.com/reference/android/graphics/Paint.html">Paint</a>，Canvas 类持有各种“绘制”方法，要绘制一些东西，需要具备 4 个基本组件：一个用来保存像素的 Bitmap 位图，一个执行绘制方法的 Canvas 画布（用于写入位图），一个用于绘制的图元（如 Rect，Path，text，Bitmap）和一个 Paint 画笔（用于描述绘制的颜色和样式）；Paint 类持有关于绘制几何图形，文本和位图的样式和颜色信息。</p>
-        
-          <a class="article-more-a" href="/2017/08/22/%E8%87%AA%E5%AE%9A%E4%B9%89-View%EF%BC%88%E4%B8%80%EF%BC%89%E7%BB%98%E5%88%B6%E5%9F%BA%E7%A1%80/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">View</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/22/%E8%87%AA%E5%AE%9A%E4%B9%89-View%EF%BC%88%E4%B8%80%EF%BC%89%E7%BB%98%E5%88%B6%E5%9F%BA%E7%A1%80/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
     </nav>
   
 
