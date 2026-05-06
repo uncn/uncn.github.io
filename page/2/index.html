@@ -162,6 +162,87 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Kotlin-通过委托实现接口方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/01/15/Kotlin-%E9%80%9A%E8%BF%87%E5%A7%94%E6%89%98%E5%AE%9E%E7%8E%B0%E6%8E%A5%E5%8F%A3%E6%96%B9%E6%B3%95/">Kotlin 通过委托实现接口方法</a>
+    </h1>
+  
+
+        
+        <a href="/2025/01/15/Kotlin-%E9%80%9A%E8%BF%87%E5%A7%94%E6%89%98%E5%AE%9E%E7%8E%B0%E6%8E%A5%E5%8F%A3%E6%96%B9%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2025-01-15T15:34:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>委托模式是软件设计模式中的一项基本技巧。在委托模式中，有两个对象参与处理同一个请求，接受请求的对象将请求委托给另一个对象来处理。Kotlin 直接支持委托模式，更加优雅，简洁，在 Kotlin 中，通过关键字 by 实现委托。</p>
+<p>通过委托方式实现接口的方法，实际上是通过动态代理的方式创建一个接口的实现类对象，并委托给要实现这个接口的类，减少接口不需要的方法的重写。</p>
+<h1 id="1-类委托"><a href="#1-类委托" class="headerlink" title="1. 类委托"></a>1. 类委托</h1><p>类的委托即一个类中定义的方法实际是调用另一个类的对象的方法来实现的。以下实例中派生类 Leader 继承了接口 Work 所有方法，并且委托一个传入的 Clerk 类的对象来执行这些方法。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建接口</span></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">Work</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">work</span><span class="params">()</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实现此接口的被委托的类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Clerk</span> : <span class="type">Work</span> &#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">work</span><span class="params">()</span></span> &#123; println(<span class="string">&quot;Clerk is working&quot;</span>) &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过关键字 by 建立委托类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Leader</span>(clerk: Clerk) : Work <span class="keyword">by</span> clerk</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> clerk = Clerk()</span><br><span class="line">    Leader(clerk).work()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">------------------------------------</span><br><span class="line"></span><br><span class="line">输出：Clerk <span class="keyword">is</span> working</span><br></pre></td></tr></table></figure>
+
+<p>在 Leader 的声明中，by 关键字表示，将 clerk 保存在 Leader 的对象实例内部，而且编译器将会生成继承自 Work 接口的所有方法, 并将调用转发给 clerk。</p>
+        
+          <a class="article-more-a" href="/2025/01/15/Kotlin-%E9%80%9A%E8%BF%87%E5%A7%94%E6%89%98%E5%AE%9E%E7%8E%B0%E6%8E%A5%E5%8F%A3%E6%96%B9%E6%B3%95/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/01/15/Kotlin-%E9%80%9A%E8%BF%87%E5%A7%94%E6%89%98%E5%AE%9E%E7%8E%B0%E6%8E%A5%E5%8F%A3%E6%96%B9%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Kotlin-中的中缀函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -933,83 +1014,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-为什么-Fragment-需要一个无参构造函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/05/04/%E4%B8%BA%E4%BB%80%E4%B9%88-Fragment-%E9%9C%80%E8%A6%81%E4%B8%80%E4%B8%AA%E6%97%A0%E5%8F%82%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/">为什么 Fragment 需要一个无参构造函数</a>
-    </h1>
-  
-
-        
-        <a href="/2023/05/04/%E4%B8%BA%E4%BB%80%E4%B9%88-Fragment-%E9%9C%80%E8%A6%81%E4%B8%80%E4%B8%AA%E6%97%A0%E5%8F%82%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/" class="archive-article-date">
-  	<time datetime="2023-05-04T12:04:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这篇文章得从一个 BUG 说起，UI 是由 Viewpager2 嵌套两个 Fragment 构成的。然而，就是这再平常不过的功能以及接近模版化的代码，竟然因为偷懒产生了异常。为了省去繁琐的 Arguments 传值，在 Fragment 的实例化过程中增加了有参构造函数。正是这一操作为后续的应用崩溃埋下了坑，Fragment 源码正在等待合适的时机将异常抛出。</p>
-<h1 id="1-崩溃信息"><a href="#1-崩溃信息" class="headerlink" title="1. 崩溃信息"></a>1. 崩溃信息</h1><p>采用有参构造函数实例化 Fragment 后，进行了功能测试。由于在测试过程中应用一直在前台，所以也就没有发现这一BUG，但当应用上线后，陆续收到了应用崩溃的反馈，查看 BUG 统计得到了如下的崩溃信息：</p>
-        
-          <a class="article-more-a" href="/2023/05/04/%E4%B8%BA%E4%BB%80%E4%B9%88-Fragment-%E9%9C%80%E8%A6%81%E4%B8%80%E4%B8%AA%E6%97%A0%E5%8F%82%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Fragment</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/05/04/%E4%B8%BA%E4%BB%80%E4%B9%88-Fragment-%E9%9C%80%E8%A6%81%E4%B8%80%E4%B8%AA%E6%97%A0%E5%8F%82%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1024,7 +1028,7 @@ var _hmt = _hmt || [];
   <div class="outer">
     <div id="footer-info">
       <div class="footer-left">
-        &copy; 2025 狮子
+        &copy; 2026 狮子
       </div>
         <div class="footer-right">
           <a href="https://beian.miit.gov.cn/" style="color:#1A1A1A" target="_blank">京ICP备14032650号</a>
@@ -1289,6 +1293,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Flow</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">协程</a>
               </li>
             
             <div class="clearfix"></div>
