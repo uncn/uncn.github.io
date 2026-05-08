@@ -404,13 +404,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1、协作与等待机制的演进之路"><a href="#1、协作与等待机制的演进之路" class="headerlink" title="1、协作与等待机制的演进之路"></a>1、协作与等待机制的演进之路</h1><p>在并发编程中，<strong>协作</strong>永远是一个核心命题。当我们需要多个任务按照特定的先后顺序执行，或者主任务必须等待多个子任务全部完成后才能继续时，传统的 Java 线程模型往往需要借助复杂的同步工具。随着 Kotlin 协程的兴起，这种「停住—等待—恢复」的逻辑发生了范式转移。</p>
-<h2 id="1-1-为什么我们需要协作与等待"><a href="#1-1-为什么我们需要协作与等待" class="headerlink" title="1.1 为什么我们需要协作与等待"></a>1.1 为什么我们需要协作与等待</h2><p>协程天生具有<strong>并行性</strong>。无论是在同一个作用域下启动的同级协程，还是具有父子关系的协程，它们默认都是并发执行的。但在实际业务场景中，我们经常遇到依赖关系：</p>
-<ul>
-<li><strong>场景 A</strong>：必须等待登录接口（协程1）返回 Token 后，才能请求用户信息（协程2）。</li>
-<li><strong>场景 B</strong>：主界面渲染前，必须等待三个独立的初始化数据接口全部加载完成。</li>
-</ul>
-<p>这种「<strong>先后依赖</strong>」或「<strong>一等多</strong>」的需求，正是我们要讨论的协作机制。</p>
+        本文为加密内容，请输入密码查看。
         
           <a class="article-more-a" href="/2026/03/30/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E4%B9%9D%EF%BC%89%E5%8D%8F%E4%BD%9C%E3%80%81%E4%BA%92%E6%96%A5%E9%94%81%E4%B8%8E%E5%85%B1%E4%BA%AB%E5%8F%98%E9%87%8F/#more">more >></a>
         
@@ -486,15 +480,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在 Kotlin 协程的生态中，<code>Flow</code> 通常被视为<strong>冷流</strong>，即只有在调用 <code>collect</code> 时才开始生产数据。但在实际开发中，我们往往需要更灵活的机制：<strong>多个订阅者共享数据源、生产与消费解耦、或者持久化状态</strong>。这正是 <code>SharedFlow</code> 与 <code>StateFlow</code> 的用武之地。</p>
-<h1 id="1、SharedFlow"><a href="#1、SharedFlow" class="headerlink" title="1、SharedFlow"></a>1、SharedFlow</h1><p>普通 <code>Flow</code> 的核心逻辑是<strong>收集驱动</strong>。每次调用 <code>collect</code> 都会启动一个新的生产流程，这在处理独立的数据请求时没问题，但在处理全局事件时效率低下。</p>
-<h2 id="1-1-核心本质：从拉取到订阅"><a href="#1-1-核心本质：从拉取到订阅" class="headerlink" title="1.1 核心本质：从拉取到订阅"></a>1.1 核心本质：从拉取到订阅</h2><p>普通的 <code>Flow</code> 是<strong>冷流</strong>。它的逻辑是<strong>按需生产</strong>：只有当你调用 <code>collect</code> 时，生产块才会执行。这就像点外卖，你不下单，厨师就不炒菜。</p>
-<p>而 <code>SharedFlow</code> 的出现，标志着模型从 <strong>「数据流收集」</strong> 向 <strong>「事件流订阅」</strong> 的转换。</p>
-<ul>
-<li><strong>解耦</strong>：生产流程独立于消费流程。</li>
-<li><strong>广播</strong>：一个生产者可以对应多个订阅者（Subscriber）。</li>
-<li><strong>热流</strong>：即使没人听，它也可能在后台默默运行（取决于启动策略）。</li>
-</ul>
+        本文为加密内容，请输入密码查看。
         
           <a class="article-more-a" href="/2026/03/25/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E5%85%AB%EF%BC%89SharedFlow-%E4%B8%8E-StateFlow/#more">more >></a>
         
@@ -570,10 +556,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1、异常操作符"><a href="#1、异常操作符" class="headerlink" title="1、异常操作符"></a>1、异常操作符</h1><h2 id="1-1-emit-的-try-catch-禁区"><a href="#1-1-emit-的-try-catch-禁区" class="headerlink" title="1.1 emit 的 try-catch 禁区"></a>1.1 emit 的 try-catch 禁区</h2><p>在协程中，Flow 极大地简化了异步数据流的处理。然而，很多开发者在处理异常时，往往会习惯性地在 <code>collect</code> 或 <code>flow &#123; ... &#125;</code> 构建块中使用经典的 <code>try-catch</code>。当你尝试在 <code>emit</code> 周围包裹 <code>try-catch</code> 时，你可能已经踏入了一个被称为 <strong>“下游异常泄露”</strong> 的陷阱。比如，以下的<strong>错误示范：在构建器中拦截一切。</strong></p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span>: <span class="built_in">Unit</span> = runBlocking &#123;</span><br><span class="line">    flow &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            emit(<span class="number">1</span>)  <span class="comment">// 这里的 try-catch 会截获下游产生的异常！</span></span><br><span class="line">        &#125; <span class="keyword">catch</span> (e: Exception) &#123;</span><br><span class="line">            println(<span class="string">&quot;上游捕获了: <span class="variable">$e</span>&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;.collect &#123; value -&gt;</span><br><span class="line">        <span class="keyword">throw</span> IllegalStateException(<span class="string">&quot;下游崩溃&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在上面的代码中，下游 <code>collect</code> 抛出的 <code>IllegalStateException</code> 会被上游的 <code>catch</code> 捕获。这破坏了流的封装性，导致下游的逻辑错误被上游悄悄地「消化」或错误处理了。</p>
+        本文为加密内容，请输入密码查看。
         
           <a class="article-more-a" href="/2026/03/17/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E4%B8%83%EF%BC%89Flow-%E6%93%8D%E4%BD%9C%E7%AC%A6/#more">more >></a>
         
@@ -649,31 +632,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>Flow 操作符</strong>是处理异步数据流的核心工具。它们遵循函数式编程范式，允许你以链式调用的方式对数据进行变换、过滤、组合和缓冲。为了方便理解，我们可以将 Flow 操作符分为 <strong>中间操作符</strong>、<strong>末端操作符</strong>、<strong>组合操作符</strong>、<strong>线程上下文与生命周期</strong> 四大类：</p>
-<ol>
-<li><p><strong>中间操作符</strong></p>
-<p> 这类操作符的作用是「转换」。它们会接收一个 Flow，进行处理后返回一个新的 Flow。它们是<strong>冷操作符</strong>，意味着在调用末端操作符之前，这些逻辑不会执行。</p>
-<ul>
-<li><strong>过滤类</strong>：<ul>
-<li><code>filter</code>: 保留符合条件的元素。</li>
-<li><code>filterNotNull</code>: 剔除所有 <code>null</code> 值，并自动收紧泛型类型（从 <code>T?</code> 变为 <code>T</code>）。</li>
-<li><code>distinctUntilChanged</code>: 过滤掉连续重复的值。</li>
-</ul>
-</li>
-<li><strong>限流类</strong>：<ul>
-<li><code>take</code>: 仅取前 n 个元素。</li>
-<li><code>drop</code>: 跳过前 n 个元素。</li>
-<li><code>debounce</code>: 防抖处理，仅在指定时间内没有新值发射时才转发最后一个值（常用于搜索框输入）。</li>
-</ul>
-</li>
-<li><strong>变换类</strong>：<ul>
-<li><code>map</code>: 对每个发射的值进行转换（如将 <code>Int</code> 转为 <code>String</code>）。</li>
-<li><code>transform</code>: 比 <code>map</code> 更灵活，可以在 Lambda 中多次调用 <code>emit()</code>，甚至不发射。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
+        本文为加密内容，请输入密码查看。
         
           <a class="article-more-a" href="/2026/03/11/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E5%85%AD%EF%BC%89Flow-%E6%93%8D%E4%BD%9C%E7%AC%A6/#more">more >></a>
         
@@ -749,14 +708,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在 Kotlin 的世界里，处理数据流就像是装修房子。虽然工具很多（Channel、Flow、Sequence），但选对工具直接决定了你是「游刃有余」还是「徒手拆墙」。很多开发者在面对这些 API 时常常感到困惑：为什么有了 Sequence，还需要 Flow？Channel 到底还要不要用？</p>
-<p>本文将针对这些疑惑来拆解一下 Kotlin 数据流 API 的设计哲学，看看 Flow 是如何成为现代 Kotlin 开发中的「终极方案」。</p>
-<h1 id="1、从-Channel-到-Flow"><a href="#1、从-Channel-到-Flow" class="headerlink" title="1、从 Channel 到 Flow"></a>1、从 Channel 到 Flow</h1><p>曾经，<code>Channel</code> 是 Kotlin 协程中跨协程通信的「当家花旦」。但如果你还在业务开发中直接使用 <code>Channel</code> 来做数据流转，那可能有点「复古」了。</p>
-<p>现在的设计原则非常明确：<strong>Channel 是「内部零件」，Flow 是「成品引擎」</strong>。</p>
-<ul>
-<li><strong>Channel 的底层化</strong>：它依然是协程间通信的基石，但在架构设计上，它已被下沉为 <code>Flow</code> API 的底层实现。</li>
-<li><strong>Flow 的上层抽象</strong>：Flow 提供了更完整、更安全、体验更好的封装。除非你在编写极度底层的并发组件，否则请把 <code>Channel</code> 放进工具箱底部，直接使用 <code>Flow</code>。</li>
-</ul>
+        本文为加密内容，请输入密码查看。
         
           <a class="article-more-a" href="/2026/03/06/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E4%BA%94%EF%BC%89Flow/#more">more >></a>
         
@@ -832,14 +784,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在并发编程中，最让人头疼的就是多线程共享变量导致的锁竞争与数据不同步。Kotlin 协程借鉴了 Go 语言的哲学：<strong>“不要通过共享内存来通信，而要通过通信来共享内存。”</strong></p>
-<p>实现这一哲学的核心工具，就是 <strong>Channel（通道）</strong>。通过 Channel，我们避免了复杂的 <code>synchronized</code> 或 <code>Lock</code>，将并发竞争转换成了简单的流式处理。</p>
-<h1 id="1、什么是-Channel"><a href="#1、什么是-Channel" class="headerlink" title="1、什么是 Channel"></a>1、什么是 Channel</h1><p>Channel 是「<strong>协程间</strong>」传递数据的底层协作工具。你可以把 <code>Channel</code> 想象成工厂里的<strong>自动化传送带</strong>：</p>
-<ul>
-<li><strong>生产者</strong>：负责把生产的零件放上传送带，对应 <code>send</code> 方法。</li>
-<li><strong>消费者</strong>：负责从传送带另一头取走零件，对应 <code>receive</code> 方法。</li>
-<li><strong>挂起非阻塞</strong>：如果传送带满了，生产者会自动停下（挂起）等空位；如果传送带空了，消费者会自动停下（挂起）等零件。</li>
-</ul>
+        本文为加密内容，请输入密码查看。
         
           <a class="article-more-a" href="/2026/02/25/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E5%9B%9B%EF%BC%89Channel/#more">more >></a>
         
@@ -915,17 +860,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在 Kotlin 协程的开发中，我们每天都在写 <code>GlobalScope.launch</code> 或者在 ViewModel 中使用 <code>viewModelScope</code>。但你是否曾停下来思考过：<strong>为什么启动协程一定要一个 Scope？既然有了 Context 来描述协程信息，为什么还要多出一个 Scope 概念？</strong></p>
-<p>本文将带你拨开迷雾，厘清 <code>CoroutineScope</code> 与 <code>CoroutineContext</code> 的本质定位及二者的协作逻辑。用一句话概括它们本质：<code>CoroutineContext</code> 是协程的<strong>属性信息</strong>，而 <code>CoroutineScope</code> 是这些信息的<strong>生存空间</strong>。</p>
-<h1 id="1、CoroutineContext-的本质"><a href="#1、CoroutineContext-的本质" class="headerlink" title="1、CoroutineContext 的本质"></a>1、CoroutineContext 的本质</h1><p>从本质上讲，<strong><code>CoroutineContext</code> 是协程执行所依赖的全部信息集合</strong>。如果把协程比作一个正在运行的「<strong>任务</strong>」，那么 Context 就是这个任务的「<strong>简历</strong>」和「<strong>运行环境配置</strong>」。</p>
-<h2 id="1-1-核心组成要素"><a href="#1-1-核心组成要素" class="headerlink" title="1.1 核心组成要素"></a>1.1 核心组成要素</h2><p>Context 并不是一个单一的变量，它更像是一个<strong>元素集合</strong>（类似 Map），常见的成员包括：</p>
-<ul>
-<li><strong>Job</strong>：控制协程的生命周期（取消、完成、父子关系）。</li>
-<li><strong>ContinuationInterceptor（Dispatcher）</strong>：决定协程在哪个线程运行（如 <code>Dispatchers.IO</code>）。</li>
-<li><strong>CoroutineName</strong>：给协程起个名字，方便调试。</li>
-<li><strong>CoroutineExceptionHandler</strong>：处理未捕获的异常。</li>
-</ul>
-<p><strong>技术细节</strong>：你可以使用 <code>+</code> 运算符来合并两个 Context。如果相加的是同类型的元素（例如两个不同的 Job），右侧的元素会覆盖左侧的元素。</p>
+        本文为加密内容，请输入密码查看。
         
           <a class="article-more-a" href="/2026/02/15/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E4%B8%89%EF%BC%89CoroutineScope-%E4%B8%8E-CoroutineContext/#more">more >></a>
         
@@ -1001,33 +936,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Kotlin 结构化并发的本质是<strong>构建协程间的「层级归属关系」，通过父子作用域的生命周期绑定与异常双向传递，实现并发任务的协同联动与自动收敛</strong>。最终<strong>将异步代码的控制流变得像同步代码一样清晰可预测</strong>。结构化并发在代码层面表现为三个具体的行为：</p>
-<table style="font-family: 'Google Sans Text', 'Noto Sans', 'Noto Sans JP', 'Noto Sans KR', 'Noto Naskh Arabic', 'Noto Sans Thai', 'Noto Sans Hebrew', 'Noto Sans Bengali', sans-serif;">
-	<tbody>
-		<tr style="text-align:center">
-			<th align="center" width="30%" colspan="1">特性</th>
-			<th align="center" width="70%" colspan="1">描述</th>
-		</tr>
-		<tr>
-			<td align="center"><strong>生命周期绑定</strong></td>
-			<td align="center">只要作用域结束（如 <code>viewModelScope</code>），内部所有协程立即停止。</td>
-		</tr>
-		<tr>
-			<td align="center"><strong>等待子项完成</strong></td>
-			<td align="center">父协程的执行流会挂起，直到内部所有子任务（即使是并行的）都结束。</td>
-		</tr>
-		<tr>
-			<td align="center"><strong>异常传播机制</strong></td>
-			<td align="center">异常会沿着树状结构双向传播，确保局部失败能被全局感知或统一处理。</td>
-		</tr>
-	</tbody>
-</table>
-
-<blockquote>
-<p><font style="color:#01579B;font-size:14px;"><strong>✦ 通俗理解</strong>：Kotlin 结构化并发的本质是为异步任务建立了一套“责任制”。 它通过将子协程的生命周期强绑定在父作用域中，把原本散乱的异步逻辑约束为一棵有序的“家族树”。这确保了任务既能像同步代码一样精准收敛（无遗漏、无泄露），又能实现异常的自动感知与协同联动。它真正解决的问题，是让异步开发从“放任自流”回归到了“边界可控”。</font></p>
-</blockquote>
-<h1 id="1、一个协程对象"><a href="#1、一个协程对象" class="headerlink" title="1、一个协程对象"></a>1、一个协程对象</h1><p>在 Kotlin 协程的学习路径中，<strong>结构化并发（Structured Concurrency）</strong> 是最核心也最难理解的内容。许多人在处理父子协程、异常传播和生命周期管理时感到困惑，其根本原因在于：<strong>我们没有在技术层面上明确，到底“什么是协程对象”？</strong></p>
-<p>本文将从 Java 线程模型类比出发，带你拆解协程中 Job 与 CoroutineScope 的职责，揭秘结构化并发的底层逻辑。</p>
+        本文为加密内容，请输入密码查看。
         
           <a class="article-more-a" href="/2026/01/19/Kotlin-%E5%8D%8F%E7%A8%8B%EF%BC%88%E4%BA%8C%EF%BC%89%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91/#more">more >></a>
         
@@ -1181,6 +1090,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -1189,27 +1106,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ActiveMQ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NDK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Android Studio</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Error</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1221,7 +1118,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">组件化</a>
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Android Studio</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Error</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1229,11 +1134,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">File</a>
+                <a href="javascript:void(0)" class="js-tag color4">组件化</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Theme</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">File</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1265,10 +1174,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Generics</a>
               </li>
              
@@ -1277,7 +1182,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JitPack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Flow</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">协程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1313,11 +1230,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Permission</a>
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1341,6 +1258,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Application</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Version</a>
               </li>
              
@@ -1354,18 +1275,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Bitmap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Application</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Flow</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">协程</a>
               </li>
             
             <div class="clearfix"></div>

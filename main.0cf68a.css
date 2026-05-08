@@ -2077,8 +2077,8 @@ pre .css~* .id,pre .id {
 
 .article-header {
 	border-left: 5px solid #4d4d4d;
-	padding: 30px 0 15px 25px;
-	padding-left: 7.6923%
+	padding: 30px 0 25px 25px;
+	padding-left: 7.2923%;
 }
 
 .article-meta {
@@ -2216,7 +2216,7 @@ pre .css~* .id,pre .id {
 	margin-bottom: 16px
 }
 
-.article-entry li code,.article-entry p code {
+.article-entry li code,.article-entry p code,.article-entry tbody td code {
     padding: 1px 6px;
     margin: 0 3px;
     background: #e9eef6;
@@ -2230,6 +2230,20 @@ pre .css~* .id,pre .id {
     color: #444746;
 }
 
+.article-entry tbody th code {
+    padding: 1px 6px;
+    margin: 0 3px;
+    background: #efefef;
+    border: 0px solid #ccc;
+    font-family: Google Sans Mono,monospacemonospace;
+    word-wrap: break-word;
+    font-size: 0.845rem;
+    font-weight: 700;
+    line-height: 1.25rem;
+    border-radius: 6px;
+    color: #1a1a1a;
+}
+
 .article-entry blockquote {
     border-left: 5px solid #ccc;
     padding: 15px 20px;
@@ -2238,6 +2252,34 @@ pre .css~* .id,pre .id {
     border-left: 5px solid #657b83;
     background: #e8f0fe;
     border-radius: 5px;
+}
+
+.article-entry blockquote code {
+    padding: 1px 6px;
+    margin: 0 3px;
+    background: #eff6fe;
+    border: 0px solid #ccc;
+    font-family: Google Sans Mono,monospacemonospace;
+    word-wrap: break-word;
+    font-size: 0.845rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+    border-radius: 6px;
+    color: #01579B;
+}
+
+.article-entry strong code {
+    padding: 1px 6px;
+    margin: 0 3px;
+    background: #e9eef6;
+    border: 0px solid #ccc;
+    font-family: Google Sans Mono,monospacemonospace;
+    word-wrap: break-word;
+    font-size: 0.845rem;
+    font-weight: 700;
+    line-height: 1.25rem;
+    border-radius: 6px;
+    color: #444746;
 }
 
 .article-entry blockquote p {
@@ -2267,7 +2309,7 @@ pre .css~* .id,pre .id {
     margin: 10px 0;
     padding-left: 0px;
     list-style: auto;
-    margin-left: 25px;
+    margin-left: 32.5px;
 }
 
 .article-entry ol li,.article-entry ul li {
@@ -2282,11 +2324,16 @@ pre .css~* .id,pre .id {
 .article-entry ol li::marker {
     font-size: 16px;
     color: #000;
+    font-weight: 700;
 }
 
-.article-entry li ol,.article-entry li ul {
+.article-entry li ul {
 	margin-left: 23px;
 	list-style: circle;
+}
+
+.article-entry li ol {
+	margin-left: 23px;
 }
 
 .article-entry li ol li:before,.article-entry li ul li:before {
@@ -2297,7 +2344,7 @@ pre .css~* .id,pre .id {
 .article-entry h2,.article-entry h3,.article-entry h4,.article-entry h5,.article-entry h6 {
 	margin-top: 20px;
 	font-weight: 700;
-	color: #574c4c;
+	color: #1a1a1a;
 	padding-bottom: 5px
 }
 
@@ -2312,8 +2359,23 @@ pre .css~* .id,pre .id {
 }
 
 .article-entry h3 {
-    margin-top: 16px;
+    margin-top: 26px;
     margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.article-entry h3 code {
+    padding: 2px 6px;
+    background: #e9eef6;
+    border: 0px solid #ccc;
+    font-family: Google Sans Mono,monospacemonospace;
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: normal;
+    border-radius: 6px;
+    color: #444746;
 }
 
 .article-entry video {
